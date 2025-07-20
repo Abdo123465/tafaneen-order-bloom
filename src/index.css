@@ -151,7 +151,7 @@
   }
 
   .card-product {
-    @apply card-tafaneen hover:scale-[1.02] cursor-pointer group overflow-hidden;
+    @apply card-tafaneen hover:scale-[1.02] cursor-pointer overflow-hidden;
   }
 
   .card-category {

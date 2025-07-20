@@ -102,7 +102,7 @@ export function FeaturedProducts() {
           {featuredProducts.map((product, index) => (
             <div
               key={product.id}
-              className="card-product"
+              className="card-product group"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               {/* Product Image & Badges */}
