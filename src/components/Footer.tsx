@@ -70,13 +70,12 @@ export function Footer() {
               </div>
               <div>
                 <h2 className="text-2xl font-bold">تفانين</h2>
-                <p className="text-white/80 text-sm">مكتبة ومكتبة إلكترونية</p>
+                <p className="text-white/80 text-sm">للكتب والقرطاسية</p>
               </div>
             </div>
             
             <p className="text-white/80 mb-6 leading-relaxed">
-              مكتبة تفانين هي وجهتك الأولى للكتب والقرطاسية في مصر. 
-              نوفر لك أفضل الكتب والأدوات بأسعار مناسبة وخدمة توصيل سريعة.
+              أطلب كتابك اونلاين يصلك لباب البيت. متجر إلكتروني متخصص في الكتب والقرطاسية.
             </p>
 
             {/* Contact Info */}
@@ -91,7 +90,7 @@ export function Footer() {
               </div>
               <div className="flex items-center gap-3">
                 <MapPin className="h-4 w-4" />
-                <span className="text-sm">القاهرة، مصر</span>
+                <span className="text-sm">الرياض، المملكة العربية السعودية</span>
               </div>
             </div>
           </div>

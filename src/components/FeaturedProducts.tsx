@@ -5,22 +5,22 @@ import { Badge } from "@/components/ui/badge";
 const featuredProducts = [
   {
     id: 1,
-    name: "كتاب تربية بلا عقاب",
-    author: "د. مصطفى أبو سعد",
-    price: 85,
-    originalPrice: 100,
+    name: "كتاب اللغة العربية",
+    author: "وزارة التربية والتعليم",
+    price: 25,
+    originalPrice: 30,
     rating: 4.8,
     reviews: 142,
     image: "📖",
-    category: "تربية وتعليم",
+    category: "كتب مدرسية",
     isNew: true,
-    discount: 15
+    discount: 17
   },
   {
     id: 2,
     name: "مجموعة أقلام جل ملونة",
-    author: "ستابيلو",
-    price: 45,
+    author: "ستيدلر",
+    price: 15,
     originalPrice: null,
     rating: 4.6,
     reviews: 89,
@@ -33,8 +33,8 @@ const featuredProducts = [
     id: 3,
     name: "قصص الأنبياء للأطفال",
     author: "دار المعارف",
-    price: 120,
-    originalPrice: 150,
+    price: 40,
+    originalPrice: 50,
     rating: 4.9,
     reviews: 203,
     image: "📚",
@@ -44,9 +44,9 @@ const featuredProducts = [
   },
   {
     id: 4,
-    name: "دفتر ملاحظات A5",
-    author: "مولسكين",
-    price: 35,
+    name: "دفتر مدرسي 100 ورقة",
+    author: "الأهرام",
+    price: 8,
     originalPrice: null,
     rating: 4.5,
     reviews: 67,
@@ -57,22 +57,22 @@ const featuredProducts = [
   },
   {
     id: 5,
-    name: "أطلس العالم للأطفال",
-    author: "دار الشروق",
-    price: 95,
-    originalPrice: 110,
+    name: "كتاب الرياضيات للصف الأول",
+    author: "وزارة التربية والتعليم", 
+    price: 22,
+    originalPrice: 28,
     rating: 4.7,
     reviews: 156,
-    image: "🗺️",
-    category: "تعليمي",
+    image: "🔢",
+    category: "كتب مدرسية",
     isNew: false,
-    discount: 14
+    discount: 21
   },
   {
     id: 6,
     name: "علبة أقلام رصاص",
     author: "فابر كاستل",
-    price: 25,
+    price: 12,
     originalPrice: null,
     rating: 4.4,
     reviews: 91,

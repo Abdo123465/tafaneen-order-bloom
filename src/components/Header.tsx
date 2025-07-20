@@ -51,7 +51,7 @@ export function Header() {
             </div>
             <div>
               <h1 className="text-2xl font-bold text-gradient">تفانين</h1>
-              <p className="text-xs text-muted-foreground">مكتبة ومكتبة إلكترونية</p>
+              <p className="text-xs text-muted-foreground">للكتب والقرطاسية</p>
             </div>
           </div>
 

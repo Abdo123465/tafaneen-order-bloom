@@ -16,14 +16,13 @@ export function Hero() {
               </div>
               
               <h1 className="text-4xl lg:text-6xl font-bold leading-tight">
-                <span className="text-gradient">اطلب كتابك</span>
+                مكتبة <span className="text-gradient">تفانين</span>
                 <br />
-                <span className="text-foreground">يصلك لباب البيت</span>
+                <span className="text-foreground">اطلب كتابك اونلاين يصلك لباب البيت</span>
               </h1>
               
               <p className="text-xl text-muted-foreground max-w-xl mx-auto lg:mx-0">
-                مجموعة واسعة من الكتب والقرطاسية وأدوات المكتب. 
-                خدمة توصيل سريعة وموثوقة في جميع أنحاء مصر.
+                متجر إلكتروني متخصص في الكتب والقرطاسية. خدمة توصيل سريعة وموثوقة.
               </p>
             </div>
 

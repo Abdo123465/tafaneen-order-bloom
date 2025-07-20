@@ -1,10 +1,10 @@
-import { Book, PenTool, Baby, GraduationCap, Palette, Calculator } from "lucide-react";
+import { BookOpen, PenTool, GraduationCap, Users, Baby, Heart } from "lucide-react";
 
 const categories = [
   {
     id: 1,
     name: "كتب متنوعة للكبار",
-    icon: Book,
+    icon: BookOpen,
     color: "bg-book-category",
     description: "مجموعة واسعة من الكتب الثقافية والأدبية",
     count: "1200+ كتاب",
@@ -31,7 +31,7 @@ const categories = [
   {
     id: 4,
     name: "كتب الأطفال الدينية",
-    icon: Baby,
+    icon: Heart,
     color: "bg-primary",
     description: "قصص وكتب دينية مناسبة للأطفال",
     count: "300+ كتاب",
@@ -40,7 +40,7 @@ const categories = [
   {
     id: 5,
     name: "كتب التلوين",
-    icon: Palette,
+    icon: Baby,
     color: "bg-accent",
     description: "كتب تلوين للأطفال والكبار",
     count: "200+ كتاب",
@@ -49,7 +49,7 @@ const categories = [
   {
     id: 6,
     name: "الكتب العلمية",
-    icon: Calculator,
+    icon: Users,
     color: "bg-secondary",
     description: "كتب الرياضيات والعلوم والتكنولوجيا",
     count: "400+ كتاب",
