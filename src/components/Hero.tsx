@@ -22,7 +22,7 @@ export function Hero() {
               </h1>
               
               <p className="text-xl text-muted-foreground max-w-xl mx-auto lg:mx-0">
-                متجر إلكتروني متخصص في الكتب والقرطاسية. خدمة توصيل سريعة وموثوقة.
+                متجر إلكتروني متخصص في الكتب. خدمة توصيل سريعة وموثوقة.
               </p>
             </div>
 
