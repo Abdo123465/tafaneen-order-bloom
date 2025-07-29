@@ -46,12 +46,16 @@ export function Header() {
         <div className="flex items-center justify-between gap-4">
           {/* Logo */}
           <div className="flex items-center gap-3">
-            <div className="bg-gradient-primary p-3 rounded-xl">
-              <span className="text-white font-bold text-xl">📚</span>
+            <div className="bg-white p-2 rounded-xl shadow-lg">
+              <img 
+                src="/lovable-uploads/cff92227-a94e-4017-8547-5a984088ec2e.png" 
+                alt="تفانين ستوديو وطباعة" 
+                className="h-12 w-12 object-contain"
+              />
             </div>
             <div>
               <h1 className="text-2xl font-bold text-gradient">تفانين</h1>
-              <p className="text-xs text-muted-foreground">للكتب والقرطاسية</p>
+              <p className="text-xs text-muted-foreground">ستوديو وطباعة</p>
             </div>
           </div>
 
