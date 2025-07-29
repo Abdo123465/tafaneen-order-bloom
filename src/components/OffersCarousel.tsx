@@ -1,0 +1,169 @@
+import { useState, useEffect } from "react";
+import { Button } from "@/components/ui/button";
+import { ChevronLeft, ChevronRight, Gift, Star, ArrowLeft, BookOpen, PenTool, Calculator, Palette, GraduationCap } from "lucide-react";
+
+export function OffersCarousel() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const offers = [
+    {
+      id: 1,
+      title: "خصم 50% على الكتب المدرسية",
+      description: "جميع الكتب المدرسية للعام الجديد",
+      discount: "50%",
+      icon: BookOpen,
+      color: "bg-gradient-to-r from-red-600 to-red-700"
+    },
+    {
+      id: 2,
+      title: "عرض القرطاسية المدرسية",
+      description: "أقلام وكراسات وأدوات مكتبية",
+      discount: "30%",
+      icon: PenTool,
+      color: "bg-gradient-to-r from-blue-600 to-blue-700"
+    },
+    {
+      id: 3,
+      title: "مجموعة الرياضيات الكاملة",
+      description: "آلات حاسبة ومساطر وبوصلات",
+      discount: "40%",
+      icon: Calculator,
+      color: "bg-gradient-to-r from-green-600 to-green-700"
+    },
+    {
+      id: 4,
+      title: "أدوات الرسم والفنون",
+      description: "ألوان وفرش ولوحات رسم",
+      discount: "35%",
+      icon: Palette,
+      color: "bg-gradient-to-r from-purple-600 to-purple-700"
+    },
+    {
+      id: 5,
+      title: "حقائب مدرسية مميزة",
+      description: "حقائب عالية الجودة لجميع الأعمار",
+      discount: "25%",
+      icon: GraduationCap,
+      color: "bg-gradient-to-r from-orange-600 to-orange-700"
+    }
+  ];
+
+  // Auto-slide functionality
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % offers.length);
+    }, 5000); // Change slide every 5 seconds
+
+    return () => clearInterval(timer);
+  }, [offers.length]);
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % offers.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + offers.length) % offers.length);
+  };
+
+  const currentOffer = offers[currentSlide];
+  const IconComponent = currentOffer.icon;
+
+  return (
+    <section className="relative overflow-hidden">
+      <div className={`${currentOffer.color} text-white py-12 transition-all duration-500`}>
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
+            {/* Content */}
+            <div className="text-center lg:text-right space-y-6 flex-1">
+              <div className="flex items-center justify-center lg:justify-start gap-3">
+                <IconComponent className="h-8 w-8 text-yellow-300" />
+                <span className="bg-yellow-300 text-gray-800 px-4 py-2 rounded-full text-sm font-bold">
+                  عرض خاص
+                </span>
+              </div>
+              
+              <h2 className="text-3xl lg:text-4xl font-bold">
+                {currentOffer.title}
+              </h2>
+              
+              <p className="text-xl opacity-90">
+                {currentOffer.description}
+              </p>
+              
+              <div className="text-6xl font-bold text-yellow-300">
+                خصم {currentOffer.discount}
+              </div>
+              
+              <div className="flex items-center justify-center lg:justify-start gap-1 text-yellow-300">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="h-5 w-5 fill-current" />
+                ))}
+                <span className="mr-2 opacity-90">عرض محدود</span>
+              </div>
+            </div>
+
+            {/* CTA */}
+            <div className="flex flex-col gap-4">
+              <Button 
+                className="bg-yellow-400 hover:bg-yellow-300 text-gray-800 font-bold text-lg px-8 py-4 h-auto border-2 border-yellow-300"
+              >
+                اطلب الآن
+                <ArrowLeft className="mr-2 h-5 w-5" />
+              </Button>
+              
+              <Button 
+                variant="outline" 
+                className="border-2 border-white text-white hover:bg-white hover:text-gray-800 text-lg px-8 py-4 h-auto"
+              >
+                تفاصيل العرض
+              </Button>
+            </div>
+          </div>
+          
+          {/* Navigation */}
+          <div className="flex justify-center items-center gap-4 mt-8">
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={prevSlide}
+              className="text-white hover:bg-white/20 rounded-full"
+            >
+              <ChevronRight className="h-6 w-6" />
+            </Button>
+            
+            {/* Dots */}
+            <div className="flex gap-2">
+              {offers.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentSlide(index)}
+                  className={`w-3 h-3 rounded-full transition-all ${
+                    index === currentSlide 
+                      ? 'bg-yellow-300 w-8' 
+                      : 'bg-white/50 hover:bg-white/80'
+                  }`}
+                />
+              ))}
+            </div>
+            
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={nextSlide}
+              className="text-white hover:bg-white/20 rounded-full"
+            >
+              <ChevronLeft className="h-6 w-6" />
+            </Button>
+          </div>
+        </div>
+      </div>
+
+      {/* Background Decoration */}
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+        <div className="absolute top-4 left-10 w-20 h-20 bg-yellow-300 rounded-full opacity-10 animate-float"></div>
+        <div className="absolute bottom-4 right-10 w-16 h-16 bg-yellow-300 rounded-full opacity-20 animate-float" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute top-1/2 left-1/4 w-12 h-12 bg-white rounded-full opacity-5 animate-float" style={{ animationDelay: '2s' }}></div>
+      </div>
+    </section>
+  );
+}

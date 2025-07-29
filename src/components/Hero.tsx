@@ -15,10 +15,10 @@ export function Hero() {
                 مكتبة تفانين الإلكترونية
               </div>
               
-              <h1 className="text-4xl lg:text-6xl font-bold leading-tight">
-                مكتبة <span className="text-gradient">تفانين</span>
+              <h1 className="text-3xl lg:text-5xl font-bold leading-tight">
+                <span className="text-primary">مكتبة تفانين</span>
                 <br />
-                <span className="text-foreground">اطلب كتابك اونلاين يصلك لباب البيت</span>
+                <span className="text-foreground">اطلب ادوات الموسم الدراسي</span>
               </h1>
               
               <p className="text-xl text-muted-foreground max-w-xl mx-auto lg:mx-0">
