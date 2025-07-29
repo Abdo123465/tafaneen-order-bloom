@@ -8,23 +8,23 @@ export function OffersCarousel() {
   const offers = [
     {
       id: 1,
-      title: "خصم 50% على الكتب المدرسية",
-      description: "جميع الكتب المدرسية للعام الجديد",
+      title: "خصم 50% على الأقلام والمساطر",
+      description: "جميع أنواع الأقلام والمساطر الهندسية",
       discount: "50%",
-      icon: BookOpen,
+      icon: PenTool,
       color: "bg-gradient-to-r from-red-600 to-red-700"
     },
     {
       id: 2,
-      title: "عرض القرطاسية المدرسية",
-      description: "أقلام وكراسات وأدوات مكتبية",
+      title: "عرض الدفاتر والمذكرات",
+      description: "دفاتر ومذكرات بجودة عالية",
       discount: "30%",
-      icon: PenTool,
+      icon: BookOpen,
       color: "bg-gradient-to-r from-blue-600 to-blue-700"
     },
     {
       id: 3,
-      title: "مجموعة الرياضيات الكاملة",
+      title: "آلات حاسبة وأدوات هندسية",
       description: "آلات حاسبة ومساطر وبوصلات",
       discount: "40%",
       icon: Calculator,
@@ -32,16 +32,16 @@ export function OffersCarousel() {
     },
     {
       id: 4,
-      title: "أدوات الرسم والفنون",
-      description: "ألوان وفرش ولوحات رسم",
+      title: "أدوات الرسم والتلوين",
+      description: "ألوان وفرش ولوازم الرسم",
       discount: "35%",
       icon: Palette,
       color: "bg-gradient-to-r from-purple-600 to-purple-700"
     },
     {
       id: 5,
-      title: "حقائب مدرسية مميزة",
-      description: "حقائب عالية الجودة لجميع الأعمار",
+      title: "منظمات مكتبية أنيقة",
+      description: "منظمات وملفات لتنظيم مكتبك",
       discount: "25%",
       icon: GraduationCap,
       color: "bg-gradient-to-r from-orange-600 to-orange-700"

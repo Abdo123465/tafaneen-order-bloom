@@ -18,11 +18,11 @@ export function Hero() {
               <h1 className="text-3xl lg:text-5xl font-bold leading-tight">
                 <span className="text-primary">مكتبة تفانين</span>
                 <br />
-                <span className="text-foreground">اطلب ادوات الموسم الدراسي</span>
+                <span className="text-foreground">أدوات مكتبية وقرطاسية متنوعة</span>
               </h1>
               
               <p className="text-xl text-muted-foreground max-w-xl mx-auto lg:mx-0">
-                متجر إلكتروني متخصص في الكتب. خدمة توصيل سريعة وموثوقة.
+                متجر إلكتروني متخصص في الأدوات المكتبية والقرطاسية. خدمة توصيل سريعة وموثوقة.
               </p>
             </div>
 
@@ -42,8 +42,8 @@ export function Hero() {
             {/* Stats */}
             <div className="grid grid-cols-3 gap-6 pt-8 border-t border-border/50">
               <div className="text-center lg:text-right">
-                <div className="text-2xl font-bold text-primary">5000+</div>
-                <div className="text-sm text-muted-foreground">كتاب متاح</div>
+                <div className="text-2xl font-bold text-primary">2000+</div>
+                <div className="text-sm text-muted-foreground">منتج مكتبي</div>
               </div>
               <div className="text-center lg:text-right">
                 <div className="text-2xl font-bold text-primary">1000+</div>

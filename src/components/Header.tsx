@@ -11,9 +11,9 @@ export function Header() {
   const navItems = [
     { label: "الرئيسية", href: "/" },
     { label: "جميع الفئات", href: "/categories" },
-    { label: "الكتب", href: "/books" },
-    { label: "القرطاسية", href: "/stationery" },
-    { label: "كتب الأطفال", href: "/children" },
+    { label: "الأقلام", href: "/pens" },
+    { label: "الدفاتر", href: "/notebooks" },
+    { label: "أدوات الرسم", href: "/art-supplies" },
     { label: "عروض خاصة", href: "/offers" },
   ];
 
@@ -57,7 +57,7 @@ export function Header() {
                   />
                 </div>
               </div>
-              <p className="text-xs text-muted-foreground">للكتب</p>
+              <p className="text-xs text-muted-foreground">للأدوات المكتبية</p>
             </div>
           </div>
 
@@ -66,7 +66,7 @@ export function Header() {
             <div className="relative w-full">
               <Search className="absolute right-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
               <Input
-                placeholder="ابحث عن الكتب والقرطاسية..."
+                placeholder="ابحث عن الأدوات المكتبية والقرطاسية..."
                 className="pr-10 rounded-xl border-2 focus:border-primary"
                 dir="rtl"
               />
@@ -125,7 +125,7 @@ export function Header() {
           <div className="relative">
             <Search className="absolute right-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
             <Input
-              placeholder="ابحث عن الكتب والقرطاسية..."
+              placeholder="ابحث عن الأدوات المكتبية والقرطاسية..."
               className="pr-10 rounded-xl border-2 focus:border-primary"
               dir="rtl"
             />

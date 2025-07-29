@@ -1,128 +1,120 @@
-import { BookOpen, PenTool, GraduationCap, Users, Baby, Heart } from "lucide-react";
-
-const categories = [
-  {
-    id: 1,
-    name: "كتب متنوعة للكبار",
-    icon: BookOpen,
-    color: "bg-book-category",
-    description: "مجموعة واسعة من الكتب الثقافية والأدبية",
-    count: "1200+ كتاب",
-    image: "📚"
-  },
-  {
-    id: 2,
-    name: "كتب الأطفال التعليمية",
-    icon: GraduationCap,
-    color: "bg-children-category",
-    description: "كتب تعليمية وقصص مفيدة للأطفال",
-    count: "800+ كتاب",
-    image: "🎓"
-  },
-  {
-    id: 3,
-    name: "القرطاسية والأدوات",
-    icon: PenTool,
-    color: "bg-stationery-category",
-    description: "أدوات الكتابة والرسم والمكتب",
-    count: "500+ منتج",
-    image: "✏️"
-  },
-  {
-    id: 4,
-    name: "كتب الأطفال الدينية",
-    icon: Heart,
-    color: "bg-primary",
-    description: "قصص وكتب دينية مناسبة للأطفال",
-    count: "300+ كتاب",
-    image: "🕌"
-  },
-  {
-    id: 5,
-    name: "كتب التلوين",
-    icon: Baby,
-    color: "bg-accent",
-    description: "كتب تلوين للأطفال والكبار",
-    count: "200+ كتاب",
-    image: "🎨"
-  },
-  {
-    id: 6,
-    name: "الكتب العلمية",
-    icon: Users,
-    color: "bg-secondary",
-    description: "كتب الرياضيات والعلوم والتكنولوجيا",
-    count: "400+ كتاب",
-    image: "🔬"
-  }
-];
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { PenTool, Scissors, Calculator, Palette, Archive, Briefcase } from "lucide-react";
 
 export function Categories() {
+  const categories = [
+    {
+      id: 1,
+      name: "أقلام ومستلزمات الكتابة",
+      description: "أقلام حبر جاف، رصاص، ماركر وقلم رصاص ملون",
+      icon: PenTool,
+      color: "bg-gradient-to-br from-blue-500 to-blue-600",
+      textColor: "text-blue-600",
+      bgColor: "bg-blue-50",
+      count: "500+ منتج"
+    },
+    {
+      id: 2,
+      name: "أدوات القص واللصق",
+      description: "مقصات، لاصق، شريط لاصق وأدوات تجليد",
+      icon: Scissors,
+      color: "bg-gradient-to-br from-green-500 to-green-600",
+      textColor: "text-green-600",
+      bgColor: "bg-green-50",
+      count: "200+ منتج"
+    },
+    {
+      id: 3,
+      name: "آلات حاسبة ومساطر",
+      description: "آلات حاسبة، مساطر، بوصلة وأدوات هندسية",
+      icon: Calculator,
+      color: "bg-gradient-to-br from-purple-500 to-purple-600",
+      textColor: "text-purple-600",
+      bgColor: "bg-purple-50",
+      count: "150+ منتج"
+    },
+    {
+      id: 4,
+      name: "ألوان وأدوات الرسم",
+      description: "ألوان خشبية، مائية، فرش رسم ولوحات",
+      icon: Palette,
+      color: "bg-gradient-to-br from-pink-500 to-pink-600",
+      textColor: "text-pink-600",
+      bgColor: "bg-pink-50",
+      count: "300+ منتج"
+    },
+    {
+      id: 5,
+      name: "ملفات ومنظمات",
+      description: "ملفات، درج أوراق، منظمات مكتبية وأرشيف",
+      icon: Archive,
+      color: "bg-gradient-to-br from-orange-500 to-orange-600",
+      textColor: "text-orange-600",
+      bgColor: "bg-orange-50",
+      count: "250+ منتج"
+    },
+    {
+      id: 6,
+      name: "مستلزمات المكتب",
+      description: "دباسة، خرامة، ممحاة وأدوات مكتبية أخرى",
+      icon: Briefcase,
+      color: "bg-gradient-to-br from-teal-500 to-teal-600",
+      textColor: "text-teal-600",
+      bgColor: "bg-teal-50",
+      count: "400+ منتج"
+    }
+  ];
+
   return (
-    <section className="py-16 bg-muted/30">
+    <section className="py-16 bg-secondary/30">
       <div className="container mx-auto px-4">
-        {/* Section Header */}
         <div className="text-center mb-12">
-          <h2 className="text-3xl lg:text-4xl font-bold mb-4">
-            تصفح حسب <span className="text-gradient">الفئات</span>
+          <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
+            فئات الأدوات المكتبية
           </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            اكتشف مجموعتنا الواسعة من الكتب والقرطاسية المنظمة في فئات متنوعة
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            اكتشف مجموعة واسعة من الأدوات المكتبية والقرطاسية عالية الجودة
           </p>
         </div>
 
-        {/* Categories Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {categories.map((category, index) => {
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {categories.map((category) => {
             const IconComponent = category.icon;
             return (
-              <div
-                key={category.id}
-                className="card-category group cursor-pointer"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <div className="flex items-start gap-4">
-                  {/* Icon */}
-                  <div className={`${category.color} text-white p-4 rounded-2xl group-hover:scale-110 transition-transform duration-300`}>
-                    <IconComponent className="h-6 w-6" />
+              <Card key={category.id} className="group hover:shadow-elegant transition-all duration-300 hover:-translate-y-1 border-0 overflow-hidden">
+                <CardContent className="p-0">
+                  <div className={`${category.color} p-6 text-white relative overflow-hidden`}>
+                    <div className="absolute top-0 right-0 w-24 h-24 bg-white/10 rounded-full -mr-12 -mt-12"></div>
+                    <div className="relative z-10">
+                      <IconComponent className="h-12 w-12 mb-4" />
+                      <div className="text-sm opacity-90 mb-1">{category.count}</div>
+                      <h3 className="text-xl font-bold">{category.name}</h3>
+                    </div>
                   </div>
                   
-                  {/* Content */}
-                  <div className="flex-1">
-                    <div className="flex items-center justify-between mb-2">
-                      <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors">
-                        {category.name}
-                      </h3>
-                      <span className="text-2xl">{category.image}</span>
-                    </div>
-                    
-                    <p className="text-muted-foreground text-sm mb-3 leading-relaxed">
+                  <div className="p-6">
+                    <p className="text-muted-foreground mb-4 leading-relaxed">
                       {category.description}
                     </p>
                     
-                    <div className="flex items-center justify-between">
-                      <span className="text-primary font-medium text-sm">
-                        {category.count}
-                      </span>
-                      <span className="text-muted-foreground text-xs">
-                        تصفح الآن ←
-                      </span>
-                    </div>
+                    <Button 
+                      variant="outline" 
+                      className={`w-full ${category.textColor} border-current hover:bg-current hover:text-white transition-colors`}
+                    >
+                      تصفح المنتجات
+                    </Button>
                   </div>
-                </div>
-
-                {/* Hover Effect */}
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/0 to-primary/0 group-hover:from-primary/5 group-hover:to-transparent transition-all duration-500 rounded-2xl pointer-events-none"></div>
-              </div>
+                </CardContent>
+              </Card>
             );
           })}
         </div>
 
-        {/* View All Button */}
         <div className="text-center mt-12">
-          <button className="btn-tafaneen text-lg px-8 py-4">
+          <Button className="btn-tafaneen text-lg px-8 py-4 h-auto">
             عرض جميع الفئات
-          </button>
+          </Button>
         </div>
       </div>
     </section>

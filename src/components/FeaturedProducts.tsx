@@ -5,81 +5,81 @@ import { Badge } from "@/components/ui/badge";
 const featuredProducts = [
   {
     id: 1,
-    name: "كتاب اللغة العربية",
-    author: "وزارة التربية والتعليم",
-    price: 25,
-    originalPrice: 30,
+    name: "مجموعة أقلام ملونة 24 لون",
+    author: "ستيدلر",
+    price: 45,
+    originalPrice: 60,
     rating: 4.8,
-    reviews: 142,
-    image: "📖",
-    category: "كتب مدرسية",
+    reviews: 156,
+    image: "🖍️",
+    category: "أدوات الرسم",
     isNew: true,
-    discount: 17
+    discount: 25
   },
   {
     id: 2,
-    name: "مجموعة أقلام جل ملونة",
-    author: "ستيدلر",
-    price: 15,
-    originalPrice: null,
-    rating: 4.6,
+    name: "دفتر ملاحظات جلد فاخر A5",
+    author: "مولسكين",
+    price: 85,
+    originalPrice: 110,
+    rating: 4.9,
     reviews: 89,
-    image: "🖊️",
-    category: "قرطاسية",
-    isNew: false,
-    discount: 0
+    image: "📓",
+    category: "دفاتر ومذكرات",
+    isNew: true,
+    discount: 23
   },
   {
     id: 3,
-    name: "قصص الأنبياء للأطفال",
-    author: "دار المعارف",
-    price: 40,
-    originalPrice: 50,
-    rating: 4.9,
+    name: "آلة حاسبة علمية متقدمة",
+    author: "كاسيو",
+    price: 120,
+    originalPrice: 150,
+    rating: 4.7,
     reviews: 203,
-    image: "📚",
-    category: "كتب أطفال",
-    isNew: true,
+    image: "🔢",
+    category: "آلات حاسبة",
+    isNew: false,
     discount: 20
   },
   {
     id: 4,
-    name: "دفتر مدرسي 100 ورقة",
-    author: "الأهرام",
-    price: 8,
-    originalPrice: null,
-    rating: 4.5,
-    reviews: 67,
-    image: "📓",
-    category: "دفاتر",
+    name: "مجموعة مساطر هندسية",
+    author: "روتبرينغ",
+    price: 35,
+    originalPrice: 50,
+    rating: 4.6,
+    reviews: 78,
+    image: "📐",
+    category: "أدوات هندسية",
     isNew: false,
-    discount: 0
+    discount: 30
   },
   {
     id: 5,
-    name: "كتاب الرياضيات للصف الأول",
-    author: "وزارة التربية والتعليم", 
-    price: 22,
-    originalPrice: 28,
-    rating: 4.7,
-    reviews: 156,
-    image: "🔢",
-    category: "كتب مدرسية",
+    name: "طقم أقلام حبر جاف 10 قطع",
+    author: "بيك",
+    price: 25,
+    originalPrice: 35,
+    rating: 4.5,
+    reviews: 134,
+    image: "🖊️",
+    category: "أقلام",
     isNew: false,
-    discount: 21
+    discount: 29
   },
   {
     id: 6,
-    name: "علبة أقلام رصاص",
-    author: "فابر كاستل",
-    price: 12,
-    originalPrice: null,
-    rating: 4.4,
-    reviews: 91,
-    image: "✏️",
-    category: "قرطاسية",
-    isNew: false,
-    discount: 0
+    name: "منظم مكتبي خشبي أنيق",
+    author: "أيكيا",
+    price: 95,
+    originalPrice: 130,
+    rating: 4.8,
+    reviews: 67,
+    image: "🗂️",
+    category: "منظمات مكتبية",
+    isNew: true,
+    discount: 27
   }
 ];
 
@@ -93,7 +93,7 @@ export function FeaturedProducts() {
             <span className="text-gradient">المنتجات المميزة</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            اكتشف أفضل الكتب والقرطاسية المختارة بعناية لك
+            اكتشف أفضل الأدوات المكتبية والقرطاسية المختارة خصيصاً لك
           </p>
         </div>
 
