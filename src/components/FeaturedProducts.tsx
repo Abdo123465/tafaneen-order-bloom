@@ -1,7 +1,7 @@
 import { Star, ShoppingCart, Heart, Eye } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { useCart } from "@/contexts/CartContext";
+import { useCart } from "../contexts/CartContext";
 import { useToast } from "@/hooks/use-toast";
 
 const featuredProducts = [
@@ -86,6 +86,7 @@ const featuredProducts = [
 ];
 
 export function FeaturedProducts() {
+  console.log('FeaturedProducts component loading...', { useCart });
   const { addItem } = useCart();
   const { toast } = useToast();
 
