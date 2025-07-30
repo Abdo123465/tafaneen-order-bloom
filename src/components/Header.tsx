@@ -1,12 +1,11 @@
 import { useState } from "react";
-import { ShoppingCart, Search, User, Menu, X, MessageCircle } from "lucide-react";
+import { Search, User, Menu, X, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Badge } from "@/components/ui/badge";
+import { Cart } from "@/components/Cart";
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [cartCount] = useState(3); // Demo cart count
 
   const navItems = [
     { label: "الرئيسية", href: "/" },
@@ -91,14 +90,7 @@ export function Header() {
             </Button>
 
             {/* Shopping Cart */}
-            <Button variant="ghost" size="icon" className="relative">
-              <ShoppingCart className="h-5 w-5" />
-              {cartCount > 0 && (
-                <Badge className="absolute -top-2 -left-2 h-5 w-5 flex items-center justify-center p-0 text-xs badge-new">
-                  {cartCount}
-                </Badge>
-              )}
-            </Button>
+            <Cart />
 
             {/* Login Button */}
             <Button className="btn-tafaneen hidden md:flex">

@@ -1,6 +1,8 @@
 import { Star, ShoppingCart, Heart, Eye } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { useCart } from "@/contexts/CartContext";
+import { useToast } from "@/hooks/use-toast";
 
 const featuredProducts = [
   {
@@ -84,6 +86,22 @@ const featuredProducts = [
 ];
 
 export function FeaturedProducts() {
+  const { addItem } = useCart();
+  const { toast } = useToast();
+
+  const handleAddToCart = (product: any) => {
+    addItem({
+      id: product.id.toString(),
+      name: product.name,
+      price: product.price,
+      image: product.image
+    });
+    
+    toast({
+      title: "تم إضافة المنتج",
+      description: `${product.name} تم إضافته للسلة`,
+    });
+  };
   return (
     <section className="py-16">
       <div className="container mx-auto px-4">
@@ -173,7 +191,10 @@ export function FeaturedProducts() {
                 </div>
 
                 {/* Add to Cart Button */}
-                <Button className="w-full btn-tafaneen group-hover:shadow-elegant">
+                <Button 
+                  className="w-full btn-tafaneen group-hover:shadow-elegant"
+                  onClick={() => handleAddToCart(product)}
+                >
                   <ShoppingCart className="ml-2 h-4 w-4" />
                   إضافة للسلة
                 </Button>
