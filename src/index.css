@@ -134,6 +134,15 @@
   ::-webkit-scrollbar-thumb:hover {
     @apply bg-primary/50;
   }
+
+  /* Arabic PDF Invoice Colors */
+  :root {
+    --invoice-primary: 44 110 165; /* #2c6ea5 */
+    --invoice-primary-dark: 23 55 82; /* #173752 */
+    --invoice-primary-light: 234 242 248; /* #eaf2f8 */
+    --invoice-border-light: 193 213 229; /* #c1d5e5 */
+    --invoice-accent: 14 138 62; /* #0e8a3e */
+  }
 }
 
 @layer components {

@@ -4,13 +4,14 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { useCart } from "@/contexts/CartContext";
-import { downloadInvoice } from "@/utils/pdfGenerator";
+import { downloadEnhancedInvoice, EnhancedInvoiceData } from "@/utils/enhancedPdfGenerator";
 import { useToast } from "@/hooks/use-toast";
 
 export function Cart() {
   const { items, updateQuantity, removeItem, getTotalPrice, getItemCount, clearCart } = useCart();
   const [showOptions, setShowOptions] = useState(false);
   const [showPickupOptions, setShowPickupOptions] = useState(false);
+  const [selectedDeliveryMethod, setSelectedDeliveryMethod] = useState<'pickup' | 'delivery'>('pickup');
   const [isOpen, setIsOpen] = useState(false);
   const { toast } = useToast();
 
@@ -46,14 +47,17 @@ export function Cart() {
       return;
     }
 
-    const invoiceData = {
+    const invoiceData: EnhancedInvoiceData = {
       items,
       totalPrice,
       invoiceNumber: generateInvoiceNumber(),
-      date: new Date().toLocaleDateString('ar-EG'),
+      date: new Date(),
+      deliveryMethod: selectedDeliveryMethod,
+      subtotal: totalPrice,
+      customerName: "عميل كريم", // يمكن تخصيصه لاحقاً
     };
 
-    downloadInvoice(invoiceData);
+    downloadEnhancedInvoice(invoiceData);
     
     toast({
       title: "تم تحميل الفاتورة",
@@ -69,6 +73,7 @@ export function Cart() {
   };
 
   const handleDeliveryOption = () => {
+    setSelectedDeliveryMethod('delivery');
     const orderSummary = items.map(item => 
       `${item.name} - الكمية: ${item.quantity} - السعر: ${item.price * item.quantity} جنيه`
     ).join('\n');
@@ -180,7 +185,10 @@ export function Cart() {
                   <Button
                     variant="outline"
                     className="w-full flex items-center gap-2"
-                    onClick={() => setShowPickupOptions(true)}
+                    onClick={() => {
+                      setSelectedDeliveryMethod('pickup');
+                      setShowPickupOptions(true);
+                    }}
                   >
                     <MapPin className="h-4 w-4" />
                     استلام من المكتبة
