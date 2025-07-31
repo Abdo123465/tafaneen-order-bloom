@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { ShoppingCart, MapPin, Truck, MessageCircle, Download, X, Plus, Minus, Trash2 } from "lucide-react";
+import { ShoppingCart, MapPin, Truck, MessageCircle, Download, X, Plus, Minus, Trash2, FileText } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { useCart } from "@/contexts/CartContext";
-import { downloadEnhancedInvoice, EnhancedInvoiceData } from "@/utils/enhancedPdfGenerator";
 import { useToast } from "@/hooks/use-toast";
 
 export function Cart() {
@@ -14,6 +14,10 @@ export function Cart() {
   const [selectedDeliveryMethod, setSelectedDeliveryMethod] = useState<'pickup' | 'delivery'>('pickup');
   const [isOpen, setIsOpen] = useState(false);
   const { toast } = useToast();
+  const [customerName, setCustomerName] = useState('');
+  const [customerPhone, setCustomerPhone] = useState('');
+  const [customerNameError, setCustomerNameError] = useState('');
+  const [customerPhoneError, setCustomerPhoneError] = useState('');
 
   const cartCount = getItemCount();
   const totalPrice = getTotalPrice();
@@ -23,21 +27,74 @@ export function Cart() {
   };
 
   const handleWhatsAppNotification = () => {
-    const orderSummary = items.map(item => 
-      `${item.name} - الكمية: ${item.quantity} - السعر: ${item.price * item.quantity} جنيه`
-    ).join('\n');
+    // التحقق من إدخال معلومات العميل
+    if (!customerName) {
+      setCustomerNameError('يرجى إدخال اسم العميل');
+      return;
+    }
+    if (!customerPhone) {
+      setCustomerPhoneError('يرجى إدخال رقم الهاتف');
+      return;
+    }
+
+    const invoiceNumber = generateInvoiceNumber();
+    const today = new Date();
+    const date = today.toLocaleDateString('ar-EG');
+    const time = today.toLocaleTimeString('ar-EG', { hour: '2-digit', minute: '2-digit' });
     
-    const message = `مرحباً، أريد تأكيد طلبية الاستلام من المكتبة:\n\n${orderSummary}\n\nالإجمالي: ${totalPrice} جنيه\n\nشكراً لكم.`;
+    // تنسيق تفاصيل المنتجات بشكل منظم
+    const orderItems = items.map((item, index) => 
+      `${index + 1}. *${item.name}*
+   • الكمية: ${item.quantity}
+   • سعر الوحدة: ${item.price} ج.م
+   • المجموع: ${item.price * item.quantity} ج.م`
+    ).join('\n\n');
+    
+    const message = `📋 *فاتورة طلب - مكتبة تفانيين*
+━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📊 *معلومات الفاتورة*
+• رقم الفاتورة: ${invoiceNumber}
+• التاريخ: ${date}
+• الوقت: ${time}
+• طريقة الاستلام: استلام من المكتبة
+
+👤 *معلومات العميل*
+• الاسم: ${customerName}
+• رقم الهاتف: ${customerPhone}
+
+🛒 *المنتجات المطلوبة*
+━━━━━━━━━━━━━━━━━━━━━━━━━━
+${orderItems}
+━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+💰 *الإجمالي الكلي: ${totalPrice} ج.م*
+
+📍 *موقع الاستلام*
+مكتبة تفانيين - شارع النور
+أوقات الاستلام: من 10 صباحاً حتى 5 مساءً
+
+📞 *للاستفسار*: 01026274235
+
+شكراً لثقتك بمكتبة تفانيين! 🙏`;
+    
+    // استخدام طريقة مجانية لفتح واتساب
     const whatsappUrl = `https://wa.me/201026274235?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
     
     toast({
-      title: "تم إرسال الطلب",
-      description: "تم فتح واتساب لإرسال تفاصيل الطلب",
+      title: "تم إرسال الإشعار",
+      description: "تم فتح واتساب لإرسال تفاصيل الفاتورة",
     });
+
+    // إعادة تعيين حقول العميل بعد الإرسال
+    setCustomerName("");
+    setCustomerPhone("");
+    setShowPickupOptions(false);
+    setShowOptions(false);
   };
 
-  const handleDownloadInvoice = () => {
+  const generateHTMLInvoice = () => {
     if (items.length === 0) {
       toast({
         title: "السلة فارغة",
@@ -47,45 +104,163 @@ export function Cart() {
       return;
     }
 
-    const invoiceData: EnhancedInvoiceData = {
-      items,
-      totalPrice,
-      invoiceNumber: generateInvoiceNumber(),
-      date: new Date(),
-      deliveryMethod: selectedDeliveryMethod,
-      subtotal: totalPrice,
-      customerName: "عميل كريم", // يمكن تخصيصه لاحقاً
-    };
+    const invoiceNumber = generateInvoiceNumber();
+    const today = new Date();
+    const date = today.toLocaleDateString('ar-EG');
+    const time = today.toLocaleTimeString('ar-EG', { hour: '2-digit', minute: '2-digit' });
 
-    downloadEnhancedInvoice(invoiceData);
+    const htmlContent = `<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>فاتورة الطلب - مكتبة تفانيين</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Cairo', sans-serif; background: #f9f9f9; padding: 20px; }
+        .invoice-container { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+        .header { text-align: center; margin-bottom: 30px; border-bottom: 2px solid #d9534f; padding-bottom: 20px; }
+        .header img { max-width: 150px; margin-bottom: 10px; }
+        .header h1 { color: #d9534f; font-size: 28px; margin-bottom: 10px; }
+        .header p { color: #666; font-size: 14px; }
+        .invoice-details { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 30px; }
+        .section { background: #f2dede; padding: 20px; border-radius: 8px; }
+        .section h3 { color: #d9534f; margin-bottom: 10px; font-size: 18px; }
+        .info-row { display: flex; justify-content: space-between; margin-bottom: 8px; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th, td { padding: 12px; text-align: right; border-bottom: 1px solid #ddd; }
+        th { background: #d9534f; color: #fff; font-weight: 600; }
+        .total { text-align: left; margin-top: 20px; font-size: 18px; font-weight: bold; color: #d9534f; }
+        .footer { text-align: center; margin-top: 30px; padding-top: 20px; border-top: 1px solid #ddd; }
+        @media print { body { background: white; } .invoice-container { box-shadow: none; } }
+    </style>
+</head>
+<body>
+    <div class="invoice-container">
+        <div class="header">
+            <img src="/lovable-uploads/cff92227-a94e-4017-8547-5a984088ec2e.png" alt="شعار المكتبة">
+            <h1>مكتبة تفانيين</h1>
+            <p>فاتورة طلب إلكترونية</p>
+            <p>📍 شارع النور، مدينة المنصورة، مصر</p>
+            <p>📞 01026274235</p>
+        </div>
+        
+        <div class="invoice-details">
+            <div class="section">
+                <h3>معلومات الفاتورة</h3>
+                <div class="info-row"><span>رقم الفاتورة:</span><span>${invoiceNumber}</span></div>
+                <div class="info-row"><span>التاريخ:</span><span>${date}</span></div>
+                <div class="info-row"><span>الوقت:</span><span>${time}</span></div>
+                <div class="info-row"><span>طريقة الاستلام:</span><span>${selectedDeliveryMethod === 'pickup' ? 'استلام من المكتبة' : 'توصيل للمنزل'}</span></div>
+            </div>
+            
+            <div class="section">
+                <h3>معلومات العميل</h3>
+                <div class="info-row"><span>الاسم:</span><span>${customerName || 'غير محدد'}</span></div>
+                <div class="info-row"><span>الهاتف:</span><span>${customerPhone || 'غير محدد'}</span></div>
+            </div>
+        </div>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>المنتج</th>
+                    <th>الكمية</th>
+                    <th>السعر</th>
+                    <th>الإجمالي</th>
+                </tr>
+            </thead>
+            <tbody>
+                ${items.map(item => `
+                <tr>
+                    <td>${item.name}</td>
+                    <td>${item.quantity}</td>
+                    <td>${item.price} ج.م</td>
+                    <td>${item.price * item.quantity} ج.م</td>
+                </tr>
+                `).join('')}
+            </tbody>
+        </table>
+        
+        <div class="total">
+            <strong>الإجمالي الكلي: ${totalPrice} ج.م</strong>
+        </div>
+        
+        <div class="footer">
+            <p>شكراً لثقتك بمكتبة تفانيين!</p>
+            <p>للاستفسار: 01026274235</p>
+        </div>
+    </div>
+</body>
+</html>`;
+
+    const blob = new Blob([htmlContent], { type: 'text/html;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `فاتورة-${invoiceNumber}.html`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
     
     toast({
       title: "تم تحميل الفاتورة",
-      description: "يمكنك الآن إرسالها عبر واتساب",
+      description: "تم تحميل الفاتورة بتنسيق HTML بنجاح",
     });
-
-    // Open WhatsApp with invoice message
-    setTimeout(() => {
-      const message = "مرحباً، تم تحميل الفاتورة وسأقوم بإرسالها الآن. شكراً لكم.";
-      const whatsappUrl = `https://wa.me/201026274235?text=${encodeURIComponent(message)}`;
-      window.open(whatsappUrl, '_blank');
-    }, 1000);
   };
 
   const handleDeliveryOption = () => {
     setSelectedDeliveryMethod('delivery');
-    const orderSummary = items.map(item => 
-      `${item.name} - الكمية: ${item.quantity} - السعر: ${item.price * item.quantity} جنيه`
-    ).join('\n');
+    const invoiceNumber = generateInvoiceNumber();
+    const today = new Date();
+    const date = today.toLocaleDateString('ar-EG');
+    const time = today.toLocaleTimeString('ar-EG', { hour: '2-digit', minute: '2-digit' });
     
-    const message = `مرحباً، أريد طلب توصيل للمنزل:\n\n${orderSummary}\n\nالإجمالي: ${totalPrice} جنيه\n\nيرجى تأكيد الطلب وتحديد وقت التوصيل. شكراً لكم.`;
+    // تنسيق تفاصيل المنتجات بشكل منظم
+    const orderItems = items.map((item, index) => 
+      `${index + 1}. *${item.name}*
+   • الكمية: ${item.quantity}
+   • سعر الوحدة: ${item.price} ج.م
+   • المجموع: ${item.price * item.quantity} ج.م`
+    ).join('\n\n');
+    
+    const message = `📋 *فاتورة طلب - مكتبة تفانيين*
+━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📊 *معلومات الفاتورة*
+• رقم الفاتورة: ${invoiceNumber}
+• التاريخ: ${date}
+• الوقت: ${time}
+• طريقة الاستلام: توصيل للمنزل
+
+🛒 *المنتجات المطلوبة*
+━━━━━━━━━━━━━━━━━━━━━━━━━━
+${orderItems}
+━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+💰 *الإجمالي الكلي: ${totalPrice} ج.م*
+
+🚚 *خدمة التوصيل*
+متوفرة داخل مدينة المنصورة
+📱 يرجى إرسال العنوان التفصيلي ووقت التوصيل المناسب
+
+📞 *للاستفسار*: 01026274235
+
+شكراً لثقتك بمكتبة تفانيين! 🙏`;
+    
+    // استخدام طريقة مجانية لفتح واتساب
     const whatsappUrl = `https://wa.me/201026274235?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
     
     toast({
       title: "تم إرسال طلب التوصيل",
-      description: "تم فتح واتساب لتأكيد طلب التوصيل",
+      description: "تم فتح واتساب لإرسال تفاصيل الفاتورة",
     });
+    
+    // إعادة تعيين الحالة بعد الإرسال
+    setShowOptions(false);
   };
 
   return (
@@ -182,6 +357,9 @@ export function Cart() {
               {/* Delivery/Pickup Options */}
               {showOptions && !showPickupOptions && (
                 <div className="space-y-2">
+                  <div className="text-center mb-4">
+                    <h3 className="text-lg font-semibold">اختر طريقة الاستلام</h3>
+                  </div>
                   <Button
                     variant="outline"
                     className="w-full flex items-center gap-2"
@@ -206,7 +384,9 @@ export function Cart() {
                   <Button
                     variant="ghost"
                     className="w-full"
-                    onClick={() => setShowOptions(false)}
+                    onClick={() => {
+                      setShowOptions(false);
+                    }}
                   >
                     <X className="h-4 w-4 ml-2" />
                     رجوع
@@ -216,10 +396,48 @@ export function Cart() {
               
               {/* Pickup Sub-options */}
               {showPickupOptions && (
-                <div className="space-y-2">
+                <div className="space-y-4">
+                  <div className="text-center mb-2">
+                    <h3 className="text-lg font-semibold">معلومات العميل</h3>
+                    <p className="text-sm text-muted-foreground">يرجى إدخال بياناتك لإتمام الطلب</p>
+                  </div>
+                  
+                  <div className="space-y-3">
+                    <div>
+                      <label htmlFor="customerName" className="block text-sm font-medium mb-1 text-right">الاسم</label>
+                      <Input
+                        id="customerName"
+                        value={customerName}
+                        onChange={(e) => {
+                          setCustomerName(e.target.value);
+                          setCustomerNameError(e.target.value ? '' : 'يرجى إدخال اسم العميل');
+                        }}
+                        placeholder="أدخل اسم العميل"
+                        className="text-right"
+                      />
+                      {customerNameError && <p className="text-destructive text-sm mt-1 text-right">{customerNameError}</p>}
+                    </div>
+                    
+                    <div>
+                      <label htmlFor="customerPhone" className="block text-sm font-medium mb-1 text-right">رقم الهاتف</label>
+                      <Input
+                        id="customerPhone"
+                        value={customerPhone}
+                        onChange={(e) => {
+                          setCustomerPhone(e.target.value);
+                          setCustomerPhoneError(e.target.value ? '' : 'يرجى إدخال رقم الهاتف');
+                        }}
+                        placeholder="أدخل رقم الهاتف"
+                        className="text-right"
+                      />
+                      {customerPhoneError && <p className="text-destructive text-sm mt-1 text-right">{customerPhoneError}</p>}
+                    </div>
+                  </div>
+                  
                   <Button
                     variant="outline"
-                    className="w-full flex items-center gap-2 bg-whatsapp text-white hover:bg-whatsapp/90"
+                    className="w-full flex items-center gap-2"
+                    style={{ backgroundColor: '#25D366', color: 'white' }}
                     onClick={handleWhatsAppNotification}
                   >
                     <MessageCircle className="h-4 w-4" />
@@ -229,10 +447,11 @@ export function Cart() {
                   <Button
                     variant="outline"
                     className="w-full flex items-center gap-2"
-                    onClick={handleDownloadInvoice}
+                    style={{ backgroundColor: '#2c6ea5', color: 'white' }}
+                    onClick={generateHTMLInvoice}
                   >
-                    <Download className="h-4 w-4" />
-                    تنزيل الفاتورة وإرسالها عبر واتساب
+                    <FileText className="h-4 w-4" />
+                    تنزيل الفاتورة
                   </Button>
                   
                   <Button
