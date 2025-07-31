@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ShoppingCart, MapPin, Truck, MessageCircle, Download, X, Plus, Minus, Trash2, FileText } from "lucide-react";
+import { ShoppingCart, MapPin, Truck, MessageCircle, Download, X, Plus, Minus, Trash2, FileText, Camera } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
@@ -158,7 +158,11 @@ ${orderItems}
 <body>
     <div class="invoice-container">
         <div class="header">
-            <img src="/lovable-uploads/b8d97f4a-a5d6-4b20-9d8c-1a52752db596.png" alt="شعار المكتبة">
+            <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 10px;">
+                <div style="background: #d9534f; color: white; border-radius: 50%; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: bold;">
+                    T
+                </div>
+            </div>
             <h1>مكتبة تفانيين</h1>
             <p>فاتورة طلب إلكترونية</p>
             <p>📍 122 ز البوابة الاولي حدائق الاهرام اما اسماك بورسعيد بجوار المول القديم</p>
