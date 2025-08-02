@@ -3,9 +3,11 @@ import { Search, User, Menu, X, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Cart } from "@/components/Cart";
+import { AuthDialog } from "@/components/AuthDialog";
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isAuthOpen, setIsAuthOpen] = useState(false);
 
   const navItems = [
     { label: "الرئيسية", href: "/" },
@@ -93,7 +95,10 @@ export function Header() {
             <Cart />
 
             {/* Login Button */}
-            <Button className="btn-tafaneen hidden md:flex">
+            <Button 
+              className="btn-tafaneen hidden md:flex"
+              onClick={() => setIsAuthOpen(true)}
+            >
               تسجيل الدخول
             </Button>
           </div>
@@ -140,13 +145,19 @@ export function Header() {
                   {item.label}
                 </a>
               ))}
-              <Button className="btn-tafaneen mt-4">
+              <Button 
+                className="btn-tafaneen mt-4"
+                onClick={() => setIsAuthOpen(true)}
+              >
                 تسجيل الدخول
               </Button>
             </div>
           </nav>
         </div>
       )}
+
+      {/* Auth Dialog */}
+      <AuthDialog open={isAuthOpen} onOpenChange={setIsAuthOpen} />
     </header>
   );
 }
