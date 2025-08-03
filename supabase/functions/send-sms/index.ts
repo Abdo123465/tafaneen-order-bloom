@@ -6,8 +6,8 @@ const corsHeaders = {
     "authorization, x-client-info, apikey, content-type",
 };
 
-interface SendSMSRequest {
-  phone: string;
+interface SendTelegramRequest {
+  username: string;
   message: string;
 }
 
@@ -18,40 +18,67 @@ const handler = async (req: Request): Promise<Response> => {
   }
 
   try {
-    const { phone, message }: SendSMSRequest = await req.json();
+    const { username, message }: SendTelegramRequest = await req.json();
     
-    const accountSid = Deno.env.get("TWILIO_ACCOUNT_SID");
-    const authToken = Deno.env.get("TWILIO_AUTH_TOKEN");
-    const fromNumber = Deno.env.get("TWILIO_PHONE_NUMBER");
+    const botToken = Deno.env.get("TELEGRAM_BOT_TOKEN");
 
-    if (!accountSid || !authToken || !fromNumber) {
-      throw new Error("Missing Twilio configuration");
+    if (!botToken) {
+      throw new Error("Missing Telegram Bot Token");
     }
 
-    // إرسال SMS عبر Twilio
-    const url = `https://api.twilio.com/2010-04-01/Accounts/${accountSid}/Messages.json`;
-    
-    const formData = new FormData();
-    formData.append("To", phone);
-    formData.append("From", fromNumber);
-    formData.append("Body", message);
+    // البحث عن chat_id للمستخدم عبر username
+    let chatId;
+    try {
+      // نحاول البحث عن المستخدم عبر username
+      const searchUrl = `https://api.telegram.org/bot${botToken}/getUpdates`;
+      const updatesResponse = await fetch(searchUrl);
+      const updates = await updatesResponse.json();
+      
+      // البحث عن chat_id من خلال username في الرسائل الحديثة
+      const userChat = updates.result?.find((update: any) => 
+        update.message?.from?.username === username.replace('@', '')
+      );
+      
+      if (userChat) {
+        chatId = userChat.message.from.id;
+      } else {
+        // إذا لم نجد المستخدم، نرسل رسالة للمطور في console
+        console.log(`لم يتم العثور على المستخدم ${username}. يرجى التأكد من أن المستخدم أرسل رسالة للبوت مسبقاً.`);
+        throw new Error(`لم يتم العثور على المستخدم ${username}. يرجى التأكد من أن المستخدم أرسل رسالة للبوت مسبقاً.`);
+      }
+    } catch (searchError) {
+      console.error("خطأ في البحث عن المستخدم:", searchError);
+      throw new Error(`خطأ في البحث عن المستخدم: ${searchError.message}`);
+    }
 
-    const response = await fetch(url, {
+    // إرسال الرسالة عبر Telegram Bot API
+    const telegramUrl = `https://api.telegram.org/bot${botToken}/sendMessage`;
+    
+    const response = await fetch(telegramUrl, {
       method: "POST",
       headers: {
-        "Authorization": `Basic ${btoa(`${accountSid}:${authToken}`)}`,
+        "Content-Type": "application/json",
       },
-      body: formData,
+      body: JSON.stringify({
+        chat_id: chatId,
+        text: message,
+        parse_mode: "HTML"
+      }),
     });
 
     if (!response.ok) {
-      throw new Error(`Twilio API error: ${response.statusText}`);
+      const errorData = await response.json();
+      throw new Error(`Telegram API error: ${errorData.description || response.statusText}`);
     }
 
     const result = await response.json();
-    console.log("SMS sent successfully:", result);
+    console.log("رسالة Telegram تم إرسالها بنجاح:", result);
 
-    return new Response(JSON.stringify({ success: true, sid: result.sid }), {
+    return new Response(JSON.stringify({ 
+      success: true, 
+      message_id: result.result.message_id,
+      chat_id: chatId 
+    }), {
       status: 200,
       headers: {
         "Content-Type": "application/json",
