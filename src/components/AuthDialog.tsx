@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
+import { useAuth } from "@/contexts/AuthContext";
 import { ArrowRight, Phone, User, Hash } from "lucide-react";
 
 interface AuthDialogProps {
@@ -18,6 +19,7 @@ export function AuthDialog({ open, onOpenChange }: AuthDialogProps) {
   const [verificationCode, setVerificationCode] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
+  const { login, verifyCode } = useAuth();
 
   const handleSendCode = async () => {
     if (!name.trim() || !phone.trim()) {
@@ -41,14 +43,21 @@ export function AuthDialog({ open, onOpenChange }: AuthDialogProps) {
     setIsLoading(true);
     
     try {
-      // محاكاة إرسال رسالة SMS
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      const result = await login(name, phone);
       
-      setStep("verification");
-      toast({
-        title: "تم الإرسال",
-        description: "تم إرسال رمز التحقق إلى رقم هاتفك",
-      });
+      if (result.success) {
+        setStep("verification");
+        toast({
+          title: "تم الإرسال",
+          description: "تم إرسال رمز التحقق إلى رقم هاتفك",
+        });
+      } else {
+        toast({
+          title: "خطأ",
+          description: result.error || "فشل في إرسال رمز التحقق",
+          variant: "destructive",
+        });
+      }
     } catch (error) {
       toast({
         title: "خطأ",
@@ -73,11 +82,9 @@ export function AuthDialog({ open, onOpenChange }: AuthDialogProps) {
     setIsLoading(true);
     
     try {
-      // محاكاة التحقق من الكود
-      await new Promise(resolve => setTimeout(resolve, 1500));
+      const result = await verifyCode(phone, verificationCode);
       
-      // محاكاة كود صحيح (123456)
-      if (verificationCode === "123456") {
+      if (result.success) {
         toast({
           title: "مرحباً بك!",
           description: `تم تسجيل الدخول بنجاح، أهلاً ${name}`,
@@ -91,7 +98,7 @@ export function AuthDialog({ open, onOpenChange }: AuthDialogProps) {
       } else {
         toast({
           title: "خطأ",
-          description: "رمز التحقق غير صحيح. حاول مرة أخرى (استخدم 123456 للاختبار)",
+          description: result.error || "رمز التحقق غير صحيح",
           variant: "destructive",
         });
       }
@@ -192,7 +199,7 @@ export function AuthDialog({ open, onOpenChange }: AuthDialogProps) {
                   />
                 </div>
                 <p className="text-xs text-muted-foreground text-right">
-                  أدخل الرمز المكون من 6 أرقام (للاختبار: 123456)
+                  أدخل الرمز المكون من 6 أرقام الذي تم إرساله لك
                 </p>
               </div>
 

@@ -14,7 +14,36 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      users: {
+        Row: {
+          created_at: string
+          id: string
+          is_verified: boolean | null
+          name: string
+          phone: string
+          updated_at: string
+          verification_code: string | null
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          is_verified?: boolean | null
+          name: string
+          phone: string
+          updated_at?: string
+          verification_code?: string | null
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          is_verified?: boolean | null
+          name?: string
+          phone?: string
+          updated_at?: string
+          verification_code?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never

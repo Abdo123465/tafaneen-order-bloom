@@ -1,13 +1,15 @@
 import { useState } from "react";
-import { Search, User, Menu, X, MessageCircle } from "lucide-react";
+import { Search, User, Menu, X, MessageCircle, LogOut } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Cart } from "@/components/Cart";
 import { AuthDialog } from "@/components/AuthDialog";
+import { useAuth } from "@/contexts/AuthContext";
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isAuthOpen, setIsAuthOpen] = useState(false);
+  const { user, logout } = useAuth();
 
   const navItems = [
     { label: "الرئيسية", href: "/" },
@@ -86,21 +88,37 @@ export function Header() {
               {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </Button>
 
-            {/* User Account */}
-            <Button variant="ghost" size="icon" className="hidden md:flex">
-              <User className="h-5 w-5" />
-            </Button>
+            {/* User Account or Login */}
+            {user ? (
+              <div className="hidden md:flex items-center gap-2">
+                <span className="text-sm font-medium">مرحباً {user.name}</span>
+                <Button 
+                  variant="ghost" 
+                  size="icon" 
+                  onClick={logout}
+                  title="تسجيل الخروج"
+                >
+                  <LogOut className="h-4 w-4" />
+                </Button>
+              </div>
+            ) : (
+              <Button variant="ghost" size="icon" className="hidden md:flex">
+                <User className="h-5 w-5" />
+              </Button>
+            )}
 
             {/* Shopping Cart */}
             <Cart />
 
-            {/* Login Button */}
-            <Button 
-              className="btn-tafaneen hidden md:flex"
-              onClick={() => setIsAuthOpen(true)}
-            >
-              تسجيل الدخول
-            </Button>
+            {/* Login/Logout Button */}
+            {user ? null : (
+              <Button 
+                className="btn-tafaneen hidden md:flex"
+                onClick={() => setIsAuthOpen(true)}
+              >
+                تسجيل الدخول
+              </Button>
+            )}
           </div>
         </div>
 
@@ -145,12 +163,26 @@ export function Header() {
                   {item.label}
                 </a>
               ))}
-              <Button 
-                className="btn-tafaneen mt-4"
-                onClick={() => setIsAuthOpen(true)}
-              >
-                تسجيل الدخول
-              </Button>
+              
+              {user ? (
+                <div className="flex items-center justify-between mt-4 pt-4 border-t">
+                  <span className="font-medium">مرحباً {user.name}</span>
+                  <Button 
+                    variant="ghost"
+                    onClick={logout}
+                    className="text-destructive"
+                  >
+                    تسجيل الخروج
+                  </Button>
+                </div>
+              ) : (
+                <Button 
+                  className="btn-tafaneen mt-4"
+                  onClick={() => setIsAuthOpen(true)}
+                >
+                  تسجيل الدخول
+                </Button>
+              )}
             </div>
           </nav>
         </div>
