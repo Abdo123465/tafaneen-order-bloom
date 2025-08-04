@@ -7,9 +7,6 @@ import { CartProvider } from "@/contexts/CartContext";
 import { AuthProvider } from "@/contexts/AuthContext";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
-import Login from "./pages/Login";
-import Confirm from "./pages/Confirm";
-import { TestVerification } from "./test-verification";
 
 const queryClient = new QueryClient();
 
@@ -23,12 +20,14 @@ const App = () => (
           <BrowserRouter>
             <Routes>
               <Route path="/" element={<Index />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/confirm" element={<Confirm />} />
-              <Route path="/verify-code" element={<TestVerification />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>
           </BrowserRouter>
         </TooltipProvider>
       </CartProvider>
+    </AuthProvider>
+  </QueryClientProvider>
+);
+
+export default App;
