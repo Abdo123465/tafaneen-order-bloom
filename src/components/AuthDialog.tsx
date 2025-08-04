@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import { useAuth } from "@/contexts/AuthContext";
-import { ArrowRight, Phone, User, Hash, Mail } from "lucide-react";
+import { ArrowRight, User, Hash } from "lucide-react";
 
 interface AuthDialogProps {
   open: boolean;
@@ -16,34 +16,27 @@ export function AuthDialog({ open, onOpenChange }: AuthDialogProps) {
   const [step, setStep] = useState<"contact" | "verification">("contact");
   const [name, setName] = useState("");
   const [contact, setContact] = useState("");
-  const [contactType, setContactType] = useState<"phone" | "email">("phone");
+  
   const [verificationCode, setVerificationCode] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
   const { login, verifyCode } = useAuth();
 
   const handleSendCode = async () => {
-    if (!name.trim() || !contact.trim()) {
+        if (!name.trim() || !contact.trim()) {
       toast({
         title: "خطأ",
-        description: "يرجى إدخال الاسم ورقم الهاتف أو البريد الإلكتروني",
+        description: "يرجى إدخال الاسم واسم المستخدم في تليجرام",
         variant: "destructive",
       });
       return;
     }
 
     // التحقق من صحة الإدخال
-    if (contactType === "phone" && !/^01[0-2|5]\d{8}$/.test(contact)) {
+    if (!contact.startsWith("@")) {
       toast({
         title: "خطأ",
-        description: "يرجى إدخال رقم هاتف صحيح",
-        variant: "destructive",
-      });
-      return;
-    } else if (contactType === "email" && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contact)) {
-      toast({
-        title: "خطأ",
-        description: "يرجى إدخال بريد إلكتروني صحيح",
+        description: "يرجى إدخال اسم المستخدم بالشكل الصحيح (@username)",
         variant: "destructive",
       });
       return;
@@ -57,27 +50,10 @@ export function AuthDialog({ open, onOpenChange }: AuthDialogProps) {
       if (result.success) {
         setStep("verification");
 
-        // فتح رابط واتساب تلقائياً إن توفر
-        if (result.whatsappUrl && contactType === "phone") {
-          try {
-            window.open(result.whatsappUrl, "_blank");
-          } catch {}
-        }
-
-        // عرض ملاحظة بالكود على الشاشة (للمساعدة)
-        if (result.code) {
-          toast({
-            title: "تم إنشاء رمز التحقق",
-            description: `رمزك: ${result.code} (صالح 10 دقائق)`,
-          });
-        }
 
         toast({
           title: "تم الإرسال",
-          description:
-            contactType === "phone"
-              ? "سيتم فتح واتساب برسالة تحتوي على رمز التحقق. كما يظهر الكود على الشاشة."
-              : "تم إرسال رمز التحقق.",
+          description: "تم إرسال رمز التحقق عبر تليجرام",
         });
       } else {
         toast({
@@ -146,11 +122,6 @@ export function AuthDialog({ open, onOpenChange }: AuthDialogProps) {
     setVerificationCode("");
   };
 
-  const toggleContactType = () => {
-    setContactType(contactType === "phone" ? "email" : "phone");
-    setContact("");
-  };
-
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="sm:max-w-md" dir="rtl">
@@ -181,37 +152,23 @@ export function AuthDialog({ open, onOpenChange }: AuthDialogProps) {
                 </div>
 
                 <div className="space-y-2">
-                  <div className="flex justify-between items-center">
-                    <Label htmlFor="contact" className="text-right">
-                      {contactType === "phone" ? "رقم الهاتف" : "البريد الإلكتروني"}
-                    </Label>
-                    <Button 
-                      variant="ghost" 
-                      size="sm" 
-                      onClick={toggleContactType}
-                      className="text-xs text-primary"
-                    >
-                      التبديل إلى {contactType === "phone" ? "البريد الإلكتروني" : "رقم الهاتف"}
-                    </Button>
-                  </div>
+                  <Label htmlFor="contact" className="text-right">
+                    اسم المستخدم في تليجرام
+                  </Label>
                   <div className="relative">
-                    {contactType === "phone" ? (
-                      <Phone className="absolute right-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
-                    ) : (
-                      <Mail className="absolute right-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
-                    )}
+                    <User className="absolute right-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
                     <Input
                       id="contact"
-                      type={contactType === "phone" ? "tel" : "email"}
-                      placeholder={contactType === "phone" ? "01xxxxxxxxx" : "example@example.com"}
+                      type="text"
+                      placeholder="@username"
                       value={contact}
                       onChange={(e) => setContact(e.target.value)}
                       className="pr-10"
-                      dir={contactType === "phone" ? "ltr" : "rtl"}
+                      dir="ltr"
                     />
                   </div>
                   <p className="text-xs text-muted-foreground text-right">
-                    سيتم إرسال رمز التحقق على {contactType === "phone" ? "هذا الرقم" : "هذا البريد"}
+                    سيتم إرسال رمز التحقق عبر تليجرام
                   </p>
                 </div>
               </div>
@@ -258,7 +215,7 @@ export function AuthDialog({ open, onOpenChange }: AuthDialogProps) {
                   />
                 </div>
                 <p className="text-xs text-muted-foreground text-right">
-                  أدخل الرمز المكون من 6 أرقام الذي تم إرساله لك عبر واتساب. إذا لم يفتح واتساب تلقائياً، تأكد من تثبيته ثم أعد المحاولة.
+                  أدخل الرمز المكون من 6 أرقام الذي تم إرساله لك عبر تليجرام
                 </p>
               </div>
 
