@@ -1,144 +1,299 @@
-import { createContext, useContext, useEffect, useState } from "react";
-import { supabase } from "@/integrations/supabase/client";
+import { useState } from "react";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { useToast } from "@/hooks/use-toast";
+import { useAuth } from "@/contexts/AuthContext";
+import { ArrowRight, Phone, User, Hash, Mail } from "lucide-react";
 
-interface User {
-  id: string;
-  name: string;
-  telegram_username: string;
-  is_verified: boolean;
+interface AuthDialogProps {
+  open: boolean;
+  onOpenChange: (open: boolean) => void;
 }
 
-interface AuthContextType {
-  user: User | null;
-  isLoading: boolean;
-  login: (name: string, telegram_username: string) => Promise<{ success: boolean; error?: string }>;
-  verifyCode: (telegram_username: string, code: string) => Promise<{ success: boolean; error?: string }>;
-  logout: () => void;
-}
+export function AuthDialog({ open, onOpenChange }: AuthDialogProps) {
+  const [step, setStep] = useState<"contact" | "verification">("contact");
+  const [name, setName] = useState("");
+  const [contact, setContact] = useState("");
+  const [contactType, setContactType] = useState<"phone" | "email">("phone");
+  const [verificationCode, setVerificationCode] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const { toast } = useToast();
+  const { login, verifyCode } = useAuth();
 
-const AuthContext = createContext<AuthContextType | undefined>(undefined);
-
-export function AuthProvider({ children }: { children: React.ReactNode }) {
-  const [user, setUser] = useState<User | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    // تحقق من المستخدم المحفوظ في localStorage
-    const savedUser = localStorage.getItem("tafaneen_user");
-    if (savedUser) {
-      setUser(JSON.parse(savedUser));
-    }
-    setIsLoading(false);
-  }, []);
-
-  const login = async (name: string, telegram_username: string) => {
-    try {
-      // توليد رمز تحقق عشوائي
-      const verificationCode = Math.floor(100000 + Math.random() * 900000).toString();
-      
-      // حفظ أو تحديث المستخدم في قاعدة البيانات
-      const { data: existingUser } = await supabase
-        .from("users")
-        .select("*")
-        .eq("telegram_username", telegram_username)
-        .single();
-
-      if (existingUser) {
-        // تحديث المستخدم الموجود
-        await supabase
-          .from("users")
-          .update({ 
-            name, 
-            verification_code: verificationCode,
-            is_verified: false 
-          })
-          .eq("telegram_username", telegram_username);
-      } else {
-        // إنشاء مستخدم جديد
-        await supabase
-          .from("users")
-          .insert({
-            name,
-            telegram_username,
-            verification_code: verificationCode,
-            is_verified: false
-          });
-      }
-
-      // إرسال رسالة Telegram
-      const telegramResponse = await supabase.functions.invoke("send-sms", {
-        body: {
-          username: telegram_username,
-          message: `رمز التحقق الخاص بك في تفانين: ${verificationCode}`
-        }
+  const handleSendCode = async () => {
+    if (!name.trim() || !contact.trim()) {
+      toast({
+        title: "خطأ",
+        description: "يرجى إدخال الاسم ورقم الهاتف أو البريد الإلكتروني",
+        variant: "destructive",
       });
-
-      if (telegramResponse.error) {
-        console.error("Telegram sending error:", telegramResponse.error);
-        // للاختبار، سنعرض الكود في console
-        console.log(`رمز التحقق للاختبار: ${verificationCode}`);
-      }
-
-      return { success: true };
-    } catch (error: any) {
-      console.error("Login error:", error);
-      return { success: false, error: error.message };
+      return;
     }
-  };
 
-  const verifyCode = async (telegram_username: string, code: string) => {
+    // التحقق من صحة الإدخال
+    if (contactType === "phone" && !/^01[0-2|5]\d{8}$/.test(contact)) {
+      toast({
+        title: "خطأ",
+        description: "يرجى إدخال رقم هاتف صحيح",
+        variant: "destructive",
+      });
+      return;
+    } else if (contactType === "email" && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contact)) {
+      toast({
+        title: "خطأ",
+        description: "يرجى إدخال بريد إلكتروني صحيح",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setIsLoading(true);
+
     try {
-      // التحقق من رمز التحقق
-      const { data: userData, error } = await supabase
-        .from("users")
-        .select("*")
-        .eq("telegram_username", telegram_username)
-        .eq("verification_code", code)
-        .single();
+      const result = await login(name, contact);
 
-      if (error || !userData) {
-        return { success: false, error: "رمز التحقق غير صحيح" };
+      if (result.success) {
+        setStep("verification");
+
+        // فتح رابط واتساب تلقائياً إن توفر
+        if (result.whatsappUrl && contactType === "phone") {
+          try {
+            window.open(result.whatsappUrl, "_blank");
+          } catch {}
+        }
+
+        // عرض ملاحظة بالكود على الشاشة (للمساعدة)
+        if (result.code) {
+          toast({
+            title: "تم إنشاء رمز التحقق",
+            description: `رمزك: ${result.code} (صالح 10 دقائق)`,
+          });
+        }
+
+        toast({
+          title: "تم الإرسال",
+          description:
+            contactType === "phone"
+              ? "سيتم فتح واتساب برسالة تحتوي على رمز التحقق. كما يظهر الكود على الشاشة."
+              : "تم إرسال رمز التحقق.",
+        });
+      } else {
+        toast({
+          title: "خطأ",
+          description: result.error || "فشل في إرسال رمز التحقق",
+          variant: "destructive",
+        });
       }
-
-      // تحديث حالة التحقق
-      await supabase
-        .from("users")
-        .update({ is_verified: true, verification_code: null })
-        .eq("telegram_username", telegram_username);
-
-      const verifiedUser: User = {
-        id: userData.id,
-        name: userData.name,
-        telegram_username: userData.telegram_username,
-        is_verified: true
-      };
-
-      setUser(verifiedUser);
-      localStorage.setItem("tafaneen_user", JSON.stringify(verifiedUser));
-
-      return { success: true };
-    } catch (error: any) {
-      console.error("Verification error:", error);
-      return { success: false, error: error.message };
+    } catch (error) {
+      toast({
+        title: "خطأ",
+        description: "فشل في إرسال رمز التحقق",
+        variant: "destructive",
+      });
+    } finally {
+      setIsLoading(false);
     }
   };
 
-  const logout = () => {
-    setUser(null);
-    localStorage.removeItem("tafaneen_user");
+  const handleVerifyCode = async () => {
+    if (verificationCode.length !== 6) {
+      toast({
+        title: "خطأ",
+        description: "يرجى إدخال رمز التحقق المكون من 6 أرقام",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setIsLoading(true);
+    
+    try {
+      const result = await verifyCode(contact, verificationCode);
+      
+      if (result.success) {
+        toast({
+          title: "مرحباً بك!",
+          description: `تم تسجيل الدخول بنجاح، أهلاً ${name}`,
+        });
+        onOpenChange(false);
+        // إعادة تعيين النموذج
+        setStep("contact");
+        setName("");
+        setContact("");
+        setVerificationCode("");
+      } else {
+        toast({
+          title: "خطأ",
+          description: result.error || "رمز التحقق غير صحيح",
+          variant: "destructive",
+        });
+      }
+    } catch (error) {
+      toast({
+        title: "خطأ",
+        description: "فشل في التحقق من الرمز",
+        variant: "destructive",
+      });
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleBack = () => {
+    setStep("contact");
+    setVerificationCode("");
+  };
+
+  const toggleContactType = () => {
+    setContactType(contactType === "phone" ? "email" : "phone");
+    setContact("");
   };
 
   return (
-    <AuthContext.Provider value={{ user, isLoading, login, verifyCode, logout }}>
-      {children}
-    </AuthContext.Provider>
-  );
-}
+    <Dialog open={open} onOpenChange={onOpenChange}>
+      <DialogContent className="sm:max-w-md" dir="rtl">
+        <DialogHeader className="text-center">
+          <DialogTitle className="text-2xl font-bold text-gradient">
+            {step === "contact" ? "تسجيل الدخول" : "رمز التحقق"}
+          </DialogTitle>
+        </DialogHeader>
 
-export function useAuth() {
-  const context = useContext(AuthContext);
-  if (context === undefined) {
-    throw new Error("useAuth must be used within an AuthProvider");
-  }
-  return context;
+        <div className="space-y-6 py-4">
+          {step === "contact" ? (
+            <>
+              <div className="space-y-4">
+                <div className="space-y-2">
+                  <Label htmlFor="name" className="text-right">الاسم</Label>
+                  <div className="relative">
+                    <User className="absolute right-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
+                    <Input
+                      id="name"
+                      type="text"
+                      placeholder="أدخل اسمك"
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                      className="pr-10"
+                      dir="rtl"
+                    />
+                  </div>
+                </div>
+
+                <div className="space-y-2">
+                  <div className="flex justify-between items-center">
+                    <Label htmlFor="contact" className="text-right">
+                      {contactType === "phone" ? "رقم الهاتف" : "البريد الإلكتروني"}
+                    </Label>
+                    <Button 
+                      variant="ghost" 
+                      size="sm" 
+                      onClick={toggleContactType}
+                      className="text-xs text-primary"
+                    >
+                      التبديل إلى {contactType === "phone" ? "البريد الإلكتروني" : "رقم الهاتف"}
+                    </Button>
+                  </div>
+                  <div className="relative">
+                    {contactType === "phone" ? (
+                      <Phone className="absolute right-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
+                    ) : (
+                      <Mail className="absolute right-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
+                    )}
+                    <Input
+                      id="contact"
+                      type={contactType === "phone" ? "tel" : "email"}
+                      placeholder={contactType === "phone" ? "01xxxxxxxxx" : "example@example.com"}
+                      value={contact}
+                      onChange={(e) => setContact(e.target.value)}
+                      className="pr-10"
+                      dir={contactType === "phone" ? "ltr" : "rtl"}
+                    />
+                  </div>
+                  <p className="text-xs text-muted-foreground text-right">
+                    سيتم إرسال رمز التحقق على {contactType === "phone" ? "هذا الرقم" : "هذا البريد"}
+                  </p>
+                </div>
+              </div>
+
+              <Button 
+                onClick={handleSendCode} 
+                disabled={isLoading}
+                className="w-full btn-tafaneen"
+              >
+                {isLoading ? "جاري الإرسال..." : "إرسال رمز التحقق"}
+              </Button>
+
+              <div className="text-center mt-4">
+                <a 
+                  href="/verify-code" 
+                  className="text-sm text-primary hover:underline"
+                  onClick={() => onOpenChange(false)}
+                >
+                  لديك رمز تفعيل؟ اضغط هنا للتحقق منه
+                </a>
+              </div>
+            </>
+          ) : (
+            <>
+              <div className="text-center space-y-2">
+                <p className="text-sm text-muted-foreground">
+                  تم إرسال رمز التحقق إلى
+                </p>
+                <p className="font-medium text-primary">{contact}</p>
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="code" className="text-right">رمز التحقق</Label>
+                <div className="relative">
+                  <Hash className="absolute right-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
+                  <Input
+                    id="code"
+                    type="text"
+                    placeholder="xxxxxx"
+                    value={verificationCode}
+                    onChange={(e) => setVerificationCode(e.target.value.replace(/\D/g, '').slice(0, 6))}
+                    className="pr-10 text-center text-lg tracking-widest"
+                    dir="ltr"
+                  />
+                </div>
+                <p className="text-xs text-muted-foreground text-right">
+                  أدخل الرمز المكون من 6 أرقام الذي تم إرساله لك عبر واتساب. إذا لم يفتح واتساب تلقائياً، تأكد من تثبيته ثم أعد المحاولة.
+                </p>
+              </div>
+
+              <div className="space-y-3">
+                <Button 
+                  onClick={handleVerifyCode} 
+                  disabled={isLoading || verificationCode.length !== 6}
+                  className="w-full btn-tafaneen"
+                >
+                  {isLoading ? "جاري التحقق..." : "تأكيد"}
+                </Button>
+
+                <Button 
+                  onClick={handleBack} 
+                  variant="ghost" 
+                  className="w-full"
+                >
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                  العودة
+                </Button>
+
+                <div className="text-center mt-2">
+                  <a 
+                    href="/verify-code" 
+                    className="text-sm text-primary hover:underline"
+                    onClick={() => onOpenChange(false)}
+                  >
+                    الذهاب إلى صفحة تفعيل الحساب
+                  </a>
+                </div>
+              </div>
+            </>
+          )}
+        </div>
+      </DialogContent>
+    </Dialog>
+  );
 }
