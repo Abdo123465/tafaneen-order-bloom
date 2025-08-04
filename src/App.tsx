@@ -5,11 +5,11 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import { CartProvider } from "@/contexts/CartContext";
 import { AuthProvider } from "@/contexts/AuthContext";
-import Index from "./pages/Index";
-import NotFound from "./pages/NotFound";
-import Login from "./pages/Login";
-import Confirm from "./pages/Confirm";
-import { TestVerification } from "./test-verification";
+import Index from "./pages/Index.tsx";
+import NotFound from "./pages/NotFound.tsx";
+import Login from "./pages/Login.tsx";
+import Confirm from "./pages/Confirm.tsx";
+import { TestVerification } from "./test-verification.tsx";
 
 const queryClient = new QueryClient();
 
