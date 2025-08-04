@@ -109,16 +109,6 @@ export function Header() {
 
             {/* Shopping Cart */}
             <Cart />
-
-            {/* Login/Logout Button */}
-            {user ? null : (
-              <Button 
-                className="btn-tafaneen hidden md:flex"
-                onClick={() => setIsAuthOpen(true)}
-              >
-                تسجيل الدخول
-              </Button>
-            )}
           </div>
         </div>
 
@@ -176,15 +166,33 @@ export function Header() {
                   </Button>
                 </div>
               ) : (
-                <Button 
-                  className="btn-tafaneen mt-4"
-                  onClick={() => setIsAuthOpen(true)}
-                >
-                  تسجيل الدخول
-                </Button>
+                <div className="mt-4 pt-4 border-t space-y-2">
+                  <Button 
+                    className="btn-tafaneen w-full"
+                    onClick={() => {
+                      setIsAuthOpen(true);
+                      setIsMenuOpen(false);
+                    }}
+                  >
+                    تسجيل الدخول
+                  </Button>
+                </div>
               )}
             </div>
           </nav>
+        </div>
+      )}
+
+      {/* Floating Login Button for Mobile - Only show when menu is closed and user is not logged in */}
+      {!user && !isMenuOpen && (
+        <div className="md:hidden fixed bottom-20 left-4 z-40">
+          <Button 
+            className="btn-tafaneen shadow-glow"
+            onClick={() => setIsAuthOpen(true)}
+          >
+            <User className="ml-2 h-4 w-4" />
+            دخول
+          </Button>
         </div>
       )}
 
