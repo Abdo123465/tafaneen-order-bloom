@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import { useAuth } from "@/contexts/AuthContext";
-import { ArrowRight, AtSign, User, Hash } from "lucide-react";
+import { ArrowRight, Phone, User, Hash, Mail } from "lucide-react";
 
 interface AuthDialogProps {
   open: boolean;
@@ -13,45 +13,71 @@ interface AuthDialogProps {
 }
 
 export function AuthDialog({ open, onOpenChange }: AuthDialogProps) {
-  const [step, setStep] = useState<"username" | "verification">("username");
+  const [step, setStep] = useState<"contact" | "verification">("contact");
   const [name, setName] = useState("");
-  const [telegramUsername, setTelegramUsername] = useState("");
+  const [contact, setContact] = useState("");
+  const [contactType, setContactType] = useState<"phone" | "email">("phone");
   const [verificationCode, setVerificationCode] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
   const { login, verifyCode } = useAuth();
 
   const handleSendCode = async () => {
-    if (!name.trim() || !telegramUsername.trim()) {
+    if (!name.trim() || !contact.trim()) {
       toast({
         title: "خطأ",
-        description: "يرجى إدخال الاسم واسم المستخدم في تيليجرام",
+        description: "يرجى إدخال الاسم ورقم الهاتف أو البريد الإلكتروني",
         variant: "destructive",
       });
       return;
     }
 
-    // التحقق من صحة اسم المستخدم
-    const username = telegramUsername.startsWith("@") ? telegramUsername : `@${telegramUsername}`;
-    if (!/^@[a-zA-Z0-9_]{5,32}$/.test(username)) {
+    // التحقق من صحة الإدخال
+    if (contactType === "phone" && !/^01[0-2|5]\d{8}$/.test(contact)) {
       toast({
         title: "خطأ",
-        description: "يرجى إدخال اسم مستخدم صحيح في تيليجرام",
+        description: "يرجى إدخال رقم هاتف صحيح",
+        variant: "destructive",
+      });
+      return;
+    } else if (contactType === "email" && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contact)) {
+      toast({
+        title: "خطأ",
+        description: "يرجى إدخال بريد إلكتروني صحيح",
         variant: "destructive",
       });
       return;
     }
 
     setIsLoading(true);
-    
+
     try {
-      const result = await login(name, username);
-      
+      const result = await login(name, contact);
+
       if (result.success) {
         setStep("verification");
+
+        // فتح رابط واتساب تلقائياً إن توفر
+        if (result.whatsappUrl && contactType === "phone") {
+          try {
+            window.open(result.whatsappUrl, "_blank");
+          } catch {}
+        }
+
+        // عرض ملاحظة بالكود على الشاشة (للمساعدة)
+        if (result.code) {
+          toast({
+            title: "تم إنشاء رمز التحقق",
+            description: `رمزك: ${result.code} (صالح 10 دقائق)`,
+          });
+        }
+
         toast({
           title: "تم الإرسال",
-          description: "تم إرسال رمز التحقق إلى حسابك في تيليجرام",
+          description:
+            contactType === "phone"
+              ? "سيتم فتح واتساب برسالة تحتوي على رمز التحقق. كما يظهر الكود على الشاشة."
+              : "تم إرسال رمز التحقق.",
         });
       } else {
         toast({
@@ -84,8 +110,7 @@ export function AuthDialog({ open, onOpenChange }: AuthDialogProps) {
     setIsLoading(true);
     
     try {
-      const username = telegramUsername.startsWith("@") ? telegramUsername : `@${telegramUsername}`;
-      const result = await verifyCode(username, verificationCode);
+      const result = await verifyCode(contact, verificationCode);
       
       if (result.success) {
         toast({
@@ -94,9 +119,9 @@ export function AuthDialog({ open, onOpenChange }: AuthDialogProps) {
         });
         onOpenChange(false);
         // إعادة تعيين النموذج
-        setStep("username");
+        setStep("contact");
         setName("");
-        setTelegramUsername("");
+        setContact("");
         setVerificationCode("");
       } else {
         toast({
@@ -117,8 +142,13 @@ export function AuthDialog({ open, onOpenChange }: AuthDialogProps) {
   };
 
   const handleBack = () => {
-    setStep("username");
+    setStep("contact");
     setVerificationCode("");
+  };
+
+  const toggleContactType = () => {
+    setContactType(contactType === "phone" ? "email" : "phone");
+    setContact("");
   };
 
   return (
@@ -126,12 +156,12 @@ export function AuthDialog({ open, onOpenChange }: AuthDialogProps) {
       <DialogContent className="sm:max-w-md" dir="rtl">
         <DialogHeader className="text-center">
           <DialogTitle className="text-2xl font-bold text-gradient">
-            {step === "username" ? "تسجيل الدخول" : "رمز التحقق"}
+            {step === "contact" ? "تسجيل الدخول" : "رمز التحقق"}
           </DialogTitle>
         </DialogHeader>
 
         <div className="space-y-6 py-4">
-          {step === "username" ? (
+          {step === "contact" ? (
             <>
               <div className="space-y-4">
                 <div className="space-y-2">
@@ -151,21 +181,37 @@ export function AuthDialog({ open, onOpenChange }: AuthDialogProps) {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="telegram" className="text-right">اسم المستخدم في تيليجرام</Label>
+                  <div className="flex justify-between items-center">
+                    <Label htmlFor="contact" className="text-right">
+                      {contactType === "phone" ? "رقم الهاتف" : "البريد الإلكتروني"}
+                    </Label>
+                    <Button 
+                      variant="ghost" 
+                      size="sm" 
+                      onClick={toggleContactType}
+                      className="text-xs text-primary"
+                    >
+                      التبديل إلى {contactType === "phone" ? "البريد الإلكتروني" : "رقم الهاتف"}
+                    </Button>
+                  </div>
                   <div className="relative">
-                    <AtSign className="absolute right-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
+                    {contactType === "phone" ? (
+                      <Phone className="absolute right-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
+                    ) : (
+                      <Mail className="absolute right-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
+                    )}
                     <Input
-                      id="telegram"
-                      type="text"
-                      placeholder="username أو @username"
-                      value={telegramUsername}
-                      onChange={(e) => setTelegramUsername(e.target.value)}
+                      id="contact"
+                      type={contactType === "phone" ? "tel" : "email"}
+                      placeholder={contactType === "phone" ? "01xxxxxxxxx" : "example@example.com"}
+                      value={contact}
+                      onChange={(e) => setContact(e.target.value)}
                       className="pr-10"
-                      dir="ltr"
+                      dir={contactType === "phone" ? "ltr" : "rtl"}
                     />
                   </div>
                   <p className="text-xs text-muted-foreground text-right">
-                    سيتم إرسال رمز التحقق عبر تيليجرام. تأكد من إرسال رسالة للبوت أولاً
+                    سيتم إرسال رمز التحقق على {contactType === "phone" ? "هذا الرقم" : "هذا البريد"}
                   </p>
                 </div>
               </div>
@@ -177,14 +223,24 @@ export function AuthDialog({ open, onOpenChange }: AuthDialogProps) {
               >
                 {isLoading ? "جاري الإرسال..." : "إرسال رمز التحقق"}
               </Button>
+
+              <div className="text-center mt-4">
+                <a 
+                  href="/verify-code" 
+                  className="text-sm text-primary hover:underline"
+                  onClick={() => onOpenChange(false)}
+                >
+                  لديك رمز تفعيل؟ اضغط هنا للتحقق منه
+                </a>
+              </div>
             </>
           ) : (
             <>
               <div className="text-center space-y-2">
                 <p className="text-sm text-muted-foreground">
-                  تم إرسال رمز التحقق إلى حسابك في تيليجرام
+                  تم إرسال رمز التحقق إلى
                 </p>
-                <p className="font-medium text-primary">{telegramUsername}</p>
+                <p className="font-medium text-primary">{contact}</p>
               </div>
 
               <div className="space-y-2">
@@ -202,7 +258,7 @@ export function AuthDialog({ open, onOpenChange }: AuthDialogProps) {
                   />
                 </div>
                 <p className="text-xs text-muted-foreground text-right">
-                  أدخل الرمز المكون من 6 أرقام الذي تم إرساله لك
+                  أدخل الرمز المكون من 6 أرقام الذي تم إرساله لك عبر واتساب. إذا لم يفتح واتساب تلقائياً، تأكد من تثبيته ثم أعد المحاولة.
                 </p>
               </div>
 
@@ -223,6 +279,16 @@ export function AuthDialog({ open, onOpenChange }: AuthDialogProps) {
                   <ArrowRight className="ml-2 h-4 w-4" />
                   العودة
                 </Button>
+
+                <div className="text-center mt-2">
+                  <a 
+                    href="/verify-code" 
+                    className="text-sm text-primary hover:underline"
+                    onClick={() => onOpenChange(false)}
+                  >
+                    الذهاب إلى صفحة تفعيل الحساب
+                  </a>
+                </div>
               </div>
             </>
           )}
