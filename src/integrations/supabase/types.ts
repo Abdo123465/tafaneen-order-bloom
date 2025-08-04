@@ -20,7 +20,7 @@ export type Database = {
           id: string
           is_verified: boolean | null
           name: string
-          phone: string
+          telegram_username: string
           updated_at: string
           verification_code: string | null
         }
@@ -29,7 +29,7 @@ export type Database = {
           id?: string
           is_verified?: boolean | null
           name: string
-          phone: string
+          telegram_username: string
           updated_at?: string
           verification_code?: string | null
         }
@@ -38,7 +38,7 @@ export type Database = {
           id?: string
           is_verified?: boolean | null
           name?: string
-          phone?: string
+          telegram_username?: string
           updated_at?: string
           verification_code?: string | null
         }
