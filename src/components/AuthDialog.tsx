@@ -5,7 +5,8 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import { useAuth } from "@/contexts/AuthContext";
-import { ArrowRight, User, Hash, Phone, Mail } from "lucide-react";
+import { ArrowRight, User, Hash, Phone } from "lucide-react";
+import { validateEgyptianPhone, formatEgyptianPhone } from "@/utils/phoneValidation";
 
 interface AuthDialogProps {
   open: boolean;
@@ -16,15 +17,26 @@ export function AuthDialog({ open, onOpenChange }: AuthDialogProps) {
   const [step, setStep] = useState<"contact" | "verification">("contact");
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
-  const [email, setEmail] = useState("");
+  const [phoneError, setPhoneError] = useState("");
   
   const [verificationCode, setVerificationCode] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
   const { login, verifyCode } = useAuth();
 
+  const handlePhoneChange = (value: string) => {
+    setPhone(value);
+    setPhoneError("");
+    
+    if (value.trim()) {
+      const validation = validateEgyptianPhone(value);
+      if (!validation.isValid) {
+        setPhoneError(validation.errorMessage || "رقم الهاتف غير صحيح");
+      }
+    }
+  };
   const handleSendCode = async () => {
-    if (!name.trim() || !phone.trim() || !email.trim()) {
+    if (!name.trim() || !phone.trim()) {
       toast({
         title: "خطأ",
         description: "يرجى إدخال جميع البيانات المطلوبة",
@@ -33,39 +45,29 @@ export function AuthDialog({ open, onOpenChange }: AuthDialogProps) {
       return;
     }
 
-    // التحقق من صحة البريد الإلكتروني
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
+    // التحقق من صحة رقم الهاتف المصري
+    const phoneValidation = validateEgyptianPhone(phone);
+    if (!phoneValidation.isValid) {
       toast({
         title: "خطأ",
-        description: "يرجى إدخال بريد إلكتروني صحيح",
+        description: phoneValidation.errorMessage || "يرجى إدخال رقم هاتف مصري صحيح",
         variant: "destructive",
       });
       return;
     }
 
-    // التحقق من صحة رقم الهاتف
-    const phoneRegex = /^(\+966|0)?[5][0-9]{8}$/;
-    if (!phoneRegex.test(phone)) {
-      toast({
-        title: "خطأ",
-        description: "يرجى إدخال رقم هاتف سعودي صحيح",
-        variant: "destructive",
-      });
-      return;
-    }
 
     setIsLoading(true);
 
     try {
-      const result = await login(name, phone, email);
+      const result = await login(name, phone);
 
       if (result.success) {
         setStep("verification");
 
         toast({
           title: "تم الإرسال",
-          description: "تم إرسال رمز التحقق إلى بريدك الإلكتروني",
+          description: "تم إرسال رمز التحقق إلى هاتفك",
         });
       } else {
         toast({
@@ -110,7 +112,7 @@ export function AuthDialog({ open, onOpenChange }: AuthDialogProps) {
         setStep("contact");
         setName("");
         setPhone("");
-        setEmail("");
+        setPhoneError("");
         setVerificationCode("");
       } else {
         toast({
@@ -173,43 +175,25 @@ export function AuthDialog({ open, onOpenChange }: AuthDialogProps) {
                     <Input
                       id="phone"
                       type="tel"
-                      placeholder="05xxxxxxxx"
+                      placeholder="010xxxxxxxx أو +20 10xxxxxxxx"
                       value={phone}
-                      onChange={(e) => setPhone(e.target.value)}
-                      className="pr-10"
+                      onChange={(e) => handlePhoneChange(e.target.value)}
+                      className={`pr-10 ${phoneError ? 'border-destructive' : ''}`}
                       dir="ltr"
                     />
                   </div>
+                  {phoneError && (
+                    <p className="text-xs text-destructive text-right">{phoneError}</p>
+                  )}
                   <p className="text-xs text-muted-foreground text-right">
-                    رقم هاتف سعودي صحيح
-                  </p>
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="email" className="text-right">
-                    البريد الإلكتروني
-                  </Label>
-                  <div className="relative">
-                    <Mail className="absolute right-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
-                    <Input
-                      id="email"
-                      type="email"
-                      placeholder="example@email.com"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      className="pr-10"
-                      dir="ltr"
-                    />
-                  </div>
-                  <p className="text-xs text-muted-foreground text-right">
-                    سيتم إرسال رمز التحقق إلى هذا البريد الإلكتروني
+                    رقم هاتف مصري صحيح (موبايل أو أرضي)
                   </p>
                 </div>
               </div>
 
               <Button 
                 onClick={handleSendCode} 
-                disabled={isLoading}
+                disabled={isLoading || !!phoneError}
                 className="w-full btn-tafaneen"
               >
                 {isLoading ? "جاري الإرسال..." : "إرسال رمز التحقق"}
@@ -221,7 +205,7 @@ export function AuthDialog({ open, onOpenChange }: AuthDialogProps) {
                 <p className="text-sm text-muted-foreground">
                   تم إرسال رمز التحقق إلى
                 </p>
-                <p className="font-medium text-primary">{email}</p>
+                <p className="font-medium text-primary">{formatEgyptianPhone(phone)}</p>
               </div>
 
               <div className="space-y-2">
@@ -239,7 +223,7 @@ export function AuthDialog({ open, onOpenChange }: AuthDialogProps) {
                   />
                 </div>
                 <p className="text-xs text-muted-foreground text-right">
-                  أدخل الرمز المكون من 6 أرقام الذي تم إرساله إلى بريدك الإلكتروني
+                  أدخل الرمز المكون من 6 أرقام الذي تم إرساله إلى هاتفك
                 </p>
               </div>
 

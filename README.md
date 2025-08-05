@@ -4,6 +4,37 @@
 
 **URL**: https://lovable.dev/projects/7aec8b54-b785-4515-ae86-bca1479d557f
 
+## Recent Updates
+
+### Resend API Integration & Egyptian Phone Validation
+
+This project has been updated with the following features:
+
+1. **Resend API Integration**
+   - Integrated Resend API with key: `re_7YowBuAL_C9yRZ8HkfUyKWEFERvqYU3k7`
+   - Updated email service to support SMS simulation
+   - Proper error handling and authentication
+
+2. **Egyptian Phone Number Validation**
+   - Comprehensive validation for Egyptian phone numbers
+   - Supports mobile numbers: 010, 011, 012, 015 (11 digits total)
+   - Supports landline numbers with area codes (9-11 digits total)
+   - International format support: +20 followed by local number
+   - Real-time validation with user-friendly error messages
+
+3. **Form Modifications**
+   - Removed all email input fields from authentication forms
+   - Updated cart customer information form
+   - Phone-based authentication system
+   - Updated database schema to remove email dependency
+
+4. **Validation Features**
+   - `validateEgyptianPhone()` - Validates Egyptian phone numbers
+   - `formatEgyptianPhone()` - Formats phone numbers for display
+   - `normalizeEgyptianPhone()` - Normalizes phone numbers for storage
+   - Real-time validation feedback in forms
+   - Proper error handling and user guidance
+
 ## How can I edit this code?
 
 There are several ways of editing your application.

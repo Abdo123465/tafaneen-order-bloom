@@ -1,5 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
+import { normalizeEgyptianPhone, validateEgyptianPhone } from "@/utils/phoneValidation";
 
 interface User {
   id: string;
@@ -11,7 +12,7 @@ interface User {
 interface AuthContextType {
   user: User | null;
   isLoading: boolean;
-  login: (name: string, phone: string, email: string) => Promise<{ success: boolean; error?: string }>;
+  login: (name: string, phone: string) => Promise<{ success: boolean; error?: string }>;
   verifyCode: (phone: string, code: string) => Promise<{ success: boolean; error?: string }>;
   logout: () => void;
 }
@@ -30,8 +31,20 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     setIsLoading(false);
   }, []);
 
-  const login = async (name: string, phone: string, email: string) => {
+  const login = async (name: string, phone: string) => {
     try {
+      // التحقق من صحة رقم الهاتف المصري
+      const phoneValidation = validateEgyptianPhone(phone);
+      if (!phoneValidation.isValid) {
+        return { 
+          success: false, 
+          error: phoneValidation.errorMessage || "رقم الهاتف غير صحيح" 
+        };
+      }
+
+      // تطبيع رقم الهاتف للتخزين
+      const normalizedPhone = normalizeEgyptianPhone(phone);
+      
       // توليد رمز تحقق عشوائي
       const verificationCode = Math.floor(100000 + Math.random() * 900000).toString();
       
@@ -39,7 +52,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       const { data: existingUser } = await supabase
         .from("users")
         .select("*")
-        .eq("phone", phone)
+        .eq("phone", normalizedPhone)
         .maybeSingle();
 
       if (existingUser) {
@@ -48,42 +61,40 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
           .from("users")
           .update({ 
             name,
-            email,
             verification_code: verificationCode,
             is_verified: false 
           })
-          .eq("phone", phone);
+          .eq("phone", normalizedPhone);
       } else {
         // إنشاء مستخدم جديد
         await supabase
           .from("users")
           .insert({
             name,
-            phone,
-            email,
+            phone: normalizedPhone,
             verification_code: verificationCode,
             is_verified: false
           });
       }
 
-      // إرسال البريد الإلكتروني
+      // محاكاة إرسال رسالة نصية (SMS)
       try {
-        const emailResponse = await supabase.functions.invoke("send-email", {
+        const smsResponse = await supabase.functions.invoke("send-email", {
           body: {
-            email,
+            phone: normalizedPhone,
             verificationCode,
             name
           }
         });
 
-        if (emailResponse.error) {
-          console.error("Email sending error:", emailResponse.error);
+        if (smsResponse.error) {
+          console.error("SMS sending error:", smsResponse.error);
           // للاختبار، سنعرض الكود في console
           console.log(`رمز التحقق للاختبار: ${verificationCode}`);
           alert(`رمز التحقق للاختبار: ${verificationCode}`);
         }
       } catch (error) {
-        console.error("Error invoking send-email function:", error);
+        console.error("Error invoking send-sms function:", error);
         // للاختبار، سنعرض الكود في console
         console.log(`رمز التحقق للاختبار: ${verificationCode}`);
         alert(`رمز التحقق للاختبار: ${verificationCode}`);
@@ -98,11 +109,14 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   const verifyCode = async (phone: string, code: string) => {
     try {
+      // تطبيع رقم الهاتف للبحث
+      const normalizedPhone = normalizeEgyptianPhone(phone);
+      
       // التحقق من رمز التحقق
       const { data: userData, error } = await supabase
         .from("users")
         .select("*")
-        .eq("phone", phone)
+        .eq("phone", normalizedPhone)
         .eq("verification_code", code)
         .maybeSingle();
 
@@ -114,7 +128,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       await supabase
         .from("users")
         .update({ is_verified: true, verification_code: null })
-        .eq("phone", phone);
+        .eq("phone", normalizedPhone);
 
       const verifiedUser: User = {
         id: userData.id,

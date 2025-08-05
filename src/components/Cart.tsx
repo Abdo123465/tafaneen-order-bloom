@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { useCart } from "@/contexts/CartContext";
 import { useToast } from "@/hooks/use-toast";
+import { validateEgyptianPhone, formatEgyptianPhone } from "@/utils/phoneValidation";
 
 export function Cart() {
   const { items, updateQuantity, removeItem, getTotalPrice, getItemCount, clearCart } = useCart();
@@ -22,6 +23,17 @@ export function Cart() {
   const cartCount = getItemCount();
   const totalPrice = getTotalPrice();
 
+  const handlePhoneChange = (value: string) => {
+    setCustomerPhone(value);
+    setCustomerPhoneError('');
+    
+    if (value.trim()) {
+      const validation = validateEgyptianPhone(value);
+      if (!validation.isValid) {
+        setCustomerPhoneError(validation.errorMessage || "رقم الهاتف غير صحيح");
+      }
+    }
+  };
   const generateInvoiceNumber = () => {
     return `TF-${Date.now().toString().slice(-8)}`;
   };
@@ -37,6 +49,12 @@ export function Cart() {
       return;
     }
 
+    // التحقق من صحة رقم الهاتف المصري
+    const phoneValidation = validateEgyptianPhone(customerPhone);
+    if (!phoneValidation.isValid) {
+      setCustomerPhoneError(phoneValidation.errorMessage || "يرجى إدخال رقم هاتف مصري صحيح");
+      return;
+    }
     const invoiceNumber = generateInvoiceNumber();
     const today = new Date();
     const date = today.toLocaleDateString('ar-EG');
@@ -50,6 +68,8 @@ export function Cart() {
 المجموع: ${item.price * item.quantity} ج.م`
     ).join('\n\n');
     
+    const formattedPhone = formatEgyptianPhone(customerPhone);
+    
     const message = `فاتورة طلب - مكتبة تفانيين
 
 معلومات الفاتورة:
@@ -60,7 +80,7 @@ export function Cart() {
 
 معلومات العميل:
 الاسم: ${customerName}
-رقم الهاتف: ${customerPhone}
+رقم الهاتف: ${formattedPhone}
 
 المنتجات المطلوبة:
 ${orderItems}
@@ -446,14 +466,15 @@ ${orderItems}
                       <Input
                         id="customerPhone"
                         value={customerPhone}
-                        onChange={(e) => {
-                          setCustomerPhone(e.target.value);
-                          setCustomerPhoneError(e.target.value ? '' : 'يرجى إدخال رقم الهاتف');
-                        }}
-                        placeholder="أدخل رقم الهاتف"
-                        className="text-right"
+                        onChange={(e) => handlePhoneChange(e.target.value)}
+                        placeholder="010xxxxxxxx أو +20 10xxxxxxxx"
+                        className={`text-right ${customerPhoneError ? 'border-destructive' : ''}`}
+                        dir="ltr"
                       />
                       {customerPhoneError && <p className="text-destructive text-sm mt-1 text-right">{customerPhoneError}</p>}
+                      <p className="text-xs text-muted-foreground text-right mt-1">
+                        رقم هاتف مصري صحيح (موبايل أو أرضي)
+                      </p>
                     </div>
                   </div>
                   
@@ -462,6 +483,7 @@ ${orderItems}
                     className="w-full flex items-center gap-2"
                     style={{ backgroundColor: '#25D366', color: 'white' }}
                     onClick={handleWhatsAppNotification}
+                    disabled={!!customerPhoneError}
                   >
                     <MessageCircle className="h-4 w-4" />
                     إرسال الإشعار عبر واتساب

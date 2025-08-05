@@ -27,7 +27,7 @@ export function Header() {
         <div className="container mx-auto px-4 py-2">
           <div className="flex justify-between items-center text-sm">
             <div className="flex items-center gap-4">
-              <span>📞 للطلب: 01234567890</span>
+              <span>📞 للطلب: 01026274235</span>
               <Button 
                 variant="ghost" 
                 size="sm" 

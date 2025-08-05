@@ -82,15 +82,11 @@ export function Footer() {
             <div className="space-y-3">
               <div className="flex items-center gap-3">
                 <Phone className="h-4 w-4" />
-                <span className="text-sm">01234567890</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <Mail className="h-4 w-4" />
-                <span className="text-sm">info@tafaneen.net</span>
+                <span className="text-sm">01026274235</span>
               </div>
               <div className="flex items-center gap-3">
                 <MapPin className="h-4 w-4" />
-                <span className="text-sm">الرياض، المملكة العربية السعودية</span>
+                <span className="text-sm">122 ز البوابة الاولي حدائق الاهرام، الجيزة، مصر</span>
               </div>
             </div>
           </div>
@@ -146,7 +142,7 @@ export function Footer() {
 
             {/* Payment Methods */}
             <div className="text-white/80 text-sm">
-              طرق الدفع: فيزا | ماستركارد | فودافون كاش
+              طرق الدفع: كاش | فودافون كاش | أورانج موني
             </div>
           </div>
         </div>
