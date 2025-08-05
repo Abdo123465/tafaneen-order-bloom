@@ -12,7 +12,7 @@ export function OffersCarousel() {
       description: "جميع أنواع الأقلام والمساطر الهندسية",
       discount: "50%",
       icon: PenTool,
-      color: "bg-gradient-to-r from-red-600 to-red-700"
+      color: "bg-gradient-to-r from-primary to-primary-dark"
     },
     {
       id: 2,
@@ -20,7 +20,7 @@ export function OffersCarousel() {
       description: "دفاتر ومذكرات بجودة عالية",
       discount: "30%",
       icon: BookOpen,
-      color: "bg-gradient-to-r from-blue-600 to-blue-700"
+      color: "bg-gradient-to-r from-primary to-primary-dark"
     },
     {
       id: 3,
@@ -28,7 +28,7 @@ export function OffersCarousel() {
       description: "آلات حاسبة ومساطر وبوصلات",
       discount: "40%",
       icon: Calculator,
-      color: "bg-gradient-to-r from-green-600 to-green-700"
+      color: "bg-gradient-to-r from-primary to-primary-dark"
     },
     {
       id: 4,
@@ -36,7 +36,7 @@ export function OffersCarousel() {
       description: "ألوان وفرش ولوازم الرسم",
       discount: "35%",
       icon: Palette,
-      color: "bg-gradient-to-r from-purple-600 to-purple-700"
+      color: "bg-gradient-to-r from-primary to-primary-dark"
     },
     {
       id: 5,
@@ -44,7 +44,7 @@ export function OffersCarousel() {
       description: "منظمات وملفات لتنظيم مكتبك",
       discount: "25%",
       icon: GraduationCap,
-      color: "bg-gradient-to-r from-orange-600 to-orange-700"
+      color: "bg-gradient-to-r from-primary to-primary-dark"
     }
   ];
 
@@ -76,8 +76,8 @@ export function OffersCarousel() {
             {/* Content */}
             <div className="text-center lg:text-right space-y-6 flex-1">
               <div className="flex items-center justify-center lg:justify-start gap-3">
-                <IconComponent className="h-8 w-8 text-yellow-300" />
-                <span className="bg-yellow-300 text-gray-800 px-4 py-2 rounded-full text-sm font-bold">
+                <IconComponent className="h-8 w-8 text-accent" />
+                <span className="bg-accent text-accent-foreground px-4 py-2 rounded-full text-sm font-bold">
                   عرض خاص
                 </span>
               </div>
@@ -90,11 +90,11 @@ export function OffersCarousel() {
                 {currentOffer.description}
               </p>
               
-              <div className="text-6xl font-bold text-yellow-300">
+              <div className="text-6xl font-bold text-accent">
                 خصم {currentOffer.discount}
               </div>
               
-              <div className="flex items-center justify-center lg:justify-start gap-1 text-yellow-300">
+              <div className="flex items-center justify-center lg:justify-start gap-1 text-accent">
                 {[...Array(5)].map((_, i) => (
                   <Star key={i} className="h-5 w-5 fill-current" />
                 ))}
@@ -105,7 +105,7 @@ export function OffersCarousel() {
             {/* CTA */}
             <div className="flex flex-col gap-4">
               <Button 
-                className="bg-yellow-400 hover:bg-yellow-300 text-gray-800 font-bold text-lg px-8 py-4 h-auto border-2 border-yellow-300"
+                className="bg-accent hover:bg-accent/90 text-accent-foreground font-bold text-lg px-8 py-4 h-auto border-2 border-accent"
               >
                 اطلب الآن
                 <ArrowLeft className="mr-2 h-5 w-5" />
@@ -113,7 +113,7 @@ export function OffersCarousel() {
               
               <Button 
                 variant="outline" 
-                className="border-2 border-white text-white hover:bg-white hover:text-gray-800 text-lg px-8 py-4 h-auto"
+                className="border-2 border-white text-white hover:bg-white hover:text-foreground text-lg px-8 py-4 h-auto"
               >
                 تفاصيل العرض
               </Button>
@@ -139,7 +139,7 @@ export function OffersCarousel() {
                   onClick={() => setCurrentSlide(index)}
                   className={`w-3 h-3 rounded-full transition-all ${
                     index === currentSlide 
-                      ? 'bg-yellow-300 w-8' 
+                      ? 'bg-accent w-8' 
                       : 'bg-white/50 hover:bg-white/80'
                   }`}
                 />
@@ -160,8 +160,8 @@ export function OffersCarousel() {
 
       {/* Background Decoration */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-        <div className="absolute top-4 left-10 w-20 h-20 bg-yellow-300 rounded-full opacity-10 animate-float"></div>
-        <div className="absolute bottom-4 right-10 w-16 h-16 bg-yellow-300 rounded-full opacity-20 animate-float" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute top-4 left-10 w-20 h-20 bg-accent rounded-full opacity-10 animate-float"></div>
+        <div className="absolute bottom-4 right-10 w-16 h-16 bg-accent rounded-full opacity-20 animate-float" style={{ animationDelay: '1s' }}></div>
         <div className="absolute top-1/2 left-1/4 w-12 h-12 bg-white rounded-full opacity-5 animate-float" style={{ animationDelay: '2s' }}></div>
       </div>
     </section>
