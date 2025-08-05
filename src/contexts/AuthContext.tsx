@@ -11,8 +11,8 @@ interface User {
 interface AuthContextType {
   user: User | null;
   isLoading: boolean;
-  login: (name: string, telegram_username: string) => Promise<{ success: boolean; error?: string }>;
-  verifyCode: (telegram_username: string, code: string) => Promise<{ success: boolean; error?: string }>;
+  login: (name: string, phone: string, email: string) => Promise<{ success: boolean; error?: string }>;
+  verifyCode: (phone: string, code: string) => Promise<{ success: boolean; error?: string }>;
   logout: () => void;
 }
 
@@ -30,7 +30,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     setIsLoading(false);
   }, []);
 
-  const login = async (name: string, telegram_username: string) => {
+  const login = async (name: string, phone: string, email: string) => {
     try {
       // توليد رمز تحقق عشوائي
       const verificationCode = Math.floor(100000 + Math.random() * 900000).toString();
@@ -39,48 +39,51 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       const { data: existingUser } = await supabase
         .from("users")
         .select("*")
-        .eq("telegram_username", telegram_username)
-        .single();
+        .eq("phone", phone)
+        .maybeSingle();
 
       if (existingUser) {
         // تحديث المستخدم الموجود
         await supabase
           .from("users")
           .update({ 
-            name, 
+            name,
+            email,
             verification_code: verificationCode,
             is_verified: false 
           })
-          .eq("telegram_username", telegram_username);
+          .eq("phone", phone);
       } else {
         // إنشاء مستخدم جديد
         await supabase
           .from("users")
           .insert({
             name,
-            telegram_username,
+            phone,
+            email,
             verification_code: verificationCode,
             is_verified: false
           });
       }
 
-      // إرسال رسالة تليجرام
+      // إرسال البريد الإلكتروني
       try {
-        const telegramResponse = await supabase.functions.invoke("send-sms", {
+        const emailResponse = await supabase.functions.invoke("send-email", {
           body: {
-            username: telegram_username,
-            message: `رمز التحقق الخاص بك في تفانين: ${verificationCode}`
+            email,
+            verificationCode,
+            name
           }
         });
 
-        if (telegramResponse.error) {
-          console.error("Telegram sending error:", telegramResponse.error);
+        if (emailResponse.error) {
+          console.error("Email sending error:", emailResponse.error);
           // للاختبار، سنعرض الكود في console
           console.log(`رمز التحقق للاختبار: ${verificationCode}`);
           alert(`رمز التحقق للاختبار: ${verificationCode}`);
         }
       } catch (error) {
-        console.error("Error invoking send-sms function:", error);
+        console.error("Error invoking send-email function:", error);
         // للاختبار، سنعرض الكود في console
         console.log(`رمز التحقق للاختبار: ${verificationCode}`);
         alert(`رمز التحقق للاختبار: ${verificationCode}`);
@@ -93,15 +96,15 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     }
   };
 
-  const verifyCode = async (telegram_username: string, code: string) => {
+  const verifyCode = async (phone: string, code: string) => {
     try {
       // التحقق من رمز التحقق
       const { data: userData, error } = await supabase
         .from("users")
         .select("*")
-        .eq("telegram_username", telegram_username)
+        .eq("phone", phone)
         .eq("verification_code", code)
-        .single();
+        .maybeSingle();
 
       if (error || !userData) {
         return { success: false, error: "رمز التحقق غير صحيح" };
@@ -111,12 +114,12 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       await supabase
         .from("users")
         .update({ is_verified: true, verification_code: null })
-        .eq("telegram_username", telegram_username);
+        .eq("phone", phone);
 
       const verifiedUser: User = {
         id: userData.id,
         name: userData.name,
-        phone: userData.telegram_username,
+        phone: userData.phone,
         is_verified: true
       };
 

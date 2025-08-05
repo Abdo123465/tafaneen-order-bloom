@@ -17,28 +17,31 @@ export type Database = {
       users: {
         Row: {
           created_at: string
+          email: string
           id: string
           is_verified: boolean | null
           name: string
-          telegram_username: string
+          phone: string
           updated_at: string
           verification_code: string | null
         }
         Insert: {
           created_at?: string
+          email?: string
           id?: string
           is_verified?: boolean | null
           name: string
-          telegram_username: string
+          phone?: string
           updated_at?: string
           verification_code?: string | null
         }
         Update: {
           created_at?: string
+          email?: string
           id?: string
           is_verified?: boolean | null
           name?: string
-          telegram_username?: string
+          phone?: string
           updated_at?: string
           verification_code?: string | null
         }
