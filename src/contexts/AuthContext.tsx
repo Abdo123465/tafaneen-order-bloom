@@ -13,7 +13,6 @@ interface AuthContextType {
   user: User | null;
   isLoading: boolean;
   login: (name: string, phone: string) => Promise<{ success: boolean; error?: string }>;
-  verifyCode: (phone: string, code: string) => Promise<{ success: boolean; error?: string }>;
   logout: () => void;
 }
 
@@ -45,9 +44,6 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       // تطبيع رقم الهاتف للتخزين
       const normalizedPhone = normalizeEgyptianPhone(phone);
       
-      // توليد رمز تحقق عشوائي
-      const verificationCode = Math.floor(100000 + Math.random() * 900000).toString();
-      
       // حفظ أو تحديث المستخدم في قاعدة البيانات
       const { data: existingUser } = await supabase
         .from("users")
@@ -55,49 +51,43 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         .eq("phone", normalizedPhone)
         .maybeSingle();
 
+      let userData;
       if (existingUser) {
         // تحديث المستخدم الموجود
-        await supabase
+        const { data } = await supabase
           .from("users")
           .update({ 
             name,
-            verification_code: verificationCode,
-            is_verified: false 
+            is_verified: true 
           })
-          .eq("phone", normalizedPhone);
+          .eq("phone", normalizedPhone)
+          .select()
+          .single();
+        userData = data;
       } else {
         // إنشاء مستخدم جديد
-        await supabase
+        const { data } = await supabase
           .from("users")
           .insert({
             name,
             phone: normalizedPhone,
-            verification_code: verificationCode,
-            is_verified: false
-          });
+            is_verified: true
+          })
+          .select()
+          .single();
+        userData = data;
       }
 
-      // محاكاة إرسال رسالة نصية (SMS)
-      try {
-        const smsResponse = await supabase.functions.invoke("send-email", {
-          body: {
-            phone: normalizedPhone,
-            verificationCode,
-            name
-          }
-        });
+      if (userData) {
+        const verifiedUser: User = {
+          id: userData.id,
+          name: userData.name,
+          phone: userData.phone,
+          is_verified: true
+        };
 
-        if (smsResponse.error) {
-          console.error("SMS sending error:", smsResponse.error);
-          // للاختبار، سنعرض الكود في console
-          console.log(`رمز التحقق للاختبار: ${verificationCode}`);
-          alert(`رمز التحقق للاختبار: ${verificationCode}`);
-        }
-      } catch (error) {
-        console.error("Error invoking send-sms function:", error);
-        // للاختبار، سنعرض الكود في console
-        console.log(`رمز التحقق للاختبار: ${verificationCode}`);
-        alert(`رمز التحقق للاختبار: ${verificationCode}`);
+        setUser(verifiedUser);
+        localStorage.setItem("tafaneen_user", JSON.stringify(verifiedUser));
       }
 
       return { success: true };
@@ -107,45 +97,6 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     }
   };
 
-  const verifyCode = async (phone: string, code: string) => {
-    try {
-      // تطبيع رقم الهاتف للبحث
-      const normalizedPhone = normalizeEgyptianPhone(phone);
-      
-      // التحقق من رمز التحقق
-      const { data: userData, error } = await supabase
-        .from("users")
-        .select("*")
-        .eq("phone", normalizedPhone)
-        .eq("verification_code", code)
-        .maybeSingle();
-
-      if (error || !userData) {
-        return { success: false, error: "رمز التحقق غير صحيح" };
-      }
-
-      // تحديث حالة التحقق
-      await supabase
-        .from("users")
-        .update({ is_verified: true, verification_code: null })
-        .eq("phone", normalizedPhone);
-
-      const verifiedUser: User = {
-        id: userData.id,
-        name: userData.name,
-        phone: userData.phone,
-        is_verified: true
-      };
-
-      setUser(verifiedUser);
-      localStorage.setItem("tafaneen_user", JSON.stringify(verifiedUser));
-
-      return { success: true };
-    } catch (error: any) {
-      console.error("Verification error:", error);
-      return { success: false, error: error.message };
-    }
-  };
 
   const logout = () => {
     setUser(null);
@@ -153,7 +104,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   };
 
   return (
-    <AuthContext.Provider value={{ user, isLoading, login, verifyCode, logout }}>
+    <AuthContext.Provider value={{ user, isLoading, login, logout }}>
       {children}
     </AuthContext.Provider>
   );
