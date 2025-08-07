@@ -101,14 +101,14 @@ export function Header() {
                 <DropdownMenuTrigger asChild>
                   <Button variant="ghost" className="hidden md:flex items-center gap-2">
                     <UserCheck className="h-4 w-4" />
-                    <span className="text-sm font-medium">{user.name}</span>
+                    <span className="text-sm font-medium">حسابي</span>
                     <ChevronDown className="h-3 w-3" />
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end" className="w-48">
                   <DropdownMenuItem>
                     <User className="h-4 w-4 mr-2" />
-                    حسابي
+                    بيانات الحساب
                   </DropdownMenuItem>
                   <DropdownMenuItem>
                     <ShoppingBag className="h-4 w-4 mr-2" />
@@ -136,7 +136,14 @@ export function Header() {
             <Cart />
 
             {/* Login/Logout Button */}
-            {user ? null : (
+            {user ? (
+              <Button 
+                className="btn-tafaneen hidden md:flex"
+                onClick={logout}
+              >
+                تسجيل الخروج
+              </Button>
+            ) : (
               <Button 
                 className="btn-tafaneen hidden md:flex"
                 onClick={() => setIsAuthOpen(true)}
@@ -195,7 +202,7 @@ export function Header() {
                   <div className="space-y-2">
                     <Button variant="ghost" className="w-full justify-start">
                       <User className="h-4 w-4 mr-2" />
-                      حسابي
+                      بيانات الحساب
                     </Button>
                     <Button variant="ghost" className="w-full justify-start">
                       <ShoppingBag className="h-4 w-4 mr-2" />
@@ -203,7 +210,10 @@ export function Header() {
                     </Button>
                     <Button 
                       variant="ghost"
-                      onClick={logout}
+                      onClick={() => {
+                        logout();
+                        setIsMenuOpen(false);
+                      }}
                       className="w-full justify-start text-destructive"
                     >
                       <LogOut className="h-4 w-4 mr-2" />
