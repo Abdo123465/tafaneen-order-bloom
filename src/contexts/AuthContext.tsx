@@ -78,17 +78,16 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         userData = data;
       }
 
-      if (userData) {
-        const verifiedUser: User = {
-          id: userData.id,
-          name: userData.name,
-          phone: userData.phone,
-          is_verified: true
-        };
+      // حتى إذا فشل جلب بيانات المستخدم من Supabase، قم بإنشاء كائن مستخدم محلياً
+      const verifiedUser: User = {
+        id: userData?.id ?? Date.now().toString(),
+        name: userData?.name ?? name,
+        phone: userData?.phone ?? normalizedPhone,
+        is_verified: true,
+      };
 
-        setUser(verifiedUser);
-        localStorage.setItem("tafaneen_user", JSON.stringify(verifiedUser));
-      }
+      setUser(verifiedUser);
+      localStorage.setItem("tafaneen_user", JSON.stringify(verifiedUser));
 
       return { success: true };
     } catch (error: any) {
