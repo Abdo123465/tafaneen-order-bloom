@@ -1,10 +1,17 @@
 import { useState } from "react";
-import { Search, User, Menu, X, MessageCircle, LogOut } from "lucide-react";
+import { Search, User, Menu, X, MessageCircle, LogOut, ChevronDown, UserCheck, ShoppingBag } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Cart } from "@/components/Cart";
 import { AuthDialog } from "@/components/AuthDialog";
 import { useAuth } from "@/contexts/AuthContext";
+import { 
+  DropdownMenu, 
+  DropdownMenuContent, 
+  DropdownMenuItem, 
+  DropdownMenuSeparator, 
+  DropdownMenuTrigger 
+} from "@/components/ui/dropdown-menu";
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -90,19 +97,37 @@ export function Header() {
 
             {/* User Account or Login */}
             {user ? (
-              <div className="hidden md:flex items-center gap-2">
-                <span className="text-sm font-medium">مرحباً {user.name}</span>
-                <Button 
-                  variant="ghost" 
-                  size="icon" 
-                  onClick={logout}
-                  title="تسجيل الخروج"
-                >
-                  <LogOut className="h-4 w-4" />
-                </Button>
-              </div>
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button variant="ghost" className="hidden md:flex items-center gap-2">
+                    <UserCheck className="h-4 w-4" />
+                    <span className="text-sm font-medium">{user.name}</span>
+                    <ChevronDown className="h-3 w-3" />
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end" className="w-48">
+                  <DropdownMenuItem>
+                    <User className="h-4 w-4 mr-2" />
+                    حسابي
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <ShoppingBag className="h-4 w-4 mr-2" />
+                    طلباتي السابقة
+                  </DropdownMenuItem>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuItem onClick={logout} className="text-destructive">
+                    <LogOut className="h-4 w-4 mr-2" />
+                    تسجيل الخروج
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
             ) : (
-              <Button variant="ghost" size="icon" className="hidden md:flex">
+              <Button 
+                variant="ghost" 
+                size="icon" 
+                className="hidden md:flex"
+                onClick={() => setIsAuthOpen(true)}
+              >
                 <User className="h-5 w-5" />
               </Button>
             )}
@@ -165,15 +190,26 @@ export function Header() {
               ))}
               
               {user ? (
-                <div className="flex items-center justify-between mt-4 pt-4 border-t">
-                  <span className="font-medium">مرحباً {user.name}</span>
-                  <Button 
-                    variant="ghost"
-                    onClick={logout}
-                    className="text-destructive"
-                  >
-                    تسجيل الخروج
-                  </Button>
+                <div className="mt-4 pt-4 border-t space-y-3">
+                  <div className="font-medium text-primary">مرحباً {user.name}</div>
+                  <div className="space-y-2">
+                    <Button variant="ghost" className="w-full justify-start">
+                      <User className="h-4 w-4 mr-2" />
+                      حسابي
+                    </Button>
+                    <Button variant="ghost" className="w-full justify-start">
+                      <ShoppingBag className="h-4 w-4 mr-2" />
+                      طلباتي السابقة
+                    </Button>
+                    <Button 
+                      variant="ghost"
+                      onClick={logout}
+                      className="w-full justify-start text-destructive"
+                    >
+                      <LogOut className="h-4 w-4 mr-2" />
+                      تسجيل الخروج
+                    </Button>
+                  </div>
                 </div>
               ) : (
                 <Button 

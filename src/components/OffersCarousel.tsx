@@ -8,43 +8,49 @@ export function OffersCarousel() {
   const offers = [
     {
       id: 1,
-      title: "خصم 50% على الأقلام والمساطر",
-      description: "جميع أنواع الأقلام والمساطر الهندسية",
-      discount: "50%",
+      title: "عرض خاص بمناسبة الجودة للمدارس",
+      description: "خصم 20% على الأدوات المكتبية",
+      subtitle: "العرض ساري من 1/9 حتى 30/9",
+      discount: "20%",
       icon: PenTool,
-      color: "bg-gradient-to-r from-primary to-primary-dark"
+      color: "bg-gradient-to-r from-amber-400 to-orange-500",
+      details: "خدم حقيقي منتل كلام"
     },
     {
       id: 2,
-      title: "عرض الدفاتر والمذكرات",
-      description: "دفاتر ومذكرات بجودة عالية",
-      discount: "30%",
+      title: "خصم 15% الكتب الخارجية",
+      description: "لو متتشري الكتب من غير أدوات مكتبية",
+      subtitle: "خصم 20% الكتب الخارجية لو متتشري الكتب والدروات المدرسية",
+      discount: "15-20%",
       icon: BookOpen,
-      color: "bg-gradient-to-r from-primary to-primary-dark"
+      color: "bg-gradient-to-r from-yellow-400 to-green-500"
     },
     {
       id: 3,
-      title: "آلات حاسبة وأدوات هندسية",
-      description: "آلات حاسبة ومساطر وبوصلات",
-      discount: "40%",
+      title: "خصم خاص 10% على قسم الطباعة",
+      description: "مكتبة - مطبعة - ستوديو",
+      subtitle: "هذا العرض ساري من 1/9 حتى 30/9",
+      discount: "10%",
       icon: Calculator,
-      color: "bg-gradient-to-r from-primary to-primary-dark"
+      color: "bg-gradient-to-r from-pink-400 to-yellow-400"
     },
     {
       id: 4,
-      title: "أدوات الرسم والتلوين",
-      description: "ألوان وفرش ولوازم الرسم",
-      discount: "35%",
+      title: "خصم خاص لفترة محدودة 15%",
+      description: "خدماتنا: الكتابة على الكمبيوتر - تقديمات الإنترنت - السيرة الذاتية",
+      subtitle: "هذا العرض ساري من 1/9 حتى 30/9",
+      discount: "15%",
       icon: Palette,
-      color: "bg-gradient-to-r from-primary to-primary-dark"
+      color: "bg-gradient-to-r from-teal-400 to-blue-500"
     },
     {
       id: 5,
-      title: "منظمات مكتبية أنيقة",
-      description: "منظمات وملفات لتنظيم مكتبك",
-      discount: "25%",
+      title: "خصم خاص قسم الاستوديو",
+      description: "طباعة صور - تصوير فوتوغرافي",
+      subtitle: "العرض ساري من 1/9 حتى 30/9",
+      discount: "15%",
       icon: GraduationCap,
-      color: "bg-gradient-to-r from-primary to-primary-dark"
+      color: "bg-gradient-to-r from-orange-400 to-pink-500"
     }
   ];
 
@@ -90,9 +96,21 @@ export function OffersCarousel() {
                 {currentOffer.description}
               </p>
               
+              {currentOffer.subtitle && (
+                <p className="text-lg opacity-80 italic">
+                  {currentOffer.subtitle}
+                </p>
+              )}
+              
               <div className="text-6xl font-bold text-accent">
                 خصم {currentOffer.discount}
               </div>
+              
+              {currentOffer.details && (
+                <p className="text-sm opacity-75">
+                  {currentOffer.details}
+                </p>
+              )}
               
               <div className="flex items-center justify-center lg:justify-start gap-1 text-accent">
                 {[...Array(5)].map((_, i) => (
