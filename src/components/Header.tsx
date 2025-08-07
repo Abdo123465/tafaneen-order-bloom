@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Search, User, Menu, X, MessageCircle, LogOut, ChevronDown, UserCheck, ShoppingBag } from "lucide-react";
+import { Search, User, Menu, X, MessageCircle, LogOut, ChevronDown, UserCheck, ShoppingBag, Settings, History } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Cart } from "@/components/Cart";
@@ -95,28 +95,31 @@ export function Header() {
               {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </Button>
 
-            {/* User Account or Login */}
+            {/* User Account Icon - Always visible when logged in */}
             {user ? (
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                  <Button variant="ghost" className="hidden md:flex items-center gap-2">
-                    <UserCheck className="h-4 w-4" />
-                    <span className="text-sm font-medium">حسابي</span>
-                    <ChevronDown className="h-3 w-3" />
+                  <Button variant="ghost" size="icon" className="relative">
+                    <User className="h-5 w-5" />
+                    <span className="sr-only">حساب المستخدم</span>
                   </Button>
                 </DropdownMenuTrigger>
-                <DropdownMenuContent align="end" className="w-48">
-                  <DropdownMenuItem>
-                    <User className="h-4 w-4 mr-2" />
-                    بيانات الحساب
+                <DropdownMenuContent align="end" className="w-56" dir="rtl">
+                  <div className="px-3 py-2 border-b">
+                    <p className="text-sm font-medium">{user.name}</p>
+                    <p className="text-xs text-muted-foreground">{user.phone}</p>
+                  </div>
+                  <DropdownMenuItem className="cursor-pointer">
+                    <Settings className="h-4 w-4 ml-2" />
+                    حسابي
                   </DropdownMenuItem>
-                  <DropdownMenuItem>
-                    <ShoppingBag className="h-4 w-4 mr-2" />
+                  <DropdownMenuItem className="cursor-pointer">
+                    <History className="h-4 w-4 ml-2" />
                     طلباتي السابقة
                   </DropdownMenuItem>
                   <DropdownMenuSeparator />
-                  <DropdownMenuItem onClick={logout} className="text-destructive">
-                    <LogOut className="h-4 w-4 mr-2" />
+                  <DropdownMenuItem onClick={logout} className="text-destructive cursor-pointer">
+                    <LogOut className="h-4 w-4 ml-2" />
                     تسجيل الخروج
                   </DropdownMenuItem>
                 </DropdownMenuContent>
@@ -125,22 +128,24 @@ export function Header() {
               <Button 
                 variant="ghost" 
                 size="icon" 
-                className="hidden md:flex"
+                className=""
                 onClick={() => setIsAuthOpen(true)}
               >
                 <User className="h-5 w-5" />
+                <span className="sr-only">تسجيل الدخول</span>
               </Button>
             )}
 
             {/* Shopping Cart */}
             <Cart />
 
-            {/* Login/Logout Button */}
+            {/* Login/Logout Button - Desktop only */}
             {user ? (
               <Button 
                 className="btn-tafaneen hidden md:flex"
                 onClick={logout}
               >
+                <LogOut className="h-4 w-4 ml-2" />
                 تسجيل الخروج
               </Button>
             ) : (
@@ -148,6 +153,7 @@ export function Header() {
                 className="btn-tafaneen hidden md:flex"
                 onClick={() => setIsAuthOpen(true)}
               >
+                <User className="h-4 w-4 ml-2" />
                 تسجيل الدخول
               </Button>
             )}
@@ -201,11 +207,11 @@ export function Header() {
                   <div className="font-medium text-primary">مرحباً {user.name}</div>
                   <div className="space-y-2">
                     <Button variant="ghost" className="w-full justify-start">
-                      <User className="h-4 w-4 mr-2" />
-                      بيانات الحساب
+                      <Settings className="h-4 w-4 mr-2" />
+                      حسابي
                     </Button>
                     <Button variant="ghost" className="w-full justify-start">
-                      <ShoppingBag className="h-4 w-4 mr-2" />
+                      <History className="h-4 w-4 mr-2" />
                       طلباتي السابقة
                     </Button>
                     <Button 
@@ -226,6 +232,7 @@ export function Header() {
                   className="btn-tafaneen mt-4"
                   onClick={() => setIsAuthOpen(true)}
                 >
+                  <User className="h-4 w-4 ml-2" />
                   تسجيل الدخول
                 </Button>
               )}

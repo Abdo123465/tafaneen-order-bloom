@@ -177,6 +177,25 @@
     @apply bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent;
   }
 
+  /* Image optimization classes */
+  .image-responsive {
+    @apply w-full h-full object-cover object-center;
+  }
+
+  .image-banner {
+    @apply w-full h-full object-cover object-center transition-transform duration-500 hover:scale-105;
+  }
+
+  .aspect-banner {
+    aspect-ratio: 21/9;
+  }
+
+  @media (max-width: 768px) {
+    .aspect-banner {
+      aspect-ratio: 16/9;
+    }
+  }
+
   /* Badge Variants */
   .badge-new {
     @apply bg-accent text-accent-foreground px-2 py-1 rounded-full text-xs font-medium;

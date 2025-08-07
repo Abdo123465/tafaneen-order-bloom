@@ -57,12 +57,15 @@ export function OffersCarousel() {
       <div className="container mx-auto px-4">
         <div className="relative max-w-4xl mx-auto">
           {/* Main Image Display */}
-          <div className="relative aspect-[16/9] md:aspect-[3/1] overflow-hidden rounded-2xl shadow-xl">
+          <div className="relative aspect-[16/9] md:aspect-[21/9] lg:aspect-[3/1] overflow-hidden rounded-2xl shadow-xl">
             <img 
               src={currentOffer.image}
               alt={currentOffer.alt}
-              className="w-full h-full object-cover transition-all duration-500"
+              className="w-full h-full object-cover object-center transition-all duration-500 hover:scale-105"
             />
+            
+            {/* Overlay gradient for better text readability if needed */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent pointer-events-none"></div>
           </div>
           
           {/* Navigation */}

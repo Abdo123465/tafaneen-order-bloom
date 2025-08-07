@@ -126,7 +126,7 @@ export function FeaturedProducts() {
             >
               {/* Product Image & Badges */}
               <div className="relative mb-4">
-                <div className="bg-muted/50 rounded-xl h-48 flex items-center justify-center text-6xl mb-4">
+                <div className="bg-muted/50 rounded-xl aspect-square flex items-center justify-center text-6xl mb-4 overflow-hidden">
                   {product.image}
                 </div>
                 

@@ -64,11 +64,11 @@ export function Hero() {
               <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-gradient-warm rounded-full opacity-30 animate-float" style={{ animationDelay: '1s' }}></div>
               
               {/* Main Image */}
-              <div className="relative rounded-3xl overflow-hidden shadow-elegant">
+              <div className="relative rounded-3xl overflow-hidden shadow-elegant aspect-[4/3] md:aspect-[16/10]">
                 <img 
                   src={heroImage} 
                   alt="مكتبة تفانين - كتب وقرطاسية" 
-                  className="w-full h-auto object-cover"
+                  className="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-700"
                 />
                 
                 {/* Overlay Content */}
