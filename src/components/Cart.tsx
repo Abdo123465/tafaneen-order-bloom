@@ -17,34 +17,62 @@ export function Cart() {
   const [selectedDeliveryMethod, setSelectedDeliveryMethod] = useState<'pickup' | 'delivery'>('pickup');
   const [isOpen, setIsOpen] = useState(false);
   const { toast } = useToast();
+  
+  // بيانات العميل
   const [customerName, setCustomerName] = useState('');
   const [customerPhone, setCustomerPhone] = useState('');
   const [customerNameError, setCustomerNameError] = useState('');
   const [customerPhoneError, setCustomerPhoneError] = useState('');
-  // Delivery details
+  
+  // بيانات العنوان للتوصيل
   const [streetName, setStreetName] = useState('');
   const [buildingNumber, setBuildingNumber] = useState('');
   const [floor, setFloor] = useState('');
+  
+  // خيارات البوابات مع أسعار التوصيل
   const AREA_OPTIONS = [
+    // بوابات بسعر 20 جنيه
     { label: 'البوابة الأولى', fee: 20 },
     { label: 'البوابة الثانية', fee: 20 },
     { label: 'البوابة الثالثة', fee: 20 },
     { label: 'البوابة الرابعة', fee: 20 },
-    { label: 'مساكن الظباط', fee: 20 },
-    { label: 'المناطق (ع - ص - ن - ا - س - م - ك)', fee: 25 },
+    { label: 'مساكن ضباط', fee: 20 },
+    { label: 'الرماية', fee: 20 },
+    
+    // بوابات بسعر 25 جنيه
+    { label: 'البوابة الأولى - المناطق (ع، ص، ن، ا، س، م، ك)', fee: 25 },
+    { label: 'البوابة الثانية - المناطق (ع، ص، ن، ا، س، م، ك)', fee: 25 },
+    { label: 'البوابة الثالثة - المناطق (ع، ص، ن، ا، س، م، ك)', fee: 25 },
+    { label: 'البوابة الرابعة - المناطق (ع، ص، ن، ا، س، م، ك)', fee: 25 },
+    
+    // بوابات بسعر 30 جنيه
     { label: 'مساكن الشباب', fee: 30 },
-    { label: 'الرماية', fee: 30 },
+    { label: 'الرماية - المنطقة الخاصة', fee: 30 },
   ] as const;
+  
   const [area, setArea] = useState<string>('');
   const [paymentMethod, setPaymentMethod] = useState<'cod' | 'vodafone' | 'instapay'>('cod');
+  
+  // حساب الأسعار
   const cartCount = getItemCount();
   const totalPrice = getTotalPrice();
   const deliveryFee = AREA_OPTIONS.find(o => o.label === area)?.fee ?? 0;
   const subtotal = totalPrice + (showDeliveryCheckout ? deliveryFee : 0);
   const surcharge = showDeliveryCheckout && paymentMethod === 'vodafone' ? Math.round(subtotal * 0.01) : 0;
   const finalTotal = subtotal + surcharge;
-  const canProceed = Boolean(customerName && !customerPhoneError && customerPhone && streetName && buildingNumber && floor && area);
+  
+  // التحقق من إمكانية المتابعة
+  const canProceed = Boolean(
+    customerName && 
+    !customerPhoneError && 
+    customerPhone && 
+    streetName && 
+    buildingNumber && 
+    floor && 
+    area
+  );
 
+  // التحقق من صحة رقم الهاتف
   const handlePhoneChange = (value: string) => {
     setCustomerPhone(value);
     setCustomerPhoneError('');
@@ -56,10 +84,13 @@ export function Cart() {
       }
     }
   };
+
+  // إنشاء رقم فاتورة
   const generateInvoiceNumber = () => {
     return `TF-${Date.now().toString().slice(-8)}`;
   };
 
+  // معالجة إشعار واتساب للاستلام من المكتبة
   const handleWhatsAppNotification = () => {
     // التحقق من إدخال معلومات العميل
     if (!customerName) {
@@ -77,6 +108,7 @@ export function Cart() {
       setCustomerPhoneError(phoneValidation.errorMessage || "يرجى إدخال رقم هاتف مصري صحيح");
       return;
     }
+    
     const invoiceNumber = generateInvoiceNumber();
     const today = new Date();
     const date = today.toLocaleDateString('ar-EG');
@@ -92,7 +124,7 @@ export function Cart() {
     
     const formattedPhone = formatEgyptianPhone(customerPhone);
     
-    const message = `فاتورة طلب - مكتبة تفانيين
+    const message = `فاتورة طلب - مكتبة تفانين
 
 معلومات الفاتورة:
 رقم الفاتورة: ${invoiceNumber}
@@ -110,38 +142,18 @@ ${orderItems}
 الإجمالي الكلي: ${totalPrice} ج.م
 
 موقع الاستلام:
-مكتبة تفانيين - 122 ز البوابة الاولي حدائق الاهرام اما اسماك بورسعيد بجوار المول القديم
+مكتبة تفانين - 122 ز البوابة الاولي حدائق الاهرام اما اسماك بورسعيد بجوار المول القديم
 أوقات الاستلام: من 10 صباحاً حتى 5 مساءً
 
 للاستفسار: 01026274235
 
-شكراً لثقتك بمكتبة تفانيين!`;
+شكراً لثقتك بمكتبة تفانين!`;
     
-    // تجربة عدة طرق لفتح WhatsApp
+    // فتح واتساب
     const phoneNumber = "201026274235";
     const encodedMessage = encodeURIComponent(message);
-    
-    // طريقة 1: محاولة فتح التطبيق مباشرة
-    const whatsappApp = `whatsapp://send?phone=${phoneNumber}&text=${encodedMessage}`;
-    
-    // طريقة 2: استخدام الرابط العادي
-    const whatsappWeb = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
-    
-    // طريقة 3: استخدام api.whatsapp
-    const whatsappApi = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodedMessage}`;
-    
-    // تجربة فتح التطبيق أولاً، ثم الويب
-    const tryOpenWhatsApp = () => {
-      // محاولة فتح التطبيق
-      window.location.href = whatsappApp;
-      
-      // إذا لم ينجح، فتح الويب بعد ثانية
-      setTimeout(() => {
-        window.open(whatsappWeb, '_blank');
-      }, 1000);
-    };
-    
-    tryOpenWhatsApp();
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+    window.open(whatsappUrl, '_blank');
     
     toast({
       title: "تم إرسال الإشعار",
@@ -155,6 +167,7 @@ ${orderItems}
     setShowOptions(false);
   };
 
+  // إنشاء فاتورة HTML
   const generateHTMLInvoice = () => {
     if (items.length === 0) {
       toast({
@@ -170,31 +183,122 @@ ${orderItems}
     const date = today.toLocaleDateString('ar-EG');
     const time = today.toLocaleTimeString('ar-EG', { hour: '2-digit', minute: '2-digit' });
 
+    // تحديد نوع الخدمة والتكلفة
+    const serviceType = selectedDeliveryMethod === 'pickup' ? 'استلام من المكتبة' : 'توصيل للمنزل';
+    const deliveryCost = selectedDeliveryMethod === 'pickup' ? 0 : deliveryFee;
+    const paymentMethodText = paymentMethod === 'cod' ? 'الدفع عند الاستلام' : 
+                             paymentMethod === 'vodafone' ? 'فودافون كاش' : 'إنستاباي';
+
     const htmlContent = `<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>فاتورة الطلب - مكتبة تفانيين</title>
+    <title>فاتورة الطلب - مكتبة تفانين</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Cairo', sans-serif; background: #f9f9f9; padding: 20px; }
-        .invoice-container { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
-        .header { text-align: center; margin-bottom: 30px; border-bottom: 2px solid #d9534f; padding-bottom: 20px; }
-        .header img { max-width: 150px; margin-bottom: 10px; }
-        .header h1 { color: #d9534f; font-size: 28px; margin-bottom: 10px; }
-        .header p { color: #666; font-size: 14px; }
-        .invoice-details { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 30px; }
-        .section { background: #f2dede; padding: 20px; border-radius: 8px; }
-        .section h3 { color: #d9534f; margin-bottom: 10px; font-size: 18px; }
-        .info-row { display: flex; justify-content: space-between; margin-bottom: 8px; }
-        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
-        th, td { padding: 12px; text-align: right; border-bottom: 1px solid #ddd; }
-        th { background: #d9534f; color: #fff; font-weight: 600; }
-        .total { text-align: left; margin-top: 20px; font-size: 18px; font-weight: bold; color: #d9534f; }
-        .footer { text-align: center; margin-top: 30px; padding-top: 20px; border-top: 1px solid #ddd; }
-        @media print { body { background: white; } .invoice-container { box-shadow: none; } }
+        body { 
+            font-family: 'Cairo', sans-serif; 
+            background: #f9f9f9; 
+            padding: 20px; 
+            direction: rtl;
+            text-align: right;
+        }
+        .invoice-container { 
+            max-width: 800px; 
+            margin: 0 auto; 
+            background: white; 
+            padding: 30px; 
+            border-radius: 12px; 
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1); 
+        }
+        .header { 
+            text-align: center; 
+            margin-bottom: 30px; 
+            border-bottom: 2px solid #d9534f; 
+            padding-bottom: 20px; 
+        }
+        .header h1 { 
+            color: #d9534f; 
+            font-size: 28px; 
+            margin-bottom: 10px; 
+        }
+        .header p { 
+            color: #666; 
+            font-size: 14px; 
+        }
+        .invoice-details { 
+            display: grid; 
+            grid-template-columns: 1fr 1fr; 
+            gap: 20px; 
+            margin-bottom: 30px; 
+        }
+        .section { 
+            background: #f2dede; 
+            padding: 20px; 
+            border-radius: 8px; 
+        }
+        .section h3 { 
+            color: #d9534f; 
+            margin-bottom: 10px; 
+            font-size: 18px; 
+        }
+        .info-row { 
+            display: flex; 
+            justify-content: space-between; 
+            margin-bottom: 8px; 
+        }
+        table { 
+            width: 100%; 
+            border-collapse: collapse; 
+            margin: 20px 0; 
+        }
+        th, td { 
+            padding: 12px; 
+            text-align: right; 
+            border-bottom: 1px solid #ddd; 
+        }
+        th { 
+            background: #d9534f; 
+            color: #fff; 
+            font-weight: 600; 
+        }
+        .total-section { 
+            background: #f8f9fa; 
+            padding: 20px; 
+            border-radius: 8px; 
+            margin: 20px 0; 
+        }
+        .total-row { 
+            display: flex; 
+            justify-content: space-between; 
+            margin-bottom: 10px; 
+            padding: 5px 0; 
+        }
+        .final-total { 
+            font-size: 20px; 
+            font-weight: bold; 
+            color: #d9534f; 
+            border-top: 2px solid #d9534f; 
+            padding-top: 10px; 
+        }
+        .footer { 
+            text-align: center; 
+            margin-top: 30px; 
+            padding-top: 20px; 
+            border-top: 1px solid #ddd; 
+        }
+        .address-section {
+            background: #e8f4f8;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        @media print { 
+            body { background: white; } 
+            .invoice-container { box-shadow: none; } 
+        }
     </style>
 </head>
 <body>
@@ -205,7 +309,7 @@ ${orderItems}
                     T
                 </div>
             </div>
-            <h1>مكتبة تفانيين</h1>
+            <h1>مكتبة تفانين</h1>
             <p>فاتورة طلب إلكترونية</p>
             <p>📍 122 ز البوابة الاولي حدائق الاهرام اما اسماك بورسعيد بجوار المول القديم</p>
             <p>📞 01026274235</p>
@@ -217,7 +321,7 @@ ${orderItems}
                 <div class="info-row"><span>رقم الفاتورة:</span><span>${invoiceNumber}</span></div>
                 <div class="info-row"><span>التاريخ:</span><span>${date}</span></div>
                 <div class="info-row"><span>الوقت:</span><span>${time}</span></div>
-                <div class="info-row"><span>طريقة الاستلام:</span><span>${selectedDeliveryMethod === 'pickup' ? 'استلام من المكتبة' : 'توصيل للمنزل'}</span></div>
+                <div class="info-row"><span>طريقة الاستلام:</span><span>${serviceType}</span></div>
             </div>
             
             <div class="section">
@@ -226,6 +330,16 @@ ${orderItems}
                 <div class="info-row"><span>الهاتف:</span><span>${customerPhone || 'غير محدد'}</span></div>
             </div>
         </div>
+        
+        ${selectedDeliveryMethod === 'delivery' ? `
+        <div class="address-section">
+            <h3 style="color: #d9534f; margin-bottom: 10px;">عنوان التوصيل</h3>
+            <p><strong>الشارع:</strong> ${streetName}</p>
+            <p><strong>رقم العمارة:</strong> ${buildingNumber}</p>
+            <p><strong>الدور:</strong> ${floor}</p>
+            <p><strong>المنطقة/البوابة:</strong> ${area}</p>
+        </div>
+        ` : ''}
         
         <table>
             <thead>
@@ -248,13 +362,37 @@ ${orderItems}
             </tbody>
         </table>
         
-        <div class="total">
-            <strong>الإجمالي الكلي: ${totalPrice} ج.م</strong>
+        <div class="total-section">
+            <div class="total-row">
+                <span>مجموع المنتجات:</span>
+                <span>${totalPrice} ج.م</span>
+            </div>
+            ${selectedDeliveryMethod === 'delivery' ? `
+            <div class="total-row">
+                <span>رسوم التوصيل:</span>
+                <span>${deliveryCost} ج.م</span>
+            </div>
+            ` : ''}
+            ${paymentMethod === 'vodafone' ? `
+            <div class="total-row">
+                <span>رسوم فودافون كاش (1%):</span>
+                <span>${surcharge} ج.م</span>
+            </div>
+            ` : ''}
+            <div class="total-row">
+                <span>طريقة الدفع:</span>
+                <span>${paymentMethodText}</span>
+            </div>
+            <div class="total-row final-total">
+                <span>الإجمالي النهائي:</span>
+                <span>${selectedDeliveryMethod === 'pickup' ? totalPrice : finalTotal} ج.م</span>
+            </div>
         </div>
         
         <div class="footer">
-            <p>شكراً لثقتك بمكتبة تفانيين!</p>
+            <p>شكراً لثقتك بمكتبة تفانين!</p>
             <p>للاستفسار: 01026274235</p>
+            <p>تاريخ الطباعة: ${new Date().toLocaleString('ar-EG')}</p>
         </div>
     </div>
 </body>
@@ -276,60 +414,22 @@ ${orderItems}
     });
   };
 
+  // معالجة خيار التوصيل
   const handleDeliveryOption = () => {
     setSelectedDeliveryMethod('delivery');
-    const invoiceNumber = generateInvoiceNumber();
-    const today = new Date();
-    const date = today.toLocaleDateString('ar-EG');
-    const time = today.toLocaleTimeString('ar-EG', { hour: '2-digit', minute: '2-digit' });
-    
-    // تنسيق تفاصيل المنتجات بشكل منظم
-    const orderItems = items.map((item, index) => 
-      `${index + 1}. *${item.name}*
-   • الكمية: ${item.quantity}
-   • سعر الوحدة: ${item.price} ج.م
-   • المجموع: ${item.price * item.quantity} ج.م`
-    ).join('\n\n');
-    
-    const message = `📋 *فاتورة طلب - مكتبة تفانيين*
-━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-📊 *معلومات الفاتورة*
-• رقم الفاتورة: ${invoiceNumber}
-• التاريخ: ${date}
-• الوقت: ${time}
-• طريقة الاستلام: توصيل للمنزل
-
-🛒 *المنتجات المطلوبة*
-━━━━━━━━━━━━━━━━━━━━━━━━━━
-${orderItems}
-━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-💰 *الإجمالي الكلي: ${totalPrice} ج.م*
-
-🚚 *خدمة التوصيل*
-متوفرة داخل مدينة المنصورة
-📱 يرجى إرسال العنوان التفصيلي ووقت التوصيل المناسب
-
-📞 *للاستفسار*: 01026274235
-
-شكراً لثقتك بمكتبة تفانيين! 🙏`;
-    
-    // استخدام طريقة مجانية لفتح واتساب
-    const whatsappUrl = `https://wa.me/201026274235?text=${encodeURIComponent(message)}`;
-    window.open(whatsappUrl, '_blank');
-    
-    toast({
-      title: "تم إرسال طلب التوصيل",
-      description: "تم فتح واتساب لإرسال تفاصيل الفاتورة",
-    });
-    
-    // إعادة تعيين الحالة بعد الإرسال
+    setShowDeliveryCheckout(true);
     setShowOptions(false);
   };
 
   return (
-    <Sheet open={isOpen} onOpenChange={(open) => { setIsOpen(open); if (!open) { setShowOptions(false); setShowPickupOptions(false); setShowDeliveryCheckout(false); } }}>
+    <Sheet open={isOpen} onOpenChange={(open) => { 
+      setIsOpen(open); 
+      if (!open) { 
+        setShowOptions(false); 
+        setShowPickupOptions(false); 
+        setShowDeliveryCheckout(false); 
+      } 
+    }}>
       <SheetTrigger asChild>
         <Button variant="ghost" size="icon" className="relative">
           <ShoppingCart className="h-5 w-5" />
@@ -347,7 +447,7 @@ ${orderItems}
         </SheetHeader>
         
         <div className="flex flex-col h-full">
-          {/* Cart Items */}
+          {/* عناصر السلة */}
           <div className="flex-1 overflow-y-auto py-4">
             {items.length === 0 ? (
               <div className="text-center text-muted-foreground py-8">
@@ -399,16 +499,16 @@ ${orderItems}
             )}
           </div>
           
-          {/* Footer */}
+          {/* التذييل */}
           {items.length > 0 && (
             <div className="border-t pt-4 space-y-4">
-              {/* Total */}
+              {/* الإجمالي */}
               <div className="flex justify-between items-center text-lg font-semibold">
                 <span>الإجمالي: {showDeliveryCheckout ? finalTotal : totalPrice} جنيه</span>
               </div>
               
-              {/* Main Options */}
-              {!showOptions && !showPickupOptions && (
+              {/* الخيارات الرئيسية */}
+              {!showOptions && !showPickupOptions && !showDeliveryCheckout && (
                 <div className="space-y-2">
                   <Button 
                     className="w-full btn-tafaneen"
@@ -419,8 +519,8 @@ ${orderItems}
                 </div>
               )}
               
-              {/* Delivery/Pickup Options */}
-              {showOptions && !showPickupOptions && (
+              {/* خيارات التوصيل/الاستلام */}
+              {showOptions && !showPickupOptions && !showDeliveryCheckout && (
                 <div className="space-y-2">
                   <div className="text-center mb-4">
                     <h3 className="text-lg font-semibold">اختر طريقة الاستلام</h3>
@@ -443,15 +543,13 @@ ${orderItems}
                     onClick={handleDeliveryOption}
                   >
                     <Truck className="h-4 w-4" />
-                    توصيل
+                    توصيل للمنزل
                   </Button>
                   
                   <Button
                     variant="ghost"
                     className="w-full"
-                    onClick={() => {
-                      setShowOptions(false);
-                    }}
+                    onClick={() => setShowOptions(false)}
                   >
                     <X className="h-4 w-4 ml-2" />
                     رجوع
@@ -459,7 +557,7 @@ ${orderItems}
                 </div>
               )}
               
-              {/* Delivery Checkout */}
+              {/* نموذج التوصيل */}
               {showDeliveryCheckout && (
                 <div className="space-y-4">
                   <div className="text-center mb-2">
@@ -467,10 +565,10 @@ ${orderItems}
                     <p className="text-sm text-muted-foreground">أدخل بياناتك ثم اختر طريقة الدفع</p>
                   </div>
 
-                  {/* Personal info */}
+                  {/* البيانات الشخصية */}
                   <div className="space-y-3">
                     <div>
-                      <label className="block text-sm font-medium mb-1 text-right">الاسم</label>
+                      <label className="block text-sm font-medium mb-1 text-right">الاسم *</label>
                       <Input
                         value={customerName}
                         onChange={(e) => {
@@ -479,86 +577,143 @@ ${orderItems}
                         }}
                         placeholder="أدخل اسم العميل"
                         className="text-right"
+                        required
                       />
                       {customerNameError && <p className="text-destructive text-sm mt-1 text-right">{customerNameError}</p>}
                     </div>
 
                     <div>
-                      <label className="block text-sm font-medium mb-1 text-right">رقم الهاتف</label>
+                      <label className="block text-sm font-medium mb-1 text-right">رقم الهاتف *</label>
                       <Input
                         value={customerPhone}
                         onChange={(e) => handlePhoneChange(e.target.value)}
                         placeholder="010xxxxxxxx أو +20 10xxxxxxxx"
                         className={`text-right ${customerPhoneError ? 'border-destructive' : ''}`}
                         dir="ltr"
+                        required
                       />
                       {customerPhoneError && <p className="text-destructive text-sm mt-1 text-right">{customerPhoneError}</p>}
                     </div>
 
-                    {/* Address */}
+                    {/* العنوان */}
                     <div>
-                      <label className="block text-sm font-medium mb-1 text-right">اسم الشارع</label>
-                      <Input value={streetName} onChange={(e) => setStreetName(e.target.value)} placeholder="اسم الشارع" className="text-right" />
+                      <label className="block text-sm font-medium mb-1 text-right">اسم الشارع *</label>
+                      <Input 
+                        value={streetName} 
+                        onChange={(e) => setStreetName(e.target.value)} 
+                        placeholder="اسم الشارع" 
+                        className="text-right" 
+                        required
+                      />
                     </div>
+                    
                     <div className="grid grid-cols-2 gap-3">
                       <div>
-                        <label className="block text-sm font-medium mb-1 text-right">رقم العمارة</label>
-                        <Input value={buildingNumber} onChange={(e) => setBuildingNumber(e.target.value)} placeholder="مثال: 12" className="text-right" />
+                        <label className="block text-sm font-medium mb-1 text-right">رقم العمارة *</label>
+                        <Input 
+                          value={buildingNumber} 
+                          onChange={(e) => setBuildingNumber(e.target.value)} 
+                          placeholder="مثال: 12" 
+                          className="text-right" 
+                          required
+                        />
                       </div>
                       <div>
-                        <label className="block text-sm font-medium mb-1 text-right">الدور</label>
-                        <Input value={floor} onChange={(e) => setFloor(e.target.value)} placeholder="مثال: 3" className="text-right" />
+                        <label className="block text-sm font-medium mb-1 text-right">الدور *</label>
+                        <Input 
+                          value={floor} 
+                          onChange={(e) => setFloor(e.target.value)} 
+                          placeholder="مثال: 3" 
+                          className="text-right" 
+                          required
+                        />
                       </div>
                     </div>
+                    
                     <div>
-                      <label className="block text-sm font-medium mb-1 text-right">اختيار المنطقة / البوابة</label>
-                      <select value={area} onChange={(e) => setArea(e.target.value)} className="w-full border rounded-md p-2 text-right bg-background">
+                      <label className="block text-sm font-medium mb-1 text-right">اختيار المنطقة / البوابة *</label>
+                      <select 
+                        value={area} 
+                        onChange={(e) => setArea(e.target.value)} 
+                        className="w-full border rounded-md p-2 text-right bg-background"
+                        required
+                      >
                         <option value="" disabled>اختر المنطقة</option>
                         {AREA_OPTIONS.map(opt => (
-                          <option key={opt.label} value={opt.label}>{opt.label} - رسوم توصيل {opt.fee} ج</option>
+                          <option key={opt.label} value={opt.label}>
+                            {opt.label} - رسوم توصيل {opt.fee} ج
+                          </option>
                         ))}
                       </select>
-                      <p className="text-xs text-muted-foreground mt-1 text-right">رسوم التوصيل الحالية: {deliveryFee} ج</p>
+                      <p className="text-xs text-muted-foreground mt-1 text-right">
+                        رسوم التوصيل الحالية: {deliveryFee} ج
+                      </p>
                     </div>
                   </div>
 
-                  {/* Payment method or reminder */}
+                  {/* طريقة الدفع أو تذكير */}
                   {!canProceed ? (
                     <div className="rounded-md border border-dashed p-3 text-right text-sm text-muted-foreground">
                       يرجى إدخال جميع البيانات المطلوبة بالأعلى (الاسم، الهاتف، العنوان، المنطقة/البوابة) لإظهار طرق الدفع ورابط/رمز الدفع.
                     </div>
                   ) : (
                     <>
-                      {/* Payment method */}
+                      {/* طريقة الدفع */}
                       <div className="space-y-2">
                         <h4 className="font-semibold text-right">طريقة الدفع</h4>
-                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
-                          <Button variant={paymentMethod === 'cod' ? 'default' : 'outline'} onClick={() => setPaymentMethod('cod')}>الدفع عند الاستلام</Button>
-                          <Button variant={paymentMethod === 'vodafone' ? 'default' : 'outline'} onClick={() => setPaymentMethod('vodafone')}>فودافون كاش (+1%)</Button>
-                          <Button variant={paymentMethod === 'instapay' ? 'default' : 'outline'} onClick={() => setPaymentMethod('instapay')}>انستا باي</Button>
+                        <div className="grid grid-cols-1 gap-2">
+                          <Button 
+                            variant={paymentMethod === 'cod' ? 'default' : 'outline'} 
+                            onClick={() => setPaymentMethod('cod')}
+                            className="text-sm"
+                          >
+                            الدفع عند الاستلام
+                          </Button>
+                          <Button 
+                            variant={paymentMethod === 'vodafone' ? 'default' : 'outline'} 
+                            onClick={() => setPaymentMethod('vodafone')}
+                            className="text-sm"
+                          >
+                            فودافون كاش (+1%)
+                          </Button>
+                          <Button 
+                            variant={paymentMethod === 'instapay' ? 'default' : 'outline'} 
+                            onClick={() => setPaymentMethod('instapay')}
+                            className="text-sm"
+                          >
+                            إنستا باي
+                          </Button>
                         </div>
+                        
+                        {/* روابط ورموز الدفع الإلكتروني */}
                         {paymentMethod !== 'cod' && (
                           <div className="mt-3 space-y-2 text-center">
-                            <Button className="btn-tafaneen w-full" onClick={() => {
-                              const link = paymentMethod === 'vodafone' 
-                                ? 'http://vf.eg/vfcash?id=mt&qrId=E9kZZk&qrString=ac04f93ecff3b89619c576f2fa4436a0872aca3a6ccdfb5a8f6ef3a6b92ebeb7'
-                                : 'https://ipn.eg/C/Q/mosaadhosny7890/instapay?ISIGN=23052603MEUCIQC/ACli2Pcxq8/e/to1eqMfNxYCj4wQd8l/o2KSJTg1LwIgScy/K3IM2HEEei0Zkzqru9bBWjuFwgsbjHL1q0iffKA=';
-                              window.open(link, '_blank');
-                            }}>
+                            <Button 
+                              className="btn-tafaneen w-full" 
+                              onClick={() => {
+                                const link = paymentMethod === 'vodafone' 
+                                  ? 'http://vf.eg/vfcash?id=mt&qrId=E9kZZk&qrString=ac04f93ecff3b89619c576f2fa4436a0872aca3a6ccdfb5a8f6ef3a6b92ebeb7'
+                                  : 'https://ipn.eg/C/Q/mosaadhosny7890/instapay?ISIGN=23052603MEUCIQC/ACli2Pcxq8/e/to1eqMfNxYCj4wQd8l/o2KSJTg1LwIgScy/K3IM2HEEei0Zkzqru9bBWjuFwgsbjHL1q0iffKA=';
+                                window.open(link, '_blank');
+                              }}
+                            >
                               الانتقال إلى الدفع
                             </Button>
                             <div className="flex flex-col items-center gap-2">
-                              <QRCode value={paymentMethod === 'vodafone' 
-                                ? 'http://vf.eg/vfcash?id=mt&qrId=E9kZZk&qrString=ac04f93ecff3b89619c576f2fa4436a0872aca3a6ccdfb5a8f6ef3a6b92ebeb7'
-                                : 'https://ipn.eg/C/Q/mosaadhosny7890/instapay?ISIGN=23052603MEUCIQC/ACli2Pcxq8/e/to1eqMfNxYCj4wQd8l/o2KSJTg1LwIgScy/K3IM2HEEei0Zkzqru9bBWjuFwgsbjHL1q0iffKA='
-                              } size={128} />
+                              <QRCode 
+                                value={paymentMethod === 'vodafone' 
+                                  ? 'http://vf.eg/vfcash?id=mt&qrId=E9kZZk&qrString=ac04f93ecff3b89619c576f2fa4436a0872aca3a6ccdfb5a8f6ef3a6b92ebeb7'
+                                  : 'https://ipn.eg/C/Q/mosaadhosny7890/instapay?ISIGN=23052603MEUCIQC/ACli2Pcxq8/e/to1eqMfNxYCj4wQd8l/o2KSJTg1LwIgScy/K3IM2HEEei0Zkzqru9bBWjuFwgsbjHL1q0iffKA='
+                                } 
+                                size={128} 
+                              />
                               <p className="text-xs text-muted-foreground">يمكنك المسح للدفع مباشرة</p>
                             </div>
                           </div>
                         )}
                       </div>
 
-                      {/* Totals */}
+                      {/* ملخص الحساب */}
                       <div className="space-y-1 text-right">
                         <div className="flex justify-between"><span>مجموع المنتجات</span><span>{totalPrice} ج</span></div>
                         <div className="flex justify-between"><span>رسوم التوصيل</span><span>{deliveryFee} ج</span></div>
@@ -568,26 +723,26 @@ ${orderItems}
                         <div className="flex justify-between font-semibold"><span>الإجمالي النهائي</span><span>{finalTotal} ج</span></div>
                       </div>
 
-                      {/* Actions */}
+                      {/* الإجراءات */}
                       <div className="space-y-2">
                         <Button
                           variant="outline"
                           className="w-full flex items-center gap-2"
                           style={{ backgroundColor: '#25D366', color: 'white' }}
                           onClick={() => {
-                            // Send WhatsApp with full details
+                            // إرسال واتساب مع التفاصيل الكاملة
                             const invoiceNumber = generateInvoiceNumber();
                             const today = new Date();
                             const date = today.toLocaleDateString('ar-EG');
                             const time = today.toLocaleTimeString('ar-EG', { hour: '2-digit', minute: '2-digit' });
                             const orderItems = items.map((item, index) => `${index + 1}. ${item.name}\nالكمية: ${item.quantity}\nسعر الوحدة: ${item.price} ج.م\nالمجموع: ${item.price * item.quantity} ج.م`).join('\n\n');
-                            const payLabel = paymentMethod === 'cod' ? 'الدفع عند الاستلام' : paymentMethod === 'vodafone' ? 'فودافون كاش' : 'انستا باي';
+                            const payLabel = paymentMethod === 'cod' ? 'الدفع عند الاستلام' : paymentMethod === 'vodafone' ? 'فودافون كاش' : 'إنستا باي';
                             const payLink = paymentMethod === 'vodafone'
                               ? 'http://vf.eg/vfcash?id=mt&qrId=E9kZZk&qrString=ac04f93ecff3b89619c576f2fa4436a0872aca3a6ccdfb5a8f6ef3a6b92ebeb7'
                               : paymentMethod === 'instapay'
                               ? 'https://ipn.eg/C/Q/mosaadhosny7890/instapay?ISIGN=23052603MEUCIQC/ACli2Pcxq8/e/to1eqMfNxYCj4wQd8l/o2KSJTg1LwIgScy/K3IM2HEEei0Zkzqru9bBWjuFwgsbjHL1q0iffKA='
                               : '';
-                            const message = `فاتورة طلب - مكتبة تفانيين\n\nمعلومات الفاتورة:\nرقم الفاتورة: ${invoiceNumber}\nالتاريخ: ${date}\nالوقت: ${time}\nطريقة الاستلام: توصيل للمنزل\n\نمعلومات العميل:\nالاسم: ${customerName}\nرقم الهاتف: ${formatEgyptianPhone(customerPhone)}\nالعنوان: ${streetName}, عمارة ${buildingNumber}, الدور ${floor}\nالمنطقة/البوابة: ${area}\n\nالمنتجات المطلوبة:\n${orderItems}\n\nرسوم التوصيل: ${deliveryFee} ج.م\n${paymentMethod === 'vodafone' ? 'رسوم فودافون كاش (1%): ' + surcharge + ' ج.م\n' : ''}الإجمالي النهائي: ${finalTotal} ج.م\n\nطريقة الدفع: ${payLabel}${payLink ? '\nرابط الدفع: ' + payLink : ''}\n\nللاستفسار: 01026274235`;
+                            const message = `فاتورة طلب - مكتبة تفانين\n\nمعلومات الفاتورة:\nرقم الفاتورة: ${invoiceNumber}\nالتاريخ: ${date}\nالوقت: ${time}\nطريقة الاستلام: توصيل للمنزل\n\nمعلومات العميل:\nالاسم: ${customerName}\nرقم الهاتف: ${formatEgyptianPhone(customerPhone)}\nالعنوان: ${streetName}, عمارة ${buildingNumber}, الدور ${floor}\nالمنطقة/البوابة: ${area}\n\nالمنتجات المطلوبة:\n${orderItems}\n\nرسوم التوصيل: ${deliveryFee} ج.م\n${paymentMethod === 'vodafone' ? 'رسوم فودافون كاش (1%): ' + surcharge + ' ج.م\n' : ''}الإجمالي النهائي: ${finalTotal} ج.م\n\nطريقة الدفع: ${payLabel}${payLink ? '\nرابط الدفع: ' + payLink : ''}\n\nللاستفسار: 01026274235`;
                             const phoneNumber = '201026274235';
                             const whatsappWeb = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
                             window.open(whatsappWeb, '_blank');
@@ -609,11 +764,10 @@ ${orderItems}
                       </div>
                     </>
                   )}
-
                 </div>
               )}
 
-              {/* Pickup Sub-options */}
+              {/* خيارات الاستلام الفرعية */}
               {showPickupOptions && (
                 <div className="space-y-4">
                   <div className="text-center mb-2">
