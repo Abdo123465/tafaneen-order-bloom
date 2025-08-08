@@ -40,9 +40,10 @@ export function Cart() {
   const cartCount = getItemCount();
   const totalPrice = getTotalPrice();
   const deliveryFee = AREA_OPTIONS.find(o => o.label === area)?.fee ?? 0;
-  const subtotal = totalPrice + deliveryFee;
-  const surcharge = paymentMethod === 'vodafone' ? Math.round(subtotal * 0.01) : 0;
+  const subtotal = totalPrice + (showDeliveryCheckout ? deliveryFee : 0);
+  const surcharge = showDeliveryCheckout && paymentMethod === 'vodafone' ? Math.round(subtotal * 0.01) : 0;
   const finalTotal = subtotal + surcharge;
+  const canProceed = Boolean(customerName && !customerPhoneError && customerPhone && streetName && buildingNumber && floor && area);
 
   const handlePhoneChange = (value: string) => {
     setCustomerPhone(value);
@@ -521,84 +522,94 @@ ${orderItems}
                     </div>
                   </div>
 
-                  {/* Payment method */}
-                  <div className="space-y-2">
-                    <h4 className="font-semibold text-right">طريقة الدفع</h4>
-                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
-                      <Button variant={paymentMethod === 'cod' ? 'default' : 'outline'} onClick={() => setPaymentMethod('cod')}>الدفع عند الاستلام</Button>
-                      <Button variant={paymentMethod === 'vodafone' ? 'default' : 'outline'} onClick={() => setPaymentMethod('vodafone')}>فودافون كاش (+1%)</Button>
-                      <Button variant={paymentMethod === 'instapay' ? 'default' : 'outline'} onClick={() => setPaymentMethod('instapay')}>انستا باي</Button>
+                  {/* Payment method or reminder */}
+                  {!canProceed ? (
+                    <div className="rounded-md border border-dashed p-3 text-right text-sm text-muted-foreground">
+                      يرجى إدخال جميع البيانات المطلوبة بالأعلى (الاسم، الهاتف، العنوان، المنطقة/البوابة) لإظهار طرق الدفع ورابط/رمز الدفع.
                     </div>
-                    {paymentMethod !== 'cod' && (
-                      <div className="mt-3 space-y-2 text-center">
-                        <Button className="btn-tafaneen w-full" onClick={() => {
-                          const link = paymentMethod === 'vodafone' 
-                            ? 'http://vf.eg/vfcash?id=mt&qrId=E9kZZk&qrString=ac04f93ecff3b89619c576f2fa4436a0872aca3a6ccdfb5a8f6ef3a6b92ebeb7'
-                            : 'https://ipn.eg/C/Q/mosaadhosny7890/instapay?ISIGN=23052603MEUCIQC/ACli2Pcxq8/e/to1eqMfNxYCj4wQd8l/o2KSJTg1LwIgScy/K3IM2HEEei0Zkzqru9bBWjuFwgsbjHL1q0iffKA=';
-                          window.open(link, '_blank');
-                        }}>
-                          الانتقال إلى الدفع
-                        </Button>
-                        <div className="flex flex-col items-center gap-2">
-                          <QRCode value={paymentMethod === 'vodafone' 
-                            ? 'http://vf.eg/vfcash?id=mt&qrId=E9kZZk&qrString=ac04f93ecff3b89619c576f2fa4436a0872aca3a6ccdfb5a8f6ef3a6b92ebeb7'
-                            : 'https://ipn.eg/C/Q/mosaadhosny7890/instapay?ISIGN=23052603MEUCIQC/ACli2Pcxq8/e/to1eqMfNxYCj4wQd8l/o2KSJTg1LwIgScy/K3IM2HEEei0Zkzqru9bBWjuFwgsbjHL1q0iffKA='
-                          } size={128} />
-                          <p className="text-xs text-muted-foreground">يمكنك المسح للدفع مباشرة</p>
+                  ) : (
+                    <>
+                      {/* Payment method */}
+                      <div className="space-y-2">
+                        <h4 className="font-semibold text-right">طريقة الدفع</h4>
+                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+                          <Button variant={paymentMethod === 'cod' ? 'default' : 'outline'} onClick={() => setPaymentMethod('cod')}>الدفع عند الاستلام</Button>
+                          <Button variant={paymentMethod === 'vodafone' ? 'default' : 'outline'} onClick={() => setPaymentMethod('vodafone')}>فودافون كاش (+1%)</Button>
+                          <Button variant={paymentMethod === 'instapay' ? 'default' : 'outline'} onClick={() => setPaymentMethod('instapay')}>انستا باي</Button>
                         </div>
+                        {paymentMethod !== 'cod' && (
+                          <div className="mt-3 space-y-2 text-center">
+                            <Button className="btn-tafaneen w-full" onClick={() => {
+                              const link = paymentMethod === 'vodafone' 
+                                ? 'http://vf.eg/vfcash?id=mt&qrId=E9kZZk&qrString=ac04f93ecff3b89619c576f2fa4436a0872aca3a6ccdfb5a8f6ef3a6b92ebeb7'
+                                : 'https://ipn.eg/C/Q/mosaadhosny7890/instapay?ISIGN=23052603MEUCIQC/ACli2Pcxq8/e/to1eqMfNxYCj4wQd8l/o2KSJTg1LwIgScy/K3IM2HEEei0Zkzqru9bBWjuFwgsbjHL1q0iffKA=';
+                              window.open(link, '_blank');
+                            }}>
+                              الانتقال إلى الدفع
+                            </Button>
+                            <div className="flex flex-col items-center gap-2">
+                              <QRCode value={paymentMethod === 'vodafone' 
+                                ? 'http://vf.eg/vfcash?id=mt&qrId=E9kZZk&qrString=ac04f93ecff3b89619c576f2fa4436a0872aca3a6ccdfb5a8f6ef3a6b92ebeb7'
+                                : 'https://ipn.eg/C/Q/mosaadhosny7890/instapay?ISIGN=23052603MEUCIQC/ACli2Pcxq8/e/to1eqMfNxYCj4wQd8l/o2KSJTg1LwIgScy/K3IM2HEEei0Zkzqru9bBWjuFwgsbjHL1q0iffKA='
+                              } size={128} />
+                              <p className="text-xs text-muted-foreground">يمكنك المسح للدفع مباشرة</p>
+                            </div>
+                          </div>
+                        )}
                       </div>
-                    )}
-                  </div>
 
-                  {/* Totals */}
-                  <div className="space-y-1 text-right">
-                    <div className="flex justify-between"><span>مجموع المنتجات</span><span>{totalPrice} ج</span></div>
-                    <div className="flex justify-between"><span>رسوم التوصيل</span><span>{deliveryFee} ج</span></div>
-                    {paymentMethod === 'vodafone' && (
-                      <div className="flex justify-between"><span>+ 1% رسوم فودافون كاش</span><span>{surcharge} ج</span></div>
-                    )}
-                    <div className="flex justify-between font-semibold"><span>الإجمالي النهائي</span><span>{finalTotal} ج</span></div>
-                  </div>
+                      {/* Totals */}
+                      <div className="space-y-1 text-right">
+                        <div className="flex justify-between"><span>مجموع المنتجات</span><span>{totalPrice} ج</span></div>
+                        <div className="flex justify-between"><span>رسوم التوصيل</span><span>{deliveryFee} ج</span></div>
+                        {paymentMethod === 'vodafone' && (
+                          <div className="flex justify-between"><span>+ 1% رسوم فودافون كاش</span><span>{surcharge} ج</span></div>
+                        )}
+                        <div className="flex justify-between font-semibold"><span>الإجمالي النهائي</span><span>{finalTotal} ج</span></div>
+                      </div>
 
-                  {/* Actions */}
-                  <div className="space-y-2">
-                    <Button
-                      variant="outline"
-                      className="w-full flex items-center gap-2"
-                      style={{ backgroundColor: '#25D366', color: 'white' }}
-                      onClick={() => {
-                        // Send WhatsApp with full details
-                        const invoiceNumber = generateInvoiceNumber();
-                        const today = new Date();
-                        const date = today.toLocaleDateString('ar-EG');
-                        const time = today.toLocaleTimeString('ar-EG', { hour: '2-digit', minute: '2-digit' });
-                        const orderItems = items.map((item, index) => `${index + 1}. ${item.name}\nالكمية: ${item.quantity}\nسعر الوحدة: ${item.price} ج.م\nالمجموع: ${item.price * item.quantity} ج.م`).join('\n\n');
-                        const payLabel = paymentMethod === 'cod' ? 'الدفع عند الاستلام' : paymentMethod === 'vodafone' ? 'فودافون كاش' : 'انستا باي';
-                        const payLink = paymentMethod === 'vodafone'
-                          ? 'http://vf.eg/vfcash?id=mt&qrId=E9kZZk&qrString=ac04f93ecff3b89619c576f2fa4436a0872aca3a6ccdfb5a8f6ef3a6b92ebeb7'
-                          : paymentMethod === 'instapay'
-                          ? 'https://ipn.eg/C/Q/mosaadhosny7890/instapay?ISIGN=23052603MEUCIQC/ACli2Pcxq8/e/to1eqMfNxYCj4wQd8l/o2KSJTg1LwIgScy/K3IM2HEEei0Zkzqru9bBWjuFwgsbjHL1q0iffKA='
-                          : '';
-                        const message = `فاتورة طلب - مكتبة تفانيين\n\nمعلومات الفاتورة:\nرقم الفاتورة: ${invoiceNumber}\nالتاريخ: ${date}\nالوقت: ${time}\nطريقة الاستلام: توصيل للمنزل\n\nمعلومات العميل:\nالاسم: ${customerName}\nرقم الهاتف: ${formatEgyptianPhone(customerPhone)}\nالعنوان: ${streetName}, عمارة ${buildingNumber}, الدور ${floor}\nالمنطقة/البوابة: ${area}\n\nالمنتجات المطلوبة:\n${orderItems}\n\nرسوم التوصيل: ${deliveryFee} ج.م\n${paymentMethod === 'vodafone' ? 'رسوم فودافون كاش (1%): ' + surcharge + ' ج.م\n' : ''}الإجمالي النهائي: ${finalTotal} ج.م\n\nطريقة الدفع: ${payLabel}${payLink ? '\nرابط الدفع: ' + payLink : ''}\n\nللاستفسار: 01026274235`;
-                        const phoneNumber = '201026274235';
-                        const whatsappWeb = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-                        window.open(whatsappWeb, '_blank');
-                      }}
-                    >
-                      <MessageCircle className="h-4 w-4" />
-                      إرسال الإشعار إلى المكتبة
-                    </Button>
+                      {/* Actions */}
+                      <div className="space-y-2">
+                        <Button
+                          variant="outline"
+                          className="w-full flex items-center gap-2"
+                          style={{ backgroundColor: '#25D366', color: 'white' }}
+                          onClick={() => {
+                            // Send WhatsApp with full details
+                            const invoiceNumber = generateInvoiceNumber();
+                            const today = new Date();
+                            const date = today.toLocaleDateString('ar-EG');
+                            const time = today.toLocaleTimeString('ar-EG', { hour: '2-digit', minute: '2-digit' });
+                            const orderItems = items.map((item, index) => `${index + 1}. ${item.name}\nالكمية: ${item.quantity}\nسعر الوحدة: ${item.price} ج.م\nالمجموع: ${item.price * item.quantity} ج.م`).join('\n\n');
+                            const payLabel = paymentMethod === 'cod' ? 'الدفع عند الاستلام' : paymentMethod === 'vodafone' ? 'فودافون كاش' : 'انستا باي';
+                            const payLink = paymentMethod === 'vodafone'
+                              ? 'http://vf.eg/vfcash?id=mt&qrId=E9kZZk&qrString=ac04f93ecff3b89619c576f2fa4436a0872aca3a6ccdfb5a8f6ef3a6b92ebeb7'
+                              : paymentMethod === 'instapay'
+                              ? 'https://ipn.eg/C/Q/mosaadhosny7890/instapay?ISIGN=23052603MEUCIQC/ACli2Pcxq8/e/to1eqMfNxYCj4wQd8l/o2KSJTg1LwIgScy/K3IM2HEEei0Zkzqru9bBWjuFwgsbjHL1q0iffKA='
+                              : '';
+                            const message = `فاتورة طلب - مكتبة تفانيين\n\nمعلومات الفاتورة:\nرقم الفاتورة: ${invoiceNumber}\nالتاريخ: ${date}\nالوقت: ${time}\nطريقة الاستلام: توصيل للمنزل\n\نمعلومات العميل:\nالاسم: ${customerName}\nرقم الهاتف: ${formatEgyptianPhone(customerPhone)}\nالعنوان: ${streetName}, عمارة ${buildingNumber}, الدور ${floor}\nالمنطقة/البوابة: ${area}\n\nالمنتجات المطلوبة:\n${orderItems}\n\nرسوم التوصيل: ${deliveryFee} ج.م\n${paymentMethod === 'vodafone' ? 'رسوم فودافون كاش (1%): ' + surcharge + ' ج.م\n' : ''}الإجمالي النهائي: ${finalTotal} ج.م\n\nطريقة الدفع: ${payLabel}${payLink ? '\nرابط الدفع: ' + payLink : ''}\n\nللاستفسار: 01026274235`;
+                            const phoneNumber = '201026274235';
+                            const whatsappWeb = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+                            window.open(whatsappWeb, '_blank');
+                          }}
+                        >
+                          <MessageCircle className="h-4 w-4" />
+                          إرسال الإشعار إلى المكتبة
+                        </Button>
 
-                    <Button variant="outline" className="w-full flex items-center gap-2" onClick={generateHTMLInvoice}>
-                      <FileText className="h-4 w-4" />
-                      تنزيل الفاتورة (HTML)
-                    </Button>
+                        <Button variant="outline" className="w-full flex items-center gap-2" onClick={generateHTMLInvoice}>
+                          <FileText className="h-4 w-4" />
+                          تنزيل الفاتورة (HTML)
+                        </Button>
 
-                    <Button variant="ghost" className="w-full" onClick={() => setShowDeliveryCheckout(false)}>
-                      <X className="h-4 w-4 ml-2" />
-                      رجوع
-                    </Button>
-                  </div>
+                        <Button variant="ghost" className="w-full" onClick={() => setShowDeliveryCheckout(false)}>
+                          <X className="h-4 w-4 ml-2" />
+                          رجوع
+                        </Button>
+                      </div>
+                    </>
+                  )}
+
                 </div>
               )}
 
