@@ -104,7 +104,7 @@ export function Header() {
                     <span className="sr-only">حساب المستخدم</span>
                   </Button>
                 </DropdownMenuTrigger>
-                <DropdownMenuContent align="end" className="w-56" dir="rtl">
+                <DropdownMenuContent align="end" className="w-56 text-right">
                   <div className="px-3 py-2 border-b">
                     <p className="text-sm font-medium">{user.name}</p>
                     <p className="text-xs text-muted-foreground">{user.phone}</p>

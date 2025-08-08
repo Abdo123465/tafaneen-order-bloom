@@ -7,11 +7,13 @@ import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/co
 import { useCart } from "@/contexts/CartContext";
 import { useToast } from "@/hooks/use-toast";
 import { validateEgyptianPhone, formatEgyptianPhone } from "@/utils/phoneValidation";
+import QRCode from "react-qr-code";
 
 export function Cart() {
   const { items, updateQuantity, removeItem, getTotalPrice, getItemCount, clearCart } = useCart();
   const [showOptions, setShowOptions] = useState(false);
   const [showPickupOptions, setShowPickupOptions] = useState(false);
+  const [showDeliveryCheckout, setShowDeliveryCheckout] = useState(false);
   const [selectedDeliveryMethod, setSelectedDeliveryMethod] = useState<'pickup' | 'delivery'>('pickup');
   const [isOpen, setIsOpen] = useState(false);
   const { toast } = useToast();
@@ -19,9 +21,28 @@ export function Cart() {
   const [customerPhone, setCustomerPhone] = useState('');
   const [customerNameError, setCustomerNameError] = useState('');
   const [customerPhoneError, setCustomerPhoneError] = useState('');
-
+  // Delivery details
+  const [streetName, setStreetName] = useState('');
+  const [buildingNumber, setBuildingNumber] = useState('');
+  const [floor, setFloor] = useState('');
+  const AREA_OPTIONS = [
+    { label: 'البوابة الأولى', fee: 20 },
+    { label: 'البوابة الثانية', fee: 20 },
+    { label: 'البوابة الثالثة', fee: 20 },
+    { label: 'البوابة الرابعة', fee: 20 },
+    { label: 'مساكن الظباط', fee: 20 },
+    { label: 'المناطق (ع - ص - ن - ا - س - م - ك)', fee: 25 },
+    { label: 'مساكن الشباب', fee: 30 },
+    { label: 'الرماية', fee: 30 },
+  ] as const;
+  const [area, setArea] = useState<string>('');
+  const [paymentMethod, setPaymentMethod] = useState<'cod' | 'vodafone' | 'instapay'>('cod');
   const cartCount = getItemCount();
   const totalPrice = getTotalPrice();
+  const deliveryFee = AREA_OPTIONS.find(o => o.label === area)?.fee ?? 0;
+  const subtotal = totalPrice + deliveryFee;
+  const surcharge = paymentMethod === 'vodafone' ? Math.round(subtotal * 0.01) : 0;
+  const finalTotal = subtotal + surcharge;
 
   const handlePhoneChange = (value: string) => {
     setCustomerPhone(value);
@@ -307,7 +328,7 @@ ${orderItems}
   };
 
   return (
-    <Sheet open={isOpen} onOpenChange={setIsOpen}>
+    <Sheet open={isOpen} onOpenChange={(open) => { setIsOpen(open); if (!open) { setShowOptions(false); setShowPickupOptions(false); setShowDeliveryCheckout(false); } }}>
       <SheetTrigger asChild>
         <Button variant="ghost" size="icon" className="relative">
           <ShoppingCart className="h-5 w-5" />
@@ -382,7 +403,7 @@ ${orderItems}
             <div className="border-t pt-4 space-y-4">
               {/* Total */}
               <div className="flex justify-between items-center text-lg font-semibold">
-                <span>الإجمالي: {totalPrice} جنيه</span>
+                <span>الإجمالي: {showDeliveryCheckout ? finalTotal : totalPrice} جنيه</span>
               </div>
               
               {/* Main Options */}
@@ -437,6 +458,150 @@ ${orderItems}
                 </div>
               )}
               
+              {/* Delivery Checkout */}
+              {showDeliveryCheckout && (
+                <div className="space-y-4">
+                  <div className="text-center mb-2">
+                    <h3 className="text-lg font-semibold">معلومات التوصيل</h3>
+                    <p className="text-sm text-muted-foreground">أدخل بياناتك ثم اختر طريقة الدفع</p>
+                  </div>
+
+                  {/* Personal info */}
+                  <div className="space-y-3">
+                    <div>
+                      <label className="block text-sm font-medium mb-1 text-right">الاسم</label>
+                      <Input
+                        value={customerName}
+                        onChange={(e) => {
+                          setCustomerName(e.target.value);
+                          setCustomerNameError(e.target.value ? '' : 'يرجى إدخال اسم العميل');
+                        }}
+                        placeholder="أدخل اسم العميل"
+                        className="text-right"
+                      />
+                      {customerNameError && <p className="text-destructive text-sm mt-1 text-right">{customerNameError}</p>}
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-medium mb-1 text-right">رقم الهاتف</label>
+                      <Input
+                        value={customerPhone}
+                        onChange={(e) => handlePhoneChange(e.target.value)}
+                        placeholder="010xxxxxxxx أو +20 10xxxxxxxx"
+                        className={`text-right ${customerPhoneError ? 'border-destructive' : ''}`}
+                        dir="ltr"
+                      />
+                      {customerPhoneError && <p className="text-destructive text-sm mt-1 text-right">{customerPhoneError}</p>}
+                    </div>
+
+                    {/* Address */}
+                    <div>
+                      <label className="block text-sm font-medium mb-1 text-right">اسم الشارع</label>
+                      <Input value={streetName} onChange={(e) => setStreetName(e.target.value)} placeholder="اسم الشارع" className="text-right" />
+                    </div>
+                    <div className="grid grid-cols-2 gap-3">
+                      <div>
+                        <label className="block text-sm font-medium mb-1 text-right">رقم العمارة</label>
+                        <Input value={buildingNumber} onChange={(e) => setBuildingNumber(e.target.value)} placeholder="مثال: 12" className="text-right" />
+                      </div>
+                      <div>
+                        <label className="block text-sm font-medium mb-1 text-right">الدور</label>
+                        <Input value={floor} onChange={(e) => setFloor(e.target.value)} placeholder="مثال: 3" className="text-right" />
+                      </div>
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium mb-1 text-right">اختيار المنطقة / البوابة</label>
+                      <select value={area} onChange={(e) => setArea(e.target.value)} className="w-full border rounded-md p-2 text-right bg-background">
+                        <option value="" disabled>اختر المنطقة</option>
+                        {AREA_OPTIONS.map(opt => (
+                          <option key={opt.label} value={opt.label}>{opt.label} - رسوم توصيل {opt.fee} ج</option>
+                        ))}
+                      </select>
+                      <p className="text-xs text-muted-foreground mt-1 text-right">رسوم التوصيل الحالية: {deliveryFee} ج</p>
+                    </div>
+                  </div>
+
+                  {/* Payment method */}
+                  <div className="space-y-2">
+                    <h4 className="font-semibold text-right">طريقة الدفع</h4>
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+                      <Button variant={paymentMethod === 'cod' ? 'default' : 'outline'} onClick={() => setPaymentMethod('cod')}>الدفع عند الاستلام</Button>
+                      <Button variant={paymentMethod === 'vodafone' ? 'default' : 'outline'} onClick={() => setPaymentMethod('vodafone')}>فودافون كاش (+1%)</Button>
+                      <Button variant={paymentMethod === 'instapay' ? 'default' : 'outline'} onClick={() => setPaymentMethod('instapay')}>انستا باي</Button>
+                    </div>
+                    {paymentMethod !== 'cod' && (
+                      <div className="mt-3 space-y-2 text-center">
+                        <Button className="btn-tafaneen w-full" onClick={() => {
+                          const link = paymentMethod === 'vodafone' 
+                            ? 'http://vf.eg/vfcash?id=mt&qrId=E9kZZk&qrString=ac04f93ecff3b89619c576f2fa4436a0872aca3a6ccdfb5a8f6ef3a6b92ebeb7'
+                            : 'https://ipn.eg/C/Q/mosaadhosny7890/instapay?ISIGN=23052603MEUCIQC/ACli2Pcxq8/e/to1eqMfNxYCj4wQd8l/o2KSJTg1LwIgScy/K3IM2HEEei0Zkzqru9bBWjuFwgsbjHL1q0iffKA=';
+                          window.open(link, '_blank');
+                        }}>
+                          الانتقال إلى الدفع
+                        </Button>
+                        <div className="flex flex-col items-center gap-2">
+                          <QRCode value={paymentMethod === 'vodafone' 
+                            ? 'http://vf.eg/vfcash?id=mt&qrId=E9kZZk&qrString=ac04f93ecff3b89619c576f2fa4436a0872aca3a6ccdfb5a8f6ef3a6b92ebeb7'
+                            : 'https://ipn.eg/C/Q/mosaadhosny7890/instapay?ISIGN=23052603MEUCIQC/ACli2Pcxq8/e/to1eqMfNxYCj4wQd8l/o2KSJTg1LwIgScy/K3IM2HEEei0Zkzqru9bBWjuFwgsbjHL1q0iffKA='
+                          } size={128} />
+                          <p className="text-xs text-muted-foreground">يمكنك المسح للدفع مباشرة</p>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Totals */}
+                  <div className="space-y-1 text-right">
+                    <div className="flex justify-between"><span>مجموع المنتجات</span><span>{totalPrice} ج</span></div>
+                    <div className="flex justify-between"><span>رسوم التوصيل</span><span>{deliveryFee} ج</span></div>
+                    {paymentMethod === 'vodafone' && (
+                      <div className="flex justify-between"><span>+ 1% رسوم فودافون كاش</span><span>{surcharge} ج</span></div>
+                    )}
+                    <div className="flex justify-between font-semibold"><span>الإجمالي النهائي</span><span>{finalTotal} ج</span></div>
+                  </div>
+
+                  {/* Actions */}
+                  <div className="space-y-2">
+                    <Button
+                      variant="outline"
+                      className="w-full flex items-center gap-2"
+                      style={{ backgroundColor: '#25D366', color: 'white' }}
+                      onClick={() => {
+                        // Send WhatsApp with full details
+                        const invoiceNumber = generateInvoiceNumber();
+                        const today = new Date();
+                        const date = today.toLocaleDateString('ar-EG');
+                        const time = today.toLocaleTimeString('ar-EG', { hour: '2-digit', minute: '2-digit' });
+                        const orderItems = items.map((item, index) => `${index + 1}. ${item.name}\nالكمية: ${item.quantity}\nسعر الوحدة: ${item.price} ج.م\nالمجموع: ${item.price * item.quantity} ج.م`).join('\n\n');
+                        const payLabel = paymentMethod === 'cod' ? 'الدفع عند الاستلام' : paymentMethod === 'vodafone' ? 'فودافون كاش' : 'انستا باي';
+                        const payLink = paymentMethod === 'vodafone'
+                          ? 'http://vf.eg/vfcash?id=mt&qrId=E9kZZk&qrString=ac04f93ecff3b89619c576f2fa4436a0872aca3a6ccdfb5a8f6ef3a6b92ebeb7'
+                          : paymentMethod === 'instapay'
+                          ? 'https://ipn.eg/C/Q/mosaadhosny7890/instapay?ISIGN=23052603MEUCIQC/ACli2Pcxq8/e/to1eqMfNxYCj4wQd8l/o2KSJTg1LwIgScy/K3IM2HEEei0Zkzqru9bBWjuFwgsbjHL1q0iffKA='
+                          : '';
+                        const message = `فاتورة طلب - مكتبة تفانيين\n\nمعلومات الفاتورة:\nرقم الفاتورة: ${invoiceNumber}\nالتاريخ: ${date}\nالوقت: ${time}\nطريقة الاستلام: توصيل للمنزل\n\nمعلومات العميل:\nالاسم: ${customerName}\nرقم الهاتف: ${formatEgyptianPhone(customerPhone)}\nالعنوان: ${streetName}, عمارة ${buildingNumber}, الدور ${floor}\nالمنطقة/البوابة: ${area}\n\nالمنتجات المطلوبة:\n${orderItems}\n\nرسوم التوصيل: ${deliveryFee} ج.م\n${paymentMethod === 'vodafone' ? 'رسوم فودافون كاش (1%): ' + surcharge + ' ج.م\n' : ''}الإجمالي النهائي: ${finalTotal} ج.م\n\nطريقة الدفع: ${payLabel}${payLink ? '\nرابط الدفع: ' + payLink : ''}\n\nللاستفسار: 01026274235`;
+                        const phoneNumber = '201026274235';
+                        const whatsappWeb = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+                        window.open(whatsappWeb, '_blank');
+                      }}
+                    >
+                      <MessageCircle className="h-4 w-4" />
+                      إرسال الإشعار إلى المكتبة
+                    </Button>
+
+                    <Button variant="outline" className="w-full flex items-center gap-2" onClick={generateHTMLInvoice}>
+                      <FileText className="h-4 w-4" />
+                      تنزيل الفاتورة (HTML)
+                    </Button>
+
+                    <Button variant="ghost" className="w-full" onClick={() => setShowDeliveryCheckout(false)}>
+                      <X className="h-4 w-4 ml-2" />
+                      رجوع
+                    </Button>
+                  </div>
+                </div>
+              )}
+
               {/* Pickup Sub-options */}
               {showPickupOptions && (
                 <div className="space-y-4">
