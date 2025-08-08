@@ -441,14 +441,14 @@ ${orderItems}
         </Button>
       </SheetTrigger>
       
-      <SheetContent className="w-full sm:max-w-lg">
-        <SheetHeader>
-          <SheetTitle className="text-right">سلة التسوق</SheetTitle>
+      <SheetContent className="w-full sm:max-w-lg overflow-hidden">
+        <SheetHeader className="pb-4 border-b">
+          <SheetTitle className="text-right text-lg font-semibold">سلة التسوق</SheetTitle>
         </SheetHeader>
         
         <div className="flex flex-col h-full">
           {/* عناصر السلة */}
-          <div className="flex-1 overflow-y-auto py-4">
+          <div className="flex-1 overflow-y-auto py-4 px-1 cart-scrollbar">
             {items.length === 0 ? (
               <div className="text-center text-muted-foreground py-8">
                 <ShoppingCart className="h-12 w-12 mx-auto mb-4 opacity-50" />
@@ -559,7 +559,7 @@ ${orderItems}
               
               {/* نموذج التوصيل */}
               {showDeliveryCheckout && (
-                <div className="space-y-4">
+                <div className="space-y-4 max-h-96 overflow-y-auto cart-scrollbar pr-2">
                   <div className="text-center mb-2">
                     <h3 className="text-lg font-semibold">معلومات التوصيل</h3>
                     <p className="text-sm text-muted-foreground">أدخل بياناتك ثم اختر طريقة الدفع</p>
@@ -769,7 +769,7 @@ ${orderItems}
 
               {/* خيارات الاستلام الفرعية */}
               {showPickupOptions && (
-                <div className="space-y-4">
+                <div className="space-y-4 max-h-80 overflow-y-auto cart-scrollbar pr-2">
                   <div className="text-center mb-2">
                     <h3 className="text-lg font-semibold">معلومات العميل</h3>
                     <p className="text-sm text-muted-foreground">يرجى إدخال بياناتك لإتمام الطلب</p>
