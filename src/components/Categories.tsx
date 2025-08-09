@@ -84,6 +84,7 @@ export function Categories() {
             const IconComponent = category.icon;
             const to = category.name.includes("أقلام") ? "/pens" : 
                       category.name.includes("أدوات القص واللصق") ? "/cutting-pasting-tools" : 
+                      category.name.includes("آلات حاسبة ومساطر") ? "/calculators-rulers" :
                       category.name.includes("ألوان") ? "/art-supplies" : "/categories";
             return (
               <Card key={category.id} className="group hover:shadow-elegant transition-all duration-300 hover:-translate-y-1 border-0 overflow-hidden">
