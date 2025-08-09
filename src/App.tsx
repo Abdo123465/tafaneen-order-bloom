@@ -21,6 +21,9 @@ import CorrectionPensPage from "./pages/CorrectionPensPage";
 import CuttingPastingPage from "./pages/CuttingPastingPage";
 import WoodenPencilsPage from "./pages/WoodenPencilsPage";
 import CuttingPastingToolsPage from "./pages/CuttingPastingToolsPage";
+import CalculatorsRulersPage from "./pages/CalculatorsRulersPage";
+import ScientificCalculatorPage from "./pages/ScientificCalculatorPage";
+import CommercialCalculatorPage from "./pages/CommercialCalculatorPage";
 
 const queryClient = new QueryClient();
 
@@ -45,6 +48,9 @@ const App = () => (
               <Route path="/pens/correction" element={<CorrectionPensPage />} />
               <Route path="/art-supplies" element={<ArtSuppliesPage />} />
               <Route path="/cutting-pasting-tools" element={<CuttingPastingToolsPage />} />
+              <Route path="/calculators-rulers" element={<CalculatorsRulersPage />} />
+              <Route path="/calculators-rulers/scientific-calculator" element={<ScientificCalculatorPage />} />
+              <Route path="/calculators-rulers/commercial-calculator" element={<CommercialCalculatorPage />} />
               <Route path="/art-supplies/cutting-pasting" element={<CuttingPastingPage />} />
               <Route path="/art-supplies/wooden-pencils" element={<WoodenPencilsPage />} />
               <Route path="/offers" element={<OffersPage />} />
