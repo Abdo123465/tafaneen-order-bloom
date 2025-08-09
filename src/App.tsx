@@ -24,6 +24,17 @@ import CuttingPastingToolsPage from "./pages/CuttingPastingToolsPage";
 import CalculatorsRulersPage from "./pages/CalculatorsRulersPage";
 import ScientificCalculatorPage from "./pages/ScientificCalculatorPage";
 import CommercialCalculatorPage from "./pages/CommercialCalculatorPage";
+import NotebooksPage from "./pages/NotebooksPage";
+import NotebooksMainCategoryPage from "./pages/NotebooksMainCategoryPage";
+import KrassatPage from "./pages/KrassatPage";
+import KashakilPage from "./pages/KashakilPage";
+import Krassat28PagesPage from "./pages/Krassat28PagesPage";
+import Krassat40PagesPage from "./pages/Krassat40PagesPage";
+import Kashakil60PagesPage from "./pages/Kashakil60PagesPage";
+import Kashakil80PagesPage from "./pages/Kashakil80PagesPage";
+import Kashakil100PagesPage from "./pages/Kashakil100PagesPage";
+import KashakilSilkA4Page from "./pages/KashakilSilkA4Page";
+import KashakilSilkA5Page from "./pages/KashakilSilkA5Page";
 
 const queryClient = new QueryClient();
 
@@ -53,6 +64,17 @@ const App = () => (
               <Route path="/calculators-rulers/commercial-calculator" element={<CommercialCalculatorPage />} />
               <Route path="/art-supplies/cutting-pasting" element={<CuttingPastingPage />} />
               <Route path="/art-supplies/wooden-pencils" element={<WoodenPencilsPage />} />
+              <Route path="/notebooks" element={<NotebooksPage />} />
+              <Route path="/notebooks/main-category" element={<NotebooksMainCategoryPage />} />
+              <Route path="/notebooks/krassat" element={<KrassatPage />} />
+              <Route path="/notebooks/krassat/28-pages" element={<Krassat28PagesPage />} />
+              <Route path="/notebooks/krassat/40-pages" element={<Krassat40PagesPage />} />
+              <Route path="/notebooks/kashakil" element={<KashakilPage />} />
+              <Route path="/notebooks/kashakil/60-pages" element={<Kashakil60PagesPage />} />
+              <Route path="/notebooks/kashakil/80-pages" element={<Kashakil80PagesPage />} />
+              <Route path="/notebooks/kashakil/100-pages" element={<Kashakil100PagesPage />} />
+              <Route path="/notebooks/kashakil-silk-a4" element={<KashakilSilkA4Page />} />
+              <Route path="/notebooks/kashakil-silk-a5" element={<KashakilSilkA5Page />} />
               <Route path="/offers" element={<OffersPage />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
