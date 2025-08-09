@@ -82,7 +82,9 @@ export function Categories() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {categories.map((category) => {
             const IconComponent = category.icon;
-            const to = category.name.includes("أقلام") ? "/pens" : category.name.includes("ألوان") ? "/art-supplies" : "/categories";
+            const to = category.name.includes("أقلام") ? "/pens" : 
+                      category.name.includes("أدوات القص واللصق") ? "/cutting-pasting-tools" : 
+                      category.name.includes("ألوان") ? "/art-supplies" : "/categories";
             return (
               <Card key={category.id} className="group hover:shadow-elegant transition-all duration-300 hover:-translate-y-1 border-0 overflow-hidden">
                 <CardContent className="p-0">
