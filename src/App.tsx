@@ -18,6 +18,9 @@ import FountainPensPage from "./pages/FountainPensPage";
 import MarkersPage from "./pages/MarkersPage";
 import CalligraphyPensPage from "./pages/CalligraphyPensPage";
 import CorrectionPensPage from "./pages/CorrectionPensPage";
+import CuttingPastingPage from "./pages/CuttingPastingPage";
+import WoodenPencilsPage from "./pages/WoodenPencilsPage";
+import CuttingPastingToolsPage from "./pages/CuttingPastingToolsPage";
 
 const queryClient = new QueryClient();
 
@@ -41,6 +44,9 @@ const App = () => (
               <Route path="/pens/calligraphy" element={<CalligraphyPensPage />} />
               <Route path="/pens/correction" element={<CorrectionPensPage />} />
               <Route path="/art-supplies" element={<ArtSuppliesPage />} />
+              <Route path="/cutting-pasting-tools" element={<CuttingPastingToolsPage />} />
+              <Route path="/art-supplies/cutting-pasting" element={<CuttingPastingPage />} />
+              <Route path="/art-supplies/wooden-pencils" element={<WoodenPencilsPage />} />
               <Route path="/offers" element={<OffersPage />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
