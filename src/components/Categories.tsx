@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { Link, useNavigate } from "react-router-dom";
 import { PenTool, Scissors, Calculator, Palette, Archive, Briefcase } from "lucide-react";
 
 export function Categories() {
@@ -81,6 +82,7 @@ export function Categories() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {categories.map((category) => {
             const IconComponent = category.icon;
+            const to = category.name.includes("أقلام") ? "/pens" : category.name.includes("ألوان") ? "/art-supplies" : "/categories";
             return (
               <Card key={category.id} className="group hover:shadow-elegant transition-all duration-300 hover:-translate-y-1 border-0 overflow-hidden">
                 <CardContent className="p-0">
@@ -99,10 +101,11 @@ export function Categories() {
                     </p>
                     
                     <Button 
+                      asChild
                       variant="outline" 
                       className={`w-full ${category.textColor} border-current hover:bg-current hover:text-white transition-colors`}
                     >
-                      تصفح المنتجات
+                      <Link to={to}>تصفح المنتجات</Link>
                     </Button>
                   </div>
                 </CardContent>
@@ -112,8 +115,8 @@ export function Categories() {
         </div>
 
         <div className="text-center mt-12">
-          <Button className="btn-tafaneen text-lg px-8 py-4 h-auto">
-            عرض جميع الفئات
+          <Button asChild className="btn-tafaneen text-lg px-8 py-4 h-auto">
+            <Link to="/categories">عرض جميع الفئات</Link>
           </Button>
         </div>
       </div>

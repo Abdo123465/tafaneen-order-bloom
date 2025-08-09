@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Search, User, Menu, X, MessageCircle, LogOut, ChevronDown, UserCheck, ShoppingBag, Settings, History } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -163,13 +164,13 @@ export function Header() {
         {/* Navigation */}
         <nav className="hidden md:flex mt-4 gap-6">
           {navItems.map((item, index) => (
-            <a
+            <Link
               key={index}
-              href={item.href}
+              to={item.href}
               className="text-foreground hover:text-primary transition-colors font-medium"
             >
               {item.label}
-            </a>
+            </Link>
           ))}
         </nav>
 
@@ -192,14 +193,14 @@ export function Header() {
           <nav className="container mx-auto px-4 py-4">
             <div className="flex flex-col gap-4">
               {navItems.map((item, index) => (
-                <a
+                <Link
                   key={index}
-                  href={item.href}
+                  to={item.href}
                   className="text-foreground hover:text-primary transition-colors font-medium py-2"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.label}
-                </a>
+                </Link>
               ))}
               
               {user ? (

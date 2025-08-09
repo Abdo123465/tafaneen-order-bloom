@@ -7,6 +7,10 @@ import { CartProvider } from "@/contexts/CartContext";
 import { AuthProvider } from "@/contexts/AuthContext";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
+import CategoriesPage from "./pages/CategoriesPage";
+import PensPage from "./pages/PensPage";
+import ArtSuppliesPage from "./pages/ArtSuppliesPage";
+import OffersPage from "./pages/OffersPage";
 
 const queryClient = new QueryClient();
 
@@ -20,6 +24,10 @@ const App = () => (
           <BrowserRouter>
             <Routes>
               <Route path="/" element={<Index />} />
+              <Route path="/categories" element={<CategoriesPage />} />
+              <Route path="/pens" element={<PensPage />} />
+              <Route path="/art-supplies" element={<ArtSuppliesPage />} />
+              <Route path="/offers" element={<OffersPage />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>
