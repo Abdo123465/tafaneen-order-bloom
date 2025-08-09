@@ -448,7 +448,7 @@ ${orderItems}
         
         <div className="flex flex-col h-full">
           {/* عناصر السلة */}
-          <div className="flex-1 overflow-y-auto py-4 px-1 cart-scrollbar">
+          <div className="flex-1 overflow-y-auto py-4 px-1 max-h-[50vh] cart-scrollbar">
             {items.length === 0 ? (
               <div className="text-center text-muted-foreground py-8">
                 <ShoppingCart className="h-12 w-12 mx-auto mb-4 opacity-50" />
