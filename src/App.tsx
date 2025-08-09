@@ -11,6 +11,13 @@ import CategoriesPage from "./pages/CategoriesPage";
 import PensPage from "./pages/PensPage";
 import ArtSuppliesPage from "./pages/ArtSuppliesPage";
 import OffersPage from "./pages/OffersPage";
+import PencilsPage from "./pages/PencilsPage";
+import BallpointPensPage from "./pages/BallpointPensPage";
+import GelPensPage from "./pages/GelPensPage";
+import FountainPensPage from "./pages/FountainPensPage";
+import MarkersPage from "./pages/MarkersPage";
+import CalligraphyPensPage from "./pages/CalligraphyPensPage";
+import CorrectionPensPage from "./pages/CorrectionPensPage";
 
 const queryClient = new QueryClient();
 
@@ -26,6 +33,13 @@ const App = () => (
               <Route path="/" element={<Index />} />
               <Route path="/categories" element={<CategoriesPage />} />
               <Route path="/pens" element={<PensPage />} />
+              <Route path="/pens/pencils" element={<PencilsPage />} />
+              <Route path="/pens/ballpoint" element={<BallpointPensPage />} />
+              <Route path="/pens/gel" element={<GelPensPage />} />
+              <Route path="/pens/fountain" element={<FountainPensPage />} />
+              <Route path="/pens/markers" element={<MarkersPage />} />
+              <Route path="/pens/calligraphy" element={<CalligraphyPensPage />} />
+              <Route path="/pens/correction" element={<CorrectionPensPage />} />
               <Route path="/art-supplies" element={<ArtSuppliesPage />} />
               <Route path="/offers" element={<OffersPage />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
