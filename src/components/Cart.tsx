@@ -521,7 +521,7 @@ ${orderItems}
               
               {/* خيارات التوصيل/الاستلام */}
               {showOptions && !showPickupOptions && !showDeliveryCheckout && (
-                <div className="space-y-2 max-h-60 overflow-y-auto pr-2 cart-scrollbar" >
+                <div className="space-y-2 max-h-[50vh] sm:max-h-[60vh] overflow-y-auto pr-2 cart-scrollbar">
                   <div className="text-center mb-4">
                     <h3 className="text-lg font-semibold">اختر طريقة الاستلام</h3>
                   </div>
