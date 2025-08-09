@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link, useNavigate } from "react-router-dom";
-import { PenTool, Scissors, Calculator, Palette, Archive, Briefcase } from "lucide-react";
+import { PenTool, Scissors, Calculator, Palette, Archive, Briefcase, BookOpen } from "lucide-react";
 
 export function Categories() {
   const categories = [
@@ -64,6 +64,16 @@ export function Categories() {
       textColor: "text-teal-600",
       bgColor: "bg-teal-50",
       count: "400+ منتج"
+    },
+    {
+      id: 7,
+      name: "كشكيل و الكراسات و كشاكيل سلك",
+      description: "كراسات وكشاكيل بأنواع وأحجام مختلفة",
+      icon: BookOpen,
+      color: "bg-gradient-to-br from-indigo-500 to-indigo-600",
+      textColor: "text-indigo-600",
+      bgColor: "bg-indigo-50",
+      count: "350+ منتج"
     }
   ];
 
@@ -85,7 +95,8 @@ export function Categories() {
             const to = category.name.includes("أقلام") ? "/pens" : 
                       category.name.includes("أدوات القص واللصق") ? "/cutting-pasting-tools" : 
                       category.name.includes("آلات حاسبة ومساطر") ? "/calculators-rulers" :
-                      category.name.includes("ألوان") ? "/art-supplies" : "/categories";
+                      category.name.includes("ألوان") ? "/art-supplies" :
+                      category.name.includes("كشكيل") ? "/notebooks" : "/categories";
             return (
               <Card key={category.id} className="group hover:shadow-elegant transition-all duration-300 hover:-translate-y-1 border-0 overflow-hidden">
                 <CardContent className="p-0">
