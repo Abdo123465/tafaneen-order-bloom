@@ -17,13 +17,13 @@ export function Categories() {
     },
     {
       id: 2,
-      name: "أدوات القص واللصق",
-      description: "مقصات، لاصق، شريط لاصق وأدوات تجليد",
+      name: "أدوات القص واللصق والألوان",
+      description: "مقصات، لاصق، شريط لاصق، ألوان وأدوات الرسم",
       icon: Scissors,
       color: "bg-gradient-to-br from-green-500 to-green-600",
       textColor: "text-green-600",
       bgColor: "bg-green-50",
-      count: "200+ منتج"
+      count: "500+ منتج"
     },
     {
       id: 3,
@@ -35,16 +35,7 @@ export function Categories() {
       bgColor: "bg-purple-50",
       count: "150+ منتج"
     },
-    {
-      id: 4,
-      name: "ألوان وأدوات الرسم",
-      description: "ألوان خشبية، مائية، فرش رسم ولوحات",
-      icon: Palette,
-      color: "bg-gradient-to-br from-pink-500 to-pink-600",
-      textColor: "text-pink-600",
-      bgColor: "bg-pink-50",
-      count: "300+ منتج"
-    },
+
     {
       id: 5,
       name: "ملفات ومنظمات",
@@ -93,9 +84,8 @@ export function Categories() {
           {categories.map((category) => {
             const IconComponent = category.icon;
             const to = category.name.includes("أقلام") ? "/pens" : 
-                      category.name.includes("أدوات القص واللصق") ? "/cutting-pasting-tools" : 
+                      category.name.includes("أدوات القص واللصق والألوان") ? "/cutting-pasting-tools" : 
                       category.name.includes("آلات حاسبة ومساطر") ? "/calculators-rulers" :
-                      category.name.includes("ألوان") ? "/art-supplies" :
                       category.name.includes("كشكيل") ? "/notebooks" : "/categories";
             return (
               <Card key={category.id} className="group hover:shadow-elegant transition-all duration-300 hover:-translate-y-1 border-0 overflow-hidden">
