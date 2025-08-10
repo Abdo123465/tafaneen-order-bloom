@@ -17,13 +17,13 @@ export function Categories() {
     },
     {
       id: 2,
-      name: "أدوات القص واللصق",
-      description: "مقصات، لاصق، شريط لاصق وأدوات تجليد",
+      name: "أدوات القص واللصق والألوان",
+      description: "مقصات، لاصق، شريط لاصق، ألوان خشبية، مائية، فرش رسم وأدوات تجليد",
       icon: Scissors,
       color: "bg-gradient-to-br from-green-500 to-green-600",
       textColor: "text-green-600",
       bgColor: "bg-green-50",
-      count: "200+ منتج"
+      count: "500+ منتج"
     },
     {
       id: 3,
@@ -37,16 +37,6 @@ export function Categories() {
     },
     {
       id: 4,
-      name: "ألوان وأدوات الرسم",
-      description: "ألوان خشبية، مائية، فرش رسم ولوحات",
-      icon: Palette,
-      color: "bg-gradient-to-br from-pink-500 to-pink-600",
-      textColor: "text-pink-600",
-      bgColor: "bg-pink-50",
-      count: "300+ منتج"
-    },
-    {
-      id: 5,
       name: "ملفات ومنظمات",
       description: "ملفات، درج أوراق، منظمات مكتبية وأرشيف",
       icon: Archive,
@@ -56,7 +46,7 @@ export function Categories() {
       count: "250+ منتج"
     },
     {
-      id: 6,
+      id: 5,
       name: "مستلزمات المكتب",
       description: "دباسة، خرامة، ممحاة وأدوات مكتبية أخرى",
       icon: Briefcase,
@@ -66,7 +56,7 @@ export function Categories() {
       count: "400+ منتج"
     },
     {
-      id: 7,
+      id: 6,
       name: "كشكيل و الكراسات و كشاكيل سلك",
       description: "كراسات وكشاكيل بأنواع وأحجام مختلفة",
       icon: BookOpen,
@@ -93,9 +83,8 @@ export function Categories() {
           {categories.map((category) => {
             const IconComponent = category.icon;
             const to = category.name.includes("أقلام") ? "/pens" : 
-                      category.name.includes("أدوات القص واللصق") ? "/cutting-pasting-tools" : 
+                      category.name.includes("أدوات القص واللصق والألوان") ? "/cutting-pasting-tools" : 
                       category.name.includes("آلات حاسبة ومساطر") ? "/calculators-rulers" :
-                      category.name.includes("ألوان") ? "/art-supplies" :
                       category.name.includes("كشكيل") ? "/notebooks" : "/categories";
             return (
               <Card key={category.id} className="group hover:shadow-elegant transition-all duration-300 hover:-translate-y-1 border-0 overflow-hidden">

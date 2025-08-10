@@ -27,6 +27,7 @@ function CuttingPastingToolsPage() {
       emoji: "✂️",
       route: "/cutting-pasting"
     },
+    // الألوان وأدوات الرسم المدمجة
     {
       id: 2,
       name: "أقلام ألوان الخشب",
@@ -41,6 +42,78 @@ function CuttingPastingToolsPage() {
     },
     {
       id: 3,
+      name: "ألوان الشمع",
+      englishName: "Wax Colors/Crayons",
+      description: "ألوان شمعية للأطفال والفنانين",
+      icon: Palette,
+      color: "bg-gradient-to-br from-yellow-500 to-yellow-600",
+      textColor: "text-yellow-600",
+      bgColor: "bg-yellow-50",
+      emoji: "🖍️",
+      route: "/wax-crayons"
+    },
+    {
+      id: 4,
+      name: "ألوان فلوماستر",
+      englishName: "Felt-tip Markers",
+      description: "أقلام فلوماستر بألوان متنوعة",
+      icon: PenTool,
+      color: "bg-gradient-to-br from-purple-500 to-purple-600",
+      textColor: "text-purple-600",
+      bgColor: "bg-purple-50",
+      emoji: "🖊️",
+      route: "/felt-markers"
+    },
+    {
+      id: 5,
+      name: "ألوان مية",
+      englishName: "Watercolors",
+      description: "ألوان مائية للرسم الفني",
+      icon: Brush,
+      color: "bg-gradient-to-br from-blue-500 to-blue-600",
+      textColor: "text-blue-600",
+      bgColor: "bg-blue-50",
+      emoji: "💧",
+      route: "/watercolors"
+    },
+    {
+      id: 6,
+      name: "ألوان جواش",
+      englishName: "Gouache Colors",
+      description: "ألوان جواش للرسم الاحترافي",
+      icon: Brush,
+      color: "bg-gradient-to-br from-indigo-500 to-indigo-600",
+      textColor: "text-indigo-600",
+      bgColor: "bg-indigo-50",
+      emoji: "🎨",
+      route: "/gouache-colors"
+    },
+    {
+      id: 7,
+      name: "ألوان أكريليك",
+      englishName: "Acrylic Colors",
+      description: "ألوان أكريليك عالية الجودة",
+      icon: Brush,
+      color: "bg-gradient-to-br from-teal-500 to-teal-600",
+      textColor: "text-teal-600",
+      bgColor: "bg-teal-50",
+      emoji: "🎨",
+      route: "/acrylic-colors"
+    },
+    {
+      id: 8,
+      name: "ألوان زيت",
+      englishName: "Oil Colors",
+      description: "ألوان زيتية للرسم الاحترافي",
+      icon: Brush,
+      color: "bg-gradient-to-br from-orange-500 to-orange-600",
+      textColor: "text-orange-600",
+      bgColor: "bg-orange-50",
+      emoji: "🎨",
+      route: "/oil-colors"
+    },
+    {
+      id: 9,
       name: "ألوان الشمع",
       englishName: "Wax Colors/Crayons",
       description: "ألوان شمعية للأطفال والفنانين",
@@ -100,7 +173,7 @@ function CuttingPastingToolsPage() {
       route: "/canson-paper"
     },
     {
-      id: 8,
+      id: 10,
       name: "مقاصات",
       englishName: "Scissors",
       description: "مقاصات بأحجام وأنواع مختلفة",
@@ -110,30 +183,6 @@ function CuttingPastingToolsPage() {
       bgColor: "bg-slate-50",
       emoji: "✂️",
       route: "/scissors"
-    },
-    {
-      id: 9,
-      name: "ألوان مية",
-      englishName: "Watercolors",
-      description: "ألوان مائية للرسم الفني",
-      icon: Brush,
-      color: "bg-gradient-to-br from-cyan-500 to-cyan-600",
-      textColor: "text-cyan-600",
-      bgColor: "bg-cyan-50",
-      emoji: "💧",
-      route: "/watercolors"
-    },
-    {
-      id: 10,
-      name: "ألوان زيت",
-      englishName: "Oil Colors",
-      description: "ألوان زيتية للرسم الاحترافي",
-      icon: Brush,
-      color: "bg-gradient-to-br from-orange-500 to-orange-600",
-      textColor: "text-orange-600",
-      bgColor: "bg-orange-50",
-      emoji: "🎨",
-      route: "/oil-colors"
     },
     {
       id: 11,
@@ -241,10 +290,10 @@ function CuttingPastingToolsPage() {
           <nav className="flex items-center space-x-2 text-sm text-muted-foreground mb-2">
             <Link to="/" className="hover:text-primary transition-colors">الرئيسية</Link>
             <span>/</span>
-            <span className="text-primary font-medium">أدوات القص واللصق</span>
+            <span className="text-primary font-medium">أدوات القص واللصق والألوان</span>
           </nav>
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">أدوات القص واللصق</h1>
-          <p className="text-gray-600">اكتشف مجموعة واسعة من أدوات القص واللصق والمستلزمات الفنية</p>
+          <h1 className="text-3xl font-bold text-gray-900 mb-2">أدوات القص واللصق والألوان</h1>
+          <p className="text-gray-600">اكتشف مجموعة واسعة من أدوات القص واللصق والألوان والمستلزمات الفنية</p>
         </div>
       </div>
 
