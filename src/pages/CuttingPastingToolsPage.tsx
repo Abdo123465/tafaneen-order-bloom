@@ -25,7 +25,7 @@ function CuttingPastingToolsPage() {
       textColor: "text-red-600",
       bgColor: "bg-red-50",
       emoji: "✂️",
-      route: "/cutting-pasting"
+      route: "/cutting-pasting-tools/cutting-pasting"
     },
     {
       id: 2,
@@ -37,7 +37,7 @@ function CuttingPastingToolsPage() {
       textColor: "text-amber-600",
       bgColor: "bg-amber-50",
       emoji: "🖍️",
-      route: "/wooden-pencils"
+      route: "/cutting-pasting-tools/wooden-pencils"
     },
     {
       id: 3,
@@ -241,10 +241,10 @@ function CuttingPastingToolsPage() {
           <nav className="flex items-center space-x-2 text-sm text-muted-foreground mb-2">
             <Link to="/" className="hover:text-primary transition-colors">الرئيسية</Link>
             <span>/</span>
-            <span className="text-primary font-medium">أدوات القص واللصق</span>
+            <span className="text-primary font-medium">أدوات القص واللصق والألوان</span>
           </nav>
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">أدوات القص واللصق</h1>
-          <p className="text-gray-600">اكتشف مجموعة واسعة من أدوات القص واللصق والمستلزمات الفنية</p>
+          <h1 className="text-3xl font-bold text-gray-900 mb-2">أدوات القص واللصق والألوان</h1>
+          <p className="text-gray-600">اكتشف مجموعة واسعة من أدوات القص واللصق والألوان والمستلزمات الفنية</p>
         </div>
       </div>
 
