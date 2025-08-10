@@ -17,7 +17,7 @@ export function Categories() {
     },
     {
       id: 2,
-      name: "أدوات القص واللصق والألوان",
+      name: "أدوات القص واللصق و تلوين",
       description: "مقصات، لاصق، شريط لاصق، ألوان وأدوات الرسم",
       icon: Scissors,
       color: "bg-gradient-to-br from-green-500 to-green-600",
@@ -84,7 +84,7 @@ export function Categories() {
           {categories.map((category) => {
             const IconComponent = category.icon;
             const to = category.name.includes("أقلام") ? "/pens" : 
-                      category.name.includes("أدوات القص واللصق والألوان") ? "/cutting-pasting-tools" : 
+                      category.name.includes("أدوات القص واللصق و تلوين") ? "/cutting-pasting-tools" : 
                       category.name.includes("آلات حاسبة ومساطر") ? "/calculators-rulers" :
                       category.name.includes("كشكيل") ? "/notebooks" : "/categories";
             return (
