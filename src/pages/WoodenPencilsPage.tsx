@@ -34,7 +34,7 @@ const WoodenPencilsPage = () => {
         <nav className="flex items-center gap-2 text-sm text-muted-foreground mb-8">
           <Link to="/" className="hover:text-primary">الرئيسية</Link>
           <ArrowRight className="h-4 w-4" />
-          <Link to="/cutting-pasting-tools" className="hover:text-primary">أدوات القص واللصق والألوان</Link>
+          <Link to="/art-supplies" className="hover:text-primary">أدوات الرسم والأعمال الفنية</Link>
           <ArrowRight className="h-4 w-4" />
           <span className="text-foreground">أقلام ألوان الخشب</span>
         </nav>
@@ -71,7 +71,7 @@ const WoodenPencilsPage = () => {
         {/* Back to categories */}
         <div className="text-center mt-12">
           <Button asChild variant="outline" className="text-lg px-8 py-4 h-auto">
-            <Link to="/cutting-pasting-tools">العودة إلى أدوات القص واللصق والألوان</Link>
+            <Link to="/art-supplies">العودة إلى فئات أدوات الرسم</Link>
           </Button>
         </div>
       </main>

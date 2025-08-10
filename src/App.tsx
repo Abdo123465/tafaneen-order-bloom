@@ -9,6 +9,7 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import CategoriesPage from "./pages/CategoriesPage";
 import PensPage from "./pages/PensPage";
+import ArtSuppliesPage from "./pages/ArtSuppliesPage";
 import OffersPage from "./pages/OffersPage";
 import PencilsPage from "./pages/PencilsPage";
 import BallpointPensPage from "./pages/BallpointPensPage";
@@ -59,9 +60,10 @@ const App = () => (
               <Route path="/art-supplies" element={<ArtSuppliesPage />} />
               <Route path="/cutting-pasting-tools" element={<CuttingPastingToolsPage />} />
               <Route path="/calculators-rulers" element={<CalculatorsRulersPage />} />
+              <Route path="/calculators-rulers/scientific-calculator" element={<ScientificCalculatorPage />} />
               <Route path="/calculators-rulers/commercial-calculator" element={<CommercialCalculatorPage />} />
-              <Route path="/cutting-pasting-tools/cutting-pasting" element={<CuttingPastingPage />} />
-              <Route path="/cutting-pasting-tools/wooden-pencils" element={<WoodenPencilsPage />} />
+              <Route path="/art-supplies/cutting-pasting" element={<CuttingPastingPage />} />
+              <Route path="/art-supplies/wooden-pencils" element={<WoodenPencilsPage />} />
               <Route path="/notebooks" element={<NotebooksPage />} />
               <Route path="/notebooks/main-category" element={<NotebooksMainCategoryPage />} />
               <Route path="/notebooks/krassat" element={<KrassatPage />} />

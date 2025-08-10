@@ -24,7 +24,7 @@ export function Header() {
     { label: "جميع الفئات", href: "/categories" },
     { label: "الأقلام", href: "/pens" },
     { label: "الدفاتر", href: "/notebooks" },
-    { label: "أدوات القص واللصق والألوان", href: "/cutting-pasting-tools" },
+    { label: "أدوات الرسم", href: "/art-supplies" },
     { label: "عروض خاصة", href: "/offers" },
   ];
 
