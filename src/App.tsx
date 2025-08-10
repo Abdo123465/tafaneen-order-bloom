@@ -35,6 +35,14 @@ import Kashakil80PagesPage from "./pages/Kashakil80PagesPage";
 import Kashakil100PagesPage from "./pages/Kashakil100PagesPage";
 import KashakilSilkA4Page from "./pages/KashakilSilkA4Page";
 import KashakilSilkA5Page from "./pages/KashakilSilkA5Page";
+import OfficeSuppliesPage from "./pages/OfficeSuppliesPage";
+import StaplerPage from "./pages/StaplerPage";
+import HolePunchPage from "./pages/HolePunchPage";
+import StaplePinsPage from "./pages/StaplePinsPage";
+import StampsPage from "./pages/StampsPage";
+import PaperClipsPage from "./pages/PaperClipsPage";
+import SoapPaperPage from "./pages/SoapPaperPage";
+import PushPinsPage from "./pages/PushPinsPage";
 
 const queryClient = new QueryClient();
 
@@ -75,6 +83,14 @@ const App = () => (
               <Route path="/notebooks/kashakil/100-pages" element={<Kashakil100PagesPage />} />
               <Route path="/notebooks/kashakil-silk-a4" element={<KashakilSilkA4Page />} />
               <Route path="/notebooks/kashakil-silk-a5" element={<KashakilSilkA5Page />} />
+              <Route path="/office-supplies" element={<OfficeSuppliesPage />} />
+              <Route path="/office-supplies/stapler" element={<StaplerPage />} />
+              <Route path="/office-supplies/hole-punch" element={<HolePunchPage />} />
+              <Route path="/office-supplies/staple-pins" element={<StaplePinsPage />} />
+              <Route path="/office-supplies/stamps" element={<StampsPage />} />
+              <Route path="/office-supplies/paper-clips" element={<PaperClipsPage />} />
+              <Route path="/office-supplies/soap-paper" element={<SoapPaperPage />} />
+              <Route path="/office-supplies/push-pins" element={<PushPinsPage />} />
               <Route path="/offers" element={<OffersPage />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
