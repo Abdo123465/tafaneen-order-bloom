@@ -19,7 +19,7 @@ function CuttingPastingToolsPage() {
       id: 1,
       name: "قص و لصق",
       englishName: "Cut & Paste",
-      description: "أدوات القص واللصق الأساسية",
+      documentTitle: "أدوات القص واللصق و تلوين | تفانين",
       icon: Scissors,
       color: "bg-gradient-to-br from-red-500 to-red-600",
       textColor: "text-red-600",
@@ -241,10 +241,10 @@ function CuttingPastingToolsPage() {
           <nav className="flex items-center space-x-2 text-sm text-muted-foreground mb-2">
             <Link to="/" className="hover:text-primary transition-colors">الرئيسية</Link>
             <span>/</span>
-            <span className="text-primary font-medium">أدوات القص واللصق والألوان</span>
+            <span className="text-primary font-medium">أدوات القص واللصق و تلوين</span>
           </nav>
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">أدوات القص واللصق والألوان</h1>
-          <p className="text-gray-600">اكتشف مجموعة واسعة من أدوات القص واللصق والألوان والمستلزمات الفنية</p>
+          <h1 className="text-3xl font-bold text-gray-900 mb-2">أدوات القص واللصق و تلوين</h1>
+          <p className="text-gray-600">اكتشف مجموعة واسعة من أدوات القص واللصق و تلوين والمستلزمات الفنية</p>
         </div>
       </div>
 
