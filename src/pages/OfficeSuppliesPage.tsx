@@ -7,8 +7,8 @@ import {
   Pin, 
   Stamp, 
   FileText, 
-  Soap, 
-  PushPin 
+  SquareStack, 
+  MapPin 
 } from "lucide-react";
 
 export default function OfficeSuppliesPage() {
@@ -72,7 +72,7 @@ export default function OfficeSuppliesPage() {
       id: 6,
       name: "ورق صابون",
       description: "أوراق صابون للتنظيف",
-      icon: Soap,
+      icon: SquareStack,
       color: "bg-gradient-to-br from-teal-500 to-teal-600",
       textColor: "text-teal-600",
       bgColor: "bg-teal-50",
@@ -83,7 +83,7 @@ export default function OfficeSuppliesPage() {
       id: 7,
       name: "دبوس كبس",
       description: "دبابيس الكبس والتثبيت",
-      icon: PushPin,
+      icon: MapPin,
       color: "bg-gradient-to-br from-indigo-500 to-indigo-600",
       textColor: "text-indigo-600",
       bgColor: "bg-indigo-50",
