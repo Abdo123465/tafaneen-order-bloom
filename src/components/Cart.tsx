@@ -26,6 +26,7 @@ export function Cart() {
   
   // بيانات العنوان للتوصيل
   const [streetName, setStreetName] = useState('');
+  const [apartmentNumber, setApartmentNumber] = useState('');
   const [buildingNumber, setBuildingNumber] = useState('');
   const [floor, setFloor] = useState('');
   
@@ -67,6 +68,7 @@ export function Cart() {
     !customerPhoneError && 
     customerPhone && 
     streetName && 
+    apartmentNumber &&
     buildingNumber && 
     floor && 
     area
@@ -116,10 +118,7 @@ export function Cart() {
     
     // تنسيق تفاصيل المنتجات بشكل منظم
     const orderItems = items.map((item, index) => 
-      `${index + 1}. ${item.name}
-الكمية: ${item.quantity}
-سعر الوحدة: ${item.price} ج.م
-المجموع: ${item.price * item.quantity} ج.م`
+      `${index + 1}. ${item.name}\nالكمية: ${item.quantity}\nسعر الوحدة: ${item.price} ج.م\nالمجموع: ${item.price * item.quantity} ج.م`
     ).join('\n\n');
     
     const formattedPhone = formatEgyptianPhone(customerPhone);
@@ -335,6 +334,7 @@ ${orderItems}
         <div class="address-section">
             <h3 style="color: #d9534f; margin-bottom: 10px;">عنوان التوصيل</h3>
             <p><strong>الشارع:</strong> ${streetName}</p>
+            <p><strong>رقم الشقة:</strong> ${apartmentNumber}</p>
             <p><strong>رقم العمارة:</strong> ${buildingNumber}</p>
             <p><strong>الدور:</strong> ${floor}</p>
             <p><strong>المنطقة/البوابة:</strong> ${area}</p>
@@ -606,6 +606,17 @@ ${orderItems}
                         required
                       />
                     </div>
+
+                    <div>
+                      <label className="block text-sm font-medium mb-1 text-right">رقم الشقة *</label>
+                      <Input 
+                        value={apartmentNumber} 
+                        onChange={(e) => setApartmentNumber(e.target.value)} 
+                        placeholder="رقم الشقة" 
+                        className="text-right" 
+                        required
+                      />
+                    </div>
                     
                     <div className="grid grid-cols-2 gap-3">
                       <div>
@@ -742,7 +753,7 @@ ${orderItems}
                               : paymentMethod === 'instapay'
                               ? 'https://ipn.eg/C/Q/mosaadhosny7890/instapay?ISIGN=23052603MEUCIQC/ACli2Pcxq8/e/to1eqMfNxYCj4wQd8l/o2KSJTg1LwIgScy/K3IM2HEEei0Zkzqru9bBWjuFwgsbjHL1q0iffKA='
                               : '';
-                            const message = `فاتورة طلب - مكتبة تفانين\n\nمعلومات الفاتورة:\nرقم الفاتورة: ${invoiceNumber}\nالتاريخ: ${date}\nالوقت: ${time}\nطريقة الاستلام: توصيل للمنزل\n\nمعلومات العميل:\nالاسم: ${customerName}\nرقم الهاتف: ${formatEgyptianPhone(customerPhone)}\nالعنوان: ${streetName}, عمارة ${buildingNumber}, الدور ${floor}\nالمنطقة/البوابة: ${area}\n\nالمنتجات المطلوبة:\n${orderItems}\n\nرسوم التوصيل: ${deliveryFee} ج.م\n${paymentMethod === 'vodafone' ? 'رسوم فودافون كاش (1%): ' + surcharge + ' ج.م\n' : ''}الإجمالي النهائي: ${finalTotal} ج.م\n\nطريقة الدفع: ${payLabel}${payLink ? '\nرابط الدفع: ' + payLink : ''}\n\nللاستفسار: 01026274235`;
+                            const message = `فاتورة طلب - مكتبة تفانين\n\nمعلومات الفاتورة:\nرقم الفاتورة: ${invoiceNumber}\nالتاريخ: ${date}\nالوقت: ${time}\nطريقة الاستلام: توصيل للمنزل\n\nمعلومات العميل:\nالاسم: ${customerName}\nرقم الهاتف: ${formatEgyptianPhone(customerPhone)}\nالعنوان: ${streetName}, عمارة ${buildingNumber}, شقة ${apartmentNumber}, الدور ${floor}\nالمنطقة/البوابة: ${area}\n\nالمنتجات المطلوبة:\n${orderItems}\n\nرسوم التوصيل: ${deliveryFee} ج.م\n${paymentMethod === 'vodafone' ? 'رسوم فودافون كاش (1%): ' + surcharge + ' ج.م\n' : ''}الإجمالي النهائي: ${finalTotal} ج.م\n\nطريقة الدفع: ${payLabel}${payLink ? '\nرابط الدفع: ' + payLink : ''}\n\nللاستفسار: 01026274235`;
                             const phoneNumber = '201026274235';
                             const whatsappWeb = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
                             window.open(whatsappWeb, '_blank');
