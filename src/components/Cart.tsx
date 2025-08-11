@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { ShoppingCart, MapPin, Truck, MessageCircle, Download, X, Plus, Minus, Trash2, FileText, Camera } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -60,7 +59,7 @@ export function Cart() {
   const totalPrice = getTotalPrice();
   const deliveryFee = AREA_OPTIONS.find(o => o.label === area)?.fee ?? 0;
   const subtotal = totalPrice + (showDeliveryCheckout ? deliveryFee : 0);
-  const surcharge = showDeliveryCheckout && paymentMethod === 'vodafone' ? Math.round(subtotal * 0.01) : 0;
+  const surcharge = showDeliveryCheckout && paymentMethod === 'vodafone' ? Math.ceil(subtotal * 0.01) : 0;
   const finalTotal = subtotal + surcharge;
   
   // التحقق من إمكانية المتابعة
@@ -754,7 +753,7 @@ ${orderItems}
                               : paymentMethod === 'instapay'
                               ? 'https://ipn.eg/C/Q/mosaadhosny7890/instapay?ISIGN=23052603MEUCIQC/ACli2Pcxq8/e/to1eqMfNxYCj4wQd8l/o2KSJTg1LwIgScy/K3IM2HEEei0Zkzqru9bBWjuFwgsbjHL1q0iffKA='
                               : '';
-                            const message = `فاتورة طلب - مكتبة تفانين\n\nمعلومات الفاتورة:\nرقم الفاتورة: ${invoiceNumber}\nالتاريخ: ${date}\nالوقت: ${time}\nطريقة الاستلام: توصيل للمنزل\n\nمعلومات العميل:\nالاسم: ${customerName}\nرقم الهاتف: ${formatEgyptianPhone(customerPhone)}\nالعنوان: ${areaName}, عمارة ${buildingNumber}, شقة ${apartmentNumber}, الدور ${floor}\nالمنطقة/البوابة: ${area}\n\nالمنتجات المطلوبة:\n${orderItems}\n\nرسوم التوصيل: ${deliveryFee} ج.م\n${paymentMethod === 'vodafone' ? 'رسوم فودافون كاش (1%): ' + surcharge + ' ج.م\n' : ''}الإجمالي النهائي: ${finalTotal} ج.م\n\nطريقة الدفع: ${payLabel}${payLink ? '\nرابط الدفع: ' + payLink : ''}\n\nللاستفسار: 01026274235`;
+                            const message = `فاتورة طلب - مكتبة تفانين\n\nمعلومات الفاتورة:\nرقم الفاتورة: ${invoiceNumber}\nالتاريخ: ${date}\nالوقت: ${time}\nطريقة الاستلام: توصيل للمنزل\n\nمعلومات العميل:\nالاسم: ${customerName}\nرقم الهاتف: ${formatEgyptianPhone(customerPhone)}\nالعنوان: ${areaName}, عمارة ${buildingNumber}, شقة ${apartmentNumber}, الدور ${floor}\nالمنطقة/البوابة: ${area}\n\nالمنتجات المطلوبة:\n${orderItems}\n\nرسوم التوصيل: ${deliveryFee} ج.м\n${paymentMethod === 'vodafone' ? 'رسوم فودافون كاش (1%): ' + surcharge + ' ج.م\n' : ''}الإجمالي النهائي: ${finalTotal} ج.м\n\nطريقة الدفع: ${payLabel}${payLink ? '\nرابط الدفع: ' + payLink : ''}\n\nللاستفسار: 01026274235`;
                             const phoneNumber = '201026274235';
                             const whatsappWeb = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
                             window.open(whatsappWeb, '_blank');
