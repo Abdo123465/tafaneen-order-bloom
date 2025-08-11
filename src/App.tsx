@@ -36,7 +36,7 @@ import Kashakil100PagesPage from "./pages/Kashakil100PagesPage";
 import KashakilSilkA4Page from "./pages/KashakilSilkA4Page";
 import KashakilSilkA5Page from "./pages/KashakilSilkA5Page";
 import OfficeSuppliesPage from "./pages/OfficeSuppliesPage";
-import StaplerPage from "./pages/StaplerPage";
+import StaplerPage from "./pages/StaplerPage.tsx";
 import HolePunchPage from "./pages/HolePunchPage";
 import StaplePinsPage from "./pages/StaplePinsPage";
 import StampsPage from "./pages/StampsPage";
