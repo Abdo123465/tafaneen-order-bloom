@@ -38,6 +38,18 @@ export function PenCategories() {
       emoji: "🖊️"
     },
     {
+      id: 8,
+      name: "أقلام روتو",
+      description: "أقلام روتو عالية الجودة للكتابة السلسة",
+      icon: PenTool,
+      color: "bg-gradient-to-br from-cyan-500 to-cyan-600",
+      textColor: "text-cyan-600",
+      bgColor: "bg-cyan-50",
+      count: "50+ منتج",
+      route: "/pens/roto",
+      emoji: "🖊️"
+    },
+    {
       id: 3,
       name: "أقلام الجل",
       description: "أقلام جل ناعمة الكتابة بألوان زاهية ومتنوعة",
@@ -147,5 +159,3 @@ export function PenCategories() {
         </div>
       </div>
     </section>
-  );
-}
