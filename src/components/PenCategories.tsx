@@ -1,3 +1,4 @@
+
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -35,6 +36,18 @@ export function PenCategories() {
       bgColor: "bg-blue-50",
       count: "120+ منتج",
       route: "/pens/ballpoint",
+      emoji: "🖊️"
+    },
+    {
+      id: 8,
+      name: "أقلام روتو",
+      description: "أقلام روتو عالية الجودة للكتابة السلسة",
+      icon: PenTool,
+      color: "bg-gradient-to-br from-cyan-500 to-cyan-600",
+      textColor: "text-cyan-600",
+      bgColor: "bg-cyan-50",
+      count: "50+ منتج",
+      route: "/pens/roto",
       emoji: "🖊️"
     },
     {
