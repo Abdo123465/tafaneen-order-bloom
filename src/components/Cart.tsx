@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { ShoppingCart, MapPin, Truck, MessageCircle, Download, X, Plus, Minus, Trash2, FileText, Camera } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -25,7 +26,7 @@ export function Cart() {
   const [customerPhoneError, setCustomerPhoneError] = useState('');
   
   // بيانات العنوان للتوصيل
-  const [streetName, setStreetName] = useState('');
+  const [areaName, setAreaName] = useState('');
   const [apartmentNumber, setApartmentNumber] = useState('');
   const [buildingNumber, setBuildingNumber] = useState('');
   const [floor, setFloor] = useState('');
@@ -67,7 +68,7 @@ export function Cart() {
     customerName && 
     !customerPhoneError && 
     customerPhone && 
-    streetName && 
+    areaName && 
     apartmentNumber &&
     buildingNumber && 
     floor && 
@@ -333,7 +334,7 @@ ${orderItems}
         ${selectedDeliveryMethod === 'delivery' ? `
         <div class="address-section">
             <h3 style="color: #d9534f; margin-bottom: 10px;">عنوان التوصيل</h3>
-            <p><strong>الشارع:</strong> ${streetName}</p>
+            <p><strong>المنطقة:</strong> ${areaName}</p>
             <p><strong>رقم الشقة:</strong> ${apartmentNumber}</p>
             <p><strong>رقم العمارة:</strong> ${buildingNumber}</p>
             <p><strong>الدور:</strong> ${floor}</p>
@@ -597,11 +598,11 @@ ${orderItems}
 
                     {/* العنوان */}
                     <div>
-                      <label className="block text-sm font-medium mb-1 text-right">اسم الشارع *</label>
+                      <label className="block text-sm font-medium mb-1 text-right">اسم المنطقة *</label>
                       <Input 
-                        value={streetName} 
-                        onChange={(e) => setStreetName(e.target.value)} 
-                        placeholder="اسم الشارع" 
+                        value={areaName} 
+                        onChange={(e) => setAreaName(e.target.value)} 
+                        placeholder="اسم المنطقة" 
                         className="text-right" 
                         required
                       />
@@ -753,7 +754,7 @@ ${orderItems}
                               : paymentMethod === 'instapay'
                               ? 'https://ipn.eg/C/Q/mosaadhosny7890/instapay?ISIGN=23052603MEUCIQC/ACli2Pcxq8/e/to1eqMfNxYCj4wQd8l/o2KSJTg1LwIgScy/K3IM2HEEei0Zkzqru9bBWjuFwgsbjHL1q0iffKA='
                               : '';
-                            const message = `فاتورة طلب - مكتبة تفانين\n\nمعلومات الفاتورة:\nرقم الفاتورة: ${invoiceNumber}\nالتاريخ: ${date}\nالوقت: ${time}\nطريقة الاستلام: توصيل للمنزل\n\nمعلومات العميل:\nالاسم: ${customerName}\nرقم الهاتف: ${formatEgyptianPhone(customerPhone)}\nالعنوان: ${streetName}, عمارة ${buildingNumber}, شقة ${apartmentNumber}, الدور ${floor}\nالمنطقة/البوابة: ${area}\n\nالمنتجات المطلوبة:\n${orderItems}\n\nرسوم التوصيل: ${deliveryFee} ج.م\n${paymentMethod === 'vodafone' ? 'رسوم فودافون كاش (1%): ' + surcharge + ' ج.م\n' : ''}الإجمالي النهائي: ${finalTotal} ج.م\n\nطريقة الدفع: ${payLabel}${payLink ? '\nرابط الدفع: ' + payLink : ''}\n\nللاستفسار: 01026274235`;
+                            const message = `فاتورة طلب - مكتبة تفانين\n\nمعلومات الفاتورة:\nرقم الفاتورة: ${invoiceNumber}\nالتاريخ: ${date}\nالوقت: ${time}\nطريقة الاستلام: توصيل للمنزل\n\nمعلومات العميل:\nالاسم: ${customerName}\nرقم الهاتف: ${formatEgyptianPhone(customerPhone)}\nالعنوان: ${areaName}, عمارة ${buildingNumber}, شقة ${apartmentNumber}, الدور ${floor}\nالمنطقة/البوابة: ${area}\n\nالمنتجات المطلوبة:\n${orderItems}\n\nرسوم التوصيل: ${deliveryFee} ج.م\n${paymentMethod === 'vodafone' ? 'رسوم فودافون كاش (1%): ' + surcharge + ' ج.م\n' : ''}الإجمالي النهائي: ${finalTotal} ج.م\n\nطريقة الدفع: ${payLabel}${payLink ? '\nرابط الدفع: ' + payLink : ''}\n\nللاستفسار: 01026274235`;
                             const phoneNumber = '201026274235';
                             const whatsappWeb = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
                             window.open(whatsappWeb, '_blank');
