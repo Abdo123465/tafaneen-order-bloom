@@ -1,3 +1,5 @@
+
+import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -35,7 +37,7 @@ import Kashakil100PagesPage from "./pages/Kashakil100PagesPage";
 import KashakilSilkA4Page from "./pages/KashakilSilkA4Page";
 import KashakilSilkA5Page from "./pages/KashakilSilkA5Page";
 import OfficeSuppliesPage from "./pages/OfficeSuppliesPage";
-import StaplerPage from "./pages/StaplerPage.tsx";
+import StaplerPage from "./pages/StaplerPage";
 import HolePunchPage from "./pages/HolePunchPage";
 import StaplePinsPage from "./pages/StaplePinsPage";
 import StampsPage from "./pages/StampsPage";
