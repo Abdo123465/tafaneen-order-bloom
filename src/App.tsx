@@ -1,3 +1,4 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -12,6 +13,7 @@ import PensPage from "./pages/PensPage";
 
 import OffersPage from "./pages/OffersPage";
 import PencilsPage from "./pages/PencilsPage";
+import RotoPensPage from "./pages/RotoPensPage";
 import BallpointPensPage from "./pages/BallpointPensPage";
 import GelPensPage from "./pages/GelPensPage";
 import FountainPensPage from "./pages/FountainPensPage";
@@ -59,6 +61,7 @@ const App = () => (
               <Route path="/categories" element={<CategoriesPage />} />
               <Route path="/pens" element={<PensPage />} />
               <Route path="/pens/pencils" element={<PencilsPage />} />
+              <Route path="/pens/roto" element={<RotoPensPage />} />
               <Route path="/pens/ballpoint" element={<BallpointPensPage />} />
               <Route path="/pens/gel" element={<GelPensPage />} />
               <Route path="/pens/fountain" element={<FountainPensPage />} />
@@ -94,12 +97,3 @@ const App = () => (
               <Route path="/offers" element={<OffersPage />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
-            </Routes>
-          </BrowserRouter>
-        </TooltipProvider>
-      </CartProvider>
-    </AuthProvider>
-  </QueryClientProvider>
-);
-
-export default App;
