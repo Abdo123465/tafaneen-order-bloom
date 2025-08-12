@@ -11,16 +11,22 @@ import rotoLiquidBallBlackImage from "@/assets/51HPLTMFlhL.jpg";
 import rotoRapidBlueImage from "@/assets/roto-rapid-blue.jpg";
 import rotoRapidRedImage from "@/assets/roto-rapid-red.jpg";
 import rotoRapidBlackImage from "@/assets/roto-rapid-black.jpg";
-import ROTOAEROImage from "@/assets/ROTO-AERO.jpg";
 
 const rotoPens = [
   { id: 'roto-liquid-ball-blue', name: 'قلم روتو ليكويد بول - أزرق', price: 8, image: rotoLiquidBallBlueImage, description: 'قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة' },
   { id: 'roto-liquid-ball-red', name: 'قلم روتو ليكويد بول - أحمر', price: 8, image: rotoLiquidBallRedImage, description: 'قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة' },
   { id: 'roto-liquid-ball-black', name: 'قلم روتو ليكويد بول - أسود', price: 8, image: rotoLiquidBallBlackImage, description: 'قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة' },
-  { id: 'roto-rapid-blue', name: 'قلم روتو رابيد - أزرق', price: 9, image: rotoRapidBlueImage, description: 'قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة' },
-  { id: 'roto-rapid-red', name: 'قلم روتو رابيد - أحمر', price: 8, image: rotoRapidRedImage, description: 'قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة' },
-  { id: 'roto-rapid-black', name: 'قلم روتو رابيد - أسود', price: 8, image: rotoRapidBlackImage, description: 'قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة' },
-  { id: 'ROTO-AERO', name: 'قلم روتو أيرو- ازرق', price: 8, image: ROTO AERO, description: 'قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة' },
+  { id: 'roto-rapid-blue', name: 'قلم روتو رابيد - أزرق', price: 10, image: rotoRapidBlueImage, description: 'قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة' },
+  { id: 'roto-rapid-red', name: 'قلم روتو رابيد - أحمر', price: 10, image: rotoRapidRedImage, description: 'قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة' },
+  { id: 'roto-rapid-black', name: 'قلم روتو رابيد - أسود', price: 10, image: rotoRapidBlackImage, description: 'قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة' },
+  { id: 'roto-1', name: 'قلم روتو أزرق - عبوة 10 قطع', price: 45, image: '️', description: 'أقلام روتو عالية الجودة باللون الأزرق للكتابة السلسة' },
+  { id: 'roto-2', name: 'قلم روتو أسود - عبوة 10 قطع', price: 45, image: '️', description: 'أقلام روتو باللون الأسود للكتابة الرسمية والمهنية' },
+  { id: 'roto-3', name: 'قلم روتو أحمر - عبوة 5 قطع', price: 25, image: '️', description: 'أقلام روتو حمراء للتصحيح والتمييز' },
+  { id: 'roto-4', name: 'مجموعة أقلام روتو ملونة - 8 ألوان', price: 65, image: '', description: 'مجموعة متنوعة من أقلام الروتو بألوان مختلفة' },
+  { id: 'roto-5', name: 'قلم روتو فاخر معدني - أزرق', price: 95, image: '️', description: 'قلم روتو فاخر بتصميم معدني أنيق وكتابة ناعمة' },
+  { id: 'roto-6', name: 'أقلام روتو رفيعة 0.7 مم - 6 قطع', price: 55, image: '️', description: 'أقلام روتو رفيعة للكتابة الدقيقة والتفاصيل' },
+  { id: 'roto-7', name: 'قلم روتو سميك 1.2 مم - أسود', price: 18, image: '️', description: 'قلم روتو سميك مثالي للكتابة الكبيرة والعناوين' },
+  { id: 'roto-8', name: 'أقلام روتو قابلة لإعادة التعبئة - 3 قطع', price: 75, image: '️', description: 'أقلام روتو صديقة للبيئة قابلة لإعادة التعبئة' },
 ];
 
 const RotoPensPage = () => {
