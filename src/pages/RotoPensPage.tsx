@@ -8,19 +8,25 @@ import { Link } from "react-router-dom";
 import rotoLiquidBallBlueImage from "@/assets/roto-liquid-ball-blue.jpg";
 import rotoLiquidBallRedImage from "@/assets/roto-liquid-ball-red.jpg.jpg";
 import rotoLiquidBallBlackImage from "@/assets/roto-liquid-ball-black.jpg.jpg";
+import rotoRapidBlueImage from "@/assets/roto-rapid-blue.jpg";
+import rotoRapidRedImage from "@/assets/roto-rapid-red.jpg";
+import rotoRapidBlackImage from "@/assets/roto-rapid-black.jpg";
 
 const rotoPens = [
   { id: 'roto-liquid-ball-blue', name: 'قلم روتو ليكويد بول - أزرق', price: 8, image: rotoLiquidBallBlueImage, description: 'قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة' },
   { id: 'roto-liquid-ball-red', name: 'قلم روتو ليكويد بول - أحمر', price: 8, image: rotoLiquidBallRedImage, description: 'قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة' },
   { id: 'roto-liquid-ball-black', name: 'قلم روتو ليكويد بول - أسود', price: 8, image: rotoLiquidBallBlackImage, description: 'قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة' },
-  { id: 'roto-1', name: 'قلم روتو أزرق - عبوة 10 قطع', price: 45, image: '��️', description: 'أقلام روتو عالية الجودة باللون الأزرق للكتابة السلسة' },
-  { id: 'roto-2', name: 'قلم روتو أسود - عبوة 10 قطع', price: 45, image: '��️', description: 'أقلام روتو باللون الأسود للكتابة الرسمية والمهنية' },
-  { id: 'roto-3', name: 'قلم روتو أحمر - عبوة 5 قطع', price: 25, image: '��️', description: 'أقلام روتو حمراء للتصحيح والتمييز' },
-  { id: 'roto-4', name: 'مجموعة أقلام روتو ملونة - 8 ألوان', price: 65, image: '��', description: 'مجموعة متنوعة من أقلام الروتو بألوان مختلفة' },
-  { id: 'roto-5', name: 'قلم روتو فاخر معدني - أزرق', price: 95, image: '��️', description: 'قلم روتو فاخر بتصميم معدني أنيق وكتابة ناعمة' },
-  { id: 'roto-6', name: 'أقلام روتو رفيعة 0.7 مم - 6 قطع', price: 55, image: '��️', description: 'أقلام روتو رفيعة للكتابة الدقيقة والتفاصيل' },
-  { id: 'roto-7', name: 'قلم روتو سميك 1.2 مم - أسود', price: 18, image: '��️', description: 'قلم روتو سميك مثالي للكتابة الكبيرة والعناوين' },
-  { id: 'roto-8', name: 'أقلام روتو قابلة لإعادة التعبئة - 3 قطع', price: 75, image: '��️', description: 'أقلام روتو صديقة للبيئة قابلة لإعادة التعبئة' },
+  { id: 'roto-rapid-blue', name: 'قلم روتو رابيد - أزرق', price: 10, image: rotoRapidBlueImage, description: 'قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة' },
+  { id: 'roto-rapid-red', name: 'قلم روتو رابيد - أحمر', price: 10, image: rotoRapidRedImage, description: 'قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة' },
+  { id: 'roto-rapid-black', name: 'قلم روتو رابيد - أسود', price: 10, image: rotoRapidBlackImage, description: 'قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة' },
+  { id: 'roto-1', name: 'قلم روتو أزرق - عبوة 10 قطع', price: 45, image: '🖊️', description: 'أقلام روتو عالية الجودة باللون الأزرق للكتابة السلسة' },
+  { id: 'roto-2', name: 'قلم روتو أسود - عبوة 10 قطع', price: 45, image: '🖊️', description: 'أقلام روتو باللون الأسود للكتابة الرسمية والمهنية' },
+  { id: 'roto-3', name: 'قلم روتو أحمر - عبوة 5 قطع', price: 25, image: '🖊️', description: 'أقلام روتو حمراء للتصحيح والتمييز' },
+  { id: 'roto-4', name: 'مجموعة أقلام روتو ملونة - 8 ألوان', price: 65, image: '🌈', description: 'مجموعة متنوعة من أقلام الروتو بألوان مختلفة' },
+  { id: 'roto-5', name: 'قلم روتو فاخر معدني - أزرق', price: 95, image: '🖊️', description: 'قلم روتو فاخر بتصميم معدني أنيق وكتابة ناعمة' },
+  { id: 'roto-6', name: 'أقلام روتو رفيعة 0.7 مم - 6 قطع', price: 55, image: '🖊️', description: 'أقلام روتو رفيعة للكتابة الدقيقة والتفاصيل' },
+  { id: 'roto-7', name: 'قلم روتو سميك 1.2 مم - أسود', price: 18, image: '🖊️', description: 'قلم روتو سميك مثالي للكتابة الكبيرة والعناوين' },
+  { id: 'roto-8', name: 'أقلام روتو قابلة لإعادة التعبئة - 3 قطع', price: 75, image: '🖊️', description: 'أقلام روتو صديقة للبيئة قابلة لإعادة التعبئة' },
 ];
 
 const RotoPensPage = () => {
@@ -48,7 +54,7 @@ const RotoPensPage = () => {
         </nav>
 
         <div className="text-center mb-12">
-          <div className="text-6xl mb-4">��️</div>
+          <div className="text-6xl mb-4">🖊️</div>
           <h1 className="text-3xl lg:text-4xl font-bold mb-4">أقلام الروتو</h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             أقلام روتو عالية الجودة للكتابة السلسة والمريحة بألوان متنوعة
@@ -59,7 +65,7 @@ const RotoPensPage = () => {
           {rotoPens.map((pen) => (
             <div key={pen.id} className="card-product">
               <div className="bg-muted/50 rounded-xl aspect-square flex items-center justify-center text-6xl mb-4 overflow-hidden">
-                {pen.image === '��️' || pen.image === '🌈' ? (
+                {pen.image === '🖊️' || pen.image === '🌈' ? (
                   <span>{pen.image}</span>
                 ) : (
                   <img 
