@@ -5,10 +5,14 @@ import { Button } from "@/components/ui/button";
 import { useCart } from "@/contexts/CartContext";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import rotoLiquidBallImage from "@/assets/roto-liquid-ball-blue.jpg";
+import rotoLiquidBallBlueImage from "@/assets/roto-liquid-ball-blue.jpg";
+import rotoLiquidBallRedImage from "@/assets/51HPLTMFlhL.jpg";
+import rotoLiquidBallBlackImage from "@/assets/51cMAblId-L.jpg";
 
 const rotoPens = [
-  { id: 'roto-liquid-ball-blue', name: 'قلم روتو ليكويد بول - أزرق', price: 8, image: rotoLiquidBallImage, description: 'قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة' },
+  { id: 'roto-liquid-ball-blue', name: 'قلم روتو ليكويد بول - أزرق', price: 8, image: rotoLiquidBallBlueImage, description: 'قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة' },
+  { id: 'roto-liquid-ball-red', name: 'قلم روتو ليكويد بول - أحمر', price: 8, image: rotoLiquidBallRedImage, description: 'قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة' },
+  { id: 'roto-liquid-ball-black', name: 'قلم روتو ليكويد بول - أسود', price: 8, image: rotoLiquidBallBlackImage, description: 'قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة' },
   { id: 'roto-1', name: 'قلم روتو أزرق - عبوة 10 قطع', price: 45, image: '��️', description: 'أقلام روتو عالية الجودة باللون الأزرق للكتابة السلسة' },
   { id: 'roto-2', name: 'قلم روتو أسود - عبوة 10 قطع', price: 45, image: '��️', description: 'أقلام روتو باللون الأسود للكتابة الرسمية والمهنية' },
   { id: 'roto-3', name: 'قلم روتو أحمر - عبوة 5 قطع', price: 25, image: '��️', description: 'أقلام روتو حمراء للتصحيح والتمييز' },
