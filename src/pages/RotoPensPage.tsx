@@ -6,8 +6,8 @@ import { useCart } from "@/contexts/CartContext";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import rotoLiquidBallBlueImage from "@/assets/roto-liquid-ball-blue.jpg";
-import rotoLiquidBallRedImage from "@/assets/51HPLTMFlhL.jpg";
-import rotoLiquidBallBlackImage from "@/assets/51cMAblId-L.jpg";
+import rotoLiquidBallRedImage from "@/assets/roto-liquid-ball-red.jpg.jpg";
+import rotoLiquidBallBlackImage from "@/assets/roto-liquid-ball-black.jpg.jpg";
 
 const rotoPens = [
   { id: 'roto-liquid-ball-blue', name: 'قلم روتو ليكويد بول - أزرق', price: 8, image: rotoLiquidBallBlueImage, description: 'قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة' },
