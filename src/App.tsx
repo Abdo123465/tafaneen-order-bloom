@@ -16,6 +16,7 @@ import BallpointPensPage from "./pages/BallpointPensPage";
 import GelPensPage from "./pages/GelPensPage";
 import FountainPensPage from "./pages/FountainPensPage";
 import MarkersPage from "./pages/MarkersPage";
+import RotoPensPage from "./pages/RotoPensPage";
 import CalligraphyPensPage from "./pages/CalligraphyPensPage";
 import CorrectionPensPage from "./pages/CorrectionPensPage";
 import CuttingPastingPage from "./pages/CuttingPastingPage";
@@ -61,6 +62,7 @@ const App = () => (
               <Route path="/pens/pencils" element={<PencilsPage />} />
               <Route path="/pens/ballpoint" element={<BallpointPensPage />} />
               <Route path="/pens/gel" element={<GelPensPage />} />
+              <Route path="/pens/roto" element={<RotoPensPage />} />
               <Route path="/pens/fountain" element={<FountainPensPage />} />
               <Route path="/pens/markers" element={<MarkersPage />} />
               <Route path="/pens/calligraphy" element={<CalligraphyPensPage />} />

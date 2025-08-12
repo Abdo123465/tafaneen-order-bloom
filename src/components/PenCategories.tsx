@@ -39,7 +39,7 @@ export function PenCategories() {
       emoji: "🖊️"
     },
     {
-      id: 8,
+      id: 3,
       name: "أقلام روتو",
       description: "أقلام روتو عالية الجودة للكتابة السلسة",
       icon: PenTool,
@@ -51,7 +51,7 @@ export function PenCategories() {
       emoji: "🖊️"
     },
     {
-      id: 3,
+      id: 4,
       name: "أقلام الجل",
       description: "أقلام جل ناعمة الكتابة بألوان زاهية ومتنوعة",
       icon: PenTool,
@@ -63,7 +63,7 @@ export function PenCategories() {
       emoji: "🖋️"
     },
     {
-      id: 4,
+      id: 5,
       name: "أقلام الحبر",
       description: "أقلام حبر سائل وأقلام الخط العربي التقليدية",
       icon: Feather,
@@ -75,7 +75,7 @@ export function PenCategories() {
       emoji: "🖋️"
     },
     {
-      id: 5,
+      id: 6,
       name: "أقلام السنون (أقلام التحديد)",
       description: "أقلام تحديد وماركر بأحجام وألوان مختلفة",
       icon: Highlighter,
@@ -87,7 +87,7 @@ export function PenCategories() {
       emoji: "🖍️"
     },
     {
-      id: 6,
+      id: 7,
       name: "أقلام الخط",
       description: "أقلام خط عربي وخطاطة بأحجام مختلفة",
       icon: Type,
@@ -99,7 +99,7 @@ export function PenCategories() {
       emoji: "🖌️"
     },
     {
-      id: 7,
+      id: 8,
       name: "أقلام الكوريكتور (أقلام التصحيح)",
       description: "أقلام تصحيح سائلة وجافة لإخفاء الأخطاء",
       icon: Eraser,
