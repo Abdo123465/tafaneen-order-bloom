@@ -11,6 +11,7 @@ import rotoLiquidBallBlackImage from "@/assets/51HPLTMFlhL.jpg";
 import rotoRapidBlueImage from "@/assets/roto-rapid-blue.jpg";
 import rotoRapidRedImage from "@/assets/roto-rapid-red.jpg";
 import rotoRapidBlackImage from "@/assets/roto-rapid-black.jpg";
+import ROTO AEROImage from "@/assets/ROTO AERO.jpg";
 
 const rotoPens = [
   { id: 'roto-liquid-ball-blue', name: 'قلم روتو ليكويد بول - أزرق', price: 8, image: rotoLiquidBallBlueImage, description: 'قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة' },
