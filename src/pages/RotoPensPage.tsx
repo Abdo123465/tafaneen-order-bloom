@@ -55,7 +55,7 @@ const RotoPensPage = () => {
           {rotoPens.map((pen) => (
             <div key={pen.id} className="card-product">
               <div className="bg-muted/50 rounded-xl aspect-square flex items-center justify-center text-6xl mb-4 overflow-hidden">
-                {typeof pen.image === 'string' ? (
+                {pen.image === '��️' || pen.image === '🌈' ? (
                   <span>{pen.image}</span>
                 ) : (
                   <img 
