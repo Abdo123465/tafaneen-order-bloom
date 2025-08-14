@@ -44,7 +44,10 @@ import StampsPage from "./pages/StampsPage";
 import PaperClipsPage from "./pages/PaperClipsPage";
 import SoapPaperPage from "./pages/SoapPaperPage";
 import PushPinsPage from "./pages/PushPinsPage";
-
+import MarkersPage from "./pages/MarkersPage";
+import RotoPensPage from "./pages/RotoPensPage";
+import PrimaPensPage from "./pages/PrimaPensPage";
+import CalligraphyPensPage from "./pages/CalligraphyPensPage";
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -94,6 +97,10 @@ const App = () => (
               <Route path="/office-supplies/soap-paper" element={<SoapPaperPage />} />
               <Route path="/office-supplies/push-pins" element={<PushPinsPage />} />
               <Route path="/offers" element={<OffersPage />} />
+              <Route path="/pens/gel" element={<GelPensPage />} />
+              <Route path="/pens/roto" element={<RotoPensPage />} />
+              <Route path="/pens/prima" element={<PrimaPensPage />} />
+              <Route path="/pens/fountain" element={<FountainPensPage />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>
