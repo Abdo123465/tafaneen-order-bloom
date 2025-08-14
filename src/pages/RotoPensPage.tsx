@@ -27,7 +27,7 @@ import RotoGlaseblackImage from "@/assets/Roto-Glase-black.jpg";
 import RotoGlaseredImage from "@/assets/Roto-Glase-red.jpg";
 import RotoGlaseredImage from "@/assets/Roto-Glase-red.jpg";
 import RotoPyramidblueImage from "@/assets/Roto-Pyramid-blue.jpg";
-
+import ROTORACERblueImage from "@/assets/ROTO-RACER-blue.jpg";
 
 
 
@@ -51,6 +51,7 @@ const rotoPens = [
   { id: 'Roto-Glase-red', name: 'قلم روتو جلاس احمر', price: 7, image: RotoGlaseredImage, description: 'قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة' },
   { id: 'Roto-Glase-black', name: 'قلم روتو جلاس اسود', price: 7, image: RotoGlaseblackImage, description: 'قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة' },
   { id: 'Roto-Pyramid-blue', name: 'قلم روتو بيراميد ازرق', price: 7, image: RotoPyramidblueImage, description: 'قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة' },
+  { id: 'ROTO-RACER-blue', name: 'قلم روتو بيراميد ازرق', price: 7, image: ROTORACERblueImage, description: 'قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة' },
 
 
 ];
