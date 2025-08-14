@@ -58,7 +58,12 @@ export function Cart() {
   const cartCount = getItemCount();
   const totalPrice = getTotalPrice();
   const deliveryFee = AREA_OPTIONS.find(o => o.label === area)?.fee ?? 0;
-  const subtotal = totalPrice + (showDeliveryCheckout ? deliveryFee : 0);
+  
+  // التوصيل المجاني للطلبات أكثر من 1000 ج.م
+  const isFreeDelivery = totalPrice >= 1000;
+  const actualDeliveryFee = isFreeDelivery ? 0 : deliveryFee;
+  
+  const subtotal = totalPrice + (showDeliveryCheckout ? actualDeliveryFee : 0);
   const surcharge = showDeliveryCheckout && paymentMethod === 'vodafone' ? Math.ceil(subtotal * 0.01) : 0;
   const finalTotal = subtotal + surcharge;
   
@@ -724,15 +729,24 @@ ${orderItems}
                         )}
                       </div>
 
-                      {/* ملخص الحساب */}
-                      <div className="space-y-1 text-right">
-                        <div className="flex justify-between"><span>مجموع المنتجات</span><span>{totalPrice} ج</span></div>
-                        <div className="flex justify-between"><span>رسوم التوصيل</span><span>{deliveryFee} ج</span></div>
-                        {paymentMethod === 'vodafone' && (
-                          <div className="flex justify-between"><span>+ 1% رسوم فودافون كاش</span><span>{surcharge} ج</span></div>
-                        )}
-                        <div className="flex justify-between font-semibold"><span>الإجمالي النهائي</span><span>{finalTotal} ج</span></div>
-                      </div>
+                                              {/* ملخص الحساب */}
+                        <div className="space-y-1 text-right">
+                          <div className="flex justify-between"><span>مجموع المنتجات</span><span>{totalPrice} ج</span></div>
+                          {isFreeDelivery ? (
+                            <div className="flex justify-between text-green-600"><span>رسوم التوصيل</span><span>مجاني ✨</span></div>
+                          ) : (
+                            <div className="flex justify-between"><span>رسوم التوصيل</span><span>{actualDeliveryFee} ج</span></div>
+                          )}
+                          {paymentMethod === 'vodafone' && (
+                            <div className="flex justify-between"><span>+ 1% رسوم فودافون كاش</span><span>{surcharge} ج</span></div>
+                          )}
+                          {!isFreeDelivery && totalPrice < 1000 && (
+                            <div className="text-xs text-green-600 text-center py-2 bg-green-50 rounded-md">
+                              أضف {(1000 - totalPrice)} ج.م أخرى للحصول على التوصيل المجاني
+                            </div>
+                          )}
+                          <div className="flex justify-between font-semibold"><span>الإجمالي النهائي</span><span>{finalTotal} ج</span></div>
+                        </div>
 
                       {/* الإجراءات */}
                       <div className="space-y-2">
@@ -753,7 +767,7 @@ ${orderItems}
                               : paymentMethod === 'instapay'
                               ? 'https://ipn.eg/C/Q/mosaadhosny7890/instapay?ISIGN=23052603MEUCIQC/ACli2Pcxq8/e/to1eqMfNxYCj4wQd8l/o2KSJTg1LwIgScy/K3IM2HEEei0Zkzqru9bBWjuFwgsbjHL1q0iffKA='
                               : '';
-                            const message = `فاتورة طلب - مكتبة تفانين\n\nمعلومات الفاتورة:\nرقم الفاتورة: ${invoiceNumber}\nالتاريخ: ${date}\nالوقت: ${time}\nطريقة الاستلام: توصيل للمنزل\n\nمعلومات العميل:\nالاسم: ${customerName}\nرقم الهاتف: ${formatEgyptianPhone(customerPhone)}\nالعنوان: ${areaName}, عمارة ${buildingNumber}, شقة ${apartmentNumber}, الدور ${floor}\nالمنطقة/البوابة: ${area}\n\nالمنتجات المطلوبة:\n${orderItems}\n\nرسوم التوصيل: ${deliveryFee} ج.м\n${paymentMethod === 'vodafone' ? 'رسوم فودافون كاش (1%): ' + surcharge + ' ج.م\n' : ''}الإجمالي النهائي: ${finalTotal} ج.м\n\nطريقة الدفع: ${payLabel}${payLink ? '\nرابط الدفع: ' + payLink : ''}\n\nللاستفسار: 01026274235`;
+                            const message = `فاتورة طلب - مكتبة تفانين\n\nمعلومات الفاتورة:\nرقم الفاتورة: ${invoiceNumber}\nالتاريخ: ${date}\nالوقت: ${time}\nطريقة الاستلام: توصيل للمنزل\n\nمعلومات العميل:\nالاسم: ${customerName}\nرقم الهاتف: ${formatEgyptianPhone(customerPhone)}\nالعنوان: ${areaName}, عمارة ${buildingNumber}, شقة ${apartmentNumber}, الدور ${floor}\nالمنطقة/البوابة: ${area}\n\nالمنتجات المطلوبة:\n${orderItems}\n\nرسوم التوصيل: ${isFreeDelivery ? 'مجاني ✨' : actualDeliveryFee + ' ج.م'}\n${paymentMethod === 'vodafone' ? 'رسوم فودافون كاش (1%): ' + surcharge + ' ج.م\n' : ''}الإجمالي النهائي: ${finalTotal} ج.م\n\nطريقة الدفع: ${payLabel}${payLink ? '\nرابط الدفع: ' + payLink : ''}\n\nللاستفسار: 01026274235`;
                             const phoneNumber = '201026274235';
                             const whatsappWeb = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
                             window.open(whatsappWeb, '_blank');
