@@ -5,11 +5,11 @@ import { Button } from "@/components/ui/button";
 import { useCart } from "@/contexts/CartContext";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import prima25Image from "@/assets/prima-25.jpg";
+import prima25Image from "@/assets/prima- 25.jpg";
 
 
 const primaPens = [
-  { id: 'prima-25', name: 'قلم بريما 25 أزرق - عبوة 10 قطع', price: 7, prima25Image: , description: '0.7أقلام بريما زرقاء للكتابة اليومية السلسة' },
+  { id: 'prima- 25', name: 'قلم بريما 25 أزرق - عبوة 10 قطع', price: 7, prima25Image: , description: '0.7أقلام بريما زرقاء للكتابة اليومية السلسة' },
   { id: 'prima-2', name: 'قلم بريما أسود - عبوة 10 قطع', price: 38, image: '🖊️', description: 'أقلام بريما سوداء للكتابة الرسمية' },
   { id: 'prima-3', name: 'قلم بريما أحمر - عبوة 5 قطع', price: 22, image: '🖊️', description: 'أقلام بريما حمراء للتصحيح والتمييز' },
   { id: 'prima-4', name: 'مجموعة أقلام بريما ملونة - 12 لون', price: 62, image: '🌈', description: 'مجموعة متنوعة من أقلام بريما الملونة' },
@@ -83,6 +83,7 @@ const PrimaPensPage = () => {
 };
 
 export default PrimaPensPage;
+
 
 
 
