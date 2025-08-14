@@ -13,6 +13,13 @@ import rotoRapidRedImage from "@/assets/roto-rapid-red.jpg";
 import rotoRapidBlackImage from "@/assets/roto-rapid-black.jpg";
 import ROTOAEROImage from "@/assets/ROTO-AERO.jpg";
 import RotoButterBallImage from "@/assets/Roto-Butter-Ball-blue.jpg";
+import RotoButterBallredImage from "@/assets/Roto-Butter-Ball-red.jpg";
+import RotoButterBallblackImage from "@/assets/Roto-Butter-Ball-red.jpg";
+import ROTOEsayFlowblueImage from "@/assets/ROTO-Esay-Flow-blue.jpg";
+import ROTOEsayFlowredImage from "@/assets/ROTO-Esay-Flow-red.jpg";
+import ROTOEsayFlowblackImage from "@/assets/ROTO-Esay-Flow-black.jpg";
+
+
 
 
 const rotoPens = [
@@ -24,11 +31,11 @@ const rotoPens = [
   { id: 'roto-rapid-black', name: 'قلم روتو رابيد - أسود', price: 10, image: rotoRapidBlackImage, description: 'قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة' },
   { id: 'ROTO-AERO', name: 'قلم روتو أيرو - ازرق', price: 9, image: ROTOAEROImage, description: 'قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة' },
   { id: 'Roto-Butter-Ball-blue', name: 'قلم روتو باتر بول أزرق', price: 7, image: RotoButterBallImage, description: 'قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة' },
-  { id: 'roto-3', name: 'قلم روتو أحمر - عبوة 5 قطع', price: 25, image: '️', description: 'أقلام روتو حمراء للتصحيح والتمييز' },
-  { id: 'roto-4', name: 'مجموعة أقلام روتو ملونة - 8 ألوان', price: 65, image: '', description: 'مجموعة متنوعة من أقلام الروتو بألوان مختلفة' },
-  { id: 'roto-5', name: 'قلم روتو فاخر معدني - أزرق', price: 95, image: '️', description: 'قلم روتو فاخر بتصميم معدني أنيق وكتابة ناعمة' },
-  { id: 'roto-6', name: 'أقلام روتو رفيعة 0.7 مم - 6 قطع', price: 55, image: '️', description: 'أقلام روتو رفيعة للكتابة الدقيقة والتفاصيل' },
-  { id: 'roto-7', name: 'قلم روتو سميك 1.2 مم - أسود', price: 18, image: '️', description: 'قلم روتو سميك مثالي للكتابة الكبيرة والعناوين' },
+  { id: 'Roto-Butter-Ball-red', name: 'قلم روتو باتر بول احمر', price: 7, image: RotoButterBallredImage, description: 'قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة' },
+  { id: 'Roto-Butter-Ball-black', name: 'قلم روتو باتر بول اسود', price: 7, image: RotoButterBallblackImage, description: 'قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة' },
+  { id: 'ROTO-Esay-Flow-blue', name: 'قلم روتو باتر بول ازرق', price: 7, image: ROTOEsayFlowblueImage, description: 'قلم حبر سائل 1.0 مم لكتابة ناعمة ودقيقة' },
+  { id: 'ROTO-Esay-Flow-red', name: 'قلم روتو باتر بول احمر', price: 7, image: ROTOEsayFlowredImage, description: 'قلم حبر سائل 1.0 مم لكتابة ناعمة ودقيقة' },
+  { id: 'ROTO-Esay-Flow-black', name: 'قلم روتو باتر بول اسود', price: 7, image: ROTOEsayFlowblackImage, description: 'قلم حبر سائل 1.0 مم لكتابة ناعمة ودقيقة' },
   { id: 'roto-8', name: 'أقلام روتو قابلة لإعادة التعبئة - 3 قطع', price: 75, image: '️', description: 'أقلام روتو صديقة للبيئة قابلة لإعادة التعبئة' },
 ];
 
