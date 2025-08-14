@@ -30,7 +30,7 @@ const rotoPens = [
   { id: 'roto-rapid-red', name: 'قلم روتو رابيد - أحمر', price: 10, image: rotoRapidRedImage, description: 'قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة' },
   { id: 'roto-rapid-black', name: 'قلم روتو رابيد - أسود', price: 10, image: rotoRapidBlackImage, description: 'قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة' },
   { id: 'ROTO-AERO', name: 'قلم روتو أيرو - ازرق', price: 9, image: ROTOAEROImage, description: 'قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة' },
-  { id: 'Roto-Butter-Ball-blue', name: 'قلم روتو باتر بول أزرق', price: 7, image: RotoButterBallImage, description: 'قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة' },
+  { id: 'Roto-Butter-Ball-blue', name: 'قلم روتو باتر بول أزرق', price: 7, image: RotoButterBallblueImage, description: 'قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة' },
   { id: 'Roto-Butter-Ball-red', name: 'قلم روتو باتر بول احمر', price: 7, image: RotoButterBallredImage, description: 'قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة' },
   { id: 'Roto-Butter-Ball-black', name: 'قلم روتو باتر بول اسود', price: 7, image: RotoButterBallblackImage, description: 'قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة' },
   { id: 'ROTO-Esay-Flow-blue', name: 'قلم روتو ايزي فلو ازرق', price: 8, image: ROTOEsayFlowblueImage, description: 'قلم حبر سائل 1.0 مم لكتابة ناعمة ودقيقة' },
