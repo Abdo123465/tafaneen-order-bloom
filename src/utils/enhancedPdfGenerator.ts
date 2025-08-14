@@ -309,7 +309,7 @@ function drawPickupInfo(doc: jsPDF, deliveryMethod: string, yPos: number, margin
   } else {
     doc.text('• سيتم التواصل معكم لتحديد موعد التوصيل', margin + 10, yPos);
     yPos += 6;
-    doc.text('• رسوم التوصيل: مجاني للطلبات أكثر من ١٠٠ جنيه', margin + 10, yPos);
+            doc.text('• رسوم التوصيل: مجاني للطلبات أكثر من ١٠٠٠ جنيه', margin + 10, yPos);
     yPos += 6;
   }
 
