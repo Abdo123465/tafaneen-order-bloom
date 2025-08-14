@@ -33,8 +33,18 @@ export function Footer() {
     }
   ];
 
+  const handlePhoneCall = () => {
+    window.location.href = "tel:+201026274235";
+  };
+
+  const handleWhatsApp = () => {
+    const message = "مرحباً، أريد الاستفسار عن خدماتكم";
+    const whatsappUrl = `https://wa.me/201026274235?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+  };
+
   return (
-    <footer className="bg-gradient-to-br from-primary-dark to-primary text-white">
+    <footer className="bg-gradient-to-br from-red-800 to-red-900 text-white">
       {/* Newsletter Section */}
       <div className="border-b border-white/10">
         <div className="container mx-auto px-4 py-12">
@@ -51,7 +61,7 @@ export function Footer() {
                 className="bg-white/10 border-white/20 text-white placeholder:text-white/60"
                 dir="rtl"
               />
-              <Button variant="secondary" className="bg-white text-primary hover:bg-white/90">
+              <Button variant="secondary" className="bg-white text-red-800 hover:bg-white/90">
                 اشتراك
               </Button>
             </div>
@@ -80,10 +90,13 @@ export function Footer() {
 
             {/* Contact Info */}
             <div className="space-y-3">
-              <div className="flex items-center gap-3">
+              <button 
+                onClick={handlePhoneCall}
+                className="flex items-center gap-3 hover:text-red-200 transition-colors cursor-pointer"
+              >
                 <Phone className="h-4 w-4" />
                 <span className="text-sm">01026274235</span>
-              </div>
+              </button>
               <div className="flex items-center gap-3">
                 <MapPin className="h-4 w-4" />
                 <span className="text-sm">122 ز البوابة الاولي حدائق الاهرام، الجيزة، مصر</span>
@@ -98,7 +111,7 @@ export function Footer() {
               <ul className="space-y-2">
                 {section.links.map((link, linkIndex) => (
                   <li key={linkIndex}>
-                    <a
+                    
                       href={link.href}
                       className="text-white/80 hover:text-white transition-colors text-sm"
                     >
@@ -134,7 +147,12 @@ export function Footer() {
                 <Button variant="ghost" size="icon" className="text-white hover:bg-white/10 h-8 w-8">
                   <Youtube className="h-4 w-4" />
                 </Button>
-                <Button variant="ghost" size="icon" className="btn-whatsapp h-8 w-8">
+                <Button 
+                  variant="ghost" 
+                  size="icon" 
+                  className="text-white hover:bg-green-600 hover:text-white h-8 w-8 bg-green-500"
+                  onClick={handleWhatsApp}
+                >
                   <MessageCircle className="h-4 w-4" />
                 </Button>
               </div>
@@ -142,7 +160,7 @@ export function Footer() {
 
             {/* Payment Methods */}
             <div className="text-white/80 text-sm">
-              طرق الدفع: كاش | فودافون كاش | أورانج موني
+              طرق الدفع: كاش | فودافون كاش | إنستا باي
             </div>
           </div>
         </div>
