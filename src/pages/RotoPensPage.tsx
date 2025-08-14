@@ -18,6 +18,11 @@ import RotoButterBallblackImage from "@/assets/Roto-Butter-Ball-black.jpg";
 import ROTOEsayFlowblueImage from "@/assets/ROTO-Esay-Flow-blue.jpg";
 import ROTOEsayFlowredImage from "@/assets/ROTO-Esay-Flow-red.jpg";
 import ROTOEsayFlowblackImage from "@/assets/ROTO-Esay-Flow-black.jpg";
+import RotoGPlusblueImage from "@/assets/Roto-G-Plus-blue.jpg";
+import RotoGPlusblueImage from "@/assets/Roto-G-Plus-blue.jpg";
+import RotoGPlusblackImage from "@/assets/Roto-G-Plus-black.jpg";
+import RotoGPlusredImage from "@/assets/Roto-G-Plus-red.jpg";
+
 
 
 
@@ -36,7 +41,11 @@ const rotoPens = [
   { id: 'ROTO-Esay-Flow-blue', name: 'قلم روتو ايزي فلو ازرق', price: 8, image: ROTOEsayFlowblueImage, description: 'قلم حبر سائل 1.0 مم لكتابة ناعمة ودقيقة' },
   { id: 'ROTO-Esay-Flow-red', name: 'قلم روتو  ايزي فلو احمر', price: 8, image: ROTOEsayFlowredImage, description: 'قلم حبر سائل 1.0 مم لكتابة ناعمة ودقيقة' },
   { id: 'ROTO-Esay-Flow-black', name: 'قلم روتو ايزي فلو اسود', price: 8, image: ROTOEsayFlowblackImage, description: 'قلم حبر سائل 1.0 مم لكتابة ناعمة ودقيقة' },
-  { id: 'roto-8', name: 'أقلام روتو قابلة لإعادة التعبئة - 3 قطع', price: 75, image: '️', description: 'أقلام روتو صديقة للبيئة قابلة لإعادة التعبئة' },
+  { id: 'Roto-G-Plus-blue', name: 'قلم روتو جي بلس ازرق', price: 8, image: RotoGPlusblueImage, description: 'قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة' },
+  { id: 'Roto-G-Plus-black', name: 'قلم روتو جي بلس اسود', price: 8, image: RotoGPlusblackImage, description: 'قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة' },
+  { id: 'Roto-G-Plus-red', name: 'قلم روتو جي بلس اسود', price: 8, image: RotoGPlusredImage, description: 'قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة' },
+
+
 ];
 
 const RotoPensPage = () => {
