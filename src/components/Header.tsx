@@ -29,49 +29,54 @@ export function Header() {
     { label: "عروض خاصة", href: "/offers" },
   ];
 
+  // معالجة البحث
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     if (searchQuery.trim()) {
       // يمكن إضافة منطق البحث هنا
       console.log("البحث عن:", searchQuery);
+      // إعادة توجيه لصفحة البحث أو عرض النتائج
     }
   };
 
-  const handlePhoneCall = () => {
-    window.location.href = "tel:+201026274235";
+  // فتح واتساب
+  const openWhatsApp = () => {
+    const phoneNumber = "201026274235";
+    const message = "مرحباً، أريد الاستفسار عن المنتجات";
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
   };
 
-  const handleWhatsApp = () => {
-    const message = "مرحباً، أريد الاستفسار عن منتجاتكم";
-    const whatsappUrl = `https://wa.me/201026274235?text=${encodeURIComponent(message)}`;
-    window.open(whatsappUrl, '_blank');
+  // الاتصال بالهاتف
+  const callPhone = () => {
+    window.open('tel:01026274235', '_self');
   };
 
   return (
     <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-border shadow-sm">
       {/* Top Bar */}
-      <div className="bg-gradient-to-r from-red-600 to-red-700 text-white">
+      <div className="bg-gradient-primary text-white">
         <div className="container mx-auto px-4 py-2">
           <div className="flex justify-between items-center text-sm">
             <div className="flex items-center gap-4">
               <button 
-                onClick={handlePhoneCall}
-                className="hover:text-red-200 transition-colors cursor-pointer"
+                onClick={callPhone}
+                className="hover:underline cursor-pointer flex items-center gap-1"
               >
                 📞 للطلب: 01026274235
               </button>
               <Button 
                 variant="ghost" 
                 size="sm" 
-                className="text-white hover:bg-white/20 text-xs h-6"
-                onClick={handleWhatsApp}
+                className="btn-whatsapp text-xs h-6"
+                onClick={openWhatsApp}
               >
                 <MessageCircle className="h-3 w-3" />
                 واتساب
               </Button>
             </div>
             <div className="hidden md:flex items-center gap-4">
-              <span>🚚 توصيل مجاني للطلبات أكثر من 1000 جنيه</span>
+              <span>🚚 توصيل مجاني للطلبات أكثر من 1000 ج.م</span>
             </div>
           </div>
         </div>
@@ -102,11 +107,11 @@ export function Header() {
             <form onSubmit={handleSearch} className="relative w-full">
               <Search className="absolute right-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
               <Input
+                placeholder="ابحث عن الأدوات المكتبية والقرطاسية..."
+                className="pr-10 rounded-xl border-2 focus:border-primary"
+                dir="rtl"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="ابحث عن الأدوات المكتبية والقرطاسية..."
-                className="pr-10 rounded-xl border-2 focus:border-red-600"
-                dir="rtl"
               />
             </form>
           </div>
@@ -123,7 +128,7 @@ export function Header() {
               {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </Button>
 
-            {/* User Account Icon */}
+            {/* User Account Icon - Always visible when logged in */}
             {user ? (
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
@@ -156,6 +161,7 @@ export function Header() {
               <Button 
                 variant="ghost" 
                 size="icon" 
+                className=""
                 onClick={() => setIsAuthOpen(true)}
               >
                 <User className="h-5 w-5" />
@@ -169,7 +175,7 @@ export function Header() {
             {/* Login/Logout Button - Desktop only */}
             {user ? (
               <Button 
-                className="bg-red-600 hover:bg-red-700 text-white hidden md:flex"
+                className="btn-tafaneen hidden md:flex"
                 onClick={logout}
               >
                 <LogOut className="h-4 w-4 ml-2" />
@@ -177,7 +183,7 @@ export function Header() {
               </Button>
             ) : (
               <Button 
-                className="bg-red-600 hover:bg-red-700 text-white hidden md:flex"
+                className="btn-tafaneen hidden md:flex"
                 onClick={() => setIsAuthOpen(true)}
               >
                 <User className="h-4 w-4 ml-2" />
@@ -193,7 +199,7 @@ export function Header() {
             <Link
               key={index}
               to={item.href}
-              className="text-foreground hover:text-red-600 transition-colors font-medium"
+              className="text-foreground hover:text-primary transition-colors font-medium"
             >
               {item.label}
             </Link>
@@ -205,11 +211,11 @@ export function Header() {
           <form onSubmit={handleSearch} className="relative">
             <Search className="absolute right-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
             <Input
+              placeholder="ابحث عن الأدوات المكتبية والقرطاسية..."
+              className="pr-10 rounded-xl border-2 focus:border-primary"
+              dir="rtl"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="ابحث عن الأدوات المكتبية والقرطاسية..."
-              className="pr-10 rounded-xl border-2 focus:border-red-600"
-              dir="rtl"
             />
           </form>
         </div>
@@ -224,7 +230,7 @@ export function Header() {
                 <Link
                   key={index}
                   to={item.href}
-                  className="text-foreground hover:text-red-600 transition-colors font-medium py-2"
+                  className="text-foreground hover:text-primary transition-colors font-medium py-2"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.label}
@@ -233,7 +239,7 @@ export function Header() {
               
               {user ? (
                 <div className="mt-4 pt-4 border-t space-y-3">
-                  <div className="font-medium text-red-600">مرحباً {user.name}</div>
+                  <div className="font-medium text-primary">مرحباً {user.name}</div>
                   <div className="space-y-2">
                     <Button variant="ghost" className="w-full justify-start">
                       <Settings className="h-4 w-4 mr-2" />
@@ -258,11 +264,8 @@ export function Header() {
                 </div>
               ) : (
                 <Button 
-                  className="bg-red-600 hover:bg-red-700 text-white mt-4"
-                  onClick={() => {
-                    setIsAuthOpen(true);
-                    setIsMenuOpen(false);
-                  }}
+                  className="btn-tafaneen mt-4"
+                  onClick={() => setIsAuthOpen(true)}
                 >
                   <User className="h-4 w-4 ml-2" />
                   تسجيل الدخول
