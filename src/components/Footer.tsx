@@ -1,8 +1,17 @@
+import { useState } from "react";
 import { MessageCircle, Mail, Phone, MapPin, Facebook, Instagram, Youtube } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { useToast } from "@/hooks/use-toast";
+import { validateEgyptianPhone, normalizeEgyptianPhone } from "@/utils/phoneValidation";
+import { supabase } from "@/integrations/supabase/client";
 
 export function Footer() {
+  const { toast } = useToast();
+  const [whatsAppNumber, setWhatsAppNumber] = useState("");
+  const [phoneError, setPhoneError] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const footerSections = [
     {
       title: "الشركة",
@@ -46,6 +55,42 @@ export function Footer() {
     window.open('tel:01026274235', '_self');
   };
 
+  const handleSubscribe = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setPhoneError("");
+
+    const validation = validateEgyptianPhone(whatsAppNumber);
+    if (!validation.isValid) {
+      setPhoneError(validation.errorMessage || "رقم الواتساب غير صحيح");
+      return;
+    }
+
+    setIsSubmitting(true);
+    try {
+      const normalized = normalizeEgyptianPhone(whatsAppNumber);
+      const { error } = await supabase.from<any>('whatsapp_subscribers').insert({
+        phone: normalized,
+        created_at: new Date().toISOString()
+      });
+
+      if (error) throw error;
+
+      toast({
+        title: "تم الاشتراك عبر واتساب",
+        description: "سنُرسل لك تنبيهاً احترافياً فور إضافة أي منتج جديد على متجر تفانين.",
+      });
+      setWhatsAppNumber("");
+    } catch (err: any) {
+      toast({
+        title: "تعذر إتمام الاشتراك",
+        description: err?.message || "حدث خطأ غير متوقع. حاول مرة أخرى.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <footer className="bg-gradient-to-br from-primary-dark to-primary text-white">
       {/* Newsletter Section */}
@@ -53,21 +98,31 @@ export function Footer() {
         <div className="container mx-auto px-4 py-12">
           <div className="text-center max-w-2xl mx-auto">
             <h3 className="text-2xl font-bold mb-4">
-              اشترك في نشرتنا الإخبارية
+              اشترك عبر واتساب لتنبيهات المنتجات الجديدة
             </h3>
             <p className="text-white/80 mb-6">
-              احصل على أحدث العروض والكتب الجديدة مباشرة في بريدك الإلكتروني
+              سجّل رقم واتساب الخاص بك لتصلك إشعارات فورية عند إضافة منتجات جديدة في تفانين.
             </p>
-            <div className="flex gap-3 max-w-md mx-auto">
-              <Input
-                placeholder="بريدك الإلكتروني"
-                className="bg-white/10 border-white/20 text-white placeholder:text-white/60"
-                dir="rtl"
-              />
-              <Button variant="secondary" className="bg-white text-primary hover:bg-white/90">
-                اشتراك
-              </Button>
-            </div>
+            <form onSubmit={handleSubscribe} className="max-w-md mx-auto">
+              <div className="flex gap-3">
+                <Input
+                  placeholder="مثال: 01012345678 أو +20 10xxxxxxxx"
+                  className="bg-white/10 border-white/20 text-white placeholder:text-white/60"
+                  dir="ltr"
+                  value={whatsAppNumber}
+                  onChange={(e) => setWhatsAppNumber(e.target.value)}
+                />
+                <Button type="submit" disabled={isSubmitting} variant="secondary" className="bg-white text-primary hover:bg-white/90">
+                  {isSubmitting ? 'جارٍ الاشتراك...' : 'اشتراك عبر واتساب'}
+                </Button>
+              </div>
+              {phoneError && (
+                <div className="text-red-200 text-sm mt-2 text-right">{phoneError}</div>
+              )}
+              <div className="text-white/60 text-xs mt-3 text-right">
+                بالاشتراك، توافق على تلقي تنبيهات عبر واتساب من تفانين. يمكنك إلغاء الاشتراك في أي وقت.
+              </div>
+            </form>
           </div>
         </div>
       </div>
