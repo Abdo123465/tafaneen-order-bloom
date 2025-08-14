@@ -22,6 +22,9 @@ import RotoGPlusblueImage from "@/assets/Roto-G-Plus-blue.jpg";
 import RotoGPlusblueImage from "@/assets/Roto-G-Plus-blue.jpg";
 import RotoGPlusblackImage from "@/assets/Roto-G-Plus-black.jpg";
 import RotoGPlusredImage from "@/assets/Roto-G-Plus-red.jpg";
+import RotoGlaseblueImage from "@/assets/Roto-Glase-blue.jpg";
+import RotoGlaseblackImage from "@/assets/Roto-Glase-black.jpg";
+import RotoGlaseredImage from "@/assets/Roto-Glase-red.jpg";
 
 
 
@@ -42,8 +45,9 @@ const rotoPens = [
   { id: 'ROTO-Esay-Flow-red', name: 'قلم روتو  ايزي فلو احمر', price: 8, image: ROTOEsayFlowredImage, description: 'قلم حبر سائل 1.0 مم لكتابة ناعمة ودقيقة' },
   { id: 'ROTO-Esay-Flow-black', name: 'قلم روتو ايزي فلو اسود', price: 8, image: ROTOEsayFlowblackImage, description: 'قلم حبر سائل 1.0 مم لكتابة ناعمة ودقيقة' },
   { id: 'Roto-G-Plus-blue', name: 'قلم روتو جي بلس ازرق', price: 7, image: RotoGPlusblueImage, description: 'قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة' },
-  { id: 'Roto-G-Plus-black', name: 'قلم روتو جي بلس اسود', price: 7, image: RotoGPlusblackImage, description: 'قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة' },
-  { id: 'Roto-G-Plus-red', name: 'قلم روتو جي بلس احمرد', price: 7, image: RotoGPlusredImage, description: 'قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة' },
+  { id: 'Roto-Glase-blue', name: 'قلم روتو جلاس ازرق', price: 7, image: RotoGlaseblueImage, description: 'قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة' },
+  { id: 'Roto-Glase-red', name: 'قلم روتو جلاس احمر', price: 7, image: RotoGlaseredImage, description: 'قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة' },
+  { id: 'Roto-Glase-black', name: 'ققلم روتو جلاس اسود', price: 7, image: RotoGlaseblackImage, description: 'قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة' },
 
 
 ];
