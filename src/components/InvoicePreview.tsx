@@ -127,7 +127,7 @@ export function InvoicePreview({ data }: InvoicePreviewProps) {
           ) : (
             <div className="text-sm space-y-1">
               <p>• سيتم التواصل معكم لتحديد موعد التوصيل</p>
-              <p>• رسوم التوصيل: مجاني للطلبات أكثر من ١٠٠ جنيه</p>
+              <p>• رسوم التوصيل: مجاني للطلبات أكثر من ١٠٠٠ جنيه</p>
             </div>
           )}
         </div>
