@@ -1,21 +1,24 @@
--- Create WhatsApp subscribers table
-create table if not exists public.whatsapp_subscribers (
-  id uuid primary key default gen_random_uuid(),
-  phone text unique not null,
-  created_at timestamptz not null default now(),
-  active boolean not null default true
+-- إنشاء جدول المشتركين في WhatsApp
+CREATE TABLE IF NOT EXISTS whatsapp_subscribers (
+    id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+    phone VARCHAR(20) NOT NULL UNIQUE,
+    is_active BOOLEAN DEFAULT true,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+    last_notification_sent TIMESTAMP WITH TIME ZONE
 );
 
--- Enable RLS
-alter table public.whatsapp_subscribers enable row level security;
+-- إنشاء فهرس على رقم الهاتف
+CREATE INDEX IF NOT EXISTS idx_whatsapp_subscribers_phone ON whatsapp_subscribers(phone);
+CREATE INDEX IF NOT EXISTS idx_whatsapp_subscribers_is_active ON whatsapp_subscribers(is_active);
 
--- Allow anonymous insert only (for public subscription form)
-create policy if not exists "Allow insert for anon" on public.whatsapp_subscribers
-  for insert to anon
-  with check (true);
+-- تفعيل Row Level Security
+ALTER TABLE whatsapp_subscribers ENABLE ROW LEVEL SECURITY;
 
--- Allow read for service role only (not exposed to anon)
-create policy if not exists "Service role full access" on public.whatsapp_subscribers
-  using (auth.role() = 'service_role')
-  with check (auth.role() = 'service_role');
+-- سياسة للسماح بالإدراج للجميع (للاشتراك)
+CREATE POLICY "Anyone can subscribe" ON whatsapp_subscribers
+    FOR INSERT WITH CHECK (true);
 
+-- سياسة للسماح بالقراءة والتحديث للمشرفين فقط
+CREATE POLICY "Only admins can read subscribers" ON whatsapp_subscribers
+    FOR SELECT USING (false); -- ستحتاج لتعديل هذا حسب نظام الأذونات لديك
