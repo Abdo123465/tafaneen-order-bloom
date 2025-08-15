@@ -9,6 +9,9 @@ import prima25Image from "@/assets/prima-25.jpg";
 import PrimaDanteImage from "@/assets/Prima-Dante.jpg";
 import PrimaFancyImage from "@/assets/Prima-Fancy.jpg";
 import PrimaFinoImage from "@/assets/Prima-Fino.jpg";
+import PRIMAFORMAblueImage from "@/assets/PRIMA-FORMA-blue.jpg";
+import PRIMAFORMAredImage from "@/assets/PRIMA-FORMA-red.jpg";
+import PRIMAFORMAblackImage from "@/assets/PRIMA-FORMA-black.jpg";
 
 
 
@@ -17,6 +20,10 @@ const primaPens = [
  { id: 'Prima-Dante', name: 'قلم بريما دانتي ازرق', price: 12, image: PrimaDanteImage, description: 'قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة' },
  { id: 'Prima-Fancy', name: 'قلم بريما فتنزي ازرق', price: 7, image: PrimaFancyImage, description: 'قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة' },
  { id: 'Prima-Fino', name: 'قلم بريما فينو ازرق', price: 7, image: PrimaFinoImage, description: 'قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة' },
+ { id: 'PRIMA-FORMA-blue', name: 'قلم بريما فورما ازرق', price: 6, image: PRIMAFORMAblueImage, description: 'قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة' },
+ { id: 'PRIMA-FORMA-red', name: 'قلم بريما فورما احمر', price: 6, image: PRIMAFORMAredImage, description: 'قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة' },
+ { id: 'PRIMA-FORMA-black', name: 'قلم بريما فورما اسود', price: 6, image: PRIMAFORMAblackImage, description: 'قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة' },
+
 ];
 
 const PrimaPensPage = () => {
@@ -95,6 +102,7 @@ const PrimaPensPage = () => {
 };
 
 export default PrimaPensPage;
+
 
 
 
