@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 import prima25Image from "@/assets/prima-25.jpg";
 import PrimaDanteImage from "@/assets/Prima-Dante.jpg";
 import PrimaFancyImage from "@/assets/Prima-Fancy.jpg";
+import PrimaFinoImage from "@/assets/Prima-Fino.jpg";
 
 
 
@@ -15,7 +16,7 @@ const primaPens = [
  { id: 'prima-25', name: 'قلم بريما 25 ازرق', price: 7, image: prima25Image, description: 'قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة' },
  { id: 'Prima-Dante', name: 'قلم بريما دانتي ازرق', price: 12, image: PrimaDanteImage, description: 'قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة' },
  { id: 'Prima-Fancy', name: 'قلم بريما فتنزي ازرق', price: 7, image: PrimaFancyImage, description: 'قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة' },
- { id: 'prima-4', name: 'مجموعة أقلام بريما ملونة - 12 لون', price: 62, image: '🌈', description: 'مجموعة متنوعة من أقلام بريما الملونة' },
+ { id: 'Prima-Fino', name: 'قلم بريما فينو ازرق', price: 7, image: PrimaFinoImage, description: 'قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة' },
 ];
 
 const PrimaPensPage = () => {
@@ -94,6 +95,7 @@ const PrimaPensPage = () => {
 };
 
 export default PrimaPensPage;
+
 
 
 
