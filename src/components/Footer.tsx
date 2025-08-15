@@ -68,21 +68,64 @@ export function Footer() {
     setIsSubmitting(true);
     try {
       const normalized = normalizeEgyptianPhone(whatsAppNumber);
-      const { error } = await supabase.from<any>('whatsapp_subscribers').insert({
-        phone: normalized,
-        created_at: new Date().toISOString()
-      });
+      
+      // التحقق من وجود الرقم مسبقاً
+      const { data: existingSubscriber, error: checkError } = await supabase
+        .from('whatsapp_subscribers')
+        .select('id, is_active')
+        .eq('phone', normalized)
+        .single();
 
-      if (error) throw error;
+      if (checkError && checkError.code !== 'PGRST116') {
+        throw checkError;
+      }
 
-      toast({
-        title: "تم الاشتراك عبر واتساب",
-        description: "سنُرسل لك تنبيهاً احترافياً فور إضافة أي منتج جديد على متجر تفانين.",
-      });
+      if (existingSubscriber) {
+        if (existingSubscriber.is_active) {
+          toast({
+            title: "مشترك بالفعل ✅",
+            description: "هذا الرقم مشترك بالفعل في تنبيهات المنتجات الجديدة.",
+            variant: "default",
+          });
+        } else {
+          // إعادة تفعيل الاشتراك
+          const { error: updateError } = await supabase
+            .from('whatsapp_subscribers')
+            .update({ 
+              is_active: true,
+              updated_at: new Date().toISOString()
+            })
+            .eq('id', existingSubscriber.id);
+
+          if (updateError) throw updateError;
+
+          toast({
+            title: "تم تفعيل الاشتراك ✅",
+            description: "تم إعادة تفعيل اشتراكك في تنبيهات المنتجات الجديدة.",
+          });
+        }
+      } else {
+        // إضافة مشترك جديد
+        const { error } = await supabase.from('whatsapp_subscribers').insert({
+          phone: normalized,
+          is_active: true,
+          created_at: new Date().toISOString(),
+          updated_at: new Date().toISOString()
+        });
+
+        if (error) throw error;
+
+        toast({
+          title: "تم الاشتراك عبر واتساب ✅",
+          description: "سنُرسل لك تنبيهاً احترافياً فور إضافة أي منتج جديد على متجر تفانين.",
+        });
+      }
+      
       setWhatsAppNumber("");
     } catch (err: any) {
+      console.error('Subscription error:', err);
       toast({
-        title: "تعذر إتمام الاشتراك",
+        title: "تعذر إتمام الاشتراك ❌",
         description: err?.message || "حدث خطأ غير متوقع. حاول مرة أخرى.",
         variant: "destructive",
       });
@@ -127,7 +170,7 @@ export function Footer() {
         </div>
       </div>
 
-      {/* Main Footer Content */}
+      {/* Main Footer Content - باقي الكود كما هو */}
       <div className="container mx-auto px-4 py-12">
         <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-8">
           {/* Brand Section */}
@@ -169,7 +212,7 @@ export function Footer() {
               <ul className="space-y-2">
                 {section.links.map((link, linkIndex) => (
                   <li key={linkIndex}>
-                    <a
+                    
                       href={link.href}
                       className="text-white/80 hover:text-white transition-colors text-sm"
                     >
@@ -197,32 +240,32 @@ export function Footer() {
               <span className="text-white/80 text-sm">تابعنا على:</span>
               <div className="flex gap-2">
                 <Button variant="ghost" size="icon" className="text-white hover:bg-white/10 h-8 w-8">
-                  <Facebook className="h-4 w-4" />
-                </Button>
-                <Button variant="ghost" size="icon" className="text-white hover:bg-white/10 h-8 w-8">
-                  <Instagram className="h-4 w-4" />
-                </Button>
-                <Button variant="ghost" size="icon" className="text-white hover:bg-white/10 h-8 w-8">
-                  <Youtube className="h-4 w-4" />
-                </Button>
-                <Button 
-                  variant="ghost" 
-                  size="icon" 
-                  className="btn-whatsapp h-8 w-8"
-                  onClick={openWhatsApp}
-                >
-                  <MessageCircle className="h-4 w-4" />
-                </Button>
-              </div>
-            </div>
+                 <Facebook className="h-4 w-4" />
+               </Button>
+               <Button variant="ghost" size="icon" className="text-white hover:bg-white/10 h-8 w-8">
+                 <Instagram className="h-4 w-4" />
+               </Button>
+               <Button variant="ghost" size="icon" className="text-white hover:bg-white/10 h-8 w-8">
+                 <Youtube className="h-4 w-4" />
+               </Button>
+               <Button 
+                 variant="ghost" 
+                 size="icon" 
+                 className="btn-whatsapp h-8 w-8"
+                 onClick={openWhatsApp}
+               >
+                 <MessageCircle className="h-4 w-4" />
+               </Button>
+             </div>
+           </div>
 
-            {/* Payment Methods */}
-            <div className="text-white/80 text-sm">
-              طرق الدفع: كاش | فودافون كاش | أورانج موني
-            </div>
-          </div>
-        </div>
-      </div>
-    </footer>
-  );
+           {/* Payment Methods */}
+           <div className="text-white/80 text-sm">
+             طرق الدفع: كاش | فودافون كاش | أورانج موني
+           </div>
+         </div>
+       </div>
+     </div>
+   </footer>
+ );
 }
