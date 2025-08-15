@@ -12,7 +12,7 @@ import PrimaDanteImage from "@/assets/Prima-Dante.jpg";
 
 const primaPens = [
  { id: 'prima-25', name: 'قلم بريما 25 ازرق', price: 7, image: prima25Image, description: 'قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة' },
- { id: 'Prima-Dante', name: 'قلم بريما أسود - عبوة 1 قطع', price: 12, image: 'PrimaDanteImage', description: 'قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة' },
+ { id: 'Prima-Dante', name: 'قلم بريما دانتي ازرق', price: 12, image: PrimaDanteImage, description: 'قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة' },
  { id: 'prima-3', name: 'قلم بريما أحمر - عبوة 5 قطع', price: 22, image: '🖊️', description: 'أقلام بريما حمراء للتصحيح والتمييز' },
  { id: 'prima-4', name: 'مجموعة أقلام بريما ملونة - 12 لون', price: 62, image: '🌈', description: 'مجموعة متنوعة من أقلام بريما الملونة' },
 ];
@@ -93,4 +93,5 @@ const PrimaPensPage = () => {
 };
 
 export default PrimaPensPage;
+
 
