@@ -7,12 +7,10 @@ import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
 import RoxiClassicblueImage from "@/assets/Roxi-Classic-blue.jpg";
-import roxiRedImage from "@/assets/roxi-red.jpg";
-import roxiBlackImage from "@/assets/roxi-black.jpg";
+
 
 const roxiPens = [
   { id: 'Roxi-Classic-blue', name: 'قلم روكسي كلاسيك أزرق', price: 7, image: RoxiClassicblueImage, description: 'قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة' },
-  { id: 'roxi-red', name: 'قلم روكسي أحمر', price: 8, image: roxiRedImage, description: 'قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة' },
   
 ];
 
