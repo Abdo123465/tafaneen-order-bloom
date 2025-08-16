@@ -5,14 +5,14 @@ import { Button } from "@/components/ui/button";
 import { useCart } from "@/contexts/CartContext";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import roxiClassicBlueImage from "@/assets/roxi-classic-blue.jpg";
+import RoxiClassicblueImage from "@/assets/Roxi-Classic-blue.jpg";
 
 const roxiPens = [
   { 
-    id: 'roxi-classic-blue', 
+    id: 'Roxi-Classic-blue', 
     name: 'قلم جاف روكسي كلاسيك', 
     price: 7, 
-    image: roxiClassicBlueImage, 
+    image: RoxiClassicblueImage, 
     description: 'قلم جاف Roxi Classic باللون الأزرق، كتابة سلسة وجودة عالية' 
 
 ];
