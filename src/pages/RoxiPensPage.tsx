@@ -9,6 +9,8 @@ import { Link } from "react-router-dom";
 import RoxiClassicblueImage from "@/assets/Roxi-Classic-blue.jpg";
 import RoxiGoldImage from "@/assets/Roxi-Gold.jpg";
 import RoxiH4Image from "@/assets/Roxi-H4.jpg";
+import RoxiMytechImage from "@/assets/Roxi-My-tech.jpg";
+
 
 
 
@@ -16,6 +18,7 @@ const roxiPens = [
   { id: 'Roxi-Classic-blue', name: 'قلم روكسي كلاسيك أزرق', price: 7, image: RoxiClassicblueImage, description: 'قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة' },
   { id: 'Roxi-Gold', name: 'قلم روكسي جولد أزرق', price: 7, image: RoxiGoldImage, description: 'قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة' },
   { id: 'Roxi-H4', name: 'قلم روكسي اتش 4 أزرق', price: 8, image: RoxiH4Image, description: 'قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة' },
+  { id: 'Roxi-My-tech', name: 'قلم روكسي ماي تك  أزرق', price: 7, image: RoxiMytechImage, description: 'قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة' },
 
 ];
 
