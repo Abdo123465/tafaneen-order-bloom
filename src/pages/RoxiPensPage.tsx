@@ -10,7 +10,7 @@ import RoxiClassicblueImage from "@/assets/Roxi-Classic-blue.jpg";
 
 // Placeholder data for Roxi pens
 const roxiPens = [
-  { id: 'Roxi-Classic-blue', name: 'قلم روكسي كلاسيك جاف أزرق', price: 7, image: 'RoxiClassicblueImage', description: 'قلم حبر جاف أزرق اللون للاستخدام اليومي.' },
+  { id: 'Roxi-Classic-blue', name: 'قلم روتو ليكويد بول - أزرق', price: 7, image: RoxiClassicblueImage, description: 'قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة' },
   { id: 'roxi-2', name: 'قلم روكسي جاف أسود', price: 5, image: '🖊️', description: 'قلم حبر جاف أسود اللون للكتابة الواضحة.' },
   { id: 'roxi-3', name: 'قلم روكسي جاف أحمر', price: 5, image: '🖊️', description: 'قلم حبر جاف أحمر اللون للتأشير والملاحظات.' },
   { id: 'roxi-4', name: 'مجموعة أقلام روكسي ملونة', price: 20, image: '🎨', description: 'مجموعة من أقلام روكسي بألوان متنوعة.' },
