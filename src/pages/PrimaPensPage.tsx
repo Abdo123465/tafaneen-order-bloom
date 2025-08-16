@@ -20,6 +20,7 @@ import PrimaSevenImage from "@/assets/Prima-Seven.jpg";
 import PrimaSevenImage from "@/assets/Prima-Seven.jpg";
 import PRIMASOLOImage from "@/assets/PRIMA-SOLO.jpg";
 import primatangoImage from "@/assets/prima-tango.jpg";
+import primaunoImage from "@/assets/prima-uno.jpg";
 
 
 
@@ -38,6 +39,7 @@ const primaPens = [
  { id: 'Prima-Nova', name: 'قلم بريما نوفا ازرق', price: 7, image: PrimaNovaImage, description: 'قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة' },
  { id: 'Prima-Seven', name: 'قلم بريما سيفين  ازرق', price: 7, image: PrimaSevenImage, description: 'قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة' },
  { id: 'prima-tango', name: 'قلم بريما تانجو  ازرق', price: 7, image: primatangoImage, description: 'قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة' },
+ { id: 'prima-uno', name: 'قلم بريما اونو  ازرق', price: 7, image: primaunoImage, description: 'قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة' },
 
 
 ];
@@ -118,6 +120,7 @@ const PrimaPensPage = () => {
 };
 
 export default PrimaPensPage;
+
 
 
 
