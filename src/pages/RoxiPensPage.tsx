@@ -6,14 +6,18 @@ import { Button } from "@/components/ui/button";
 import { useCart } from "@/contexts/CartContext";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import RoxiClassicblueImage from "@/assets/Roxi-Classic-blue.jpg";
+
+import RoxiClassicBlueImage from "@/assets/PRIMA-FORMA-blue.jpg";
+import RoxiClassicBlackImage from "@/assets/PRIMA-FORMA-black.jpg";
+import RoxiClassicRedImage from "@/assets/PRIMA-FORMA-red.jpg";
+import RoxiColorSetImage from "@/assets/PRIMA-SOLO.jpg";
 
 // Placeholder data for Roxi pens
 const roxiPens = [
-  { id: 'Roxi-Classic-blue', name: 'قلم روتو ليكويد بول - أزرق', price: 7, image: RoxiClassicblueImage, description: 'قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة' },
-  { id: 'roxi-2', name: 'قلم روكسي جاف أسود', price: 5, image: '🖊️', description: 'قلم حبر جاف أسود اللون للكتابة الواضحة.' },
-  { id: 'roxi-3', name: 'قلم روكسي جاف أحمر', price: 5, image: '🖊️', description: 'قلم حبر جاف أحمر اللون للتأشير والملاحظات.' },
-  { id: 'roxi-4', name: 'مجموعة أقلام روكسي ملونة', price: 20, image: '🎨', description: 'مجموعة من أقلام روكسي بألوان متنوعة.' },
+  { id: 'roxi-1', name: 'قلم روكسي جاف أزرق', price: 5, image: RoxiClassicBlueImage, description: 'قلم حبر جاف أزرق اللون للاستخدام اليومي.' },
+  { id: 'roxi-2', name: 'قلم روكسي جاف أسود', price: 5, image: RoxiClassicBlackImage, description: 'قلم حبر جاف أسود اللون للكتابة الواضحة.' },
+  { id: 'roxi-3', name: 'قلم روكسي جاف أحمر', price: 5, image: RoxiClassicRedImage, description: 'قلم حبر جاف أحمر اللون للتأشير والملاحظات.' },
+  { id: 'roxi-4', name: 'مجموعة أقلام روكسي ملونة', price: 20, image: RoxiColorSetImage, description: 'مجموعة من أقلام روكسي بألوان متنوعة.' },
 ];
 
 const RoxiPensPage = () => {
@@ -61,8 +65,8 @@ const RoxiPensPage = () => {
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {roxiPens.map((pen) => (
             <div key={pen.id} className="card-product">
-              <div className="bg-muted/50 rounded-xl aspect-square flex items-center justify-center text-6xl mb-4">
-                {pen.image}
+              <div className="bg-muted/50 rounded-xl aspect-square flex items-center justify-center overflow-hidden mb-4">
+                <img src={pen.image} alt={pen.name} className="w-full h-full object-cover" />
               </div>
               <h3 className="font-semibold mb-2">{pen.name}</h3>
               <p className="text-sm text-muted-foreground mb-3">{pen.description}</p>
