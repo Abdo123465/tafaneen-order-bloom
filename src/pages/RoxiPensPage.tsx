@@ -6,18 +6,15 @@ import { useCart } from "@/contexts/CartContext";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
-// يمكنك إضافة الصور هنا عندما تكون متوفرة
-// import roxiBlueImage from "@/assets/roxi-blue.jpg";
-// import roxiRedImage from "@/assets/roxi-red.jpg";
-// import roxiBlackImage from "@/assets/roxi-black.jpg";
+import RoxiClassicblueImage from "@/assets/Roxi-Classic-blue.jpg";
+import roxiRedImage from "@/assets/roxi-red.jpg";
+import roxiBlackImage from "@/assets/roxi-black.jpg";
 
 const roxiPens = [
-  { id: 'roxi-blue', name: 'قلم روكسي أزرق', price: 8, image: '🖊️', description: 'قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة' },
-  { id: 'roxi-red', name: 'قلم روكسي أحمر', price: 8, image: '🖊️', description: 'قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة' },
-  { id: 'roxi-black', name: 'قلم روكسي أسود', price: 8, image: '🖊️', description: 'قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة' },
-  { id: 'roxi-green', name: 'قلم روكسي أخضر', price: 8, image: '🖊️', description: 'قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة' },
-  { id: 'roxi-purple', name: 'قلم روكسي بنفسجي', price: 8, image: '🖊️', description: 'قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة' },
-  { id: 'roxi-pack-5', name: 'عبوة أقلام روكسي - 5 قطع', price: 35, image: '📦', description: 'عبوة تحتوي على 5 أقلام روكسي بألوان متنوعة' },
+const roxiPens = [
+  { id: 'Roxi-Classic-blue', name: 'قلم روكسي كلاسيك أزرق', price: 7, image: RoxiClassicblueImage, description: 'قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة' },
+  { id: 'roxi-red', name: 'قلم روكسي أحمر', price: 8, image: roxiRedImage, description: 'قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة' },
+  
 ];
 
 const RoxiPensPage = () => {
