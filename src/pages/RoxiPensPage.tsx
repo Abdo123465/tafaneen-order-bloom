@@ -7,14 +7,14 @@ import { useCart } from "@/contexts/CartContext";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
-import RoxiClassicBlueImage from "@/assets/PRIMA-FORMA-blue.jpg";
+import RoxiClassicBlueImage from "@/assets/Roxi-Classic-blue.jpg";
 import RoxiClassicBlackImage from "@/assets/PRIMA-FORMA-black.jpg";
 import RoxiClassicRedImage from "@/assets/PRIMA-FORMA-red.jpg";
 import RoxiColorSetImage from "@/assets/PRIMA-SOLO.jpg";
 
 // Placeholder data for Roxi pens
 const roxiPens = [
-  { id: 'roxi-1', name: 'قلم روكسي جاف أزرق', price: 5, image: RoxiClassicBlueImage, description: 'قلم حبر جاف أزرق اللون للاستخدام اليومي.' },
+  { id: 'Roxi-Classic-blue', name: 'قلم روكسي جاف كلاسيك أزرق', price: 7, image: RoxiColorSetImage, description: 'قلم حبر جاف أزرق اللون للاستخدام اليومي.' },
   { id: 'roxi-2', name: 'قلم روكسي جاف أسود', price: 5, image: RoxiClassicBlackImage, description: 'قلم حبر جاف أسود اللون للكتابة الواضحة.' },
   { id: 'roxi-3', name: 'قلم روكسي جاف أحمر', price: 5, image: RoxiClassicRedImage, description: 'قلم حبر جاف أحمر اللون للتأشير والملاحظات.' },
   { id: 'roxi-4', name: 'مجموعة أقلام روكسي ملونة', price: 20, image: RoxiColorSetImage, description: 'مجموعة من أقلام روكسي بألوان متنوعة.' },
