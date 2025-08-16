@@ -11,7 +11,7 @@ import roxiRedImage from "@/assets/roxi-red.jpg";
 import roxiBlackImage from "@/assets/roxi-black.jpg";;
 
 const pensanPens = [
- { id: 'PENSAN-STAR-TECH', name: 'قلم بانسان اورق ستار تك', price: 7, image: PENSANSTARTECHImage, description: 'قلم حبر سائل 1.0 مم لكتابة ناعمة ودقيقة' },
+ { id: 'PENSAN-STAR-TECH', name: 'قلم بانسان اورق ستار تك', price: 11, image: PENSANSTARTECHImage, description: 'قلم حبر سائل 1.0 مم لكتابة ناعمة ودقيقة' },
 
 ];
 
