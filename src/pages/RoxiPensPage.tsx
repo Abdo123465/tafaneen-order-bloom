@@ -5,9 +5,11 @@ import { Button } from "@/components/ui/button";
 import { useCart } from "@/contexts/CartContext";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import RoxiClassicImage from "@/assets/Roxi-Classic-blue.jpg";
+
 
 const roxiPens = [
-  { id: 'roxi-1', name: 'قلم Roxi أزرق - عبوة 12 قطعة', price: 45, image: '🖊️', description: 'أقلام Roxi حبر جاف باللون الأزرق عالية الجودة' },
+  { id: 'Roxi-Classic-blue', name: 'فلم روكسي كلاسيك ازرق', price: 7, image: 'RoxiClassicImage', description: 'أقلام Roxi حبر جاف باللون الأزرق عالية الجودة' },
   { id: 'roxi-2', name: 'قلم Roxi أسود - عبوة 12 قطعة', price: 45, image: '🖊️', description: 'أقلام Roxi حبر جاف باللون الأسود للكتابة المهنية' },
   { id: 'roxi-3', name: 'قلم Roxi أحمر - عبوة 10 قطع', price: 40, image: '🖊️', description: 'أقلام Roxi حمراء للتصحيح والتمييز' },
   { id: 'roxi-4', name: 'مجموعة أقلام Roxi ملونة - 15 لون', price: 75, image: '🌈', description: 'مجموعة متنوعة من أقلام Roxi الملونة عالية الجودة' },
