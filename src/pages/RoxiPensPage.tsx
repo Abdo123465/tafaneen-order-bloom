@@ -7,6 +7,7 @@ import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
 import RoxiClassicblueImage from "@/assets/Roxi-Classic-blue.jpg";
+import RoxiGoldImage from "@/assets/Roxi-Gold.jpg";
 
 
 const roxiPens = [
