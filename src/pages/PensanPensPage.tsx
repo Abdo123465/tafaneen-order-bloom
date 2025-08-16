@@ -6,12 +6,12 @@ import { useCart } from "@/contexts/CartContext";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
-import roxiBlueImage from "@/assets/roxi-blue.jpg";
+import PENSANSTARTECHImage from "@/assets/PENSAN-STAR-TECH.jpg";
 import roxiRedImage from "@/assets/roxi-red.jpg";
 import roxiBlackImage from "@/assets/roxi-black.jpg";;
 
 const pensanPens = [
-  { id: 'pensan-office-blue', name: 'قلم بنسان أوفيس أزرق', price: 9, image: '🖊️', description: 'قلم حبر سائل 1.0 مم لكتابة ناعمة ودقيقة' },
+  { id: 'PENSAN-STAR-TECH', name: 'قلم بنسان ستار تك أزرق', price: 11, image: 'PENSANSTARTECHImage', description: 'قلم حبر سائل 1.0 مم لكتابة ناعمة ودقيقة' },
   { id: 'pensan-office-red', name: 'قلم بنسان أوفيس أحمر', price: 9, image: '🖊️', description: 'قلم حبر سائل 1.0 مم لكتابة ناعمة ودقيقة' },
   { id: 'pensan-office-black', name: 'قلم بنسان أوفيس أسود', price: 9, image: '🖊️', description: 'قلم حبر سائل 1.0 مم لكتابة ناعمة ودقيقة' },
   { id: 'pensan-my-pen-blue', name: 'قلم بنسان ماي بن أزرق', price: 8, image: '🖊️', description: 'قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة' },
