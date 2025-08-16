@@ -12,7 +12,8 @@ import RoxiGoldImage from "@/assets/Roxi-Gold.jpg";
 
 const roxiPens = [
   { id: 'Roxi-Classic-blue', name: 'قلم روكسي كلاسيك أزرق', price: 7, image: RoxiClassicblueImage, description: 'قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة' },
-  
+  { id: 'Roxi-Gold', name: 'قلم روكسي جولد أزرق', price: 7, image: RoxiGoldImage, description: 'قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة' },
+
 ];
 
 const RoxiPensPage = () => {
