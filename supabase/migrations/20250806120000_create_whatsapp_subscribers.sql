@@ -1,55 +1,24 @@
--- Create WhatsApp subscribers table
-create table if not exists public.whatsapp_subscribers (
-  id uuid primary key default gen_random_uuid(),
-  phone text unique not null,
-  created_at timestamptz not null default now(),
-  active boolean not null default true,
-  last_notification_sent timestamptz,
-  notification_count integer default 0,
-  preferred_categories text[],
-  language text default 'ar'
+-- إنشاء جدول المشتركين في WhatsApp
+CREATE TABLE IF NOT EXISTS whatsapp_subscribers (
+    id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+    phone VARCHAR(20) NOT NULL UNIQUE,
+    is_active BOOLEAN DEFAULT true,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+    last_notification_sent TIMESTAMP WITH TIME ZONE
 );
 
--- Create index for phone number
-create index if not exists idx_whatsapp_subscribers_phone on public.whatsapp_subscribers(phone);
+-- إنشاء فهرس على رقم الهاتف
+CREATE INDEX IF NOT EXISTS idx_whatsapp_subscribers_phone ON whatsapp_subscribers(phone);
+CREATE INDEX IF NOT EXISTS idx_whatsapp_subscribers_is_active ON whatsapp_subscribers(is_active);
 
--- Create index for active subscribers
-create index if not exists idx_whatsapp_subscribers_active on public.whatsapp_subscribers(active);
+-- تفعيل Row Level Security
+ALTER TABLE whatsapp_subscribers ENABLE ROW LEVEL SECURITY;
 
--- Enable RLS
-alter table public.whatsapp_subscribers enable row level security;
+-- سياسة للسماح بالإدراج للجميع (للاشتراك)
+CREATE POLICY "Anyone can subscribe" ON whatsapp_subscribers
+    FOR INSERT WITH CHECK (true);
 
--- Allow anonymous insert only (for public subscription form)
-create policy if not exists "Allow insert for anon" on public.whatsapp_subscribers
-  for insert to anon
-  with check (true);
-
--- Allow read for service role only (not exposed to anon)
-create policy if not exists "Service role full access" on public.whatsapp_subscribers
-  using (auth.role() = 'service_role')
-  with check (auth.role() = 'service_role');
-
--- Create table for tracking notifications
-create table if not exists public.whatsapp_notifications (
-  id uuid primary key default gen_random_uuid(),
-  subscriber_id uuid references public.whatsapp_subscribers(id) on delete cascade,
-  phone text not null,
-  message text not null,
-  sent_at timestamptz not null default now(),
-  status text default 'pending',
-  notification_type text not null,
-  metadata jsonb
-);
-
--- Create index for notifications
-create index if not exists idx_whatsapp_notifications_subscriber on public.whatsapp_notifications(subscriber_id);
-create index if not exists idx_whatsapp_notifications_sent_at on public.whatsapp_notifications(sent_at);
-
--- Enable RLS for notifications table
-alter table public.whatsapp_notifications enable row level security;
-
--- Allow service role full access to notifications
-create policy if not exists "Service role full access notifications" on public.whatsapp_notifications
-  using (auth.role() = 'service_role')
-  with check (auth.role() = 'service_role');
-
+-- سياسة للسماح بالقراءة والتحديث للمشرفين فقط
+CREATE POLICY "Only admins can read subscribers" ON whatsapp_subscribers
+    FOR SELECT USING (false); -- ستحتاج لتعديل هذا حسب نظام الأذونات لديك

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Search, User, Menu, X, MessageCircle, LogOut, ChevronDown, UserCheck, ShoppingBag, Settings, History, Bell } from "lucide-react";
+import { Search, User, Menu, X, MessageCircle, LogOut, ChevronDown, UserCheck, ShoppingBag, Settings, History } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Cart } from "@/components/Cart";
@@ -27,7 +27,6 @@ export function Header() {
     { label: "الدفاتر", href: "/notebooks" },
     { label: "أدوات الرسم", href: "/art-supplies" },
     { label: "عروض خاصة", href: "/offers" },
-    { label: "النشرة الإخبارية", href: "/whatsapp-subscription" },
   ];
 
   // معالجة البحث
@@ -75,16 +74,6 @@ export function Header() {
                 <MessageCircle className="h-3 w-3" />
                 واتساب
               </Button>
-              <Link to="/whatsapp-subscription">
-                <Button 
-                  variant="ghost" 
-                  size="sm" 
-                  className="bg-green-600 hover:bg-green-700 text-white text-xs h-6"
-                >
-                  <Bell className="h-3 w-3" />
-                  اشترك في النشرة
-                </Button>
-              </Link>
             </div>
             <div className="hidden md:flex items-center gap-4">
               <span>🚚 توصيل مجاني للطلبات أكثر من 1000 ج.م</span>
