@@ -5,16 +5,16 @@ import { Button } from "@/components/ui/button";
 import { useCart } from "@/contexts/CartContext";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import RoxiClassicImage from "@/assets/Roxi-Classic-blue.jpg";
-
+import roxiClassicBlueImage from "@/assets/roxi-classic-blue.jpg";
 
 const roxiPens = [
-  { id: 'Roxi-Classic-blue', name: 'فلم روكسي كلاسيك ازرق', price: 7, image: 'RoxiClassicImage', description: 'أقلام Roxi حبر جاف باللون الأزرق عالية الجودة' },
-  { id: 'roxi-2', name: 'قلم Roxi أسود - عبوة 12 قطعة', price: 45, image: '🖊️', description: 'أقلام Roxi حبر جاف باللون الأسود للكتابة المهنية' },
-  { id: 'roxi-3', name: 'قلم Roxi أحمر - عبوة 10 قطع', price: 40, image: '🖊️', description: 'أقلام Roxi حمراء للتصحيح والتمييز' },
-  { id: 'roxi-4', name: 'مجموعة أقلام Roxi ملونة - 15 لون', price: 75, image: '🌈', description: 'مجموعة متنوعة من أقلام Roxi الملونة عالية الجودة' },
-  { id: 'roxi-5', name: 'قلم Roxi أخضر - عبوة 8 قطع', price: 35, image: '🖊️', description: 'أقلام Roxi خضراء للكتابة والرسم' },
-  { id: 'roxi-6', name: 'قلم Roxi بنفسجي - عبوة 6 قطع', price: 30, image: '🖊️', description: 'أقلام Roxi بنفسجية للكتابة الإبداعية' },
+  { 
+    id: 'roxi-classic-blue', 
+    name: 'قلم جاف روكسي كلاسيك', 
+    price: 7, 
+    image: roxiClassicBlueImage, 
+    description: 'قلم جاف Roxi Classic باللون الأزرق، كتابة سلسة وجودة عالية' 
+
 ];
 
 const RoxiPensPage = () => {
@@ -22,7 +22,7 @@ const RoxiPensPage = () => {
 
   useEffect(() => {
     document.title = "أقلام Roxi | تفانين";
-    const desc = "تسوق أقلام Roxi حبر جاف بألوان متنوعة وجودة عالية من تفانين.";
+    const desc = "تسوق أقلام Roxi وRoxi Classic حبر جاف بألوان متنوعة وجودة عالية من تفانين.";
     let meta = document.querySelector('meta[name="description"]');
     if (!meta) { meta = document.createElement('meta'); meta.setAttribute('name','description'); document.head.appendChild(meta);} 
     meta.setAttribute('content', desc);
@@ -47,19 +47,57 @@ const RoxiPensPage = () => {
           <div className="text-6xl mb-4">🖊️</div>
           <h1 className="text-3xl lg:text-4xl font-bold mb-4">أقلام Roxi</h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            أقلام Roxi حبر جاف بألوان متنوعة وجودة عالية للكتابة السلسة والمريحة
+            أقلام Roxi وRoxi Classic حبر جاف بألوان متنوعة وجودة عالية للكتابة السلسة والمريحة
           </p>
+        </div>
+
+        {/* Featured Roxi Classic Section */}
+        <div className="mb-12">
+          <h2 className="text-2xl lg:text-3xl font-bold mb-6 text-center text-purple-600">
+            ⭐ أقلام Roxi Classic المميزة
+          </h2>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+            {roxiPens.slice(0, 3).map((pen) => (
+              <div key={pen.id} className="card-product border-2 border-purple-200 bg-gradient-to-br from-purple-50 to-indigo-50">
+                <div className="bg-muted/50 rounded-xl aspect-square flex items-center justify-center text-6xl mb-4 overflow-hidden relative">
+                  <img 
+                    src={pen.image} 
+                    alt={pen.name}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute top-2 right-2 bg-purple-500 text-white text-xs px-2 py-1 rounded-full font-bold">
+                    Classic
+                  </div>
+                </div>
+                <h3 className="font-semibold mb-2 text-purple-800">{pen.name}</h3>
+                <p className="text-sm text-muted-foreground mb-3">{pen.description}</p>
+                <div className="flex items-center justify-between">
+                  <span className="text-purple-600 font-bold text-lg">{pen.price} ج.م</span>
+                  <Button 
+                    className="btn-tafaneen bg-purple-600 hover:bg-purple-700"
+                    onClick={() => addItem({ id: pen.id, name: pen.name, price: pen.price, image: pen.image })}
+                  >
+                    إضافة للسلة
+                  </Button>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
 
         <h2 className="text-2xl lg:text-3xl font-bold mb-8 text-center border-b pb-4">
           جميع أقلام Roxi
         </h2>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {roxiPens.map((pen) => (
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          {roxiPens.slice(3).map((pen) => (
             <div key={pen.id} className="card-product">
-              <div className="bg-muted/50 rounded-xl aspect-square flex items-center justify-center text-6xl mb-4">
-                {pen.image}
+              <div className="bg-muted/50 rounded-xl aspect-square flex items-center justify-center text-6xl mb-4 overflow-hidden">
+                <img 
+                  src={pen.image} 
+                  alt={pen.name}
+                  className="w-full h-full object-cover"
+                />
               </div>
               <h3 className="font-semibold mb-2">{pen.name}</h3>
               <p className="text-sm text-muted-foreground mb-3">{pen.description}</p>
