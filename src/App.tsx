@@ -1,4 +1,3 @@
-// src/App.tsx
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -50,7 +49,6 @@ import RoxiPensPage from "./pages/RoxiPensPage";
 import PensanPensPage from "./pages/PensanPensPage";
 import BravoPensPage from "./pages/BravoPensPage";
 import FransawyPensPage from "./pages/FransawyPensPage";
-import FransawyPenSetsPage from "./pages/FransawyPenSetsPage";
 
 const queryClient = new QueryClient();
 
@@ -63,4 +61,60 @@ const App = () => (
           <Sonner />
           <BrowserRouter>
             <Routes>
-              <Route pa
+              <Route path="/" element={<Index />} />
+              <Route path="/categories" element={<CategoriesPage />} />
+              <Route path="/pens" element={<PensPage />} />
+              <Route path="/pens/pencils" element={<PencilsPage />} />
+              <Route path="/pens/ballpoint" element={<BallpointPensPage />} />
+              <Route path="/pens/gel" element={<GelPensPage />} />
+              <Route path="/pens/roto" element={<RotoPensPage />} />
+              <Route path="/pens/fountain" element={<FountainPensPage />} />
+              <Route path="/pens/markers" element={<MarkersPage />} />
+              <Route path="/pens/calligraphy" element={<CalligraphyPensPage />} />
+              <Route path="/pens/correction" element={<CorrectionPensPage />} />
+
+              <Route path="/cutting-pasting-tools" element={<CuttingPastingToolsPage />} />
+              <Route path="/calculators-rulers" element={<CalculatorsRulersPage />} />
+              <Route path="/calculators-rulers/scientific-calculator" element={<ScientificCalculatorPage />} />
+              <Route path="/calculators-rulers/commercial-calculator" element={<CommercialCalculatorPage />} />
+              <Route path="/cutting-pasting-tools/cutting-pasting" element={<CuttingPastingPage />} />
+              <Route path="/cutting-pasting-tools/wooden-pencils" element={<WoodenPencilsPage />} />
+              <Route path="/notebooks" element={<NotebooksPage />} />
+              <Route path="/notebooks/main-category" element={<NotebooksMainCategoryPage />} />
+              <Route path="/notebooks/krassat" element={<KrassatPage />} />
+              <Route path="/notebooks/krassat/28-pages" element={<Krassat28PagesPage />} />
+              <Route path="/notebooks/krassat/40-pages" element={<Krassat40PagesPage />} />
+              <Route path="/notebooks/kashakil" element={<KashakilPage />} />
+              <Route path="/notebooks/kashakil/60-pages" element={<Kashakil60PagesPage />} />
+              <Route path="/notebooks/kashakil/80-pages" element={<Kashakil80PagesPage />} />
+              <Route path="/notebooks/kashakil/100-pages" element={<Kashakil100PagesPage />} />
+              <Route path="/notebooks/kashakil-silk-a4" element={<KashakilSilkA4Page />} />
+              <Route path="/notebooks/kashakil-silk-a5" element={<KashakilSilkA5Page />} />
+              <Route path="/office-supplies" element={<OfficeSuppliesPage />} />
+              <Route path="/office-supplies/stapler" element={<StaplerPage />} />
+              <Route path="/office-supplies/hole-punch" element={<HolePunchPage />} />
+              <Route path="/office-supplies/staple-pins" element={<StaplePinsPage />} />
+              <Route path="/office-supplies/stamps" element={<StampsPage />} />
+              <Route path="/office-supplies/paper-clips" element={<PaperClipsPage />} />
+              <Route path="/office-supplies/soap-paper" element={<SoapPaperPage />} />
+              <Route path="/office-supplies/push-pins" element={<PushPinsPage />} />
+              <Route path="/offers" element={<OffersPage />} />
+              <Route path="/pens/gel" element={<GelPensPage />} />
+              <Route path="/pens/roto" element={<RotoPensPage />} />
+              <Route path="/pens/prima" element={<PrimaPensPage />} />
+              <Route path="/pens/roxi" element={<RoxiPensPage />} />
+              <Route path="/pens/pensan" element={<PensanPensPage />} />
+              <Route path="/pens/bravo" element={<BravoPensPage />} />
+              <Route path="/pens/fransawy" element={<FransawyPensPage />} />
+              <Route path="/pens/fountain" element={<FountainPensPage />} />
+              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </BrowserRouter>
+        </TooltipProvider>
+      </CartProvider>
+    </AuthProvider>
+  </QueryClientProvider>
+);
+
+export default App;
