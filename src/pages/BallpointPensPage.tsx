@@ -6,25 +6,14 @@ import { Card, CardContent } from "@/components/ui/card";
 import { useCart } from "@/contexts/CartContext";
 import { ArrowRight, PenTool } from "lucide-react";
 import { Link } from "react-router-dom";
-import fransawiBlueImage from "@/assets/fransawi-blue.jpg";
-
 
 const ballpointPens = [
-  { id: 'fransawi-blue', name: 'قلم فرنساوي ازرق', price: 5, image: 'fransawiBlueImage', description: 'أقلام حبر جاف عالية الجودة باللون الأزرق' },
-
-];
-
-const fransawiPens = [
-  { id: 'fransawi-blue', name: 'قلم فرنساوي جاف - أزرق', price: 5, image: fransawiBlueImage, description: 'قلم حبر جاف 0.7 مم أزرق للكتابة اليومية' },
-  { id: 'fransawi-red', name: 'قلم فرنساوي جاف - أحمر', price: 5, image: fransawiRedImage, description: 'قلم حبر جاف 0.7 مم أحمر للتصحيح والتمييز' },
-  { id: 'fransawi-black', name: 'قلم فرنساوي جاف - أسود', price: 5, image: fransawiBlackImage, description: 'قلم حبر جاف 0.7 مم أسود للكتابة الرسمية' },
-  { id: 'fransawi-green', name: 'قلم فرنساوي جاف - أخضر', price: 5, image: fransawiGreenImage, description: 'قلم حبر جاف 0.7 مم أخضر للتنويع في الكتابة' },
-  { id: 'fransawi-purple', name: 'قلم فرنساوي جاف - بنفسجي', price: 5, image: fransawiPurpleImage, description: 'قلم حبر جاف 0.7 مم بنفسجي أنيق' },
-  { id: 'fransawi-orange', name: 'قلم فرنساوي جاف - برتقالي', price: 5, image: fransawiOrangeImage, description: 'قلم حبر جاف 0.7 مم برتقالي مميز' },
-  { id: 'fransawi-premium', name: 'قلم فرنساوي بريميوم - أزرق', price: 8, image: fransawiPremiumImage, description: 'قلم حبر جاف فاخر بتصميم مميز ونعومة استثنائية' },
-  { id: 'fransawi-set', name: 'مجموعة أقلام فرنساوي - 6 ألوان', price: 25, image: fransawiSetImage, description: 'مجموعة متنوعة من أقلام فرنساوي بألوان أساسية' },
-  { id: 'fransawi-fine', name: 'قلم فرنساوي رفيع - أسود', price: 6, image: fransawiFineImage, description: 'قلم حبر جاف رفيع 0.5 مم للكتابة الدقيقة' },
-  { id: 'fransawi-luxury', name: 'قلم فرنساوي لاكشري - ذهبي', price: 12, image: fransawiLuxuryImage, description: 'قلم حبر جاف فاخر بلمسة ذهبية للمناسبات الخاصة' },
+  { id: 'ballpoint-1', name: 'قلم حبر جاف أزرق - عبوة 10 قطع', price: 35, image: '🖊️', description: 'أقلام حبر جاف عالية الجودة باللون الأزرق' },
+  { id: 'ballpoint-2', name: 'قلم حبر جاف أسود - عبوة 10 قطع', price: 35, image: '🖊️', description: 'أقلام حبر جاف باللون الأسود للكتابة الرسمية' },
+  { id: 'ballpoint-3', name: 'قلم حبر جاف أحمر - عبوة 5 قطع', price: 20, image: '🖊️', description: 'أقلام حبر جاف حمراء للتصحيح والتمييز' },
+  { id: 'ballpoint-4', name: 'مجموعة أقلام جاف ملونة - 12 لون', price: 60, image: '🌈', description: 'مجموعة متنوعة من أقلام الحبر الجاف الملونة' },
+  { id: 'ballpoint-5', name: 'قلم حبر جاف فاخر معدني', price: 85, image: '🖊️', description: 'قلم حبر جاف فاخر بتصميم معدني أنيق' },
+  { id: 'ballpoint-6', name: 'أقلام حبر جاف قابلة للمحو - 6 قطع', price: 45, image: '🖊️', description: 'أقلام حبر جاف قابلة للمحو والتصحيح' },
 ];
 
 const BallpointPensPage = () => {
@@ -140,51 +129,14 @@ const BallpointPensPage = () => {
         </Card>
 
         <h2 className="text-2xl lg:text-3xl font-bold mb-8 text-center border-b pb-4">
-          أقلام جاف متنوعة
+          جميع أقلام الجاف
         </h2>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {ballpointPens.map((pen) => (
             <div key={pen.id} className="card-product">
               <div className="bg-muted/50 rounded-xl aspect-square flex items-center justify-center text-6xl mb-4">
                 {pen.image}
-              </div>
-              <h3 className="font-semibold mb-2">{pen.name}</h3>
-              <p className="text-sm text-muted-foreground mb-3">{pen.description}</p>
-              <div className="flex items-center justify-between">
-                <span className="text-primary font-bold">{pen.price} ج.م</span>
-                <Button 
-                  className="btn-tafaneen"
-                  onClick={() => addItem({ id: pen.id, name: pen.name, price: pen.price, image: pen.image })}
-                >
-                  إضافة للسلة
-                </Button>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Fransawi Pens Section */}
-        <h2 className="text-2xl lg:text-3xl font-bold mb-8 text-center border-b pb-4">
-          أقلام فرنساوي
-        </h2>
-        <p className="text-center text-muted-foreground mb-8 max-w-2xl mx-auto">
-          أقلام فرنساوي عالية الجودة بأسعار اقتصادية مناسبة للجميع
-        </p>
-
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {fransawiPens.map((pen) => (
-            <div key={pen.id} className="card-product">
-              <div className="bg-muted/50 rounded-xl aspect-square flex items-center justify-center text-6xl mb-4 overflow-hidden">
-                {pen.image === '🖊️' || pen.image === '🌈' ? (
-                  <span>{pen.image}</span>
-                ) : (
-                  <img 
-                    src={pen.image} 
-                    alt={pen.name}
-                    className="w-full h-full object-cover"
-                  />
-                )}
               </div>
               <h3 className="font-semibold mb-2">{pen.name}</h3>
               <p className="text-sm text-muted-foreground mb-3">{pen.description}</p>
