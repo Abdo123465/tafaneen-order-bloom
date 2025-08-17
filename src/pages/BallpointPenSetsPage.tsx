@@ -6,13 +6,12 @@ import { useCart } from "@/contexts/CartContext";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
+
+import Setof8TurkishfluorescentballpointpensImage from "@/assets/Set-of-8-Turkish-fluorescent-ballpoint-pens.jpg";
+
 const ballpointPenSets = [
-  { id: 'ballpoint-set-1', name: 'طقم أقلام جاف ملونة - 10 قطع', price: 85, image: '🌈', description: 'طقم من 10 أقلام جاف بألوان متنوعة عالية الجودة' },
-  { id: 'ballpoint-set-2', name: 'طقم أقلام جاف أساسية - 12 قطعة', price: 95, image: '🖊️', description: 'طقم أقلام جاف بالألوان الأساسية (أزرق، أسود، أحمر)' },
-  { id: 'ballpoint-set-3', name: 'طقم أقلام جاف فاخرة معدنية - 6 قطع', price: 180, image: '🖋️', description: 'طقم أقلام جاف فاخرة بتصميم معدني أنيق في علبة هدايا' },
-  { id: 'ballpoint-set-4', name: 'طقم أقلام جاف قابلة للمحو - 8 قطع', price: 120, image: '✏️', description: 'طقم أقلام جاف قابلة للمحو بألوان مختلفة مع ممحاة' },
-  { id: 'ballpoint-set-5', name: 'طقم أقلام جاف احترافية - 5 قطع', price: 150, image: '🖊️', description: 'طقم أقلام جاف احترافية للأعمال والمكتب' },
-  { id: 'ballpoint-set-6', name: 'طقم أقلام جاف للطلاب - 15 قطعة', price: 75, image: '📚', description: 'طقم كبير من أقلام الجاف مناسب للطلاب والاستخدام اليومي' },
+  { id: 'Set-of-8-Turkish-fluorescent-ballpoint-pens', name: 'طقم أقلام جاف ملونة تركي - 8 قطع', price: 100, image: Setof8TurkishfluorescentballpointpensImage, description: 'طقم من 10 أقلام جاف بألوان متنوعة عالية الجودة' },
+
 ];
 
 const BallpointPenSetsPage = () => {
