@@ -6,20 +6,11 @@ import { useCart } from "@/contexts/CartContext";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import Bravo100Image from "@/assets/Bravo-100.jpg";
-import Bravo200Image from "@/assets/Bravo-200.jpg";
-import Bravo300Image from "@/assets/Bravo-300.jpg";
-import BRAVODARKImage from "@/assets/BRAVO-DARK.jpg";
-import BravoPlusImage from "@/assets/Bravo-Plus.jpg";
-
 
 
 const bravoPens = [
-  { id: 'Bravo-100', name: 'قلم برافو 100 جاف - أزرق', price: 8, image: Bravo100Image, description: 'قلم حبر جاف 0.7 مم أزرق للكتابة اليومية' },
-  { id: 'Bravo-200', name: 'قلم برافو جاف 200 - أزرق', price: 8, image: Bravo200Image, description: 'قلم حبر جاف 0.7 مم أزرق للكتابة اليومية' },
-  { id: 'Bravo-300', name: 'قلم برافو جاف 300 - أزرق', price: 8, image: Bravo300Image, description: 'قلم حبر جاف 0.7 مم أزرق للكتابة اليومية' },
-  { id: 'BRAVO-DARK', name: 'قلم برافو دارك جاف - أزرق', price: 13, image: BRAVODARKImage, description: 'قلم حبر جاف 0.7 مم أزرق للكتابة اليومية' },
-  { id: 'Bravo-Plus', name: 'قلم برافو بلس جاف - أزرق', price: 10, image: BravoPlusImage, description: 'قلم حبر جاف 0.7 مم أزرق للكتابة اليومية' },
-
+  { id: 'Bravo-100', name: 'قلم برافو جاف - أزرق', price: 8, image: Bravo100Image, description: 'قلم حبر جاف 0.7 مم أزرق للكتابة اليومية' },
+ 
 ];
 
 const BravoPensPage = () => {
