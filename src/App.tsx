@@ -47,6 +47,7 @@ import PushPinsPage from "./pages/PushPinsPage";
 import PrimaPensPage from "./pages/PrimaPensPage";
 import RoxiPensPage from "./pages/RoxiPensPage";
 import PensanPensPage from "./pages/PensanPensPage";
+import BravoPensPage from "./pages/BravoPensPage";
 
 const queryClient = new QueryClient();
 
@@ -102,6 +103,7 @@ const App = () => (
               <Route path="/pens/prima" element={<PrimaPensPage />} />
               <Route path="/pens/roxi" element={<RoxiPensPage />} />
               <Route path="/pens/pensan" element={<PensanPensPage />} />
+              <Route path="/pens/bravo" element={<BravoPensPage />} />
               <Route path="/pens/fountain" element={<FountainPensPage />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
