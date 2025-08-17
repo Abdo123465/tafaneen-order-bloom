@@ -1,10 +1,11 @@
+// src/pages/BallpointPensPage.tsx
 import { useEffect } from "react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { useCart } from "@/contexts/CartContext";
-import { ArrowRight, PenTool } from "lucide-react";
+import { ArrowRight, PenTool, Package } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const ballpointPens = [
@@ -137,6 +138,22 @@ const BallpointPensPage = () => {
                 <h3 className="text-2xl font-bold mb-1">اكتشف أقلام فرنساوي</h3>
                 <p className="text-white/90">
                   أقلام فرنساوي عالية الجودة للكتابة الفاخرة والمريحة
+                </p>
+              </div>
+              <ArrowRight className="h-8 w-8 ml-auto text-white/80 group-hover:translate-x-1 transition-transform" />
+            </CardContent>
+          </Link>
+        </Card>
+
+        {/* Fransawy Pen Sets Sub-category Card - الإضافة الجديدة */}
+        <Card className="mb-12 group hover:shadow-elegant transition-all duration-300 hover:-translate-y-1 border-0 overflow-hidden bg-gradient-to-br from-amber-500 to-orange-600 text-white">
+          <Link to="/pens/fransawy/pen-sets" className="block hover:no-underline">
+            <CardContent className="p-6 flex items-center gap-6">
+              <Package className="h-12 w-12 text-white/80 group-hover:scale-110 transition-transform" />
+              <div>
+                <h3 className="text-2xl font-bold mb-1">اكتشف أطقم أقلام فرنساوي</h3>
+                <p className="text-white/90">
+                  أطقم أقلام فرنساوي متكاملة بألوان متنوعة ومناسبة للإهداء
                 </p>
               </div>
               <ArrowRight className="h-8 w-8 ml-auto text-white/80 group-hover:translate-x-1 transition-transform" />
