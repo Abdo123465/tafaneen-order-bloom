@@ -7,11 +7,15 @@ import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
 import PENSANSTARTECHImage from "@/assets/PENSAN-STAR-TECH.jpg";
-import roxiRedImage from "@/assets/roxi-red.jpg";
-import roxiBlackImage from "@/assets/roxi-black.jpg";;
+import PENSANMYTECHblackImage from "@/assets/PENSAN-MY-TECH-black.jpg";
+import PENSANMYTECHBlueImage from "@/assets/PENSAN-MY-TECH-Blue.jpg";
+import PENSANMYTECHredImage from "@/assets/PENSAN-MY-TECH-red.jpg";
 
 const pensanPens = [
- { id: 'PENSAN-STAR-TECH', name: 'قلم بانسان اورق ستار تك', price: 11, image: PENSANSTARTECHImage, description: 'قلم حبر سائل 1.0 مم لكتابة ناعمة ودقيقة' },
+ { id: 'PENSAN-STAR-TECH', name: 'قلم بانسان ازرق ستار تك', price: 11, image: PENSANSTARTECHImage, description: 'قلم حبر سائل 1.0 مم لكتابة ناعمة ودقيقة' },
+ { id: 'PENSAN-MY-TECH-black', name: 'قلم بانسان اسود ماي تك', price: 12, image: PENSANMYTECHblackImage, description: 'قلم حبر سائل 1.0 مم لكتابة ناعمة ودقيقة' },
+ { id: 'PENSAN-MY-TECH-Blue', name: 'قلم بانسان ازرق ماي تك', price: 11, image: PENSANMYTECHBlueImage, description: 'قلم حبر سائل 1.0 مم لكتابة ناعمة ودقيقة' },
+ { id: 'PENSAN-MY-TECH-red', name: 'قلم بانسان احمر ماي تك', price: 12, image: PENSANMYTECHredImage, description: 'قلم حبر سائل 1.0 مم لكتابة ناعمة ودقيقة' },
 
 ];
 
