@@ -5,28 +5,12 @@ import { Button } from "@/components/ui/button";
 import { useCart } from "@/contexts/CartContext";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import bravoBlueImage from "@/assets/bravo-blue.jpg";
-import bravoRedImage from "@/assets/bravo-red.jpg";
-import bravoBlackImage from "@/assets/bravo-black.jpg";
-import bravoGreenImage from "@/assets/bravo-green.jpg";
-import bravoOrangeImage from "@/assets/bravo-orange.jpg";
-import bravoPurpleImage from "@/assets/bravo-purple.jpg";
-import bravoMultipackImage from "@/assets/bravo-multipack.jpg";
-import bravoGoldImage from "@/assets/bravo-gold.jpg";
-import bravoSilverImage from "@/assets/bravo-silver.jpg";
-import bravoFineImage from "@/assets/bravo-fine.jpg";
+import Bravo100Image from "@/assets/Bravo-100.jpg";
+
 
 const bravoPens = [
-  { id: 'bravo-blue', name: 'قلم برافو جاف - أزرق', price: 6, image: bravoBlueImage, description: 'قلم حبر جاف 0.7 مم أزرق للكتابة اليومية' },
-  { id: 'bravo-red', name: 'قلم برافو جاف - أحمر', price: 6, image: bravoRedImage, description: 'قلم حبر جاف 0.7 مم أحمر للتصحيح والتمييز' },
-  { id: 'bravo-black', name: 'قلم برافو جاف - أسود', price: 6, image: bravoBlackImage, description: 'قلم حبر جاف 0.7 مم أسود للكتابة الرسمية' },
-  { id: 'bravo-green', name: 'قلم برافو جاف - أخضر', price: 6, image: bravoGreenImage, description: 'قلم حبر جاف 0.7 مم أخضر للتنويع في الكتابة' },
-  { id: 'bravo-orange', name: 'قلم برافو جاف - برتقالي', price: 6, image: bravoOrangeImage, description: 'قلم حبر جاف 0.7 مم برتقالي مميز' },
-  { id: 'bravo-purple', name: 'قلم برافو جاف - بنفسجي', price: 6, image: bravoPurpleImage, description: 'قلم حبر جاف 0.7 مم بنفسجي أنيق' },
-  { id: 'bravo-multipack', name: 'مجموعة أقلام برافو - 8 ألوان', price: 40, image: bravoMultipackImage, description: 'مجموعة متنوعة من أقلام برافو بألوان مختلفة' },
-  { id: 'bravo-gold', name: 'قلم برافو جاف - ذهبي', price: 8, image: bravoGoldImage, description: 'قلم حبر جاف ذهبي فاخر للمناسبات الخاصة' },
-  { id: 'bravo-silver', name: 'قلم برافو جاف - فضي', price: 8, image: bravoSilverImage, description: 'قلم حبر جاف فضي أنيق للاستخدام المهني' },
-  { id: 'bravo-fine', name: 'قلم برافو رفيع - أزرق', price: 7, image: bravoFineImage, description: 'قلم حبر جاف رفيع 0.5 مم للكتابة الدقيقة' },
+  { id: 'Bravo-100', name: 'قلم برافو جاف - أزرق', price: 8, image: Bravo100Image, description: 'قلم حبر جاف 0.7 مم أزرق للكتابة اليومية' },
+ 
 ];
 
 const BravoPensPage = () => {
