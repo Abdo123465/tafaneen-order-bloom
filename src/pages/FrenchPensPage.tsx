@@ -9,65 +9,36 @@ import { Link } from "react-router-dom";
 
 const frenchPens = [
   { 
-    id: 'french-1', 
+    id: 'fransawy-Black', 
     name: 'قلم فرنساوي كلاسيكي أسود', 
-    price: 45, 
-    image: '/src/assets/french-pen-1.jpg', 
+    price: 5, 
+    image: '/src/assets/fransawy-Black.jpg', 
     description: 'قلم فرنساوي كلاسيكي باللون الأسود مع تصميم أنيق',
     features: ['كتابة سلسة', 'تصميم كلاسيكي', 'مقبض مريح'],
     rating: 4.8,
     inStock: true
   },
   { 
-    id: 'french-2', 
-    name: 'قلم فرنساوي فاخر ذهبي', 
-    price: 75, 
-    image: '/src/assets/french-pen-2.jpg', 
-    description: 'قلم فرنساوي فاخر بتصميم ذهبي أنيق للاستخدام الرسمي',
+    id: 'fransawy-Blue', 
+    name: 'قلم فرنساوي فاخر ازرق', 
+    price: 5, 
+    image: '/src/assets/fransawy-Blue.jpg', 
+    description: 'قلم فرنساوي فاخر بتصميم ازرق أنيق للاستخدام الرسمي',
     features: ['تصميم فاخر', 'لون ذهبي', 'مقبض مريح'],
     rating: 4.9,
     inStock: true
   },
   { 
-    id: 'french-3', 
-    name: 'قلم فرنساوي ملون - مجموعة 5 قطع', 
-    price: 120, 
-    image: '/src/assets/french-pen-3.jpg', 
-    description: 'مجموعة متنوعة من أقلام فرنساوي ملونة للكتابة الإبداعية',
+    id: 'fransawy-Red', 
+    name: 'قلم فرنساوي احمر', 
+    price: 5, 
+    image: '/src/assets/fransawy-Red.jpg', 
+    description: 'قلم فرنساوي فاخر بتصميم احمر أنيق للاستخدام الرسمي',
     features: ['5 ألوان مختلفة', 'كتابة سلسة', 'مقبض مريح'],
     rating: 4.7,
     inStock: true
   },
-  { 
-    id: 'french-4', 
-    name: 'قلم فرنساوي للرسم الفني', 
-    price: 55, 
-    image: '/src/assets/french-pen-4.jpg', 
-    description: 'قلم فرنساوي مخصص للرسم الفني والتصميم',
-    features: ['مخصص للرسم', 'خط دقيق', 'مقبض مريح'],
-    rating: 4.6,
-    inStock: false
-  },
-  { 
-    id: 'french-5', 
-    name: 'قلم فرنساوي قابل للمحو', 
-    price: 65, 
-    image: '/src/assets/french-pen-5.jpg', 
-    description: 'قلم فرنساوي قابل للمحو والتصحيح للكتابة الآمنة',
-    features: ['قابل للمحو', 'كتابة سلسة', 'مقبض مريح'],
-    rating: 4.5,
-    inStock: true
-  },
-  { 
-    id: 'french-6', 
-    name: 'قلم فرنساوي للخط العربي', 
-    price: 85, 
-    image: '/src/assets/french-pen-6.jpg', 
-    description: 'قلم فرنساوي مخصص للخط العربي والكتابة التقليدية',
-    features: ['مخصص للخط العربي', 'تصميم تقليدي', 'مقبض مريح'],
-    rating: 4.8,
-    inStock: true
-  },
+ 
 ];
 
 const FrenchPensPage = () => {
@@ -243,3 +214,4 @@ const FrenchPensPage = () => {
 };
 
 export default FrenchPensPage;
+
