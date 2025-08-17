@@ -6,6 +6,8 @@ import { useCart } from "@/contexts/CartContext";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
+// استيراد الصور (تأكد من وجود هذه الصور في مجلد assets)
+// إذا لم تكن لديك الصور بعد، يمكنك تعليق هذه الأسطر مؤقتاً
 
 import fransawyBlueImage from "@/assets/fransawy-blue.jpg";
 import fransawyRedImage from "@/assets/fransawy-red.jpg";
@@ -14,11 +16,16 @@ import fransawyBlackImage from "@/assets/fransawy-black.jpg";
 
 
 const fransawyPens = [
+  // استخدم الصور الحقيقية عندما تضيفها
+  /*
+  { id: 'fransawy-1', name: 'قلم فرنساوي كلاسيك أزرق', price: 15, image: fransawyBlueImage, description: 'قلم فرنساوي كلاسيك عالي الجودة باللون الأزرق للكتابة الفاخرة' },
+  { id: 'fransawy-2', name: 'قلم فرنساوي كلاسيك أحمر', price: 15, image: fransawyRedImage, description: 'قلم فرنساوي كلاسيك عالي الجودة باللون الأحمر للكتابة الفاخرة' },
+  */
+  
   // مؤقتاً حتى تضيف الصور الحقيقية:
-  { id: 'fransawy-blue', name: 'قلم فرنساوي كلاسيك أزرق', price: 5, image: fransawyBlueImage, description: 'قلم فرنساوي كلاسيك عالي الجودة باللون الأزرق للكتابة الفاخرة' },
-  { id: 'fransawy-red', name: 'قلم فرنساوي كلاسيك أحمر', price: 5, image: fransawyRedImage, description: 'قلم فرنساوي كلاسيك عالي الجودة باللون الأحمر للكتابة الفاخرة' },
-  { id: 'fransawy-black', name: 'قلم فرنساوي كلاسيك اسود', price: 5, image: fransawyblackImage, description: 'قلم فرنساوي كلاسيك عالي الجودة باللون الاسود للكتابة الفاخرة' },
- 
+  { id: 'fransawy-blue', name: 'قلم فرنساوي كلاسيك أزرق', price: 5, image: 'fransawyBlueImage', description: 'قلم فرنساوي كلاسيك عالي الجودة باللون الأزرق للكتابة الفاخرة' },
+  { id: 'fransawy-red', name: 'قلم فرنساوي كلاسيك أحمر', price: 5, image: 'fransawyRedImage', description: 'قلم فرنساوي كلاسيك عالي الجودة باللون الأحمر للكتابة الفاخرة' },
+  { id: 'fransawy-black', name: 'قلم فرنساوي كلاسيك أسود', price: 5, image: 'fransawyBlackImage', description: 'قلم فرنساوي كلاسيك عالي الجودة باللون الأسود للكتابة الفاخرة' },
 ];
 
 const FransawyPensPage = () => {
