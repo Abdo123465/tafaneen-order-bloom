@@ -6,18 +6,19 @@ import { useCart } from "@/contexts/CartContext";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
-// استورد الصور هنا (ستحتاج لإضافتها في مجلد assets)
- import fransawiblackImage from "@/assets/fransawi-black.jpg";
- import fransawiblueImage from "@/assets/fransawi-blue.jpg";
- import fransawiredImage from "@/assets/fransawi-red.jpg";
+
+import fransawyBlueImage from "@/assets/fransawy-blue.jpg";
+import fransawyRedImage from "@/assets/fransawy-red.jpg";
+import fransawyBlackImage from "@/assets/fransawy-black.jpg";
+
 
 
 const fransawyPens = [
-  // بمجرد إضافة الصور، استبدل الرموز التعبيرية بالصور الحقيقية
-  { id: 'fransawi-black', name: 'قلم فرنساوي اسود', price: 5, image: 'fransawiblackImage', description: 'قلم فرنساوي كلاسيك عالي الجودة باللون الاسود للكتابة الفاخرة' },
-  { id: 'fransawi-blue', name: 'قلم فرنساوي كلاسيك ازرق', price: 5, image: 'fransawiblueImage', description: 'قلم فرنساوي كلاسيك عالي الجودة باللون الازرق للكتابة الفاخرة' },
-  { id: 'fransawi-red', name: 'قلم فرنساوي كلاسيك أسود', price: 5, image: 'fransawi-red', description: 'قلم فرنساوي كلاسيك عالي الجودة باللون الاحمر للكتابة الفاخرة' },
-
+  // مؤقتاً حتى تضيف الصور الحقيقية:
+  { id: 'fransawy-blue', name: 'قلم فرنساوي كلاسيك أزرق', price: 5, image: fransawyBlueImage, description: 'قلم فرنساوي كلاسيك عالي الجودة باللون الأزرق للكتابة الفاخرة' },
+  { id: 'fransawy-red', name: 'قلم فرنساوي كلاسيك أحمر', price: 5, image: fransawyRedImage, description: 'قلم فرنساوي كلاسيك عالي الجودة باللون الأحمر للكتابة الفاخرة' },
+  { id: 'fransawy-black', name: 'قلم فرنساوي كلاسيك اسود', price: 5, image: fransawyblackImage, description: 'قلم فرنساوي كلاسيك عالي الجودة باللون الاسود للكتابة الفاخرة' },
+ 
 ];
 
 const FransawyPensPage = () => {
@@ -61,16 +62,17 @@ const FransawyPensPage = () => {
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {fransawyPens.map((pen) => (
             <div key={pen.id} className="card-product">
-              <div className="bg-muted/50 rounded-xl aspect-square flex items-center justify-center text-6xl mb-4 overflow-hidden">
-                {typeof pen.image === 'string' && pen.image.includes('.') ? (
-                  <img 
-                    src={pen.image} 
-                    alt={pen.name} 
-                    className="w-full h-full object-cover rounded-xl"
-                  />
-                ) : (
-                  pen.image
-                )}
+              <div className="bg-muted/50 rounded-xl aspect-square flex items-center justify-center mb-4 overflow-hidden">
+                <img 
+                  src={pen.image} 
+                  alt={pen.name} 
+                  className="w-full h-full object-cover rounded-xl"
+                  onError={(e) => {
+                    // في حالة فشل تحميل الصورة، عرض رمز تعبيري
+                    e.currentTarget.style.display = 'none';
+                    e.currentTarget.parentElement!.innerHTML = '<span class="text-6xl">🖋️</span>';
+                  }}
+                />
               </div>
               <h3 className="font-semibold mb-2">{pen.name}</h3>
               <p className="text-sm text-muted-foreground mb-3">{pen.description}</p>
