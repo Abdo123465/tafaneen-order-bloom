@@ -48,6 +48,22 @@ const BallpointPensPage = () => {
           </p>
         </div>
 
+        {/* Ballpoint Pen Sets Sub-category Card */}
+        <Card className="mb-12 group hover:shadow-elegant transition-all duration-300 hover:-translate-y-1 border-0 overflow-hidden bg-gradient-to-br from-violet-500 to-purple-600 text-white">
+          <Link to="/pens/ballpoint-sets" className="block hover:no-underline">
+            <CardContent className="p-6 flex items-center gap-6">
+              <PenTool className="h-12 w-12 text-white/80 group-hover:scale-110 transition-transform" />
+              <div>
+                <h3 className="text-2xl font-bold mb-1">اكتشف أطقم أقلام الجاف</h3>
+                <p className="text-white/90">
+                  أطقم أقلام جاف متنوعة وعالية الجودة بأسعار مميزة
+                </p>
+              </div>
+              <ArrowRight className="h-8 w-8 ml-auto text-white/80 group-hover:translate-x-1 transition-transform" />
+            </CardContent>
+          </Link>
+        </Card>
+
         {/* Roto Pens Sub-category Card */}
         <Card className="mb-12 group hover:shadow-elegant transition-all duration-300 hover:-translate-y-1 border-0 overflow-hidden bg-gradient-to-br from-cyan-500 to-cyan-600 text-white">
           <Link to="/pens/roto" className="block hover:no-underline">
