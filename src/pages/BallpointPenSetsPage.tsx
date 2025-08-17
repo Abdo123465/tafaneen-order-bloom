@@ -13,7 +13,7 @@ const ballpointPenSets = [
   { 
     id: 'ballpoint-set-1', 
     name: 'طقم أقلام جاف ملونة تركي - 8 قطع', 
-    price: 85, 
+    price: 100, 
     image: SetOf8TurkishFluorescentBallpointPens, 
     description: 'طقم من 8 أقلام جاف فلورسنت تركية عالية الجودة' 
   },
