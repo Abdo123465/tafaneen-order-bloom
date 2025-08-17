@@ -23,9 +23,9 @@ const fransawyPens = [
   */
   
   // مؤقتاً حتى تضيف الصور الحقيقية:
-  { id: 'fransawy-blue', name: 'قلم فرنساوي كلاسيك أزرق', price: 5, image: 'fransawyBlueImage', description: 'قلم فرنساوي كلاسيك عالي الجودة باللون الأزرق للكتابة الفاخرة' },
-  { id: 'fransawy-red', name: 'قلم فرنساوي كلاسيك أحمر', price: 5, image: 'fransawyRedImage', description: 'قلم فرنساوي كلاسيك عالي الجودة باللون الأحمر للكتابة الفاخرة' },
-  { id: 'fransawy-black', name: 'قلم فرنساوي كلاسيك أسود', price: 5, image: 'fransawyBlackImage', description: 'قلم فرنساوي كلاسيك عالي الجودة باللون الأسود للكتابة الفاخرة' },
+  { id: 'fransawy-blue', name: 'قلم فرنساوي كلاسيك أزرق', price: 5, image: fransawyBlueImage, description: 'قلم فرنساوي كلاسيك عالي الجودة باللون الأزرق للكتابة الفاخرة' },
+  { id: 'fransawy-red', name: 'قلم فرنساوي كلاسيك أحمر', price: 5, image: fransawyRedImage, description: 'قلم فرنساوي كلاسيك عالي الجودة باللون الأحمر للكتابة الفاخرة' },
+  { id: 'fransawy-black', name: 'قلم فرنساوي كلاسيك أسود', price: 5, image: fransawyBlackImage, description: 'قلم فرنساوي كلاسيك عالي الجودة باللون الأسود للكتابة الفاخرة' },
 ];
 
 const FransawyPensPage = () => {
