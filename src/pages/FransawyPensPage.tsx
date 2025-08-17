@@ -2,11 +2,9 @@ import { useEffect } from "react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
 import { useCart } from "@/contexts/CartContext";
-import { ArrowRight, PenTool } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
-
 
 import fransawyBlackImage from "@/assets/fransawy-Black.jpg";
 import fransawyBlueImage from "@/assets/fransawy-Blue.jpg";
@@ -17,17 +15,19 @@ const ballpointPens = [
   { id: 'fransawy-Blue', name: 'قلم فرنساوي ازرق ', price: 5, image: fransawyBlueImage, description: 'قلم حبر جاف عالي الجودة باللون الازرق' },
   { id: 'fransawy-Red', name: 'قلم فرنساوي احمر', price: 5, image: fransawyRedImage, description: 'قلم حبر جاف عالي الجودة باللون الاحمر' },
 
-];
-
-const BallpointPensPage = () => {
+const FransawyPensPage = () => {
   const { addItem } = useCart();
 
   useEffect(() => {
-    document.title = "أقلام الجاف | تفانين";
-    const desc = "تسوق أقلام الحبر الجاف بألوان متنوعة وجودة عالية من تفانين.";
+    document.title = "أقلام فرنساوي | تفانين";
+    const desc = "تسوق أقلام فرنساوي عالية الجودة للكتابة الفاخرة والمريحة من تفانين.";
     let meta = document.querySelector('meta[name="description"]');
-    if (!meta) { meta = document.createElement('meta'); meta.setAttribute('name','description'); document.head.appendChild(meta);} 
-    meta.setAttribute('content', desc);
+    if (!meta) { 
+      meta = document.createElement('meta'); 
+      meta.setAttribute('name','description'); 
+      document.head.appendChild(meta);
+    } 
+    (meta as HTMLMetaElement).setAttribute('content', desc);
   }, []);
 
   return (
@@ -40,122 +40,33 @@ const BallpointPensPage = () => {
           <ArrowRight className="h-4 w-4" />
           <Link to="/pens" className="hover:text-primary">الأقلام ومستلزمات الكتابة</Link>
           <ArrowRight className="h-4 w-4" />
-          <span className="text-foreground">أقلام الجاف</span>
+          <Link to="/pens/ballpoint" className="hover:text-primary">أقلام الجاف</Link>
+          <ArrowRight className="h-4 w-4" />
+          <span className="text-foreground">أقلام فرنساوي</span>
         </nav>
 
         <div className="text-center mb-12">
-          <div className="text-6xl mb-4">🖊️</div>
-          <h1 className="text-3xl lg:text-4xl font-bold mb-4">أقلام الجاف</h1>
+          <div className="text-6xl mb-4">🖋️</div>
+          <h1 className="text-3xl lg:text-4xl font-bold mb-4">أقلام فرنساوي</h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            أقلام حبر جاف عالية الجودة بألوان متنوعة للكتابة اليومية والمهنية
+            أقلام فرنساوي عالية الجودة للكتابة الفاخرة والمريحة بألوان متنوعة
           </p>
         </div>
 
-        {/* Roto Pens Sub-category Card */}
-        <Card className="mb-12 group hover:shadow-elegant transition-all duration-300 hover:-translate-y-1 border-0 overflow-hidden bg-gradient-to-br from-cyan-500 to-cyan-600 text-white">
-          <Link to="/pens/roto" className="block hover:no-underline">
-            <CardContent className="p-6 flex items-center gap-6">
-              <PenTool className="h-12 w-12 text-white/80 group-hover:scale-110 transition-transform" />
-              <div>
-                <h3 className="text-2xl font-bold mb-1">اكتشف أقلام روتو</h3>
-                <p className="text-white/90">
-                  أقلام روتو عالية الجودة للكتابة السلسة والمريحة
-                </p>
-              </div>
-              <ArrowRight className="h-8 w-8 ml-auto text-white/80 group-hover:translate-x-1 transition-transform" />
-            </CardContent>
-          </Link>
-        </Card>
-
-        {/* Prima Pens Sub-category Card */}
-        <Card className="mb-12 group hover:shadow-elegant transition-all duration-300 hover:-translate-y-1 border-0 overflow-hidden bg-gradient-to-br from-rose-500 to-pink-600 text-white">
-          <Link to="/pens/prima" className="block hover:no-underline">
-            <CardContent className="p-6 flex items-center gap-6">
-              <PenTool className="h-12 w-12 text-white/80 group-hover:scale-110 transition-transform" />
-              <div>
-                <h3 className="text-2xl font-bold mb-1">اكتشف أقلام بريما</h3>
-                <p className="text-white/90">
-                  أقلام بريما عالية الجودة للكتابة السلسة والمريحة
-                </p>
-              </div>
-              <ArrowRight className="h-8 w-8 ml-auto text-white/80 group-hover:translate-x-1 transition-transform" />
-            </CardContent>
-          </Link>
-        </Card>
-
-        {/* Roxi Pens Sub-category Card */}
-        <Card className="mb-12 group hover:shadow-elegant transition-all duration-300 hover:-translate-y-1 border-0 overflow-hidden bg-gradient-to-br from-purple-500 to-violet-600 text-white">
-          <Link to="/pens/roxi" className="block hover:no-underline">
-            <CardContent className="p-6 flex items-center gap-6">
-              <PenTool className="h-12 w-12 text-white/80 group-hover:scale-110 transition-transform" />
-              <div>
-                <h3 className="text-2xl font-bold mb-1">اكتشف أقلام روكسي</h3>
-                <p className="text-white/90">
-                  أقلام روكسي عالية الجودة للكتابة السلسة والمريحة
-                </p>
-              </div>
-              <ArrowRight className="h-8 w-8 ml-auto text-white/80 group-hover:translate-x-1 transition-transform" />
-            </CardContent>
-          </Link>
-        </Card>
-
-        {/* Pensan Pens Sub-category Card */}
-        <Card className="mb-12 group hover:shadow-elegant transition-all duration-300 hover:-translate-y-1 border-0 overflow-hidden bg-gradient-to-br from-emerald-500 to-teal-600 text-white">
-          <Link to="/pens/pensan" className="block hover:no-underline">
-            <CardContent className="p-6 flex items-center gap-6">
-              <PenTool className="h-12 w-12 text-white/80 group-hover:scale-110 transition-transform" />
-              <div>
-                <h3 className="text-2xl font-bold mb-1">اكتشف أقلام بنسان</h3>
-                <p className="text-white/90">
-                  أقلام بنسان عالية الجودة للكتابة السلسة والمريحة
-                </p>
-              </div>
-              <ArrowRight className="h-8 w-8 ml-auto text-white/80 group-hover:translate-x-1 transition-transform" />
-            </CardContent>
-          </Link>
-        </Card>
-
-        {/* Bravo Pens Sub-category Card */}
-        <Card className="mb-12 group hover:shadow-elegant transition-all duration-300 hover:-translate-y-1 border-0 overflow-hidden bg-gradient-to-br from-orange-500 to-amber-600 text-white">
-          <Link to="/pens/bravo" className="block hover:no-underline">
-            <CardContent className="p-6 flex items-center gap-6">
-              <PenTool className="h-12 w-12 text-white/80 group-hover:scale-110 transition-transform" />
-              <div>
-                <h3 className="text-2xl font-bold mb-1">اكتشف أقلام برافو</h3>
-                <p className="text-white/90">
-                  أقلام برافو عالية الجودة للكتابة السلسة والمريحة
-                </p>
-              </div>
-              <ArrowRight className="h-8 w-8 ml-auto text-white/80 group-hover:translate-x-1 transition-transform" />
-            </CardContent>
-          </Link>
-        </Card>
-
-        {/* Fransawy Pens Sub-category Card */}
-        <Card className="mb-12 group hover:shadow-elegant transition-all duration-300 hover:-translate-y-1 border-0 overflow-hidden bg-gradient-to-br from-indigo-500 to-blue-600 text-white">
-          <Link to="/pens/fransawy" className="block hover:no-underline">
-            <CardContent className="p-6 flex items-center gap-6">
-              <PenTool className="h-12 w-12 text-white/80 group-hover:scale-110 transition-transform" />
-              <div>
-                <h3 className="text-2xl font-bold mb-1">اكتشف أقلام فرنساوي</h3>
-                <p className="text-white/90">
-                  أقلام فرنساوي عالية الجودة للكتابة الفاخرة والمريحة
-                </p>
-              </div>
-              <ArrowRight className="h-8 w-8 ml-auto text-white/80 group-hover:translate-x-1 transition-transform" />
-            </CardContent>
-          </Link>
-        </Card>
-
-        <h2 className="text-2xl lg:text-3xl font-bold mb-8 text-center border-b pb-4">
-          جميع أقلام الجاف
-        </h2>
-
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {ballpointPens.map((pen) => (
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          {fransawyPens.map((pen) => (
             <div key={pen.id} className="card-product">
-              <div className="bg-muted/50 rounded-xl aspect-square flex items-center justify-center text-6xl mb-4">
-                {pen.image}
+              <div className="bg-muted/50 rounded-xl aspect-square flex items-center justify-center mb-4 overflow-hidden">
+                <img 
+                  src={pen.image} 
+                  alt={pen.name} 
+                  className="w-full h-full object-cover rounded-xl"
+                  onError={(e) => {
+                    // في حالة فشل تحميل الصورة، عرض رمز تعبيري
+                    e.currentTarget.style.display = 'none';
+                    e.currentTarget.parentElement!.innerHTML = '<span class="text-6xl">🖋️</span>';
+                  }}
+                />
               </div>
               <h3 className="font-semibold mb-2">{pen.name}</h3>
               <p className="text-sm text-muted-foreground mb-3">{pen.description}</p>
@@ -175,7 +86,7 @@ const BallpointPensPage = () => {
         {/* Back to categories */}
         <div className="text-center mt-12">
           <Button asChild variant="outline" className="text-lg px-8 py-4 h-auto">
-            <Link to="/pens">العودة إلى فئات الأقلام</Link>
+            <Link to="/pens/ballpoint">العودة إلى أقلام الجاف</Link>
           </Button>
         </div>
       </main>
@@ -184,4 +95,4 @@ const BallpointPensPage = () => {
   );
 };
 
-export default BallpointPensPage;
+export default FransawyPensPage;
