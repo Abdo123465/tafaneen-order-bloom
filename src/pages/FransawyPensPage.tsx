@@ -5,14 +5,19 @@ import { Button } from "@/components/ui/button";
 import { useCart } from "@/contexts/CartContext";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import FransawyBlackImage from "@/assets/fransawy-Black.jpg";
-import FransawyBlueImage from "@/assets/fransawy-Blue.jpg";
-import FransawyRedImage from "@/assets/fransawy-Red.jpg";
+
+// استورد الصور هنا (ستحتاج لإضافتها في مجلد assets)
+ import fransawiblackImage from "@/assets/fransawi-black.jpg";
+ import fransawiblueImage from "@/assets/fransawi-blue.jpg";
+ import fransawiredImage from "@/assets/fransawi-red.jpg";
+
 
 const fransawyPens = [
-  { id: 'fransawy-black', name: 'قلم فرنساوي جاف - أسود', price: 12, image: FransawyBlackImage, description: 'قلم حبر جاف 0.7 مم أسود للكتابة اليومية' },
-  { id: 'fransawy-blue', name: 'قلم فرنساوي جاف - أزرق', price: 12, image: FransawyBlueImage, description: 'قلم حبر جاف 0.7 مم أزرق للكتابة اليومية' },
-  { id: 'fransawy-red', name: 'قلم فرنساوي جاف - أحمر', price: 12, image: FransawyRedImage, description: 'قلم حبر جاف 0.7 مم أحمر للكتابة اليومية' },
+  // بمجرد إضافة الصور، استبدل الرموز التعبيرية بالصور الحقيقية
+  { id: 'fransawi-black', name: 'قلم فرنساوي اسود', price: 5, image: 'fransawiblackImage', description: 'قلم فرنساوي كلاسيك عالي الجودة باللون الاسود للكتابة الفاخرة' },
+  { id: 'fransawi-blue', name: 'قلم فرنساوي كلاسيك ازرق', price: 5, image: 'fransawiblueImage', description: 'قلم فرنساوي كلاسيك عالي الجودة باللون الازرق للكتابة الفاخرة' },
+  { id: 'fransawi-red', name: 'قلم فرنساوي كلاسيك أسود', price: 5, image: 'fransawi-red', description: 'قلم فرنساوي كلاسيك عالي الجودة باللون الاحمر للكتابة الفاخرة' },
+
 ];
 
 const FransawyPensPage = () => {
@@ -20,10 +25,14 @@ const FransawyPensPage = () => {
 
   useEffect(() => {
     document.title = "أقلام فرنساوي | تفانين";
-    const desc = "تسوق أقلام فرنساوي عالية الجودة للكتابة السلسة والمريحة من تفانين.";
+    const desc = "تسوق أقلام فرنساوي عالية الجودة للكتابة الفاخرة والمريحة من تفانين.";
     let meta = document.querySelector('meta[name="description"]');
-    if (!meta) { meta = document.createElement('meta'); meta.setAttribute('name','description'); document.head.appendChild(meta);} 
-    meta.setAttribute('content', desc);
+    if (!meta) { 
+      meta = document.createElement('meta'); 
+      meta.setAttribute('name','description'); 
+      document.head.appendChild(meta);
+    } 
+    (meta as HTMLMetaElement).setAttribute('content', desc);
   }, []);
 
   return (
@@ -42,10 +51,10 @@ const FransawyPensPage = () => {
         </nav>
 
         <div className="text-center mb-12">
-          <div className="text-6xl mb-4">🖊️</div>
+          <div className="text-6xl mb-4">🖋️</div>
           <h1 className="text-3xl lg:text-4xl font-bold mb-4">أقلام فرنساوي</h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            أقلام فرنساوي عالية الجودة للكتابة السلسة والمريحة بألوان متنوعة وتصاميم مميزة
+            أقلام فرنساوي عالية الجودة للكتابة الفاخرة والمريحة بألوان متنوعة
           </p>
         </div>
 
@@ -53,14 +62,14 @@ const FransawyPensPage = () => {
           {fransawyPens.map((pen) => (
             <div key={pen.id} className="card-product">
               <div className="bg-muted/50 rounded-xl aspect-square flex items-center justify-center text-6xl mb-4 overflow-hidden">
-                {pen.image === '🖊️' || pen.image === '🌈' ? (
-                  <span>{pen.image}</span>
-                ) : (
+                {typeof pen.image === 'string' && pen.image.includes('.') ? (
                   <img 
                     src={pen.image} 
-                    alt={pen.name}
-                    className="w-full h-full object-cover"
+                    alt={pen.name} 
+                    className="w-full h-full object-cover rounded-xl"
                   />
+                ) : (
+                  pen.image
                 )}
               </div>
               <h3 className="font-semibold mb-2">{pen.name}</h3>

@@ -136,7 +136,7 @@ const BallpointPensPage = () => {
               <div>
                 <h3 className="text-2xl font-bold mb-1">اكتشف أقلام فرنساوي</h3>
                 <p className="text-white/90">
-                  أقلام فرنساوي عالية الجودة للكتابة السلسة والمريحة
+                  أقلام فرنساوي عالية الجودة للكتابة الفاخرة والمريحة
                 </p>
               </div>
               <ArrowRight className="h-8 w-8 ml-auto text-white/80 group-hover:translate-x-1 transition-transform" />
