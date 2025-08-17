@@ -2,45 +2,29 @@ import { useEffect } from "react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
 import { useCart } from "@/contexts/CartContext";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, PenTool } from "lucide-react";
 import { Link } from "react-router-dom";
 
-// استيراد الصور (تأكد من وجود هذه الصور في مجلد assets)
-// إذا لم تكن لديك الصور بعد، يمكنك تعليق هذه الأسطر مؤقتاً
-
-import fransawyBlueImage from "@/assets/fransawy-blue.jpg";
-import fransawyRedImage from "@/assets/fransawy-red.jpg";
-import fransawyBlackImage from "@/assets/fransawy-black.jpg";
-
-
-
-const fransawyPens = [
-  // استخدم الصور الحقيقية عندما تضيفها
-  /*
-  { id: 'fransawy-1', name: 'قلم فرنساوي كلاسيك أزرق', price: 15, image: fransawyBlueImage, description: 'قلم فرنساوي كلاسيك عالي الجودة باللون الأزرق للكتابة الفاخرة' },
-  { id: 'fransawy-2', name: 'قلم فرنساوي كلاسيك أحمر', price: 15, image: fransawyRedImage, description: 'قلم فرنساوي كلاسيك عالي الجودة باللون الأحمر للكتابة الفاخرة' },
-  */
-  
-  // مؤقتاً حتى تضيف الصور الحقيقية:
-  { id: 'fransawy-Blue', name: 'قلم فرنساوي كلاسيك أزرق', price: 5, image: fransawyBlueImage, description: 'قلم فرنساوي كلاسيك عالي الجودة باللون الأزرق للكتابة الفاخرة' },
-  { id: 'fransawy-Red', name: 'قلم فرنساوي كلاسيك أحمر', price: 5, image: fransawyRedImage, description: 'قلم فرنساوي كلاسيك عالي الجودة باللون الأحمر للكتابة الفاخرة' },
-  { id: 'fransawy-Black', name: 'قلم فرنساوي كلاسيك أسود', price: 5, image: fransawyBlackImage, description: 'قلم فرنساوي كلاسيك عالي الجودة باللون الأسود للكتابة الفاخرة' },
+const ballpointPens = [
+  { id: 'ballpoint-1', name: 'قلم حبر جاف أزرق - عبوة 10 قطع', price: 35, image: '🖊️', description: 'أقلام حبر جاف عالية الجودة باللون الأزرق' },
+  { id: 'ballpoint-2', name: 'قلم حبر جاف أسود - عبوة 10 قطع', price: 35, image: '🖊️', description: 'أقلام حبر جاف باللون الأسود للكتابة الرسمية' },
+  { id: 'ballpoint-3', name: 'قلم حبر جاف أحمر - عبوة 5 قطع', price: 20, image: '🖊️', description: 'أقلام حبر جاف حمراء للتصحيح والتمييز' },
+  { id: 'ballpoint-4', name: 'مجموعة أقلام جاف ملونة - 12 لون', price: 60, image: '🌈', description: 'مجموعة متنوعة من أقلام الحبر الجاف الملونة' },
+  { id: 'ballpoint-5', name: 'قلم حبر جاف فاخر معدني', price: 85, image: '🖊️', description: 'قلم حبر جاف فاخر بتصميم معدني أنيق' },
+  { id: 'ballpoint-6', name: 'أقلام حبر جاف قابلة للمحو - 6 قطع', price: 45, image: '🖊️', description: 'أقلام حبر جاف قابلة للمحو والتصحيح' },
 ];
 
-const FransawyPensPage = () => {
+const BallpointPensPage = () => {
   const { addItem } = useCart();
 
   useEffect(() => {
-    document.title = "أقلام فرنساوي | تفانين";
-    const desc = "تسوق أقلام فرنساوي عالية الجودة للكتابة الفاخرة والمريحة من تفانين.";
+    document.title = "أقلام الجاف | تفانين";
+    const desc = "تسوق أقلام الحبر الجاف بألوان متنوعة وجودة عالية من تفانين.";
     let meta = document.querySelector('meta[name="description"]');
-    if (!meta) { 
-      meta = document.createElement('meta'); 
-      meta.setAttribute('name','description'); 
-      document.head.appendChild(meta);
-    } 
-    (meta as HTMLMetaElement).setAttribute('content', desc);
+    if (!meta) { meta = document.createElement('meta'); meta.setAttribute('name','description'); document.head.appendChild(meta);} 
+    meta.setAttribute('content', desc);
   }, []);
 
   return (
@@ -53,33 +37,122 @@ const FransawyPensPage = () => {
           <ArrowRight className="h-4 w-4" />
           <Link to="/pens" className="hover:text-primary">الأقلام ومستلزمات الكتابة</Link>
           <ArrowRight className="h-4 w-4" />
-          <Link to="/pens/ballpoint" className="hover:text-primary">أقلام الجاف</Link>
-          <ArrowRight className="h-4 w-4" />
-          <span className="text-foreground">أقلام فرنساوي</span>
+          <span className="text-foreground">أقلام الجاف</span>
         </nav>
 
         <div className="text-center mb-12">
-          <div className="text-6xl mb-4">🖋️</div>
-          <h1 className="text-3xl lg:text-4xl font-bold mb-4">أقلام فرنساوي</h1>
+          <div className="text-6xl mb-4">🖊️</div>
+          <h1 className="text-3xl lg:text-4xl font-bold mb-4">أقلام الجاف</h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            أقلام فرنساوي عالية الجودة للكتابة الفاخرة والمريحة بألوان متنوعة
+            أقلام حبر جاف عالية الجودة بألوان متنوعة للكتابة اليومية والمهنية
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {fransawyPens.map((pen) => (
+        {/* Roto Pens Sub-category Card */}
+        <Card className="mb-12 group hover:shadow-elegant transition-all duration-300 hover:-translate-y-1 border-0 overflow-hidden bg-gradient-to-br from-cyan-500 to-cyan-600 text-white">
+          <Link to="/pens/roto" className="block hover:no-underline">
+            <CardContent className="p-6 flex items-center gap-6">
+              <PenTool className="h-12 w-12 text-white/80 group-hover:scale-110 transition-transform" />
+              <div>
+                <h3 className="text-2xl font-bold mb-1">اكتشف أقلام روتو</h3>
+                <p className="text-white/90">
+                  أقلام روتو عالية الجودة للكتابة السلسة والمريحة
+                </p>
+              </div>
+              <ArrowRight className="h-8 w-8 ml-auto text-white/80 group-hover:translate-x-1 transition-transform" />
+            </CardContent>
+          </Link>
+        </Card>
+
+        {/* Prima Pens Sub-category Card */}
+        <Card className="mb-12 group hover:shadow-elegant transition-all duration-300 hover:-translate-y-1 border-0 overflow-hidden bg-gradient-to-br from-rose-500 to-pink-600 text-white">
+          <Link to="/pens/prima" className="block hover:no-underline">
+            <CardContent className="p-6 flex items-center gap-6">
+              <PenTool className="h-12 w-12 text-white/80 group-hover:scale-110 transition-transform" />
+              <div>
+                <h3 className="text-2xl font-bold mb-1">اكتشف أقلام بريما</h3>
+                <p className="text-white/90">
+                  أقلام بريما عالية الجودة للكتابة السلسة والمريحة
+                </p>
+              </div>
+              <ArrowRight className="h-8 w-8 ml-auto text-white/80 group-hover:translate-x-1 transition-transform" />
+            </CardContent>
+          </Link>
+        </Card>
+
+        {/* Roxi Pens Sub-category Card */}
+        <Card className="mb-12 group hover:shadow-elegant transition-all duration-300 hover:-translate-y-1 border-0 overflow-hidden bg-gradient-to-br from-purple-500 to-violet-600 text-white">
+          <Link to="/pens/roxi" className="block hover:no-underline">
+            <CardContent className="p-6 flex items-center gap-6">
+              <PenTool className="h-12 w-12 text-white/80 group-hover:scale-110 transition-transform" />
+              <div>
+                <h3 className="text-2xl font-bold mb-1">اكتشف أقلام روكسي</h3>
+                <p className="text-white/90">
+                  أقلام روكسي عالية الجودة للكتابة السلسة والمريحة
+                </p>
+              </div>
+              <ArrowRight className="h-8 w-8 ml-auto text-white/80 group-hover:translate-x-1 transition-transform" />
+            </CardContent>
+          </Link>
+        </Card>
+
+        {/* Pensan Pens Sub-category Card */}
+        <Card className="mb-12 group hover:shadow-elegant transition-all duration-300 hover:-translate-y-1 border-0 overflow-hidden bg-gradient-to-br from-emerald-500 to-teal-600 text-white">
+          <Link to="/pens/pensan" className="block hover:no-underline">
+            <CardContent className="p-6 flex items-center gap-6">
+              <PenTool className="h-12 w-12 text-white/80 group-hover:scale-110 transition-transform" />
+              <div>
+                <h3 className="text-2xl font-bold mb-1">اكتشف أقلام بنسان</h3>
+                <p className="text-white/90">
+                  أقلام بنسان عالية الجودة للكتابة السلسة والمريحة
+                </p>
+              </div>
+              <ArrowRight className="h-8 w-8 ml-auto text-white/80 group-hover:translate-x-1 transition-transform" />
+            </CardContent>
+          </Link>
+        </Card>
+
+        {/* Bravo Pens Sub-category Card */}
+        <Card className="mb-12 group hover:shadow-elegant transition-all duration-300 hover:-translate-y-1 border-0 overflow-hidden bg-gradient-to-br from-orange-500 to-amber-600 text-white">
+          <Link to="/pens/bravo" className="block hover:no-underline">
+            <CardContent className="p-6 flex items-center gap-6">
+              <PenTool className="h-12 w-12 text-white/80 group-hover:scale-110 transition-transform" />
+              <div>
+                <h3 className="text-2xl font-bold mb-1">اكتشف أقلام برافو</h3>
+                <p className="text-white/90">
+                  أقلام برافو عالية الجودة للكتابة السلسة والمريحة
+                </p>
+              </div>
+              <ArrowRight className="h-8 w-8 ml-auto text-white/80 group-hover:translate-x-1 transition-transform" />
+            </CardContent>
+          </Link>
+        </Card>
+
+        {/* Fransawy Pens Sub-category Card */}
+        <Card className="mb-12 group hover:shadow-elegant transition-all duration-300 hover:-translate-y-1 border-0 overflow-hidden bg-gradient-to-br from-indigo-500 to-blue-600 text-white">
+          <Link to="/pens/fransawy" className="block hover:no-underline">
+            <CardContent className="p-6 flex items-center gap-6">
+              <PenTool className="h-12 w-12 text-white/80 group-hover:scale-110 transition-transform" />
+              <div>
+                <h3 className="text-2xl font-bold mb-1">اكتشف أقلام فرنساوي</h3>
+                <p className="text-white/90">
+                  أقلام فرنساوي عالية الجودة للكتابة الفاخرة والمريحة
+                </p>
+              </div>
+              <ArrowRight className="h-8 w-8 ml-auto text-white/80 group-hover:translate-x-1 transition-transform" />
+            </CardContent>
+          </Link>
+        </Card>
+
+        <h2 className="text-2xl lg:text-3xl font-bold mb-8 text-center border-b pb-4">
+          جميع أقلام الجاف
+        </h2>
+
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {ballpointPens.map((pen) => (
             <div key={pen.id} className="card-product">
-              <div className="bg-muted/50 rounded-xl aspect-square flex items-center justify-center mb-4 overflow-hidden">
-                <img 
-                  src={pen.image} 
-                  alt={pen.name} 
-                  className="w-full h-full object-cover rounded-xl"
-                  onError={(e) => {
-                    // في حالة فشل تحميل الصورة، عرض رمز تعبيري
-                    e.currentTarget.style.display = 'none';
-                    e.currentTarget.parentElement!.innerHTML = '<span class="text-6xl">🖋️</span>';
-                  }}
-                />
+              <div className="bg-muted/50 rounded-xl aspect-square flex items-center justify-center text-6xl mb-4">
+                {pen.image}
               </div>
               <h3 className="font-semibold mb-2">{pen.name}</h3>
               <p className="text-sm text-muted-foreground mb-3">{pen.description}</p>
@@ -99,7 +172,7 @@ const FransawyPensPage = () => {
         {/* Back to categories */}
         <div className="text-center mt-12">
           <Button asChild variant="outline" className="text-lg px-8 py-4 h-auto">
-            <Link to="/pens/ballpoint">العودة إلى أقلام الجاف</Link>
+            <Link to="/pens">العودة إلى فئات الأقلام</Link>
           </Button>
         </div>
       </main>
@@ -108,4 +181,4 @@ const FransawyPensPage = () => {
   );
 };
 
-export default FransawyPensPage;
+export default BallpointPensPage;
