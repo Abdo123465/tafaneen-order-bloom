@@ -10,12 +10,14 @@ import PENSANSTARTECHImage from "@/assets/PENSAN-STAR-TECH.jpg";
 import PENSANMYTECHblackImage from "@/assets/PENSAN-MY-TECH-black.jpg";
 import PENSANMYTECHBlueImage from "@/assets/PENSAN-MY-TECH-Blue.jpg";
 import PENSANMYTECHredImage from "@/assets/PENSAN-MY-TECH-red.jpg";
+import PENSANTR23Image from "@/assets/PENSAN-TR-23.jpg";
 
 const pensanPens = [
  { id: 'PENSAN-STAR-TECH', name: 'قلم بانسان ازرق ستار تك', price: 11, image: PENSANSTARTECHImage, description: 'قلم حبر سائل 1.0 مم لكتابة ناعمة ودقيقة' },
  { id: 'PENSAN-MY-TECH-black', name: 'قلم بانسان اسود ماي تك', price: 12, image: PENSANMYTECHblackImage, description: 'قلم حبر سائل 1.0 مم لكتابة ناعمة ودقيقة' },
  { id: 'PENSAN-MY-TECH-Blue', name: 'قلم بانسان ازرق ماي تك', price: 11, image: PENSANMYTECHBlueImage, description: 'قلم حبر سائل 1.0 مم لكتابة ناعمة ودقيقة' },
  { id: 'PENSAN-MY-TECH-red', name: 'قلم بانسان احمر ماي تك', price: 12, image: PENSANMYTECHredImage, description: 'قلم حبر سائل 1.0 مم لكتابة ناعمة ودقيقة' },
+ { id: 'PENSAN-TR-23', name: 'قلم بانسان اورق تي ار 23', price: 11, image: PENSANTR23Image, description: 'قلم حبر سائل 1.0 مم لكتابة ناعمة ودقيقة' },
 
 ];
 
