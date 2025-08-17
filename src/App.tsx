@@ -49,7 +49,7 @@ import RoxiPensPage from "./pages/RoxiPensPage";
 import PensanPensPage from "./pages/PensanPensPage";
 import BravoPensPage from "./pages/BravoPensPage";
 import FransawyPensPage from "./pages/FransawyPensPage";
-
+import BallpointPenSetsPage from "./pages/BallpointPenSetsPage";
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -107,6 +107,7 @@ const App = () => (
               <Route path="/pens/bravo" element={<BravoPensPage />} />
               <Route path="/pens/fransawy" element={<FransawyPensPage />} />
               <Route path="/pens/fountain" element={<FountainPensPage />} />
+              <Route path="/pens/ballpoint-sets" element={<BallpointPenSetsPage />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>
