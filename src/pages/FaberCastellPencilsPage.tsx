@@ -6,18 +6,21 @@ import { useCart } from "@/contexts/CartContext";
 import { ArrowRight, Star, Award } from "lucide-react";
 import { Link } from "react-router-dom";
 
- import FB2BImage from "@/assets/F-B-2B.jpg";
+// في أعلى الملف
+import FB2BImage from '/src/assets/F-B-2B.jpg';
 
 const faberCastellPencils = [
   { 
     id: 'F-B-2B', 
-    name: '2B قلم فابر كاستل', 
+    name: '2B قلم فابر كاستل ', 
     price: 12, 
-    image: '/assets/F-B-2B.jpg', // الصورة الأولى كما طلبت
+    image: FB2BImage, // استخدام المتغير المستورد
     description: 'قلم رصاص احترافي من السلسلة الكلاسيكية 9000 بجودة ألمانية فائقة',
     rating: 5,
     isPopular: true
   },
+ 
+];
   { 
     id: 'faber-2', 
     name: 'مجموعة فابر كاستل للرسم - 12 قطعة', 
