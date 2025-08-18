@@ -52,6 +52,7 @@ import FransawyPensPage from "./pages/FransawyPensPage";
 import BallpointPenSetsPage from "./pages/BallpointPenSetsPage";
 import FaberCastellPencilsPage from "./pages/FaberCastellPencilsPage";
 import StarColorPencilsPage from "./pages/StarColorPencilsPage";
+import XioosongshuPencilsPage from "./pages/XioosongshuPencilsPage";
 
 const queryClient = new QueryClient();
 
@@ -69,6 +70,7 @@ const App = () => (
               <Route path="/pens" element={<PensPage />} />
               <Route path="/pens/pencils" element={<PencilsPage />} />
               <Route path="/pens/pencils/faber-castell" element={<FaberCastellPencilsPage />} />
+              <Route path="/pens/pencils/xioosongshu" element={<XioosongshuPencilsPage />} />
               <Route path="/pens/pencils/star-color" element={<StarColorPencilsPage />} />
               <Route path="/pens/ballpoint" element={<BallpointPensPage />} />
               <Route path="/pens/gel" element={<GelPensPage />} />
