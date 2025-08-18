@@ -19,15 +19,16 @@ const faberCastellPencils = [
   },
   { 
     id: 'faber-2', 
-    name: 'مجموعة فابر كاستل للرسم - 12 قطعة', 
-    price: 450, 
-    image: '/assets/faber-castell-set.jpg',
+    name: ' قلم فابر كاستل HB', 
+    price: 11, 
+    image: '/assets/F-B-HB.jpg',
     fallbackEmoji: '📦',
-    description: 'مجموعة شاملة من أقلام الرصاص بدرجات مختلفة H-8B مع ممحاة ومبراة',
+    description: ' قلم رصاص  HB مع ممحاة ',
     rating: 5,
     isBestSeller: true
   },
-  // باقي المنتجات...
+
+ 
 ];
 
 // مكون خاص لعرض الصور مع fallback
