@@ -50,6 +50,8 @@ import PensanPensPage from "./pages/PensanPensPage";
 import BravoPensPage from "./pages/BravoPensPage";
 import FransawyPensPage from "./pages/FransawyPensPage";
 import BallpointPenSetsPage from "./pages/BallpointPenSetsPage";
+import FaberCastellPencilsPage from "./pages/FaberCastellPencilsPage";
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -65,6 +67,7 @@ const App = () => (
               <Route path="/categories" element={<CategoriesPage />} />
               <Route path="/pens" element={<PensPage />} />
               <Route path="/pens/pencils" element={<PencilsPage />} />
+              <Route path="/pens/pencils/faber-castell" element={<FaberCastellPencilsPage />} />
               <Route path="/pens/ballpoint" element={<BallpointPensPage />} />
               <Route path="/pens/gel" element={<GelPensPage />} />
               <Route path="/pens/roto" element={<RotoPensPage />} />
