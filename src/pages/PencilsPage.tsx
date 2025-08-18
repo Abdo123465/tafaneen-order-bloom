@@ -3,7 +3,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { useCart } from "@/contexts/CartContext";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Star } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const pencils = [
@@ -13,6 +13,17 @@ const pencils = [
   { id: 'pencil-4', name: 'مجموعة أقلام رصاص متدرجة H-6B', price: 85, image: '✏️', description: 'مجموعة شاملة من أقلام الرصاص بدرجات مختلفة' },
   { id: 'pencil-5', name: 'قلم رصاص ملون - 24 لون', price: 120, image: '🌈', description: 'أقلام رصاص ملونة بألوان زاهية وجودة عالية' },
   { id: 'pencil-6', name: 'قلم رصاص 4B للفنانين', price: 12, image: '✏️', description: 'قلم رصاص ناعم جداً للرسم الفني المتقدم' },
+];
+
+// فئات فرعية للأقلام الرصاص
+const pencilCategories = [
+  {
+    name: 'أقلام FABER CASTELL',
+    path: '/pens/pencils/faber-castell',
+    icon: '⭐',
+    description: 'أقلام رصاص فابر كاستل الألمانية عالية الجودة',
+    isNew: true
+  }
 ];
 
 const PencilsPage = () => {
@@ -45,6 +56,42 @@ const PencilsPage = () => {
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             أقلام رصاص عالية الجودة بدرجات مختلفة للكتابة والرسم والتصميم
           </p>
+        </div>
+
+        {/* الفئات الفرعية */}
+        {pencilCategories.length > 0 && (
+          <div className="mb-12">
+            <h2 className="text-2xl font-bold mb-6 text-center">الماركات المميزة</h2>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {pencilCategories.map((category, index) => (
+                <Link 
+                  key={index} 
+                  to={category.path}
+                  className="card-product group hover:shadow-lg transition-shadow"
+                >
+                  <div className="bg-gradient-to-br from-primary/10 to-primary/5 rounded-xl aspect-square flex items-center justify-center text-6xl mb-4 group-hover:from-primary/20 group-hover:to-primary/10 transition-colors">
+                    {category.icon}
+                  </div>
+                  <div className="flex items-center gap-2 mb-2">
+                    <h3 className="font-semibold text-lg">{category.name}</h3>
+                    {category.isNew && (
+                      <span className="bg-green-500 text-white text-xs px-2 py-1 rounded-full">جديد</span>
+                    )}
+                  </div>
+                  <p className="text-sm text-muted-foreground mb-3">{category.description}</p>
+                  <div className="flex items-center gap-1 text-primary">
+                    <span className="text-sm font-medium">تسوق الآن</span>
+                    <ArrowRight className="h-4 w-4" />
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* المنتجات العامة */}
+        <div className="mb-8">
+          <h2 className="text-2xl font-bold mb-6 text-center">منتجات أخرى</h2>
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
