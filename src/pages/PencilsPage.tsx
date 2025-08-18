@@ -1,3 +1,4 @@
+// src/pages/PencilsPage.tsx
 import { useEffect } from "react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -23,17 +24,28 @@ const pencilCategories = [
     icon: '⭐',
     description: 'أقلام رصاص فابر كاستل الألمانية عالية الجودة',
     isNew: true
+  },
+  {
+    name: 'أقلام STAR COLOR',
+    path: '/pens/pencils/star-color',
+    icon: '⭐',
+    description: 'أقلام رصاص ستار كولور عالية الجودة بأسعار مناسبة',
+    isPopular: true
   }
 ];
 
 const PencilsPage = () => {
   const { addItem } = useCart();
-
+  
   useEffect(() => {
     document.title = "أقلام الرصاص | تفانين";
     const desc = "تسوق أقلام الرصاص بجميع الدرجات - HB, 2B, 4B وأقلام ميكانيكية عالية الجودة من تفانين.";
     let meta = document.querySelector('meta[name="description"]');
-    if (!meta) { meta = document.createElement('meta'); meta.setAttribute('name','description'); document.head.appendChild(meta);} 
+    if (!meta) { 
+      meta = document.createElement('meta'); 
+      meta.setAttribute('name','description'); 
+      document.head.appendChild(meta);
+    } 
     meta.setAttribute('content', desc);
   }, []);
 
@@ -76,6 +88,9 @@ const PencilsPage = () => {
                     <h3 className="font-semibold text-lg">{category.name}</h3>
                     {category.isNew && (
                       <span className="bg-green-500 text-white text-xs px-2 py-1 rounded-full">جديد</span>
+                    )}
+                    {category.isPopular && (
+                      <span className="bg-blue-500 text-white text-xs px-2 py-1 rounded-full">شائع</span>
                     )}
                   </div>
                   <p className="text-sm text-muted-foreground mb-3">{category.description}</p>
