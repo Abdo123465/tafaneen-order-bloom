@@ -14,7 +14,7 @@ const faberCastellPencils = [
     id: 'F-B-2B', 
     name: '2B فابر كاستل', 
     price: 12, 
-    image: FB2BImage, 
+    image: FB2B, 
     description: '2B قلم رصاص احترافي من السلسلة الكلاسيكية بجودة ألمانية فائقة',
     rating: 5,
     isPopular: true
