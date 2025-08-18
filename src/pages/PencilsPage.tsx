@@ -3,8 +3,9 @@ import { useEffect } from "react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
 import { useCart } from "@/contexts/CartContext";
-import { ArrowRight, Star } from "lucide-react";
+import { ArrowRight, Pencil } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const pencils = [
@@ -14,31 +15,6 @@ const pencils = [
   { id: 'pencil-4', name: 'مجموعة أقلام رصاص متدرجة H-6B', price: 85, image: '✏️', description: 'مجموعة شاملة من أقلام الرصاص بدرجات مختلفة' },
   { id: 'pencil-5', name: 'قلم رصاص ملون - 24 لون', price: 120, image: '🌈', description: 'أقلام رصاص ملونة بألوان زاهية وجودة عالية' },
   { id: 'pencil-6', name: 'قلم رصاص 4B للفنانين', price: 12, image: '✏️', description: 'قلم رصاص ناعم جداً للرسم الفني المتقدم' },
-];
-
-// فئات فرعية للأقلام الرصاص
-const pencilCategories = [
-  {
-    name: 'أقلام FABER CASTELL',
-    path: '/pens/pencils/faber-castell',
-    icon: '⭐',
-    description: 'أقلام رصاص فابر كاستل الألمانية عالية الجودة',
-    isNew: true
-  },
-  {
-    name: 'أقلام Xioosongshu',
-    path: '/pens/pencils/xioosongshu',
-    icon: '🐭',
-    description: 'أقلام رصاص Xioosongshu عالية الجودة بأسعار مناسبة',
-    isPopular: true
-  },
-  {
-    name: 'أقلام STAR COLOR',
-    path: '/pens/pencils/star-color',
-    icon: '⭐',
-    description: 'أقلام رصاص ستار كولور عالية الجودة بأسعار مناسبة',
-    isPopular: true
-  }
 ];
 
 const PencilsPage = () => {
@@ -77,44 +53,57 @@ const PencilsPage = () => {
           </p>
         </div>
 
-        {/* الفئات الفرعية */}
-        {pencilCategories.length > 0 && (
-          <div className="mb-12">
-            <h2 className="text-2xl font-bold mb-6 text-center">الماركات المميزة</h2>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {pencilCategories.map((category, index) => (
-                <Link 
-                  key={index} 
-                  to={category.path}
-                  className="card-product group hover:shadow-lg transition-shadow"
-                >
-                  <div className="bg-gradient-to-br from-primary/10 to-primary/5 rounded-xl aspect-square flex items-center justify-center text-6xl mb-4 group-hover:from-primary/20 group-hover:to-primary/10 transition-colors">
-                    {category.icon}
-                  </div>
-                  <div className="flex items-center gap-2 mb-2">
-                    <h3 className="font-semibold text-lg">{category.name}</h3>
-                    {category.isNew && (
-                      <span className="bg-green-500 text-white text-xs px-2 py-1 rounded-full">جديد</span>
-                    )}
-                    {category.isPopular && (
-                      <span className="bg-blue-500 text-white text-xs px-2 py-1 rounded-full">شائع</span>
-                    )}
-                  </div>
-                  <p className="text-sm text-muted-foreground mb-3">{category.description}</p>
-                  <div className="flex items-center gap-1 text-primary">
-                    <span className="text-sm font-medium">تسوق الآن</span>
-                    <ArrowRight className="h-4 w-4" />
-                  </div>
-                </Link>
-              ))}
-            </div>
-          </div>
-        )}
+        {/* Faber Castell Pencils Sub-category Card */}
+        <Card className="mb-12 group hover:shadow-elegant transition-all duration-300 hover:-translate-y-1 border-0 overflow-hidden bg-gradient-to-br from-green-500 to-emerald-600 text-white">
+          <Link to="/pens/pencils/faber-castell" className="block hover:no-underline">
+            <CardContent className="p-6 flex items-center gap-6">
+              <div className="text-5xl">⭐</div>
+              <div>
+                <h3 className="text-2xl font-bold mb-1">أقلام فابر كاستل</h3>
+                <p className="text-white/90">
+                  أقلام رصاص فابر كاستل الألمانية عالية الجودة
+                </p>
+              </div>
+              <ArrowRight className="h-8 w-8 ml-auto text-white/80 group-hover:translate-x-1 transition-transform" />
+            </CardContent>
+          </Link>
+        </Card>
 
-        {/* المنتجات العامة */}
-        <div className="mb-8">
-          <h2 className="text-2xl font-bold mb-6 text-center">منتجات أخرى</h2>
-        </div>
+        {/* Xioosongshu Pencils Sub-category Card */}
+        <Card className="mb-12 group hover:shadow-elegant transition-all duration-300 hover:-translate-y-1 border-0 overflow-hidden bg-gradient-to-br from-blue-500 to-cyan-600 text-white">
+          <Link to="/pens/pencils/xioosongshu" className="block hover:no-underline">
+            <CardContent className="p-6 flex items-center gap-6">
+              <div className="text-5xl">✏️</div>
+              <div>
+                <h3 className="text-2xl font-bold mb-1">أقلام Xioosongshu</h3>
+                <p className="text-white/90">
+                  أقلام رصاص Xioosongshu عالية الجودة بأسعار مناسبة
+                </p>
+              </div>
+              <ArrowRight className="h-8 w-8 ml-auto text-white/80 group-hover:translate-x-1 transition-transform" />
+            </CardContent>
+          </Link>
+        </Card>
+
+        {/* Star Color Pencils Sub-category Card */}
+        <Card className="mb-12 group hover:shadow-elegant transition-all duration-300 hover:-translate-y-1 border-0 overflow-hidden bg-gradient-to-br from-purple-500 to-pink-600 text-white">
+          <Link to="/pens/pencils/star-color" className="block hover:no-underline">
+            <CardContent className="p-6 flex items-center gap-6">
+              <div className="text-5xl">⭐</div>
+              <div>
+                <h3 className="text-2xl font-bold mb-1">أقلام ستار كولور</h3>
+                <p className="text-white/90">
+                  أقلام رصاص ستار كولور عالية الجودة بأسعار مناسبة
+                </p>
+              </div>
+              <ArrowRight className="h-8 w-8 ml-auto text-white/80 group-hover:translate-x-1 transition-transform" />
+            </CardContent>
+          </Link>
+        </Card>
+
+        <h2 className="text-2xl lg:text-3xl font-bold mb-8 text-center border-b pb-4">
+          جميع أقلام الرصاص
+        </h2>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {pencils.map((pencil) => (
