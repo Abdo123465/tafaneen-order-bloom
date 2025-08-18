@@ -9,10 +9,10 @@ import { Link } from "react-router-dom";
 
 const starColorPencils = [
   { 
-    id: 'star-1', 
+    id: 'Start-Color-HB', 
     name: 'قلم رصاص ستار كولور HB', 
-    price: 8, 
-    image: '/assets/star-1.jpg', 
+    price: 6, 
+    image: '/assets/Start-Color-HB.jpg', 
     fallbackEmoji: '✏️',
     description: 'قلم رصاص عالي الجودة من ستار كولور مثالي للاستخدام اليومي',
     rating: 4,
