@@ -38,36 +38,7 @@ const starColorPencils = [
     rating: 5,
     isNew: true
   },
-  { 
-    id: 'star-4', 
-    name: 'قلم رصاص ستار كولور ميكانيكي', 
-    price: 15, 
-    image: '/assets/star-4.jpg',
-    fallbackEmoji: '✏️',
-    description: 'قلم رصاص ميكانيكي دقيق ومتين',
-    rating: 4,
-    isPopular: true
-  },
-  { 
-    id: 'star-5', 
-    name: 'مجموعة أقلام ستار كولور متدرجة', 
-    price: 75, 
-    image: '/assets/star-5.jpg',
-    fallbackEmoji: '✏️',
-    description: 'مجموعة شاملة من أقلام الرصاص بدرجات مختلفة للفنانين',
-    rating: 5,
-    isBestSeller: true
-  },
-  { 
-    id: 'star-6', 
-    name: 'قلم رصاص ستار كولور 4B', 
-    price: 10, 
-    image: '/assets/star-6.jpg',
-    fallbackEmoji: '✏️',
-    description: 'قلم رصاص ناعم جداً للرسم الفني',
-    rating: 4,
-    isNew: true
-  },
+
 ];
 
 // مكون خاص لعرض الصور مع fallback
