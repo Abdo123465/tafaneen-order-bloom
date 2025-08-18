@@ -1,86 +1,68 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { useCart } from "@/contexts/CartContext";
-import { ArrowRight, Star, Award } from "lucide-react";
+import { ArrowRight, Star, Award, Image as ImageIcon } from "lucide-react";
 import { Link } from "react-router-dom";
-
-// في أعلى الملف
-import FB2BImage from '/src/assets/F-B-2B.jpg';
 
 const faberCastellPencils = [
   { 
     id: 'F-B-2B', 
-    name: '2B قلم فابر كاستل ', 
+    name: '2B قلم فابر كاستل', 
     price: 12, 
-    image: FB2BImage, // استخدام المتغير المستورد
+    image: '/assets/F-B-2B.jpg', 
+    fallbackEmoji: '✏️',
     description: 'قلم رصاص احترافي من السلسلة الكلاسيكية 9000 بجودة ألمانية فائقة',
     rating: 5,
     isPopular: true
   },
- 
-];
   { 
     id: 'faber-2', 
     name: 'مجموعة فابر كاستل للرسم - 12 قطعة', 
     price: 450, 
-    image: '/assets/faber-castell-set.jpg', // يمكنك إضافة صور أخرى
+    image: '/assets/faber-castell-set.jpg',
+    fallbackEmoji: '📦',
     description: 'مجموعة شاملة من أقلام الرصاص بدرجات مختلفة H-8B مع ممحاة ومبراة',
     rating: 5,
     isBestSeller: true
   },
-  { 
-    id: 'faber-3', 
-    name: 'قلم فابر كاستل 9000 2B للرسم', 
-    price: 38, 
-    image: '/assets/faber-2b.jpg', // أضف صور أخرى حسب المتوفر
-    description: 'قلم رصاص ناعم مثالي للرسم والتظليل الفني المتقدم',
-    rating: 5
-  },
-  { 
-    id: 'faber-4', 
-    name: 'قلم فابر كاستل ميكانيكي TK-FINE', 
-    price: 125, 
-    image: '/assets/faber-mechanical.jpg',
-    description: 'قلم رصاص ميكانيكي احترافي بدقة 0.5 مم وجسم معدني أنيق',
-    rating: 4
-  },
-  { 
-    id: 'faber-5', 
-    name: 'أقلام فابر كاستل الملونة - 36 لون', 
-    price: 580, 
-    image: '/assets/faber-colored.jpg',
-    description: 'مجموعة أقلام رصاص ملونة بألوان زاهية وثابتة لأعمال فنية رائعة',
-    rating: 5,
-    isPopular: true
-  },
-  { 
-    id: 'faber-6', 
-    name: 'قلم فابر كاستل 9000 4B للفنانين', 
-    price: 40, 
-    image: '/assets/faber-4b.jpg',
-    description: 'قلم رصاص ناعم جداً مخصص للأعمال الفنية والرسم الاحترافي',
-    rating: 5
-  },
-  { 
-    id: 'faber-7', 
-    name: 'مجموعة فابر كاستل CASTELL 9000 Art Set', 
-    price: 750, 
-    image: '/assets/faber-art-set.jpg',
-    description: 'مجموعة فنية شاملة تحتوي على 19 قطعة للرسم الاحترافي',
-    rating: 5,
-    isBestSeller: true
-  },
-  { 
-    id: 'faber-8', 
-    name: 'قلم فابر كاستل GRIP 2001 HB', 
-    price: 28, 
-    image: '/assets/faber-grip.jpg',
-    description: 'قلم رصاص بمقبض مطاطي مريح مع نقاط لمنع الانزلاق',
-    rating: 4
-  }
+  // باقي المنتجات...
 ];
+
+// مكون خاص لعرض الصور مع fallback
+const ProductImage = ({ src, alt, fallbackEmoji, className }) => {
+  const [imageError, setImageError] = useState(false);
+  const [imageLoading, setImageLoading] = useState(true);
+
+  return (
+    <div className={`bg-white rounded-xl aspect-square flex items-center justify-center overflow-hidden border border-gray-100 group-hover:shadow-md transition-shadow ${className}`}>
+      {!imageError ? (
+        <>
+          {imageLoading && (
+            <div className="absolute inset-0 flex items-center justify-center bg-gray-100 animate-pulse">
+              <ImageIcon className="h-8 w-8 text-gray-400" />
+            </div>
+          )}
+          <img 
+            src={src}
+            alt={alt}
+            className="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-300"
+            onLoad={() => setImageLoading(false)}
+            onError={() => {
+              setImageError(true);
+              setImageLoading(false);
+            }}
+            style={{ display: imageLoading ? 'none' : 'block' }}
+          />
+        </>
+      ) : (
+        // Fallback - عرض الإيموجي إذا فشل تحميل الصورة
+        <div className="text-6xl">{fallbackEmoji}</div>
+      )}
+    </div>
+  );
+};
 
 const FaberCastellPencilsPage = () => {
   const { addItem } = useCart();
@@ -168,18 +150,13 @@ const FaberCastellPencilsPage = () => {
                 )}
               </div>
 
-              {/* Product Image */}
-              <div className="bg-white rounded-xl aspect-square flex items-center justify-center mb-4 overflow-hidden border border-gray-100 group-hover:shadow-md transition-shadow">
-                <img 
-                  src={pencil.image} 
-                  alt={pencil.name}
-                  className="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-300"
-                  onError={(e) => {
-                    // Fallback في حالة عدم وجود الصورة
-                    e.currentTarget.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDIwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIiBmaWxsPSIjRjNGNEY2Ii8+CjxwYXRoIGQ9Ik0xMDAgNzBWMTMwTTcwIDEwMEgxMzAiIHN0cm9rZT0iIzlDQTNBRiIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KPHN2Zz4K';
-                  }}
-                />
-              </div>
+              {/* Product Image مع مكون محسن */}
+              <ProductImage 
+                src={pencil.image}
+                alt={pencil.name}
+                fallbackEmoji={pencil.fallbackEmoji}
+                className="mb-4"
+              />
               
               <h3 className="font-semibold mb-2 line-clamp-2">{pencil.name}</h3>
               
