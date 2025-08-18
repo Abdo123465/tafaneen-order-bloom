@@ -26,6 +26,13 @@ const pencilCategories = [
     isNew: true
   },
   {
+    name: 'أقلام Xioosongshu',
+    path: '/pens/pencils/xioosongshu',
+    icon: '🐭',
+    description: 'أقلام رصاص Xioosongshu عالية الجودة بأسعار مناسبة',
+    isPopular: true
+  },
+  {
     name: 'أقلام STAR COLOR',
     path: '/pens/pencils/star-color',
     icon: '⭐',
