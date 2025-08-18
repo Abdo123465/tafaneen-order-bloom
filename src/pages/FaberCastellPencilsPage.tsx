@@ -21,7 +21,7 @@ const faberCastellPencils = [
     id: 'faber-2', 
     name: ' قلم فابر كاستل HB', 
     price: 11, 
-    image: '/assets/F-B-HB.jpg',
+    image: '/assets/faber-2.jpg',
     fallbackEmoji: '📦',
     description: ' قلم رصاص  HB مع ممحاة ',
     rating: 5,
