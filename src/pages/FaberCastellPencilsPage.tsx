@@ -6,16 +6,13 @@ import { useCart } from "@/contexts/CartContext";
 import { ArrowRight, Star, Award } from "lucide-react";
 import { Link } from "react-router-dom";
 
-import FB2BImage from "@/assets/F-B-2B.jpg";
-
-
 const faberCastellPencils = [
   { 
-    id: 'F-B-2B', 
-    name: '2B فابر كاستل', 
+    id: 'faber-1', 
+    name: '2B قلم فابر كاستل', 
     price: 12, 
-    image: FB2B, 
-    description: '2B قلم رصاص احترافي من السلسلة الكلاسيكية بجودة ألمانية فائقة',
+    image: '/assets/F-B-2B.jpg', // الصورة الأولى كما طلبت
+    description: 'قلم رصاص احترافي من السلسلة الكلاسيكية 9000 بجودة ألمانية فائقة',
     rating: 5,
     isPopular: true
   },
@@ -23,7 +20,7 @@ const faberCastellPencils = [
     id: 'faber-2', 
     name: 'مجموعة فابر كاستل للرسم - 12 قطعة', 
     price: 450, 
-    image: '📦', 
+    image: '/assets/faber-castell-set.jpg', // يمكنك إضافة صور أخرى
     description: 'مجموعة شاملة من أقلام الرصاص بدرجات مختلفة H-8B مع ممحاة ومبراة',
     rating: 5,
     isBestSeller: true
@@ -32,7 +29,7 @@ const faberCastellPencils = [
     id: 'faber-3', 
     name: 'قلم فابر كاستل 9000 2B للرسم', 
     price: 38, 
-    image: '✏️', 
+    image: '/assets/faber-2b.jpg', // أضف صور أخرى حسب المتوفر
     description: 'قلم رصاص ناعم مثالي للرسم والتظليل الفني المتقدم',
     rating: 5
   },
@@ -40,7 +37,7 @@ const faberCastellPencils = [
     id: 'faber-4', 
     name: 'قلم فابر كاستل ميكانيكي TK-FINE', 
     price: 125, 
-    image: '🖊️', 
+    image: '/assets/faber-mechanical.jpg',
     description: 'قلم رصاص ميكانيكي احترافي بدقة 0.5 مم وجسم معدني أنيق',
     rating: 4
   },
@@ -48,7 +45,7 @@ const faberCastellPencils = [
     id: 'faber-5', 
     name: 'أقلام فابر كاستل الملونة - 36 لون', 
     price: 580, 
-    image: '🌈', 
+    image: '/assets/faber-colored.jpg',
     description: 'مجموعة أقلام رصاص ملونة بألوان زاهية وثابتة لأعمال فنية رائعة',
     rating: 5,
     isPopular: true
@@ -57,7 +54,7 @@ const faberCastellPencils = [
     id: 'faber-6', 
     name: 'قلم فابر كاستل 9000 4B للفنانين', 
     price: 40, 
-    image: '✏️', 
+    image: '/assets/faber-4b.jpg',
     description: 'قلم رصاص ناعم جداً مخصص للأعمال الفنية والرسم الاحترافي',
     rating: 5
   },
@@ -65,7 +62,7 @@ const faberCastellPencils = [
     id: 'faber-7', 
     name: 'مجموعة فابر كاستل CASTELL 9000 Art Set', 
     price: 750, 
-    image: '🎨', 
+    image: '/assets/faber-art-set.jpg',
     description: 'مجموعة فنية شاملة تحتوي على 19 قطعة للرسم الاحترافي',
     rating: 5,
     isBestSeller: true
@@ -74,7 +71,7 @@ const faberCastellPencils = [
     id: 'faber-8', 
     name: 'قلم فابر كاستل GRIP 2001 HB', 
     price: 28, 
-    image: '✏️', 
+    image: '/assets/faber-grip.jpg',
     description: 'قلم رصاص بمقبض مطاطي مريح مع نقاط لمنع الانزلاق',
     rating: 4
   }
@@ -155,7 +152,7 @@ const FaberCastellPencilsPage = () => {
         {/* Products Grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {faberCastellPencils.map((pencil) => (
-            <div key={pencil.id} className="card-product relative">
+            <div key={pencil.id} className="card-product relative group">
               {/* Badges */}
               <div className="absolute top-3 left-3 z-10 flex flex-col gap-1">
                 {pencil.isBestSeller && (
@@ -166,11 +163,20 @@ const FaberCastellPencilsPage = () => {
                 )}
               </div>
 
-              <div className="bg-gradient-to-br from-blue-50 to-green-50 rounded-xl aspect-square flex items-center justify-center text-6xl mb-4">
-                {pencil.image}
+              {/* Product Image */}
+              <div className="bg-white rounded-xl aspect-square flex items-center justify-center mb-4 overflow-hidden border border-gray-100 group-hover:shadow-md transition-shadow">
+                <img 
+                  src={pencil.image} 
+                  alt={pencil.name}
+                  className="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-300"
+                  onError={(e) => {
+                    // Fallback في حالة عدم وجود الصورة
+                    e.currentTarget.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDIwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIiBmaWxsPSIjRjNGNEY2Ii8+CjxwYXRoIGQ9Ik0xMDAgNzBWMTMwTTcwIDEwMEgxMzAiIHN0cm9rZT0iIzlDQTNBRiIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KPHN2Zz4K';
+                  }}
+                />
               </div>
               
-              <h3 className="font-semibold mb-2">{pencil.name}</h3>
+              <h3 className="font-semibold mb-2 line-clamp-2">{pencil.name}</h3>
               
               {/* Rating */}
               <div className="flex items-center gap-1 mb-2">
