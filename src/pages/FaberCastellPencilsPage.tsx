@@ -6,6 +6,8 @@ import { useCart } from "@/contexts/CartContext";
 import { ArrowRight, Star, Award } from "lucide-react";
 import { Link } from "react-router-dom";
 
+ import FB2BImage from "@/assets/F-B-2B.jpg";
+
 const faberCastellPencils = [
   { 
     id: 'F-B-2B', 
