@@ -18,26 +18,6 @@ const starColorPencils = [
     rating: 4,
     isPopular: true
   },
-  { 
-    id: 'star-2', 
-    name: 'قلم رصاص ستار كولور 2B', 
-    price: 9, 
-    image: '/assets/star-2.jpg',
-    fallbackEmoji: '✏️',
-    description: 'قلم رصاص ناعم مثالي للرسم والتظليل',
-    rating: 4,
-    isBestSeller: true
-  },
-  { 
-    id: 'star-3', 
-    name: 'مجموعة أقلام ستار كولور الملونة', 
-    price: 65, 
-    image: '/assets/star-3.jpg',
-    fallbackEmoji: '🌈',
-    description: 'مجموعة متنوعة من أقلام الرصاص الملونة بجودة عالية',
-    rating: 5,
-    isNew: true
-  },
 
 ];
 
