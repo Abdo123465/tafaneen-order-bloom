@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 
 const faberCastellPencils = [
   { 
-    id: 'faber-1', 
+    id: 'F-B-2B', 
     name: '2B قلم فابر كاستل', 
     price: 12, 
     image: '/assets/F-B-2B.jpg', // الصورة الأولى كما طلبت
