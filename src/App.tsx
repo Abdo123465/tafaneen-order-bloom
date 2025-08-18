@@ -1,3 +1,4 @@
+// src/App.tsx
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -9,7 +10,6 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import CategoriesPage from "./pages/CategoriesPage";
 import PensPage from "./pages/PensPage";
-
 import OffersPage from "./pages/OffersPage";
 import PencilsPage from "./pages/PencilsPage";
 import BallpointPensPage from "./pages/BallpointPensPage";
@@ -51,6 +51,7 @@ import BravoPensPage from "./pages/BravoPensPage";
 import FransawyPensPage from "./pages/FransawyPensPage";
 import BallpointPenSetsPage from "./pages/BallpointPenSetsPage";
 import FaberCastellPencilsPage from "./pages/FaberCastellPencilsPage";
+import StarColorPencilsPage from "./pages/StarColorPencilsPage";
 
 const queryClient = new QueryClient();
 
@@ -68,6 +69,7 @@ const App = () => (
               <Route path="/pens" element={<PensPage />} />
               <Route path="/pens/pencils" element={<PencilsPage />} />
               <Route path="/pens/pencils/faber-castell" element={<FaberCastellPencilsPage />} />
+              <Route path="/pens/pencils/star-color" element={<StarColorPencilsPage />} />
               <Route path="/pens/ballpoint" element={<BallpointPensPage />} />
               <Route path="/pens/gel" element={<GelPensPage />} />
               <Route path="/pens/roto" element={<RotoPensPage />} />
@@ -75,7 +77,6 @@ const App = () => (
               <Route path="/pens/markers" element={<MarkersPage />} />
               <Route path="/pens/calligraphy" element={<CalligraphyPensPage />} />
               <Route path="/pens/correction" element={<CorrectionPensPage />} />
-
               <Route path="/cutting-pasting-tools" element={<CuttingPastingToolsPage />} />
               <Route path="/calculators-rulers" element={<CalculatorsRulersPage />} />
               <Route path="/calculators-rulers/scientific-calculator" element={<ScientificCalculatorPage />} />
