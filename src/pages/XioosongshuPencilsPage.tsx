@@ -20,7 +20,7 @@ const xioosongshuPencils = [
   },
   { 
     id: 'Xioosongshu-HB', 
-    name: 'قلم رصاص Xioosongshu 2B', 
+    name: 'قلم رصاص Xioosongshu HB', 
     price: 8, 
     image: '/assets/Xioosongshu-HB.jpg',
     fallbackEmoji: '✏️',
