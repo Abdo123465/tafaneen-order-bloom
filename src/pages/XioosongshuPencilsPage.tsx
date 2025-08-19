@@ -9,65 +9,26 @@ import { Link } from "react-router-dom";
 
 const xioosongshuPencils = [
   { 
-    id: 'xioo-1', 
-    name: 'قلم رصاص Xioosongshu HB', 
-    price: 7, 
-    image: '/assets/xioo-1.jpg', 
+    id: 'Xioosongshu-2B', 
+    name: 'قلم رصاص Xioosongshu 2B', 
+    price: 9, 
+    image: '/assets/Xioosongshu-2B.jpg', 
     fallbackEmoji: '✏️',
     description: 'قلم رصاص عالي الجودة من Xioosongshu مثالي للاستخدام اليومي',
     rating: 4,
     isPopular: true
   },
   { 
-    id: 'xioo-2', 
+    id: 'Xioosongshu-HB', 
     name: 'قلم رصاص Xioosongshu 2B', 
     price: 8, 
-    image: '/assets/xioo-2.jpg',
+    image: '/assets/Xioosongshu-HB.jpg',
     fallbackEmoji: '✏️',
     description: 'قلم رصاص ناعم مثالي للرسم والتظليل',
     rating: 4,
     isBestSeller: true
   },
-  { 
-    id: 'xioo-3', 
-    name: 'مجموعة أقلام Xioosongshu الملونة', 
-    price: 55, 
-    image: '/assets/xioo-3.jpg',
-    fallbackEmoji: '🌈',
-    description: 'مجموعة متنوعة من أقلام الرصاص الملونة بجودة عالية',
-    rating: 5,
-    isNew: true
-  },
-  { 
-    id: 'xioo-4', 
-    name: 'قلم رصاص Xioosongshu ميكانيكي', 
-    price: 13, 
-    image: '/assets/xioo-4.jpg',
-    fallbackEmoji: '✏️',
-    description: 'قلم رصاص ميكانيكي دقيق ومتين',
-    rating: 4,
-    isPopular: true
-  },
-  { 
-    id: 'xioo-5', 
-    name: 'مجموعة أقلام Xioosongshu متدرجة', 
-    price: 65, 
-    image: '/assets/xioo-5.jpg',
-    fallbackEmoji: '✏️',
-    description: 'مجموعة شاملة من أقلام الرصاص بدرجات مختلفة للفنانين',
-    rating: 5,
-    isBestSeller: true
-  },
-  { 
-    id: 'xioo-6', 
-    name: 'قلم رصاص Xioosongshu 4B', 
-    price: 9, 
-    image: '/assets/xioo-6.jpg',
-    fallbackEmoji: '✏️',
-    description: 'قلم رصاص ناعم جداً للرسم الفني',
-    rating: 4,
-    isNew: true
-  },
+ 
 ];
 
 // مكون خاص لعرض الصور مع fallback
