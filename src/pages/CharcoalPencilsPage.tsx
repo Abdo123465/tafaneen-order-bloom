@@ -9,65 +9,16 @@ import { Link } from "react-router-dom";
 
 const charcoalPencils = [
   { 
-    id: 'charcoal-1', 
+    id: 'MARCO-7020', 
     name: 'قلم فحم أسود ناعم', 
-    price: 15, 
-    image: '/assets/charcoal-1.jpg', 
+    price: 13, 
+    image: '/assets/MARCO-7020.jpg', 
     fallbackEmoji: '⚫',
     description: 'قلم فحم ناعم مثالي للرسم والتظليل الداكن',
     rating: 5,
     isBestSeller: true
   },
-  { 
-    id: 'charcoal-2', 
-    name: 'قلم فحم متوسط الصلابة', 
-    price: 12, 
-    image: '/assets/charcoal-2.jpg',
-    fallbackEmoji: '⚫',
-    description: 'قلم فحم متوسط الصلابة للتفاصيل الدقيقة',
-    rating: 4,
-    isPopular: true
-  },
-  { 
-    id: 'charcoal-3', 
-    name: 'قلم فحم صلب', 
-    price: 10, 
-    image: '/assets/charcoal-3.jpg',
-    fallbackEmoji: '⚫',
-    description: 'قلم فحم صلب للخطوط الدقيقة والتفاصيل',
-    rating: 4,
-    isNew: true
-  },
-  { 
-    id: 'charcoal-4', 
-    name: 'مجموعة أقلام فحم متدرجة', 
-    price: 45, 
-    image: '/assets/charcoal-4.jpg',
-    fallbackEmoji: '⚫',
-    description: 'مجموعة شاملة من أقلام الفحم بدرجات صلابة مختلفة',
-    rating: 5,
-    isBestSeller: true
-  },
-  { 
-    id: 'charcoal-5', 
-    name: 'قلم فحم أبيض', 
-    price: 18, 
-    image: '/assets/charcoal-5.jpg',
-    fallbackEmoji: '⚪',
-    description: 'قلم فحم أبيض للتظليل والإبراز على الورق الداكن',
-    rating: 4,
-    isNew: true
-  },
-  { 
-    id: 'charcoal-6', 
-    name: 'قلم فحم مع ممحاة', 
-    price: 20, 
-    image: '/assets/charcoal-6.jpg',
-    fallbackEmoji: '⚫',
-    description: 'قلم فحم عالي الجودة مع ممحاة مدمجة',
-    rating: 5,
-    isPopular: true
-  },
+
 ];
 
 // مكون خاص لعرض الصور مع fallback
