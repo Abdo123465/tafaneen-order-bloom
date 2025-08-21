@@ -55,7 +55,7 @@ import StarColorPencilsPage from "./pages/StarColorPencilsPage";
 import XioosongshuPencilsPage from "./pages/XioosongshuPencilsPage";
 import CharcoalPencilsPage from "./pages/CharcoalPencilsPage";
 import AltesPencilsPage from "./pages/AltesPencilsPage";
-import DeliPensPage from "./pages/DeliPensPage"; // إضافة الاستيراد الجديد
+import DeliPencilsPage from "./pages/DeliPencilsPage"; // إضافة الاستيراد الجديد
 import SearchPage from "./pages/SearchPage";
 
 const queryClient = new QueryClient();
@@ -79,7 +79,7 @@ const App = () => (
               <Route path="/pens/pencils/star-color" element={<StarColorPencilsPage />} />
               <Route path="/pens/pencils/charcoal" element={<CharcoalPencilsPage />} />
               <Route path="/pens/pencils/altes" element={<AltesPencilsPage />} />
-              <Route path="/pens/deli" element={<DeliPensPage />} /> {/* إضافة المسار الجديد */}
+              <Route path="/pens/pencils/deli" element={<DeliPencilsPage />} /> {/* إضافة المسار الجديد */}
               <Route path="/pens/ballpoint" element={<BallpointPensPage />} />
               <Route path="/pens/gel" element={<GelPensPage />} />
               <Route path="/pens/roto" element={<RotoPensPage />} />
