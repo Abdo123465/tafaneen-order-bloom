@@ -149,6 +149,22 @@ const PencilsPage = () => {
           </Link>
         </Card>
 
+        {/* Bedaya Pencils Sub-category Card */}
+        <Card className="mb-12 group hover:shadow-elegant transition-all duration-300 hover:-translate-y-1 border-0 overflow-hidden bg-gradient-to-br from-green-600 to-teal-600 text-white">
+          <Link to="/pens/pencils/bedaya" className="block hover:no-underline">
+            <CardContent className="p-6 flex items-center gap-6">
+              <div className="text-5xl">🇪🇬</div>
+              <div>
+                <h3 className="text-2xl font-bold mb-1">أقلام Bedaya</h3>
+                <p className="text-white/90">
+                  أقلام رصاص Bedaya المصرية عالية الجودة للمدارس
+                </p>
+              </div>
+              <ArrowRight className="h-8 w-8 ml-auto text-white/80 group-hover:translate-x-1 transition-transform" />
+            </CardContent>
+          </Link>
+        </Card>
+
         <h2 className="text-2xl lg:text-3xl font-bold mb-8 text-center border-b pb-4">
           جميع أقلام الرصاص
         </h2>
