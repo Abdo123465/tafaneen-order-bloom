@@ -9,30 +9,30 @@ import { Link } from "react-router-dom";
 
 const domsPencils = [
   { 
-    id: 'Doms-HB', 
+    id: 'DOMS-DM-18638', 
     name: 'قلم رصاص Doms HB', 
-    price: 6, 
-    image: '/assets/Doms-HB.jpg', 
+    price: 8, 
+    image: '/assets/DOMS-DM-18638.jpg', 
     fallbackEmoji: '✏️',
     description: 'قلم رصاص عالي الجودة من Doms مثالي للاستخدام اليومي',
     rating: 4,
     isPopular: true
   },
   { 
-    id: 'Doms-2B', 
+    id: 'DOMS-DM-18637', 
     name: 'قلم رصاص Doms 2B', 
     price: 8, 
-    image: '/assets/Doms-2B.jpg',
+    image: '/assets/DOMS-DM-18637.jpg',
     fallbackEmoji: '✏️',
     description: 'قلم رصاص ناعم مثالي للرسم والتظليل',
     rating: 5,
     isBestSeller: true
   },
   { 
-    id: 'Doms-Set', 
-    name: 'مجموعة أقلام رصاص Doms متدرجة', 
-    price: 50, 
-    image: '/assets/Doms-Set.jpg',
+    id: 'DOMS-DM-18635', 
+    name: 'DOMS-DM-18635', 
+    price: 8, 
+    image: '/assets/DOMS-DM-18635.jpg',
     fallbackEmoji: '📐',
     description: 'مجموعة شاملة من أقلام الرصاص بدرجات مختلفة (6B-6H)',
     rating: 5,
