@@ -1,5 +1,6 @@
+// src/components/Header.tsx
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom"; // إضافة useNavigate
 import { Search, User, Menu, X, MessageCircle, LogOut, ChevronDown, UserCheck, ShoppingBag, Settings, History } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -19,6 +20,7 @@ export function Header() {
   const [isAuthOpen, setIsAuthOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const { user, logout } = useAuth();
+  const navigate = useNavigate(); // إضافة هذا السطر
 
   const navItems = [
     { label: "الرئيسية", href: "/" },
@@ -29,13 +31,12 @@ export function Header() {
     { label: "عروض خاصة", href: "/offers" },
   ];
 
-  // معالجة البحث
+  // معالجة البحث - تم تعديلها
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     if (searchQuery.trim()) {
-      // يمكن إضافة منطق البحث هنا
-      console.log("البحث عن:", searchQuery);
-      // إعادة توجيه لصفحة البحث أو عرض النتائج
+      // توجيه المستخدم إلى صفحة البحث مع تمرير عبارة البحث
+      navigate(`/search?q=${encodeURIComponent(searchQuery.trim())}`);
     }
   };
 
@@ -81,7 +82,6 @@ export function Header() {
           </div>
         </div>
       </div>
-
       {/* Main Header */}
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between gap-4">
@@ -101,7 +101,6 @@ export function Header() {
               <p className="text-xs text-muted-foreground">للأدوات المكتبية</p>
             </div>
           </div>
-
           {/* Search Bar */}
           <div className="hidden md:flex flex-1 max-w-xl mx-8">
             <form onSubmit={handleSearch} className="relative w-full">
@@ -115,7 +114,6 @@ export function Header() {
               />
             </form>
           </div>
-
           {/* Actions */}
           <div className="flex items-center gap-3">
             {/* Mobile Menu Button */}
@@ -127,7 +125,6 @@ export function Header() {
             >
               {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </Button>
-
             {/* User Account Icon - Always visible when logged in */}
             {user ? (
               <DropdownMenu>
@@ -168,10 +165,8 @@ export function Header() {
                 <span className="sr-only">تسجيل الدخول</span>
               </Button>
             )}
-
             {/* Shopping Cart */}
             <Cart />
-
             {/* Login/Logout Button - Desktop only */}
             {user ? (
               <Button 
@@ -192,7 +187,6 @@ export function Header() {
             )}
           </div>
         </div>
-
         {/* Navigation */}
         <nav className="hidden md:flex mt-4 gap-6">
           {navItems.map((item, index) => (
@@ -205,7 +199,6 @@ export function Header() {
             </Link>
           ))}
         </nav>
-
         {/* Mobile Search */}
         <div className="md:hidden mt-4">
           <form onSubmit={handleSearch} className="relative">
@@ -220,7 +213,6 @@ export function Header() {
           </form>
         </div>
       </div>
-
       {/* Mobile Menu */}
       {isMenuOpen && (
         <div className="md:hidden bg-white border-t border-border">
@@ -275,7 +267,6 @@ export function Header() {
           </nav>
         </div>
       )}
-
       {/* Auth Dialog */}
       <AuthDialog open={isAuthOpen} onOpenChange={setIsAuthOpen} />
     </header>
