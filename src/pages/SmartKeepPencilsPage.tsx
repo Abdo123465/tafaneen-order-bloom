@@ -18,56 +18,7 @@ const smartKeepPencils = [
     rating: 4,
     isPopular: true
   },
-  { 
-    id: 'SmartKeep-2B', 
-    name: 'قلم رصاص Smart Keep 2B', 
-    price: 9, 
-    image: '/assets/SmartKeep-2B.jpg',
-    fallbackEmoji: '✏️',
-    description: 'قلم رصاص ناعم مثالي للرسم والتظليل',
-    rating: 5,
-    isBestSeller: true
-  },
-  { 
-    id: 'SmartKeep-Set', 
-    name: 'مجموعة أقلام رصاص Smart Keep متدرجة', 
-    price: 58, 
-    image: '/assets/SmartKeep-Set.jpg',
-    fallbackEmoji: '📐',
-    description: 'مجموعة شاملة من أقلام الرصاص بدرجات مختلفة (6B-6H)',
-    rating: 5,
-    isNew: true
-  },
-  { 
-    id: 'SmartKeep-Mechanical', 
-    name: 'قلم رصاص ميكانيكي Smart Keep 0.7 مم', 
-    price: 19, 
-    image: '/assets/SmartKeep-Mechanical.jpg',
-    fallbackEmoji: '✏️',
-    description: 'قلم رصاص ميكانيكي بدقة عالية للكتابة الدقيقة',
-    rating: 4,
-    isPopular: true
-  },
-  { 
-    id: 'SmartKeep-Drawing', 
-    name: 'قلم رصاص Smart Keep للرسم 4B', 
-    price: 11, 
-    image: '/assets/SmartKeep-Drawing.jpg',
-    fallbackEmoji: '🎨',
-    description: 'قلم رصاص ناعم جداً للرسم الفني المتقدم',
-    rating: 5,
-    isBestSeller: true
-  },
-  { 
-    id: 'SmartKeep-Color', 
-    name: 'مجموعة أقلام رصاص ملونة Smart Keep', 
-    price: 88, 
-    image: '/assets/SmartKeep-Color.jpg',
-    fallbackEmoji: '🌈',
-    description: 'أقلام رصاص ملونة بألوان زاهية وجودة عالية - 24 لون',
-    rating: 4,
-    isNew: true
-  },
+
 ];
 
 // مكون خاص لعرض الصور مع fallback
