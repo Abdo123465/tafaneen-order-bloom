@@ -38,36 +38,6 @@ const domsPencils = [
     rating: 5,
     isNew: true
   },
-  { 
-    id: 'Doms-Mechanical', 
-    name: 'قلم رصاص ميكانيكي Doms 0.7 مم', 
-    price: 16, 
-    image: '/assets/Doms-Mechanical.jpg',
-    fallbackEmoji: '✏️',
-    description: 'قلم رصاص ميكانيكي بدقة عالية للكتابة الدقيقة',
-    rating: 4,
-    isPopular: true
-  },
-  { 
-    id: 'Doms-Drawing', 
-    name: 'قلم رصاص Doms للرسم 4B', 
-    price: 9, 
-    image: '/assets/Doms-Drawing.jpg',
-    fallbackEmoji: '🎨',
-    description: 'قلم رصاص ناعم جداً للرسم الفني المتقدم',
-    rating: 5,
-    isBestSeller: true
-  },
-  { 
-    id: 'Doms-Color', 
-    name: 'مجموعة أقلام رصاص ملونة Doms', 
-    price: 75, 
-    image: '/assets/Doms-Color.jpg',
-    fallbackEmoji: '🌈',
-    description: 'أقلام رصاص ملونة بألوان زاهية وجودة عالية - 24 لون',
-    rating: 4,
-    isNew: true
-  },
 ];
 
 // مكون خاص لعرض الصور مع fallback
