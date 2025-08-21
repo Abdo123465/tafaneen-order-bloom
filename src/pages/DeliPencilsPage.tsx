@@ -9,63 +9,33 @@ import { Link } from "react-router-dom";
 
 const deliPencils = [
   { 
-    id: 'Deli-HB', 
+    id: 'HB-Deli-Neon-U516', 
     name: 'قلم رصاص Deli HB', 
     price: 8, 
-    image: '/assets/Deli-HB.jpg', 
+    image: '/assets/HB-Deli-Neon-U516.jpg', 
     fallbackEmoji: '✏️',
     description: 'قلم رصاص عالي الجودة من Deli مثالي للاستخدام اليومي',
     rating: 4,
     isPopular: true
   },
   { 
-    id: 'Deli-2B', 
+    id: 'HB-Deli-U20000', 
     name: 'قلم رصاص Deli 2B', 
     price: 10, 
-    image: '/assets/Deli-2B.jpg',
+    image: '/assets/HB-Deli-U20000.jpg',
     fallbackEmoji: '✏️',
     description: 'قلم رصاص ناعم مثالي للرسم والتظليل',
     rating: 5,
     isBestSeller: true
   },
   { 
-    id: 'Deli-Set', 
+    id: 'HB-Deli-U50800', 
     name: 'مجموعة أقلام رصاص Deli متدرجة', 
     price: 60, 
-    image: '/assets/Deli-Set.jpg',
+    image: '/assets/HB-Deli-U50800.jpg',
     fallbackEmoji: '📐',
     description: 'مجموعة شاملة من أقلام الرصاص بدرجات مختلفة (6B-6H)',
     rating: 5,
-    isNew: true
-  },
-  { 
-    id: 'Deli-Mechanical', 
-    name: 'قلم رصاص ميكانيكي Deli 0.7 مم', 
-    price: 20, 
-    image: '/assets/Deli-Mechanical.jpg',
-    fallbackEmoji: '✏️',
-    description: 'قلم رصاص ميكانيكي بدقة عالية للكتابة الدقيقة',
-    rating: 4,
-    isPopular: true
-  },
-  { 
-    id: 'Deli-Drawing', 
-    name: 'قلم رصاص Deli للرسم 4B', 
-    price: 12, 
-    image: '/assets/Deli-Drawing.jpg',
-    fallbackEmoji: '🎨',
-    description: 'قلم رصاص ناعم جداً للرسم الفني المتقدم',
-    rating: 5,
-    isBestSeller: true
-  },
-  { 
-    id: 'Deli-Color', 
-    name: 'مجموعة أقلام رصاص ملونة Deli', 
-    price: 95, 
-    image: '/assets/Deli-Color.jpg',
-    fallbackEmoji: '🌈',
-    description: 'أقلام رصاص ملونة بألوان زاهية وجودة عالية - 24 لون',
-    rating: 4,
     isNew: true
   },
 ];
