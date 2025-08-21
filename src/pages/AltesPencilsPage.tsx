@@ -9,65 +9,16 @@ import { Link } from "react-router-dom";
 
 const altesPencils = [
   { 
-    id: 'Altes-HB', 
+    id: 'altes', 
     name: 'قلم رصاص Altes HB', 
     price: 10, 
-    image: '/assets/Altes-HB.jpg', 
+    image: '/assets/altes.jpg', 
     fallbackEmoji: '✏️',
     description: 'قلم رصاص عالي الجودة من Altes مثالي للاستخدام اليومي',
     rating: 5,
     isPopular: true
   },
-  { 
-    id: 'Altes-2B', 
-    name: 'قلم رصاص Altes 2B', 
-    price: 12, 
-    image: '/assets/Altes-2B.jpg',
-    fallbackEmoji: '✏️',
-    description: 'قلم رصاص ناعم مثالي للرسم والتظليل',
-    rating: 5,
-    isBestSeller: true
-  },
-  { 
-    id: 'Altes-Set', 
-    name: 'مجموعة أقلام رصاص Altes متدرجة', 
-    price: 75, 
-    image: '/assets/Altes-Set.jpg',
-    fallbackEmoji: '📐',
-    description: 'مجموعة شاملة من أقلام الرصاص بدرجات مختلفة (6B-6H)',
-    rating: 5,
-    isNew: true
-  },
-  { 
-    id: 'Altes-Mechanical', 
-    name: 'قلم رصاص ميكانيكي Altes 0.7 مم', 
-    price: 25, 
-    image: '/assets/Altes-Mechanical.jpg',
-    fallbackEmoji: '✏️',
-    description: 'قلم رصاص ميكانيكي بدقة عالية للكتابة الدقيقة',
-    rating: 4,
-    isPopular: true
-  },
-  { 
-    id: 'Altes-Drawing', 
-    name: 'قلم رصاص Altes للرسم 4B', 
-    price: 15, 
-    image: '/assets/Altes-Drawing.jpg',
-    fallbackEmoji: '🎨',
-    description: 'قلم رصاص ناعم جداً للرسم الفني المتقدم',
-    rating: 5,
-    isBestSeller: true
-  },
-  { 
-    id: 'Altes-Color', 
-    name: 'مجموعة أقلام رصاص ملونة Altes', 
-    price: 110, 
-    image: '/assets/Altes-Color.jpg',
-    fallbackEmoji: '🌈',
-    description: 'أقلام رصاص ملونة بألوان زاهية وجودة عالية - 24 لون',
-    rating: 4,
-    isNew: true
-  },
+  
 ];
 
 // مكون خاص لعرض الصور مع fallback
