@@ -9,10 +9,10 @@ import { Link } from "react-router-dom";
 
 const smartKeepPencils = [
   { 
-    id: 'SmartKeep-HB', 
-    name: 'قلم رصاص Smart Keep HB', 
+    id: 'kL-6500', 
+    name: 'قلم رصاص Smart Keep ', 
     price: 7, 
-    image: '/assets/SmartKeep-HB.jpg', 
+    image: '/assets/kL-6500.jpg', 
     fallbackEmoji: '✏️',
     description: 'قلم رصاص عالي الجودة من Smart Keep مثالي للاستخدام اليومي',
     rating: 4,
