@@ -9,10 +9,10 @@ import { Link } from "react-router-dom";
 
 const primaPencils = [
   { 
-    id: 'Prima-HB', 
+    id: 'Prima-neon-HB', 
     name: 'قلم رصاص Prima HB', 
-    price: 8, 
-    image: '/assets/Prima-HB.jpg', 
+    price: 6, 
+    image: '/assets/Prima-neon-HB.jpg', 
     fallbackEmoji: '✏️',
     description: 'قلم رصاص عالي الجودة من Prima مثالي للاستخدام اليومي',
     rating: 4,
@@ -21,53 +21,14 @@ const primaPencils = [
   { 
     id: 'Prima-2B', 
     name: 'قلم رصاص Prima 2B', 
-    price: 10, 
+    price: 5, 
     image: '/assets/Prima-2B.jpg',
     fallbackEmoji: '✏️',
     description: 'قلم رصاص ناعم مثالي للرسم والتظليل',
     rating: 5,
     isBestSeller: true
   },
-  { 
-    id: 'Prima-Set', 
-    name: 'مجموعة أقلام رصاص Prima متدرجة', 
-    price: 65, 
-    image: '/assets/Prima-Set.jpg',
-    fallbackEmoji: '📐',
-    description: 'مجموعة شاملة من أقلام الرصاص بدرجات مختلفة (6B-6H)',
-    rating: 5,
-    isNew: true
-  },
-  { 
-    id: 'Prima-Mechanical', 
-    name: 'قلم رصاص ميكانيكي Prima 0.7 مم', 
-    price: 22, 
-    image: '/assets/Prima-Mechanical.jpg',
-    fallbackEmoji: '✏️',
-    description: 'قلم رصاص ميكانيكي بدقة عالية للكتابة الدقيقة',
-    rating: 4,
-    isPopular: true
-  },
-  { 
-    id: 'Prima-Drawing', 
-    name: 'قلم رصاص Prima للرسم 4B', 
-    price: 13, 
-    image: '/assets/Prima-Drawing.jpg',
-    fallbackEmoji: '🎨',
-    description: 'قلم رصاص ناعم جداً للرسم الفني المتقدم',
-    rating: 5,
-    isBestSeller: true
-  },
-  { 
-    id: 'Prima-Color', 
-    name: 'مجموعة أقلام رصاص ملونة Prima', 
-    price: 95, 
-    image: '/assets/Prima-Color.jpg',
-    fallbackEmoji: '🌈',
-    description: 'أقلام رصاص ملونة بألوان زاهية وجودة عالية - 24 لون',
-    rating: 4,
-    isNew: true
-  },
+
 ];
 
 // مكون خاص لعرض الصور مع fallback
