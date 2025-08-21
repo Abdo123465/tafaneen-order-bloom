@@ -9,65 +9,26 @@ import { Link } from "react-router-dom";
 
 const bedayaPencils = [
   { 
-    id: 'Bedaya-HB', 
+    id: 'Piano-HB-بدايه-neon', 
     name: 'قلم رصاص Bedaya HB', 
     price: 7, 
-    image: '/assets/Bedaya-HB.jpg', 
+    image: '/assets/Piano-HB-بدايه-neon.jpg', 
     fallbackEmoji: '✏️',
     description: 'قلم رصاص عالي الجودة من Bedaya مثالي للاستخدام اليومي',
     rating: 4,
     isPopular: true
   },
   { 
-    id: 'Bedaya-2B', 
+    id: 'قلم-رصاص-Bedaya-Imax-HB', 
     name: 'قلم رصاص Bedaya 2B', 
     price: 9, 
-    image: '/assets/Bedaya-2B.jpg',
+    image: '/assets/قلم-رصاص-Bedaya-Imax-HB.jpg',
     fallbackEmoji: '✏️',
     description: 'قلم رصاص ناعم مثالي للرسم والتظليل',
     rating: 5,
     isBestSeller: true
   },
-  { 
-    id: 'Bedaya-Set', 
-    name: 'مجموعة أقلام رصاص Bedaya متدرجة', 
-    price: 55, 
-    image: '/assets/Bedaya-Set.jpg',
-    fallbackEmoji: '📐',
-    description: 'مجموعة شاملة من أقلام الرصاص بدرجات مختلفة (6B-6H)',
-    rating: 5,
-    isNew: true
-  },
-  { 
-    id: 'Bedaya-Mechanical', 
-    name: 'قلم رصاص ميكانيكي Bedaya 0.7 مم', 
-    price: 18, 
-    image: '/assets/Bedaya-Mechanical.jpg',
-    fallbackEmoji: '✏️',
-    description: 'قلم رصاص ميكانيكي بدقة عالية للكتابة الدقيقة',
-    rating: 4,
-    isPopular: true
-  },
-  { 
-    id: 'Bedaya-Drawing', 
-    name: 'قلم رصاص Bedaya للرسم 4B', 
-    price: 10, 
-    image: '/assets/Bedaya-Drawing.jpg',
-    fallbackEmoji: '🎨',
-    description: 'قلم رصاص ناعم جداً للرسم الفني المتقدم',
-    rating: 5,
-    isBestSeller: true
-  },
-  { 
-    id: 'Bedaya-Color', 
-    name: 'مجموعة أقلام رصاص ملونة Bedaya', 
-    price: 85, 
-    image: '/assets/Bedaya-Color.jpg',
-    fallbackEmoji: '🌈',
-    description: 'أقلام رصاص ملونة بألوان زاهية وجودة عالية - 24 لون',
-    rating: 4,
-    isNew: true
-  },
+
 ];
 
 // مكون خاص لعرض الصور مع fallback
