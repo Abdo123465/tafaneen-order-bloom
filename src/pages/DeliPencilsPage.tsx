@@ -11,7 +11,7 @@ const deliPencils = [
   { 
     id: 'HB-Deli-Neon-U516', 
     name: 'قلم رصاص Deli HB', 
-    price: 8, 
+    price: 7, 
     image: '/assets/HB-Deli-Neon-U516.jpg', 
     fallbackEmoji: '✏️',
     description: 'قلم رصاص عالي الجودة من Deli مثالي للاستخدام اليومي',
@@ -21,7 +21,7 @@ const deliPencils = [
   { 
     id: 'HB-Deli-U20000', 
     name: 'قلم رصاص Deli 2B', 
-    price: 10, 
+    price: 8, 
     image: '/assets/HB-Deli-U20000.jpg',
     fallbackEmoji: '✏️',
     description: 'قلم رصاص ناعم مثالي للرسم والتظليل',
@@ -31,10 +31,10 @@ const deliPencils = [
   { 
     id: 'HB-Deli-U50800', 
     name: 'مجموعة أقلام رصاص Deli متدرجة', 
-    price: 60, 
+    price: 8, 
     image: '/assets/HB-Deli-U50800.jpg',
     fallbackEmoji: '📐',
-    description: 'مجموعة شاملة من أقلام الرصاص بدرجات مختلفة (6B-6H)',
+    description: ' قلم رصاص ناعم مثالي للرسم والتظليل',
     rating: 5,
     isNew: true
   },
