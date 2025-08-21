@@ -18,7 +18,16 @@ const charcoalPencils = [
     rating: 5,
     isBestSeller: true
   },
-
+  { 
+    id: '158-YIGAO', 
+    name: 'قلم فحم أسود ناعم', 
+    price: 13, 
+    image: '/assets/158-YIGAO.jpg', 
+    fallbackEmoji: '⚫',
+    description: 'قلم فحم ناعم مثالي للرسم والتظليل الداكن',
+    rating: 5,
+    isBestSeller: true
+  },
 ];
 
 // مكون خاص لعرض الصور مع fallback
