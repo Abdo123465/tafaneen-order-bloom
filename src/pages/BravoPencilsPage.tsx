@@ -9,65 +9,27 @@ import { Link } from "react-router-dom";
 
 const bravoPencils = [
   { 
-    id: 'Bravo-HB', 
-    name: 'قلم رصاص برافو HB', 
-    price: 7, 
-    image: '/assets/Bravo-HB.jpg', 
+    id: 'Bravo-Dark', 
+    name: ' قلم رصاص برافو دارك ', 
+    price: 9, 
+    image: '/assets/Bravo-Dark.jpg', 
     fallbackEmoji: '✏️',
     description: 'قلم رصاص عالي الجودة من برافو مثالي للاستخدام اليومي',
-    rating: 4,
+    rating: 5,
     isPopular: true
   },
   { 
-    id: 'Bravo-2B', 
-    name: 'قلم رصاص برافو 2B', 
-    price: 9, 
-    image: '/assets/Bravo-2B.jpg',
+    id: 'Bravo-2-HB-Fluoresent', 
+    name: '2HB قلم برافو ', 
+    price: 8, 
+    image: '/assets/Bravo-2-HB-Fluoresent.jpg',
     fallbackEmoji: '✏️',
     description: 'قلم رصاص ناعم مثالي للرسم والتظليل',
     rating: 5,
     isBestSeller: true
   },
-  { 
-    id: 'Bravo-Set', 
-    name: 'مجموعة أقلام رصاص برافو متدرجة', 
-    price: 60, 
-    image: '/assets/Bravo-Set.jpg',
-    fallbackEmoji: '📐',
-    description: 'مجموعة شاملة من أقلام الرصاص بدرجات مختلفة (6B-6H)',
-    rating: 5,
-    isNew: true
-  },
-  { 
-    id: 'Bravo-Mechanical', 
-    name: 'قلم رصاص ميكانيكي برافو 0.7 مم', 
-    price: 20, 
-    image: '/assets/Bravo-Mechanical.jpg',
-    fallbackEmoji: '✏️',
-    description: 'قلم رصاص ميكانيكي بدقة عالية للكتابة الدقيقة',
-    rating: 4,
-    isPopular: true
-  },
-  { 
-    id: 'Bravo-Drawing', 
-    name: 'قلم رصاص برافو للرسم 4B', 
-    price: 12, 
-    image: '/assets/Bravo-Drawing.jpg',
-    fallbackEmoji: '🎨',
-    description: 'قلم رصاص ناعم جداً للرسم الفني المتقدم',
-    rating: 5,
-    isBestSeller: true
-  },
-  { 
-    id: 'Bravo-Color', 
-    name: 'مجموعة أقلام رصاص ملونة برافو', 
-    price: 90, 
-    image: '/assets/Bravo-Color.jpg',
-    fallbackEmoji: '🌈',
-    description: 'أقلام رصاص ملونة بألوان زاهية وجودة عالية - 24 لون',
-    rating: 4,
-    isNew: true
-  },
+
+ 
 ];
 
 // مكون خاص لعرض الصور مع fallback
