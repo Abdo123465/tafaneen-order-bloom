@@ -1,9 +1,8 @@
 // src/pages/SearchPage.tsx
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import { ProductCard } from "@/components/ProductCard";
 import { Input } from "@/components/ui/input";
-import { Search, Filter } from "lucide-react";
+import { Search, Filter, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { 
   DropdownMenu, 
@@ -12,6 +11,9 @@ import {
   DropdownMenuTrigger 
 } from "@/components/ui/dropdown-menu";
 import { Skeleton } from "@/components/ui/skeleton";
+import { Badge } from "@/components/ui/badge";
+import { Card, CardContent } from "@/components/ui/card";
+import { useCart } from "@/contexts/CartContext";
 
 // بيانات وهمية للمنتجات - في التطبيق الحقيقي سيتم جلبها من API
 const mockProducts = [
@@ -24,6 +26,7 @@ const mockProducts = [
     image: "/lovable-uploads/pen1.jpg",
     category: "أقلام",
     inStock: true,
+    rating: 4.5,
   },
   {
     id: 2,
@@ -34,6 +37,7 @@ const mockProducts = [
     image: "/lovable-uploads/notebook1.jpg",
     category: "كراسات",
     inStock: true,
+    rating: 4.2,
   },
   {
     id: 3,
@@ -44,6 +48,7 @@ const mockProducts = [
     image: "/lovable-uploads/pencils1.jpg",
     category: "أدوات فنية",
     inStock: true,
+    rating: 4.7,
   },
   {
     id: 4,
@@ -54,6 +59,7 @@ const mockProducts = [
     image: "/lovable-uploads/stapler1.jpg",
     category: "أدوات مكتبية",
     inStock: false,
+    rating: 4.0,
   },
   {
     id: 5,
@@ -64,6 +70,7 @@ const mockProducts = [
     image: "/lovable-uploads/pen-case1.jpg",
     category: "إكسسوارات",
     inStock: true,
+    rating: 4.8,
   },
   {
     id: 6,
@@ -74,8 +81,82 @@ const mockProducts = [
     image: "/lovable-uploads/eraser1.jpg",
     category: "أدوات مكتبية",
     inStock: true,
+    rating: 3.9,
   },
 ];
+
+// مكون بسيط لعرض المنتج كبديل لـ ProductCard
+function ProductCard({ product }: { product: any }) {
+  const { addToCart } = useCart();
+  
+  return (
+    <Card className="overflow-hidden transition-all duration-200 hover:shadow-md">
+      <div className="relative">
+        <img 
+          src={product.image} 
+          alt={product.name} 
+          className="w-full h-48 object-cover"
+        />
+        {!product.inStock && (
+          <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
+            <Badge variant="destructive">غير متوفر</Badge>
+          </div>
+        )}
+        {product.originalPrice && (
+          <Badge className="absolute top-2 left-2 bg-red-500 hover:bg-red-600">
+            خصم
+          </Badge>
+        )}
+      </div>
+      <CardContent className="p-4">
+        <div className="mb-2">
+          <Badge variant="outline" className="mb-2 text-xs">
+            {product.category}
+          </Badge>
+          <h3 className="font-semibold text-lg mb-1">{product.name}</h3>
+          <p className="text-sm text-muted-foreground mb-3">{product.description}</p>
+        </div>
+        
+        <div className="flex items-center mb-3">
+          <div className="flex items-center">
+            {[...Array(5)].map((_, i) => (
+              <Star 
+                key={i} 
+                className={`h-4 w-4 ${
+                  i < Math.floor(product.rating) 
+                    ? "text-yellow-400 fill-yellow-400" 
+                    : "text-gray-300"
+                }`} 
+              />
+            ))}
+          </div>
+          <span className="text-xs text-muted-foreground mr-2">
+            {product.rating}
+          </span>
+        </div>
+        
+        <div className="flex items-center justify-between mb-3">
+          <div className="flex items-center">
+            <span className="font-bold text-lg">{product.price.toFixed(2)} ج.م</span>
+            {product.originalPrice && (
+              <span className="text-sm text-muted-foreground line-through mr-2">
+                {product.originalPrice.toFixed(2)} ج.م
+              </span>
+            )}
+          </div>
+        </div>
+        
+        <Button 
+          className="w-full btn-tafaneen" 
+          disabled={!product.inStock}
+          onClick={() => addToCart(product)}
+        >
+          {product.inStock ? "أضف إلى السلة" : "غير متوفر"}
+        </Button>
+      </CardContent>
+    </Card>
+  );
+}
 
 export default function SearchPage() {
   const [searchParams] = useSearchParams();
