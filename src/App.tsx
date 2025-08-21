@@ -56,7 +56,8 @@ import XioosongshuPencilsPage from "./pages/XioosongshuPencilsPage";
 import CharcoalPencilsPage from "./pages/CharcoalPencilsPage";
 import AltesPencilsPage from "./pages/AltesPencilsPage";
 import DeliPencilsPage from "./pages/DeliPencilsPage";
-import BedayaPencilsPage from "./pages/BedayaPencilsPage"; // إضافة الاستيراد الجديد
+import BedayaPencilsPage from "./pages/BedayaPencilsPage";
+import DomsPencilsPage from "./pages/DomsPencilsPage"; // إضافة الاستيراد الجديد
 import SearchPage from "./pages/SearchPage";
 
 const queryClient = new QueryClient();
@@ -81,7 +82,8 @@ const App = () => (
               <Route path="/pens/pencils/charcoal" element={<CharcoalPencilsPage />} />
               <Route path="/pens/pencils/altes" element={<AltesPencilsPage />} />
               <Route path="/pens/pencils/deli" element={<DeliPencilsPage />} />
-              <Route path="/pens/pencils/bedaya" element={<BedayaPencilsPage />} /> {/* إضافة المسار الجديد */}
+              <Route path="/pens/pencils/bedaya" element={<BedayaPencilsPage />} />
+              <Route path="/pens/pencils/doms" element={<DomsPencilsPage />} /> {/* إضافة المسار الجديد */}
               <Route path="/pens/ballpoint" element={<BallpointPensPage />} />
               <Route path="/pens/gel" element={<GelPensPage />} />
               <Route path="/pens/roto" element={<RotoPensPage />} />
