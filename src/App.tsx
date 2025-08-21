@@ -54,6 +54,7 @@ import FaberCastellPencilsPage from "./pages/FaberCastellPencilsPage";
 import StarColorPencilsPage from "./pages/StarColorPencilsPage";
 import XioosongshuPencilsPage from "./pages/XioosongshuPencilsPage";
 import CharcoalPencilsPage from "./pages/CharcoalPencilsPage";
+import SearchPage from "./pages/SearchPage"; // إضافة صفحة البحث
 
 const queryClient = new QueryClient();
 
@@ -67,6 +68,7 @@ const App = () => (
           <BrowserRouter>
             <Routes>
               <Route path="/" element={<Index />} />
+              <Route path="/search" element={<SearchPage />} /> {/* إضافة مسار البحث */}
               <Route path="/categories" element={<CategoriesPage />} />
               <Route path="/pens" element={<PensPage />} />
               <Route path="/pens/pencils" element={<PencilsPage />} />
