@@ -7,12 +7,9 @@ import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const mechanicalPencils05 = [
-  { id: 'marker-05-1', name: 'قلم سنون 0.5 مم - برافو', price: 25, image: '🖍️', description: 'قلم سنون مقاس 0.5 مم مع ممحاة' },
-  { id: 'marker-05-2', name: 'قلم سنون 0.5 مم - بريما', price: 30, image: '🖍️', description: 'قلم سنون مقاس 0.5 مم مع قبضة مريحة' },
-  { id: 'marker-05-3', name: 'قلم سنون 0.5 مم - روكسي', price: 35, image: '🖍️', description: 'قلم سنون مقاس 0.5 مم مع تصميم أنيق' },
-  { id: 'marker-05-4', name: 'قلم سنون 0.5 مم - فابر كاستيل', price: 45, image: '🖍️', description: 'قلم سنون مقاس 0.5 مم جودة عالية' },
-  { id: 'marker-05-5', name: 'قلم سنون 0.5 مم - ستار', price: 20, image: '🖍️', description: 'قلم سنون مقاس 0.5 مم اقتصادي' },
-  { id: 'marker-05-6', name: 'مجموعة قلم سنون 0.5 مم - 3 قطع', price: 65, image: '🖍️', description: 'مجموعة قلم سنون مقاس 0.5 مم' },
+  { id: 'marker-05-1', name: 'قلم سنون 0.5 مم - جيدو', price: 30, image: '/assets/marker-05-1.jpg', description: 'قلم سنون مقاس 0.5 مم جيدو ' },
+  { id: 'marker-05-2', name: 'قلم سنون 0.5 مم - جافا', price: 30, image: '/assets/marker-05-2.jpg', description: 'قلم سنون مقاس 0.5 مم  جافا' },
+
 ];
 
 const MechanicalPencils05Page = () => {
@@ -52,8 +49,17 @@ const MechanicalPencils05Page = () => {
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {mechanicalPencils05.map((pencil) => (
             <div key={pencil.id} className="card-product">
-              <div className="bg-muted/50 rounded-xl aspect-square flex items-center justify-center text-6xl mb-4">
-                {pencil.image}
+              <div className="bg-muted/50 rounded-xl aspect-square flex items-center justify-center mb-4">
+                <img 
+                  src={pencil.image} 
+                  alt={pencil.name} 
+                  className="w-full h-full object-contain p-4"
+                  onError={(e) => {
+                    // إذا فشل تحميل الصورة، استخدم الإيموجي كبديل
+                    e.currentTarget.style.display = 'none';
+                    e.currentTarget.parentElement!.innerHTML = '<div class="text-6xl">🖍️</div>';
+                  }}
+                />
               </div>
               <h3 className="font-semibold mb-2">{pencil.name}</h3>
               <p className="text-sm text-muted-foreground mb-3">{pencil.description}</p>
