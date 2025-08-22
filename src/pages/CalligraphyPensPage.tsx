@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 const calligraphyPens = [
   { id: 'calligraphy-1', name: 'قلم خط عربي تقليدي روتو - ازرق', price: 15, image: '/assets/calligraphy-1.jpg', description: 'قلم خط عربي تقليدي للرسم الفني والخط العربي' },
   { id: 'calligraphy-2', name: 'قلم خط عربي تقليدي روتو - اسود', price: 15, image: '/assets/calligraphy-2.jpg', description: 'قلم خط عربي تقليدي للرسم الفني والخط العربي' },
-  { id: 'calligraphy-3', name: 'قلم خط تقليدي روتو - احمر', price: 450, image: '/assets/calligraphy-3.jpg', description: 'قلم خط عربي تقليدي للرسم الفني والخط العربي' },
+  { id: 'calligraphy-3', name: 'قلم خط تقليدي روتو - احمر', price: 15, image: '/assets/calligraphy-3.jpg', description: 'قلم خط عربي تقليدي للرسم الفني والخط العربي' },
 ];
 
 const CalligraphyPensPage = () => {
