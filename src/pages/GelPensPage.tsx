@@ -6,13 +6,64 @@ import { useCart } from "@/contexts/CartContext";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
+// استيراد الصور من مجلد assets
+import gel1Image from '@/assets/gel-1.jpg';
+import gel2Image from '@/assets/pens/gel-2.jpg';
+import gel3Image from '@/assets/pens/gel-3.jpg';
+import gel4Image from '@/assets/pens/gel-4.jpg';
+import gel5Image from '@/assets/pens/gel-5.jpg';
+import gel6Image from '@/assets/pens/gel-6.jpg';
+import bilG388Image from '@/assets/pens/bil-g388.jpg';
+import selectGp760Image from '@/assets/pens/select-gp760.jpg';
+import primaGelImage from '@/assets/pens/prima-gel.jpg';
+import posBlueG518Image from '@/assets/pens/pos-blue-g518.jpg';
+import posRedG518Image from '@/assets/pens/pos-red-g518.jpg';
+import diamondG520Image from '@/assets/pens/diamond-g520.jpg';
+
 const gelPens = [
-  { id: 'gel-1', name: 'قلم جل أزرق ناعم - عبوة 5 قطع', price: 30, image: '🖋️', description: 'أقلام جل ناعمة الكتابة بألوان زاهية' },
-  { id: 'gel-2', name: 'قلم جل أسود فاخر - عبوة 3 قطع', price: 45, image: '🖋️', description: 'أقلام جل فاخرة للتوقيعات والمستندات الرسمية' },
-  { id: 'gel-3', name: 'مجموعة أقلام جل ملونة - 10 ألوان', price: 75, image: '🌈', description: 'مجموعة متنوعة من أقلام الجل الملونة' },
-  { id: 'gel-4', name: 'قلم جل متوهج - فضي - 2 قطعة', price: 25, image: '🖋️', description: 'أقلام جل متوهجة لإضافة لمسة خاصة للكتابة' },
-  { id: 'gel-5', name: 'قلم جل سميك 1.0 مم - أسود', price: 20, image: '🖋️', description: 'أقلام جل بحجم سميك مثالي للكتابة الكبيرة' },
-  { id: 'gel-6', name: 'أقلام جل قابلة للمحو - 4 قطع', price: 40, image: '🖋️', description: 'أقلام جل قابلة للمحو والتصحيح' },
+  { 
+    id: 'gel-1', 
+    name: 'قلم جل أزرق ناعم', 
+    price: 11, 
+    image: gel1Image, 
+    description: 'أقلام جل ناعمة الكتابة بألوان زاهية' 
+  },
+  { 
+    id: 'gel-2', 
+    name: 'قلم جل ازرق فاخر', 
+    price: 13, 
+    image: gel2Image, 
+    description: 'أقلام جل فاخرة للتوقيعات والمستندات الرسمية' 
+  },
+  { 
+    id: 'gel-3', 
+    name: 'قلم جل بريما ازرق فاخر', 
+    price: 9, 
+    image: gel3Image, 
+    description: 'مجموعة متنوعة من أقلام الجل الملونة' 
+  },
+  { 
+    id: 'gel-4', 
+    name: 'قلم جل pos ازرق', 
+    price: 13, 
+    image: gel4Image, 
+    description: 'أقلام جل متوهجة لإضافة لمسة خاصة للكتابة' 
+  },
+  { 
+    id: 'gel-5', 
+    name: 'قلم جل pos ااحمر', 
+    price: 13, 
+    image: gel5Image, 
+    description: 'أقلام جل بحجم سميك مثالي للكتابة الكبيرة' 
+  },
+  { 
+    id: 'gel-6', 
+    name: 'قلم جل دياموند ازرق', 
+    price: 10, 
+    image: gel6Image, 
+    description: 'أقلام جل قابلة للمحو والتصحيح' 
+  },
+
 ];
 
 const GelPensPage = () => {
@@ -22,7 +73,11 @@ const GelPensPage = () => {
     document.title = "أقلام الجل | تفانين";
     const desc = "تسوق أقلام الجل ناعمة الكتابة بألوان متنوعة وجودة عالية من تفانين.";
     let meta = document.querySelector('meta[name="description"]');
-    if (!meta) { meta = document.createElement('meta'); meta.setAttribute('name','description'); document.head.appendChild(meta);} 
+    if (!meta) { 
+      meta = document.createElement('meta'); 
+      meta.setAttribute('name','description'); 
+      document.head.appendChild(meta);
+    } 
     meta.setAttribute('content', desc);
   }, []);
 
@@ -50,8 +105,12 @@ const GelPensPage = () => {
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {gelPens.map((pen) => (
             <div key={pen.id} className="card-product">
-              <div className="bg-muted/50 rounded-xl aspect-square flex items-center justify-center text-6xl mb-4">
-                {pen.image}
+              <div className="bg-muted/50 rounded-xl aspect-square flex items-center justify-center mb-4 overflow-hidden">
+                <img 
+                  src={pen.image} 
+                  alt={pen.name} 
+                  className="w-full h-full object-contain transition-transform duration-300 hover:scale-105"
+                />
               </div>
               <h3 className="font-semibold mb-2">{pen.name}</h3>
               <p className="text-sm text-muted-foreground mb-3">{pen.description}</p>
