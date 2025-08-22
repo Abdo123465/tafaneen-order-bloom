@@ -48,122 +48,110 @@ const BallpointPensPage = () => {
           </p>
         </div>
 
-        {/* Ballpoint Pen Sets Sub-category Card */}
-        <Card className="mb-12 group hover:shadow-elegant transition-all duration-300 hover:-translate-y-1 border-0 overflow-hidden bg-gradient-to-br from-violet-500 to-purple-600 text-white">
-          <Link to="/pens/ballpoint-sets" className="block hover:no-underline">
-            <CardContent className="p-6 flex items-center gap-6">
-              <PenTool className="h-12 w-12 text-white/80 group-hover:scale-110 transition-transform" />
-              <div>
-                <h3 className="text-2xl font-bold mb-1">اكتشف أطقم أقلام الجاف</h3>
-                <p className="text-white/90">
+        {/* Ballpoint Pen Categories Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+          {/* Ballpoint Pen Sets Sub-category Card */}
+          <Card className="group hover:shadow-elegant transition-all duration-300 hover:-translate-y-1 border-0 overflow-hidden bg-gradient-to-br from-violet-500 to-purple-600 text-white">
+            <Link to="/pens/ballpoint-sets" className="block hover:no-underline h-full">
+              <CardContent className="p-6 flex flex-col items-center text-center h-full">
+                <PenTool className="h-12 w-12 text-white/80 group-hover:scale-110 transition-transform mb-4" />
+                <h3 className="text-xl font-bold mb-2">أطقم أقلام الجاف</h3>
+                <p className="text-white/90 text-sm">
                   أطقم أقلام جاف متنوعة وعالية الجودة بأسعار مميزة
                 </p>
-              </div>
-              <ArrowRight className="h-8 w-8 ml-auto text-white/80 group-hover:translate-x-1 transition-transform" />
-            </CardContent>
-          </Link>
-        </Card>
+                <ArrowRight className="h-6 w-6 mt-4 text-white/80 group-hover:translate-x-1 transition-transform" />
+              </CardContent>
+            </Link>
+          </Card>
 
-        {/* Roto Pens Sub-category Card */}
-        <Card className="mb-12 group hover:shadow-elegant transition-all duration-300 hover:-translate-y-1 border-0 overflow-hidden bg-gradient-to-br from-cyan-500 to-cyan-600 text-white">
-          <Link to="/pens/roto" className="block hover:no-underline">
-            <CardContent className="p-6 flex items-center gap-6">
-              <PenTool className="h-12 w-12 text-white/80 group-hover:scale-110 transition-transform" />
-              <div>
-                <h3 className="text-2xl font-bold mb-1">اكتشف أقلام روتو</h3>
-                <p className="text-white/90">
+          {/* Roto Pens Sub-category Card */}
+          <Card className="group hover:shadow-elegant transition-all duration-300 hover:-translate-y-1 border-0 overflow-hidden bg-gradient-to-br from-cyan-500 to-cyan-600 text-white">
+            <Link to="/pens/roto" className="block hover:no-underline h-full">
+              <CardContent className="p-6 flex flex-col items-center text-center h-full">
+                <PenTool className="h-12 w-12 text-white/80 group-hover:scale-110 transition-transform mb-4" />
+                <h3 className="text-xl font-bold mb-2">أقلام روتو</h3>
+                <p className="text-white/90 text-sm">
                   أقلام روتو عالية الجودة للكتابة السلسة والمريحة
                 </p>
-              </div>
-              <ArrowRight className="h-8 w-8 ml-auto text-white/80 group-hover:translate-x-1 transition-transform" />
-            </CardContent>
-          </Link>
-        </Card>
+                <ArrowRight className="h-6 w-6 mt-4 text-white/80 group-hover:translate-x-1 transition-transform" />
+              </CardContent>
+            </Link>
+          </Card>
 
-        {/* Prima Pens Sub-category Card */}
-        <Card className="mb-12 group hover:shadow-elegant transition-all duration-300 hover:-translate-y-1 border-0 overflow-hidden bg-gradient-to-br from-rose-500 to-pink-600 text-white">
-          <Link to="/pens/prima" className="block hover:no-underline">
-            <CardContent className="p-6 flex items-center gap-6">
-              <PenTool className="h-12 w-12 text-white/80 group-hover:scale-110 transition-transform" />
-              <div>
-                <h3 className="text-2xl font-bold mb-1">اكتشف أقلام بريما</h3>
-                <p className="text-white/90">
+          {/* Prima Pens Sub-category Card */}
+          <Card className="group hover:shadow-elegant transition-all duration-300 hover:-translate-y-1 border-0 overflow-hidden bg-gradient-to-br from-rose-500 to-pink-600 text-white">
+            <Link to="/pens/prima" className="block hover:no-underline h-full">
+              <CardContent className="p-6 flex flex-col items-center text-center h-full">
+                <PenTool className="h-12 w-12 text-white/80 group-hover:scale-110 transition-transform mb-4" />
+                <h3 className="text-xl font-bold mb-2">أقلام بريما</h3>
+                <p className="text-white/90 text-sm">
                   أقلام بريما عالية الجودة للكتابة السلسة والمريحة
                 </p>
-              </div>
-              <ArrowRight className="h-8 w-8 ml-auto text-white/80 group-hover:translate-x-1 transition-transform" />
-            </CardContent>
-          </Link>
-        </Card>
+                <ArrowRight className="h-6 w-6 mt-4 text-white/80 group-hover:translate-x-1 transition-transform" />
+              </CardContent>
+            </Link>
+          </Card>
 
-        {/* Roxi Pens Sub-category Card */}
-        <Card className="mb-12 group hover:shadow-elegant transition-all duration-300 hover:-translate-y-1 border-0 overflow-hidden bg-gradient-to-br from-purple-500 to-violet-600 text-white">
-          <Link to="/pens/roxi" className="block hover:no-underline">
-            <CardContent className="p-6 flex items-center gap-6">
-              <PenTool className="h-12 w-12 text-white/80 group-hover:scale-110 transition-transform" />
-              <div>
-                <h3 className="text-2xl font-bold mb-1">اكتشف أقلام روكسي</h3>
-                <p className="text-white/90">
+          {/* Roxi Pens Sub-category Card */}
+          <Card className="group hover:shadow-elegant transition-all duration-300 hover:-translate-y-1 border-0 overflow-hidden bg-gradient-to-br from-purple-500 to-violet-600 text-white">
+            <Link to="/pens/roxi" className="block hover:no-underline h-full">
+              <CardContent className="p-6 flex flex-col items-center text-center h-full">
+                <PenTool className="h-12 w-12 text-white/80 group-hover:scale-110 transition-transform mb-4" />
+                <h3 className="text-xl font-bold mb-2">أقلام روكسي</h3>
+                <p className="text-white/90 text-sm">
                   أقلام روكسي عالية الجودة للكتابة السلسة والمريحة
                 </p>
-              </div>
-              <ArrowRight className="h-8 w-8 ml-auto text-white/80 group-hover:translate-x-1 transition-transform" />
-            </CardContent>
-          </Link>
-        </Card>
+                <ArrowRight className="h-6 w-6 mt-4 text-white/80 group-hover:translate-x-1 transition-transform" />
+              </CardContent>
+            </Link>
+          </Card>
 
-        {/* Pensan Pens Sub-category Card */}
-        <Card className="mb-12 group hover:shadow-elegant transition-all duration-300 hover:-translate-y-1 border-0 overflow-hidden bg-gradient-to-br from-emerald-500 to-teal-600 text-white">
-          <Link to="/pens/pensan" className="block hover:no-underline">
-            <CardContent className="p-6 flex items-center gap-6">
-              <PenTool className="h-12 w-12 text-white/80 group-hover:scale-110 transition-transform" />
-              <div>
-                <h3 className="text-2xl font-bold mb-1">اكتشف أقلام بنسان</h3>
-                <p className="text-white/90">
+          {/* Pensan Pens Sub-category Card */}
+          <Card className="group hover:shadow-elegant transition-all duration-300 hover:-translate-y-1 border-0 overflow-hidden bg-gradient-to-br from-emerald-500 to-teal-600 text-white">
+            <Link to="/pens/pensan" className="block hover:no-underline h-full">
+              <CardContent className="p-6 flex flex-col items-center text-center h-full">
+                <PenTool className="h-12 w-12 text-white/80 group-hover:scale-110 transition-transform mb-4" />
+                <h3 className="text-xl font-bold mb-2">أقلام بنسان</h3>
+                <p className="text-white/90 text-sm">
                   أقلام بنسان عالية الجودة للكتابة السلسة والمريحة
                 </p>
-              </div>
-              <ArrowRight className="h-8 w-8 ml-auto text-white/80 group-hover:translate-x-1 transition-transform" />
-            </CardContent>
-          </Link>
-        </Card>
+                <ArrowRight className="h-6 w-6 mt-4 text-white/80 group-hover:translate-x-1 transition-transform" />
+              </CardContent>
+            </Link>
+          </Card>
 
-        {/* Bravo Pens Sub-category Card */}
-        <Card className="mb-12 group hover:shadow-elegant transition-all duration-300 hover:-translate-y-1 border-0 overflow-hidden bg-gradient-to-br from-orange-500 to-amber-600 text-white">
-          <Link to="/pens/bravo" className="block hover:no-underline">
-            <CardContent className="p-6 flex items-center gap-6">
-              <PenTool className="h-12 w-12 text-white/80 group-hover:scale-110 transition-transform" />
-              <div>
-                <h3 className="text-2xl font-bold mb-1">اكتشف أقلام برافو</h3>
-                <p className="text-white/90">
+          {/* Bravo Pens Sub-category Card */}
+          <Card className="group hover:shadow-elegant transition-all duration-300 hover:-translate-y-1 border-0 overflow-hidden bg-gradient-to-br from-orange-500 to-amber-600 text-white">
+            <Link to="/pens/bravo" className="block hover:no-underline h-full">
+              <CardContent className="p-6 flex flex-col items-center text-center h-full">
+                <PenTool className="h-12 w-12 text-white/80 group-hover:scale-110 transition-transform mb-4" />
+                <h3 className="text-xl font-bold mb-2">أقلام برافو</h3>
+                <p className="text-white/90 text-sm">
                   أقلام برافو عالية الجودة للكتابة السلسة والمريحة
                 </p>
-              </div>
-              <ArrowRight className="h-8 w-8 ml-auto text-white/80 group-hover:translate-x-1 transition-transform" />
-            </CardContent>
-          </Link>
-        </Card>
+                <ArrowRight className="h-6 w-6 mt-4 text-white/80 group-hover:translate-x-1 transition-transform" />
+              </CardContent>
+            </Link>
+          </Card>
 
-        {/* Fransawy Pens Sub-category Card */}
-        <Card className="mb-12 group hover:shadow-elegant transition-all duration-300 hover:-translate-y-1 border-0 overflow-hidden bg-gradient-to-br from-indigo-500 to-blue-600 text-white">
-          <Link to="/pens/fransawy" className="block hover:no-underline">
-            <CardContent className="p-6 flex items-center gap-6">
-              <PenTool className="h-12 w-12 text-white/80 group-hover:scale-110 transition-transform" />
-              <div>
-                <h3 className="text-2xl font-bold mb-1">اكتشف أقلام فرنساوي</h3>
-                <p className="text-white/90">
+          {/* Fransawy Pens Sub-category Card */}
+          <Card className="group hover:shadow-elegant transition-all duration-300 hover:-translate-y-1 border-0 overflow-hidden bg-gradient-to-br from-indigo-500 to-blue-600 text-white">
+            <Link to="/pens/fransawy" className="block hover:no-underline h-full">
+              <CardContent className="p-6 flex flex-col items-center text-center h-full">
+                <PenTool className="h-12 w-12 text-white/80 group-hover:scale-110 transition-transform mb-4" />
+                <h3 className="text-xl font-bold mb-2">أقلام فرنساوي</h3>
+                <p className="text-white/90 text-sm">
                   أقلام فرنساوي عالية الجودة للكتابة الفاخرة والمريحة
                 </p>
-              </div>
-              <ArrowRight className="h-8 w-8 ml-auto text-white/80 group-hover:translate-x-1 transition-transform" />
-            </CardContent>
-          </Link>
-        </Card>
+                <ArrowRight className="h-6 w-6 mt-4 text-white/80 group-hover:translate-x-1 transition-transform" />
+              </CardContent>
+            </Link>
+          </Card>
+        </div>
 
         <h2 className="text-2xl lg:text-3xl font-bold mb-8 text-center border-b pb-4">
           جميع أقلام الجاف
         </h2>
-
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {ballpointPens.map((pen) => (
             <div key={pen.id} className="card-product">
