@@ -6,13 +6,37 @@ import { useCart } from "@/contexts/CartContext";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
+// استيراد الصور من مجلد assets
+import fountain1Image from '@/assets/fountain-1.jpg';
+import fountain2Image from '@/assets/fountain-2.jpg';
+import fountain3Image from '@/assets/fountain-3.jpg';
+import fountain4Image from '@/assets/fountain-4.jpg';
+import fountain5Image from '@/assets/fountain-5.jpg';
+
+
 const fountainPens = [
-  { id: 'fountain-1', name: 'قلم حبر سائل كلاسيكي - أسود', price: 120, image: '🖋️', description: 'قلم حبر سائل كلاسيكي للتوقيعات الرسمية' },
-  { id: 'fountain-2', name: 'قلم حبر سائل ملون - أزرق', price: 95, image: '🖋️', description: 'قلم حبر سائل ملون للكتابة الأنيقة' },
-  { id: 'fountain-3', name: 'مجموعة أقلام حبر سائل - 3 ألوان', price: 250, image: '🖋️', description: 'مجموعة متنوعة من أقلام الحبر السائل' },
-  { id: 'fountain-4', name: 'قلم حبر سائل فاخر معدني - ذهبي', price: 350, image: '🖋️', description: 'قلم حبر سائل فاخر بتصميم معدني أنيق' },
-  { id: 'fountain-5', name: 'أقلام حبر سائل قابلة لإعادة التعبئة', price: 75, image: '🖋️', description: 'أقلام حبر سائل يمكن إعادة تعبئتها بالحبر' },
-  { id: 'fountain-6', name: 'قلم حبر سائل للخط العربي - أسود', price: 180, image: '🖋️', description: 'قلم حبر سائل مصمم خصيصاً لكتابة الخط العربي' },
+  { 
+    id: 'fountain-1', 
+    name: 'قلم حبر سائل كلاسيكي - ازرق', 
+    price: 25, 
+    image: fountain1Image, 
+    description: 'قلم حبر سائل كلاسيكي للتوقيعات الرسمية' 
+  },
+  { 
+    id: 'fountain-2', 
+    name: 'قلم حبر سائل ملون - احمر', 
+    price: 25, 
+    image: fountain2Image, 
+    description: 'قلم حبر سائل ملون للكتابة الأنيقة' 
+  },
+  { 
+    id: 'fountain-3', 
+    name: 'مجموعة أقلام حبر سائل -  بور ازرق', 
+    price: 12, 
+    image: fountain3Image, 
+    description: 'مجموعة متنوعة من أقلام الحبر السائل' 
+  },
+
 ];
 
 const FountainPensPage = () => {
@@ -22,7 +46,11 @@ const FountainPensPage = () => {
     document.title = "أقلام الحبر | تفانين";
     const desc = "تسوق أقلام الحبر السائل الكلاسيكية والأقلام التقليدية للخط العربي من تفانين.";
     let meta = document.querySelector('meta[name="description"]');
-    if (!meta) { meta = document.createElement('meta'); meta.setAttribute('name','description'); document.head.appendChild(meta);} 
+    if (!meta) { 
+      meta = document.createElement('meta'); 
+      meta.setAttribute('name','description'); 
+      document.head.appendChild(meta);
+    } 
     meta.setAttribute('content', desc);
   }, []);
 
@@ -50,8 +78,12 @@ const FountainPensPage = () => {
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {fountainPens.map((pen) => (
             <div key={pen.id} className="card-product">
-              <div className="bg-muted/50 rounded-xl aspect-square flex items-center justify-center text-6xl mb-4">
-                {pen.image}
+              <div className="bg-muted/50 rounded-xl aspect-square flex items-center justify-center mb-4 overflow-hidden">
+                <img 
+                  src={pen.image} 
+                  alt={pen.name} 
+                  className="w-full h-full object-contain transition-transform duration-300 hover:scale-105"
+                />
               </div>
               <h3 className="font-semibold mb-2">{pen.name}</h3>
               <p className="text-sm text-muted-foreground mb-3">{pen.description}</p>
