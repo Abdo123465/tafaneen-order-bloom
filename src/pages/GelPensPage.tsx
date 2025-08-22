@@ -2,70 +2,41 @@ import { useEffect } from "react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { useCart } from "@/contexts/CartContext";
+import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
-// استيراد الصور من مجلد assets
-import gel1Image from '@/assets/gel-1.jpg';
-import gel2Image from '@/assets/gel-2.jpg';
-import gel3Image from '@/assets/gel-3.jpg';
-import gel4Image from '@/assets/gel-4.jpg';
-import gel5Image from '@/assets/gel-5.jpg';
-import gel6Image from '@/assets/gel-6.jpg';
-
-const gelPens = [
-  { 
-    id: 'gel-1', 
-    name: 'قلم جل أزرق ناعم', 
-    price: 11, 
-    image: gel1Image, 
-    description: 'أقلام جل ناعمة الكتابة بألوان زاهية' 
+const gelPenCategories = [
+  {
+    id: 1,
+    name: "أقلام جل ملونة",
+    description: "أقلام جل ملونة للكتابة والإبداع",
+    image: "🖊️",
+    route: "/pens/gel/colored",
+    count: "35+ منتج"
   },
-  { 
-    id: 'gel-2', 
-    name: 'قلم جل ازرق فاخر', 
-    price: 13, 
-    image: gel2Image, 
-    description: 'أقلام جل فاخرة للتوقيعات والمستندات الرسمية' 
+  {
+    id: 2,
+    name: "أقلام جل متوهجة",
+    description: "أقلام جل متوهجة للكتابة في الظلام",
+    image: "✨",
+    route: "/pens/gel/glitter",
+    count: "20+ منتج"
   },
-  { 
-    id: 'gel-3', 
-    name: 'قلم جل بريما ازرق فاخر', 
-    price: 9, 
-    image: gel3Image, 
-    description: 'مجموعة متنوعة من أقلام الجل الملونة' 
-  },
-  { 
-    id: 'gel-4', 
-    name: 'قلم جل pos ازرق', 
-    price: 13, 
-    image: gel4Image, 
-    description: 'أقلام جل متوهجة لإضافة لمسة خاصة للكتابة' 
-  },
-  { 
-    id: 'gel-5', 
-    name: 'قلم جل pos ااحمر', 
-    price: 13, 
-    image: gel5Image, 
-    description: 'أقلام جل بحجم سميك مثالي للكتابة الكبيرة' 
-  },
-  { 
-    id: 'gel-6', 
-    name: 'قلم جل دياموند ازرق', 
-    price: 10, 
-    image: gel6Image, 
-    description: 'أقلام جل قابلة للمحو والتصحيح' 
-  },
-
+  {
+    id: 3,
+    name: "أقلام جل قابلة للمحو",
+    description: "أقلام جل قابلة للمحو للتصحيح السهل",
+    image: "🔄",
+    route: "/pens/gel/erasable",
+    count: "15+ منتج"
+  }
 ];
 
-const GelPensPage = () => {
-  const { addItem } = useCart();
-
+const GelPensCategoryPage = () => {
   useEffect(() => {
     document.title = "أقلام الجل | تفانين";
-    const desc = "تسوق أقلام الجل ناعمة الكتابة بألوان متنوعة وجودة عالية من تفانين.";
+    const desc = "تسوق أقلام الجل بأنواعها المختلفة من تفانين.";
     let meta = document.querySelector('meta[name="description"]');
     if (!meta) { 
       meta = document.createElement('meta'); 
@@ -87,40 +58,73 @@ const GelPensPage = () => {
           <ArrowRight className="h-4 w-4" />
           <span className="text-foreground">أقلام الجل</span>
         </nav>
-
+        
         <div className="text-center mb-12">
-          <div className="text-6xl mb-4">🖋️</div>
+          <div className="text-6xl mb-4">🖊️</div>
           <h1 className="text-3xl lg:text-4xl font-bold mb-4">أقلام الجل</h1>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
             أقلام جل ناعمة الكتابة بألوان متنوعة وجودة عالية لتجربة كتابة ممتعة
           </p>
-        </div>
-
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {gelPens.map((pen) => (
-            <div key={pen.id} className="card-product">
-              <div className="bg-muted/50 rounded-xl aspect-square flex items-center justify-center mb-4 overflow-hidden">
-                <img 
-                  src={pen.image} 
-                  alt={pen.name} 
-                  className="w-full h-full object-contain transition-transform duration-300 hover:scale-105"
-                />
-              </div>
-              <h3 className="font-semibold mb-2">{pen.name}</h3>
-              <p className="text-sm text-muted-foreground mb-3">{pen.description}</p>
-              <div className="flex items-center justify-between">
-                <span className="text-primary font-bold">{pen.price} ج.م</span>
-                <Button 
-                  className="btn-tafaneen"
-                  onClick={() => addItem({ id: pen.id, name: pen.name, price: pen.price, image: pen.image })}
-                >
-                  إضافة للسلة
-                </Button>
-              </div>
+          
+          {/* معلومات فابر كاستل */}
+          <div className="bg-purple-50 rounded-xl p-6 max-w-3xl mx-auto mb-8">
+            <div className="flex items-center justify-center mb-4">
+              <span className="text-4xl mr-3">🇩🇪</span>
+              <h2 className="text-2xl font-bold">فابر كاستل</h2>
             </div>
+            <p className="text-lg mb-4">جودة ألمانية أصيلة منذ 1761 - اختيار المحترفين والفنانين حول العالم</p>
+            <div className="flex flex-wrap justify-center gap-4 mb-4">
+              <span className="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">علامة تجارية معتمدة</span>
+              <span className="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">🇩🇪 صناعة ألمانية</span>
+              <span className="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">جودة وتقنية متقدمة</span>
+            </div>
+            <div className="flex flex-wrap justify-center gap-4">
+              <span className="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">🎨 للمحترفين</span>
+              <span className="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">اختيار الفنانين والمصممين</span>
+              <span className="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">✅ ضمان الجودة</span>
+            </div>
+            <p className="mt-4 text-muted-foreground">
+              فابر كاستل هي أقدم شركة مصنعة للأقلام في العالم، تأسست عام 1761 في ألمانيا. 
+              تُعرف بجودتها العالية وابتكاراتها المستمرة في مجال أدوات الكتابة والرسم. 
+              منتجات فابر كاستل هي الخيار الأول للفنانين والمصممين المحترفين حول العالم.
+            </p>
+            <div className="mt-4 font-bold text-purple-800">
+              260+ عام من الخبرة | جودة عالمية معتمدة
+            </div>
+          </div>
+        </div>
+        
+        <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {gelPenCategories.map((category) => (
+            <Card key={category.id} className="group hover:shadow-elegant transition-all duration-300 hover:-translate-y-1 border-0 overflow-hidden">
+              <CardContent className="p-0">
+                <div className="bg-gradient-to-br from-purple-500 to-pink-500 p-6 text-white relative overflow-hidden">
+                  <div className="absolute top-0 right-0 w-20 h-20 bg-white/10 rounded-full -mr-10 -mt-10"></div>
+                  <div className="relative z-10 text-center">
+                    <div className="text-4xl mb-3">{category.image}</div>
+                    <div className="text-sm opacity-90 mb-1">{category.count}</div>
+                  </div>
+                </div>
+                
+                <div className="p-4">
+                  <h3 className="text-lg font-bold mb-2 text-center">{category.name}</h3>
+                  <p className="text-muted-foreground text-sm mb-4 leading-relaxed text-center">
+                    {category.description}
+                  </p>
+                  
+                  <Button 
+                    asChild
+                    variant="outline" 
+                    className="w-full text-purple-600 border-current hover:bg-current hover:text-white transition-colors"
+                  >
+                    <Link to={category.route}>تصفح المنتجات</Link>
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
           ))}
         </div>
-
+        
         {/* Back to categories */}
         <div className="text-center mt-12">
           <Button asChild variant="outline" className="text-lg px-8 py-4 h-auto">
@@ -133,4 +137,4 @@ const GelPensPage = () => {
   );
 };
 
-export default GelPensPage;
+export default GelPensCategoryPage;
