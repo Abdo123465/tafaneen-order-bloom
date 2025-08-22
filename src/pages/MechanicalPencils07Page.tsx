@@ -19,7 +19,7 @@ const MechanicalPencils07Page = () => {
   const { addItem } = useCart();
 
   useEffect(() => {
-    document.title = "أقلام رصاص ميكانيكية 0.7 مم | تفانين";
+    document.title = "أقلام سنون 0.7 مم | تفانين";
     const desc = "تسوق أقلام رصاص ميكانيكية مقاس 0.7 مم من أفضل العلامات التجارية من تفانين.";
     let meta = document.querySelector('meta[name="description"]');
     if (!meta) { meta = document.createElement('meta'); meta.setAttribute('name','description'); document.head.appendChild(meta);} 
