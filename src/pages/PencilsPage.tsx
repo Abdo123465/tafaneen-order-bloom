@@ -1,4 +1,3 @@
-// src/pages/PencilsPage.tsx
 import { useEffect } from "react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -53,186 +52,166 @@ const PencilsPage = () => {
           </p>
         </div>
 
-        {/* Faber Castell Pencils Sub-category Card */}
-        <Card className="mb-12 group hover:shadow-elegant transition-all duration-300 hover:-translate-y-1 border-0 overflow-hidden bg-gradient-to-br from-green-500 to-emerald-600 text-white">
-          <Link to="/pens/pencils/faber-castell" className="block hover:no-underline">
-            <CardContent className="p-6 flex items-center gap-6">
-              <div className="text-5xl">⭐</div>
-              <div>
-                <h3 className="text-2xl font-bold mb-1">أقلام فابر كاستل</h3>
-                <p className="text-white/90">
+        {/* Pencils Categories Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+          {/* Faber Castell Pencils Sub-category Card */}
+          <Card className="group hover:shadow-elegant transition-all duration-300 hover:-translate-y-1 border-0 overflow-hidden bg-gradient-to-br from-green-500 to-emerald-600 text-white">
+            <Link to="/pens/pencils/faber-castell" className="block hover:no-underline h-full">
+              <CardContent className="p-6 flex flex-col items-center text-center h-full">
+                <div className="text-5xl mb-4">⭐</div>
+                <h3 className="text-xl font-bold mb-2">أقلام فابر كاستل</h3>
+                <p className="text-white/90 text-sm">
                   أقلام رصاص فابر كاستل الألمانية عالية الجودة
                 </p>
-              </div>
-              <ArrowRight className="h-8 w-8 ml-auto text-white/80 group-hover:translate-x-1 transition-transform" />
-            </CardContent>
-          </Link>
-        </Card>
+                <ArrowRight className="h-6 w-6 mt-4 text-white/80 group-hover:translate-x-1 transition-transform" />
+              </CardContent>
+            </Link>
+          </Card>
 
-        {/* Xioosongshu Pencils Sub-category Card */}
-        <Card className="mb-12 group hover:shadow-elegant transition-all duration-300 hover:-translate-y-1 border-0 overflow-hidden bg-gradient-to-br from-blue-500 to-cyan-600 text-white">
-          <Link to="/pens/pencils/xioosongshu" className="block hover:no-underline">
-            <CardContent className="p-6 flex items-center gap-6">
-              <div className="text-5xl">✏️</div>
-              <div>
-                <h3 className="text-2xl font-bold mb-1">أقلام Xioosongshu</h3>
-                <p className="text-white/90">
+          {/* Xioosongshu Pencils Sub-category Card */}
+          <Card className="group hover:shadow-elegant transition-all duration-300 hover:-translate-y-1 border-0 overflow-hidden bg-gradient-to-br from-blue-500 to-cyan-600 text-white">
+            <Link to="/pens/pencils/xioosongshu" className="block hover:no-underline h-full">
+              <CardContent className="p-6 flex flex-col items-center text-center h-full">
+                <div className="text-5xl mb-4">✏️</div>
+                <h3 className="text-xl font-bold mb-2">أقلام Xioosongshu</h3>
+                <p className="text-white/90 text-sm">
                   أقلام رصاص Xioosongshu عالية الجودة بأسعار مناسبة
                 </p>
-              </div>
-              <ArrowRight className="h-8 w-8 ml-auto text-white/80 group-hover:translate-x-1 transition-transform" />
-            </CardContent>
-          </Link>
-        </Card>
+                <ArrowRight className="h-6 w-6 mt-4 text-white/80 group-hover:translate-x-1 transition-transform" />
+              </CardContent>
+            </Link>
+          </Card>
 
-        {/* Star Color Pencils Sub-category Card */}
-        <Card className="mb-12 group hover:shadow-elegant transition-all duration-300 hover:-translate-y-1 border-0 overflow-hidden bg-gradient-to-br from-purple-500 to-pink-600 text-white">
-          <Link to="/pens/pencils/star-color" className="block hover:no-underline">
-            <CardContent className="p-6 flex items-center gap-6">
-              <div className="text-5xl">⭐</div>
-              <div>
-                <h3 className="text-2xl font-bold mb-1">أقلام ستار كولور</h3>
-                <p className="text-white/90">
+          {/* Star Color Pencils Sub-category Card */}
+          <Card className="group hover:shadow-elegant transition-all duration-300 hover:-translate-y-1 border-0 overflow-hidden bg-gradient-to-br from-purple-500 to-pink-600 text-white">
+            <Link to="/pens/pencils/star-color" className="block hover:no-underline h-full">
+              <CardContent className="p-6 flex flex-col items-center text-center h-full">
+                <div className="text-5xl mb-4">⭐</div>
+                <h3 className="text-xl font-bold mb-2">أقلام ستار كولور</h3>
+                <p className="text-white/90 text-sm">
                   أقلام رصاص ستار كولور عالية الجودة بأسعار مناسبة
                 </p>
-              </div>
-              <ArrowRight className="h-8 w-8 ml-auto text-white/80 group-hover:translate-x-1 transition-transform" />
-            </CardContent>
-          </Link>
-        </Card>
+                <ArrowRight className="h-6 w-6 mt-4 text-white/80 group-hover:translate-x-1 transition-transform" />
+              </CardContent>
+            </Link>
+          </Card>
 
-        {/* Charcoal Pencils Sub-category Card */}
-        <Card className="mb-12 group hover:shadow-elegant transition-all duration-300 hover:-translate-y-1 border-0 overflow-hidden bg-gradient-to-br from-gray-700 to-gray-900 text-white">
-          <Link to="/pens/pencils/charcoal" className="block hover:no-underline">
-            <CardContent className="p-6 flex items-center gap-6">
-              <div className="text-5xl">⚫</div>
-              <div>
-                <h3 className="text-2xl font-bold mb-1">أقلام الفحم</h3>
-                <p className="text-white/90">
+          {/* Charcoal Pencils Sub-category Card */}
+          <Card className="group hover:shadow-elegant transition-all duration-300 hover:-translate-y-1 border-0 overflow-hidden bg-gradient-to-br from-gray-700 to-gray-900 text-white">
+            <Link to="/pens/pencils/charcoal" className="block hover:no-underline h-full">
+              <CardContent className="p-6 flex flex-col items-center text-center h-full">
+                <div className="text-5xl mb-4">⚫</div>
+                <h3 className="text-xl font-bold mb-2">أقلام الفحم</h3>
+                <p className="text-white/90 text-sm">
                   أقلام فحم احترافية للرسم الفني والتظليل
                 </p>
-              </div>
-              <ArrowRight className="h-8 w-8 ml-auto text-white/80 group-hover:translate-x-1 transition-transform" />
-            </CardContent>
-          </Link>
-        </Card>
+                <ArrowRight className="h-6 w-6 mt-4 text-white/80 group-hover:translate-x-1 transition-transform" />
+              </CardContent>
+            </Link>
+          </Card>
 
-        {/* Altes Pencils Sub-category Card */}
-        <Card className="mb-12 group hover:shadow-elegant transition-all duration-300 hover:-translate-y-1 border-0 overflow-hidden bg-gradient-to-br from-blue-600 to-indigo-600 text-white">
-          <Link to="/pens/pencils/altes" className="block hover:no-underline">
-            <CardContent className="p-6 flex items-center gap-6">
-              <div className="text-5xl">🇩🇪</div>
-              <div>
-                <h3 className="text-2xl font-bold mb-1">أقلام Altes</h3>
-                <p className="text-white/90">
+          {/* Altes Pencils Sub-category Card */}
+          <Card className="group hover:shadow-elegant transition-all duration-300 hover:-translate-y-1 border-0 overflow-hidden bg-gradient-to-br from-blue-600 to-indigo-600 text-white">
+            <Link to="/pens/pencils/altes" className="block hover:no-underline h-full">
+              <CardContent className="p-6 flex flex-col items-center text-center h-full">
+                <div className="text-5xl mb-4">🇩🇪</div>
+                <h3 className="text-xl font-bold mb-2">أقلام Altes</h3>
+                <p className="text-white/90 text-sm">
                   أقلام رصاص ألمانية عالية الجودة للفنانين والمحترفين
                 </p>
-              </div>
-              <ArrowRight className="h-8 w-8 ml-auto text-white/80 group-hover:translate-x-1 transition-transform" />
-            </CardContent>
-          </Link>
-        </Card>
+                <ArrowRight className="h-6 w-6 mt-4 text-white/80 group-hover:translate-x-1 transition-transform" />
+              </CardContent>
+            </Link>
+          </Card>
 
-        {/* Deli Pencils Sub-category Card */}
-        <Card className="mb-12 group hover:shadow-elegant transition-all duration-300 hover:-translate-y-1 border-0 overflow-hidden bg-gradient-to-br from-red-500 to-orange-600 text-white">
-          <Link to="/pens/pencils/deli" className="block hover:no-underline">
-            <CardContent className="p-6 flex items-center gap-6">
-              <div className="text-5xl">🇨🇳</div>
-              <div>
-                <h3 className="text-2xl font-bold mb-1">أقلام Deli</h3>
-                <p className="text-white/90">
+          {/* Deli Pencils Sub-category Card */}
+          <Card className="group hover:shadow-elegant transition-all duration-300 hover:-translate-y-1 border-0 overflow-hidden bg-gradient-to-br from-red-500 to-orange-600 text-white">
+            <Link to="/pens/pencils/deli" className="block hover:no-underline h-full">
+              <CardContent className="p-6 flex flex-col items-center text-center h-full">
+                <div className="text-5xl mb-4">🇨🇳</div>
+                <h3 className="text-xl font-bold mb-2">أقلام Deli</h3>
+                <p className="text-white/90 text-sm">
                   أقلام رصاص Deli الصينية عالية الجودة بأسعار مناسبة
                 </p>
-              </div>
-              <ArrowRight className="h-8 w-8 ml-auto text-white/80 group-hover:translate-x-1 transition-transform" />
-            </CardContent>
-          </Link>
-        </Card>
+                <ArrowRight className="h-6 w-6 mt-4 text-white/80 group-hover:translate-x-1 transition-transform" />
+              </CardContent>
+            </Link>
+          </Card>
 
-        {/* Bedaya Pencils Sub-category Card */}
-        <Card className="mb-12 group hover:shadow-elegant transition-all duration-300 hover:-translate-y-1 border-0 overflow-hidden bg-gradient-to-br from-green-600 to-teal-600 text-white">
-          <Link to="/pens/pencils/bedaya" className="block hover:no-underline">
-            <CardContent className="p-6 flex items-center gap-6">
-              <div className="text-5xl">🇪🇬</div>
-              <div>
-                <h3 className="text-2xl font-bold mb-1">أقلام Bedaya</h3>
-                <p className="text-white/90">
+          {/* Bedaya Pencils Sub-category Card */}
+          <Card className="group hover:shadow-elegant transition-all duration-300 hover:-translate-y-1 border-0 overflow-hidden bg-gradient-to-br from-green-600 to-teal-600 text-white">
+            <Link to="/pens/pencils/bedaya" className="block hover:no-underline h-full">
+              <CardContent className="p-6 flex flex-col items-center text-center h-full">
+                <div className="text-5xl mb-4">🇪🇬</div>
+                <h3 className="text-xl font-bold mb-2">أقلام Bedaya</h3>
+                <p className="text-white/90 text-sm">
                   أقلام رصاص Bedaya المصرية عالية الجودة للمدارس
                 </p>
-              </div>
-              <ArrowRight className="h-8 w-8 ml-auto text-white/80 group-hover:translate-x-1 transition-transform" />
-            </CardContent>
-          </Link>
-        </Card>
+                <ArrowRight className="h-6 w-6 mt-4 text-white/80 group-hover:translate-x-1 transition-transform" />
+              </CardContent>
+            </Link>
+          </Card>
 
-        {/* Doms Pencils Sub-category Card */}
-        <Card className="mb-12 group hover:shadow-elegant transition-all duration-300 hover:-translate-y-1 border-0 overflow-hidden bg-gradient-to-br from-purple-600 to-pink-600 text-white">
-          <Link to="/pens/pencils/doms" className="block hover:no-underline">
-            <CardContent className="p-6 flex items-center gap-6">
-              <div className="text-5xl">🇮🇳</div>
-              <div>
-                <h3 className="text-2xl font-bold mb-1">أقلام Doms</h3>
-                <p className="text-white/90">
+          {/* Doms Pencils Sub-category Card */}
+          <Card className="group hover:shadow-elegant transition-all duration-300 hover:-translate-y-1 border-0 overflow-hidden bg-gradient-to-br from-purple-600 to-pink-600 text-white">
+            <Link to="/pens/pencils/doms" className="block hover:no-underline h-full">
+              <CardContent className="p-6 flex flex-col items-center text-center h-full">
+                <div className="text-5xl mb-4">🇮🇳</div>
+                <h3 className="text-xl font-bold mb-2">أقلام Doms</h3>
+                <p className="text-white/90 text-sm">
                   أقلام رصاص Doms الهندية عالية الجودة بأسعار مناسبة
                 </p>
-              </div>
-              <ArrowRight className="h-8 w-8 ml-auto text-white/80 group-hover:translate-x-1 transition-transform" />
-            </CardContent>
-          </Link>
-        </Card>
+                <ArrowRight className="h-6 w-6 mt-4 text-white/80 group-hover:translate-x-1 transition-transform" />
+              </CardContent>
+            </Link>
+          </Card>
 
-        {/* Smart Keep Pencils Sub-category Card */}
-        <Card className="mb-12 group hover:shadow-elegant transition-all duration-300 hover:-translate-y-1 border-0 overflow-hidden bg-gradient-to-br from-cyan-600 to-blue-600 text-white">
-          <Link to="/pens/pencils/smart-keep" className="block hover:no-underline">
-            <CardContent className="p-6 flex items-center gap-6">
-              <div className="text-5xl">🇹🇷</div>
-              <div>
-                <h3 className="text-2xl font-bold mb-1">أقلام Smart Keep</h3>
-                <p className="text-white/90">
+          {/* Smart Keep Pencils Sub-category Card */}
+          <Card className="group hover:shadow-elegant transition-all duration-300 hover:-translate-y-1 border-0 overflow-hidden bg-gradient-to-br from-cyan-600 to-blue-600 text-white">
+            <Link to="/pens/pencils/smart-keep" className="block hover:no-underline h-full">
+              <CardContent className="p-6 flex flex-col items-center text-center h-full">
+                <div className="text-5xl mb-4">🇹🇷</div>
+                <h3 className="text-xl font-bold mb-2">أقلام Smart Keep</h3>
+                <p className="text-white/90 text-sm">
                   أقلام رصاص Smart Keep التركية عالية الجودة بأسعار مناسبة
                 </p>
-              </div>
-              <ArrowRight className="h-8 w-8 ml-auto text-white/80 group-hover:translate-x-1 transition-transform" />
-            </CardContent>
-          </Link>
-        </Card>
+                <ArrowRight className="h-6 w-6 mt-4 text-white/80 group-hover:translate-x-1 transition-transform" />
+              </CardContent>
+            </Link>
+          </Card>
 
-        {/* Prima Pencils Sub-category Card */}
-        <Card className="mb-12 group hover:shadow-elegant transition-all duration-300 hover:-translate-y-1 border-0 overflow-hidden bg-gradient-to-br from-red-600 to-pink-600 text-white">
-          <Link to="/pens/pencils/prima" className="block hover:no-underline">
-            <CardContent className="p-6 flex items-center gap-6">
-              <div className="text-5xl">🇮🇹</div>
-              <div>
-                <h3 className="text-2xl font-bold mb-1">أقلام Prima</h3>
-                <p className="text-white/90">
+          {/* Prima Pencils Sub-category Card */}
+          <Card className="group hover:shadow-elegant transition-all duration-300 hover:-translate-y-1 border-0 overflow-hidden bg-gradient-to-br from-red-600 to-pink-600 text-white">
+            <Link to="/pens/pencils/prima" className="block hover:no-underline h-full">
+              <CardContent className="p-6 flex flex-col items-center text-center h-full">
+                <div className="text-5xl mb-4">🇮🇹</div>
+                <h3 className="text-xl font-bold mb-2">أقلام Prima</h3>
+                <p className="text-white/90 text-sm">
                   أقلام رصاص Prima الإيطالية الفاخرة عالية الجودة
                 </p>
-              </div>
-              <ArrowRight className="h-8 w-8 ml-auto text-white/80 group-hover:translate-x-1 transition-transform" />
-            </CardContent>
-          </Link>
-        </Card>
+                <ArrowRight className="h-6 w-6 mt-4 text-white/80 group-hover:translate-x-1 transition-transform" />
+              </CardContent>
+            </Link>
+          </Card>
 
-        {/* Bravo Pencils Sub-category Card */}
-        <Card className="mb-12 group hover:shadow-elegant transition-all duration-300 hover:-translate-y-1 border-0 overflow-hidden bg-gradient-to-br from-yellow-600 to-orange-600 text-white">
-          <Link to="/pens/pencils/bravo" className="block hover:no-underline">
-            <CardContent className="p-6 flex items-center gap-6">
-              <div className="text-5xl">🇧🇷</div>
-              <div>
-                <h3 className="text-2xl font-bold mb-1">أقلام برافو</h3>
-                <p className="text-white/90">
+          {/* Bravo Pencils Sub-category Card */}
+          <Card className="group hover:shadow-elegant transition-all duration-300 hover:-translate-y-1 border-0 overflow-hidden bg-gradient-to-br from-yellow-600 to-orange-600 text-white">
+            <Link to="/pens/pencils/bravo" className="block hover:no-underline h-full">
+              <CardContent className="p-6 flex flex-col items-center text-center h-full">
+                <div className="text-5xl mb-4">🇧🇷</div>
+                <h3 className="text-xl font-bold mb-2">أقلام برافو</h3>
+                <p className="text-white/90 text-sm">
                   أقلام رصاص برافو البرازيلية عالية الجودة بأسعار مناسبة
                 </p>
-              </div>
-              <ArrowRight className="h-8 w-8 ml-auto text-white/80 group-hover:translate-x-1 transition-transform" />
-            </CardContent>
-          </Link>
-        </Card>
+                <ArrowRight className="h-6 w-6 mt-4 text-white/80 group-hover:translate-x-1 transition-transform" />
+              </CardContent>
+            </Link>
+          </Card>
+        </div>
 
         <h2 className="text-2xl lg:text-3xl font-bold mb-8 text-center border-b pb-4">
           جميع أقلام الرصاص
         </h2>
-
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {pencils.map((pencil) => (
             <div key={pencil.id} className="card-product">
