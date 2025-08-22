@@ -35,7 +35,7 @@ const mechanicalPencilCategories = [
 
 const MechanicalPencilsCategoryPage = () => {
   useEffect(() => {
-    document.title = "أقلام الرصاص الميكانيكية | تفانين";
+    document.title = "أقلام سنون | تفانين";
     const desc = "تسوق أقلام الرصاص الميكانيكية بمقاسات مختلفة من تفانين.";
     let meta = document.querySelector('meta[name="description"]');
     if (!meta) { meta = document.createElement('meta'); meta.setAttribute('name','description'); document.head.appendChild(meta);} 
