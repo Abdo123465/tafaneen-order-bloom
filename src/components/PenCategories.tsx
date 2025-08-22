@@ -63,8 +63,8 @@ export function PenCategories() {
     },
     {
       id: 6,
-      name: "أقلام الرصاص الميكانيكية",
-      description: "أقلام رصاص ميكانيكية بمقاسات مختلفة 0.5، 0.7، 0.9 مم",
+      name: "قلم سنون",
+      description: "قلم سنون بمقاسات مختلفة 0.5، 0.7، 0.9 مم للكتابة الدقيقة",
       icon: Highlighter,
       color: "bg-gradient-to-br from-yellow-500 to-orange-500",
       textColor: "text-yellow-600",
