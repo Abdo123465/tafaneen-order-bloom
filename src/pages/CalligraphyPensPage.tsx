@@ -7,12 +7,9 @@ import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const calligraphyPens = [
-  { id: 'calligraphy-1', name: 'قلم خط عربي تقليدي - أسود', price: 150, image: '🖌️', description: 'قلم خط عربي تقليدي للرسم الفني والخط العربي' },
-  { id: 'calligraphy-2', name: 'مجموعة أقلام خط - 5 أحجام مختلفة', price: 300, image: '🖌️', description: 'مجموعة من أقلام الخط بأحجام مختلفة للتنوع في الكتابة' },
-  { id: 'calligraphy-3', name: 'قلم خط معدني فاخر - ذهبي', price: 450, image: '🖌️', description: 'قلم خط معدني فاخر بتصميم أنيق للمناسبات الخاصة' },
-  { id: 'calligraphy-4', name: 'قلم خط مرن - أسود', price: 85, image: '🖌️', description: 'قلم خط مرن سهل الاستخدام للمبتدئين' },
-  { id: 'calligraphy-5', name: 'أقلام خط ملونة - 6 ألوان', price: 200, image: '🖌️', description: 'أقلام خط ملونة لإضافة لمسة فنية للكتابة' },
-  { id: 'calligraphy-6', name: 'قلم خطاطة عريض - أسود', price: 65, image: '🖌️', description: 'قلم خطاطة عريض مثالي للعناوين والكتابة الكبيرة' },
+  { id: 'calligraphy-1', name: 'قلم خط عربي تقليدي روتو - ازرق', price: 15, image: '/assets/calligraphy-pen-traditional-black.jpg', description: 'قلم خط عربي تقليدي للرسم الفني والخط العربي' },
+  { id: 'calligraphy-2', name: 'قلم خط عربي تقليدي روتو - اسود', price: 15, image: '/assets/calligraphy-pens-set-5sizes.jpg', description: 'قلم خط عربي تقليدي للرسم الفني والخط العربي' },
+  { id: 'calligraphy-3', name: 'قلم خط تقليدي روتو - احمر', price: 450, image: '/assets/calligraphy-pen-metallic-gold.jpg', description: 'قلم خط عربي تقليدي للرسم الفني والخط العربي' },
 ];
 
 const CalligraphyPensPage = () => {
@@ -22,7 +19,11 @@ const CalligraphyPensPage = () => {
     document.title = "أقلام الخط | تفانين";
     const desc = "تسوق أقلام الخط العربي وأدوات الخطاطة بجودة عالية من تفانين.";
     let meta = document.querySelector('meta[name="description"]');
-    if (!meta) { meta = document.createElement('meta'); meta.setAttribute('name','description'); document.head.appendChild(meta);} 
+    if (!meta) { 
+      meta = document.createElement('meta'); 
+      meta.setAttribute('name','description'); 
+      document.head.appendChild(meta);
+    } 
     meta.setAttribute('content', desc);
   }, []);
 
@@ -50,8 +51,12 @@ const CalligraphyPensPage = () => {
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {calligraphyPens.map((pen) => (
             <div key={pen.id} className="card-product">
-              <div className="bg-muted/50 rounded-xl aspect-square flex items-center justify-center text-6xl mb-4">
-                {pen.image}
+              <div className="bg-muted/50 rounded-xl aspect-square flex items-center justify-center mb-4">
+                <img 
+                  src={pen.image} 
+                  alt={pen.name}
+                  className="w-full h-full object-contain p-4"
+                />
               </div>
               <h3 className="font-semibold mb-2">{pen.name}</h3>
               <p className="text-sm text-muted-foreground mb-3">{pen.description}</p>
