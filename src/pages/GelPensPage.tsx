@@ -8,17 +8,11 @@ import { Link } from "react-router-dom";
 
 // استيراد الصور من مجلد assets
 import gel1Image from '@/assets/gel-1.jpg';
-import gel2Image from '@/assets/pens/gel-2.jpg';
-import gel3Image from '@/assets/pens/gel-3.jpg';
-import gel4Image from '@/assets/pens/gel-4.jpg';
-import gel5Image from '@/assets/pens/gel-5.jpg';
-import gel6Image from '@/assets/pens/gel-6.jpg';
-import bilG388Image from '@/assets/pens/bil-g388.jpg';
-import selectGp760Image from '@/assets/pens/select-gp760.jpg';
-import primaGelImage from '@/assets/pens/prima-gel.jpg';
-import posBlueG518Image from '@/assets/pens/pos-blue-g518.jpg';
-import posRedG518Image from '@/assets/pens/pos-red-g518.jpg';
-import diamondG520Image from '@/assets/pens/diamond-g520.jpg';
+import gel2Image from '@/assets/gel-2.jpg';
+import gel3Image from '@/assets/gel-3.jpg';
+import gel4Image from '@/assets/gel-4.jpg';
+import gel5Image from '@/assets/gel-5.jpg';
+import gel6Image from '@/assets/gel-6.jpg';
 
 const gelPens = [
   { 
