@@ -15,7 +15,7 @@ import PencilsPage from "./pages/PencilsPage";
 import BallpointPensPage from "./pages/BallpointPensPage";
 import GelPensPage from "./pages/GelPensPage";
 import FountainPensPage from "./pages/FountainPensPage";
-import MarkersPage from "./pages/MarkersPage";
+import MechanicalPencilsCategoryPage from "./pages/MechanicalPencilsCategoryPage";
 import RotoPensPage from "./pages/RotoPensPage";
 import CalligraphyPensPage from "./pages/CalligraphyPensPage";
 import CorrectionPensPage from "./pages/CorrectionPensPage";
@@ -62,6 +62,9 @@ import SmartKeepPencilsPage from "./pages/SmartKeepPencilsPage";
 import PrimaPencilsPage from "./pages/PrimaPencilsPage";
 import BravoPencilsPage from "./pages/BravoPencilsPage"; // إضافة الاستيراد الجديد
 import SearchPage from "./pages/SearchPage";
+import MechanicalPencils05Page from "./pages/MechanicalPencils05Page";
+import MechanicalPencils07Page from "./pages/MechanicalPencils07Page";
+import MechanicalPencils09Page from "./pages/MechanicalPencils09Page";
 
 const queryClient = new QueryClient();
 
@@ -94,7 +97,10 @@ const App = () => (
               <Route path="/pens/gel" element={<GelPensPage />} />
               <Route path="/pens/roto" element={<RotoPensPage />} />
               <Route path="/pens/fountain" element={<FountainPensPage />} />
-              <Route path="/pens/markers" element={<MarkersPage />} />
+              <Route path="/pens/markers" element={<MechanicalPencilsCategoryPage />} />
+              <Route path="/pens/markers/mechanical-05" element={<MechanicalPencils05Page />} />
+              <Route path="/pens/markers/mechanical-07" element={<MechanicalPencils07Page />} />
+              <Route path="/pens/markers/mechanical-09" element={<MechanicalPencils09Page />} />
               <Route path="/pens/calligraphy" element={<CalligraphyPensPage />} />
               <Route path="/pens/correction" element={<CorrectionPensPage />} />
               <Route path="/cutting-pasting-tools" element={<CuttingPastingToolsPage />} />
