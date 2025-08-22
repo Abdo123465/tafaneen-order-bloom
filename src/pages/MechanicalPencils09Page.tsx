@@ -7,8 +7,8 @@ import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const mechanicalPencils09 = [
-  { id: 'marker-09-1', name: 'قلم سنون 0.9 مم - برافو', price: 25, image: '/assets/pencil-bravo-09.png', description: 'قلم سنون مقاس 0.9 مم مع ممحاة' },
-  { id: 'marker-09-2', name: 'قلم سنون 0.9 مم - بريما', price: 30, image: '/assets/pencil-prima-09.png', description: 'قلم سنون مقاس 0.9 مم مع قبضة مريحة' },
+  { id: 'marker-09-1', name: 'قلم سنون 0.9 مم - جيدو', price: 30, image: '/assets/marker-09-2.jpg', description: 'قلم سنون مقاس 0.9 مم مع ممحاة' },
+  { id: 'marker-09-2', name: 'قلم سنون 0.9 مم - جافا', price: 25, image: '/assets/marker-09-1.jpg', description: 'قلم سنون مقاس 0.9 مم مع قبضة مريحة' },
 ];
 
 const MechanicalPencils09Page = () => {
