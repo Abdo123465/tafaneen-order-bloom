@@ -38,11 +38,7 @@ const MechanicalPencilsCategoryPage = () => {
     document.title = "قلم سنون | تفانين";
     const desc = "تسوق قلم سنون بمقاسات مختلفة من تفانين.";
     let meta = document.querySelector('meta[name="description"]');
-    if (!meta) { 
-      meta = document.createElement('meta'); 
-      meta.setAttribute('name','description'); 
-      document.head.appendChild(meta);
-    } 
+    if (!meta) { meta = document.createElement('meta'); meta.setAttribute('name','description'); document.head.appendChild(meta);} 
     meta.setAttribute('content', desc);
   }, []);
 
@@ -58,42 +54,15 @@ const MechanicalPencilsCategoryPage = () => {
           <ArrowRight className="h-4 w-4" />
           <span className="text-foreground">قلم سنون</span>
         </nav>
-        
+
         <div className="text-center mb-12">
           <div className="text-6xl mb-4">🖍️</div>
           <h1 className="text-3xl lg:text-4xl font-bold mb-4">قلم سنون</h1>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             قلم سنون بمقاسات مختلفة لجميع احتياجات الكتابة والرسم
           </p>
-          
-          {/* معلومات فابر كاستل */}
-          <div className="bg-yellow-50 rounded-xl p-6 max-w-3xl mx-auto mb-8">
-            <div className="flex items-center justify-center mb-4">
-              <span className="text-4xl mr-3">🇩🇪</span>
-              <h2 className="text-2xl font-bold">فابر كاستل</h2>
-            </div>
-            <p className="text-lg mb-4">جودة ألمانية أصيلة منذ 1761 - اختيار المحترفين والفنانين حول العالم</p>
-            <div className="flex flex-wrap justify-center gap-4 mb-4">
-              <span className="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm">علامة تجارية معتمدة</span>
-              <span className="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm">🇩🇪 صناعة ألمانية</span>
-              <span className="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm">جودة وتقنية متقدمة</span>
-            </div>
-            <div className="flex flex-wrap justify-center gap-4">
-              <span className="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm">🎨 للمحترفين</span>
-              <span className="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm">اختيار الفنانين والمصممين</span>
-              <span className="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm">✅ ضمان الجودة</span>
-            </div>
-            <p className="mt-4 text-muted-foreground">
-              فابر كاستل هي أقدم شركة مصنعة للأقلام في العالم، تأسست عام 1761 في ألمانيا. 
-              تُعرف بجودتها العالية وابتكاراتها المستمرة في مجال أدوات الكتابة والرسم. 
-              منتجات فابر كاستل هي الخيار الأول للفنانين والمصممين المحترفين حول العالم.
-            </p>
-            <div className="mt-4 font-bold text-yellow-800">
-              260+ عام من الخبرة | جودة عالمية معتمدة
-            </div>
-          </div>
         </div>
-        
+
         <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {mechanicalPencilCategories.map((category) => (
             <Card key={category.id} className="group hover:shadow-elegant transition-all duration-300 hover:-translate-y-1 border-0 overflow-hidden">
@@ -124,7 +93,7 @@ const MechanicalPencilsCategoryPage = () => {
             </Card>
           ))}
         </div>
-        
+
         {/* Back to categories */}
         <div className="text-center mt-12">
           <Button asChild variant="outline" className="text-lg px-8 py-4 h-auto">
