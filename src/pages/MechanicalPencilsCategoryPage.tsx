@@ -9,25 +9,25 @@ import { Link } from "react-router-dom";
 const mechanicalPencilCategories = [
   {
     id: 1,
-    name: "أقلام رصاص ميكانيكية 0.5 مم",
-    description: "أقلام رصاص ميكانيكية مقاس 0.5 مم للكتابة الدقيقة والرسم",
-    image: "✏️",
+    name: "قلم سنون 0.5 مم",
+    description: "قلم سنون مقاس 0.5 مم للكتابة الدقيقة والرسم",
+    image: "🖍️",
     route: "/pens/markers/mechanical-05",
     count: "25+ منتج"
   },
   {
     id: 2,
-    name: "أقلام رصاص ميكانيكية 0.7 مم",
-    description: "أقلام رصاص ميكانيكية مقاس 0.7 مم للكتابة المريحة والرسم",
-    image: "✏️",
+    name: "قلم سنون 0.7 مم",
+    description: "قلم سنون مقاس 0.7 مم للكتابة المريحة والرسم",
+    image: "🖍️",
     route: "/pens/markers/mechanical-07",
     count: "20+ منتج"
   },
   {
     id: 3,
-    name: "أقلام رصاص ميكانيكية 0.9 مم",
-    description: "أقلام رصاص ميكانيكية مقاس 0.9 مم للكتابة السميكة والرسم",
-    image: "✏️",
+    name: "قلم سنون 0.9 مم",
+    description: "قلم سنون مقاس 0.9 مم للكتابة السميكة والرسم",
+    image: "🖍️",
     route: "/pens/markers/mechanical-09",
     count: "15+ منتج"
   }
@@ -35,8 +35,8 @@ const mechanicalPencilCategories = [
 
 const MechanicalPencilsCategoryPage = () => {
   useEffect(() => {
-    document.title = "أقلام سنون | تفانين";
-    const desc = "تسوق أقلام الرصاص الميكانيكية بمقاسات مختلفة من تفانين.";
+    document.title = "قلم سنون | تفانين";
+    const desc = "تسوق قلم سنون بمقاسات مختلفة من تفانين.";
     let meta = document.querySelector('meta[name="description"]');
     if (!meta) { meta = document.createElement('meta'); meta.setAttribute('name','description'); document.head.appendChild(meta);} 
     meta.setAttribute('content', desc);
@@ -52,14 +52,14 @@ const MechanicalPencilsCategoryPage = () => {
           <ArrowRight className="h-4 w-4" />
           <Link to="/pens" className="hover:text-primary">الأقلام ومستلزمات الكتابة</Link>
           <ArrowRight className="h-4 w-4" />
-          <span className="text-foreground">أقلام الرصاص الميكانيكية</span>
+          <span className="text-foreground">قلم سنون</span>
         </nav>
 
         <div className="text-center mb-12">
-          <div className="text-6xl mb-4">✏️</div>
-          <h1 className="text-3xl lg:text-4xl font-bold mb-4">أقلام الرصاص الميكانيكية</h1>
+          <div className="text-6xl mb-4">🖍️</div>
+          <h1 className="text-3xl lg:text-4xl font-bold mb-4">قلم سنون</h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            أقلام رصاص ميكانيكية بمقاسات مختلفة لجميع احتياجات الكتابة والرسم
+            قلم سنون بمقاسات مختلفة لجميع احتياجات الكتابة والرسم
           </p>
         </div>
 
