@@ -7,12 +7,12 @@ import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
 // استيراد الصور من مجلد assets
-import gel1Image from '@/assets/gel-1.jpg';
-import gel2Image from '@/assets/gel-2.jpg';
-import gel3Image from '@/assets/gel-3.jpg';
-import gel4Image from '@/assets/gel-4.jpg';
-import gel5Image from '@/assets/gel-5.jpg';
-import gel6Image from '@/assets/gel-6.jpg';
+import gel1Image from '@/src/assets/gel-1.jpg';
+import gel2Image from '@/src/assets/gel-2.jpg';
+import gel3Image from '@/src/assets/gel-3.jpg';
+import gel4Image from '@/src/assets/gel-4.jpg';
+import gel5Image from '@/src/assets/gel-5.jpg';
+import gel6Image from '@/src/assets/gel-6.jpg';
 
 const gelPens = [
   { 
