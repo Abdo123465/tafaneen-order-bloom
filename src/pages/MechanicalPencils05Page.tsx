@@ -7,20 +7,20 @@ import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const mechanicalPencils05 = [
-  { id: 'mechanical-pencil-05-1', name: 'قلم رصاص ميكانيكي 0.5 مم - برافو', price: 25, image: '✏️', description: 'قلم رصاص ميكانيكي مقاس 0.5 مم مع ممحاة' },
-  { id: 'mechanical-pencil-05-2', name: 'قلم رصاص ميكانيكي 0.5 مم - بريما', price: 30, image: '✏️', description: 'قلم رصاص ميكانيكي مقاس 0.5 مم مع قبضة مريحة' },
-  { id: 'mechanical-pencil-05-3', name: 'قلم رصاص ميكانيكي 0.5 مم - روكسي', price: 35, image: '✏️', description: 'قلم رصاص ميكانيكي مقاس 0.5 مم مع تصميم أنيق' },
-  { id: 'mechanical-pencil-05-4', name: 'قلم رصاص ميكانيكي 0.5 مم - فابر كاستيل', price: 45, image: '✏️', description: 'قلم رصاص ميكانيكي مقاس 0.5 مم جودة عالية' },
-  { id: 'mechanical-pencil-05-5', name: 'قلم رصاص ميكانيكي 0.5 مم - ستار', price: 20, image: '✏️', description: 'قلم رصاص ميكانيكي مقاس 0.5 مم اقتصادي' },
-  { id: 'mechanical-pencil-05-6', name: 'مجموعة أقلام رصاص ميكانيكية 0.5 مم - 3 قطع', price: 65, image: '✏️', description: 'مجموعة أقلام رصاص ميكانيكية مقاس 0.5 مم' },
+  { id: 'marker-05-1', name: 'قلم سنون 0.5 مم - برافو', price: 25, image: '🖍️', description: 'قلم سنون مقاس 0.5 مم مع ممحاة' },
+  { id: 'marker-05-2', name: 'قلم سنون 0.5 مم - بريما', price: 30, image: '🖍️', description: 'قلم سنون مقاس 0.5 مم مع قبضة مريحة' },
+  { id: 'marker-05-3', name: 'قلم سنون 0.5 مم - روكسي', price: 35, image: '🖍️', description: 'قلم سنون مقاس 0.5 مم مع تصميم أنيق' },
+  { id: 'marker-05-4', name: 'قلم سنون 0.5 مم - فابر كاستيل', price: 45, image: '🖍️', description: 'قلم سنون مقاس 0.5 مم جودة عالية' },
+  { id: 'marker-05-5', name: 'قلم سنون 0.5 مم - ستار', price: 20, image: '🖍️', description: 'قلم سنون مقاس 0.5 مم اقتصادي' },
+  { id: 'marker-05-6', name: 'مجموعة قلم سنون 0.5 مم - 3 قطع', price: 65, image: '🖍️', description: 'مجموعة قلم سنون مقاس 0.5 مم' },
 ];
 
 const MechanicalPencils05Page = () => {
   const { addItem } = useCart();
 
   useEffect(() => {
-    document.title = "أقلام سنون 0.5 مم | تفانين";
-    const desc = "تسوق أقلام رصاص ميكانيكية مقاس 0.5 مم من أفضل العلامات التجارية من تفانين.";
+    document.title = "قلم سنون 0.5 مم | تفانين";
+    const desc = "تسوق قلم سنون مقاس 0.5 مم من أفضل العلامات التجارية من تفانين.";
     let meta = document.querySelector('meta[name="description"]');
     if (!meta) { meta = document.createElement('meta'); meta.setAttribute('name','description'); document.head.appendChild(meta);} 
     meta.setAttribute('content', desc);
@@ -36,16 +36,16 @@ const MechanicalPencils05Page = () => {
           <ArrowRight className="h-4 w-4" />
           <Link to="/pens" className="hover:text-primary">الأقلام ومستلزمات الكتابة</Link>
           <ArrowRight className="h-4 w-4" />
-          <Link to="/pens/markers" className="hover:text-primary">أقلام الرصاص الميكانيكية</Link>
+          <Link to="/pens/markers" className="hover:text-primary">قلم سنون</Link>
           <ArrowRight className="h-4 w-4" />
           <span className="text-foreground">مقاس 0.5 مم</span>
         </nav>
 
         <div className="text-center mb-12">
-          <div className="text-6xl mb-4">✏️</div>
-          <h1 className="text-3xl lg:text-4xl font-bold mb-4">أقلام رصاص ميكانيكية مقاس 0.5 مم</h1>
+          <div className="text-6xl mb-4">🖍️</div>
+          <h1 className="text-3xl lg:text-4xl font-bold mb-4">قلم سنون مقاس 0.5 مم</h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            مجموعة متنوعة من أقلام الرصاص الميكانيكية مقاس 0.5 مم للكتابة الدقيقة والرسم
+            مجموعة متنوعة من قلم سنون مقاس 0.5 مم للكتابة الدقيقة والرسم
           </p>
         </div>
 
@@ -73,7 +73,7 @@ const MechanicalPencils05Page = () => {
         {/* Back to categories */}
         <div className="text-center mt-12">
           <Button asChild variant="outline" className="text-lg px-8 py-4 h-auto">
-            <Link to="/pens/markers">العودة إلى أقلام الرصاص الميكانيكية</Link>
+            <Link to="/pens/markers">العودة إلى قلم سنون</Link>
           </Button>
         </div>
       </main>
