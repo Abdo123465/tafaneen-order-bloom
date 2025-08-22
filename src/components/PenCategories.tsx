@@ -63,8 +63,8 @@ export function PenCategories() {
     },
     {
       id: 6,
-      name: "أقلام السنون (أقلام التحديد)",
-      description: "أقلام تحديد وماركر بأحجام وألوان مختلفة",
+      name: "أقلام الرصاص الميكانيكية",
+      description: "أقلام رصاص ميكانيكية بمقاسات مختلفة 0.5، 0.7، 0.9 مم",
       icon: Highlighter,
       color: "bg-gradient-to-br from-yellow-500 to-orange-500",
       textColor: "text-yellow-600",
@@ -110,7 +110,6 @@ export function PenCategories() {
             اختر من مجموعة متنوعة من الأقلام المصممة لتلبية جميع احتياجاتك في الكتابة والرسم
           </p>
         </div>
-
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {penCategories.map((category) => {
             const IconComponent = category.icon;
