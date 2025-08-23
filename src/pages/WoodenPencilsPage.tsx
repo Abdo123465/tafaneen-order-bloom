@@ -2,25 +2,58 @@ import { useEffect } from "react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { useCart } from "@/contexts/CartContext";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
-const woodenPencils = [
-  { id: 'wp-1', name: 'أقلام ألوان خشبية - 12 لون', price: 35, image: '🖍️', description: 'أقلام ألوان خشبية عالية الجودة بـ 12 لون زاهي' },
-  { id: 'wp-2', name: 'أقلام ألوان خشبية - 24 لون', price: 60, image: '🖍️', description: 'مجموعة شاملة من أقلام الألوان الخشبية بـ 24 لون' },
-  { id: 'wp-3', name: 'أقلام ألوان خشبية - 36 لون', price: 85, image: '🖍️', description: 'مجموعة احترافية من أقلام الألوان الخشبية بـ 36 لون' },
-  { id: 'wp-4', name: 'أقلام ألوان خشبية مائية - 18 لون', price: 75, image: '🖍️', description: 'أقلام ألوان خشبية قابلة للذوبان في الماء' },
-  { id: 'wp-5', name: 'أقلام ألوان خشبية فاخرة - 48 لون', price: 150, image: '🖍️', description: 'أقلام ألوان خشبية فاخرة للفنانين المحترفين' },
-  { id: 'wp-6', name: 'أقلام ألوان خشبية للأطفال - 6 ألوان', price: 20, image: '🖍️', description: 'أقلام ألوان خشبية آمنة ومناسبة للأطفال' },
+const colorPencilBrands = [
+  { 
+    id: 'gelcy', 
+    name: 'أقلام ألوان Gelcy', 
+    image: '🖍️', 
+    description: 'أقلام ألوان خشبية من علامة Gelcy التجارية المميزة',
+    path: '/cutting-pasting-tools/wooden-pencils/gelcy'
+  },
+  { 
+    id: 'doms', 
+    name: 'أقلام ألوان DOMS', 
+    image: '🖍️', 
+    description: 'أقلام ألوان خشبية من علامة DOMS عالية الجودة',
+    path: '/cutting-pasting-tools/wooden-pencils/doms'
+  },
+  { 
+    id: 'deli', 
+    name: 'أقلام ألوان Deli', 
+    image: '🖍️', 
+    description: 'أقلام ألوان خشبية من علامة Deli المعروفة',
+    path: '/cutting-pasting-tools/wooden-pencils/deli'
+  },
+  { 
+    id: 'power', 
+    name: 'أقلام ألوان Power', 
+    image: '🖍️', 
+    description: 'أقلام ألوان خشبية من علامة Power القوية',
+    path: '/cutting-pasting-tools/wooden-pencils/power'
+  },
+  { 
+    id: 'faber-castell', 
+    name: 'أقلام ألوان FABER CASTELL', 
+    image: '🖍️', 
+    description: 'أقلام ألوان خشبية من علامة FABER CASTELL الألمانية الفاخرة',
+    path: '/cutting-pasting-tools/wooden-pencils/faber-castell'
+  },
+  { 
+    id: 'attar', 
+    name: 'أقلام ألوان العطار', 
+    image: '🖍️', 
+    description: 'أقلام ألوان خشبية من علامة العطار المحلية المتميزة',
+    path: '/cutting-pasting-tools/wooden-pencils/attar'
+  },
 ];
 
 const WoodenPencilsPage = () => {
-  const { addItem } = useCart();
-
   useEffect(() => {
     document.title = "أقلام ألوان الخشب | تفانين";
-    const desc = "تسوق أقلام الألوان الخشبية عالية الجودة بألوان متنوعة من تفانين.";
+    const desc = "تسوق أقلام الألوان الخشبية عالية الجودة من أفضل العلامات التجارية من تفانين.";
     let meta = document.querySelector('meta[name="description"]');
     if (!meta) { meta = document.createElement('meta'); meta.setAttribute('name','description'); document.head.appendChild(meta);} 
     meta.setAttribute('content', desc);
@@ -34,7 +67,7 @@ const WoodenPencilsPage = () => {
         <nav className="flex items-center gap-2 text-sm text-muted-foreground mb-8">
           <Link to="/" className="hover:text-primary">الرئيسية</Link>
           <ArrowRight className="h-4 w-4" />
-          <Link to="/art-supplies" className="hover:text-primary">أدوات الرسم والأعمال الفنية</Link>
+          <Link to="/cutting-pasting-tools" className="hover:text-primary">أدوات القطع واللصق</Link>
           <ArrowRight className="h-4 w-4" />
           <span className="text-foreground">أقلام ألوان الخشب</span>
         </nav>
@@ -43,35 +76,29 @@ const WoodenPencilsPage = () => {
           <div className="text-6xl mb-4">🖍️</div>
           <h1 className="text-3xl lg:text-4xl font-bold mb-4">أقلام ألوان الخشب</h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            أقلام ألوان خشبية عالية الجودة بألوان زاهية ومتنوعة للرسم والتلوين
+            اختر من مجموعة واسعة من أقلام الألوان الخشبية من أفضل العلامات التجارية
           </p>
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {woodenPencils.map((pencil) => (
-            <div key={pencil.id} className="card-product">
+          {colorPencilBrands.map((brand) => (
+            <Link key={brand.id} to={brand.path} className="card-product hover:shadow-lg transition-shadow">
               <div className="bg-muted/50 rounded-xl aspect-square flex items-center justify-center text-6xl mb-4">
-                {pencil.image}
+                {brand.image}
               </div>
-              <h3 className="font-semibold mb-2">{pencil.name}</h3>
-              <p className="text-sm text-muted-foreground mb-3">{pencil.description}</p>
-              <div className="flex items-center justify-between">
-                <span className="text-primary font-bold">{pencil.price} ج.م</span>
-                <Button 
-                  className="btn-tafaneen"
-                  onClick={() => addItem({ id: pencil.id, name: pencil.name, price: pencil.price, image: pencil.image })}
-                >
-                  إضافة للسلة
-                </Button>
-              </div>
-            </div>
+              <h3 className="font-semibold mb-2">{brand.name}</h3>
+              <p className="text-sm text-muted-foreground mb-4">{brand.description}</p>
+              <Button className="btn-tafaneen w-full">
+                تصفح المنتجات
+              </Button>
+            </Link>
           ))}
         </div>
 
         {/* Back to categories */}
         <div className="text-center mt-12">
           <Button asChild variant="outline" className="text-lg px-8 py-4 h-auto">
-            <Link to="/art-supplies">العودة إلى فئات أدوات الرسم</Link>
+            <Link to="/cutting-pasting-tools">العودة إلى أدوات القطع واللصق</Link>
           </Button>
         </div>
       </main>
