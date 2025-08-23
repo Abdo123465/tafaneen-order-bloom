@@ -10,9 +10,9 @@ import { Link } from "react-router-dom";
 const domsProducts = [
   { 
     id: 'doms-1', 
-    name: 'أقلام ألوان DOMS - 12 لون', 
-    price: 30, 
-    image: '/assets/doms-12-colors.jpg', 
+    name: 'الوان خشب 12 لون ص DOMS', 
+    price: 40, 
+    image: '/assets/doms-1.jpg', 
     fallbackEmoji: '🖍️',
     description: 'مجموعة أقلام ألوان خشبية DOMS عالية الجودة بـ 12 لون',
     rating: 4,
@@ -20,53 +20,25 @@ const domsProducts = [
   },
   { 
     id: 'doms-2', 
-    name: 'أقلام ألوان DOMS - 18 لون', 
-    price: 42, 
-    image: '/assets/doms-18-colors.jpg',
+    name: 'الوان خشب 12 لون ص DOMS ميني ', 
+    price: 35, 
+    image: '/assets/doms-2.jpg',
     fallbackEmoji: '🖍️',
-    description: 'مجموعة أقلام ألوان خشبية DOMS بـ 18 لون متميز',
+    description: 'مجموعة أقلام ألوان خشبية DOMS بـ 12 لون متميز مع براية مجانا',
     rating: 5,
     isBestSeller: true
   },
   { 
     id: 'doms-3', 
-    name: 'أقلام ألوان DOMS - 24 لون', 
-    price: 55, 
-    image: '/assets/doms-24-colors.jpg',
+    name: 'الوان خشب 12 لون ك DOMS', 
+      price: 47, 
+    image: '/assets/doms-3.jpg',
     fallbackEmoji: '🖍️',
     description: 'مجموعة شاملة من أقلام ألوان DOMS بـ 24 لون',
     rating: 5,
     isNew: true
   },
-  { 
-    id: 'doms-4', 
-    name: 'أقلام ألوان DOMS - 36 لون', 
-    price: 80, 
-    image: '/assets/doms-36-colors.jpg',
-    fallbackEmoji: '🖍️',
-    description: 'مجموعة كاملة من أقلام ألوان DOMS بـ 36 لون',
-    rating: 5
-  },
-  { 
-    id: 'doms-5', 
-    name: 'أقلام ألوان DOMS مائية - 12 لون', 
-    price: 50, 
-    image: '/assets/doms-watercolor-12.jpg',
-    fallbackEmoji: '🖍️',
-    description: 'أقلام ألوان DOMS قابلة للذوبان في الماء للفن المائي',
-    rating: 4,
-    isNew: true
-  },
-  { 
-    id: 'doms-6', 
-    name: 'أقلام ألوان DOMS احترافية - 48 لون', 
-    price: 120, 
-    image: '/assets/doms-pro-48-colors.jpg',
-    fallbackEmoji: '🖍️',
-    description: 'مجموعة احترافية من أقلام ألوان DOMS للفنانين',
-    rating: 5,
-    isBestSeller: true
-  },
+ 
 ];
 
 // مكون خاص لعرض الصور مع fallback
