@@ -60,11 +60,18 @@ import BedayaPencilsPage from "./pages/BedayaPencilsPage";
 import DomsPencilsPage from "./pages/DomsPencilsPage";
 import SmartKeepPencilsPage from "./pages/SmartKeepPencilsPage";
 import PrimaPencilsPage from "./pages/PrimaPencilsPage";
-import BravoPencilsPage from "./pages/BravoPencilsPage"; // إضافة الاستيراد الجديد
+import BravoPencilsPage from "./pages/BravoPencilsPage";
 import SearchPage from "./pages/SearchPage";
 import MechanicalPencils05Page from "./pages/MechanicalPencils05Page";
 import MechanicalPencils07Page from "./pages/MechanicalPencils07Page";
 import MechanicalPencils09Page from "./pages/MechanicalPencils09Page";
+// إضافة استيرادات أقلام الألوان الخشبية الجديدة
+import GelcyColorPencilsPage from "./pages/GelcyColorPencilsPage";
+import DomsColorPencilsPage from "./pages/DomsColorPencilsPage";
+import DeliColorPencilsPage from "./pages/DeliColorPencilsPage";
+import PowerColorPencilsPage from "./pages/PowerColorPencilsPage";
+import FaberCastellColorPencilsPage from "./pages/FaberCastellColorPencilsPage";
+import AttarColorPencilsPage from "./pages/AttarColorPencilsPage";
 
 const queryClient = new QueryClient();
 
@@ -92,7 +99,7 @@ const App = () => (
               <Route path="/pens/pencils/doms" element={<DomsPencilsPage />} />
               <Route path="/pens/pencils/smart-keep" element={<SmartKeepPencilsPage />} />
               <Route path="/pens/pencils/prima" element={<PrimaPencilsPage />} />
-              <Route path="/pens/pencils/bravo" element={<BravoPencilsPage />} /> {/* إضافة المسار الجديد */}
+              <Route path="/pens/pencils/bravo" element={<BravoPencilsPage />} />
               <Route path="/pens/ballpoint" element={<BallpointPensPage />} />
               <Route path="/pens/gel" element={<GelPensPage />} />
               <Route path="/pens/roto" element={<RotoPensPage />} />
@@ -109,6 +116,13 @@ const App = () => (
               <Route path="/calculators-rulers/commercial-calculator" element={<CommercialCalculatorPage />} />
               <Route path="/cutting-pasting-tools/cutting-pasting" element={<CuttingPastingPage />} />
               <Route path="/cutting-pasting-tools/wooden-pencils" element={<WoodenPencilsPage />} />
+              {/* مسارات أقلام الألوان الخشبية حسب العلامة التجارية */}
+              <Route path="/cutting-pasting-tools/wooden-pencils/gelcy" element={<GelcyColorPencilsPage />} />
+              <Route path="/cutting-pasting-tools/wooden-pencils/doms" element={<DomsColorPencilsPage />} />
+              <Route path="/cutting-pasting-tools/wooden-pencils/deli" element={<DeliColorPencilsPage />} />
+              <Route path="/cutting-pasting-tools/wooden-pencils/power" element={<PowerColorPencilsPage />} />
+              <Route path="/cutting-pasting-tools/wooden-pencils/faber-castell" element={<FaberCastellColorPencilsPage />} />
+              <Route path="/cutting-pasting-tools/wooden-pencils/attar" element={<AttarColorPencilsPage />} />
               <Route path="/notebooks" element={<NotebooksPage />} />
               <Route path="/notebooks/main-category" element={<NotebooksMainCategoryPage />} />
               <Route path="/notebooks/krassat" element={<KrassatPage />} />
