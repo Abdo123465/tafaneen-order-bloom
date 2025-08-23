@@ -1,3 +1,5 @@
+// src/pages/CuttingPastingToolsPage.tsx
+import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "react-router-dom";
@@ -10,7 +12,8 @@ import {
   Square,
   Sparkles,
   Book,
-  Circle
+  Circle,
+  ArrowRight
 } from "lucide-react";
 
 function CuttingPastingToolsPage() {
@@ -233,6 +236,18 @@ function CuttingPastingToolsPage() {
     }
   ];
 
+  useEffect(() => {
+    document.title = "أدوات القص واللصق والتلوين | تفانين";
+    const desc = "اكتشف مجموعة واسعة من أدوات القص واللصق والتلوين والمستلزمات الفنية من تفانين.";
+    let meta = document.querySelector('meta[name="description"]');
+    if (!meta) { 
+      meta = document.createElement('meta'); 
+      meta.setAttribute('name','description'); 
+      document.head.appendChild(meta);
+    } 
+    meta.setAttribute('content', desc);
+  }, []);
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-orange-50 to-red-50">
       {/* Header */}
@@ -254,14 +269,18 @@ function CuttingPastingToolsPage() {
           {categories.map((category) => {
             const IconComponent = category.icon;
             return (
-              <Card key={category.id} className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border-0 overflow-hidden">
+              <Card 
+                key={category.id} 
+                className="group hover:shadow-elegant transition-all duration-300 hover:-translate-y-1 border-0 overflow-hidden"
+              >
                 <CardContent className="p-0">
                   <div className={`${category.color} p-6 text-white relative overflow-hidden`}>
                     <div className="absolute top-0 right-0 w-20 h-20 bg-white/10 rounded-full -mr-10 -mt-10"></div>
+                    <div className="absolute bottom-0 left-0 w-16 h-16 bg-white/10 rounded-full -ml-8 -mb-8"></div>
                     <div className="relative z-10 text-center">
-                      <div className="text-3xl mb-2">{category.emoji}</div>
-                      <IconComponent className="h-8 w-8 mx-auto mb-2" />
-                      <h3 className="text-lg font-bold leading-tight">{category.name}</h3>
+                      <div className="text-4xl mb-3">{category.emoji}</div>
+                      <IconComponent className="h-8 w-8 mx-auto mb-3" />
+                      <h3 className="text-xl font-bold leading-tight">{category.name}</h3>
                       <p className="text-sm opacity-90 mt-1">{category.englishName}</p>
                     </div>
                   </div>
@@ -274,9 +293,12 @@ function CuttingPastingToolsPage() {
                     <Button 
                       asChild
                       variant="outline" 
-                      className={`w-full ${category.textColor} border-current hover:bg-current hover:text-white transition-colors`}
+                      className={`w-full ${category.textColor} border-current hover:bg-current hover:text-white transition-colors flex items-center justify-center gap-2`}
                     >
-                      <Link to={category.route}>تصفح المنتجات</Link>
+                      <Link to={category.route}>
+                        تصفح المنتجات
+                        <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                      </Link>
                     </Button>
                   </div>
                 </CardContent>
