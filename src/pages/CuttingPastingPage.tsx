@@ -12,99 +12,59 @@ const cuttingPastingItems = [
     id: 'cp-7', 
     name: 'قص ولصق مصري مقاس A5', 
     price: 10, 
-    image: '/assets/cutting-pasting/qas-walas-masry-a5.jpg',
+    image: '/assets/cp-7.jpg',
     emoji: '✂️',
     description: 'كتاب قص ولصق مصري بمقاس A5 للأنشطة التعليمية' 
   },
   { 
     id: 'cp-8', 
-    name: 'كراسة تلوين مادن A5 power', 
-    price: 15, 
-    image: '/assets/cutting-pasting/maden-coloring-a5-power.jpg',
+    name: 'قص ولصق سمايل وسط  لوكس', 
+    price: 10, 
+    image: '/assets/cp-8.jpg',
     emoji: '🎨',
-    description: 'كراسة تلوين مادن بمقاس A5 بتصميمات متنوعة' 
+    description: 'قص ولصق سمايل وسط  لوكس بتصميمات متنوعة' 
   },
   { 
     id: 'cp-9', 
-    name: 'قص ولصق سمايل وسط لوكس', 
-    price: 10, 
-    image: '/assets/cutting-pasting/qas-walas-smile-medium-lux.jpg',
+    name: 'كراسة تلوين مادن A5 power', 
+    price: 15, 
+    image: '/assets/cp-9.jpg',
     emoji: '😊',
-    description: 'كتاب قص ولصق سمايل بتصميم لوكس وسط' 
+    description: 'كتاب قص ولصق كراسة تلوين مادن A5 power' 
   },
   { 
     id: 'cp-10', 
-    name: 'قص ولصق كبير 024 ESTIKER', 
-    price: 20, 
-    image: '/assets/cutting-pasting/qas-walas-large-024-estiker.jpg',
+    name: 'قص ولصق مربع ', 
+    price: 12, 
+    image: '/assets/cp-10.jpg',
     emoji: '📚',
-    description: 'كتاب قص ولصق كبير موديل 024 من ESTIKER' 
+    description: 'كتاب قص ولصق مربع 017' 
   },
   { 
     id: 'cp-11', 
-    name: 'قص ولصق مربع 017', 
-    price: 12, 
-    image: '/assets/cutting-pasting/qas-walas-square-017.jpg',
+    name: 'قص ولصق A4 مادن Power', 
+    price: 20, 
+    image: '/assets/cp-11.jpg',
     emoji: '⬜',
-    description: 'كتاب قص ولصق مربع موديل 017' 
+    description: 'كتاب قص ولصق مربع موديل ' 
   },
   { 
     id: 'cp-12', 
     name: 'كراسة تلوين مادن A5 power', 
     price: 15, 
-    image: '/assets/cutting-pasting/maden-coloring-a5-power-2.jpg',
+    image: '/assets/cp-12.jpg',
     emoji: '🖍️',
     description: 'كراسة تلوين مادن A5 power نسخة ثانية' 
   },
-  // المنتجات الأصلية
-  { 
-    id: 'cp-1', 
-    name: 'مقص مدرسي آمن للأطفال', 
-    price: 12, 
-    image: '/assets/cutting-pasting/safe-school-scissors.jpg',
-    emoji: '✂️',
-    description: 'مقص آمن بحواف مدورة للأطفال' 
+   { 
+    id: 'cp-13', 
+    name: 'قص ولصق كبير  استيكر', 
+    price: 20, 
+    image: '/assets/cp-13.jpg',
+    emoji: '🖍️',
+    description: 'كتاب قص ولصق كبير 024 استيكر' 
   },
-  { 
-    id: 'cp-2', 
-    name: 'لاصق عصا كبير - 40 جم', 
-    price: 8, 
-    image: '/assets/cutting-pasting/large-glue-stick-40g.jpg',
-    emoji: '🖇️',
-    description: 'لاصق عصا قوي وسهل الاستخدام' 
-  },
-  { 
-    id: 'cp-3', 
-    name: 'شريط لاصق شفاف - 5 أمتار', 
-    price: 15, 
-    image: '/assets/cutting-pasting/clear-tape-5m.jpg',
-    emoji: '📏',
-    description: 'شريط لاصق شفاف عالي الجودة' 
-  },
-  { 
-    id: 'cp-4', 
-    name: 'مجموعة أدوات قص ولصق - 10 قطع', 
-    price: 45, 
-    image: '/assets/cutting-pasting/cutting-pasting-set-10pcs.jpg',
-    emoji: '🎨',
-    description: 'مجموعة شاملة من أدوات القص واللصق' 
-  },
-  { 
-    id: 'cp-5', 
-    name: 'لاصق سائل أبيض - 50 مل', 
-    price: 10, 
-    image: '/assets/cutting-pasting/white-liquid-glue-50ml.jpg',
-    emoji: '🖇️',
-    description: 'لاصق سائل قوي للورق والكرتون' 
-  },
-  { 
-    id: 'cp-6', 
-    name: 'مقص فني احترافي - 21 سم', 
-    price: 35, 
-    image: '/assets/cutting-pasting/professional-art-scissors-21cm.jpg',
-    emoji: '✂️',
-    description: 'مقص احترافي للأعمال الفنية الدقيقة' 
-  },
+ 
 ];
 
 const CuttingPastingPage = () => {
