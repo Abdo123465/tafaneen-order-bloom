@@ -14,12 +14,6 @@ const cuttingPastingItems = [
   { id: 'cp-5', name: 'لاصق سائل أبيض - 50 مل', price: 10, image: '/assets/white-glue.png', description: 'لاصق سائل قوي للورق والكرتون' },
   { id: 'cp-6', name: 'مقص فني احترافي - 21 سم', price: 35, image: '/assets/professional-scissors.png', description: 'مقص احترافي للأعمال الفنية الدقيقة' },
   // المنتجات الجديدة
-  { id: 'cp-7', name: 'قص ولصق مصري مقاس A5', price: 10, image: '/assets/egyptian-cutting-pasting-a5.png', description: 'كراسة قص ولصق مصرية مقاس A5 عالية الجودة' },
-  { id: 'cp-8', name: 'كراسة تلوين مادن A5 power', price: 15, image: '/assets/maden-coloring-book-a5.png', description: 'كراسة تلوين مادن مقاس A5 مع رسومات جذابة' },
-  { id: 'cp-9', name: 'قص ولصق سمايل وسط لوكس', price: 10, image: '/assets/smile-cutting-pasting-medium.png', description: 'كراسة قص ولصق سمايل مقاس متوسط مع تغليف فاخر' },
-  { id: 'cp-10', name: 'قص ولصق كبير 024 ESTIKER', price: 20, image: '/assets/estiker-cutting-pasting-large.png', description: 'كراسة قص ولصق كبيرة الحجم من إستيكر' },
-  { id: 'cp-11', name: 'قص ولصق مربع 017', price: 12, image: '/assets/square-cutting-pasting-017.png', description: 'كراسة قص ولصق مربعة الشكل مقاس 017' },
-  { id: 'cp-12', name: 'كراسة تلوين مادن A5 power', price: 15, image: '/assets/maden-coloring-book-a5-2.png', description: 'كراسة تلوين مادن مقاس A5 مع رسومات جذابة' },
 ];
 const CuttingPastingPage = () => {
   const { addItem } = useCart();
