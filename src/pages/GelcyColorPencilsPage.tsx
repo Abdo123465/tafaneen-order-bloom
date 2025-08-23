@@ -10,9 +10,9 @@ import { Link } from "react-router-dom";
 const gelcyProducts = [
   { 
     id: 'gelcy-1', 
-    name: 'أقلام ألوان Gelcy - 12 لون', 
+    name: 'علبة الوان خشب 12 لون ص Gelcy', 
     price: 25, 
-    image: '/assets/gelcy-12-colors.jpg', 
+    image: '/assets/gelcy-1.jpg', 
     fallbackEmoji: '🖍️',
     description: 'مجموعة أقلام ألوان خشبية Gelcy بـ 12 لون أساسي',
     rating: 4,
@@ -20,52 +20,23 @@ const gelcyProducts = [
   },
   { 
     id: 'gelcy-2', 
-    name: 'أقلام ألوان Gelcy - 18 لون', 
-    price: 35, 
-    image: '/assets/gelcy-18-colors.jpg',
+    name: 'علبة الوان خشب 12 لون ك Gelcy', 
+    price: 33, 
+    image: '/assets/gelcy-2.jpg',
     fallbackEmoji: '🖍️',
-    description: 'مجموعة أقلام ألوان خشبية Gelcy بـ 18 لون متنوع',
+    description: 'مجموعة أقلام ألوان خشبية Gelcy بـ 12 لون متنوع',
     rating: 4,
     isBestSeller: true
   },
   { 
     id: 'gelcy-3', 
-    name: 'أقلام ألوان Gelcy - 24 لون', 
-    price: 45, 
-    image: '/assets/gelcy-24-colors.jpg',
+    name: 'علبة الوان خشب 6 لون Gelcy', 
+    price: 13, 
+    image: '/assets/gelcy-3.jpg',
     fallbackEmoji: '🖍️',
     description: 'مجموعة شاملة من أقلام ألوان Gelcy بـ 24 لون',
     rating: 5,
     isNew: true
-  },
-  { 
-    id: 'gelcy-4', 
-    name: 'أقلام ألوان Gelcy - 36 لون', 
-    price: 65, 
-    image: '/assets/gelcy-36-colors.jpg',
-    fallbackEmoji: '🖍️',
-    description: 'مجموعة كبيرة من أقلام ألوان Gelcy بـ 36 لون',
-    rating: 5
-  },
-  { 
-    id: 'gelcy-5', 
-    name: 'أقلام ألوان Gelcy مائية - 12 لون', 
-    price: 40, 
-    image: '/assets/gelcy-watercolor-12.jpg',
-    fallbackEmoji: '🖍️',
-    description: 'أقلام ألوان Gelcy قابلة للذوبان في الماء',
-    rating: 4,
-    isNew: true
-  },
-  { 
-    id: 'gelcy-6', 
-    name: 'أقلام ألوان Gelcy للأطفال - 6 ألوان', 
-    price: 15, 
-    image: '/assets/gelcy-kids-6-colors.jpg',
-    fallbackEmoji: '🖍️',
-    description: 'أقلام ألوان Gelcy آمنة ومناسبة للأطفال',
-    rating: 4,
-    isPopular: true
   },
 ];
 
