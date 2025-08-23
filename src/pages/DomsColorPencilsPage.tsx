@@ -59,3 +59,29 @@ const DomsColorPencilsPage = () => {
               <p className="text-sm text-muted-foreground mb-3">{product.description}</p>
               <div className="flex items-center justify-between">
                 <span className="text-primary font-bold">{product.
+                  <div className="flex items-center justify-between">
+               <span className="text-primary font-bold">{product.price} ج.م</span>
+               <Button 
+                 className="btn-tafaneen"
+                 onClick={() => addItem({ id: product.id, name: product.name, price: product.price, image: product.image })}
+               >
+                 إضافة للسلة
+               </Button>
+             </div>
+           </div>
+         ))}
+       </div>
+
+       {/* Back to wooden pencils */}
+       <div className="text-center mt-12">
+         <Button asChild variant="outline" className="text-lg px-8 py-4 h-auto">
+           <Link to="/cutting-pasting-tools/wooden-pencils">العودة إلى أقلام ألوان الخشب</Link>
+         </Button>
+       </div>
+     </main>
+     <Footer />
+   </div>
+ );
+};
+
+export default DomsColorPencilsPage;
