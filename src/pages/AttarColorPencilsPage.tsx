@@ -18,55 +18,7 @@ const attarProducts = [
     rating: 4,
     isPopular: true
   },
-  { 
-    id: 'attar-2', 
-    name: 'أقلام ألوان العطار - 18 لون', 
-    price: 32, 
-    image: '/assets/attar-18-colors.jpg',
-    fallbackEmoji: '🖍️',
-    description: 'مجموعة أقلام ألوان خشبية العطار بـ 18 لون جذاب',
-    rating: 4,
-    isBestSeller: true
-  },
-  { 
-    id: 'attar-3', 
-    name: 'أقلام ألوان العطار - 24 لون', 
-    price: 42, 
-    image: '/assets/attar-24-colors.jpg',
-    fallbackEmoji: '🖍️',
-    description: 'مجموعة واسعة من أقلام ألوان العطار بـ 24 لون',
-    rating: 4,
-    isNew: true
-  },
-  { 
-    id: 'attar-4', 
-    name: 'أقلام ألوان العطار - 36 لون', 
-    price: 60, 
-    image: '/assets/attar-36-colors.jpg',
-    fallbackEmoji: '🖍️',
-    description: 'مجموعة كاملة من أقلام ألوان العطار بـ 36 لون',
-    rating: 5
-  },
-  { 
-    id: 'attar-5', 
-    name: 'أقلام ألوان العطار للأطفال - 6 ألوان', 
-    price: 12, 
-    image: '/assets/attar-kids-6-colors.jpg',
-    fallbackEmoji: '🖍️',
-    description: 'أقلام ألوان العطار آمنة ومناسبة للأطفال الصغار',
-    rating: 4,
-    isPopular: true
-  },
-  { 
-    id: 'attar-6', 
-    name: 'أقلام ألوان العطار مائية - 12 لون', 
-    price: 38, 
-    image: '/assets/attar-watercolor-12.jpg',
-    fallbackEmoji: '🖍️',
-    description: 'أقلام ألوان العطار قابلة للذوبان في الماء',
-    rating: 4,
-    isNew: true
-  },
+
 ];
 
 // مكون خاص لعرض الصور مع fallback
