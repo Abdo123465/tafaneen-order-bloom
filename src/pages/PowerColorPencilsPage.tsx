@@ -11,62 +11,14 @@ const powerProducts = [
   { 
     id: 'power-1', 
     name: 'أقلام ألوان Power - 12 لون', 
-    price: 32, 
+    price: 30, 
     image: '/assets/power-12-colors.jpg', 
     fallbackEmoji: '🖍️',
     description: 'مجموعة أقلام ألوان خشبية Power قوية ومتينة بـ 12 لون',
     rating: 4,
     isPopular: true
   },
-  { 
-    id: 'power-2', 
-    name: 'أقلام ألوان Power - 18 لون', 
-    price: 45, 
-    image: '/assets/power-18-colors.jpg',
-    fallbackEmoji: '🖍️',
-    description: 'مجموعة أقلام ألوان خشبية Power بـ 18 لون متنوع',
-    rating: 4,
-    isBestSeller: true
-  },
-  { 
-    id: 'power-3', 
-    name: 'أقلام ألوان Power - 24 لون', 
-    price: 58, 
-    image: '/assets/power-24-colors.jpg',
-    fallbackEmoji: '🖍️',
-    description: 'مجموعة شاملة من أقلام ألوان Power بـ 24 لون',
-    rating: 5,
-    isNew: true
-  },
-  { 
-    id: 'power-4', 
-    name: 'أقلام ألوان Power - 36 لون', 
-    price: 85, 
-    image: '/assets/power-36-colors.jpg',
-    fallbackEmoji: '🖍️',
-    description: 'مجموعة كبيرة من أقلام ألوان Power بـ 36 لون',
-    rating: 5
-  },
-  { 
-    id: 'power-5', 
-    name: 'أقلام ألوان Power مائية - 15 لون', 
-    price: 65, 
-    image: '/assets/power-watercolor-15.jpg',
-    fallbackEmoji: '🖍️',
-    description: 'أقلام ألوان Power قابلة للذوبان في الماء',
-    rating: 4,
-    isNew: true
-  },
-  { 
-    id: 'power-6', 
-    name: 'أقلام ألوان Power احترافية - 48 لون', 
-    price: 130, 
-    image: '/assets/power-pro-48-colors.jpg',
-    fallbackEmoji: '🖍️',
-    description: 'مجموعة احترافية من أقلام ألوان Power للفنانين المتقدمين',
-    rating: 5,
-    isBestSeller: true
-  },
+ 
 ];
 
 // مكون خاص لعرض الصور مع fallback
