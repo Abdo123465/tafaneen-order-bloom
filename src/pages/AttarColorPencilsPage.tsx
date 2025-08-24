@@ -11,8 +11,8 @@ const attarProducts = [
   { 
     id: 'attar-1', 
     name: 'أقلام ألوان العطار - 12 لون', 
-    price: 22, 
-    image: '/assets/attar-12-colors.jpg', 
+    price: 40, 
+    image: '/assets/attar-1.jpg', 
     fallbackEmoji: '🖍️',
     description: 'مجموعة أقلام ألوان خشبية العطار المحلية المتميزة بـ 12 لون',
     rating: 4,
