@@ -72,6 +72,7 @@ import DeliColorPencilsPage from "./pages/DeliColorPencilsPage";
 import PowerColorPencilsPage from "./pages/PowerColorPencilsPage";
 import FaberCastellColorPencilsPage from "./pages/FaberCastellColorPencilsPage";
 import AttarColorPencilsPage from "./pages/AttarColorPencilsPage";
+import WaxCrayonsPage from "./pages/WaxCrayonsPage";
 
 const queryClient = new QueryClient();
 
@@ -152,6 +153,7 @@ const App = () => (
               <Route path="/pens/fransawy" element={<FransawyPensPage />} />
               <Route path="/pens/fountain" element={<FountainPensPage />} />
               <Route path="/pens/ballpoint-sets" element={<BallpointPenSetsPage />} />
+              <Route path="/cutting-pasting-tools/wax-crayons" element={<WaxCrayonsPage />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>
