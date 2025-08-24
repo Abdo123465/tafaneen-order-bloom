@@ -10,30 +10,30 @@ import { Link } from "react-router-dom";
 const waxCrayons = [
   { 
     id: 'wax-crayon-1', 
-    name: 'ألوان شمع كرايولا - 24 لون', 
-    price: 85, 
-    image: '/images/wax-crayons/crayola-24-colors.jpg', 
-    description: 'ألوان شمع كرايولا الأمريكية الأصلية بـ 24 لون زاهي وجودة عالية للأطفال والفنانين',
-    brand: 'Crayola',
-    colors: 24
+    name: 'علبة الوان شمع  OIL PASTELS 12 لون ك', 
+    price: 40, 
+    image: '/assets/wax-crayon-1.jpg', 
+    description: 'ألوان شمع ماوس بوي يبانية  بـ 12 لون زاهي وجودة عالية للأطفال والفنانين',
+    brand: 'OIL PASTELS',
+    colors: 12
   },
   { 
     id: 'wax-crayon-2', 
-    name: 'ألوان شمع فابر كاستل - 16 لون', 
-    price: 65, 
-    image: '/images/wax-crayons/faber-castell-16-colors.jpg', 
-    description: 'ألوان شمع فابر كاستل الألمانية عالية الجودة بـ 16 لون مميز وآمنة للاستخدام',
-    brand: 'Faber-Castell',
-    colors: 16
+    name: 'علبة الوان شمع MOUSEBOY OIL PASTELS 6لون', 
+    price: 23, 
+    image: '/assets/wax-crayon-2.jpg', 
+    description: 'ألوان شمع ماوس بوي عالية الجودة بـ 6 لون مميز وآمنة للاستخدام',
+    brand: 'MOUSEBOY OIL PASTELS',
+    colors: 6
   },
   { 
     id: 'wax-crayon-3', 
-    name: 'ألوان شمع اتار - 12 لون', 
-    price: 35, 
-    image: '/images/wax-crayons/attar-12-colors.jpg', 
+    name: 'ألوان شمع  - 6 لون', 
+    price: 25, 
+    image: '/assets/wax-crayon-3.jpg', 
     description: 'ألوان شمع اتار المصرية بـ 12 لون أساسي وجودة ممتازة بسعر اقتصادي مناسب للمدارس',
-    brand: 'Attar',
-    colors: 12
+    brand: 'Kubeixiong ',
+    colors: 6
   },
 ];
 
