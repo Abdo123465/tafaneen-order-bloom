@@ -73,6 +73,7 @@ import PowerColorPencilsPage from "./pages/PowerColorPencilsPage";
 import FaberCastellColorPencilsPage from "./pages/FaberCastellColorPencilsPage";
 import AttarColorPencilsPage from "./pages/AttarColorPencilsPage";
 import WaxCrayonsPage from "./pages/WaxCrayonsPage";
+import GouacheColorsPage from "./pages/GouacheColorsPage";
 
 const queryClient = new QueryClient();
 
@@ -124,6 +125,7 @@ const App = () => (
               <Route path="/cutting-pasting-tools/wooden-pencils/power" element={<PowerColorPencilsPage />} />
               <Route path="/cutting-pasting-tools/wooden-pencils/faber-castell" element={<FaberCastellColorPencilsPage />} />
               <Route path="/cutting-pasting-tools/wooden-pencils/attar" element={<AttarColorPencilsPage />} />
+              <Route path="/cutting-pasting-tools/gouache-colors" element={<GouacheColorsPage />} />
               <Route path="/notebooks" element={<NotebooksPage />} />
               <Route path="/notebooks/main-category" element={<NotebooksMainCategoryPage />} />
               <Route path="/notebooks/krassat" element={<KrassatPage />} />
