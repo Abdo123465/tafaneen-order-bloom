@@ -10,9 +10,9 @@ import { Link } from "react-router-dom";
 const faberCastellProducts = [
   { 
     id: 'faber-1', 
-    name: 'أقلام ألوان FABER CASTELL - 12 لون', 
-    price: 85, 
-    image: '/assets/faber-castell-12-colors.jpg', 
+    name: 'أقلام ألوان صغير FABER CASTELL - 12 لون', 
+    price: 50, 
+    image: '/assets/faber-1.jpg', 
     fallbackEmoji: '🖍️',
     description: 'مجموعة أقلام ألوان خشبية FABER CASTELL الألمانية الفاخرة بـ 12 لون',
     rating: 5,
@@ -20,53 +20,15 @@ const faberCastellProducts = [
   },
   { 
     id: 'faber-2', 
-    name: 'أقلام ألوان FABER CASTELL - 18 لون', 
-    price: 120, 
-    image: '/assets/faber-castell-18-colors.jpg',
+    name: 'أقلام ألوان كبير FABER CASTELL - 18 لون', 
+    price: 100, 
+    image: '/assets/faber-2.jpg',
     fallbackEmoji: '🖍️',
-    description: 'مجموعة أقلام ألوان خشبية FABER CASTELL بـ 18 لون عالي الجودة',
+    description: 'مجموعة أقلام ألوان خشبية FABER CASTELL بـ 12 لون عالي الجودة',
     rating: 5,
     isBestSeller: true
   },
-  { 
-    id: 'faber-3', 
-    name: 'أقلام ألوان FABER CASTELL - 24 لون', 
-    price: 150, 
-    image: '/assets/faber-castell-24-colors.jpg',
-    fallbackEmoji: '🖍️',
-    description: 'مجموعة شاملة من أقلام ألوان FABER CASTELL بـ 24 لون',
-    rating: 5,
-    isNew: true
-  },
-  { 
-    id: 'faber-4', 
-    name: 'أقلام ألوان FABER CASTELL - 36 لون', 
-    price: 220, 
-    image: '/assets/faber-castell-36-colors.jpg',
-    fallbackEmoji: '🖍️',
-    description: 'مجموعة كبيرة من أقلام ألوان FABER CASTELL بـ 36 لون',
-    rating: 5
-  },
-  { 
-    id: 'faber-5', 
-    name: 'أقلام ألوان FABER CASTELL مائية - 24 لون', 
-    price: 180, 
-    image: '/assets/faber-castell-watercolor-24.jpg',
-    fallbackEmoji: '🖍️',
-    description: 'أقلام ألوان FABER CASTELL المائية الاحترافية',
-    rating: 5,
-    isNew: true
-  },
-  { 
-    id: 'faber-6', 
-    name: 'أقلام ألوان FABER CASTELL احترافية - 60 لون', 
-    price: 350, 
-    image: '/assets/faber-castell-pro-60-colors.jpg',
-    fallbackEmoji: '🖍️',
-    description: 'مجموعة احترافية فاخرة من أقلام ألوان FABER CASTELL للفنانين المحترفين',
-    rating: 5,
-    isBestSeller: true
-  },
+  
 ];
 
 // مكون خاص لعرض الصور مع fallback
