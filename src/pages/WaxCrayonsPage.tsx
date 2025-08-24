@@ -97,12 +97,13 @@ const WaxCrayonsPage = () => {
           جميع ألوان الشمع
         </h2>
 
-        <div className="grid sm:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
+        {/* Products Grid - الآن بجانب بعض */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {waxCrayons.map((crayon) => (
             <Card key={crayon.id} className="group hover:shadow-elegant transition-all duration-300 hover:-translate-y-1 overflow-hidden">
               <CardContent className="p-0">
                 {/* Product Image */}
-                <div className="relative h-64 bg-gradient-to-br from-orange-100 to-yellow-100 flex items-center justify-center overflow-hidden">
+                <div className="relative h-48 bg-gradient-to-br from-orange-100 to-yellow-100 flex items-center justify-center overflow-hidden">
                   <img 
                     src={crayon.image} 
                     alt={crayon.name}
@@ -113,7 +114,7 @@ const WaxCrayonsPage = () => {
                       e.currentTarget.nextElementSibling.style.display = 'flex';
                     }}
                   />
-                  <div className="absolute inset-0 items-center justify-center text-8xl hidden">
+                  <div className="absolute inset-0 items-center justify-center text-6xl hidden">
                     🖍️
                   </div>
                   
