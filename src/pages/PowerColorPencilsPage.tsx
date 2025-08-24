@@ -12,7 +12,7 @@ const powerProducts = [
     id: 'power-1', 
     name: 'أقلام ألوان Power - 12 لون', 
     price: 30, 
-    image: '/assets/power-12-colors.jpg', 
+    image: '/assets/power-1.jpg', 
     fallbackEmoji: '🖍️',
     description: 'مجموعة أقلام ألوان خشبية Power قوية ومتينة بـ 12 لون',
     rating: 4,
