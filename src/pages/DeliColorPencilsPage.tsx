@@ -11,7 +11,7 @@ const deliProducts = [
   { 
     id: 'deli-1', 
     name: 'أقلام ألوان Deli - 12 لون', 
-    price: 28, 
+    price: 55, 
     image: '/assets/deli-1.jpg', 
     fallbackEmoji: '🖍️',
     description: 'مجموعة أقلام ألوان خشبية Deli بـ 12 لون نابض بالحياة',
