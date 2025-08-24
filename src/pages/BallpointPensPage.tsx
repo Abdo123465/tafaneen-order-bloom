@@ -7,7 +7,14 @@ import { useCart } from "@/contexts/CartContext";
 import { ArrowRight, PenTool } from "lucide-react";
 import { Link } from "react-router-dom";
 
-
+const ballpointPens = [
+  { id: 'ballpoint-1', name: 'قلم حبر جاف أزرق - عبوة 10 قطع', price: 35, image: '🖊️', description: 'أقلام حبر جاف عالية الجودة باللون الأزرق' },
+  { id: 'ballpoint-2', name: 'قلم حبر جاف أسود - عبوة 10 قطع', price: 35, image: '🖊️', description: 'أقلام حبر جاف باللون الأسود للكتابة الرسمية' },
+  { id: 'ballpoint-3', name: 'قلم حبر جاف أحمر - عبوة 5 قطع', price: 20, image: '🖊️', description: 'أقلام حبر جاف حمراء للتصحيح والتمييز' },
+  { id: 'ballpoint-4', name: 'مجموعة أقلام جاف ملونة - 12 لون', price: 60, image: '🌈', description: 'مجموعة متنوعة من أقلام الحبر الجاف الملونة' },
+  { id: 'ballpoint-5', name: 'قلم حبر جاف فاخر معدني', price: 85, image: '🖊️', description: 'قلم حبر جاف فاخر بتصميم معدني أنيق' },
+  { id: 'ballpoint-6', name: 'أقلام حبر جاف قابلة للمحو - 6 قطع', price: 45, image: '🖊️', description: 'أقلام حبر جاف قابلة للمحو والتصحيح' },
+];
 
 const BallpointPensPage = () => {
   const { addItem } = useCart();
