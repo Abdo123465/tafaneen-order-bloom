@@ -18,55 +18,7 @@ const deliProducts = [
     rating: 4,
     isPopular: true
   },
-  { 
-    id: 'deli-2', 
-    name: 'أقلام ألوان Deli - 18 لون', 
-    price: 40, 
-    image: '/assets/deli-18-colors.jpg',
-    fallbackEmoji: '🖍️',
-    description: 'مجموعة أقلام ألوان خشبية Deli بـ 18 لون مميز',
-    rating: 4,
-    isBestSeller: true
-  },
-  { 
-    id: 'deli-3', 
-    name: 'أقلام ألوان Deli - 24 لون', 
-    price: 52, 
-    image: '/assets/deli-24-colors.jpg',
-    fallbackEmoji: '🖍️',
-    description: 'مجموعة واسعة من أقلام ألوان Deli بـ 24 لون',
-    rating: 5,
-    isNew: true
-  },
-  { 
-    id: 'deli-4', 
-    name: 'أقلام ألوان Deli - 36 لون', 
-    price: 75, 
-    image: '/assets/deli-36-colors.jpg',
-    fallbackEmoji: '🖍️',
-    description: 'مجموعة كاملة من أقلام ألوان Deli بـ 36 لون',
-    rating: 5
-  },
-  { 
-    id: 'deli-5', 
-    name: 'أقلام ألوان Deli مائية - 18 لون', 
-    price: 60, 
-    image: '/assets/deli-watercolor-18.jpg',
-    fallbackEmoji: '🖍️',
-    description: 'أقلام ألوان Deli قابلة للذوبان في الماء',
-    rating: 4,
-    isNew: true
-  },
-  { 
-    id: 'deli-6', 
-    name: 'أقلام ألوان Deli للأطفال - 8 ألوان', 
-    price: 18, 
-    image: '/assets/deli-kids-8-colors.jpg',
-    fallbackEmoji: '🖍️',
-    description: 'أقلام ألوان Deli آمنة ومناسبة للأطفال الصغار',
-    rating: 4,
-    isPopular: true
-  },
+
 ];
 
 // مكون خاص لعرض الصور مع fallback
