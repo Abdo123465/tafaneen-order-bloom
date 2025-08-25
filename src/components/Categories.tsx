@@ -18,7 +18,7 @@ export function Categories() {
     {
       id: 2,
       name: "أدوات القص واللصق و تلوين",
-      description: "مقصات، لاصق، شريط لاصق، ألوان وأدوات الرسم، ألوان فلوماستر",
+      description: "مقصات، لاصق، شريط لاصق، ألوان وأدوات الرسم",
       icon: Scissors,
       color: "bg-gradient-to-br from-green-500 to-green-600",
       textColor: "text-green-600",
