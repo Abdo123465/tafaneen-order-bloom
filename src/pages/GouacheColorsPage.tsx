@@ -10,58 +10,23 @@ import { Link } from "react-router-dom";
 const gouacheColors = [
   { 
     id: 'gouache-1', 
-    name: 'علبة ألوان جواش 12 لون - فابر كاستل', 
-    price: 85, 
+    name: 'علبة ألوان جواش 6 لون - فابر كاستل', 
+    price: 80, 
     image: '/assets/gouache-1.jpg', 
-    description: 'ألوان جواش عالية الجودة من فابر كاستل بـ 12 لون زاهي للرسم المائي والأعمال الفنية',
-    brand: 'Faber-Castell',
-    colors: 12
-  },
-  { 
-    id: 'gouache-2', 
-    name: 'علبة ألوان جواش 6 لون - وينسور ونيوتن', 
-    price: 65, 
-    image: '/assets/gouache-2.jpg', 
-    description: 'ألوان جواش احترافية من وينسور ونيوتن بـ 6 ألوان أساسية عالية التغطية',
-    brand: 'Winsor & Newton',
+    description: 'ألوان جواش عالية الجودة من NIKKI بـ 12 لون زاهي للرسم المائي والأعمال الفنية',
+    brand: 'NIKKI',
     colors: 6
   },
   { 
-    id: 'gouache-3', 
-    name: 'علبة ألوان جواش 18 لون - ساكورا', 
-    price: 120, 
-    image: '/assets/gouache-3.jpg', 
-    description: 'مجموعة ألوان جواش شاملة من ساكورا بـ 18 لون مختلف للفنانين المحترفين',
-    brand: 'Sakura',
-    colors: 18
+    id: 'gouache-2', 
+    name: 'علبة ألوان جواش 12 لون - وينسور ونيوتن', 
+    price: 150, 
+    image: '/assets/gouache-2.jpg', 
+    description: 'ألوان جواش احترافية من NIKKI بـ 12 ألوان أساسية عالية التغطية',
+    brand: 'NIKKI',
+    colors: 12
   },
-  { 
-    id: 'gouache-4', 
-    name: 'علبة ألوان جواش 24 لون - مونت مارت', 
-    price: 95, 
-    image: '/assets/gouache-4.jpg', 
-    description: 'مجموعة كاملة من ألوان الجواش بـ 24 لون متنوع من مونت مارت بجودة ممتازة',
-    brand: 'Mont Marte',
-    colors: 24
-  },
-  { 
-    id: 'gouache-5', 
-    name: 'علبة ألوان جواش 8 لون - ريفز', 
-    price: 45, 
-    image: '/assets/gouache-5.jpg', 
-    description: 'ألوان جواش اقتصادية من ريفز بـ 8 ألوان مناسبة للمبتدئين والطلاب',
-    brand: 'Reeves',
-    colors: 8
-  },
-  { 
-    id: 'gouache-6', 
-    name: 'علبة ألوان جواش 36 لون - هولباين', 
-    price: 180, 
-    image: '/assets/gouache-6.jpg', 
-    description: 'مجموعة فاخرة من ألوان الجواش بـ 36 لون من هولباين للأعمال الفنية الاحترافية',
-    brand: 'Holbein',
-    colors: 36
-  },
+
 ];
 
 const GouacheColorsPage = () => {
