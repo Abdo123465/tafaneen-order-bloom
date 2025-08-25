@@ -78,12 +78,6 @@ import GouacheColorsPage from "./pages/GouacheColorsPage";
 import FeltTipMarkersPage from "./pages/FeltTipMarkersPage";
 import DomsFeltTipMarkersPage from "./pages/DomsFeltTipMarkersPage";
 import PrimaFeltTipMarkersPage from "./pages/PrimaFeltTipMarkersPage";
-import FeltTipMarkersHighlightersPage from "./pages/FeltTipMarkersHighlightersPage";
-import FeltTipMarkersWaterBasedPage from "./pages/FeltTipMarkersWaterBasedPage";
-import FeltTipMarkersPermanentPage from "./pages/FeltTipMarkersPermanentPage";
-import FeltTipMarkersSprayPage from "./pages/FeltTipMarkersSprayPage";
-import FeltTipMarkersAcrylicPage from "./pages/FeltTipMarkersAcrylicPage";
-import FeltTipMarkersSetsPage from "./pages/FeltTipMarkersSetsPage";
 
 const queryClient = new QueryClient();
 const App = () => (
@@ -125,12 +119,6 @@ const App = () => (
               <Route path="/cutting-pasting-tools/felt-tip-markers" element={<FeltTipMarkersPage />} />
               <Route path="/cutting-pasting-tools/felt-tip-markers/doms" element={<DomsFeltTipMarkersPage />} />
               <Route path="/cutting-pasting-tools/felt-tip-markers/prima" element={<PrimaFeltTipMarkersPage />} />
-              <Route path="/cutting-pasting-tools/felt-tip-markers/highlighters" element={<FeltTipMarkersHighlightersPage />} />
-              <Route path="/cutting-pasting-tools/felt-tip-markers/water-based" element={<FeltTipMarkersWaterBasedPage />} />
-              <Route path="/cutting-pasting-tools/felt-tip-markers/permanent" element={<FeltTipMarkersPermanentPage />} />
-              <Route path="/cutting-pasting-tools/felt-tip-markers/spray" element={<FeltTipMarkersSprayPage />} />
-              <Route path="/cutting-pasting-tools/felt-tip-markers/acrylic" element={<FeltTipMarkersAcrylicPage />} />
-              <Route path="/cutting-pasting-tools/felt-tip-markers/sets" element={<FeltTipMarkersSetsPage />} />
               <Route path="/calculators-rulers" element={<CalculatorsRulersPage />} />
               <Route path="/calculators-rulers/scientific-calculator" element={<ScientificCalculatorPage />} />
               <Route path="/calculators-rulers/commercial-calculator" element={<CommercialCalculatorPage />} />
