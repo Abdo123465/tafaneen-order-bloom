@@ -1,8 +1,8 @@
+// src/components/Categories.tsx
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link, useNavigate } from "react-router-dom";
 import { PenTool, Scissors, Calculator, Palette, Archive, Briefcase, BookOpen } from "lucide-react";
-
 export function Categories() {
   const categories = [
     {
@@ -35,7 +35,6 @@ export function Categories() {
       bgColor: "bg-purple-50",
       count: "150+ منتج"
     },
-
     {
       id: 5,
       name: "ملفات ومنظمات",
@@ -67,7 +66,6 @@ export function Categories() {
       count: "350+ منتج"
     }
   ];
-
   return (
     <section className="py-16 bg-secondary/30">
       <div className="container mx-auto px-4">
@@ -79,7 +77,6 @@ export function Categories() {
             اكتشف مجموعة واسعة من الأدوات المكتبية والقرطاسية عالية الجودة
           </p>
         </div>
-
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {categories.map((category) => {
             const IconComponent = category.icon;
@@ -118,7 +115,6 @@ export function Categories() {
             );
           })}
         </div>
-
         <div className="text-center mt-12">
           <Button asChild className="btn-tafaneen text-lg px-8 py-4 h-auto">
             <Link to="/categories">عرض جميع الفئات</Link>
