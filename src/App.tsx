@@ -74,6 +74,9 @@ import FaberCastellColorPencilsPage from "./pages/FaberCastellColorPencilsPage";
 import AttarColorPencilsPage from "./pages/AttarColorPencilsPage";
 import WaxCrayonsPage from "./pages/WaxCrayonsPage";
 import GouacheColorsPage from "./pages/GouacheColorsPage";
+import DomsFeltTipMarkersPage from "./pages/DomsFeltTipMarkersPage";
+import PrimaFeltTipMarkersPage from "./pages/PrimaFeltTipMarkersPage";
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -155,6 +158,10 @@ const App = () => (
               <Route path="/pens/ballpoint-sets" element={<BallpointPenSetsPage />} />
               <Route path="/cutting-pasting-tools/wax-crayons" element={<WaxCrayonsPage />} />
               <Route path="/cutting-pasting-tools/gouache-colors" element={<GouacheColorsPage />} />
+              <Route path="/cutting-pasting-tools/felt-tip-markers" element={<FeltTipMarkersPage />} />
+{/* مسارات فئات ألوان الفلوماستر حسب العلامة التجارية */}
+              <Route path="/cutting-pasting-tools/felt-tip-markers/doms" element={<CuttingPastingPage />} />
+              <Route path="/cutting-pasting-tools/felt-tip-markers/prima" element={<CuttingPastingPage />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>
