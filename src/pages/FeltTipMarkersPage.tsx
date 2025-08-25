@@ -82,62 +82,6 @@ const FeltTipMarkersPage = () => {
               </CardContent>
             </Link>
           </Card>
-          
-          {/* Water-based Felt Tip Markers Sub-category Card */}
-          <Card className="group hover:shadow-elegant transition-all duration-300 hover:-translate-y-1 border-0 overflow-hidden bg-gradient-to-br from-purple-500 to-pink-600 text-white">
-            <Link to="/cutting-pasting-tools/felt-tip-markers/water-based" className="block hover:no-underline h-full">
-              <CardContent className="p-6 flex flex-col items-center text-center h-full">
-                <div className="text-5xl mb-4">💧</div>
-                <h3 className="text-xl font-bold mb-2">أقلام فلوماستر مائية</h3>
-                <p className="text-white/90 text-sm">
-                  أقلام فلوماستر مائية قابلة للغسل ومناسبة للأطفال
-                </p>
-                <ArrowRight className="h-6 w-6 mt-4 text-white/80 group-hover:translate-x-1 transition-transform" />
-              </CardContent>
-            </Link>
-          </Card>
-          
-          {/* Permanent Felt Tip Markers Sub-category Card */}
-          <Card className="group hover:shadow-elegant transition-all duration-300 hover:-translate-y-1 border-0 overflow-hidden bg-gradient-to-br from-gray-700 to-gray-900 text-white">
-            <Link to="/cutting-pasting-tools/felt-tip-markers/permanent" className="block hover:no-underline h-full">
-              <CardContent className="p-6 flex flex-col items-center text-center h-full">
-                <div className="text-5xl mb-4">⚫</div>
-                <h3 className="text-xl font-bold mb-2">أقلام فلوماستر دائمة</h3>
-                <p className="text-white/90 text-sm">
-                  أقلام فلوماستر ذات حبر دائم لا يمحى بسهولة
-                </p>
-                <ArrowRight className="h-6 w-6 mt-4 text-white/80 group-hover:translate-x-1 transition-transform" />
-              </CardContent>
-            </Link>
-          </Card>
-          
-          {/* Highlighters Sub-category Card */}
-          <Card className="group hover:shadow-elegant transition-all duration-300 hover:-translate-y-1 border-0 overflow-hidden bg-gradient-to-br from-yellow-500 to-orange-600 text-white">
-            <Link to="/cutting-pasting-tools/felt-tip-markers/highlighters" className="block hover:no-underline h-full">
-              <CardContent className="p-6 flex flex-col items-center text-center h-full">
-                <div className="text-5xl mb-4">🖊️</div>
-                <h3 className="text-xl font-bold mb-2">أقلام تحديد النص</h3>
-                <p className="text-white/90 text-sm">
-                  أقلام شفافة لتظليل النصوص والملاحظات المهمة
-                </p>
-                <ArrowRight className="h-6 w-6 mt-4 text-white/80 group-hover:translate-x-1 transition-transform" />
-              </CardContent>
-            </Link>
-          </Card>
-          
-          {/* Sets Sub-category Card */}
-          <Card className="group hover:shadow-elegant transition-all duration-300 hover:-translate-y-1 border-0 overflow-hidden bg-gradient-to-br from-red-500 to-pink-600 text-white">
-            <Link to="/cutting-pasting-tools/felt-tip-markers/sets" className="block hover:no-underline h-full">
-              <CardContent className="p-6 flex flex-col items-center text-center h-full">
-                <div className="text-5xl mb-4">🎨</div>
-                <h3 className="text-xl font-bold mb-2">مجموعات ألوان فلوماستر</h3>
-                <p className="text-white/90 text-sm">
-                  مجموعات متنوعة من ألوان الفلوماستر بأحجام مختلفة
-                </p>
-                <ArrowRight className="h-6 w-6 mt-4 text-white/80 group-hover:translate-x-1 transition-transform" />
-              </CardContent>
-            </Link>
-          </Card>
         </div>
         
         <h2 className="text-2xl lg:text-3xl font-bold mb-8 text-center border-b pb-4">
