@@ -10,64 +10,25 @@ import { Link } from "react-router-dom";
 const domsMarkers = [
   { 
     id: 'doms-marker-1', 
-    name: 'مجموعة أقلام فلوماستر دومز 12 لون', 
-    price: 55, 
+    name: 'مجموعة أقلام فلوماستر دومز 6 لون', 
+    price: 30, 
     image: '/assets/doms-marker-1.jpg', 
     fallbackEmoji: '🖍️',
-    description: 'مجموعة أقلام فلوماستر دومز ملونة عالية الجودة بـ 12 لون',
+    description: 'مجموعة أقلام فلوماستر دومز ملونة عالية الجودة بـ 6 لون',
     rating: 4,
     isPopular: true
   },
   { 
     id: 'doms-marker-2', 
-    name: 'مجموعة أقلام فلوماستر دومز 24 لون', 
-    price: 95, 
+    name: 'مجموعة أقلام فلوماستر دومز 12 لون', 
+    price: 60, 
     image: '/assets/doms-marker-2.jpg',
     fallbackEmoji: '🖍️',
-    description: 'مجموعة شاملة من أقلام الفلوماستر دومز بـ 24 لون زاهي',
+    description: 'مجموعة شاملة من أقلام الفلوماستر دومز بـ 12 لون زاهي',
     rating: 5,
     isBestSeller: true
   },
-  { 
-    id: 'doms-marker-3', 
-    name: 'قلم فلوماستر دومز مائي قابل للغسل', 
-    price: 6, 
-    image: '/assets/doms-marker-3.jpg',
-    fallbackEmoji: '🖍️',
-    description: 'قلم فلوماستر دومز مائي سهل الغسل للأطفال',
-    rating: 4,
-    isNew: true
-  },
-  { 
-    id: 'doms-marker-4', 
-    name: 'مجموعة أقلام فلوماستر دومز مائية 6 ألوان', 
-    price: 35, 
-    image: '/assets/doms-marker-4.jpg',
-    fallbackEmoji: '🖍️',
-    description: 'أقلام فلوماستر دومز مائية مثالية للرسم والفن',
-    rating: 4,
-    isPopular: true
-  },
-  { 
-    id: 'doms-marker-5', 
-    name: 'قلم فلوماستر دومز دائم', 
-    price: 8, 
-    image: '/assets/doms-marker-5.jpg',
-    fallbackEmoji: '🖍️',
-    description: 'قلم فلوماستر دومز ذو حبر دائم لا يمحى',
-    rating: 5,
-    isBestSeller: true
-  },
-  { 
-    id: 'doms-marker-6', 
-    name: 'مجموعة أقلام تحديد النص دومز 6 ألوان', 
-    price: 30, 
-    image: '/assets/doms-marker-6.jpg',
-    fallbackEmoji: '🖊️',
-    description: 'مجموعة أقلام دومز شفافة لتظليل النصوص',
-    rating: 4,
-    isNew: true
-  },
+  
 ];
 
 // مكون خاص لعرض الصور مع fallback
