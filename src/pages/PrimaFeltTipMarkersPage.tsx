@@ -5,7 +5,7 @@ import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { useCart } from "@/contexts/CartContext";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Palette } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const primaMarkers = [
