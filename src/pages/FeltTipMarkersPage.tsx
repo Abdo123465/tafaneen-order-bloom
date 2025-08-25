@@ -166,11 +166,7 @@ const FeltTipMarkersPage = () => {
             <h3 className="font-semibold mb-1">ألوان زاهية</h3>
             <p className="text-sm text-muted-foreground">ألوان غنية ونقية تبرز الإبداع</p>
           </div>
-          <div className="text-center">
-            <div className="text-3xl mb-2">💧</div>
-            <h3 className="font-semibold mb-1">جودة عالية</h3>
-            <p className="text-sm text-muted-foreground">حبر عالي الجودة لا ينشف بسرعة</p>
-          </div>
+        
           <div className="text-center">
             <div className="text-3xl mb-2">✏️</div>
             <h3 className="font-semibold mb-1">تنوع واسع</h3>
@@ -216,25 +212,7 @@ const FeltTipMarkersPage = () => {
               </Link>
             </div>
             
-            {/* Water-based Felt Tip Markers Sub-category Card */}
-            <div className="group hover:shadow-elegant transition-all duration-300 hover:-translate-y-1 border-0 overflow-hidden bg-gradient-to-br from-purple-500 to-pink-600 text-white rounded-2xl">
-              <Link to="/cutting-pasting-tools/felt-tip-markers/water-based" className="block hover:no-underline h-full">
-                <div className="p-6 flex flex-col items-center text-center h-full">
-                  <div className="text-5xl mb-4">💧</div>
-                  <h3 className="text-xl font-bold mb-2">أقلام فلوماستر مائية</h3>
-                  <p className="text-white/90 text-sm mb-4">
-                    أقلام فلوماستر مائية قابلة للغسل ومناسبة للأطفال
-                  </p>
-                  <div className="w-full text-center bg-white/20 hover:bg-white/30 transition-colors flex items-center justify-center gap-2 py-2 px-4 border border-white/30 rounded-md">
-                    تصفح المنتجات
-                    <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                  </div>
-                </div>
-              </Link>
-            </div>
-          </div>
-        </div>
-        
+      
         {/* Products Grid */}
         <h2 className="text-2xl font-bold mb-6">جميع أقلام الفلوماستر</h2>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
