@@ -17,7 +17,6 @@ import {
  Circle,
  ArrowRight
 } from "lucide-react";
-
 function CuttingPastingToolsPage() {
  const categories = [
    {
@@ -67,7 +66,7 @@ function CuttingPastingToolsPage() {
      textColor: "text-purple-600",
      bgColor: "bg-purple-50",
      emoji: "🖊️",
-     route: "/cutting-pasting-tools/felt-markers"
+     route: "/cutting-pasting-tools/felt-tip-markers"  // تم تصحيح المسار هنا
    },
    {
      id: 5,
@@ -238,7 +237,6 @@ function CuttingPastingToolsPage() {
      route: "/cutting-pasting-tools/small-sketch"
    }
  ];
-
  useEffect(() => {
    document.title = "أدوات القص واللصق والتلوين | تفانين";
    const desc = "اكتشف مجموعة واسعة من أدوات القص واللصق والتلوين والمستلزمات الفنية من تفانين.";
@@ -250,7 +248,6 @@ function CuttingPastingToolsPage() {
    } 
    meta.setAttribute('content', desc);
  }, []);
-
  return (
    <div className="min-h-screen bg-background">
      <Header />
@@ -261,7 +258,6 @@ function CuttingPastingToolsPage() {
          <ArrowRight className="h-4 w-4" />
          <span className="text-foreground">أدوات القص واللصق والتلوين</span>
        </nav>
-
        {/* Header Section */}
        <div className="text-center mb-12">
          <div className="text-6xl mb-4">🎨</div>
@@ -270,7 +266,6 @@ function CuttingPastingToolsPage() {
            اكتشف مجموعة واسعة من أدوات القص واللصق والتلوين والمستلزمات الفنية
          </p>
        </div>
-
        {/* Categories Grid */}
        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-12">
          {categories.map((category) => {
@@ -309,7 +304,6 @@ function CuttingPastingToolsPage() {
            );
          })}
        </div>
-
        {/* Back to Categories */}
        <div className="text-center mt-12">
          <Button asChild variant="outline" className="text-lg px-8 py-4 h-auto">
@@ -321,5 +315,4 @@ function CuttingPastingToolsPage() {
    </div>
  );
 }
-
 export default CuttingPastingToolsPage;
