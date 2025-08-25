@@ -4,22 +4,61 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { useCart } from "@/contexts/CartContext";
-import { ArrowRight, Palette } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
-const feltTipMarkers = [
-  { id: 'marker-1', name: 'مجموعة أقلام فلوماستر 12 لون', price: 65, image: '🖍️', description: 'مجموعة أقلام فلوماستر ملونة عالية الجودة' },
-  { id: 'marker-2', name: 'مجموعة أقلام فلوماستر 24 لون', price: 120, image: '🖍️', description: 'مجموعة شاملة من أقلام الفلوماستر بألوان زاهية' },
-  { id: 'marker-3', name: 'قلم فلوماستر مائي قابل للغسل', price: 8, image: '🖍️', description: 'قلم فلوماستر مائي سهل الغسل للأطفال' },
-  { id: 'marker-4', name: 'مجموعة أقلام فلوماستر مائية 6 ألوان', price: 45, image: '🖍️', description: 'أقلام فلوماستر مائية مثالية للرسم والفن' },
-  { id: 'marker-5', name: 'قلم فلوماستر دائم', price: 10, image: '🖍️', description: 'قلم فلوماستر ذو حبر دائم لا يمحى' },
-  { id: 'marker-6', name: 'مجموعة أقلام تحديد النص 6 ألوان', price: 35, image: '🖍️', description: 'مجموعة أقلام شفافة لتظليل النصوص' },
+const feltTipMarkerBrands = [
+  { 
+    id: 'doms', 
+    name: 'أقلام فلوماستر دومز', 
+    image: '🖍️', 
+    description: 'أقلام فلوماستر دومز الهندية عالية الجودة بأسعار مناسبة',
+    path: '/cutting-pasting-tools/felt-tip-markers/doms',
+    gradient: 'from-green-500 to-emerald-600'
+  },
+  { 
+    id: 'prima', 
+    name: 'أقلام فلوماستر بريما', 
+    image: '🖍️', 
+    description: 'أقلام فلوماستر بريما الإيطالية الفاخرة عالية الجودة',
+    path: '/cutting-pasting-tools/felt-tip-markers/prima',
+    gradient: 'from-blue-500 to-cyan-600'
+  },
+  { 
+    id: 'water-based', 
+    name: 'أقلام فلوماستر مائية', 
+    image: '💧', 
+    description: 'أقلام فلوماستر مائية قابلة للغسل ومناسبة للأطفال',
+    path: '/cutting-pasting-tools/felt-tip-markers/water-based',
+    gradient: 'from-purple-500 to-pink-600'
+  },
+  { 
+    id: 'permanent', 
+    name: 'أقلام فلوماستر دائمة', 
+    image: '⚫', 
+    description: 'أقلام فلوماستر ذات حبر دائم لا يمحى بسهولة',
+    path: '/cutting-pasting-tools/felt-tip-markers/permanent',
+    gradient: 'from-gray-700 to-gray-900'
+  },
+  { 
+    id: 'highlighters', 
+    name: 'أقلام تحديد النص', 
+    image: '🖊️', 
+    description: 'أقلام شفافة لتظليل النصوص والملاحظات المهمة',
+    path: '/cutting-pasting-tools/felt-tip-markers/highlighters',
+    gradient: 'from-yellow-500 to-orange-600'
+  },
+  { 
+    id: 'sets', 
+    name: 'مجموعات ألوان فلوماستر', 
+    image: '🎨', 
+    description: 'مجموعات متنوعة من ألوان الفلوماستر بأحجام مختلفة',
+    path: '/cutting-pasting-tools/felt-tip-markers/sets',
+    gradient: 'from-red-500 to-pink-600'
+  },
 ];
 
 const FeltTipMarkersPage = () => {
-  const { addItem } = useCart();
-  
   useEffect(() => {
     document.title = "أقلام الفلوماستر | تفانين";
     const desc = "تسوق أقلام الفلوماستر بجميع الأنواع - مائية، دائمة، تحديد نص وأقلام فلوماستر دومز وبريما من تفانين.";
@@ -49,63 +88,28 @@ const FeltTipMarkersPage = () => {
           <div className="text-6xl mb-4">🖍️</div>
           <h1 className="text-3xl lg:text-4xl font-bold mb-4">أقلام الفلوماستر</h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            أقلام فلوماستر عالية الجودة بأنواع مختلفة للرسم والتلوين والكتابة
+            اختر من مجموعة واسعة من أقلام الفلوماستر من أفضل العلامات التجارية
           </p>
         </div>
         
-        {/* Felt Tip Markers Categories Grid */}
+        {/* Felt Tip Markers Brands Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-          {/* Doms Felt Tip Markers Sub-category Card */}
-          <Card className="group hover:shadow-elegant transition-all duration-300 hover:-translate-y-1 border-0 overflow-hidden bg-gradient-to-br from-green-500 to-emerald-600 text-white">
-            <Link to="/cutting-pasting-tools/felt-tip-markers/doms" className="block hover:no-underline h-full">
-              <CardContent className="p-6 flex flex-col items-center text-center h-full">
-                <div className="text-5xl mb-4">🖍️</div>
-                <h3 className="text-xl font-bold mb-2">أقلام فلوماستر دومز</h3>
-                <p className="text-white/90 text-sm">
-                  أقلام فلوماستر دومز الهندية عالية الجودة بأسعار مناسبة
-                </p>
-                <ArrowRight className="h-6 w-6 mt-4 text-white/80 group-hover:translate-x-1 transition-transform" />
-              </CardContent>
-            </Link>
-          </Card>
-          
-          {/* Prima Felt Tip Markers Sub-category Card */}
-          <Card className="group hover:shadow-elegant transition-all duration-300 hover:-translate-y-1 border-0 overflow-hidden bg-gradient-to-br from-blue-500 to-cyan-600 text-white">
-            <Link to="/cutting-pasting-tools/felt-tip-markers/prima" className="block hover:no-underline h-full">
-              <CardContent className="p-6 flex flex-col items-center text-center h-full">
-                <div className="text-5xl mb-4">🖍️</div>
-                <h3 className="text-xl font-bold mb-2">أقلام فلوماستر بريما</h3>
-                <p className="text-white/90 text-sm">
-                  أقلام فلوماستر بريما الإيطالية الفاخرة عالية الجودة
-                </p>
-                <ArrowRight className="h-6 w-6 mt-4 text-white/80 group-hover:translate-x-1 transition-transform" />
-              </CardContent>
-            </Link>
-          </Card>
-        </div>
-        
-        <h2 className="text-2xl lg:text-3xl font-bold mb-8 text-center border-b pb-4">
-          جميع أقلام الفلوماستر
-        </h2>
-        
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {feltTipMarkers.map((marker) => (
-            <div key={marker.id} className="card-product">
-              <div className="bg-muted/50 rounded-xl aspect-square flex items-center justify-center text-6xl mb-4">
-                {marker.image}
-              </div>
-              <h3 className="font-semibold mb-2">{marker.name}</h3>
-              <p className="text-sm text-muted-foreground mb-3">{marker.description}</p>
-              <div className="flex items-center justify-between">
-                <span className="text-primary font-bold">{marker.price} ج.م</span>
-                <Button 
-                  className="btn-tafaneen"
-                  onClick={() => addItem({ id: marker.id, name: marker.name, price: marker.price, image: marker.image })}
-                >
-                  إضافة للسلة
-                </Button>
-              </div>
-            </div>
+          {feltTipMarkerBrands.map((brand) => (
+            <Card 
+              key={brand.id} 
+              className={`group hover:shadow-elegant transition-all duration-300 hover:-translate-y-1 border-0 overflow-hidden bg-gradient-to-br ${brand.gradient} text-white`}
+            >
+              <Link to={brand.path} className="block hover:no-underline h-full">
+                <CardContent className="p-6 flex flex-col items-center text-center h-full">
+                  <div className="text-5xl mb-4">{brand.image}</div>
+                  <h3 className="text-xl font-bold mb-2">{brand.name}</h3>
+                  <p className="text-white/90 text-sm">
+                    {brand.description}
+                  </p>
+                  <ArrowRight className="h-6 w-6 mt-4 text-white/80 group-hover:translate-x-1 transition-transform" />
+                </CardContent>
+              </Link>
+            </Card>
           ))}
         </div>
         
