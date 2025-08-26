@@ -11,7 +11,7 @@ const primaMarkers = [
   { 
     id: 'prima-marker-1', 
     name: 'مجموعة أقلام فلوماستر بريما 12 لون', 
-    price: 75, 
+    price: 30, 
     image: '/assets/prima-marker-1.jpg', 
     fallbackEmoji: '🖍️',
     description: 'مجموعة أقلام فلوماستر بريما ملونة فاخرة بـ 12 لون',
@@ -20,54 +20,25 @@ const primaMarkers = [
   },
   { 
     id: 'prima-marker-2', 
-    name: 'مجموعة أقلام فلوماستر بريما 24 لون', 
-    price: 140, 
+    name: 'مجموعة أقلام فلوماستر بريما 12 لون', 
+    price: 38, 
     image: '/assets/prima-marker-2.jpg',
     fallbackEmoji: '🖍️',
-    description: 'مجموعة شاملة من أقلام الفلوماستر بريما بـ 24 لون فاخر',
+    description: 'مجموعة شاملة من أقلام الفلوماستر بريما بـ 12 لون فاخر',
     rating: 5,
     isBestSeller: true
   },
   { 
     id: 'prima-marker-3', 
-    name: 'قلم فلوماستر بريما مائي قابل للغسل', 
-    price: 10, 
+    name: 'قلم فلوماستر بريما 6 لون  ', 
+    price: 25, 
     image: '/assets/prima-marker-3.jpg',
     fallbackEmoji: '🖍️',
-    description: 'قلم فلوماستر بريما مائي سهل الغسل للأطفال',
+    description: 'قلم فلوماستر بريما  6 لون    ',
     rating: 4,
     isNew: true
   },
-  { 
-    id: 'prima-marker-4', 
-    name: 'مجموعة أقلام فلوماستر بريما مائية 6 ألوان', 
-    price: 55, 
-    image: '/assets/prima-marker-4.jpg',
-    fallbackEmoji: '🖍️',
-    description: 'أقلام فلوماستر بريما مائية مثالية للرسم والفن',
-    rating: 5,
-    isPopular: true
-  },
-  { 
-    id: 'prima-marker-5', 
-    name: 'قلم فلوماستر بريما دائم', 
-    price: 12, 
-    image: '/assets/prima-marker-5.jpg',
-    fallbackEmoji: '🖍️',
-    description: 'قلم فلوماستر بريما ذو حبر دائم لا يمحى',
-    rating: 5,
-    isBestSeller: true
-  },
-  { 
-    id: 'prima-marker-6', 
-    name: 'مجموعة أقلام تحديد النص بريما 6 ألوان', 
-    price: 45, 
-    image: '/assets/prima-marker-6.jpg',
-    fallbackEmoji: '🖊️',
-    description: 'مجموعة أقلام بريما شفافة لتظليل النصوص',
-    rating: 4,
-    isNew: true
-  },
+ 
 ];
 
 // مكون خاص لعرض الصور مع fallback
