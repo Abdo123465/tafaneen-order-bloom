@@ -78,6 +78,8 @@ import GouacheColorsPage from "./pages/GouacheColorsPage";
 import FeltTipMarkersPage from "./pages/FeltTipMarkersPage";
 import DomsFeltTipMarkersPage from "./pages/DomsFeltTipMarkersPage";
 import PrimaFeltTipMarkersPage from "./pages/PrimaFeltTipMarkersPage";
+// استيراد صفحة ألوان الأكريليك الجديدة
+import AcrylicColorsPage from "./pages/AcrylicColorsPage";
 
 const queryClient = new QueryClient();
 const App = () => (
@@ -162,6 +164,8 @@ const App = () => (
               <Route path="/pens/ballpoint-sets" element={<BallpointPenSetsPage />} />
               <Route path="/cutting-pasting-tools/wax-crayons" element={<WaxCrayonsPage />} />
               <Route path="/cutting-pasting-tools/gouache-colors" element={<GouacheColorsPage />} />
+              {/* مسار صفحة ألوان الأكريليك الجديدة */}
+              <Route path="/cutting-pasting-tools/acrylic-colors" element={<AcrylicColorsPage />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>
