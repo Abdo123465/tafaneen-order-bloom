@@ -11,58 +11,32 @@ import { Link } from "react-router-dom";
 const acrylicColors = [
   { 
     id: 'acrylic-1', 
-    name: 'علبة ألوان أكريليك 12 لون - فابر كاستل', 
-    price: 120, 
+    name: 'علبة ألوان أكريليك 12 لون - في نيدز', 
+    price: 85, 
     image: '/assets/acrylic-1.jpg', 
-    description: 'ألوان أكريليك عالية الجودة من فابر كاستل بـ 12 لون أساسي للرسم على جميع الأسطح',
-    brand: 'فابر كاستل',
+    description: 'ألوان أكريليك عالية الجودة من في نيدز بـ 12 لون أساسي للرسم على جميع الأسطح',
+    brand: 'Vneeds',
     colors: 12
   },
   { 
     id: 'acrylic-2', 
-    name: 'علبة ألوان أكريليك 24 لون - ديلي', 
+    name: 'علبة ألوان أكريليك 12 لون - كلاود ستات', 
     price: 180, 
     image: '/assets/acrylic-2.jpg', 
-    description: 'مجموعة متكاملة من ألوان الأكريليك من ديلي بـ 24 لون احترافي',
-    brand: 'ديلي',
-    colors: 24
+    description: 'مجموعة متكاملة من ألوان الأكريليك من كلاود ستات بـ 24 لون احترافي',
+    brand: 'كلاود ستات',
+    colors: 12
   },
   { 
     id: 'acrylic-3', 
-    name: 'علبة ألوان أكريليك 36 لون - بريمو', 
-    price: 250, 
+    name: ' برطمان واحد اكريليك الوان مختلفة و زاهية  ', 
+    price: 27, 
     image: '/assets/acrylic-3.jpg', 
-    description: 'ألوان أكريليك احترافية من بريمو بـ 36 لون متنوع للفنانين المحترفين',
-    brand: 'بريمو',
-    colors: 36
-  },
-  { 
-    id: 'acrylic-4', 
-    name: 'علبة ألوان أكريليك 6 لون - ستار كولور', 
-    price: 65, 
-    image: '/assets/acrylic-4.jpg', 
-    description: 'مجموعة بداية مثالية من ألوان الأكريليك من ستار كولور بـ 6 ألوان أساسية',
-    brand: 'ستار كولور',
-    colors: 6
-  },
-  { 
-    id: 'acrylic-5', 
-    name: 'علبة ألوان أكريليك 18 لون - ألتيز', 
-    price: 150, 
-    image: '/assets/acrylic-5.jpg', 
-    description: 'ألوان أكريليك متوازنة من ألتيز بـ 18 لون مع تغطية ممتازة',
-    brand: 'ألتيز',
-    colors: 18
-  },
-  { 
-    id: 'acrylic-6', 
-    name: 'علبة ألوان أكريليك 12 لون - دومز', 
-    price: 95, 
-    image: '/assets/acrylic-6.jpg', 
-    description: 'ألوان أكريليك جافة سريع من دومز بـ 12 لون زاهي ومشرق',
-    brand: 'دومز',
+    description: 'ألوان أكريليك احترافية   الوان مختلفة  متنوعة للفنانين المحترفين',
+    brand: 'keep smiling',
     colors: 12
   },
+
 ];
 
 const AcrylicColorsPage = () => {
