@@ -1,8 +1,14 @@
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
 import { Resend } from "npm:resend@2.0.0";
 
-// Initialize Resend with the provided API key
-const resend = new Resend("re_7YowBuAL_C9yRZ8HkfUyKWEFERvqYU3k7");
+// Initialize Resend with API key from environment variables
+const resendApiKey = Deno.env.get('RESEND_API_KEY');
+
+if (!resendApiKey) {
+  throw new Error('RESEND_API_KEY environment variable is not set');
+}
+
+const resend = new Resend(resendApiKey);
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
