@@ -1,9 +1,6 @@
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
 import { Resend } from "npm:resend@2.0.0";
 
-// Initialize Resend with the provided API key
-const resend = new Resend("re_7YowBuAL_C9yRZ8HkfUyKWEFERvqYU3k7");
-
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
   "Access-Control-Allow-Headers":
@@ -24,9 +21,29 @@ const handler = async (req: Request): Promise<Response> => {
 
   try {
     const { phone, verificationCode, name }: SendEmailRequest = await req.json();
+    
+    // Validate inputs
+    if (!phone || !verificationCode || !name) {
+      return new Response(
+        JSON.stringify({ error: "Missing required fields" }),
+        {
+          status: 400,
+          headers: { "Content-Type": "application/json", ...corsHeaders },
+        }
+      );
+    }
 
+    // Get API key from environment
+    const resendApiKey = Deno.env.get("RESEND_API_KEY");
+    if (!resendApiKey) {
+      throw new Error("Missing Resend API key");
+    }
+
+    // Initialize Resend with environment variable
+    const resend = new Resend(resendApiKey);
+    
     console.log("Sending verification SMS for phone:", phone);
-
+    
     // For now, we'll simulate SMS sending by logging the verification code
     // In a real implementation, you would integrate with an SMS service
     console.log(`SMS Verification Code for ${phone}: ${verificationCode}`);
@@ -40,9 +57,8 @@ const handler = async (req: Request): Promise<Response> => {
       code: verificationCode, // In production, don't return the actual code
       note: "SMS integration pending - code logged to console"
     };
-
+    
     console.log("SMS simulation completed:", response);
-
     return new Response(JSON.stringify(response), {
       status: 200,
       headers: {
