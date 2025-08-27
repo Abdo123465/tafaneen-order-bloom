@@ -20,8 +20,19 @@ const handler = async (req: Request): Promise<Response> => {
   try {
     const { username, message }: SendTelegramRequest = await req.json();
     
-    const botToken = Deno.env.get("TELEGRAM_BOT_TOKEN");
+    // Validate inputs
+    if (!username || !message) {
+      return new Response(
+        JSON.stringify({ error: "Missing required fields" }),
+        {
+          status: 400,
+          headers: { "Content-Type": "application/json", ...corsHeaders },
+        }
+      );
+    }
 
+    // Get bot token from environment
+    const botToken = Deno.env.get("TELEGRAM_BOT_TOKEN");
     if (!botToken) {
       throw new Error("Missing Telegram Bot Token");
     }
@@ -73,7 +84,7 @@ const handler = async (req: Request): Promise<Response> => {
 
     const result = await response.json();
     console.log("رسالة Telegram تم إرسالها بنجاح:", result);
-
+    
     return new Response(JSON.stringify({ 
       success: true, 
       message_id: result.result.message_id,
