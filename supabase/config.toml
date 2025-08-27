@@ -1,1 +1,40 @@
-project_id = "bxxmtptvxkgpeqmwkxqv"
+[auth]
+# Authentication settings
+site_url = "https://your-domain.com"
+additional_redirect_urls = ["https://your-domain.com/auth/callback"]
+jwt_expiry = 3600 # 1 hour
+
+[auth.email]
+# Disable email signup
+enable_signup = false
+enable_confirmations = false
+double_confirm_emails = false
+
+[auth.external]
+# Disable external providers
+enabled_providers = []
+
+[storage]
+# Storage settings
+file_size_limit = 52428800 # 50MB
+allowed_mime_types = ["image/jpeg", "image/png", "application/pdf"]
+
+[realtime]
+# Realtime settings
+enabled = true
+
+[analytics]
+# Analytics settings
+enabled = false
+
+# Row Level Security (RLS) policies
+[rls.policies.users]
+# Users table policies
+"Allow public read access" = "auth.role() = 'anon'"
+"Allow users to insert their own data" = "auth.uid() = user_id"
+"Allow users to update their own data" = "auth.uid() = user_id"
+
+[rls.policies.security_logs]
+# Security logs policies
+"Allow system to insert logs" = "auth.role() = 'service_role'"
+"Allow admins to read logs" = "auth.role() = 'service_role'"
