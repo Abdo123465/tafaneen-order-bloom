@@ -11,9 +11,10 @@
 This project has been updated with the following features:
 
 1. **Resend API Integration**
-   - Integrated Resend API with key: `re_7YowBuAL_C9yRZ8HkfUyKWEFERvqYU3k7`
+   - Integrated Resend API for email/SMS services
    - Updated email service to support SMS simulation
    - Proper error handling and authentication
+   - API key configured via environment variables for security
 
 2. **Egyptian Phone Number Validation**
    - Comprehensive validation for Egyptian phone numbers
