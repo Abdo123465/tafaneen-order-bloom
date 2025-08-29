@@ -43,7 +43,7 @@ const canson70x50Products = [
     id: 'canson-70x50-4', 
     name: 'فرخ كانسون ثقيل جدا', 
     price: 70, 
-    image: '/assets/canson-70x50-3.jpg', 
+    image: '/assets/canson-70x50-4.jpg', 
     description: 'ورق كانسون بمقاس 70×50 سم ب، مثالي للأكريليك والزيت',
     brand: 'كانسون ثقيل جدا',
     weight: '200 جرام',
