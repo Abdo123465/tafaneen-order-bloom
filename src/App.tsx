@@ -80,8 +80,13 @@ import DomsFeltTipMarkersPage from "./pages/DomsFeltTipMarkersPage";
 import PrimaFeltTipMarkersPage from "./pages/PrimaFeltTipMarkersPage";
 // استيراد صفحة ألوان الأكريليك الجديدة
 import AcrylicColorsPage from "./pages/AcrylicColorsPage";
+// استيراد صفحات ورق كانسون الجديدة
+import CansonPaperPage from "./pages/CansonPaperPage";
+import CansonA4Page from "./pages/CansonA4Page";
+import Canson70x50Page from "./pages/Canson70x50Page";
 
 const queryClient = new QueryClient();
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <AuthProvider>
@@ -166,6 +171,10 @@ const App = () => (
               <Route path="/cutting-pasting-tools/gouache-colors" element={<GouacheColorsPage />} />
               {/* مسار صفحة ألوان الأكريليك الجديدة */}
               <Route path="/cutting-pasting-tools/acrylic-colors" element={<AcrylicColorsPage />} />
+              {/* مسارات صفحات ورق كانسون الجديدة */}
+              <Route path="/cutting-pasting-tools/canson-paper" element={<CansonPaperPage />} />
+              <Route path="/cutting-pasting-tools/canson-paper/a4" element={<CansonA4Page />} />
+              <Route path="/cutting-pasting-tools/canson-paper/70x50" element={<Canson70x50Page />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>
@@ -175,4 +184,5 @@ const App = () => (
     </AuthProvider>
   </QueryClientProvider>
 );
+
 export default App;
