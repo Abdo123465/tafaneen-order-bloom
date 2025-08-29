@@ -1,4 +1,4 @@
-# Welcome to your Lovable project
+# Welcome 
 
 ## Project info
 
@@ -6,14 +6,10 @@
 
 ## Recent Updates
 
-### Resend API Integration & Egyptian Phone Validation
 
 This project has been updated with the following features:
 
-1. **Resend API Integration**
-   - Integrated Resend API with key: `re_7YowBuAL_C9yRZ8HkfUyKWEFERvqYU3k7`
-   - Updated email service to support SMS simulation
-   - Proper error handling and authentication
+
 
 2. **Egyptian Phone Number Validation**
    - Comprehensive validation for Egyptian phone numbers
