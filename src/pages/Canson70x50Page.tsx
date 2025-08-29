@@ -11,33 +11,43 @@ import { Link } from "react-router-dom";
 const canson70x50Products = [
   { 
     id: 'canson-70x50-1', 
-    name: 'ورق كانسون 70×50 سم 160 جرام - 20 ورقة', 
-    price: 75, 
+    name: 'فرخ كانسون خفيف', 
+    price: 22, 
     image: '/assets/canson-70x50-1.jpg', 
-    description: 'ورق كانسون بمقاس 70×50 سم بوزن 160 جرام، مثالي للرسم والطباعة الكبيرة',
-    brand: 'Canson',
-    weight: '160 جرام',
-    sheets: 20
+    description: 'فرخ كانسون خفيف',
+    brand: 'كانسون خفيف',
+    weight: '70 جرام',
+    sheets: 1
   },
   { 
     id: 'canson-70x50-2', 
-    name: 'ورق كانسون 70×50 سم 200 جرام - 20 ورقة', 
-    price: 85, 
+    name: 'فرخ كانسون ثقيل', 
+    price: 37, 
     image: '/assets/canson-70x50-2.jpg', 
-    description: 'ورق كانسون بمقاس 70×50 سم بوزن 200 جرام، مثالي للألوان المائية',
-    brand: 'Canson',
-    weight: '200 جرام',
-    sheets: 20
+    description: 'ورق كانسون بمقاس 70×50 سم ، مثالي للألوان المائية',
+    brand: 'كانسون ثقيل',
+    weight: '150 جرام',
+    sheets: 1
   },
   { 
     id: 'canson-70x50-3', 
-    name: 'ورق كانسون 70×50 سم 250 جرام - 10 ورقة', 
+    name: ' فرخ كانسون ثقيل 2', 
+    price: 45, 
+    image: '/assets/canson-70x50-3.jpg', 
+    description: 'ورق كانسون بمقاس 70×50 سم ، مثالي للأكريليك والزيت',
+    brand: 'كانسون ثقيل 2',
+    weight: '180 جرام',
+    sheets: 1
+  },
+    { 
+    id: 'canson-70x50-4', 
+    name: 'فرخ كانسون ثقيل جدا', 
     price: 70, 
     image: '/assets/canson-70x50-3.jpg', 
-    description: 'ورق كانسون بمقاس 70×50 سم بوزن 250 جرام، مثالي للأكريليك والزيت',
-    brand: 'Canson',
-    weight: '250 جرام',
-    sheets: 10
+    description: 'ورق كانسون بمقاس 70×50 سم ب، مثالي للأكريليك والزيت',
+    brand: 'كانسون ثقيل جدا',
+    weight: '200 جرام',
+    sheets: 1
   },
 ];
 
