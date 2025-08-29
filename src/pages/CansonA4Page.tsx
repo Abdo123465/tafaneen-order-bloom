@@ -11,34 +11,25 @@ import { Link } from "react-router-dom";
 const cansonA4Products = [
   { 
     id: 'canson-a4-1', 
-    name: 'ورق كانسون A4 160 جرام - 50 ورقة', 
-    price: 45, 
+    name: 'ورقه كانسون A4 اندلسيه', 
+    price: 8, 
     image: '/assets/canson-a4-1.jpg', 
-    description: 'ورق كانسون بمقاس A4 بوزن 160 جرام، مثالي للرسم والطباعة',
-    brand: 'Canson',
-    weight: '160 جرام',
-    sheets: 50
+    description: 'ورق كانسون بمقاس A4  مثالي للرسم والطباعة',
+    brand: 'اندلسيه',
+    weight: '80 جرام',
+    sheets: 1
   },
   { 
     id: 'canson-a4-2', 
-    name: 'ورق كانسون A4 200 جرام - 50 ورقة', 
-    price: 55, 
+    name: 'ورقه كانسون A4 مستورد Yuan Da Long', 
+    price: 7, 
     image: '/assets/canson-a4-2.jpg', 
-    description: 'ورق كانسون بمقاس A4 بوزن 200 جرام، مثالي للألوان المائية',
-    brand: 'Canson',
-    weight: '200 جرام',
-    sheets: 50
+    description: 'ورقه كانسون A4 مستورد Yuan Da Long',
+    brand: 'Yuan Da Long',
+    weight: '80 جرام',
+    sheets: 1
   },
-  { 
-    id: 'canson-a4-3', 
-    name: 'ورق كانسون A4 250 جرام - 25 ورقة', 
-    price: 50, 
-    image: '/assets/canson-a4-3.jpg', 
-    description: 'ورق كانسون بمقاس A4 بوزن 250 جرام، مثالي للأكريليك والزيت',
-    brand: 'Canson',
-    weight: '250 جرام',
-    sheets: 25
-  },
+  
 ];
 
 const CansonA4Page = () => {
