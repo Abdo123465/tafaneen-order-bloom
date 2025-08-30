@@ -84,6 +84,9 @@ import AcrylicColorsPage from "./pages/AcrylicColorsPage";
 import CansonPaperPage from "./pages/CansonPaperPage";
 import CansonA4Page from "./pages/CansonA4Page";
 import Canson70x50Page from "./pages/Canson70x50Page";
+import ScissorsPage from "./pages/ScissorsPage";
+import SchoolScissorsPage from "./pages/SchoolScissorsPage";
+import OfficeScissorsPage from "./pages/OfficeScissorsPage";
 
 const queryClient = new QueryClient();
 
@@ -175,6 +178,9 @@ const App = () => (
               <Route path="/cutting-pasting-tools/canson-paper" element={<CansonPaperPage />} />
               <Route path="/cutting-pasting-tools/canson-paper/a4" element={<CansonA4Page />} />
               <Route path="/cutting-pasting-tools/canson-paper/70x50" element={<Canson70x50Page />} />
+              <Route path="/cutting-pasting-tools/scissors" element={<ScissorsPage />} />
+              <Route path="/cutting-pasting-tools/scissors/school" element={<SchoolScissorsPage />} />
+              <Route path="/cutting-pasting-tools/scissors/office" element={<OfficeScissorsPage />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>
