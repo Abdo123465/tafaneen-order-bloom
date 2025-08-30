@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight, ShoppingCart, Star, Shield, Users, Scissors } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -31,7 +31,7 @@ const SchoolScissorsPage = () => {
       id: product.id,
       name: product.name,
       price: product.price,
-      image: "/placeholder.svg",
+      image: product.image,
       category: "مقاصات مدرسية"
     });
     
@@ -43,55 +43,21 @@ const SchoolScissorsPage = () => {
   };
 
   const products = [
-    {
-      id: "school-scissors-1",
-      name: "مقص مدرسي صغير - ألوان متنوعة",
-      price: 8.50,
-      originalPrice: 12.00,
-      brand: "فايبر",
-      description: "مقص مدرسي صغير بتصميم آمن للأطفال مع مقبض ملون مريح",
-      features: ["نصل غير حاد", "مقبض مريح", "ألوان متنوعة", "آمن للأطفال"],
-      inStock: true,
-      rating: 4.5,
-      reviews: 128
-    },
-    {
-      id: "school-scissors-2", 
-      name: "مقص مدرسي متوسط - أزرق",
-      price: 12.00,
-      originalPrice: 15.50,
-      brand: "ستار",
-      description: "مقص مدرسي بحجم متوسط مثالي للأنشطة المدرسية والحرف اليدوية",
-      features: ["حجم متوسط", "تصميم مريح", "جودة عالية", "سهل الاستخدام"],
-      inStock: true,
-      rating: 4.3,
-      reviews: 89
-    },
+  
     {
       id: "school-scissors-3",
       name: "مجموعة مقاصات مدرسية (3 قطع)",
-      price: 25.00,
-      originalPrice: 35.00,
-      brand: "كيدز توولز",
+      price: 15,
+      brand: "J701",
       description: "مجموعة من 3 مقاصات مدرسية بأحجام مختلفة وألوان متنوعة",
       features: ["3 أحجام مختلفة", "ألوان زاهية", "آمنة للأطفال", "جودة ممتازة"],
+      image: "/assets/school-scissors-3.jpg",
       inStock: true,
       rating: 4.7,
       reviews: 156,
       isSet: true
     },
-    {
-      id: "school-scissors-4",
-      name: "مقص مدرسي بتصميم كرتوني",
-      price: 15.00,
-      originalPrice: 18.00,
-      brand: "فن آرت",
-      description: "مقص مدرسي بتصميم كرتوني جذاب للأطفال مع حافظة بلاستيكية",
-      features: ["تصميم كرتوني", "حافظة بلاستيكية", "مقبض مطاطي", "سهل الإمساك"],
-      inStock: true,
-      rating: 4.4,
-      reviews: 94
-    }
+   
   ];
 
   return (
@@ -142,15 +108,18 @@ const SchoolScissorsPage = () => {
           {products.map((product) => (
             <Card key={product.id} className="group hover:shadow-elegant transition-all duration-300 hover:-translate-y-1">
               <CardContent className="p-0">
-                <div className="relative bg-gradient-to-br from-orange-50 to-red-50 p-8 flex items-center justify-center h-48">
-                  <div className="text-6xl">✂️</div>
+                <div className="relative bg-gradient-to-br from-orange-50 to-red-50 p-4 flex items-center justify-center h-48 overflow-hidden">
+                  <img 
+                    src={product.image} 
+                    alt={product.name}
+                    className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement;
+                      target.src = "/placeholder.svg";
+                    }}
+                  />
                   {product.isSet && (
                     <Badge className="absolute top-3 right-3 bg-green-600">مجموعة</Badge>
-                  )}
-                  {product.originalPrice && (
-                    <Badge variant="destructive" className="absolute top-3 left-3">
-                      خصم {Math.round((1 - product.price / product.originalPrice) * 100)}%
-                    </Badge>
                   )}
                 </div>
                 
@@ -191,11 +160,6 @@ const SchoolScissorsPage = () => {
                   <div className="flex items-center justify-between mb-4">
                     <div>
                       <span className="text-lg font-bold text-primary">{product.price.toFixed(2)} ج.م</span>
-                      {product.originalPrice && (
-                        <span className="text-sm text-muted-foreground line-through mr-2">
-                          {product.originalPrice.toFixed(2)} ج.م
-                        </span>
-                      )}
                     </div>
                   </div>
                   
