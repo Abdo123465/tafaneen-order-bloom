@@ -158,4 +158,99 @@ const OfficeScissorsPage = () => {
           </Card>
           <Card className="text-center p-4 bg-gradient-to-br from-purple-50 to-pink-50 border-purple-200">
             <Star className="h-8 w-8 mx-auto mb-3 text-purple-600" />
-            <h3 className="font
+            <h3 className="font-bold text-sm text-purple-700">عمر افتراضي طويل</h3>
+          </Card>
+        </div>
+
+        {/* Products Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-12">
+          {products.map((product) => (
+            <Card key={product.id} className="group hover:shadow-elegant transition-all duration-300 hover:-translate-y-1">
+              <CardContent className="p-0">
+                <div className="relative bg-gradient-to-br from-slate-50 to-gray-100 p-8 flex items-center justify-center h-48">
+                  <div className="text-6xl">✂️</div>
+                  {product.isSet && (
+                    <Badge className="absolute top-3 right-3 bg-green-600">مجموعة</Badge>
+                  )}
+                  {product.isPremium && (
+                    <Badge className="absolute top-3 right-3 bg-gradient-to-r from-gold-400 to-gold-600">بريميوم</Badge>
+                  )}
+                  {product.originalPrice && (
+                    <Badge variant="destructive" className="absolute top-3 left-3">
+                      خصم {Math.round((1 - product.price / product.originalPrice) * 100)}%
+                    </Badge>
+                  )}
+                </div>
+                
+                <div className="p-4">
+                  <div className="flex items-center gap-2 mb-2">
+                    <Badge variant="outline" className="text-xs">{product.brand}</Badge>
+                  </div>
+                  
+                  <h3 className="font-bold mb-2 line-clamp-2 min-h-[3rem] text-sm">
+                    {product.name}
+                  </h3>
+                  
+                  <p className="text-muted-foreground text-xs mb-3 line-clamp-2 min-h-[2.5rem]">
+                    {product.description}
+                  </p>
+                  
+                  <div className="flex items-center gap-1 mb-3">
+                    <div className="flex">
+                      {[...Array(5)].map((_, i) => (
+                        <Star 
+                          key={i} 
+                          className={`h-3 w-3 ${i < Math.floor(product.rating) ? 'fill-yellow-400 text-yellow-400' : 'text-gray-300'}`} 
+                        />
+                      ))}
+                    </div>
+                    <span className="text-xs text-muted-foreground">({product.reviews})</span>
+                  </div>
+                  
+                  <div className="space-y-1 mb-4">
+                    {product.features.slice(0, 2).map((feature, index) => (
+                      <div key={index} className="text-xs text-muted-foreground flex items-center gap-1">
+                        <div className="w-1 h-1 bg-blue-500 rounded-full"></div>
+                        {feature}
+                      </div>
+                    ))}
+                  </div>
+                  
+                  <div className="flex items-center justify-between mb-4">
+                    <div>
+                      <span className="text-lg font-bold text-primary">{product.price.toFixed(2)} ج.م</span>
+                      {product.originalPrice && (
+                        <span className="text-sm text-muted-foreground line-through mr-2">
+                          {product.originalPrice.toFixed(2)} ج.م
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                  
+                  <Button 
+                    onClick={() => handleAddToCart(product)}
+                    className="w-full"
+                    disabled={!product.inStock}
+                  >
+                    <ShoppingCart className="h-4 w-4 ml-2" />
+                    {product.inStock ? 'أضف للسلة' : 'غير متوفر'}
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+        
+        {/* Back to scissors */}
+        <div className="text-center mt-12">
+          <Button asChild variant="outline" className="text-lg px-8 py-4 h-auto">
+            <Link to="/cutting-pasting-tools/scissors">العودة إلى المقاصات</Link>
+          </Button>
+        </div>
+      </main>
+      <Footer />
+    </div>
+  );
+};
+
+export default OfficeScissorsPage;
