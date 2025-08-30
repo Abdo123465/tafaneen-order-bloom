@@ -31,7 +31,7 @@ const OfficeScissorsPage = () => {
       id: product.id,
       name: product.name,
       price: product.price,
-      image: "/placeholder.svg",
+      image: product.image,
       category: "مقاصات مكتبية"
     });
     
@@ -45,78 +45,29 @@ const OfficeScissorsPage = () => {
   const products = [
     {
       id: "office-scissors-1",
-      name: "مقص مكتبي احترافي - ستانلس ستيل",
-      price: 25.00,
-      originalPrice: 30.00,
-      brand: "بروفيشنال",
+      name: "مقص مكتبي احترافي -  مادن",
+      price: 30.00,
+      brand: "مادن",
       description: "مقص مكتبي احترافي من الستانلس ستيل عالي الجودة مع مقبض مريح",
       features: ["ستانلس ستيل", "نصل حاد", "مقبض مريح", "تصميم احترافي"],
+      image: "/assets/office-scissors-1.jpg",
       inStock: true,
       rating: 4.8,
       reviews: 245
     },
     {
       id: "office-scissors-2", 
-      name: "مقص مكتبي كبير - 8 بوصة",
-      price: 35.00,
-      originalPrice: 42.00,
+      name: "كارت 2 مقص",
+      price: 75,
       brand: "أوفيس ماستر",
       description: "مقص مكتبي كبير بطول 8 بوصات مثالي لقص الأوراق الكبيرة والمواد المختلفة",
       features: ["8 بوصات", "قبضة مطاطية", "نصل مقوى", "متعدد الاستخدامات"],
+      image: "/assets/office-scissors-large.jpg",
       inStock: true,
       rating: 4.6,
       reviews: 178
     },
-    {
-      id: "office-scissors-3",
-      name: "مجموعة مقاصات مكتبية (2 قطعة)",
-      price: 45.00,
-      originalPrice: 60.00,
-      brand: "إكسكيوتيف",
-      description: "مجموعة من مقصين مكتبيين بأحجام مختلفة للاستخدام المتنوع في المكتب",
-      features: ["حجمين مختلفين", "تصميم أنيق", "جودة ممتازة", "حافظة مجانية"],
-      inStock: true,
-      rating: 4.9,
-      reviews: 312,
-      isSet: true
-    },
-    {
-      id: "office-scissors-4",
-      name: "مقص مكتبي تيتانيوم مطلي",
-      price: 55.00,
-      originalPrice: 65.00,
-      brand: "تيتان",
-      description: "مقص مكتبي مطلي بالتيتانيوم مقاوم للصدأ وسهل التنظيف",
-      features: ["مطلي بالتيتانيوم", "مقاوم للصدأ", "سهل التنظيف", "عمر افتراضي طويل"],
-      inStock: true,
-      rating: 4.7,
-      reviews: 189
-    },
-    {
-      id: "office-scissors-5",
-      name: "مقص مكتبي مع حامل مكتبي",
-      price: 40.00,
-      originalPrice: 50.00,
-      brand: "ديسك أورجنايزر",
-      description: "مقص مكتبي مع حامل مكتبي أنيق للتنظيم والوصول السريع",
-      features: ["حامل مكتبي", "تصميم عصري", "سهولة الوصول", "توفير المساحة"],
-      inStock: true,
-      rating: 4.5,
-      reviews: 156
-    },
-    {
-      id: "office-scissors-6",
-      name: "مقص مكتبي كهربائي",
-      price: 120.00,
-      originalPrice: 150.00,
-      brand: "إلكترو كت",
-      description: "مقص مكتبي كهربائي للاستخدام الكثيف والقص السريع والدقيق",
-      features: ["كهربائي", "قص دقيق", "سرعة عالية", "للاستخدام الكثيف"],
-      inStock: true,
-      rating: 4.8,
-      reviews: 98,
-      isPremium: true
-    }
+  
   ];
 
   return (
@@ -167,18 +118,21 @@ const OfficeScissorsPage = () => {
           {products.map((product) => (
             <Card key={product.id} className="group hover:shadow-elegant transition-all duration-300 hover:-translate-y-1">
               <CardContent className="p-0">
-                <div className="relative bg-gradient-to-br from-slate-50 to-gray-100 p-8 flex items-center justify-center h-48">
-                  <div className="text-6xl">✂️</div>
+                <div className="relative bg-gradient-to-br from-slate-50 to-gray-100 p-4 flex items-center justify-center h-48 overflow-hidden">
+                  <img 
+                    src={product.image} 
+                    alt={product.name}
+                    className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement;
+                      target.src = "/placeholder.svg";
+                    }}
+                  />
                   {product.isSet && (
                     <Badge className="absolute top-3 right-3 bg-green-600">مجموعة</Badge>
                   )}
                   {product.isPremium && (
                     <Badge className="absolute top-3 right-3 bg-gradient-to-r from-gold-400 to-gold-600">بريميوم</Badge>
-                  )}
-                  {product.originalPrice && (
-                    <Badge variant="destructive" className="absolute top-3 left-3">
-                      خصم {Math.round((1 - product.price / product.originalPrice) * 100)}%
-                    </Badge>
                   )}
                 </div>
                 
@@ -219,11 +173,6 @@ const OfficeScissorsPage = () => {
                   <div className="flex items-center justify-between mb-4">
                     <div>
                       <span className="text-lg font-bold text-primary">{product.price.toFixed(2)} ج.م</span>
-                      {product.originalPrice && (
-                        <span className="text-sm text-muted-foreground line-through mr-2">
-                          {product.originalPrice.toFixed(2)} ج.م
-                        </span>
-                      )}
                     </div>
                   </div>
                   
