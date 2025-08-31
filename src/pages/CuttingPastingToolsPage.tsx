@@ -308,6 +308,32 @@ function CuttingPastingToolsPage() {
               </Card>
             );
           })}
+          
+          {/* إضافة هذا الكارت مع الكاردات الأخرى */}
+          <Card className="group hover:shadow-elegant transition-all duration-300 hover:-translate-y-1">
+            <CardContent className="p-8 text-center">
+              <div className="text-6xl mb-6">🔲</div>
+              <h3 className="text-2xl font-bold mb-4">فوم عادي</h3>
+              <p className="text-muted-foreground mb-6">
+                فوم عادي عالي الجودة بمقاسات مختلفة للأعمال الفنية والحرفية
+              </p>
+              <div className="space-y-2 mb-6 text-sm">
+                <div className="flex justify-between">
+                  <span>المقاسات:</span>
+                  <span className="font-medium">A4، 70×50 سم</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>السماكات:</span>
+                  <span className="font-medium">2-10 مم</span>
+                </div>
+              </div>
+              <Button asChild className="btn-tafaneen w-full">
+                <Link to="/cutting-pasting-tools/regular-foam">
+                  تصفح الفوم العادي
+                </Link>
+              </Button>
+            </CardContent>
+          </Card>
         </div>
         
         {/* Back to Categories */}
