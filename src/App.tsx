@@ -88,6 +88,7 @@ import ScissorsPage from "./pages/ScissorsPage";
 import SchoolScissorsPage from "./pages/SchoolScissorsPage";
 import OfficeScissorsPage from "./pages/OfficeScissorsPage";
 import WaterColorsPage from "./pages/WaterColorsPage";
+import OilColorsPage from "./pages/OilColorsPage";
 
 const queryClient = new QueryClient();
 
@@ -183,6 +184,7 @@ const App = () => (
               <Route path="/cutting-pasting-tools/scissors/school" element={<SchoolScissorsPage />} />
               <Route path="/cutting-pasting-tools/scissors/office" element={<OfficeScissorsPage />} />
               <Route path="/cutting-pasting-tools/water-colors" element={<WaterColorsPage />} />
+              <Route path="/cutting-pasting-tools/oil-colors" element={<OilColorsPage />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>
