@@ -62,7 +62,7 @@ const OfficeScissorsPage = () => {
       brand: "أوفيس ماستر",
       description: "مقص مكتبي كبير بطول 8 بوصات مثالي لقص الأوراق الكبيرة والمواد المختلفة",
       features: ["8 بوصات", "قبضة مطاطية", "نصل مقوى", "متعدد الاستخدامات"],
-      image: "/assets/office-scissors-large.jpg",
+      image: "/assets/office-scissors-2.jpg",
       inStock: true,
       rating: 4.6,
       reviews: 178
