@@ -126,7 +126,7 @@ function CuttingPastingToolsPage() {
       color: "bg-gradient-to-br from-cyan-500 to-cyan-600",
       textColor: "text-cyan-600",
       bgColor: "bg-cyan-50",
-      emoji: "✂️",
+      emoji: "💧",
       route: "/cutting-pasting-tools/water-colors"
     },
     {
