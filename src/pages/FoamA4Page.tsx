@@ -11,44 +11,15 @@ import { Link } from "react-router-dom";
 const foamA4Products = [
   { 
     id: 'foam-a4-1', 
-    name: 'فوم A4 أبيض رفيع', 
-    price: 12, 
+    name: 'فوم عادي ِA4 ', 
+    price: 7, 
     image: '/assets/foam-a4-1.jpg', 
-    description: 'فوم A4 أبيض بسماكة رفيعة مثالي للأعمال الفنية البسيطة',
+    description: 'فوم A4 بالوان مختلفة بسماكة رفيعة مثالي للأعمال الفنية البسيطة',
     brand: 'عادي',
     thickness: '2 مم',
-    color: 'أبيض'
+    color: 'الوان مختلفة'
   },
-  { 
-    id: 'foam-a4-2', 
-    name: 'فوم A4 أبيض متوسط', 
-    price: 18, 
-    image: '/assets/foam-a4-2.jpg', 
-    description: 'فوم A4 أبيض بسماكة متوسطة للأعمال الحرفية',
-    brand: 'عادي',
-    thickness: '5 مم',
-    color: 'أبيض'
-  },
-  { 
-    id: 'foam-a4-3', 
-    name: 'فوم A4 ملون رفيع', 
-    price: 15, 
-    image: '/assets/foam-a4-3.jpg', 
-    description: 'فوم A4 ملون بسماكة رفيعة متوفر بألوان متعددة',
-    brand: 'عادي',
-    thickness: '2 مم',
-    color: 'ملون'
-  },
-  { 
-    id: 'foam-a4-4', 
-    name: 'فوم A4 ملون متوسط', 
-    price: 22, 
-    image: '/assets/foam-a4-4.jpg', 
-    description: 'فوم A4 ملون بسماكة متوسطة للمشاريع الإبداعية',
-    brand: 'عادي',
-    thickness: '5 مم',
-    color: 'ملون'
-  },
+
 ];
 
 const FoamA4Page = () => {
