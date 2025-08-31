@@ -12,53 +12,14 @@ const foam70x50Products = [
   { 
     id: 'foam-70x50-1', 
     name: 'فوم 70×50 أبيض رفيع', 
-    price: 35, 
+    price: 25, 
     image: '/assets/foam-70x50-1.jpg', 
     description: 'فوم 70×50 سم أبيض بسماكة رفيعة للعروض التقديمية',
     brand: 'عادي',
     thickness: '2 مم',
-    color: 'أبيض'
+    color: 'الوان مختلفة'
   },
-  { 
-    id: 'foam-70x50-2', 
-    name: 'فوم 70×50 أبيض متوسط', 
-    price: 50, 
-    image: '/assets/foam-70x50-2.jpg', 
-    description: 'فوم 70×50 سم أبيض بسماكة متوسطة للمشاريع الكبيرة',
-    brand: 'عادي',
-    thickness: '5 مم',
-    color: 'أبيض'
-  },
-  { 
-    id: 'foam-70x50-3', 
-    name: 'فوم 70×50 أبيض سميك', 
-    price: 75, 
-    image: '/assets/foam-70x50-3.jpg', 
-    description: 'فوم 70×50 سم أبيض بسماكة كبيرة للأعمال المعمارية',
-    brand: 'عادي',
-    thickness: '10 مم',
-    color: 'أبيض'
-  },
-  { 
-    id: 'foam-70x50-4', 
-    name: 'فوم 70×50 ملون رفيع', 
-    price: 40, 
-    image: '/assets/foam-70x50-4.jpg', 
-    description: 'فوم 70×50 سم ملون بسماكة رفيعة بألوان متنوعة',
-    brand: 'عادي',
-    thickness: '2 مم',
-    color: 'ملون'
-  },
-  { 
-    id: 'foam-70x50-5', 
-    name: 'فوم 70×50 ملون متوسط', 
-    price: 60, 
-    image: '/assets/foam-70x50-5.jpg', 
-    description: 'فوم 70×50 سم ملون بسماكة متوسطة للمشاريع الإبداعية',
-    brand: 'عادي',
-    thickness: '5 مم',
-    color: 'ملون'
-  },
+
 ];
 
 const Foam70x50Page = () => {
