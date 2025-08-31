@@ -11,58 +11,14 @@ import { Link } from "react-router-dom";
 const oilColors = [
   { 
     id: 'oil-1', 
-    name: 'علبة ألوان زيت 12 لون - آرتيست برو', 
-    price: 150, 
+    name: 'علبة الوان زيت انابيب 12 لون Hong ying', 
+    price: 115, 
     image: '/assets/oil-1.jpg', 
-    description: 'ألوان زيتية عالية الجودة من آرتيست برو بـ 12 لون أساسي للرسم الاحترافي',
-    brand: 'Artist Pro',
+    description: 'ألوان زيتية عالية الجودة من  Hong ying بـ 12 لون أساسي للرسم الاحترافي',
+    brand: 'Hong ying',
     colors: 12
   },
-  { 
-    id: 'oil-2', 
-    name: 'علبة ألوان زيت 18 لون - ماستر آرت', 
-    price: 280, 
-    image: '/assets/oil-2.jpg', 
-    description: 'مجموعة متكاملة من ألوان الزيت من ماستر آرت بـ 18 لون احترافي',
-    brand: 'Master Art',
-    colors: 18
-  },
-  { 
-    id: 'oil-3', 
-    name: 'علبة ألوان زيت 24 لون - فان جوخ', 
-    price: 450, 
-    image: '/assets/oil-3.jpg', 
-    description: 'ألوان زيتية احترافية من فان جوخ بـ 24 لون متنوع للفنانين المحترفين',
-    brand: 'Van Gogh',
-    colors: 24
-  },
-  { 
-    id: 'oil-4', 
-    name: 'أنبوب ألوان زيت 37 مل - ألوان منفردة', 
-    price: 35, 
-    image: '/assets/oil-4.jpg', 
-    description: 'أنابيب ألوان زيت منفردة بحجم 37 مل - ألوان متنوعة',
-    brand: 'Mixed Brands',
-    colors: 1
-  },
-  { 
-    id: 'oil-5', 
-    name: 'مجموعة ألوان زيت مع فرش - ستارتر كيت', 
-    price: 220, 
-    image: '/assets/oil-5.jpg', 
-    description: 'مجموعة كاملة للمبتدئين تحتوي على ألوان زيت وفرش رسم ولوحة ألوان',
-    brand: 'Starter Kit',
-    colors: 12
-  },
-  { 
-    id: 'oil-6', 
-    name: 'علبة ألوان زيت 36 لون - بروفيشنال', 
-    price: 680, 
-    image: '/assets/oil-6.jpg', 
-    description: 'علبة احترافية كاملة من ألوان الزيت بـ 36 لون للفنانين المحترفين',
-    brand: 'Professional',
-    colors: 36
-  }
+  
 ];
 
 const OilColorsPage = () => {
