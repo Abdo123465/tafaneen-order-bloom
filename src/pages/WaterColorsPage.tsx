@@ -11,49 +11,32 @@ import { Link } from "react-router-dom";
 const waterColors = [
   { 
     id: 'watercolor-1', 
-    name: 'علبة ألوان مائية 12 لون - فابر كاستل', 
-    price: 120, 
+    name: 'علبة الوان مياه حجر 16 لون kaidisi', 
+    price: 35, 
     image: '/assets/watercolor-1.jpg', 
-    description: 'ألوان مائية عالية الجودة من فابر كاستل بـ 12 لون شفاف وزاهي للرسم الفني',
-    brand: 'Faber-Castell',
-    colors: 12
+    description: 'ألوان مائية عالية الجودة من kaidisi بـ 16 لون شفاف وزاهي للرسم الفني',
+    brand: 'kaidisi',
+    colors: 16
   },
   { 
     id: 'watercolor-2', 
-    name: 'علبة ألوان مائية 24 لون - وين ساو', 
-    price: 180, 
+    name: 'بالتة الوان مائية بيضاوي ص ', 
+    price: 30, 
     image: '/assets/watercolor-2.jpg', 
-    description: 'مجموعة احترافية من الألوان المائية من وين ساو بـ 24 لون متنوع',
-    brand: 'Winsor',
-    colors: 24
+    description: 'بالتة الوان مائية بيضاوي ص',
+    brand: '',
+    colors: 12
   },
   { 
     id: 'watercolor-3', 
-    name: 'علبة ألوان مائية 18 لون - ديلي', 
-    price: 95, 
+    name: ' علبة الوان حجر 12 لون وسط بارزه', 
+    price: 22, 
     image: '/assets/watercolor-3.jpg', 
-    description: 'ألوان مائية من ديلي بـ 18 لون مناسبة للمبتدئين والمحترفين',
-    brand: 'Deli',
-    colors: 18
+    description: 'ألوان مائية  بـ 12 لون مناسبة للمبتدئين ',
+    brand: '',
+    colors: 12
   },
-  { 
-    id: 'watercolor-4', 
-    name: 'علبة ألوان مائية 36 لون - بريمو', 
-    price: 250, 
-    image: '/assets/watercolor-4.jpg', 
-    description: 'مجموعة كبيرة من الألوان المائية من بريمو بـ 36 لون للفنانين المحترفين',
-    brand: 'Primo',
-    colors: 36
-  },
-  { 
-    id: 'watercolor-5', 
-    name: 'أنابيب ألوان مائية مجموعة 6 قطع', 
-    price: 85, 
-    image: '/assets/watercolor-5.jpg', 
-    description: 'أنابيب ألوان مائية بتركيز عالي - 6 ألوان أساسية في أنابيب',
-    brand: 'Art Plus',
-    colors: 6
-  }
+ 
 ];
 
 const WaterColorsPage = () => {
