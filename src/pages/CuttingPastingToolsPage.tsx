@@ -125,9 +125,9 @@ function CuttingPastingToolsPage() {
       icon: Brush,
       color: "bg-gradient-to-br from-cyan-500 to-cyan-600",
       textColor: "text-cyan-600",
-      bgColor: "bg-slate-50",
+      bgColor: "bg-cyan-50",
       emoji: "✂️",
-      route: "/cutting-pasting-tools/scissors"
+      route: "/cutting-pasting-tools/water-colors"
     },
     {
       id: 10,
