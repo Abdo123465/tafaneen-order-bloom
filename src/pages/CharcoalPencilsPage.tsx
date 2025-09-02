@@ -149,10 +149,10 @@ const CharcoalPencilsPage = () => {
                 {pencil.isBestSeller && (
                   <span className="bg-red-500 text-white text-xs px-2 py-1 rounded-full">الأكثر مبيعاً</span>
                 )}
-                {pencil.isPopular && (
+                {(pencil as any).isPopular && (
                   <span className="bg-green-500 text-white text-xs px-2 py-1 rounded-full">شائع</span>
                 )}
-                {pencil.isNew && (
+                {(pencil as any).isNew && (
                   <span className="bg-blue-500 text-white text-xs px-2 py-1 rounded-full">جديد</span>
                 )}
               </div>

@@ -17,7 +17,6 @@ import PrimaGentaImage from "@/assets/Prima-Genta.jpg";
 import primalinoaImage from "@/assets/prima-lino.jpg";
 import PrimaNovaImage from "@/assets/Prima-Nova.jpg";
 import PrimaSevenImage from "@/assets/Prima-Seven.jpg";
-import PrimaSevenImage from "@/assets/Prima-Seven.jpg";
 import PRIMASOLOImage from "@/assets/PRIMA-SOLO.jpg";
 import primatangoImage from "@/assets/prima-tango.jpg";
 import primaunoImage from "@/assets/prima-uno.jpg";

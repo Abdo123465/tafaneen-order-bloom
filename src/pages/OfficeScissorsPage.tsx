@@ -31,8 +31,7 @@ const OfficeScissorsPage = () => {
       id: product.id,
       name: product.name,
       price: product.price,
-      image: product.image,
-      category: "مقاصات مكتبية"
+      image: product.image
     });
     
     toast({

@@ -31,8 +31,7 @@ const SchoolScissorsPage = () => {
       id: product.id,
       name: product.name,
       price: product.price,
-      image: product.image,
-      category: "مقاصات مدرسية"
+      image: product.image
     });
     
     toast({

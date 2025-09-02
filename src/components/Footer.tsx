@@ -68,7 +68,7 @@ export function Footer() {
     setIsSubmitting(true);
     try {
       const normalized = normalizeEgyptianPhone(whatsAppNumber);
-      const { error } = await supabase.from<any>('whatsapp_subscribers').insert({
+      const { error } = await supabase.from('whatsapp_subscribers').insert({
         phone: normalized,
         created_at: new Date().toISOString()
       });

@@ -16,6 +16,7 @@ interface CartContextType {
   clearCart: () => void;
   getTotalPrice: () => number;
   getItemCount: () => number;
+  addToCart?: (item: Omit<CartItem, 'quantity'>) => void; // alias for backward compatibility
 }
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
@@ -69,6 +70,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
     <CartContext.Provider value={{
       items,
       addItem,
+      addToCart: addItem, // alias for backward compatibility
       removeItem,
       updateQuantity,
       clearCart,
