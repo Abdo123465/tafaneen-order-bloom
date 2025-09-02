@@ -127,10 +127,10 @@ const OfficeScissorsPage = () => {
                       target.src = "/placeholder.svg";
                     }}
                   />
-                  {product.isSet && (
+                  {(product as any).isSet && (
                     <Badge className="absolute top-3 right-3 bg-green-600">مجموعة</Badge>
                   )}
-                  {product.isPremium && (
+                  {(product as any).isPremium && (
                     <Badge className="absolute top-3 right-3 bg-gradient-to-r from-gold-400 to-gold-600">بريميوم</Badge>
                   )}
                 </div>

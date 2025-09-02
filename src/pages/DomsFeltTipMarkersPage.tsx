@@ -147,13 +147,13 @@ const DomsFeltTipMarkersPage = () => {
             <div key={product.id} className="card-product relative group">
               {/* Badges */}
               <div className="absolute top-3 left-3 z-10 flex flex-col gap-1">
-                {product.isBestSeller && (
+                {(product as any).isBestSeller && (
                   <span className="bg-red-500 text-white text-xs px-2 py-1 rounded-full">الأكثر مبيعاً</span>
                 )}
-                {product.isPopular && (
+                {(product as any).isPopular && (
                   <span className="bg-green-500 text-white text-xs px-2 py-1 rounded-full">شائع</span>
                 )}
-                {product.isNew && (
+                {(product as any).isNew && (
                   <span className="bg-blue-500 text-white text-xs px-2 py-1 rounded-full">جديد</span>
                 )}
               </div>
