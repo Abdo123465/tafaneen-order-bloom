@@ -7,6 +7,8 @@ export type Json =
   | Json[]
 
 export type Database = {
+  // Allows to automatically instantiate createClient with right options
+  // instead of createClient<Database, { PostgrestVersion: 'XX' }>(URL, KEY)
   __InternalSupabase: {
     PostgrestVersion: "12.2.12 (cd3cf9e)"
   }
@@ -45,104 +47,6 @@ export type Database = {
         }
         Relationships: []
       }
-      whatsapp_subscribers: {
-        Row: {
-          id: string
-          phone: string
-          is_active: boolean
-          created_at: string
-          updated_at: string
-          last_notification_sent: string | null
-        }
-        Insert: {
-          id?: string
-          phone: string
-          is_active?: boolean
-          created_at?: string
-          updated_at?: string
-          last_notification_sent?: string | null
-        }
-        Update: {
-          id?: string
-          phone?: string
-          is_active?: boolean
-          created_at?: string
-          updated_at?: string
-          last_notification_sent?: string | null
-        }
-        Relationships: []
-      }
-      products: {
-        Row: {
-          id: string
-          name: string
-          description: string | null
-          price: number
-          image_url: string | null
-          category: string | null
-          is_featured: boolean
-          created_at: string
-          updated_at: string
-          notification_sent: boolean
-        }
-        Insert: {
-          id?: string
-          name: string
-          description?: string | null
-          price: number
-          image_url?: string | null
-          category?: string | null
-          is_featured?: boolean
-          created_at?: string
-          updated_at?: string
-          notification_sent?: boolean
-        }
-        Update: {
-          id?: string
-          name?: string
-          description?: string | null
-          price?: number
-          image_url?: string | null
-          category?: string | null
-          is_featured?: boolean
-          created_at?: string
-          updated_at?: string
-          notification_sent?: boolean
-        }
-        Relationships: []
-      }
-      product_notifications: {
-        Row: {
-          id: string
-          product_id: string
-          subscriber_phone: string
-          sent_at: string
-          message_content: string | null
-        }
-        Insert: {
-          id?: string
-          product_id: string
-          subscriber_phone: string
-          sent_at?: string
-          message_content?: string | null
-        }
-        Update: {
-          id?: string
-          product_id?: string
-          subscriber_phone?: string
-          sent_at?: string
-          message_content?: string | null
-        }
-        Relationships: [
-          {
-            foreignKeyName: "product_notifications_product_id_fkey"
-            columns: ["product_id"]
-            isOneToOne: false
-            referencedRelation: "products"
-            referencedColumns: ["id"]
-          }
-        ]
-      }
     }
     Views: {
       [_ in never]: never
@@ -159,11 +63,11 @@ export type Database = {
   }
 }
 
-// باقي الكود كما هو...
 type DatabaseWithoutInternals = Omit<Database, "__InternalSupabase">
+
 type DefaultSchema = DatabaseWithoutInternals[Extract<keyof Database, "public">]
 
-export type Tables
+export type Tables<
   DefaultSchemaTableNameOrOptions extends
     | keyof (DefaultSchema["Tables"] & DefaultSchema["Views"])
     | { schema: keyof DatabaseWithoutInternals },
@@ -192,7 +96,7 @@ export type Tables
       : never
     : never
 
-export type TablesInsert
+export type TablesInsert<
   DefaultSchemaTableNameOrOptions extends
     | keyof DefaultSchema["Tables"]
     | { schema: keyof DatabaseWithoutInternals },
@@ -217,7 +121,7 @@ export type TablesInsert
       : never
     : never
 
-export type TablesUpdate
+export type TablesUpdate<
   DefaultSchemaTableNameOrOptions extends
     | keyof DefaultSchema["Tables"]
     | { schema: keyof DatabaseWithoutInternals },
@@ -242,7 +146,7 @@ export type TablesUpdate
       : never
     : never
 
-export type Enums
+export type Enums<
   DefaultSchemaEnumNameOrOptions extends
     | keyof DefaultSchema["Enums"]
     | { schema: keyof DatabaseWithoutInternals },
@@ -259,7 +163,7 @@ export type Enums
     ? DefaultSchema["Enums"][DefaultSchemaEnumNameOrOptions]
     : never
 
-export type CompositeTypes
+export type CompositeTypes<
   PublicCompositeTypeNameOrOptions extends
     | keyof DefaultSchema["CompositeTypes"]
     | { schema: keyof DatabaseWithoutInternals },
