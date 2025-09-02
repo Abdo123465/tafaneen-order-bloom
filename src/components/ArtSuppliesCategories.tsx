@@ -205,19 +205,6 @@ export function ArtSuppliesCategories() {
     
     // Foam Materials
     {
-      id: 15,
-      name: "فوم عادي",
-      englishName: "Regular Foam",
-      description: "فوم عادي للأعمال اليدوية",
-      icon: Layers,
-      color: "bg-gradient-to-br from-yellow-500 to-yellow-600",
-      textColor: "text-yellow-600",
-      bgColor: "bg-yellow-50",
-      count: "35+ منتج",
-      route: "/art-supplies/regular-foam",
-      emoji: "🟡"
-    },
-    {
       id: 16,
       name: "فوم لاصق",
       englishName: "Adhesive Foam",

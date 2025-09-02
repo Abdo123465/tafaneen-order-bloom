@@ -90,9 +90,6 @@ import OfficeScissorsPage from "./pages/OfficeScissorsPage";
 import WaterColorsPage from "./pages/WaterColorsPage";
 import OilColorsPage from "./pages/OilColorsPage";
 import ColoringBooksPage from "./pages/ColoringBooksPage";
-import RegularFoamPage from "./pages/RegularFoamPage";
-import FoamA4Page from "./pages/FoamA4Page";
-import Foam70x50Page from "./pages/Foam70x50Page";
 
 const queryClient = new QueryClient();
 
@@ -190,10 +187,6 @@ const App = () => (
               <Route path="/cutting-pasting-tools/water-colors" element={<WaterColorsPage />} />
               <Route path="/cutting-pasting-tools/oil-colors" element={<OilColorsPage />} />
               <Route path="/cutting-pasting-tools/coloring-books" element={<ColoringBooksPage />} />
-              {/* مسارات فوم عادي */}
-              <Route path="/cutting-pasting-tools/regular-foam" element={<RegularFoamPage />} />
-              <Route path="/cutting-pasting-tools/regular-foam/a4" element={<FoamA4Page />} />
-              <Route path="/cutting-pasting-tools/regular-foam/70x50" element={<Foam70x50Page />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>
