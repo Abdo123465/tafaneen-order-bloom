@@ -90,6 +90,9 @@ import OfficeScissorsPage from "./pages/OfficeScissorsPage";
 import WaterColorsPage from "./pages/WaterColorsPage";
 import OilColorsPage from "./pages/OilColorsPage";
 import ColoringBooksPage from "./pages/ColoringBooksPage";
+import AdhesiveFoamPage from "./pages/AdhesiveFoamPage";
+import AdhesiveFoamA4Page from "./pages/AdhesiveFoamA4Page";
+import AdhesiveFoam70x50Page from "./pages/AdhesiveFoam70x50Page";
 
 const queryClient = new QueryClient();
 
@@ -187,6 +190,9 @@ const App = () => (
               <Route path="/cutting-pasting-tools/water-colors" element={<WaterColorsPage />} />
               <Route path="/cutting-pasting-tools/oil-colors" element={<OilColorsPage />} />
               <Route path="/cutting-pasting-tools/coloring-books" element={<ColoringBooksPage />} />
+              <Route path="/cutting-pasting-tools/adhesive-foam" element={<AdhesiveFoamPage />} />
+              <Route path="/cutting-pasting-tools/adhesive-foam/a4" element={<AdhesiveFoamA4Page />} />
+              <Route path="/cutting-pasting-tools/adhesive-foam/70x50" element={<AdhesiveFoam70x50Page />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>
