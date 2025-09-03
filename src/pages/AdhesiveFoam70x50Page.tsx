@@ -12,69 +12,15 @@ const adhesiveFoam70x50Products = [
   { 
     id: 'adhesive-foam-70x50-1', 
     name: 'فوم لاصق 70×50 أبيض', 
-    price: 45, 
+    price: 32, 
     image: '/assets/adhesive-foam-70x50-1.jpg', 
-    description: 'فوم لاصق بمقاس 70×50 سم باللون الأبيض، مثالي للمشاريع الكبيرة',
+    description: 'فوم لاصق بمقاس 70×50 سم بألوان متعددة، مثالي للمشاريع الكبيرة',
     brand: 'تفانين',
     thickness: '3 مم',
     sheets: 1,
-    color: 'أبيض'
+    color: 'الوان متعددة'
   },
-  { 
-    id: 'adhesive-foam-70x50-2', 
-    name: 'فوم لاصق 70×50 أزرق', 
-    price: 45, 
-    image: '/assets/adhesive-foam-70x50-2.jpg', 
-    description: 'فوم لاصق بمقاس 70×50 سم باللون الأزرق، عالي الجودة',
-    brand: 'تفانين',
-    thickness: '3 مم',
-    sheets: 1,
-    color: 'أزرق'
-  },
-  { 
-    id: 'adhesive-foam-70x50-3', 
-    name: 'فوم لاصق 70×50 أحمر', 
-    price: 45, 
-    image: '/assets/adhesive-foam-70x50-3.jpg', 
-    description: 'فوم لاصق بمقاس 70×50 سم باللون الأحمر، لاصق قوي',
-    brand: 'تفانين',
-    thickness: '3 مم',
-    sheets: 1,
-    color: 'أحمر'
-  },
-  { 
-    id: 'adhesive-foam-70x50-4', 
-    name: 'فوم لاصق 70×50 أخضر', 
-    price: 45, 
-    image: '/assets/adhesive-foam-70x50-4.jpg', 
-    description: 'فوم لاصق بمقاس 70×50 سم باللون الأخضر، مثالي للديكور',
-    brand: 'تفانين',
-    thickness: '3 مم',
-    sheets: 1,
-    color: 'أخضر'
-  },
-  { 
-    id: 'adhesive-foam-70x50-5', 
-    name: 'فوم لاصق 70×50 أصفر', 
-    price: 45, 
-    image: '/assets/adhesive-foam-70x50-5.jpg', 
-    description: 'فوم لاصق بمقاس 70×50 سم باللون الأصفر، سهل الاستخدام',
-    brand: 'تفانين',
-    thickness: '3 مم',
-    sheets: 1,
-    color: 'أصفر'
-  },
-  { 
-    id: 'adhesive-foam-70x50-6', 
-    name: 'فوم لاصق 70×50 وردي', 
-    price: 45, 
-    image: '/assets/adhesive-foam-70x50-6.jpg', 
-    description: 'فوم لاصق بمقاس 70×50 سم باللون الوردي، جودة ممتازة',
-    brand: 'تفانين',
-    thickness: '3 مم',
-    sheets: 1,
-    color: 'وردي'
-  }
+  
 ];
 
 const AdhesiveFoam70x50Page = () => {
