@@ -11,8 +11,8 @@ import { Link } from "react-router-dom";
 const glitterFoamA4Products = [
   { 
     id: 'glitter-foam-a4-1', 
-    name: 'فوم جليتر A4 ذهبي', 
-    price: 15, 
+    name: 'فوم جليتر A4 كل الوان ', 
+    price: 9, 
     image: '/assets/glitter-foam-a4-1.jpg', 
     description: 'فوم جليتر لامع بلون ذهبي رائع للديكورات',
     brand: 'جليتر فوم',
@@ -20,83 +20,6 @@ const glitterFoamA4Products = [
     thickness: '2 مم',
     sheets: 1
   },
-  { 
-    id: 'glitter-foam-a4-2', 
-    name: 'فوم جليتر A4 فضي', 
-    price: 15, 
-    image: '/assets/glitter-foam-a4-2.jpg', 
-    description: 'فوم جليتر لامع بلون فضي أنيق للمشاريع الفنية',
-    brand: 'جليتر فوم',
-    color: 'فضي',
-    thickness: '2 مم',
-    sheets: 1
-  },
-  { 
-    id: 'glitter-foam-a4-3', 
-    name: 'فوم جليتر A4 أحمر', 
-    price: 15, 
-    image: '/assets/glitter-foam-a4-3.jpg', 
-    description: 'فوم جليتر لامع بلون أحمر زاهي للديكورات المميزة',
-    brand: 'جليتر فوم',
-    color: 'أحمر',
-    thickness: '2 مم',
-    sheets: 1
-  },
-  { 
-    id: 'glitter-foam-a4-4', 
-    name: 'فوم جليتر A4 أزرق', 
-    price: 15, 
-    image: '/assets/glitter-foam-a4-4.jpg', 
-    description: 'فوم جليتر لامع بلون أزرق جذاب للمشاريع الفنية',
-    brand: 'جليتر فوم',
-    color: 'أزرق',
-    thickness: '2 مم',
-    sheets: 1
-  },
-  { 
-    id: 'glitter-foam-a4-5', 
-    name: 'فوم جليتر A4 وردي', 
-    price: 15, 
-    image: '/assets/glitter-foam-a4-5.jpg', 
-    description: 'فوم جليتر لامع بلون وردي رقيق للبنات',
-    brand: 'جليتر فوم',
-    color: 'وردي',
-    thickness: '2 مم',
-    sheets: 1
-  },
-  { 
-    id: 'glitter-foam-a4-6', 
-    name: 'فوم جليتر A4 بنفسجي', 
-    price: 15, 
-    image: '/assets/glitter-foam-a4-6.jpg', 
-    description: 'فوم جليتر لامع بلون بنفسجي أنيق للديكورات',
-    brand: 'جليتر فوم',
-    color: 'بنفسجي',
-    thickness: '2 مم',
-    sheets: 1
-  },
-  { 
-    id: 'glitter-foam-a4-7', 
-    name: 'فوم جليتر A4 أخضر', 
-    price: 15, 
-    image: '/assets/glitter-foam-a4-7.jpg', 
-    description: 'فوم جليتر لامع بلون أخضر طبيعي للمشاريع',
-    brand: 'جليتر فوم',
-    color: 'أخضر',
-    thickness: '2 مم',
-    sheets: 1
-  },
-  { 
-    id: 'glitter-foam-a4-8', 
-    name: 'فوم جليتر A4 برتقالي', 
-    price: 15, 
-    image: '/assets/glitter-foam-a4-8.jpg', 
-    description: 'فوم جليتر لامع بلون برتقالي دافئ للديكورات',
-    brand: 'جليتر فوم',
-    color: 'برتقالي',
-    thickness: '2 مم',
-    sheets: 1
-  }
 ];
 
 const GlitterFoamA4Page = () => {
