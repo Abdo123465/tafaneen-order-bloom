@@ -11,70 +11,15 @@ import { Link } from "react-router-dom";
 const glitterFoam70x50Products = [
   { 
     id: 'glitter-foam-70x50-1', 
-    name: 'فوم جليتر 70×50 ذهبي', 
+    name: 'فوم جليتر 70×50 كل الوان', 
     price: 35, 
     image: '/assets/glitter-foam-70x50-1.jpg', 
     description: 'فوم جليتر لامع بلون ذهبي رائع للديكورات الكبيرة',
     brand: 'جليتر فوم',
-    color: 'ذهبي',
+    color: 'كل الوان',
     thickness: '2 مم',
     sheets: 1
   },
-  { 
-    id: 'glitter-foam-70x50-2', 
-    name: 'فوم جليتر 70×50 فضي', 
-    price: 35, 
-    image: '/assets/glitter-foam-70x50-2.jpg', 
-    description: 'فوم جليتر لامع بلون فضي أنيق للمشاريع الكبيرة',
-    brand: 'جليتر فوم',
-    color: 'فضي',
-    thickness: '2 مم',
-    sheets: 1
-  },
-  { 
-    id: 'glitter-foam-70x50-3', 
-    name: 'فوم جليتر 70×50 أحمر', 
-    price: 35, 
-    image: '/assets/glitter-foam-70x50-3.jpg', 
-    description: 'فوم جليتر لامع بلون أحمر زاهي للديكورات المميزة',
-    brand: 'جليتر فوم',
-    color: 'أحمر',
-    thickness: '2 مم',
-    sheets: 1
-  },
-  { 
-    id: 'glitter-foam-70x50-4', 
-    name: 'فوم جليتر 70×50 أزرق', 
-    price: 35, 
-    image: '/assets/glitter-foam-70x50-4.jpg', 
-    description: 'فوم جليتر لامع بلون أزرق جذاب للمشاريع الفنية الكبيرة',
-    brand: 'جليتر فوم',
-    color: 'أزرق',
-    thickness: '2 مم',
-    sheets: 1
-  },
-  { 
-    id: 'glitter-foam-70x50-5', 
-    name: 'فوم جليتر 70×50 وردي', 
-    price: 35, 
-    image: '/assets/glitter-foam-70x50-5.jpg', 
-    description: 'فوم جليتر لامع بلون وردي رقيق للديكورات الكبيرة',
-    brand: 'جليتر فوم',
-    color: 'وردي',
-    thickness: '2 مم',
-    sheets: 1
-  },
-  { 
-    id: 'glitter-foam-70x50-6', 
-    name: 'فوم جليتر 70×50 بنفسجي', 
-    price: 35, 
-    image: '/assets/glitter-foam-70x50-6.jpg', 
-    description: 'فوم جليتر لامع بلون بنفسجي أنيق للديكورات الكبيرة',
-    brand: 'جليتر فوم',
-    color: 'بنفسجي',
-    thickness: '2 مم',
-    sheets: 1
-  }
 ];
 
 const GlitterFoam70x50Page = () => {
