@@ -93,6 +93,9 @@ import ColoringBooksPage from "./pages/ColoringBooksPage";
 import AdhesiveFoamPage from "./pages/AdhesiveFoamPage";
 import AdhesiveFoamA4Page from "./pages/AdhesiveFoamA4Page";
 import AdhesiveFoam70x50Page from "./pages/AdhesiveFoam70x50Page";
+import GlitterFoamPage from "./pages/GlitterFoamPage";
+import GlitterFoamA4Page from "./pages/GlitterFoamA4Page";
+import GlitterFoam70x50Page from "./pages/GlitterFoam70x50Page";
 
 const queryClient = new QueryClient();
 
@@ -193,6 +196,10 @@ const App = () => (
               <Route path="/cutting-pasting-tools/adhesive-foam" element={<AdhesiveFoamPage />} />
               <Route path="/cutting-pasting-tools/adhesive-foam/a4" element={<AdhesiveFoamA4Page />} />
               <Route path="/cutting-pasting-tools/adhesive-foam/70x50" element={<AdhesiveFoam70x50Page />} />
+              {/* مسارات صفحات فوم جليتر الجديدة */}
+              <Route path="/cutting-pasting-tools/glitter-foam" element={<GlitterFoamPage />} />
+              <Route path="/cutting-pasting-tools/glitter-foam/a4" element={<GlitterFoamA4Page />} />
+              <Route path="/cutting-pasting-tools/glitter-foam/70x50" element={<GlitterFoam70x50Page />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>
