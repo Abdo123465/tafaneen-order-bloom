@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import { useSearchParams, useNavigate } from "react-router-dom";
 import { Input } from "@/components/ui/input";
-import { Search, Filter, Star, Heart, ShoppingCart } from "lucide-react";
+import { Search, Filter, Star, Heart, ShoppingCart, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { 
   DropdownMenu, 
@@ -214,7 +214,17 @@ export default function SearchPage() {
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="mb-8">
-        <h1 className="text-3xl font-bold mb-2">نتائج البحث</h1>
+        <div className="flex items-center justify-between mb-4">
+          <h1 className="text-3xl font-bold">نتائج البحث</h1>
+          <Button 
+            variant="outline" 
+            onClick={() => navigate("/")}
+            className="gap-2 hover:bg-primary hover:text-primary-foreground transition-colors"
+          >
+            <ArrowRight className="h-4 w-4" />
+            العودة للصفحة الرئيسية
+          </Button>
+        </div>
         <div className="flex items-center text-muted-foreground mb-6">
           <Search className="h-4 w-4 ml-2" />
           <span>عرض نتائج البحث عن: "{query}"</span>
