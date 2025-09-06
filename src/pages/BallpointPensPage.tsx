@@ -149,29 +149,6 @@ const BallpointPensPage = () => {
           </Card>
         </div>
 
-        <h2 className="text-2xl lg:text-3xl font-bold mb-8 text-center border-b pb-4">
-          جميع أقلام الجاف
-        </h2>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {ballpointPens.map((pen) => (
-            <div key={pen.id} className="card-product">
-              <div className="bg-muted/50 rounded-xl aspect-square flex items-center justify-center text-6xl mb-4">
-                {pen.image}
-              </div>
-              <h3 className="font-semibold mb-2">{pen.name}</h3>
-              <p className="text-sm text-muted-foreground mb-3">{pen.description}</p>
-              <div className="flex items-center justify-between">
-                <span className="text-primary font-bold">{pen.price} ج.م</span>
-                <Button 
-                  className="btn-tafaneen"
-                  onClick={() => addItem({ id: pen.id, name: pen.name, price: pen.price, image: pen.image })}
-                >
-                  إضافة للسلة
-                </Button>
-              </div>
-            </div>
-          ))}
-        </div>
 
         {/* Back to categories */}
         <div className="text-center mt-12">
