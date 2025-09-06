@@ -39,32 +39,6 @@ const PensPage = () => {
         {/* Pen Categories Section */}
         <PenCategories />
 
-        {/* Featured Products Section */}
-        <section className="py-12 mt-16 bg-secondary/30 rounded-2xl">
-          <div className="container mx-auto px-4">
-            <h2 className="text-2xl lg:text-3xl font-bold mb-8 text-center">المنتجات المميزة</h2>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {featuredPens.map((pen) => (
-                <div key={pen.id} className="card-product bg-white">
-                  <div className="bg-muted/50 rounded-xl aspect-square flex items-center justify-center text-6xl mb-4">
-                    {pen.image}
-                  </div>
-                  <div className="text-xs text-primary font-medium mb-1">{pen.category}</div>
-                  <h3 className="font-semibold mb-2">{pen.name}</h3>
-                  <div className="flex items-center justify-between">
-                    <span className="text-primary font-bold">{pen.price} ج.م</span>
-                    <Button 
-                      className="btn-tafaneen"
-                      onClick={() => addItem({ id: pen.id, name: pen.name, price: pen.price, image: pen.image })}
-                    >
-                      إضافة للسلة
-                    </Button>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
       </main>
       <Footer />
     </div>
