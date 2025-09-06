@@ -209,29 +209,6 @@ const PencilsPage = () => {
           </Card>
         </div>
 
-        <h2 className="text-2xl lg:text-3xl font-bold mb-8 text-center border-b pb-4">
-          جميع أقلام الرصاص
-        </h2>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {pencils.map((pencil) => (
-            <div key={pencil.id} className="card-product">
-              <div className="bg-muted/50 rounded-xl aspect-square flex items-center justify-center text-6xl mb-4">
-                {pencil.image}
-              </div>
-              <h3 className="font-semibold mb-2">{pencil.name}</h3>
-              <p className="text-sm text-muted-foreground mb-3">{pencil.description}</p>
-              <div className="flex items-center justify-between">
-                <span className="text-primary font-bold">{pencil.price} ج.م</span>
-                <Button 
-                  className="btn-tafaneen"
-                  onClick={() => addItem({ id: pencil.id, name: pencil.name, price: pencil.price, image: pencil.image })}
-                >
-                  إضافة للسلة
-                </Button>
-              </div>
-            </div>
-          ))}
-        </div>
 
         {/* Back to categories */}
         <div className="text-center mt-12">
