@@ -12,7 +12,7 @@ const adhesiveGlitterFoamA4Products = [
   { 
     id: 'adhesive-glitter-foam-a4-1', 
     name: 'فوم جليتر لاصق A4 كل الألوان', 
-    price: 12, 
+    price: 10, 
     image: '/assets/adhesive-glitter-foam-a4-1.jpg', 
     description: 'فوم جليتر لاصق لامع بجميع الألوان للديكورات',
     brand: 'جليتر فوم لاصق',
