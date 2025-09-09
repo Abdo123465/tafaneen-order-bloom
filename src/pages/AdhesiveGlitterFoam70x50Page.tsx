@@ -12,7 +12,7 @@ const adhesiveGlitterFoam70x50Products = [
   { 
     id: 'adhesive-glitter-foam-70x50-1', 
     name: 'فوم جليتر لاصق 70×50 كل الألوان', 
-    price: 45, 
+    price: 35, 
     image: '/assets/adhesive-glitter-foam-70x50-1.jpg', 
     description: 'فوم جليتر لاصق لامع بجميع الألوان للديكورات الكبيرة',
     brand: 'جليتر فوم لاصق',
