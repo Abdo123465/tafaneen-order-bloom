@@ -12,10 +12,10 @@ const adhesiveFoam70x50Products = [
   { 
     id: 'adhesive-foam-70x50-1', 
     name: 'فوم لاصق 70×50 أبيض', 
-    price: 30, 
+    price: 32, 
     image: '/assets/adhesive-foam-70x50-1.jpg', 
     description: 'فوم لاصق بمقاس 70×50 سم بألوان متعددة، مثالي للمشاريع الكبيرة',
-    brand: 'ever grean',
+    brand: 'تفانين',
     thickness: '3 مم',
     sheets: 1,
     color: 'الوان متعددة'
