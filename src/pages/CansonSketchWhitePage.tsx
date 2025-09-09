@@ -31,7 +31,7 @@ const cansonSketchWhiteProducts = [
     sheets: 40,
     color: 'أبيض'
   },
-   { 
+  { 
     id: 'canson-sketch-white-3', 
     name: 'اسكتش ابيض 180 جرام Today', 
     price: 50, 
@@ -42,10 +42,11 @@ const cansonSketchWhiteProducts = [
     sheets: 12,
     color: 'أبيض'
   },
-      id: 'canson-sketch-white-4', 
+  { 
+    id: 'canson-sketch-white-4', 
     name: 'اسكتش رسم ابيض 25×35 سم 140جرام بركة', 
     price: 50, 
-    image: '/assets/canson-sketch-white-4.jpg', 
+    image: "/assets/canson-sketch-white-4'.jpg", 
     description: 'سكتش كانسون أبيض بمقاس 25×35 سم، مثالي للمشاريع الكبيرة',
     brand: 'بركة',
     thickness: '140 جم',
