@@ -12,69 +12,15 @@ const adhesiveFoamA4Products = [
   { 
     id: 'adhesive-foam-a4-1', 
     name: 'فوم لاصق A4 أبيض', 
-    price: 15, 
+    price: 10, 
     image: '/assets/adhesive-foam-a4-1.jpg', 
-    description: 'فوم لاصق بمقاس A4 باللون الأبيض، مثالي للمشاريع الفنية',
-    brand: 'تفانين',
+    description: 'فوم لاصق بمقاس A4 بالوان متعددة، مثالي للمشاريع الفنية',
+    brand: 'ever grean',
     thickness: '2 مم',
     sheets: 1,
-    color: 'أبيض'
+    color: 'بالوان متعددة'
   },
-  { 
-    id: 'adhesive-foam-a4-2', 
-    name: 'فوم لاصق A4 أزرق', 
-    price: 15, 
-    image: '/assets/adhesive-foam-a4-2.jpg', 
-    description: 'فوم لاصق بمقاس A4 باللون الأزرق، مثالي للأعمال اليدوية',
-    brand: 'تفانين',
-    thickness: '2 مم',
-    sheets: 1,
-    color: 'أزرق'
-  },
-  { 
-    id: 'adhesive-foam-a4-3', 
-    name: 'فوم لاصق A4 أحمر', 
-    price: 15, 
-    image: '/assets/adhesive-foam-a4-3.jpg', 
-    description: 'فوم لاصق بمقاس A4 باللون الأحمر، عالي الجودة',
-    brand: 'تفانين',
-    thickness: '2 مم',
-    sheets: 1,
-    color: 'أحمر'
-  },
-  { 
-    id: 'adhesive-foam-a4-4', 
-    name: 'فوم لاصق A4 أخضر', 
-    price: 15, 
-    image: '/assets/adhesive-foam-a4-4.jpg', 
-    description: 'فوم لاصق بمقاس A4 باللون الأخضر، سهل الاستخدام',
-    brand: 'تفانين',
-    thickness: '2 مم',
-    sheets: 1,
-    color: 'أخضر'
-  },
-  { 
-    id: 'adhesive-foam-a4-5', 
-    name: 'فوم لاصق A4 أصفر', 
-    price: 15, 
-    image: '/assets/adhesive-foam-a4-5.jpg', 
-    description: 'فوم لاصق بمقاس A4 باللون الأصفر، لاصق قوي',
-    brand: 'تفانين',
-    thickness: '2 مم',
-    sheets: 1,
-    color: 'أصفر'
-  },
-  { 
-    id: 'adhesive-foam-a4-6', 
-    name: 'فوم لاصق A4 وردي', 
-    price: 15, 
-    image: '/assets/adhesive-foam-a4-6.jpg', 
-    description: 'فوم لاصق بمقاس A4 باللون الوردي، مناسب للأطفال',
-    brand: 'تفانين',
-    thickness: '2 مم',
-    sheets: 1,
-    color: 'وردي'
-  }
+  
 ];
 
 const AdhesiveFoamA4Page = () => {
