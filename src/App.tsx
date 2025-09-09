@@ -84,6 +84,10 @@ import AcrylicColorsPage from "./pages/AcrylicColorsPage";
 import CansonPaperPage from "./pages/CansonPaperPage";
 import CansonA4Page from "./pages/CansonA4Page";
 import Canson70x50Page from "./pages/Canson70x50Page";
+// استيراد صفحات سكتش كانسون الجديدة
+import CansonSketchPage from "./pages/CansonSketchPage";
+import CansonSketchColorPage from "./pages/CansonSketchColorPage";
+import CansonSketchWhitePage from "./pages/CansonSketchWhitePage";
 import ScissorsPage from "./pages/ScissorsPage";
 import SchoolScissorsPage from "./pages/SchoolScissorsPage";
 import OfficeScissorsPage from "./pages/OfficeScissorsPage";
@@ -190,6 +194,10 @@ const App = () => (
               <Route path="/cutting-pasting-tools/canson-paper" element={<CansonPaperPage />} />
               <Route path="/cutting-pasting-tools/canson-paper/a4" element={<CansonA4Page />} />
               <Route path="/cutting-pasting-tools/canson-paper/70x50" element={<Canson70x50Page />} />
+              {/* مسارات صفحات سكتش كانسون الجديدة */}
+              <Route path="/cutting-pasting-tools/canson-paper/sketch" element={<CansonSketchPage />} />
+              <Route path="/cutting-pasting-tools/canson-paper/sketch/color" element={<CansonSketchColorPage />} />
+              <Route path="/cutting-pasting-tools/canson-paper/sketch/white" element={<CansonSketchWhitePage />} />
               <Route path="/cutting-pasting-tools/scissors" element={<ScissorsPage />} />
               <Route path="/cutting-pasting-tools/scissors/school" element={<SchoolScissorsPage />} />
               <Route path="/cutting-pasting-tools/scissors/office" element={<OfficeScissorsPage />} />
@@ -206,7 +214,6 @@ const App = () => (
               <Route path="/cutting-pasting-tools/adhesive-glitter-foam" element={<AdhesiveGlitterFoamPage />} />
               <Route path="/cutting-pasting-tools/adhesive-glitter-foam/a4" element={<AdhesiveGlitterFoamA4Page />} />
               <Route path="/cutting-pasting-tools/adhesive-glitter-foam/70x50" element={<AdhesiveGlitterFoam70x50Page />} />
-
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>
