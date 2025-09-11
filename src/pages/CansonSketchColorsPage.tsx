@@ -11,26 +11,16 @@ import { Link } from "react-router-dom";
 const cansonSketchColorsProducts = [
   { 
     id: 'canson-sketch-colors-1', 
-    name: 'سكتش كانسون ملون A4', 
-    price: 15, 
+    name: 'اسكتش رسم ملون 25×35 سم 150 جرام TOP', 
+    price: 60, 
     image: '/assets/canson-sketch-colors-1.jpg', 
-    description: 'سكتش كانسون ملون بمقاس A4، مثالي للمشاريع الفنية الملونة',
-    brand: 'تفانين',
+    description: 'سكتش كانسون ملون بمقاس 25×35، مثالي للمشاريع الفنية الملونة',
+    brand: 'TOP',
     thickness: '160 جم',
-    sheets: 10,
+    sheets: 12,
     color: 'ألوان متعددة'
   },
-  { 
-    id: 'canson-sketch-colors-2', 
-    name: 'سكتش كانسون ملون 70×50', 
-    price: 25, 
-    image: '/assets/canson-sketch-colors-2.jpg', 
-    description: 'سكتش كانسون ملون بمقاس 70×50 سم، مثالي للمشاريع الكبيرة',
-    brand: 'تفانين',
-    thickness: '160 جم',
-    sheets: 10,
-    color: 'ألوان متعددة'
-  },
+ 
 ];
 
 const CansonSketchColorsPage = () => {
