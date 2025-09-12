@@ -3,122 +3,126 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { useCart } from "../contexts/CartContext";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
+import { useState, useEffect } from "react";
 
-const featuredProducts = [
-  {
-    id: 1,
-    name: "مجموعة أقلام ملونة 24 لون",
-    author: "ستيدلر",
-    price: 45,
-    originalPrice: 60,
-    rating: 4.8,
-    reviews: 156,
-    image: "🖍️",
-    category: "أدوات الرسم",
-    isNew: true,
-    discount: 25
-  },
-  {
-    id: 2,
-    name: "دفتر ملاحظات جلد فاخر A5",
-    author: "مولسكين",
-    price: 85,
-    originalPrice: 110,
-    rating: 4.9,
-    reviews: 89,
-    image: "📓",
-    category: "دفاتر ومذكرات",
-    isNew: true,
-    discount: 23
-  },
-  {
-    id: 3,
-    name: "آلة حاسبة علمية متقدمة",
-    author: "كاسيو",
-    price: 120,
-    originalPrice: 150,
-    rating: 4.7,
-    reviews: 203,
-    image: "🔢",
-    category: "آلات حاسبة",
-    isNew: false,
-    discount: 20
-  },
-  {
-    id: 4,
-    name: "مجموعة مساطر هندسية",
-    author: "روتبرينغ",
-    price: 35,
-    originalPrice: 50,
-    rating: 4.6,
-    reviews: 78,
-    image: "📐",
-    category: "أدوات هندسية",
-    isNew: false,
-    discount: 30
-  },
-  {
-    id: 5,
-    name: "طقم أقلام حبر جاف 10 قطع",
-    author: "بيك",
-    price: 25,
-    originalPrice: 35,
-    rating: 4.5,
-    reviews: 134,
-    image: "🖊️",
-    category: "أقلام",
-    isNew: false,
-    discount: 29
-  },
-  {
-    id: 6,
-    name: "منظم مكتبي خشبي أنيق",
-    author: "أيكيا",
-    price: 95,
-    originalPrice: 130,
-    rating: 4.8,
-    reviews: 67,
-    image: "🗂️",
-    category: "منظمات مكتبية",
-    isNew: true,
-    discount: 27
-  }
-];
+interface BestSellingProduct {
+  id: string;
+  product_id: string;
+  product_name: string;
+  product_price: number;
+  product_image: string | null;
+  sales_count: number;
+}
 
 export function FeaturedProducts() {
-  console.log('FeaturedProducts component loading...', { useCart });
   const { addItem } = useCart();
   const { toast } = useToast();
+  const [bestSellingProducts, setBestSellingProducts] = useState<BestSellingProduct[]>([]);
+  const [loading, setLoading] = useState(true);
 
-  const handleAddToCart = (product: any) => {
+  useEffect(() => {
+    fetchBestSellingProducts();
+  }, []);
+
+  const fetchBestSellingProducts = async () => {
+    try {
+      const { data, error } = await supabase
+        .from('product_sales')
+        .select('*')
+        .gte('sales_count', 1)
+        .order('sales_count', { ascending: false })
+        .limit(6);
+
+      if (error) {
+        console.error('Error fetching best selling products:', error);
+        return;
+      }
+
+      setBestSellingProducts(data || []);
+    } catch (error) {
+      console.error('Error:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleAddToCart = (product: BestSellingProduct) => {
     addItem({
-      id: product.id.toString(),
-      name: product.name,
-      price: product.price,
-      image: product.image
+      id: product.product_id,
+      name: product.product_name,
+      price: product.product_price,
+      image: product.product_image || '📦'
     });
     
     toast({
       title: "تم إضافة المنتج",
-      description: `${product.name} تم إضافته للسلة`,
+      description: `${product.product_name} تم إضافته للسلة`,
     });
   };
+
+  if (loading) {
+    return (
+      <section className="py-16">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl lg:text-4xl font-bold mb-4">
+              <span className="text-gradient">المنتجات الأكثر مبيعاً</span>
+            </h2>
+            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+              أشهر المنتجات حسب عدد المبيعات
+            </p>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[...Array(6)].map((_, i) => (
+              <div key={i} className="card-product animate-pulse">
+                <div className="bg-muted/50 rounded-xl aspect-square mb-4"></div>
+                <div className="space-y-3">
+                  <div className="h-4 bg-muted rounded w-3/4"></div>
+                  <div className="h-3 bg-muted rounded w-1/2"></div>
+                  <div className="h-6 bg-muted rounded w-1/3"></div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  if (bestSellingProducts.length === 0) {
+    return (
+      <section className="py-16">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl lg:text-4xl font-bold mb-4">
+              <span className="text-gradient">المنتجات الأكثر مبيعاً</span>
+            </h2>
+            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+              لا توجد مبيعات حتى الآن. ابدأ بالشراء لترى المنتجات الأكثر مبيعاً هنا!
+            </p>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section className="py-16">
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="text-center mb-12">
           <h2 className="text-3xl lg:text-4xl font-bold mb-4">
-            <span className="text-gradient">المنتجات المميزة</span>
+            <span className="text-gradient">المنتجات الأكثر مبيعاً</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            اكتشف أفضل الأدوات المكتبية والقرطاسية المختارة خصيصاً لك
+            أشهر المنتجات حسب عدد المبيعات في تفانين
           </p>
         </div>
 
         {/* Products Grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {featuredProducts.map((product, index) => (
+          {bestSellingProducts.map((product, index) => (
             <div
               key={product.id}
               className="card-product group"
@@ -127,17 +131,27 @@ export function FeaturedProducts() {
               {/* Product Image & Badges */}
               <div className="relative mb-4">
                 <div className="bg-muted/50 rounded-xl aspect-square flex items-center justify-center text-6xl mb-4 overflow-hidden">
-                  {product.image}
+                  {product.product_image ? (
+                    <img 
+                      src={product.product_image} 
+                      alt={product.product_name}
+                      className="w-full h-full object-cover"
+                      onError={(e) => {
+                        e.currentTarget.style.display = 'none';
+                        (e.currentTarget.nextElementSibling as HTMLElement).style.display = 'flex';
+                      }}
+                    />
+                  ) : null}
+                  <div className={`absolute inset-0 items-center justify-center text-6xl ${product.product_image ? 'hidden' : 'flex'}`}>
+                    📦
+                  </div>
                 </div>
                 
-                {/* Badges */}
+                {/* Sales Count Badge */}
                 <div className="absolute top-3 right-3 flex flex-col gap-2">
-                  {product.isNew && (
-                    <Badge className="badge-new">جديد</Badge>
-                  )}
-                  {product.discount > 0 && (
-                    <Badge className="badge-discount">خصم {product.discount}%</Badge>
-                  )}
+                  <Badge className="bg-green-500 text-white">
+                    {product.sales_count} مبيعة
+                  </Badge>
                 </div>
 
                 {/* Quick Actions */}
@@ -153,42 +167,21 @@ export function FeaturedProducts() {
 
               {/* Product Info */}
               <div className="space-y-3">
-                {/* Category */}
-                <div className="text-xs text-primary font-medium">
-                  {product.category}
-                </div>
-
-                {/* Title & Author */}
+                {/* Title */}
                 <div>
-                  <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors line-clamp-1">
-                    {product.name}
+                  <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors line-clamp-2">
+                    {product.product_name}
                   </h3>
                   <p className="text-sm text-muted-foreground">
-                    {product.author}
+                    تم بيعه {product.sales_count} مرة
                   </p>
-                </div>
-
-                {/* Rating */}
-                <div className="flex items-center gap-2">
-                  <div className="flex items-center gap-1">
-                    <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                    <span className="text-sm font-medium">{product.rating}</span>
-                  </div>
-                  <span className="text-xs text-muted-foreground">
-                    ({product.reviews} تقييم)
-                  </span>
                 </div>
 
                 {/* Price */}
                 <div className="flex items-center gap-2">
                   <span className="text-lg font-bold text-primary">
-                    {product.price} ج.م
+                    {product.product_price} ج.م
                   </span>
-                  {product.originalPrice && (
-                    <span className="text-sm text-muted-foreground line-through">
-                      {product.originalPrice} ج.م
-                    </span>
-                  )}
                 </div>
 
                 {/* Add to Cart Button */}

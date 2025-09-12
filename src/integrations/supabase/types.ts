@@ -14,6 +14,39 @@ export type Database = {
   }
   public: {
     Tables: {
+      product_sales: {
+        Row: {
+          created_at: string
+          id: string
+          product_id: string
+          product_image: string | null
+          product_name: string
+          product_price: number
+          sales_count: number
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          product_id: string
+          product_image?: string | null
+          product_name: string
+          product_price: number
+          sales_count?: number
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          product_id?: string
+          product_image?: string | null
+          product_name?: string
+          product_price?: number
+          sales_count?: number
+          updated_at?: string
+        }
+        Relationships: []
+      }
       users: {
         Row: {
           created_at: string
@@ -52,7 +85,15 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      increment_product_sales: {
+        Args: {
+          p_product_id: string
+          p_product_image?: string
+          p_product_name: string
+          p_product_price: number
+        }
+        Returns: undefined
+      }
     }
     Enums: {
       [_ in never]: never
