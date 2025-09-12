@@ -1,4 +1,4 @@
-import { Star, ShoppingCart, Heart, Eye } from "lucide-react";
+import { Star, ShoppingCart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { useCart } from "../contexts/CartContext";
@@ -30,7 +30,7 @@ export function FeaturedProducts() {
       const { data, error } = await supabase
         .from('product_sales')
         .select('*')
-        .gte('sales_count', 1)
+        .gte('sales_count', 3) // Only show products sold 3+ times
         .order('sales_count', { ascending: false })
         .limit(6);
 
@@ -52,7 +52,7 @@ export function FeaturedProducts() {
       id: product.product_id,
       name: product.product_name,
       price: product.product_price,
-      image: product.product_image || '📦'
+      image: product.product_image || '🛍️'
     });
     
     toast({
@@ -61,50 +61,9 @@ export function FeaturedProducts() {
     });
   };
 
-  if (loading) {
-    return (
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl lg:text-4xl font-bold mb-4">
-              <span className="text-gradient">المنتجات الأكثر مبيعاً</span>
-            </h2>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              أشهر المنتجات حسب عدد المبيعات
-            </p>
-          </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[...Array(6)].map((_, i) => (
-              <div key={i} className="card-product animate-pulse">
-                <div className="bg-muted/50 rounded-xl aspect-square mb-4"></div>
-                <div className="space-y-3">
-                  <div className="h-4 bg-muted rounded w-3/4"></div>
-                  <div className="h-3 bg-muted rounded w-1/2"></div>
-                  <div className="h-6 bg-muted rounded w-1/3"></div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-    );
-  }
-
-  if (bestSellingProducts.length === 0) {
-    return (
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl lg:text-4xl font-bold mb-4">
-              <span className="text-gradient">المنتجات الأكثر مبيعاً</span>
-            </h2>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              لا توجد مبيعات حتى الآن. ابدأ بالشراء لترى المنتجات الأكثر مبيعاً هنا!
-            </p>
-          </div>
-        </div>
-      </section>
-    );
+  // Don't render anything if no best selling products or still loading
+  if (loading || bestSellingProducts.length === 0) {
+    return null;
   }
 
   return (
@@ -116,7 +75,7 @@ export function FeaturedProducts() {
             <span className="text-gradient">المنتجات الأكثر مبيعاً</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            أشهر المنتجات حسب عدد المبيعات في تفانين
+            المنتجات المفضلة لدى عملائنا والأكثر شراءً في متجر تفانين
           </p>
         </div>
 
@@ -128,7 +87,7 @@ export function FeaturedProducts() {
               className="card-product group"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              {/* Product Image & Badges */}
+              {/* Product Image & Badge */}
               <div className="relative mb-4">
                 <div className="bg-muted/50 rounded-xl aspect-square flex items-center justify-center text-6xl mb-4 overflow-hidden">
                   {product.product_image ? (
@@ -137,31 +96,21 @@ export function FeaturedProducts() {
                       alt={product.product_name}
                       className="w-full h-full object-cover"
                       onError={(e) => {
-                        e.currentTarget.style.display = 'none';
-                        (e.currentTarget.nextElementSibling as HTMLElement).style.display = 'flex';
+                        (e.target as HTMLImageElement).style.display = 'none';
+                        (e.target as HTMLImageElement).nextElementSibling!.textContent = '🛍️';
                       }}
                     />
-                  ) : null}
-                  <div className={`absolute inset-0 items-center justify-center text-6xl ${product.product_image ? 'hidden' : 'flex'}`}>
-                    📦
-                  </div>
+                  ) : (
+                    <span>🛍️</span>
+                  )}
+                  <span className="hidden">🛍️</span>
                 </div>
                 
                 {/* Sales Count Badge */}
                 <div className="absolute top-3 right-3 flex flex-col gap-2">
-                  <Badge className="bg-green-500 text-white">
-                    {product.sales_count} مبيعة
+                  <Badge className="bg-green-500 text-white hover:bg-green-600">
+                    تم بيعه {product.sales_count} مرة
                   </Badge>
-                </div>
-
-                {/* Quick Actions */}
-                <div className="absolute top-3 left-3 flex flex-col gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                  <Button size="icon" variant="secondary" className="h-8 w-8">
-                    <Heart className="h-4 w-4" />
-                  </Button>
-                  <Button size="icon" variant="secondary" className="h-8 w-8">
-                    <Eye className="h-4 w-4" />
-                  </Button>
                 </div>
               </div>
 
@@ -172,9 +121,19 @@ export function FeaturedProducts() {
                   <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors line-clamp-2">
                     {product.product_name}
                   </h3>
-                  <p className="text-sm text-muted-foreground">
-                    تم بيعه {product.sales_count} مرة
-                  </p>
+                </div>
+
+                {/* Rating - Simulated based on sales */}
+                <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-1">
+                    <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                    <span className="text-sm font-medium">
+                      {Math.min(4.2 + (product.sales_count * 0.1), 5.0).toFixed(1)}
+                    </span>
+                  </div>
+                  <span className="text-xs text-muted-foreground">
+                    ({product.sales_count} عملية شراء)
+                  </span>
                 </div>
 
                 {/* Price */}
