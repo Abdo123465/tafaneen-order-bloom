@@ -11,92 +11,27 @@ import { Link } from "react-router-dom";
 const smallNotebooks = [
   { 
     id: 'small-sketch-1', 
-    name: 'كراسة رسم صغيرة A5 - 50 ورقة غلاف ملون', 
-    price: 45, 
+    name: 'كراسة رسم ص ديزني بركه', 
+    price: 18, 
     image: '/assets/small-sketch-1.jpg', 
-    description: 'كراسة رسم بحجم A5 مدمجة وسهلة الحمل، بغلاف ملون جذاب، مثالية للرسم السريع والمذكرات الفنية',
-    brand: 'تفانين',
-    pages: 50,
-    size: 'A5',
-    paperWeight: '90 جرام'
+    description: 'كراسة رسم بحجم 24.5 X 17.5 مدمجة وسهلة الحمل، بغلاف ملون جذاب، مثالية للرسم السريع والمذكرات الفنية',
+    brand: 'بركه',
+    pages: 18,
+    size: '24.5 X 17.5',
+    paperWeight: '80 جرام'
   },
   { 
     id: 'small-sketch-2', 
-    name: 'كراسة رسم صغيرة جيبية 12x17 سم - 40 ورقة', 
-    price: 35, 
+    name: 'كراسة رسم اولاد غريب ص 16 ق', 
+    price: 15, 
     image: '/assets/small-sketch-2.jpg', 
     description: 'كراسة رسم جيبية صغيرة الحجم، مثالية للسفر والرسم في أي مكان، حجم مناسب لحقيبة اليد',
-    brand: 'آرت ميني',
+    brand: 'اولاد غريب',
     pages: 40,
     size: '12x17 سم',
     paperWeight: '80 جرام'
   },
-  { 
-    id: 'small-sketch-3', 
-    name: 'كراسة رسم صغيرة A6 سبيرال - 60 ورقة', 
-    price: 30, 
-    image: '/assets/small-sketch-3.jpg', 
-    description: 'كراسة رسم بحجم A6 بتجليد سبيرال، سهلة الفتح، مناسبة للرسومات السريعة والأفكار الفنية',
-    brand: 'سكتش باد',
-    pages: 60,
-    size: 'A6',
-    paperWeight: '100 جرام'
-  },
-  { 
-    id: 'small-sketch-4', 
-    name: 'كراسة رسم صغيرة مربعة 15x15 سم - 30 ورقة', 
-    price: 40, 
-    image: '/assets/small-sketch-4.jpg', 
-    description: 'كراسة رسم مربعة الشكل، تصميم فريد للرسومات المربعة والماندالا، ورق ناعم عالي الجودة',
-    brand: 'كريتف سكوير',
-    pages: 30,
-    size: '15x15 سم',
-    paperWeight: '120 جرام'
-  },
-  { 
-    id: 'small-sketch-5', 
-    name: 'كراسة رسم صغيرة A5 - ورق أبيض كريمي', 
-    price: 50, 
-    image: '/assets/small-sketch-5.jpg', 
-    description: 'كراسة رسم بحجم A5 بورق أبيض كريمي مريح للعين، مناسبة للرسم الطويل والدراسات الفنية',
-    brand: 'كانسون ميني',
-    pages: 45,
-    size: 'A5',
-    paperWeight: '110 جرام'
-  },
-  { 
-    id: 'small-sketch-6', 
-    name: 'كراسة رسم صغيرة جلدية A6 - 80 ورقة', 
-    price: 65, 
-    image: '/assets/small-sketch-6.jpg', 
-    description: 'كراسة رسم فاخرة بغلاف جلدي، حجم A6 مع عدد كبير من الأوراق، مثالية للهدايا والاستخدام الطويل',
-    brand: 'لوكس سكتش',
-    pages: 80,
-    size: 'A6',
-    paperWeight: '95 جرام'
-  },
-  { 
-    id: 'small-sketch-7', 
-    name: 'كراسة رسم صغيرة بخطوط شبكية A5 - 40 ورقة', 
-    price: 42, 
-    image: '/assets/small-sketch-7.jpg', 
-    description: 'كراسة رسم بخطوط شبكية خفيفة، مساعدة في الرسم الهندسي والنسب، مناسبة للمبتدئين',
-    brand: 'جريد آرت',
-    pages: 40,
-    size: 'A5',
-    paperWeight: '100 جرام'
-  },
-  { 
-    id: 'small-sketch-8', 
-    name: 'كراسة رسم صغيرة مقاومة للماء A6 - 35 ورقة', 
-    price: 55, 
-    image: '/assets/small-sketch-8.jpg', 
-    description: 'كراسة رسم مقاومة للماء والرطوبة، مثالية للرسم في الهواء الطلق والظروف المختلفة',
-    brand: 'أكوا سكتش',
-    pages: 35,
-    size: 'A6',
-    paperWeight: '130 جرام'
-  }
+ 
 ];
 
 const SmallDrawingNotebookPage = () => {
