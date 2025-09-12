@@ -11,70 +11,27 @@ import { Link } from "react-router-dom";
 const largeNotebooks = [
   { 
     id: 'large-sketch-1', 
-    name: 'كراسة رسم كبيرة A4 - 40 ورقة غلاف صلب', 
-    price: 85, 
+    name: 'كراسة رسم مالك 16 ق كبير', 
+    price: 17, 
     image: '/assets/large-sketch-1.jpg', 
-    description: 'كراسة رسم بحجم A4 بغلاف صلب، ورق عالي الجودة 120 جرام، مثالية للرسم بالقلم الرصاص والأقلام الملونة',
-    brand: 'تفانين',
-    pages: 40,
-    size: 'A4',
-    paperWeight: '120 جرام'
+    description: 'كراسة رسم بحجم 24.5X 34 بغلاف متين، ورق عالي الجودة 60 جرام، مثالية للرسم بالقلم الرصاص والأقلام الملونة',
+    brand: 'مالك',
+    pages: 12,
+    size: '24.5X34',
+    paperWeight: '60 جرام'
   },
   { 
     id: 'large-sketch-2', 
-    name: 'كراسة رسم كبيرة A3 - 30 ورقة ورق كانسون', 
-    price: 125, 
+    name: 'كراسة رسم اولاد غريب ك 16 ق', 
+    price: 20, 
     image: '/assets/large-sketch-2.jpg', 
-    description: 'كراسة رسم بحجم A3 بورق كانسون عالي الجودة، مناسبة للرسم المتقدم والمشاريع الفنية الكبيرة',
-    brand: 'كانسون',
-    pages: 30,
-    size: 'A3',
-    paperWeight: '160 جرام'
+    description: 'كراسة رسم بحجم 24.5X 34 بغلاف متين، ورق عالي الجودة 60 جرام، مثالية للرسم بالقلم الرصاص والأقلام الملونة',
+    brand: 'اولاد غريب',
+    pages: 16,
+    size: '24.5X34',
+    paperWeight: '60 جرام'
   },
-  { 
-    id: 'large-sketch-3', 
-    name: 'كراسة رسم كبيرة سبيرال A4 - 50 ورقة', 
-    price: 65, 
-    image: '/assets/large-sketch-3.jpg', 
-    description: 'كراسة رسم بحجم A4 بتجليد سبيرال، سهلة الفتح والاستخدام، مناسبة للاستخدام اليومي',
-    brand: 'آرت برو',
-    pages: 50,
-    size: 'A4',
-    paperWeight: '100 جرام'
-  },
-  { 
-    id: 'large-sketch-4', 
-    name: 'كراسة رسم كبيرة 25x35 سم - 60 ورقة', 
-    price: 95, 
-    image: '/assets/large-sketch-4.jpg', 
-    description: 'كراسة رسم بحجم 25x35 سم، حجم مثالي للبورتريه والرسم التفصيلي، ورق ناعم عالي الجودة',
-    brand: 'فابريانو',
-    pages: 60,
-    size: '25x35 سم',
-    paperWeight: '140 جرام'
-  },
-  { 
-    id: 'large-sketch-5', 
-    name: 'كراسة رسم كبيرة A4 - ورق محبب للفحم', 
-    price: 110, 
-    image: '/assets/large-sketch-5.jpg', 
-    description: 'كراسة رسم بحجم A4 بورق محبب خاص للرسم بالفحم والباستيل، ملمس مميز لنتائج احترافية',
-    brand: 'آرتيست برو',
-    pages: 35,
-    size: 'A4',
-    paperWeight: '180 جرام'
-  },
-  { 
-    id: 'large-sketch-6', 
-    name: 'كراسة رسم كبيرة A3 سبيرال - 40 ورقة', 
-    price: 145, 
-    image: '/assets/large-sketch-6.jpg', 
-    description: 'كراسة رسم بحجم A3 بتجليد سبيرال قوي، مساحة واسعة للإبداع، مناسبة للطلاب والفنانين',
-    brand: 'سكتش ماستر',
-    pages: 40,
-    size: 'A3',
-    paperWeight: '150 جرام'
-  }
+ 
 ];
 
 const LargeDrawingNotebookPage = () => {
