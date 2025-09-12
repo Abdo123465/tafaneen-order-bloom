@@ -31,6 +31,17 @@ const largeNotebooks = [
     size: '24.5X34',
     paperWeight: '60 جرام'
   },
+ { 
+    id: 'large-sketch-3', 
+    name: 'كراسة رسم ك ديزني بركه', 
+    price: 25, 
+    image: '/assets/large-sketch-3.jpg', 
+    description: 'كراسة رسم بحجم 24.5X 34 بغلاف متين، ورق عالي الجودة 60 جرام، مثالية للرسم بالقلم الرصاص والأقلام الملونة',
+    brand: ' بركة',
+    pages: 18,
+    size: '24.5X34',
+    paperWeight: '60 جرام'
+  },
  
 ];
 
