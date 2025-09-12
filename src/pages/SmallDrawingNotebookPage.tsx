@@ -27,7 +27,7 @@ const smallNotebooks = [
     image: '/assets/small-sketch-2.jpg', 
     description: 'كراسة رسم جيبية صغيرة الحجم، مثالية للسفر والرسم في أي مكان، حجم مناسب لحقيبة اليد',
     brand: 'اولاد غريب',
-    pages: 40,
+    pages: 16,
     size: '12x17 سم',
     paperWeight: '80 جرام'
   },
