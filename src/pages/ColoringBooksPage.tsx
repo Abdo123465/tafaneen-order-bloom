@@ -58,17 +58,6 @@ const coloringBooks = [
     brand: 'Smile',
     pages: 3,
     theme: 'أشخصيات كرتونية'
-  },
-
-  { 
-    id: 'coloring-8', 
-    name: 'كراسة عالم التلوين الجيل المبدع - المهن', 
-    price: 10, 
-    image: '/assets/coloring-8.jpg', 
-    description: 'كراسة تلوين تعليمية عن المهن المختلفة',
-    brand: 'الجيل المبدع',
-    pages: 4,
-    theme: 'المهن'
   }
 ];
 
