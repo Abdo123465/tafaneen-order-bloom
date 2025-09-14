@@ -89,7 +89,6 @@ const coloringBooks = [
     pages: 4,
     theme: 'المهن'
   }
-
 ];
 
 const ColoringBooksPage = () => {
