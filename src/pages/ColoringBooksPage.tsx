@@ -11,64 +11,75 @@ import { Link } from "react-router-dom";
 const coloringBooks = [
   { 
     id: 'coloring-1', 
-    name: 'كراسة تلوين الحيوانات - 32 صفحة', 
-    price: 15, 
+    name: 'كتاب تلوين مياه + قلم BH-022', 
+    price: 27, 
     image: '/assets/coloring-1.jpg', 
-    description: 'كراسة تلوين جميلة تحتوي على رسومات حيوانات متنوعة للأطفال',
-    brand: 'تفانين',
-    pages: 32,
-    theme: 'حيوانات'
+    description: 'كتاب تلوين مياه + قلم BH-022',
+    brand: 'Magic Waterbook',
+    pages: 4,
+    theme: 'ديناصور'
   },
   { 
     id: 'coloring-2', 
-    name: 'كراسة تلوين الأميرات - 24 صفحة', 
-    price: 18, 
+    name: 'كيس ورق A5 مع ستيكر 13519', 
+    price: 15, 
     image: '/assets/coloring-2.jpg', 
-    description: 'كراسة تلوين رائعة بتصاميم أميرات وقلاع خيالية للبنات',
-    brand: 'برايت كيدز',
-    pages: 24,
-    theme: 'أميرات'
+    description: 'كيس ورق A5 مع ستيكر 13519',
+    brand: 'Draw and Color',
+    pages: 10,
+    theme: 'دباديب'
   },
   { 
     id: 'coloring-3', 
-    name: 'كراسة تلوين السيارات والطائرات - 28 صفحة', 
+    name: 'كراسة تلوين ِA4 كبير سمايل', 
     price: 20, 
     image: '/assets/coloring-3.jpg', 
-    description: 'كراسة تلوين مثيرة تحتوي على رسومات سيارات وطائرات للأولاد',
-    brand: 'أكتيف كيدز',
-    pages: 28,
-    theme: 'مركبات'
+    description: 'كراسة تلوين ِA4 كبير سمايل',
+    brand: 'Smile',
+    pages: 4,
+    theme: 'كرتون '
   },
   { 
     id: 'coloring-4', 
-    name: 'كراسة تلوين الطبيعة والزهور - 36 صفحة', 
-    price: 22, 
+    name: 'كراسة تلوين ِA4 ديزني', 
+    price: 15, 
     image: '/assets/coloring-4.jpg', 
-    description: 'كراسة تلوين جميلة بتصاميم طبيعية وزهور ملونة',
-    brand: 'نيتشر آرت',
-    pages: 36,
+    description: 'كراسة تلوين جميلة بتصاميم  ديزني',
+    brand: ' ديزني',
+    pages: 3,
     theme: 'طبيعة'
   },
   { 
     id: 'coloring-5', 
-    name: 'كراسة تلوين الأشكال الهندسية - 30 صفحة', 
-    price: 25, 
+    name: 'كراسة تلوين ِA4 كبير سمايل', 
+    price: 12, 
     image: '/assets/coloring-5.jpg', 
-    description: 'كراسة تلوين تعليمية تحتوي على أشكال هندسية وأنماط جميلة',
-    brand: 'إديو آرت',
-    pages: 30,
-    theme: 'أشكال هندسية'
+    description: 'كراسة تلوين تعليمية تحتوي على شخصيات كرتونية',
+    brand: 'Smile',
+    pages: 3,
+    theme: 'أشخصيات كرتونية'
   },
   { 
-    id: 'coloring-6', 
-    name: 'كراسة تلوين القصص الخيالية - 40 صفحة', 
-    price: 28, 
-    image: '/assets/coloring-6.jpg', 
-    description: 'كراسة تلوين مليئة بشخصيات وقصص خيالية ممتعة',
-    brand: 'فانتازي وورلد',
-    pages: 40,
-    theme: 'قصص خيالية'
+    id: 'coloring-7', 
+    name: 'كراسة عالم التلوين الجيل المبدع', 
+    price: 10, 
+    image: '/assets/coloring-7.jpg', 
+    description: 'كراسة تلوين عن المهن',
+    brand: 'الجيل المبدع',
+    pages: 4,
+    theme: 'المهن'
   }
+    { 
+    id: 'coloring-8', 
+    name: 'كراسة عالم التلوين الجيل المبدع', 
+    price: 10, 
+    image: '/assets/coloring-7.jpg', 
+    description: 'كراسة تلوين عن المهن',
+    brand: 'الجيل المبدع',
+    pages: 4,
+    theme: 'المهن'
+  }
+
 ];
 
 const ColoringBooksPage = () => {
