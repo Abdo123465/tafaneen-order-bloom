@@ -60,6 +60,16 @@ const coloringBooks = [
     theme: 'أشخصيات كرتونية'
   },
   { 
+    id: 'coloring-6', 
+    name: 'كراسة تلوين عالم المغامرات', 
+    price: 18, 
+    image: '/assets/coloring-6.jpg', 
+    description: 'كراسة تلوين مليئة بالمغامرات والشخصيات الممتعة',
+    brand: 'Adventure World',
+    pages: 6,
+    theme: 'مغامرات'
+  },
+  { 
     id: 'coloring-7', 
     name: 'كراسة عالم التلوين الجيل المبدع', 
     price: 10, 
@@ -68,13 +78,13 @@ const coloringBooks = [
     brand: 'الجيل المبدع',
     pages: 4,
     theme: 'المهن'
-  }
-    { 
+  },
+  { 
     id: 'coloring-8', 
-    name: 'كراسة عالم التلوين الجيل المبدع', 
+    name: 'كراسة عالم التلوين الجيل المبدع - المهن', 
     price: 10, 
-    image: '/assets/coloring-7.jpg', 
-    description: 'كراسة تلوين عن المهن',
+    image: '/assets/coloring-8.jpg', 
+    description: 'كراسة تلوين تعليمية عن المهن المختلفة',
     brand: 'الجيل المبدع',
     pages: 4,
     theme: 'المهن'
