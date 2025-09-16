@@ -33,7 +33,7 @@ export function Categories() {
       color: "bg-gradient-to-br from-purple-500 to-purple-600",
       textColor: "text-purple-600",
       bgColor: "bg-purple-50",
-      count: "150+ منتج"
+      count: "500+ منتج"
     },
     {
       id: 5,
@@ -53,7 +53,7 @@ export function Categories() {
       color: "bg-gradient-to-br from-teal-500 to-teal-600",
       textColor: "text-teal-600",
       bgColor: "bg-teal-50",
-      count: "400+ منتج"
+      count: "500+ منتج"
     },
     {
       id: 7,
