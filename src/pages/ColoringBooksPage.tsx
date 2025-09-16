@@ -59,7 +59,7 @@ const coloringBooks = [
     pages: 3,
     theme: 'أشخصيات كرتونية'
   },
-    { 
+  { 
     id: 'coloring-6', 
     name: 'كراسة تلوين A4 مانديلا بشر 16 ورقه', 
     price: 40, 
