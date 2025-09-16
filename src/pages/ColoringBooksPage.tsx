@@ -58,7 +58,7 @@ const coloringBooks = [
     brand: 'Smile',
     pages: 3,
     theme: 'أشخصيات كرتونية'
-  }
+  },
     { 
     id: 'coloring-6', 
     name: 'كراسة تلوين A4 مانديلا بشر 16 ورقه', 
@@ -68,7 +68,7 @@ const coloringBooks = [
     brand: 'مانديلا ',
     pages: 16,
     theme: 'اشكال احترافية'
-  }
+  },
 ];
 
 const ColoringBooksPage = () => {
