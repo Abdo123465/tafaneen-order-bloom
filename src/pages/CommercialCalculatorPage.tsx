@@ -16,9 +16,9 @@ const commercialCalculators = [
     image: '/assets/casio-dr120r.jpg',
     description: 'آلة حاسبة تجارية مع طباعة للمحلات والمكاتب',
     brand: 'كاسيو',
+    features: ['طباعة سطرين', '12 رقم', 'ذاكرة مستقلة', 'حساب الضرائب'],
     rating: 4.7,
-    reviews: 89,
-    features: ['طباعة سطرين', '12 رقم', 'ذاكرة مستقلة', 'حساب الضرائب']
+    reviews: 89
   },
   {
     id: 'comm-calc-2',
@@ -28,9 +28,9 @@ const commercialCalculators = [
     image: '/assets/sharp-el1197.jpg',
     description: 'آلة حاسبة مكتبية متقدمة مع طباعة ملونة',
     brand: 'شارب',
+    features: ['طباعة ملونة', '12 رقم', 'سرعة عالية', 'وضع صامت'],
     rating: 4.8,
-    reviews: 67,
-    features: ['طباعة ملونة', '12 رقم', 'سرعة عالية', 'وضع صامت']
+    reviews: 67
   },
   {
     id: 'comm-calc-3',
@@ -40,9 +40,9 @@ const commercialCalculators = [
     image: '/assets/canon-p1dhv.jpg',
     description: 'آلة حاسبة تجارية موثوقة للاستخدام اليومي',
     brand: 'كانون',
+    features: ['طباعة أحادية', '12 رقم', 'حساب التكلفة', 'ذاكرة GT'],
     rating: 4.5,
-    reviews: 134,
-    features: ['طباعة أحادية', '12 رقم', 'حساب التكلفة', 'ذاكرة GT']
+    reviews: 134
   },
   {
     id: 'comm-calc-4',
@@ -52,9 +52,9 @@ const commercialCalculators = [
     image: '/assets/casio-fr2650.jpg',
     description: 'آلة حاسبة احترافية للمحاسبة والمالية',
     brand: 'كاسيو',
+    features: ['طباعة سريعة', '12 رقم', 'حساب العملة', 'ذاكرة متعددة'],
     rating: 4.9,
-    reviews: 45,
-    features: ['طباعة سريعة', '12 رقم', 'حساب العملة', 'ذاكرة متعددة']
+    reviews: 45
   },
   {
     id: 'comm-calc-5',
@@ -64,9 +64,9 @@ const commercialCalculators = [
     image: '/assets/hp-12c.jpg',
     description: 'آلة حاسبة مالية احترافية للمصرفيين',
     brand: 'HP',
+    features: ['حسابات مالية', 'RPN', 'برمجة', 'بطارية طويلة'],
     rating: 4.8,
-    reviews: 78,
-    features: ['حسابات مالية', 'RPN', 'برمجة', 'بطارية طويلة']
+    reviews: 78
   },
   {
     id: 'comm-calc-6',
@@ -76,9 +76,9 @@ const commercialCalculators = [
     image: '/assets/sharp-cs2635.jpg',
     description: 'آلة حاسبة مكتبية أساسية وعملية',
     brand: 'شارب',
+    features: ['شاشة كبيرة', '12 رقم', 'أزرار كبيرة', 'تصميم مريح'],
     rating: 4.3,
-    reviews: 156,
-    features: ['شاشة كبيرة', '12 رقم', 'أزرار كبيرة', 'تصميم مريح']
+    reviews: 156
   }
 ];
 
@@ -86,7 +86,7 @@ const CommercialCalculatorPage = () => {
   const { addItem } = useCart();
   
   useEffect(() => {
-    document.title = "آلة حاسبة تجارية | تفانين";
+    document.title = "آلة حاسبة محل (تجارية) | تفانين";
     const desc = "تسوق آلات حاسبة تجارية ومكتبية بأفضل الماركات - كاسيو، شارب، كانون، HP. آلات حاسبة تجارية للمحلات والأعمال من تفانين.";
     let meta = document.querySelector('meta[name="description"]');
     if (!meta) { 
@@ -121,19 +121,19 @@ const CommercialCalculatorPage = () => {
         {/* Features Section */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
           <Card className="text-center p-6 bg-gradient-to-br from-green-50 to-emerald-50 border-green-200">
-            <div className="text-4xl mb-4">💰</div>
-            <h3 className="font-bold mb-2 text-green-700">طباعة سريعة</h3>
-            <p className="text-sm text-green-600">طباعة سريعة وموثوقة للسجلات والفواتير</p>
+            <div className="text-4xl mb-4">🧾</div>
+            <h3 className="font-bold mb-2 text-green-700">طباعة فورية</h3>
+            <p className="text-sm text-green-600">طباعة سريعة ودقيقة للفواتير والإيصالات</p>
           </Card>
           <Card className="text-center p-6 bg-gradient-to-br from-blue-50 to-cyan-50 border-blue-200">
-            <div className="text-4xl mb-4">🧮</div>
-            <h3 className="font-bold mb-2 text-blue-700">حسابات متقدمة</h3>
-            <p className="text-sm text-blue-600">وظائف حسابية متقدمة للضرائب والخصومات</p>
+            <div className="text-4xl mb-4">🔢</div>
+            <h3 className="font-bold mb-2 text-blue-700">دقة حسابية</h3>
+            <p className="text-sm text-blue-600">حسابات دقيقة وموثوقة للأعمال التجارية</p>
           </Card>
           <Card className="text-center p-6 bg-gradient-to-br from-amber-50 to-orange-50 border-amber-200">
-            <div className="text-4xl mb-4">📊</div>
-            <h3 className="font-bold mb-2 text-amber-700">ذاكرة قوية</h3>
-            <p className="text-sm text-amber-600">ذاكرة قوية لحفظ النتائج والحسابات</p>
+            <div className="text-4xl mb-4">💱</div>
+            <h3 className="font-bold mb-2 text-amber-700">وظائف متقدمة</h3>
+            <p className="text-sm text-amber-600">حساب الضرائب والعملات والنسب المئوية</p>
           </Card>
         </div>
         
@@ -170,7 +170,7 @@ const CommercialCalculatorPage = () => {
                   
                   {/* Rating Badge */}
                   <div className="absolute top-3 left-3 bg-yellow-500 text-white rounded-full px-3 py-1 text-xs font-bold flex items-center">
-                    ⭐ {calculator.rating}
+                    ★ {calculator.rating}
                   </div>
                 </div>
                 
@@ -181,7 +181,7 @@ const CommercialCalculatorPage = () => {
                   
                   {/* Product Features */}
                   <div className="mb-4">
-                    <div className="flex flex-wrap gap-1">
+                    <div className="flex flex-wrap gap-1 justify-end">
                       {calculator.features.map((feature, index) => (
                         <span key={index} className="bg-green-50 text-green-700 px-2 py-1 rounded-full text-xs">
                           {feature}
@@ -190,22 +190,23 @@ const CommercialCalculatorPage = () => {
                     </div>
                   </div>
                   
-                  {/* Product Details */}
-                  <div className="flex justify-between items-center mb-4 text-sm">
-                    <span className="text-muted-foreground">التقييم: <span className="font-medium text-foreground">{calculator.rating} ({calculator.reviews})</span></span>
-                    <span className="text-muted-foreground">الماركة: <span className="font-medium text-foreground">{calculator.brand}</span></span>
-                  </div>
-                  
                   {/* Price and Add to Cart */}
-                  <div className="flex items-center justify-between pt-4 border-t">
-                    <div>
-                      <span className="text-primary font-bold text-xl">{calculator.price} ج.م</span>
+                  <div className="flex flex-col gap-3 pt-4 border-t">
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <span className="text-xl font-bold text-green-600">{calculator.price} ج.م</span>
+                        {calculator.originalPrice && (
+                          <span className="text-gray-400 line-through mr-2 text-sm">{calculator.originalPrice} ج.م</span>
+                        )}
+                      </div>
                       {calculator.originalPrice && (
-                        <span className="text-gray-400 line-through ml-2 text-sm">{calculator.originalPrice} ج.م</span>
+                        <span className="bg-red-100 text-red-600 px-2 py-1 rounded-full text-xs font-medium">
+                          وفر {calculator.originalPrice - calculator.price} ج.م
+                        </span>
                       )}
                     </div>
                     <Button 
-                      className="btn-tafaneen px-6"
+                      className="bg-green-600 hover:bg-green-700 text-white w-full"
                       onClick={() => addItem({ 
                         id: calculator.id, 
                         name: calculator.name, 
