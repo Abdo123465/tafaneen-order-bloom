@@ -103,9 +103,9 @@ const CommercialCalculatorPage = () => {
         {/* Features Section */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
           <Card className="text-center p-6 bg-gradient-to-br from-green-50 to-emerald-50 border-green-200">
-            <div className="text-4xl mb-4">🧾</div>
-            <h3 className="font-bold mb-2 text-green-700">طباعة فورية</h3>
-            <p className="text-sm text-green-600">طباعة سريعة ودقيقة للفواتير والإيصالات</p>
+            <div className="text-4xl mb-4">👆</div>
+            <h3 className="font-bold mb-2 text-green-700">سهولة الاستخدام</h3>
+            <p className="text-sm text-green-600">أزرار كبيرة وواضحة للاستخدام السريع في المحل</p>
           </Card>
           <Card className="text-center p-6 bg-gradient-to-br from-blue-50 to-cyan-50 border-blue-200">
             <div className="text-4xl mb-4">🔢</div>
@@ -113,9 +113,9 @@ const CommercialCalculatorPage = () => {
             <p className="text-sm text-blue-600">حسابات دقيقة وموثوقة للأعمال التجارية</p>
           </Card>
           <Card className="text-center p-6 bg-gradient-to-br from-amber-50 to-orange-50 border-amber-200">
-            <div className="text-4xl mb-4">💱</div>
-            <h3 className="font-bold mb-2 text-amber-700">وظائف متقدمة</h3>
-            <p className="text-sm text-amber-600">حساب الضرائب والعملات والنسب المئوية</p>
+            <div className="text-4xl mb-4">🔋</div>
+            <h3 className="font-bold mb-2 text-amber-700">متانة وطول العمر</h3>
+            <p className="text-sm text-amber-600">تحمل الاستخدام المكثف وبطارية طويلة المدى</p>
           </Card>
         </div>
         
