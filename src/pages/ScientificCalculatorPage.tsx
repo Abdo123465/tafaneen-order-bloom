@@ -10,58 +10,14 @@ import { Link } from "react-router-dom";
 const scientificCalculators = [
   {
     id: 'sci-calc-1',
-    name: 'آلة حاسبة علمية كاسيو FX-991ES PLUS',
-    price: 120,
+    name: 'اله حاسبه CASIO تقليد FX991ES plus 2nd edition',
+    price: 450,
     image: '/assets/casio-fx991es.jpg',
-    description: 'آلة حاسبة علمية متقدمة مع 417 وظيفة رياضية للطلاب والمهندسين',
+    description: 'آلة حاسبة علمية متقدمة  رياضية للطلاب ',
     brand: 'كاسيو',
     functions: 417
   },
-  {
-    id: 'sci-calc-2',
-    name: 'آلة حاسبة علمية شارب EL-W506X',
-    price: 95,
-    image: '/assets/sharp-elw506x.jpg',
-    description: 'آلة حاسبة علمية بشاشة كبيرة وواضحة مع وضع الامتحان',
-    brand: 'شارب',
-    functions: 556
-  },
-  {
-    id: 'sci-calc-3',
-    name: 'آلة حاسبة علمية تكساس TI-30X IIS',
-    price: 85,
-    image: '/assets/texas-ti30x.jpg',
-    description: 'آلة حاسبة علمية موثوقة للطلاب مع عرض سطرين وإحصائيات',
-    brand: 'تكساس',
-    functions: 241
-  },
-  {
-    id: 'sci-calc-4',
-    name: 'آلة حاسبة علمية كانون F-789SGA',
-    price: 75,
-    image: '/assets/canon-f789sga.jpg',
-    description: 'آلة حاسبة علمية اقتصادية وعملية مع حماية الغطاء',
-    brand: 'كانون',
-    functions: 605
-  },
-  {
-    id: 'sci-calc-5',
-    name: 'آلة حاسبة علمية HP 35S',
-    price: 180,
-    image: '/assets/hp-35s.jpg',
-    description: 'آلة حاسبة علمية احترافية قابلة للبرمجة مع RPN و Algebraic',
-    brand: 'HP',
-    functions: 800
-  },
-  {
-    id: 'sci-calc-6',
-    name: 'آلة حاسبة علمية كاسيو FX-82MS',
-    price: 45,
-    image: '/assets/casio-fx82ms.jpg',
-    description: 'آلة حاسبة علمية أساسية للطلاب سهلة الاستخدام مع شاشة سطرين',
-    brand: 'كاسيو',
-    functions: 240
-  }
+
 ];
 
 const ScientificCalculatorPage = () => {
