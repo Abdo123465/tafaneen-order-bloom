@@ -12,73 +12,55 @@ const commercialCalculators = [
     id: 'comm-calc-1',
     name: 'آلة حاسبة تجارية كاسيو DR-120R',
     price: 280,
-    originalPrice: 320,
     image: '/assets/casio-dr120r.jpg',
     description: 'آلة حاسبة تجارية مع طباعة للمحلات والمكاتب',
     brand: 'كاسيو',
-    features: ['طباعة سطرين', '12 رقم', 'ذاكرة مستقلة', 'حساب الضرائب'],
-    rating: 4.7,
-    reviews: 89
+    features: ['طباعة سطرين', '12 رقم', 'ذاكرة مستقلة', 'حساب الضرائب']
   },
   {
     id: 'comm-calc-2',
     name: 'آلة حاسبة مكتبية شارب EL-1197PIII',
     price: 350,
-    originalPrice: 400,
     image: '/assets/sharp-el1197.jpg',
     description: 'آلة حاسبة مكتبية متقدمة مع طباعة ملونة',
     brand: 'شارب',
-    features: ['طباعة ملونة', '12 رقم', 'سرعة عالية', 'وضع صامت'],
-    rating: 4.8,
-    reviews: 67
+    features: ['طباعة ملونة', '12 رقم', 'سرعة عالية', 'وضع صامت']
   },
   {
     id: 'comm-calc-3',
     name: 'آلة حاسبة تجارية كانون P1-DHV-3',
     price: 220,
-    originalPrice: 260,
     image: '/assets/canon-p1dhv.jpg',
     description: 'آلة حاسبة تجارية موثوقة للاستخدام اليومي',
     brand: 'كانون',
-    features: ['طباعة أحادية', '12 رقم', 'حساب التكلفة', 'ذاكرة GT'],
-    rating: 4.5,
-    reviews: 134
+    features: ['طباعة أحادية', '12 رقم', 'حساب التكلفة', 'ذاكرة GT']
   },
   {
     id: 'comm-calc-4',
     name: 'آلة حاسبة مكتبية كاسيو FR-2650RC',
     price: 450,
-    originalPrice: 520,
     image: '/assets/casio-fr2650.jpg',
     description: 'آلة حاسبة احترافية للمحاسبة والمالية',
     brand: 'كاسيو',
-    features: ['طباعة سريعة', '12 رقم', 'حساب العملة', 'ذاكرة متعددة'],
-    rating: 4.9,
-    reviews: 45
+    features: ['طباعة سريعة', '12 رقم', 'حساب العملة', 'ذاكرة متعددة']
   },
   {
     id: 'comm-calc-5',
     name: 'آلة حاسبة تجارية HP 12C',
     price: 380,
-    originalPrice: 450,
     image: '/assets/hp-12c.jpg',
     description: 'آلة حاسبة مالية احترافية للمصرفيين',
     brand: 'HP',
-    features: ['حسابات مالية', 'RPN', 'برمجة', 'بطارية طويلة'],
-    rating: 4.8,
-    reviews: 78
+    features: ['حسابات مالية', 'RPN', 'برمجة', 'بطارية طويلة']
   },
   {
     id: 'comm-calc-6',
     name: 'آلة حاسبة مكتبية شارب CS-2635RH',
     price: 180,
-    originalPrice: 210,
     image: '/assets/sharp-cs2635.jpg',
     description: 'آلة حاسبة مكتبية أساسية وعملية',
     brand: 'شارب',
-    features: ['شاشة كبيرة', '12 رقم', 'أزرار كبيرة', 'تصميم مريح'],
-    rating: 4.3,
-    reviews: 156
+    features: ['شاشة كبيرة', '12 رقم', 'أزرار كبيرة', 'تصميم مريح']
   }
 ];
 
@@ -167,11 +149,6 @@ const CommercialCalculatorPage = () => {
                   <div className="absolute top-3 right-3 bg-white/90 backdrop-blur-sm rounded-full px-3 py-1 text-xs font-medium text-gray-700">
                     {calculator.brand}
                   </div>
-                  
-                  {/* Rating Badge */}
-                  <div className="absolute top-3 left-3 bg-yellow-500 text-white rounded-full px-3 py-1 text-xs font-bold flex items-center">
-                    ★ {calculator.rating}
-                  </div>
                 </div>
                 
                 {/* Product Info */}
@@ -191,22 +168,10 @@ const CommercialCalculatorPage = () => {
                   </div>
                   
                   {/* Price and Add to Cart */}
-                  <div className="flex flex-col gap-3 pt-4 border-t">
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <span className="text-xl font-bold text-green-600">{calculator.price} ج.م</span>
-                        {calculator.originalPrice && (
-                          <span className="text-gray-400 line-through mr-2 text-sm">{calculator.originalPrice} ج.م</span>
-                        )}
-                      </div>
-                      {calculator.originalPrice && (
-                        <span className="bg-red-100 text-red-600 px-2 py-1 rounded-full text-xs font-medium">
-                          وفر {calculator.originalPrice - calculator.price} ج.م
-                        </span>
-                      )}
-                    </div>
+                  <div className="flex items-center justify-between pt-4 border-t">
+                    <span className="text-primary font-bold text-xl">{calculator.price} ج.م</span>
                     <Button 
-                      className="bg-green-600 hover:bg-green-700 text-white w-full"
+                      className="btn-tafaneen px-6"
                       onClick={() => addItem({ 
                         id: calculator.id, 
                         name: calculator.name, 
