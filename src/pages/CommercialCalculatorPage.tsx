@@ -19,12 +19,12 @@ const commercialCalculators = [
   },
   {
     id: 'comm-calc-2',
-    name: 'آلة حاسبة مكتبية شارب EL-1197PIII',
-    price: 350,
+    name: 'اله حاسبه ك Karuida CC-111S',
+    price: 180,
     image: '/assets/sharp-el1197.jpg',
-    description: 'آلة حاسبة مكتبية متقدمة مع طباعة ملونة',
-    brand: 'شارب',
-    features: ['طباعة ملونة', '12 رقم', 'سرعة عالية', 'وضع صامت']
+    description: 'اله حاسبه ك Karuida CC-111S',
+    brand: 'Karuida',
+    features: [' اوتو ريبلاي', '12 رقم', ' 120 خطوة تحقق', ]
   },
   {
     id: 'comm-calc-3',
