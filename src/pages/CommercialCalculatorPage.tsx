@@ -32,7 +32,7 @@ const commercialCalculators = [
     price: 140,
     image: '/assets/canon-p1dhv.jpg',
     description: 'اله حاسبه وسط kadio 1038b',
-    brand: 'كانون',
+    brand: 'kadio',
     features: ['جزور', '12 رقم', ' سهم للرجوع ', 'نسبة مئوية ']
   },
 
