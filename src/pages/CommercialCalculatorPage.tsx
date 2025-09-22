@@ -28,40 +28,14 @@ const commercialCalculators = [
   },
   {
     id: 'comm-calc-3',
-    name: 'آلة حاسبة تجارية كانون P1-DHV-3',
-    price: 220,
+    name: 'اله حاسبه وسط kadio 1038b',
+    price: 140,
     image: '/assets/canon-p1dhv.jpg',
-    description: 'آلة حاسبة تجارية موثوقة للاستخدام اليومي',
+    description: 'اله حاسبه وسط kadio 1038b',
     brand: 'كانون',
-    features: ['طباعة أحادية', '12 رقم', 'حساب التكلفة', 'ذاكرة GT']
+    features: ['جزور', '12 رقم', ' سهم للرجوع ', 'نسبة مئوية ']
   },
-  {
-    id: 'comm-calc-4',
-    name: 'آلة حاسبة مكتبية كاسيو FR-2650RC',
-    price: 450,
-    image: '/assets/casio-fr2650.jpg',
-    description: 'آلة حاسبة احترافية للمحاسبة والمالية',
-    brand: 'كاسيو',
-    features: ['طباعة سريعة', '12 رقم', 'حساب العملة', 'ذاكرة متعددة']
-  },
-  {
-    id: 'comm-calc-5',
-    name: 'آلة حاسبة تجارية HP 12C',
-    price: 380,
-    image: '/assets/hp-12c.jpg',
-    description: 'آلة حاسبة مالية احترافية للمصرفيين',
-    brand: 'HP',
-    features: ['حسابات مالية', 'RPN', 'برمجة', 'بطارية طويلة']
-  },
-  {
-    id: 'comm-calc-6',
-    name: 'آلة حاسبة مكتبية شارب CS-2635RH',
-    price: 180,
-    image: '/assets/sharp-cs2635.jpg',
-    description: 'آلة حاسبة مكتبية أساسية وعملية',
-    brand: 'شارب',
-    features: ['شاشة كبيرة', '12 رقم', 'أزرار كبيرة', 'تصميم مريح']
-  }
+
 ];
 
 const CommercialCalculatorPage = () => {
