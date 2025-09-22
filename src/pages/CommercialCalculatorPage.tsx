@@ -10,12 +10,12 @@ import { Link } from "react-router-dom";
 const commercialCalculators = [
   {
     id: 'comm-calc-1',
-    name: 'آلة حاسبة تجارية كاسيو DR-120R',
-    price: 280,
+    name: 'اله حاسبه وسط KENKO KK-837B',
+    price: 110,
     image: '/assets/casio-dr120r.jpg',
-    description: 'آلة حاسبة تجارية مع طباعة للمحلات والمكاتب',
-    brand: 'كاسيو',
-    features: ['طباعة سطرين', '12 رقم', 'ذاكرة مستقلة', 'حساب الضرائب']
+    description: 'اله حاسبه وسط KENKO KK-837B',
+    brand: 'KENKO',
+    features: ['بلاستيك كي ', '12 رقم', 'ذاكرة مستقلة', ]
   },
   {
     id: 'comm-calc-2',
