@@ -68,6 +68,8 @@ const rulersGeometry = [
 const RulersGeometryPage = () => {
   const { addItem } = useCart();
   
+  console.log('RulersGeometryPage loaded with products:', rulersGeometry);
+  
   useEffect(() => {
     document.title = "مساطر وأدوات هندسية | تفانين";
     const desc = "تسوق مساطر وأدوات هندسية عالية الجودة - مساطر بلاستيك ومعدن، مثلثات، منقلات، برجل وأدوات القياس من تفانين.";
@@ -127,7 +129,9 @@ const RulersGeometryPage = () => {
         
         {/* Products Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {rulersGeometry.map((ruler) => (
+          {rulersGeometry.map((ruler) => {
+            console.log('Rendering ruler:', ruler.name, ruler.price);
+            return (
             <Card key={ruler.id} className="group hover:shadow-elegant transition-all duration-300 hover:-translate-y-1 overflow-hidden">
               <CardContent className="p-0">
                 {/* Product Image */}
@@ -191,7 +195,8 @@ const RulersGeometryPage = () => {
                 </div>
               </CardContent>
             </Card>
-          ))}
+            );
+          })}
         </div>
         
         {/* Back to categories */}
