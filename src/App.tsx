@@ -25,6 +25,7 @@ import CuttingPastingToolsPage from "./pages/CuttingPastingToolsPage";
 import CalculatorsRulersPage from "./pages/CalculatorsRulersPage";
 import ScientificCalculatorPage from "./pages/ScientificCalculatorPage";
 import CommercialCalculatorPage from "./pages/CommercialCalculatorPage";
+import RulersGeometryPage from "./pages/RulersGeometryPage";
 import NotebooksPage from "./pages/NotebooksPage";
 import NotebooksMainCategoryPage from "./pages/NotebooksMainCategoryPage";
 import KrassatPage from "./pages/KrassatPage";
@@ -150,6 +151,7 @@ const App = () => (
               <Route path="/calculators-rulers" element={<CalculatorsRulersPage />} />
               <Route path="/calculators-rulers/scientific-calculator" element={<ScientificCalculatorPage />} />
               <Route path="/calculators-rulers/commercial-calculator" element={<CommercialCalculatorPage />} />
+              <Route path="/calculators-rulers/rulers" element={<RulersGeometryPage />} />
               <Route path="/cutting-pasting-tools/cutting-pasting" element={<CuttingPastingPage />} />
               <Route path="/cutting-pasting-tools/wooden-pencils" element={<WoodenPencilsPage />} />
               {/* مسارات أقلام الألوان الخشبية حسب العلامة التجارية */}
