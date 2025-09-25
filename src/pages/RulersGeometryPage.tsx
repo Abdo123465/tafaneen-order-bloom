@@ -69,7 +69,7 @@ const rulersGeometry = [
     image: '/assets/Roxi.jpg',
     description: 'طقم هندسي معدن ROXi 36753',
     brand: 'روكسي',
-    size: ' ادوات متنوعة'
+
   },
 ];
 
