@@ -10,76 +10,59 @@ import { Link } from "react-router-dom";
 const rulersGeometry = [
   {
     id: 'ruler-1',
-    name: 'مسطرة بلاستيك شفافة 30 سم',
-    price: 15,
+    name: 'مسطره سيليكون 30 سم 12 hka',
+    price: 13,
     image: '/assets/ruler-30cm.jpg',
-    description: 'مسطرة بلاستيكية شفافة عالية الجودة بقياسات دقيقة',
-    brand: 'ستاندارد',
+    description: 'مسطرة سيليكون  عالية الجودة بقياسات دقيقة',
+    brand: 'flexible ruler',
     size: '30 سم'
   },
   {
     id: 'ruler-2',
-    name: 'مجموعة أدوات هندسية كاملة',
-    price: 85,
+    name: 'مسطرة بريما فن',
+    price: 12,
     image: '/assets/geometry-set.jpg',
-    description: 'مجموعة كاملة تشمل مسطرة، مثلث، منقلة، وبرجل',
-    brand: 'هندسي',
-    size: 'مجموعة'
+    description: 'مسطرة بريما فن',
+    brand: 'فن',
+    size: '30'
   },
   {
     id: 'ruler-3',
-    name: 'مسطرة معدنية 50 سم',
-    price: 45,
+    name: 'مسطره سيليكون 20 سم 8 انش',
+    price: 10,
     image: '/assets/metal-ruler-50cm.jpg',
-    description: 'مسطرة معدنية قوية ومتينة للاستخدام المهني',
-    brand: 'بروفيشنال',
-    size: '50 سم'
+    description: 'مسطره سيليكون 20 سم 8 انش',
+    brand: 'flexible ruler',
+    size: '20 سم'
   },
   {
     id: 'ruler-4',
-    name: 'مثلث بلاستيك 45 درجة',
-    price: 20,
+    name: 'مسطره بلاستيك شفاف 30 سم بريما',
+    price: 10,
     image: '/assets/triangle-45.jpg',
-    description: 'مثلث بلاستيكي شفاف بزاوية 45 درجة للرسم الهندسي',
-    brand: 'ستاندارد',
-    size: '25 سم'
+    description: 'مسطره بلاستيك شفاف 30 سم بريما',
+    brand: 'بريما',
+    size: '30 سم'
   },
   {
     id: 'ruler-5',
-    name: 'منقلة دائرية 360 درجة',
-    price: 25,
+    name: 'مسطره معدن 30 سم',
+    price: 20,
     image: '/assets/protractor-360.jpg',
-    description: 'منقلة دائرية كاملة لقياس الزوايا بدقة عالية',
-    brand: 'برسيس',
-    size: '10 سم'
+    description: 'مسطره معدن 30 سم',
+    brand: 'معدن',
+    size: '20 سم'
   },
   {
     id: 'ruler-6',
-    name: 'برجل معدني للرسم',
-    price: 60,
+    name: 'مسطره بلاستيك فسفوري بريما 20 سم ',
+    price: 7,
     image: '/assets/compass-metal.jpg',
-    description: 'برجل معدني عالي الجودة لرسم الدوائر والأقواس',
-    brand: 'كلاسيك',
-    size: 'متوسط'
-  },
-  {
-    id: 'ruler-7',
-    name: 'مسطرة مرنة 40 سم',
-    price: 30,
-    image: '/assets/flexible-ruler.jpg',
-    description: 'مسطرة مرنة يمكن ثنيها لرسم المنحنيات',
-    brand: 'فليكس',
-    size: '40 سم'
-  },
-  {
-    id: 'ruler-8',
-    name: 'مثلث متدرج 30-60 درجة',
-    price: 18,
-    image: '/assets/triangle-30-60.jpg',
-    description: 'مثلث بلاستيكي بزوايا 30-60-90 درجة',
-    brand: 'ستاندارد',
+    description: 'مسطره بلاستيك فسفوري بريما 20 سم 2011',
+    brand: 'بريما',
     size: '20 سم'
-  }
+  },
+ 
 ];
 
 const RulersGeometryPage = () => {
