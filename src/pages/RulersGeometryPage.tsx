@@ -38,7 +38,7 @@ const rulersGeometry = [
   {
     id: 'ruler-4',
     name: 'مسطره بلاستيك شفاف 30 سم بريما',
-    price: 10,
+    price: 12,
     image: '/assets/triangle-45.jpg',
     description: 'مسطره بلاستيك شفاف 30 سم بريما',
     brand: 'بريما',
