@@ -62,7 +62,15 @@ const rulersGeometry = [
     brand: 'بريما',
     size: '20 سم'
   },
- 
+   {
+    id: 'ruler-7',
+    name: 'طقم هندسي معدن ROXi 36753 ',
+    price: 80,
+    image: '/assets/Roxi.jpg',
+    description: 'طقم هندسي معدن ROXi 36753',
+    brand: 'روكسي',
+    size: ' ادوات متنوعة'
+  },
 ];
 
 const RulersGeometryPage = () => {
