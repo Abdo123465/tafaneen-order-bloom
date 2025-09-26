@@ -89,11 +89,11 @@ const rulersGeometry = [
     brand: 'اندلسيه',
    
   },
-    {
+     {
     id: 'ruler-10',
     name: 'مثلث كوين ',
     price: 10,
-    image: '/assets/Qwen.jpg',
+    image: '/src/assets/Qwen.jpg',
     description: 'مثلث كوين',
     brand: 'كوين',
    
