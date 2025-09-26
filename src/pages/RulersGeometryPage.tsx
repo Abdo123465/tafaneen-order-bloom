@@ -71,6 +71,24 @@ const rulersGeometry = [
     brand: 'روكسي',
 
   },
+    {
+    id: 'ruler-8',
+    name: 'مسطره منقله Prima Queen ',
+    price: 7,
+    image: '/assets/Prima.jpg',
+    description: 'مسطره منقله Prima Queen',
+    brand: 'بريما',
+    size: '180 سم'
+  },
+    {
+    id: 'ruler-9',
+    name: 'علبة برجل سنون  اندلسيه G3-1999 ',
+    price: 60,
+    image: '/assets/G3-1999.jpg',
+    description: 'طقم هندسي 8 قطع 2224',
+    brand: 'اندلسيه',
+   
+  },
 ];
 
 const RulersGeometryPage = () => {
