@@ -89,6 +89,15 @@ const rulersGeometry = [
     brand: 'اندلسيه',
    
   },
+    {
+    id: 'ruler-10',
+    name: 'مثلث كوين ',
+    price: 10,
+    image: '/assets/123.jpg',
+    description: 'مثلث كوين',
+    brand: 'كوين',
+   
+  },
 ];
 
 const RulersGeometryPage = () => {
