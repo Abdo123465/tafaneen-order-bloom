@@ -93,7 +93,7 @@ const rulersGeometry = [
     id: 'ruler-10',
     name: 'مثلث كوين ',
     price: 10,
-    image: '/assets/123.jpg',
+    image: '/assets/Qwen.jpg',
     description: 'مثلث كوين',
     brand: 'كوين',
    
