@@ -2,7 +2,8 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link, useNavigate } from "react-router-dom";
-import { PenTool, Scissors, Calculator, Palette, Archive, Briefcase, BookOpen } from "lucide-react";
+import { PenTool, Scissors, Calculator, Palette, Archive, Briefcase, BookOpen, Eraser } from "lucide-react";
+
 export function Categories() {
   const categories = [
     {
@@ -13,7 +14,8 @@ export function Categories() {
       color: "bg-gradient-to-br from-blue-500 to-blue-600",
       textColor: "text-blue-600",
       bgColor: "bg-blue-50",
-      count: "500+ منتج"
+      count: "500+ منتج",
+      path: "/pens"
     },
     {
       id: 2,
@@ -23,7 +25,8 @@ export function Categories() {
       color: "bg-gradient-to-br from-green-500 to-green-600",
       textColor: "text-green-600",
       bgColor: "bg-green-50",
-      count: "500+ منتج"
+      count: "500+ منتج",
+      path: "/cutting-pasting-tools"
     },
     {
       id: 3,
@@ -33,7 +36,19 @@ export function Categories() {
       color: "bg-gradient-to-br from-purple-500 to-purple-600",
       textColor: "text-purple-600",
       bgColor: "bg-purple-50",
-      count: "500+ منتج"
+      count: "500+ منتج",
+      path: "/calculators-rulers"
+    },
+    {
+      id: 4,
+      name: "أساتيك وبرايات",
+      description: "أساتيك مطاطية، برايات، ممحاة وأدوات المسح",
+      icon: Eraser,
+      color: "bg-gradient-to-br from-pink-500 to-pink-600",
+      textColor: "text-pink-600",
+      bgColor: "bg-pink-50",
+      count: "300+ منتج",
+      path: "/erasers-sharpeners"
     },
     {
       id: 5,
@@ -43,7 +58,8 @@ export function Categories() {
       color: "bg-gradient-to-br from-orange-500 to-orange-600",
       textColor: "text-orange-600",
       bgColor: "bg-orange-50",
-      count: "250+ منتج"
+      count: "250+ منتج",
+      path: "/files-organizers"
     },
     {
       id: 6,
@@ -53,7 +69,8 @@ export function Categories() {
       color: "bg-gradient-to-br from-teal-500 to-teal-600",
       textColor: "text-teal-600",
       bgColor: "bg-teal-50",
-      count: "500+ منتج"
+      count: "500+ منتج",
+      path: "/office-supplies"
     },
     {
       id: 7,
@@ -63,9 +80,11 @@ export function Categories() {
       color: "bg-gradient-to-br from-indigo-500 to-indigo-600",
       textColor: "text-indigo-600",
       bgColor: "bg-indigo-50",
-      count: "350+ منتج"
+      count: "350+ منتج",
+      path: "/notebooks"
     }
   ];
+
   return (
     <section className="py-16 bg-secondary/30">
       <div className="container mx-auto px-4">
@@ -80,11 +99,7 @@ export function Categories() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {categories.map((category) => {
             const IconComponent = category.icon;
-            const to = category.name.includes("أقلام") ? "/pens" : 
-                      category.name.includes("أدوات القص واللصق و تلوين") ? "/cutting-pasting-tools" : 
-                      category.name.includes("آلات حاسبة ومساطر") ? "/calculators-rulers" :
-                      category.name.includes("مستلزمات المكتب") ? "/office-supplies" :
-                      category.name.includes("كشكيل") ? "/notebooks" : "/categories";
+            
             return (
               <Card key={category.id} className="group hover:shadow-elegant transition-all duration-300 hover:-translate-y-1 border-0 overflow-hidden">
                 <CardContent className="p-0">
@@ -107,7 +122,7 @@ export function Categories() {
                       variant="outline" 
                       className={`w-full ${category.textColor} border-current hover:bg-current hover:text-white transition-colors`}
                     >
-                      <Link to={to}>تصفح المنتجات</Link>
+                      <Link to={category.path}>تصفح المنتجات</Link>
                     </Button>
                   </div>
                 </CardContent>
