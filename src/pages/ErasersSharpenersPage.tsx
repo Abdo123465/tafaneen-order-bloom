@@ -11,135 +11,83 @@ const ErasersSharpenersPage = () => {
   const categories = [
     {
       id: 1,
-      title: "أساتيك",
-      description: "أساتيك مطاطية عالية الجودة بأشكال وأحجام مختلفة",
-      icon: <Eraser className="h-8 w-8" />,
-      link: "/erasers-sharpeners/erasers",
-      color: "from-pink-500 to-rose-600",
-      products: "150+ منتج"
+      name: "برايات",
+      description: "برايات يدوية وكهربائية بأحجام مختلفة للأقلام الرصاص والألوان",
+      icon: Package,
+      color: "bg-gradient-to-br from-purple-500 to-indigo-600",
+      textColor: "text-white",
+      emoji: "✏️",
+      path: "/erasers-sharpeners/sharpeners"
     },
     {
       id: 2,
-      title: "برايات يدوية",
-      description: "برايات يدوية بأحجام مختلفة للأقلام الرصاص والألوان",
-      icon: <Package className="h-8 w-8" />,
-      link: "/erasers-sharpeners/manual-sharpeners",
-      color: "from-purple-500 to-indigo-600",
-      products: "80+ منتج"
-    },
-    {
-      id: 3,
-      title: "برايات كهربائية",
-      description: "برايات كهربائية سريعة ودقيقة للاستخدام المكتبي",
-      icon: <Zap className="h-8 w-8" />,
-      link: "/erasers-sharpeners/electric-sharpeners",
-      color: "from-blue-500 to-cyan-600",
-      products: "40+ منتج"
-    },
-    {
-      id: 4,
-      title: "أساتيك فنية",
-      description: "أساتيك خاصة للفنانين والرسامين المحترفين",
-      icon: <Star className="h-8 w-8" />,
-      link: "/erasers-sharpeners/art-erasers",
-      color: "from-orange-500 to-red-600",
-      products: "30+ منتج"
+      name: "أساتيك",
+      description: "أساتيك مطاطية عالية الجودة بأشكال وأحجام مختلفة",
+      icon: Eraser,
+      color: "bg-gradient-to-br from-pink-500 to-rose-600",
+      textColor: "text-white",
+      emoji: "🧹",
+      path: "/erasers-sharpeners/erasers"
     }
   ];
 
   return (
-    <div className="min-h-screen flex flex-col bg-gradient-to-b from-gray-50 to-white">
+    <div className="min-h-screen flex flex-col">
       <Header />
       
-      <main className="flex-grow">
-        {/* Hero Section */}
-        <section className="relative bg-gradient-to-r from-pink-600 to-purple-600 text-white py-20">
-          <div className="absolute inset-0 bg-black opacity-10"></div>
-          <div className="container mx-auto px-4 relative z-10">
-            <div className="max-w-3xl mx-auto text-center">
-              <h1 className="text-4xl md:text-5xl font-bold mb-6 animate-fade-in">
-                أساتيك وبرايات
-              </h1>
-              <p className="text-xl mb-8 opacity-95">
-                مجموعة متنوعة من الأساتيك والبرايات عالية الجودة لتلبية جميع احتياجاتك
-              </p>
-            </div>
-          </div>
-          <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-gray-50 to-transparent"></div>
-        </section>
+      <main className="flex-grow container mx-auto px-4 py-8">
+        {/* Breadcrumb */}
+        <nav className="mb-8 text-sm">
+          <Link to="/" className="text-primary hover:underline">الرئيسية</Link>
+          <span className="mx-2">/</span>
+          <Link to="/categories" className="text-primary hover:underline">الفئات</Link>
+          <span className="mx-2">/</span>
+          <span className="text-muted-foreground">أساتيك وبرايات</span>
+        </nav>
+
+        {/* Page Header */}
+        <div className="text-center mb-12">
+          <h1 className="text-4xl font-bold mb-4">أساتيك وبرايات</h1>
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            مجموعة متنوعة من الأساتيك والبرايات عالية الجودة لتلبية جميع احتياجاتك
+          </p>
+        </div>
 
         {/* Categories Grid */}
-        <section className="py-16 px-4">
-          <div className="container mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
-              {categories.map((category) => (
-                <Card 
-                  key={category.id} 
-                  className="group hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden"
-                >
-                  <div className={`h-2 bg-gradient-to-r ${category.color}`}></div>
-                  <CardHeader className="pb-4">
-                    <div className="flex items-center justify-between mb-4">
-                      <div className={`p-3 rounded-lg bg-gradient-to-r ${category.color} text-white`}>
-                        {category.icon}
-                      </div>
-                      <span className="text-sm text-gray-500">{category.products}</span>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+          {categories.map((category) => {
+            const IconComponent = category.icon;
+            return (
+              <Card key={category.id} className="overflow-hidden hover:shadow-lg transition-shadow">
+                <CardHeader className={`${category.color} ${category.textColor} p-6`}>
+                  <div className="flex items-center gap-4">
+                    <div className="text-4xl">{category.emoji}</div>
+                    <div className="flex-1">
+                      <CardTitle className="text-2xl mb-2">{category.name}</CardTitle>
+                      <p className="text-sm opacity-90">{category.description}</p>
                     </div>
-                    <CardTitle className="text-2xl font-bold text-gray-800">
-                      {category.title}
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-gray-600 mb-6 leading-relaxed">
-                      {category.description}
-                    </p>
-                    <Button 
-                      asChild
-                      className={`w-full bg-gradient-to-r ${category.color} text-white hover:shadow-lg transition-all duration-300`}
-                    >
-                      <Link to={category.link} className="flex items-center justify-center gap-2">
-                        <span>استكشف المنتجات</span>
-                        <ArrowRight className="h-4 w-4" />
-                      </Link>
-                    </Button>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </section>
+                    <IconComponent className="h-12 w-12 opacity-50" />
+                  </div>
+                </CardHeader>
+                <CardContent className="p-6">
+                  <Button asChild className="w-full">
+                    <Link to={category.path}>
+                      تصفح المنتجات
+                      <ArrowRight className="mr-2 h-4 w-4" />
+                    </Link>
+                  </Button>
+                </CardContent>
+              </Card>
+            );
+          })}
+        </div>
 
-        {/* Features Section */}
-        <section className="py-16 bg-gray-50">
-          <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">
-              لماذا تختار منتجاتنا؟
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="text-center">
-                <div className="bg-pink-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Star className="h-10 w-10 text-pink-600" />
-                </div>
-                <h3 className="text-xl font-semibold mb-2">جودة عالية</h3>
-                <p className="text-gray-600">منتجات من أفضل العلامات التجارية العالمية</p>
-              </div>
-              <div className="text-center">
-                <div className="bg-purple-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Package className="h-10 w-10 text-purple-600" />
-                </div>
-                <h3 className="text-xl font-semibold mb-2">تنوع كبير</h3>
-                <p className="text-gray-600">مجموعة واسعة تناسب جميع الاستخدامات</p>
-              </div>
-              <div className="text-center">
-                <div className="bg-blue-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Zap className="h-10 w-10 text-blue-600" />
-                </div>
-                <h3 className="text-xl font-semibold mb-2">أسعار منافسة</h3>
-                <p className="text-gray-600">أفضل الأسعار مع ضمان الجودة</p>
-              </div>
-            </div>
-          </div>
-        </section>
+        {/* Back Button */}
+        <div className="text-center">
+          <Button asChild variant="outline">
+            <Link to="/categories">العودة إلى الفئات</Link>
+          </Button>
+        </div>
       </main>
       
       <Footer />
