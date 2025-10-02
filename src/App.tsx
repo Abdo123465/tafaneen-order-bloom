@@ -107,6 +107,8 @@ import AdhesiveGlitterFoam70x50Page from "./pages/AdhesiveGlitterFoam70x50Page";
 import LargeDrawingNotebookPage from "./pages/LargeDrawingNotebookPage";
 import SmallDrawingNotebookPage from "./pages/SmallDrawingNotebookPage";
 import ErasersSharpenersPage from "./pages/ErasersSharpenersPage";
+import ErasersPage from "./pages/ErasersPage";
+import SharpenersPage from "./pages/SharpenersPage";
 
 const queryClient = new QueryClient();
 
@@ -222,6 +224,8 @@ const App = () => (
               <Route path="/cutting-pasting-tools/large-sketch" element={<LargeDrawingNotebookPage />} />
               <Route path="/cutting-pasting-tools/small-sketch" element={<SmallDrawingNotebookPage />} />
               <Route path="/erasers-sharpeners" element={<ErasersSharpenersPage />} />
+              <Route path="/erasers-sharpeners/erasers" element={<ErasersPage />} />
+              <Route path="/erasers-sharpeners/sharpeners" element={<SharpenersPage />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>
