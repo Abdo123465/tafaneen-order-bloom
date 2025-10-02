@@ -10,17 +10,17 @@ import { Link } from "react-router-dom";
 const erasers = [
   { 
     id: 'ERASER-001', 
-    name: 'استيكة بيضاء كبيرة', 
-    price: 5, 
+    name: 'استيكه ابيض ص DOMS ', 
+    price: 8, 
     image: '/assets/eraser-white-large.jpg', 
     fallbackEmoji: '🧹',
-    description: 'استيكة مطاطية بيضاء عالية الجودة، تمسح بنظافة دون ترك أثر',
-    brand: 'فابر كاستل'
+    description: ' من دومزاستيكة مطاطية بيضاء عالية الجودة، تمسح بنظافة دون ترك أثر',
+    brand: 'Doms'
   },
   { 
     id: 'ERASER-002', 
-    name: 'استيكة ملونة صغيرة', 
-    price: 3, 
+    name: '  استيكه دومز فسفوري', 
+    price: 10, 
     image: '/assets/eraser-colored-small.jpg',
     fallbackEmoji: '🌈',
     description: 'استيكة صغيرة بألوان مبهجة، مثالية للأطفال',
@@ -28,17 +28,17 @@ const erasers = [
   },
   { 
     id: 'ERASER-003', 
-    name: 'استيكة قلم رصاص مع فرشاة', 
-    price: 4, 
+    name: 'استيكه 4024 MILAN ك ابيض', 
+    price: 15, 
     image: '/assets/eraser-pencil-brush.jpg',
     fallbackEmoji: '🖌️',
-    description: 'استيكة بتصميم عملي مع فرشاة لإزالة البقايا',
-    brand: 'ستيدلر'
+    description: 'استيكة بتصميم عملي من  Milan',
+    brand: 'Milan'
   },
   { 
     id: 'ERASER-004', 
-    name: 'استيكة ناعمة للرسم', 
-    price: 8, 
+    name: 'استيكه اسود  FABER CASTELL كبيره', 
+    price: 22, 
     image: '/assets/eraser-soft-art.jpg',
     fallbackEmoji: '🎨',
     description: 'استيكة ناعمة جداً مخصصة للرسم والفنون، لا تتلف الورق',
@@ -46,21 +46,30 @@ const erasers = [
   },
   { 
     id: 'ERASER-005', 
-    name: 'استيكة بلاستيكية شفافة', 
-    price: 6, 
+    name: 'استيكه اسود  FABER CASTELL صغيره', 
+    price: 15, 
     image: '/assets/eraser-plastic-clear.jpg',
     fallbackEmoji: '💎',
-    description: 'استيكة بلاستيكية شفافة بتصميم أنيق وعصري',
-    brand: 'بريما'
+    description: 'استيكة سودة من فابر كاستل  بتصميم أنيق وعصري',
+    brand: 'فابر كاستل'
   },
   { 
     id: 'ERASER-006', 
-    name: 'مجموعة أساتيك ملونة (6 قطع)', 
+    name: 'استيكه بيضاء FABER CASTELL صغيره', 
     price: 15, 
     image: '/assets/eraser-set-6pcs.jpg',
     fallbackEmoji: '🎁',
-    description: 'مجموعة من 6 أساتيك ملونة بأشكال مختلفة',
-    brand: 'ديلي'
+    description: 'استيكه بيضاء FABER CASTELL صغيره',
+    brand: 'فابر كاستل'
+  },
+  { 
+    id: 'ERASER-007', 
+    name: 'استيكه بيضاء FABER CASTELL صغيره', 
+    price: 15, 
+    image: '/assets/eraser-set.jpg',
+    fallbackEmoji: '🎁',
+    description: 'استيكه بيضاء FABER CASTELL كبيره',
+    brand: 'فابر كاستل'
   },
 ];
 
