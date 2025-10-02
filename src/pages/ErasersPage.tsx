@@ -15,8 +15,7 @@ const erasers = [
     image: '/assets/eraser-white-large.jpg', 
     fallbackEmoji: '🧹',
     description: 'استيكة مطاطية بيضاء عالية الجودة، تمسح بنظافة دون ترك أثر',
-    rating: 5,
-    isBestSeller: true
+    brand: 'فابر كاستل'
   },
   { 
     id: 'ERASER-002', 
@@ -25,8 +24,7 @@ const erasers = [
     image: '/assets/eraser-colored-small.jpg',
     fallbackEmoji: '🌈',
     description: 'استيكة صغيرة بألوان مبهجة، مثالية للأطفال',
-    rating: 4,
-    isPopular: true
+    brand: 'دومز'
   },
   { 
     id: 'ERASER-003', 
@@ -35,8 +33,7 @@ const erasers = [
     image: '/assets/eraser-pencil-brush.jpg',
     fallbackEmoji: '🖌️',
     description: 'استيكة بتصميم عملي مع فرشاة لإزالة البقايا',
-    rating: 5,
-    isNew: true
+    brand: 'ستيدلر'
   },
   { 
     id: 'ERASER-004', 
@@ -45,8 +42,7 @@ const erasers = [
     image: '/assets/eraser-soft-art.jpg',
     fallbackEmoji: '🎨',
     description: 'استيكة ناعمة جداً مخصصة للرسم والفنون، لا تتلف الورق',
-    rating: 5,
-    isBestSeller: true
+    brand: 'فابر كاستل'
   },
   { 
     id: 'ERASER-005', 
@@ -55,8 +51,7 @@ const erasers = [
     image: '/assets/eraser-plastic-clear.jpg',
     fallbackEmoji: '💎',
     description: 'استيكة بلاستيكية شفافة بتصميم أنيق وعصري',
-    rating: 4,
-    isPopular: true
+    brand: 'بريما'
   },
   { 
     id: 'ERASER-006', 
@@ -65,8 +60,7 @@ const erasers = [
     image: '/assets/eraser-set-6pcs.jpg',
     fallbackEmoji: '🎁',
     description: 'مجموعة من 6 أساتيك ملونة بأشكال مختلفة',
-    rating: 5,
-    isNew: true
+    brand: 'ديلي'
   },
 ];
 
@@ -118,15 +112,6 @@ const ErasersPage = () => {
     } 
     meta.setAttribute('content', desc);
   }, []);
-
-  const renderStars = (rating: number) => {
-    return Array.from({ length: 5 }, (_, i) => (
-      <Star
-        key={i}
-        className={`h-4 w-4 ${i < rating ? 'fill-yellow-400 text-yellow-400' : 'text-gray-300'}`}
-      />
-    ));
-  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -184,17 +169,11 @@ const ErasersPage = () => {
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {erasers.map((eraser) => (
             <div key={eraser.id} className="card-product relative group">
-              {/* Badges */}
-              <div className="absolute top-3 left-3 z-10 flex flex-col gap-1">
-                {eraser.isBestSeller && (
-                  <span className="bg-red-500 text-white text-xs px-2 py-1 rounded-full">الأكثر مبيعاً</span>
-                )}
-                {eraser.isPopular && (
-                  <span className="bg-green-500 text-white text-xs px-2 py-1 rounded-full">شائع</span>
-                )}
-                {eraser.isNew && (
-                  <span className="bg-blue-500 text-white text-xs px-2 py-1 rounded-full">جديد</span>
-                )}
+              {/* Brand Badge */}
+              <div className="absolute top-3 left-3 z-10">
+                <span className="bg-primary text-primary-foreground text-xs px-3 py-1 rounded-full font-medium">
+                  {eraser.brand}
+                </span>
               </div>
               
               {/* Product Image مع مكون محسن */}
@@ -206,12 +185,6 @@ const ErasersPage = () => {
               />
               
               <h3 className="font-semibold mb-2 line-clamp-2">{eraser.name}</h3>
-              
-              {/* Rating */}
-              <div className="flex items-center gap-1 mb-2">
-                {renderStars(eraser.rating)}
-                <span className="text-sm text-muted-foreground mr-1">({eraser.rating}.0)</span>
-              </div>
               
               <p className="text-sm text-muted-foreground mb-3 line-clamp-2">{eraser.description}</p>
               

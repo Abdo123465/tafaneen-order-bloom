@@ -15,8 +15,7 @@ const sharpeners = [
     image: '/assets/sharpener-metal-small.jpg', 
     fallbackEmoji: '✏️',
     description: 'براية معدنية كلاسيكية بحجم صغير، مثالية للحمل',
-    rating: 4,
-    isPopular: true
+    brand: 'ستيدلر'
   },
   { 
     id: 'SHARP-002', 
@@ -25,8 +24,7 @@ const sharpeners = [
     image: '/assets/sharpener-plastic-container.jpg',
     fallbackEmoji: '📦',
     description: 'براية بلاستيكية بحاوية لحفظ البراية، مثالية للمدرسة',
-    rating: 5,
-    isBestSeller: true
+    brand: 'فابر كاستل'
   },
   { 
     id: 'SHARP-003', 
@@ -35,8 +33,7 @@ const sharpeners = [
     image: '/assets/sharpener-double.jpg',
     fallbackEmoji: '🔄',
     description: 'براية بفتحتين لأحجام مختلفة من الأقلام',
-    rating: 5,
-    isPopular: true
+    brand: 'دومز'
   },
   { 
     id: 'SHARP-004', 
@@ -45,9 +42,7 @@ const sharpeners = [
     image: '/assets/sharpener-electric-small.jpg',
     fallbackEmoji: '⚡',
     description: 'براية كهربائية سريعة وفعالة، تعمل بالبطارية',
-    rating: 5,
-    isBestSeller: true,
-    isNew: true
+    brand: 'ديلي'
   },
   { 
     id: 'SHARP-005', 
@@ -56,8 +51,7 @@ const sharpeners = [
     image: '/assets/sharpener-electric-usb.jpg',
     fallbackEmoji: '🔌',
     description: 'براية كهربائية احترافية تعمل بكابل USB للاستخدام المكتبي',
-    rating: 5,
-    isNew: true
+    brand: 'ستيدلر'
   },
   { 
     id: 'SHARP-006', 
@@ -66,8 +60,7 @@ const sharpeners = [
     image: '/assets/sharpener-manual-desk.jpg',
     fallbackEmoji: '🏢',
     description: 'براية يدوية كبيرة للاستخدام المكتبي مع قاعدة ثابتة',
-    rating: 4,
-    isPopular: true
+    brand: 'فابر كاستل'
   },
   { 
     id: 'SHARP-007', 
@@ -76,8 +69,7 @@ const sharpeners = [
     image: '/assets/sharpener-art-professional.jpg',
     fallbackEmoji: '🎨',
     description: 'براية مخصصة لأقلام الألوان الخشبية، لا تكسر السن',
-    rating: 5,
-    isBestSeller: true
+    brand: 'ستيدلر'
   },
   { 
     id: 'SHARP-008', 
@@ -86,8 +78,7 @@ const sharpeners = [
     image: '/assets/sharpener-set-3pcs.jpg',
     fallbackEmoji: '🎁',
     description: 'مجموعة من 3 برايات بأحجام وأشكال مختلفة',
-    rating: 4,
-    isNew: true
+    brand: 'بريما'
   },
 ];
 
@@ -139,15 +130,6 @@ const SharpenersPage = () => {
     } 
     meta.setAttribute('content', desc);
   }, []);
-
-  const renderStars = (rating: number) => {
-    return Array.from({ length: 5 }, (_, i) => (
-      <Star
-        key={i}
-        className={`h-4 w-4 ${i < rating ? 'fill-yellow-400 text-yellow-400' : 'text-gray-300'}`}
-      />
-    ));
-  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -205,17 +187,11 @@ const SharpenersPage = () => {
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {sharpeners.map((sharpener) => (
             <div key={sharpener.id} className="card-product relative group">
-              {/* Badges */}
-              <div className="absolute top-3 left-3 z-10 flex flex-col gap-1">
-                {sharpener.isBestSeller && (
-                  <span className="bg-red-500 text-white text-xs px-2 py-1 rounded-full">الأكثر مبيعاً</span>
-                )}
-                {sharpener.isPopular && (
-                  <span className="bg-green-500 text-white text-xs px-2 py-1 rounded-full">شائع</span>
-                )}
-                {sharpener.isNew && (
-                  <span className="bg-blue-500 text-white text-xs px-2 py-1 rounded-full">جديد</span>
-                )}
+              {/* Brand Badge */}
+              <div className="absolute top-3 left-3 z-10">
+                <span className="bg-primary text-primary-foreground text-xs px-3 py-1 rounded-full font-medium">
+                  {sharpener.brand}
+                </span>
               </div>
               
               {/* Product Image مع مكون محسن */}
@@ -227,12 +203,6 @@ const SharpenersPage = () => {
               />
               
               <h3 className="font-semibold mb-2 line-clamp-2">{sharpener.name}</h3>
-              
-              {/* Rating */}
-              <div className="flex items-center gap-1 mb-2">
-                {renderStars(sharpener.rating)}
-                <span className="text-sm text-muted-foreground mr-1">({sharpener.rating}.0)</span>
-              </div>
               
               <p className="text-sm text-muted-foreground mb-3 line-clamp-2">{sharpener.description}</p>
               
