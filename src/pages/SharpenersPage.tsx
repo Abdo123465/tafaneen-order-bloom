@@ -10,75 +10,75 @@ import { Link } from "react-router-dom";
 const sharpeners = [
   { 
     id: 'SHARP-001', 
-    name: 'براية معدنية صغيرة', 
-    price: 3, 
+    name: 'برايه DOMS برطمان', 
+    price: 9, 
     image: '/assets/sharpener-metal-small.jpg', 
     fallbackEmoji: '✏️',
-    description: 'براية معدنية كلاسيكية بحجم صغير، مثالية للحمل',
-    brand: 'ستيدلر'
+    description: 'براية Doms كلاسيكية بحجم صغير، مثالية للحمل',
+    brand: 'Doms'
   },
   { 
     id: 'SHARP-002', 
-    name: 'براية بلاستيك بحاوية', 
-    price: 5, 
+    name: 'برايه برطمان ملون ', 
+    price: 22, 
     image: '/assets/sharpener-plastic-container.jpg',
     fallbackEmoji: '📦',
-    description: 'براية بلاستيكية بحاوية لحفظ البراية، مثالية للمدرسة',
-    brand: 'فابر كاستل'
+    description: ' مع اتنين مخرج براية بلاستيكية بحاوية لحفظ البراية، مثالية للمدرسة',
+    brand: 'ojieson '
   },
   { 
     id: 'SHARP-003', 
-    name: 'براية مزدوجة (حجمين)', 
-    price: 6, 
+    name: 'برايه بلاستيك DOMS ', 
+    price: 9, 
     image: '/assets/sharpener-double.jpg',
     fallbackEmoji: '🔄',
-    description: 'براية بفتحتين لأحجام مختلفة من الأقلام',
+    description: 'برايه بلاستيك DOMS ',
     brand: 'دومز'
   },
   { 
     id: 'SHARP-004', 
-    name: 'براية كهربائية صغيرة', 
-    price: 45, 
+    name: 'برايه على كارت Power شكل مركب 374', 
+    price: 17, 
     image: '/assets/sharpener-electric-small.jpg',
     fallbackEmoji: '⚡',
-    description: 'براية كهربائية سريعة وفعالة، تعمل بالبطارية',
-    brand: 'ديلي'
+    description: 'برايه على كارت Power شكل مركب 374',
+    brand: 'power'
   },
   { 
     id: 'SHARP-005', 
-    name: 'براية كهربائية كبيرة USB', 
-    price: 85, 
+    name: 'برايه معدن سلاح EISEN تقليد 2 سلاح', 
+    price: 17, 
     image: '/assets/sharpener-electric-usb.jpg',
     fallbackEmoji: '🔌',
-    description: 'براية كهربائية احترافية تعمل بكابل USB للاستخدام المكتبي',
-    brand: 'ستيدلر'
+    description: 'برايه معدن سلاح EISEN تقليد 2 سلاح',
+    brand: 'EISEN '
   },
   { 
     id: 'SHARP-006', 
-    name: 'براية مكتبية يدوية كبيرة', 
-    price: 35, 
+    name: 'برايه برطمان ملون Xiodouxing ', 
+    price: 5, 
     image: '/assets/sharpener-manual-desk.jpg',
     fallbackEmoji: '🏢',
-    description: 'براية يدوية كبيرة للاستخدام المكتبي مع قاعدة ثابتة',
-    brand: 'فابر كاستل'
+    description: 'برايه برطمان ملون Xiodouxing ',
+    brand: 'Xiodouxing'
   },
   { 
     id: 'SHARP-007', 
-    name: 'براية ألوان خشبية احترافية', 
+    name: 'برايه ميكي ف علبه', 
     price: 15, 
     image: '/assets/sharpener-art-professional.jpg',
     fallbackEmoji: '🎨',
-    description: 'براية مخصصة لأقلام الألوان الخشبية، لا تكسر السن',
-    brand: 'ستيدلر'
+    description: 'برايه ميكي ف علبه',
+    brand: 'Disney'
   },
   { 
     id: 'SHARP-008', 
-    name: 'مجموعة برايات (3 قطع)', 
-    price: 12, 
+    name: 'برايه هالو كيتي ', 
+    price: 15, 
     image: '/assets/sharpener-set-3pcs.jpg',
     fallbackEmoji: '🎁',
-    description: 'مجموعة من 3 برايات بأحجام وأشكال مختلفة',
-    brand: 'بريما'
+    description: 'برايه هالو كيتي',
+    brand: 'Hello kitty'
   },
 ];
 
