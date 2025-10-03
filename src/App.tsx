@@ -109,7 +109,8 @@ import SmallDrawingNotebookPage from "./pages/SmallDrawingNotebookPage";
 import ErasersSharpenersPage from "./pages/ErasersSharpenersPage";
 import ErasersPage from "./pages/ErasersPage";
 import SharpenersPage from "./pages/SharpenersPage";
-
+import OfficeStaplersPage from "./pages/OfficeStaplersPage";
+import PaperPunchesPage from "./pages/PaperPunchesPage";
 const queryClient = new QueryClient();
 
 const App = () => (
