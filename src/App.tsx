@@ -109,6 +109,8 @@ import SmallDrawingNotebookPage from "./pages/SmallDrawingNotebookPage";
 import ErasersSharpenersPage from "./pages/ErasersSharpenersPage";
 import ErasersPage from "./pages/ErasersPage";
 import SharpenersPage from "./pages/SharpenersPage";
+// استيراد صفحة الدباسات الجديدة
+import StaplersPage from "./pages/StaplersPage";
 
 const queryClient = new QueryClient();
 
@@ -226,6 +228,8 @@ const App = () => (
               <Route path="/erasers-sharpeners" element={<ErasersSharpenersPage />} />
               <Route path="/erasers-sharpeners/erasers" element={<ErasersPage />} />
               <Route path="/erasers-sharpeners/sharpeners" element={<SharpenersPage />} />
+              {/* مسار صفحة الدباسات الجديدة */}
+              <Route path="/office-supplies/staplers" element={<StaplersPage />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>
