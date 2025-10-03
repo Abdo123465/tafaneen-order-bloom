@@ -6,41 +6,41 @@ import { useCart } from "@/contexts/CartContext";
 import { ArrowRight, Star, Award, Image as ImageIcon } from "lucide-react";
 import { Link } from "react-router-dom";
 
-const staplePins = [
+const staplers = [
   { 
-    id: 'STAPLEPIN-001', 
-    name: 'دبابيس دباسة صغيرة 24/6', 
-    price: 5, 
+    id: 'STAPLER-001', 
+    name: 'دباسة مكتبية صغيرة', 
+    price: 15, 
     image: '/placeholder.svg', 
-    fallbackEmoji: '📌',
-    description: 'دبابيس دباسة مقاس 24/6 للاستخدام اليومي',
+    fallbackEmoji: '📎',
+    description: 'دباسة صغيرة للاستخدام المكتبي اليومي',
     brand: 'Deli'
   },
   { 
-    id: 'STAPLEPIN-002', 
-    name: 'دبابيس دباسة متوسطة 26/6', 
-    price: 8, 
+    id: 'STAPLER-002', 
+    name: 'دباسة مكتبية متوسطة', 
+    price: 25, 
     image: '/placeholder.svg',
-    fallbackEmoji: '📍',
-    description: 'دبابيس دباسة مقاس 26/6 قوية ومتينة',
+    fallbackEmoji: '📌',
+    description: 'دباسة متوسطة الحجم قوية ومتينة',
     brand: 'Kangaro'
   },
   { 
-    id: 'STAPLEPIN-003', 
-    name: 'دبابيس دباسة كبيرة 23/8', 
-    price: 12, 
+    id: 'STAPLER-003', 
+    name: 'دباسة مكتبية كبيرة', 
+    price: 45, 
     image: '/placeholder.svg',
-    fallbackEmoji: '🔩',
-    description: 'دبابيس دباسة مقاس 23/8 للمستندات الكثيرة',
+    fallbackEmoji: '🔨',
+    description: 'دباسة كبيرة للمستندات الثقيلة',
     brand: 'Max'
   },
   { 
-    id: 'STAPLEPIN-004', 
-    name: 'دبابيس دباسة ثقيلة 23/13', 
-    price: 18, 
+    id: 'STAPLER-004', 
+    name: 'دباسة كهربائية', 
+    price: 120, 
     image: '/placeholder.svg',
-    fallbackEmoji: '⚙️',
-    description: 'دبابيس دباسة ثقيلة للاستخدام الشاق',
+    fallbackEmoji: '⚡',
+    description: 'دباسة كهربائية سريعة وفعالة',
     brand: 'Rapid'
   },
 ];
@@ -77,12 +77,12 @@ const ProductImage = ({ src, alt, fallbackEmoji, className }) => {
   );
 };
 
-export default function StaplePinsPage() {
+export default function StaplersSubPage() {
   const { addItem } = useCart();
   
   useEffect(() => {
-    document.title = "دبابيس التدبيس | تفانين";
-    const desc = "تسوق دبابيس التدبيس عالية الجودة بأحجام مختلفة من تفانين.";
+    document.title = "الدباسات المكتبية | تفانين";
+    const desc = "تسوق دباسات مكتبية عالية الجودة بأحجام مختلفة من تفانين.";
     let meta = document.querySelector('meta[name="description"]');
     if (!meta) { 
       meta = document.createElement('meta'); 
@@ -103,18 +103,18 @@ export default function StaplePinsPage() {
           <ArrowRight className="h-4 w-4" />
           <Link to="/office-supplies" className="hover:text-primary">مستلزمات المكتب</Link>
           <ArrowRight className="h-4 w-4" />
-          <Link to="/office-supplies/paper-clips" className="hover:text-primary">مشابك ودبابيس</Link>
+          <Link to="/office-supplies/stapler" className="hover:text-primary">دباسات وخرامات</Link>
           <ArrowRight className="h-4 w-4" />
-          <span className="text-foreground">دبابيس التدبيس</span>
+          <span className="text-foreground">الدباسات</span>
         </nav>
 
         <div className="text-center mb-12">
-          <div className="text-6xl mb-4">📌</div>
-          <h1 className="text-3xl lg:text-4xl font-bold mb-4 bg-gradient-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent">
-            دبابيس التدبيس
+          <div className="text-6xl mb-4">📎</div>
+          <h1 className="text-3xl lg:text-4xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
+            الدباسات المكتبية
           </h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-4">
-            دبابيس للدباسات بأحجام مختلفة - اختر ما يناسب احتياجاتك
+            دباسات قوية ومتينة - اختر ما يناسب احتياجاتك
           </p>
           <div className="inline-flex items-center gap-2 bg-primary/10 px-4 py-2 rounded-full">
             <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
@@ -126,48 +126,48 @@ export default function StaplePinsPage() {
           <div className="text-center">
             <div className="text-3xl mb-2">💪</div>
             <h3 className="font-semibold mb-1">متينة وقوية</h3>
-            <p className="text-sm text-muted-foreground">تدبيس قوي ومتين</p>
+            <p className="text-sm text-muted-foreground">تدبيس قوي يدوم طويلاً</p>
           </div>
           <div className="text-center">
-            <div className="text-3xl mb-2">📏</div>
-            <h3 className="font-semibold mb-1">مقاسات متعددة</h3>
-            <p className="text-sm text-muted-foreground">تناسب جميع الدباسات</p>
+            <div className="text-3xl mb-2">⚡</div>
+            <h3 className="font-semibold mb-1">سريعة وفعالة</h3>
+            <p className="text-sm text-muted-foreground">تدبيس سريع وسلس</p>
           </div>
           <div className="text-center">
             <div className="text-3xl mb-2">🎯</div>
-            <h3 className="font-semibold mb-1">سهلة الاستخدام</h3>
-            <p className="text-sm text-muted-foreground">تركيب سريع وسهل</p>
+            <h3 className="font-semibold mb-1">دقيقة ومريحة</h3>
+            <p className="text-sm text-muted-foreground">تصميم مريح وسهل الاستخدام</p>
           </div>
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {staplePins.map((pin) => (
-            <div key={pin.id} className="card-product relative group">
+          {staplers.map((stapler) => (
+            <div key={stapler.id} className="card-product relative group">
               <div className="absolute top-3 left-3 z-10">
                 <span className="bg-primary text-primary-foreground text-xs px-3 py-1 rounded-full font-medium">
-                  {pin.brand}
+                  {stapler.brand}
                 </span>
               </div>
               
               <ProductImage 
-                src={pin.image}
-                alt={pin.name}
-                fallbackEmoji={pin.fallbackEmoji}
+                src={stapler.image}
+                alt={stapler.name}
+                fallbackEmoji={stapler.fallbackEmoji}
                 className="mb-4"
               />
               
-              <h3 className="font-semibold mb-2 line-clamp-2">{pin.name}</h3>
-              <p className="text-sm text-muted-foreground mb-3 line-clamp-2">{pin.description}</p>
+              <h3 className="font-semibold mb-2 line-clamp-2">{stapler.name}</h3>
+              <p className="text-sm text-muted-foreground mb-3 line-clamp-2">{stapler.description}</p>
               
               <div className="flex items-center justify-between mt-auto">
-                <span className="text-primary font-bold text-lg">{pin.price} ج.م</span>
+                <span className="text-primary font-bold text-lg">{stapler.price} ج.م</span>
                 <Button 
                   className="btn-tafaneen"
                   onClick={() => addItem({ 
-                    id: pin.id, 
-                    name: pin.name, 
-                    price: pin.price, 
-                    image: pin.image 
+                    id: stapler.id, 
+                    name: stapler.name, 
+                    price: stapler.price, 
+                    image: stapler.image 
                   })}
                 >
                   إضافة للسلة
@@ -177,10 +177,10 @@ export default function StaplePinsPage() {
           ))}
         </div>
 
-        <div className="mt-16 bg-gradient-to-r from-cyan-50 to-blue-50 rounded-2xl p-8 text-center">
-          <h2 className="text-2xl font-bold mb-4">أنواع دبابيس التدبيس</h2>
+        <div className="mt-16 bg-gradient-to-r from-blue-50 to-cyan-50 rounded-2xl p-8 text-center">
+          <h2 className="text-2xl font-bold mb-4">أنواع الدباسات</h2>
           <p className="text-muted-foreground max-w-3xl mx-auto mb-6">
-            نوفر لك مجموعة شاملة من دبابيس التدبيس بمقاسات مختلفة لتناسب جميع أنواع الدباسات
+            نوفر لك مجموعة شاملة من الدباسات لتناسب جميع الاحتياجات المكتبية
           </p>
           <div className="flex items-center justify-center gap-8 text-sm text-muted-foreground">
             <div className="flex items-center gap-2">
@@ -196,7 +196,7 @@ export default function StaplePinsPage() {
 
         <div className="text-center mt-12">
           <Button asChild variant="outline" className="text-lg px-8 py-4 h-auto">
-            <Link to="/office-supplies/paper-clips">العودة إلى مشابك ودبابيس</Link>
+            <Link to="/office-supplies/stapler">العودة إلى دباسات وخرامات</Link>
           </Button>
         </div>
       </main>
