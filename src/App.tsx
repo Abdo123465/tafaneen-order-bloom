@@ -111,6 +111,9 @@ import ErasersPage from "./pages/ErasersPage";
 import SharpenersPage from "./pages/SharpenersPage";
 import OfficeStaplersPage from "./pages/OfficeStaplersPage";
 import PaperPunchesPage from "./pages/PaperPunchesPage";
+// استيراد صفحة الدباسات الجديدة
+import StaplersPage from "./pages/StaplersPage";
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -184,6 +187,10 @@ const App = () => (
               <Route path="/office-supplies/paper-clips" element={<PaperClipsPage />} />
               <Route path="/office-supplies/soap-paper" element={<SoapPaperPage />} />
               <Route path="/office-supplies/push-pins" element={<PushPinsPage />} />
+              <Route path="/office-supplies/office-staplers" element={<OfficeStaplersPage />} />
+              <Route path="/office-supplies/paper-punches" element={<PaperPunchesPage />} />
+              {/* المسار الجديد لصفحة الدباسات */}
+              <Route path="/office-supplies/staplers" element={<StaplersPage />} />
               <Route path="/offers" element={<OffersPage />} />
               <Route path="/pens/gel" element={<GelPensPage />} />
               <Route path="/pens/roto" element={<RotoPensPage />} />
@@ -227,8 +234,6 @@ const App = () => (
               <Route path="/erasers-sharpeners" element={<ErasersSharpenersPage />} />
               <Route path="/erasers-sharpeners/erasers" element={<ErasersPage />} />
               <Route path="/erasers-sharpeners/sharpeners" element={<SharpenersPage />} />
-              <Route path="/office-supplies/office-staplers" element={<OfficeStaplersPage />} />
-              <Route path="/office-supplies/paper-punches" element={<PaperPunchesPage />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>
