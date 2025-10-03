@@ -227,6 +227,8 @@ const App = () => (
               <Route path="/erasers-sharpeners" element={<ErasersSharpenersPage />} />
               <Route path="/erasers-sharpeners/erasers" element={<ErasersPage />} />
               <Route path="/erasers-sharpeners/sharpeners" element={<SharpenersPage />} />
+              <Route path="/office-supplies/office-staplers" element={<OfficeStaplersPage />} />
+              <Route path="/office-supplies/paper-punches" element={<PaperPunchesPage />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>
