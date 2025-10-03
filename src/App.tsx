@@ -115,129 +115,129 @@ import StaplersPage from "./pages/StaplersPage";
 const queryClient = new QueryClient();
 
 const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <AuthProvider>
-      <CartProvider>
-        <TooltipProvider>
-          <Toaster />
-          <Sonner />
-          <BrowserRouter>
-            <Routes>
-              <Route path="/" element={<Index />} />
-              <Route path="/search" element={<SearchPage />} />
-              <Route path="/categories" element={<CategoriesPage />} />
-              <Route path="/pens" element={<PensPage />} />
-              <Route path="/pens/pencils" element={<PencilsPage />} />
-              <Route path="/pens/pencils/faber-castell" element={<FaberCastellPencilsPage />} />
-              <Route path="/pens/pencils/xioosongshu" element={<XioosongshuPencilsPage />} />
-              <Route path="/pens/pencils/star-color" element={<StarColorPencilsPage />} />
-              <Route path="/pens/pencils/charcoal" element={<CharcoalPencilsPage />} />
-              <Route path="/pens/pencils/altes" element={<AltesPencilsPage />} />
-              <Route path="/pens/pencils/deli" element={<DeliPencilsPage />} />
-              <Route path="/pens/pencils/bedaya" element={<BedayaPencilsPage />} />
-              <Route path="/pens/pencils/doms" element={<DomsPencilsPage />} />
-              <Route path="/pens/pencils/smart-keep" element={<SmartKeepPencilsPage />} />
-              <Route path="/pens/pencils/prima" element={<PrimaPencilsPage />} />
-              <Route path="/pens/pencils/bravo" element={<BravoPencilsPage />} />
-              <Route path="/pens/ballpoint" element={<BallpointPensPage />} />
-              <Route path="/pens/gel" element={<GelPensPage />} />
-              <Route path="/pens/roto" element={<RotoPensPage />} />
-              <Route path="/pens/fountain" element={<FountainPensPage />} />
-              <Route path="/pens/markers" element={<MechanicalPencilsCategoryPage />} />
-              <Route path="/pens/markers/mechanical-05" element={<MechanicalPencils05Page />} />
-              <Route path="/pens/markers/mechanical-07" element={<MechanicalPencils07Page />} />
-              <Route path="/pens/markers/mechanical-09" element={<MechanicalPencils09Page />} />
-              <Route path="/pens/calligraphy" element={<CalligraphyPensPage />} />
-              <Route path="/pens/correction" element={<CorrectionPensPage />} />
-              <Route path="/cutting-pasting-tools" element={<CuttingPastingToolsPage />} />
-              <Route path="/cutting-pasting-tools/felt-tip-markers" element={<FeltTipMarkersPage />} />
-              <Route path="/cutting-pasting-tools/felt-tip-markers/doms" element={<DomsFeltTipMarkersPage />} />
-              <Route path="/cutting-pasting-tools/felt-tip-markers/prima" element={<PrimaFeltTipMarkersPage />} />
-              <Route path="/calculators-rulers" element={<CalculatorsRulersPage />} />
-              <Route path="/calculators-rulers/scientific-calculator" element={<ScientificCalculatorPage />} />
-              <Route path="/calculators-rulers/commercial-calculator" element={<CommercialCalculatorPage />} />
-              <Route path="/calculators-rulers/rulers" element={<RulersGeometryPage />} />
-              <Route path="/cutting-pasting-tools/cutting-pasting" element={<CuttingPastingPage />} />
-              <Route path="/cutting-pasting-tools/wooden-pencils" element={<WoodenPencilsPage />} />
-              {/* مسارات أقلام الألوان الخشبية حسب العلامة التجارية */}
-              <Route path="/cutting-pasting-tools/wooden-pencils/gelcy" element={<GelcyColorPencilsPage />} />
-              <Route path="/cutting-pasting-tools/wooden-pencils/doms" element={<DomsColorPencilsPage />} />
-              <Route path="/cutting-pasting-tools/wooden-pencils/deli" element={<DeliColorPencilsPage />} />
-              <Route path="/cutting-pasting-tools/wooden-pencils/power" element={<PowerColorPencilsPage />} />
-              <Route path="/cutting-pasting-tools/wooden-pencils/faber-castell" element={<FaberCastellColorPencilsPage />} />
-              <Route path="/cutting-pasting-tools/wooden-pencils/attar" element={<AttarColorPencilsPage />} />
-              <Route path="/notebooks" element={<NotebooksPage />} />
-              <Route path="/notebooks/main-category" element={<NotebooksMainCategoryPage />} />
-              <Route path="/notebooks/krassat" element={<KrassatPage />} />
-              <Route path="/notebooks/krassat/28-pages" element={<Krassat28PagesPage />} />
-              <Route path="/notebooks/krassat/40-pages" element={<Krassat40PagesPage />} />
-              <Route path="/notebooks/kashakil" element={<KashakilPage />} />
-              <Route path="/notebooks/kashakil/60-pages" element={<Kashakil60PagesPage />} />
-              <Route path="/notebooks/kashakil/80-pages" element={<Kashakil80PagesPage />} />
-              <Route path="/notebooks/kashakil/100-pages" element={<Kashakil100PagesPage />} />
-              <Route path="/notebooks/kashakil-silk-a4" element={<KashakilSilkA4Page />} />
-              <Route path="/notebooks/kashakil-silk-a5" element={<KashakilSilkA5Page />} />
-              <Route path="/office-supplies" element={<OfficeSuppliesPage />} />
-              <Route path="/office-supplies/stapler" element={<StaplerPage />} />
-              <Route path="/office-supplies/hole-punch" element={<HolePunchPage />} />
-              <Route path="/office-supplies/staple-pins" element={<StaplePinsPage />} />
-              <Route path="/office-supplies/stamps" element={<StampsPage />} />
-              <Route path="/office-supplies/paper-clips" element={<PaperClipsPage />} />
-              <Route path="/office-supplies/soap-paper" element={<SoapPaperPage />} />
-              <Route path="/office-supplies/push-pins" element={<PushPinsPage />} />
-              <Route path="/offers" element={<OffersPage />} />
-              <Route path="/pens/gel" element={<GelPensPage />} />
-              <Route path="/pens/roto" element={<RotoPensPage />} />
-              <Route path="/pens/prima" element={<PrimaPensPage />} />
-              <Route path="/pens/roxi" element={<RoxiPensPage />} />
-              <Route path="/pens/pensan" element={<PensanPensPage />} />
-              <Route path="/pens/bravo" element={<BravoPensPage />} />
-              <Route path="/pens/fransawy" element={<FransawyPensPage />} />
-              <Route path="/pens/fountain" element={<FountainPensPage />} />
-              <Route path="/pens/ballpoint-sets" element={<BallpointPenSetsPage />} />
-              <Route path="/cutting-pasting-tools/wax-crayons" element={<WaxCrayonsPage />} />
-              <Route path="/cutting-pasting-tools/gouache-colors" element={<GouacheColorsPage />} />
-              {/* مسار صفحة ألوان الأكريليك الجديدة */}
-              <Route path="/cutting-pasting-tools/acrylic-colors" element={<AcrylicColorsPage />} />
-              {/* مسارات صفحات ورق كانسون الجديدة */}
-              <Route path="/cutting-pasting-tools/canson-paper" element={<CansonPaperPage />} />
-              <Route path="/cutting-pasting-tools/canson-paper/a4" element={<CansonA4Page />} />
-              <Route path="/cutting-pasting-tools/canson-paper/70x50" element={<Canson70x50Page />} />
-              {/* مسارات صفحات سكتش كانسون الجديدة */}
-              <Route path="/cutting-pasting-tools/canson-sketch" element={<CansonSketchPage />} />
-              <Route path="/cutting-pasting-tools/canson-sketch/colors" element={<CansonSketchColorsPage />} />
-              <Route path="/cutting-pasting-tools/canson-sketch/white" element={<CansonSketchWhitePage />} />
-              <Route path="/cutting-pasting-tools/scissors" element={<ScissorsPage />} />
-              <Route path="/cutting-pasting-tools/scissors/school" element={<SchoolScissorsPage />} />
-              <Route path="/cutting-pasting-tools/scissors/office" element={<OfficeScissorsPage />} />
-              <Route path="/cutting-pasting-tools/water-colors" element={<WaterColorsPage />} />
-              <Route path="/cutting-pasting-tools/oil-colors" element={<OilColorsPage />} />
-              <Route path="/cutting-pasting-tools/coloring-books" element={<ColoringBooksPage />} />
-              <Route path="/cutting-pasting-tools/adhesive-foam" element={<AdhesiveFoamPage />} />
-              <Route path="/cutting-pasting-tools/adhesive-foam/a4" element={<AdhesiveFoamA4Page />} />
-              <Route path="/cutting-pasting-tools/adhesive-foam/70x50" element={<AdhesiveFoam70x50Page />} />
-              {/* مسارات صفحات فوم جليتر الجديدة */}
-              <Route path="/cutting-pasting-tools/glitter-foam" element={<GlitterFoamPage />} />
-              <Route path="/cutting-pasting-tools/glitter-foam/a4" element={<GlitterFoamA4Page />} />
-              <Route path="/cutting-pasting-tools/glitter-foam/70x50" element={<GlitterFoam70x50Page />} />
-              <Route path="/cutting-pasting-tools/adhesive-glitter-foam" element={<AdhesiveGlitterFoamPage />} />
-              <Route path="/cutting-pasting-tools/adhesive-glitter-foam/a4" element={<AdhesiveGlitterFoamA4Page />} />
-              <Route path="/cutting-pasting-tools/adhesive-glitter-foam/70x50" element={<AdhesiveGlitterFoam70x50Page />} />
-              <Route path="/cutting-pasting-tools/large-sketch" element={<LargeDrawingNotebookPage />} />
-              <Route path="/cutting-pasting-tools/small-sketch" element={<SmallDrawingNotebookPage />} />
-              <Route path="/erasers-sharpeners" element={<ErasersSharpenersPage />} />
-              <Route path="/erasers-sharpeners/erasers" element={<ErasersPage />} />
-              <Route path="/erasers-sharpeners/sharpeners" element={<SharpenersPage />} />
-              {/* مسار صفحة الدباسات الجديدة */}
-              <Route path="/office-supplies/staplers" element={<StaplersPage />} />
-              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </BrowserRouter>
-        </TooltipProvider>
-      </CartProvider>
-    </AuthProvider>
-  </QueryClientProvider>
+<QueryClientProvider client={queryClient}>
+<AuthProvider>
+<CartProvider>
+<TooltipProvider>
+<Toaster />
+<Sonner />
+<BrowserRouter>
+<Routes>
+<Route path="/" element={<Index />} />
+<Route path="/search" element={<SearchPage />} />
+<Route path="/categories" element={<CategoriesPage />} />
+<Route path="/pens" element={<PensPage />} />
+<Route path="/pens/pencils" element={<PencilsPage />} />
+<Route path="/pens/pencils/faber-castell" element={<FaberCastellPencilsPage />} />
+<Route path="/pens/pencils/xioosongshu" element={<XioosongshuPencilsPage />} />
+<Route path="/pens/pencils/star-color" element={<StarColorPencilsPage />} />
+<Route path="/pens/pencils/charcoal" element={<CharcoalPencilsPage />} />
+<Route path="/pens/pencils/altes" element={<AltesPencilsPage />} />
+<Route path="/pens/pencils/deli" element={<DeliPencilsPage />} />
+<Route path="/pens/pencils/bedaya" element={<BedayaPencilsPage />} />
+<Route path="/pens/pencils/doms" element={<DomsPencilsPage />} />
+<Route path="/pens/pencils/smart-keep" element={<SmartKeepPencilsPage />} />
+<Route path="/pens/pencils/prima" element={<PrimaPencilsPage />} />
+<Route path="/pens/pencils/bravo" element={<BravoPencilsPage />} />
+<Route path="/pens/ballpoint" element={<BallpointPensPage />} />
+<Route path="/pens/gel" element={<GelPensPage />} />
+<Route path="/pens/roto" element={<RotoPensPage />} />
+<Route path="/pens/fountain" element={<FountainPensPage />} />
+<Route path="/pens/markers" element={<MechanicalPencilsCategoryPage />} />
+<Route path="/pens/markers/mechanical-05" element={<MechanicalPencils05Page />} />
+<Route path="/pens/markers/mechanical-07" element={<MechanicalPencils07Page />} />
+<Route path="/pens/markers/mechanical-09" element={<MechanicalPencils09Page />} />
+<Route path="/pens/calligraphy" element={<CalligraphyPensPage />} />
+<Route path="/pens/correction" element={<CorrectionPensPage />} />
+<Route path="/cutting-pasting-tools" element={<CuttingPastingToolsPage />} />
+<Route path="/cutting-pasting-tools/felt-tip-markers" element={<FeltTipMarkersPage />} />
+<Route path="/cutting-pasting-tools/felt-tip-markers/doms" element={<DomsFeltTipMarkersPage />} />
+<Route path="/cutting-pasting-tools/felt-tip-markers/prima" element={<PrimaFeltTipMarkersPage />} />
+<Route path="/calculators-rulers" element={<CalculatorsRulersPage />} />
+<Route path="/calculators-rulers/scientific-calculator" element={<ScientificCalculatorPage />} />
+<Route path="/calculators-rulers/commercial-calculator" element={<CommercialCalculatorPage />} />
+<Route path="/calculators-rulers/rulers" element={<RulersGeometryPage />} />
+<Route path="/cutting-pasting-tools/cutting-pasting" element={<CuttingPastingPage />} />
+<Route path="/cutting-pasting-tools/wooden-pencils" element={<WoodenPencilsPage />} />
+{/* مسارات أقلام الألوان الخشبية حسب العلامة التجارية */}
+<Route path="/cutting-pasting-tools/wooden-pencils/gelcy" element={<GelcyColorPencilsPage />} />
+<Route path="/cutting-pasting-tools/wooden-pencils/doms" element={<DomsColorPencilsPage />} />
+<Route path="/cutting-pasting-tools/wooden-pencils/deli" element={<DeliColorPencilsPage />} />
+<Route path="/cutting-pasting-tools/wooden-pencils/power" element={<PowerColorPencilsPage />} />
+<Route path="/cutting-pasting-tools/wooden-pencils/faber-castell" element={<FaberCastellColorPencilsPage />} />
+<Route path="/cutting-pasting-tools/wooden-pencils/attar" element={<AttarColorPencilsPage />} />
+<Route path="/notebooks" element={<NotebooksPage />} />
+<Route path="/notebooks/main-category" element={<NotebooksMainCategoryPage />} />
+<Route path="/notebooks/krassat" element={<KrassatPage />} />
+<Route path="/notebooks/krassat/28-pages" element={<Krassat28PagesPage />} />
+<Route path="/notebooks/krassat/40-pages" element={<Krassat40PagesPage />} />
+<Route path="/notebooks/kashakil" element={<KashakilPage />} />
+<Route path="/notebooks/kashakil/60-pages" element={<Kashakil60PagesPage />} />
+<Route path="/notebooks/kashakil/80-pages" element={<Kashakil80PagesPage />} />
+<Route path="/notebooks/kashakil/100-pages" element={<Kashakil100PagesPage />} />
+<Route path="/notebooks/kashakil-silk-a4" element={<KashakilSilkA4Page />} />
+<Route path="/notebooks/kashakil-silk-a5" element={<KashakilSilkA5Page />} />
+<Route path="/office-supplies" element={<OfficeSuppliesPage />} />
+<Route path="/office-supplies/stapler" element={<StaplerPage />} />
+<Route path="/office-supplies/hole-punch" element={<HolePunchPage />} />
+<Route path="/office-supplies/staple-pins" element={<StaplePinsPage />} />
+<Route path="/office-supplies/stamps" element={<StampsPage />} />
+<Route path="/office-supplies/paper-clips" element={<PaperClipsPage />} />
+<Route path="/office-supplies/soap-paper" element={<SoapPaperPage />} />
+<Route path="/office-supplies/push-pins" element={<PushPinsPage />} />
+<Route path="/offers" element={<OffersPage />} />
+<Route path="/pens/gel" element={<GelPensPage />} />
+<Route path="/pens/roto" element={<RotoPensPage />} />
+<Route path="/pens/prima" element={<PrimaPensPage />} />
+<Route path="/pens/roxi" element={<RoxiPensPage />} />
+<Route path="/pens/pensan" element={<PensanPensPage />} />
+<Route path="/pens/bravo" element={<BravoPensPage />} />
+<Route path="/pens/fransawy" element={<FransawyPensPage />} />
+<Route path="/pens/fountain" element={<FountainPensPage />} />
+<Route path="/pens/ballpoint-sets" element={<BallpointPenSetsPage />} />
+<Route path="/cutting-pasting-tools/wax-crayons" element={<WaxCrayonsPage />} />
+<Route path="/cutting-pasting-tools/gouache-colors" element={<GouacheColorsPage />} />
+{/* مسار صفحة ألوان الأكريليك الجديدة */}
+<Route path="/cutting-pasting-tools/acrylic-colors" element={<AcrylicColorsPage />} />
+{/* مسارات صفحات ورق كانسون الجديدة */}
+<Route path="/cutting-pasting-tools/canson-paper" element={<CansonPaperPage />} />
+<Route path="/cutting-pasting-tools/canson-paper/a4" element={<CansonA4Page />} />
+<Route path="/cutting-pasting-tools/canson-paper/70x50" element={<Canson70x50Page />} />
+{/* مسارات صفحات سكتش كانسون الجديدة */}
+<Route path="/cutting-pasting-tools/canson-sketch" element={<CansonSketchPage />} />
+<Route path="/cutting-pasting-tools/canson-sketch/colors" element={<CansonSketchColorsPage />} />
+<Route path="/cutting-pasting-tools/canson-sketch/white" element={<CansonSketchWhitePage />} />
+<Route path="/cutting-pasting-tools/scissors" element={<ScissorsPage />} />
+<Route path="/cutting-pasting-tools/scissors/school" element={<SchoolScissorsPage />} />
+<Route path="/cutting-pasting-tools/scissors/office" element={<OfficeScissorsPage />} />
+<Route path="/cutting-pasting-tools/water-colors" element={<WaterColorsPage />} />
+<Route path="/cutting-pasting-tools/oil-colors" element={<OilColorsPage />} />
+<Route path="/cutting-pasting-tools/coloring-books" element={<ColoringBooksPage />} />
+<Route path="/cutting-pasting-tools/adhesive-foam" element={<AdhesiveFoamPage />} />
+<Route path="/cutting-pasting-tools/adhesive-foam/a4" element={<AdhesiveFoamA4Page />} />
+<Route path="/cutting-pasting-tools/adhesive-foam/70x50" element={<AdhesiveFoam70x50Page />} />
+{/* مسارات صفحات فوم جليتر الجديدة */}
+<Route path="/cutting-pasting-tools/glitter-foam" element={<GlitterFoamPage />} />
+<Route path="/cutting-pasting-tools/glitter-foam/a4" element={<GlitterFoamA4Page />} />
+<Route path="/cutting-pasting-tools/glitter-foam/70x50" element={<GlitterFoam70x50Page />} />
+<Route path="/cutting-pasting-tools/adhesive-glitter-foam" element={<AdhesiveGlitterFoamPage />} />
+<Route path="/cutting-pasting-tools/adhesive-glitter-foam/a4" element={<AdhesiveGlitterFoamA4Page />} />
+<Route path="/cutting-pasting-tools/adhesive-glitter-foam/70x50" element={<AdhesiveGlitterFoam70x50Page />} />
+<Route path="/cutting-pasting-tools/large-sketch" element={<LargeDrawingNotebookPage />} />
+<Route path="/cutting-pasting-tools/small-sketch" element={<SmallDrawingNotebookPage />} />
+<Route path="/erasers-sharpeners" element={<ErasersSharpenersPage />} />
+<Route path="/erasers-sharpeners/erasers" element={<ErasersPage />} />
+<Route path="/erasers-sharpeners/sharpeners" element={<SharpenersPage />} />
+{/* مسار صفحة الدباسات الجديدة */}
+<Route path="/office-supplies/staplers" element={<StaplersPage />} />
+{/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+<Route path="*" element={<NotFound />} />
+</Routes>
+</BrowserRouter>
+</TooltipProvider>
+</CartProvider>
+</AuthProvider>
+</QueryClientProvider>
 );
 
 export default App;
