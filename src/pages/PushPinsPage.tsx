@@ -1,173 +1,206 @@
-// src/pages/PushPinsPage.tsx
 import { useEffect, useState } from "react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { useCart } from "@/contexts/CartContext";
-import { ArrowRight, Star, Award } from "lucide-react";
+import { ArrowRight, Star, Award, Image as ImageIcon } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const pushPins = [
   { 
-    id: 'PUSH-001', 
-    name: 'دبابيس كبس ملونة (50 حبة)', 
-    price: 13, 
-    image: '/assets/push-pins-color.jpg', 
-    fallbackEmoji: '📍', 
-    description: 'دبابيس كبس ملونة لعدد كبير من الاستخدامات', 
-    brand: 'Deli',
-    stock: 40,
-    rating: 4.3,
-    colors: ['أحمر', 'أزرق', 'أخضر', 'أصفر', 'أسود'],
-    features: ['رأس دائري ملون', 'إبرة قوية', 'مناسبة للوحات الإعلانية']
+    id: 'PUSHPIN-001', 
+    name: 'دبابيس كبس ملونة', 
+    price: 8, 
+    image: '/placeholder.svg', 
+    fallbackEmoji: '📌',
+    description: 'دبابيس كبس ملونة للتثبيت والتنظيم',
+    brand: 'Deli'
   },
   { 
-    id: 'PUSH-002', 
-    name: 'دبابيس كبس معدني (100 حبة)', 
-    price: 27, 
-    image: '/assets/push-pins-metal.jpg', 
-    fallbackEmoji: '📌', 
-    description: 'دبابيس كبس معدنية، متانة أكبر', 
-    brand: 'Yalong',
-    stock: 25,
-    rating: 4.7,
-    colors: ['فضي', 'ذهبي'],
-    features: ['مظهر احترافي', 'مقاومة للصدأ', 'مناسبة للمكاتب والمعارض']
+    id: 'PUSHPIN-002', 
+    name: 'دبابيس كبس معدنية', 
+    price: 12, 
+    image: '/placeholder.svg',
+    fallbackEmoji: '📍',
+    description: 'دبابيس كبس معدنية قوية ومتينة',
+    brand: 'Kangaro'
   },
-  {
-    id: 'PUSH-003', 
-    name: 'دبابيس كبس بلاستيك (30 حبة)', 
-    price: 8, 
-    image: '/assets/push-pins-plastic.jpg', 
-    fallbackEmoji: '🔴', 
-    description: 'دبابيس كبس بلاستيكية اقتصادية', 
-    brand: 'Deli',
-    stock: 60,
-    rating: 4.0,
-    colors: ['أحمر', 'أزرق', 'أخضر'],
-    features: ['رأس بلاستيكي كبير', 'سهلة الإمساك', 'مناسبة للاستخدام المدرسي']
+  { 
+    id: 'PUSHPIN-003', 
+    name: 'دبابيس كبس مغناطيسية', 
+    price: 20, 
+    image: '/placeholder.svg',
+    fallbackEmoji: '🧲',
+    description: 'دبابيس كبس مغناطيسية عملية',
+    brand: 'Deli'
+  },
+  { 
+    id: 'PUSHPIN-004', 
+    name: 'دبابيس كبس شفافة', 
+    price: 15, 
+    image: '/placeholder.svg',
+    fallbackEmoji: '💎',
+    description: 'دبابيس كبس شفافة أنيقة',
+    brand: 'Max'
   },
 ];
 
 const ProductImage = ({ src, alt, fallbackEmoji, className }) => {
-  const [imgError, setImgError] = useState(false);
+  const [imageError, setImageError] = useState(false);
+  const [imageLoading, setImageLoading] = useState(true);
   
   return (
-    <div className={`relative overflow-hidden rounded-lg ${className}`}>
-      {!imgError ? (
-        <img 
-          src={src} 
-          alt={alt} 
-          className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105"
-          onError={() => setImgError(true)}
-        />
+    <div className={`bg-white rounded-xl aspect-square flex items-center justify-center overflow-hidden border border-gray-100 group-hover:shadow-md transition-shadow ${className}`}>
+      {!imageError ? (
+        <>
+          {imageLoading && (
+            <div className="absolute inset-0 flex items-center justify-center bg-gray-100 animate-pulse">
+              <ImageIcon className="h-8 w-8 text-gray-400" />
+            </div>
+          )}
+          <img 
+            src={src}
+            alt={alt}
+            className="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-300"
+            onLoad={() => setImageLoading(false)}
+            onError={() => {
+              setImageError(true);
+              setImageLoading(false);
+            }}
+            style={{ display: imageLoading ? 'none' : 'block' }}
+          />
+        </>
       ) : (
-        <div className="w-full h-48 bg-gray-100 flex items-center justify-center">
-          <span className="text-6xl">{fallbackEmoji}</span>
-        </div>
+        <div className="text-6xl">{fallbackEmoji}</div>
       )}
     </div>
   );
 };
 
-const PushPinsPage = () => {
+export default function PushPinsPage() {
   const { addItem } = useCart();
   
   useEffect(() => {
-    document.title = "دبابيس كبس | تفانين";
-    document.querySelector('meta[name="description"]')?.setAttribute('content', 'دبابيس كبس عالية الجودة بتصاميم مختلفة للاستخدام المكتبي والتعليمي');
+    document.title = "دبابيس الكبس | تفانين";
+    const desc = "تسوق دبابيس كبس عالية الجودة للتثبيت والتنظيم من تفانين.";
+    let meta = document.querySelector('meta[name="description"]');
+    if (!meta) { 
+      meta = document.createElement('meta'); 
+      meta.setAttribute('name','description'); 
+      document.head.appendChild(meta);
+    } 
+    meta.setAttribute('content', desc);
   }, []);
 
   return (
     <div className="min-h-screen bg-background">
       <Header />
       <main className="container mx-auto px-4 py-10">
-        {/* Breadcrumb */}
         <nav className="flex items-center gap-2 text-sm text-muted-foreground mb-8">
           <Link to="/" className="hover:text-primary">الرئيسية</Link>
           <ArrowRight className="h-4 w-4" />
           <Link to="/categories" className="hover:text-primary">الفئات</Link>
           <ArrowRight className="h-4 w-4" />
-          <Link to="/office-supplies" className="hover:text-primary">مستلزمات مكتبية</Link>
+          <Link to="/office-supplies" className="hover:text-primary">مستلزمات المكتب</Link>
           <ArrowRight className="h-4 w-4" />
-          <span className="text-foreground">دبابيس كبس</span>
+          <Link to="/office-supplies/paper-clips" className="hover:text-primary">مشابك ودبابيس</Link>
+          <ArrowRight className="h-4 w-4" />
+          <span className="text-foreground">دبابيس الكبس</span>
         </nav>
-        
-        {/* Hero Section */}
+
         <div className="text-center mb-12">
-          <div className="flex items-center justify-center gap-2 mb-4">
-            <div className="text-6xl">📍</div>
-          </div>
-          <h1 className="text-3xl lg:text-4xl font-bold mb-4 text-gradient">دبابيس كبس</h1>
+          <div className="text-6xl mb-4">📌</div>
+          <h1 className="text-3xl lg:text-4xl font-bold mb-4 bg-gradient-to-r from-green-600 to-teal-600 bg-clip-text text-transparent">
+            دبابيس الكبس
+          </h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-4">
-            دبابيس كبس بتصاميم متعددة تناسب جميع احتياجاتك المكتبية والتعليمية
+            دبابيس كبس للتثبيت والتنظيم - اختر ما يناسب احتياجاتك
           </p>
-          <div className="flex justify-center gap-4 mb-6">
-            <div className="flex items-center gap-1">
-              <Star className="h-5 w-5 fill-yellow-400 text-yellow-400" />
-              <span className="text-sm">4.3 تقييم</span>
-            </div>
-            <div className="flex items-center gap-1">
-              <Award className="h-5 w-5 text-primary" />
-              <span className="text-sm">جودة مضمونة</span>
-            </div>
+          <div className="inline-flex items-center gap-2 bg-primary/10 px-4 py-2 rounded-full">
+            <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+            <span className="text-sm font-medium">جودة وكفاءة عالية</span>
           </div>
         </div>
-        
-        {/* Filter Section */}
-        <div className="mb-8 flex flex-wrap gap-2 justify-center">
-          <Button variant="outline" size="sm">الكل</Button>
-          <Button variant="outline" size="sm">Deli</Button>
-          <Button variant="outline" size="sm">Yalong</Button>
-          <Button variant="outline" size="sm">ملونة</Button>
-          <Button variant="outline" size="sm">معدنية</Button>
-          <Button variant="outline" size="sm">السعر: من الأقل للأعلى</Button>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 bg-muted/30 rounded-2xl p-6">
+          <div className="text-center">
+            <div className="text-3xl mb-2">💪</div>
+            <h3 className="font-semibold mb-1">متينة وقوية</h3>
+            <p className="text-sm text-muted-foreground">تثبيت قوي ومتين</p>
+          </div>
+          <div className="text-center">
+            <div className="text-3xl mb-2">🎨</div>
+            <h3 className="font-semibold mb-1">ألوان متعددة</h3>
+            <p className="text-sm text-muted-foreground">ألوان زاهية للتنظيم</p>
+          </div>
+          <div className="text-center">
+            <div className="text-3xl mb-2">🎯</div>
+            <h3 className="font-semibold mb-1">سهلة الاستخدام</h3>
+            <p className="text-sm text-muted-foreground">تصميم عملي ومريح</p>
+          </div>
         </div>
-        
-        {/* Products Grid */}
+
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {pushPins.map((pin) => (
             <div key={pin.id} className="card-product relative group">
               <div className="absolute top-3 left-3 z-10">
-                <span className="bg-primary text-primary-foreground text-xs px-3 py-1 rounded-full font-medium">{pin.brand}</span>
+                <span className="bg-primary text-primary-foreground text-xs px-3 py-1 rounded-full font-medium">
+                  {pin.brand}
+                </span>
               </div>
-              {pin.stock < 30 && (
-                <div className="absolute top-3 right-3 z-10">
-                  <span className="bg-red-500 text-white text-xs px-3 py-1 rounded-full font-medium">متبقي {pin.stock}</span>
-                </div>
-              )}
-              <ProductImage src={pin.image} alt={pin.name} fallbackEmoji={pin.fallbackEmoji} className="mb-4" />
+              
+              <ProductImage 
+                src={pin.image}
+                alt={pin.name}
+                fallbackEmoji={pin.fallbackEmoji}
+                className="mb-4"
+              />
+              
               <h3 className="font-semibold mb-2 line-clamp-2">{pin.name}</h3>
               <p className="text-sm text-muted-foreground mb-3 line-clamp-2">{pin.description}</p>
-              <div className="flex items-center gap-1 mb-3">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className={`h-4 w-4 ${i < Math.floor(pin.rating) ? 'fill-yellow-400 text-yellow-400' : 'text-gray-300'}`} />
-                ))}
-                <span className="text-xs text-muted-foreground">({pin.rating})</span>
-              </div>
-              <div className="flex flex-wrap gap-1 mb-3">
-                {pin.colors.map((color, index) => (
-                  <span key={index} className="text-xs bg-gray-100 px-2 py-1 rounded">{color}</span>
-                ))}
-              </div>
+              
               <div className="flex items-center justify-between mt-auto">
                 <span className="text-primary font-bold text-lg">{pin.price} ج.م</span>
-                <Button onClick={() => addItem(pin)} size="sm">إضافة للسلة</Button>
+                <Button 
+                  className="btn-tafaneen"
+                  onClick={() => addItem({ 
+                    id: pin.id, 
+                    name: pin.name, 
+                    price: pin.price, 
+                    image: pin.image 
+                  })}
+                >
+                  إضافة للسلة
+                </Button>
               </div>
             </div>
           ))}
         </div>
-        
-        {/* Back Button */}
-        <div className="mt-16 text-center">
+
+        <div className="mt-16 bg-gradient-to-r from-green-50 to-teal-50 rounded-2xl p-8 text-center">
+          <h2 className="text-2xl font-bold mb-4">أنواع دبابيس الكبس</h2>
+          <p className="text-muted-foreground max-w-3xl mx-auto mb-6">
+            نوفر لك مجموعة شاملة من دبابيس الكبس لتناسب جميع الاحتياجات المكتبية
+          </p>
+          <div className="flex items-center justify-center gap-8 text-sm text-muted-foreground">
+            <div className="flex items-center gap-2">
+              <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+              <span>جودة عالية</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Award className="h-4 w-4" />
+              <span>متانة فائقة</span>
+            </div>
+          </div>
+        </div>
+
+        <div className="text-center mt-12">
           <Button asChild variant="outline" className="text-lg px-8 py-4 h-auto">
-            <Link to="/office-supplies">العودة لقسم المستلزمات المكتبية</Link>
+            <Link to="/office-supplies/paper-clips">العودة إلى مشابك ودبابيس</Link>
           </Button>
         </div>
       </main>
       <Footer />
     </div>
   );
-};
-
-export default PushPinsPage;
+}
