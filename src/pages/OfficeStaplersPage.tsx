@@ -1,121 +1,110 @@
-// src/pages/PaperPunchesPage.tsx
+// src/pages/OfficeStaplersPage.tsx
 import { useEffect } from "react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { useCart } from "@/contexts/CartContext";
-import { ArrowRight, Circle } from "lucide-react";
+import { ArrowRight, Hammer } from "lucide-react";
 import { Link } from "react-router-dom";
 
-const paperPunchesProducts = [
+const officeStaplersProducts = [
   { 
-    id: 'paper-punch-1', 
-    name: 'خرامة ورق صغيرة ثقبين - ديلي', 
-    price: 25, 
-    image: '/assets/paper-punch-1.jpg', 
-    description: 'خرامة ورق صغيرة الحجم بثقبين، مثالية للاستخدام اليومي',
+    id: 'office-stapler-1', 
+    name: 'دباسة مكتبية صغيرة 24/6 - ديلي', 
+    price: 35, 
+    image: '/assets/office-stapler-1.jpg', 
+    description: 'دباسة مكتبية صغيرة الحجم، مثالية للاستخدام اليومي',
     brand: 'ديلي',
     size: 'صغير',
-    holes: 'ثقبين',
-    capacity: '10 ورقة'
+    capacity: '20 ورقة',
+    stapleSize: '24/6'
   },
   { 
-    id: 'paper-punch-2', 
-    name: 'خرامة ورق متوسطة ثقبين - كانجارو', 
-    price: 45, 
-    image: '/assets/paper-punch-2.jpg', 
-    description: 'خرامة ورق متوسطة الحجم بتصميم عصري وأداء ممتاز',
+    id: 'office-stapler-2', 
+    name: 'دباسة مكتبية متوسطة 24/6 - كانجارو', 
+    price: 50, 
+    image: '/assets/office-stapler-2.jpg', 
+    description: 'دباسة مكتبية متوسطة الحجم بتصميم عصري',
     brand: 'كانجارو',
     size: 'متوسط',
-    holes: 'ثقبين',
-    capacity: '20 ورقة'
+    capacity: '25 ورقة',
+    stapleSize: '24/6'
   },
   { 
-    id: 'paper-punch-3', 
-    name: 'خرامة ورق كبيرة ثقبين - ديلي', 
-    price: 75, 
-    image: '/assets/paper-punch-3.jpg', 
-    description: 'خرامة ورق كبيرة للاستخدام المكثف في المكاتب',
+    id: 'office-stapler-3', 
+    name: 'دباسة مكتبية كبيرة 23/13 - ديلي', 
+    price: 85, 
+    image: '/assets/office-stapler-3.jpg', 
+    description: 'دباسة مكتبية كبيرة للاستخدام المكثف',
     brand: 'ديلي',
     size: 'كبير',
-    holes: 'ثقبين',
-    capacity: '40 ورقة'
+    capacity: '50 ورقة',
+    stapleSize: '23/13'
   },
   { 
-    id: 'paper-punch-4', 
-    name: 'خرامة ورق صغيرة ثقب واحد - ماكس', 
-    price: 20, 
-    image: '/assets/paper-punch-4.jpg', 
-    description: 'خرامة ورق بثقب واحد للاستخدامات الخاصة',
+    id: 'office-stapler-4', 
+    name: 'دباسة مكتبية صغيرة 24/6 - ماكس', 
+    price: 40, 
+    image: '/assets/office-stapler-4.jpg', 
+    description: 'دباسة مكتبية خفيفة ومتينة للاستخدام اليومي',
     brand: 'ماكس',
     size: 'صغير',
-    holes: 'ثقب واحد',
-    capacity: '15 ورقة'
+    capacity: '20 ورقة',
+    stapleSize: '24/6'
   },
   { 
-    id: 'paper-punch-5', 
-    name: 'خرامة ورق متوسطة ثقبين - SDI', 
-    price: 55, 
-    image: '/assets/paper-punch-5.jpg', 
-    description: 'خرامة ورق بجودة عالية ومقبض مريح',
+    id: 'office-stapler-5', 
+    name: 'دباسة مكتبية متوسطة 24/6 - SDI', 
+    price: 60, 
+    image: '/assets/office-stapler-5.jpg', 
+    description: 'دباسة مكتبية بجودة عالية ومتانة ممتازة',
     brand: 'SDI',
     size: 'متوسط',
-    holes: 'ثقبين',
-    capacity: '25 ورقة'
+    capacity: '30 ورقة',
+    stapleSize: '24/6'
   },
   { 
-    id: 'paper-punch-6', 
-    name: 'خرامة ورق كبيرة ثقبين - كانجارو', 
-    price: 85, 
-    image: '/assets/paper-punch-6.jpg', 
-    description: 'خرامة ورق قوية للمستندات السميكة',
+    id: 'office-stapler-6', 
+    name: 'دباسة مكتبية كبيرة 23/13 - كانجارو', 
+    price: 95, 
+    image: '/assets/office-stapler-6.jpg', 
+    description: 'دباسة مكتبية قوية للمستندات السميكة',
     brand: 'كانجارو',
     size: 'كبير',
-    holes: 'ثقبين',
-    capacity: '50 ورقة'
+    capacity: '60 ورقة',
+    stapleSize: '23/13'
   },
   { 
-    id: 'paper-punch-7', 
-    name: 'خرامة ورق صغيرة أشكال - ديلي', 
+    id: 'office-stapler-7', 
+    name: 'دباسة مكتبية صغيرة 24/6 - بريما', 
     price: 30, 
-    image: '/assets/paper-punch-7.jpg', 
-    description: 'خرامة ورق بأشكال مختلفة للأعمال الفنية',
-    brand: 'ديلي',
-    size: 'صغير',
-    holes: 'أشكال',
-    capacity: '5 ورقة'
-  },
-  { 
-    id: 'paper-punch-8', 
-    name: 'خرامة ورق متوسطة 4 ثقوب - ديلي', 
-    price: 65, 
-    image: '/assets/paper-punch-8.jpg', 
-    description: 'خرامة ورق بأربع ثقوب للملفات الخاصة',
-    brand: 'ديلي',
-    size: 'متوسط',
-    holes: '4 ثقوب',
-    capacity: '30 ورقة'
-  },
-  { 
-    id: 'paper-punch-9', 
-    name: 'خرامة ورق صغيرة ثقبين - بريما', 
-    price: 18, 
-    image: '/assets/paper-punch-9.jpg', 
-    description: 'خرامة ورق اقتصادية بجودة جيدة',
+    image: '/assets/office-stapler-7.jpg', 
+    description: 'دباسة مكتبية اقتصادية بجودة جيدة',
     brand: 'بريما',
     size: 'صغير',
-    holes: 'ثقبين',
-    capacity: '8 ورقة'
+    capacity: '15 ورقة',
+    stapleSize: '24/6'
+  },
+  { 
+    id: 'office-stapler-8', 
+    name: 'دباسة مكتبية متوسطة 24/8 - ديلي', 
+    price: 70, 
+    image: '/assets/office-stapler-8.jpg', 
+    description: 'دباسة مكتبية بمقبض مريح وأداء ممتاز',
+    brand: 'ديلي',
+    size: 'متوسط',
+    capacity: '40 ورقة',
+    stapleSize: '24/8'
   },
 ];
 
-const PaperPunchesPage = () => {
+const OfficeStaplersPage = () => {
   const { addItem } = useCart();
   
   useEffect(() => {
-    document.title = "خرامات ورق | تفانين";
-    const desc = "تسوق خرامات ورق بأحجام وأنواع مختلفة - ثقب واحد، ثقبين، أربع ثقوب، وأشكال. خرامات عالية الجودة من أفضل العلامات التجارية من تفانين.";
+    document.title = "دباسات مكتبية | تفانين";
+    const desc = "تسوق دباسات مكتبية بأحجام مختلفة للاستخدام المكتبي - صغيرة ومتوسطة وكبيرة. دباسات عالية الجودة من أفضل العلامات التجارية من تفانين.";
     let meta = document.querySelector('meta[name="description"]');
     if (!meta) { 
       meta = document.createElement('meta'); 
@@ -135,48 +124,48 @@ const PaperPunchesPage = () => {
           <ArrowRight className="h-4 w-4" />
           <Link to="/office-supplies" className="hover:text-primary">الأدوات المكتبية</Link>
           <ArrowRight className="h-4 w-4" />
-          <span className="text-foreground">خرامات ورق</span>
+          <span className="text-foreground">دباسات مكتبية</span>
         </nav>
         
         <div className="text-center mb-12">
-          <div className="text-6xl mb-4">🕳️</div>
-          <h1 className="text-3xl lg:text-4xl font-bold mb-4">خرامات ورق</h1>
+          <div className="text-6xl mb-4">📌</div>
+          <h1 className="text-3xl lg:text-4xl font-bold mb-4">دباسات مكتبية</h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            خرامات بأحجام وأنواع مختلفة - ثقب واحد، ثقبين، أربع ثقوب، وأشكال فنية
+            دباسات بأحجام مختلفة للاستخدام المكتبي - صغيرة ومتوسطة وكبيرة
           </p>
         </div>
         
         {/* Features Section */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-          <Card className="text-center p-6 bg-gradient-to-br from-orange-50 to-amber-50 border-orange-200">
-            <div className="text-4xl mb-4">🎯</div>
-            <h3 className="font-bold mb-2 text-orange-700">أنواع متعددة</h3>
-            <p className="text-sm text-orange-600">ثقب واحد، ثقبين، وأشكال</p>
+          <Card className="text-center p-6 bg-gradient-to-br from-blue-50 to-indigo-50 border-blue-200">
+            <div className="text-4xl mb-4">📏</div>
+            <h3 className="font-bold mb-2 text-blue-700">أحجام متنوعة</h3>
+            <p className="text-sm text-blue-600">صغيرة ومتوسطة وكبيرة</p>
           </Card>
-          <Card className="text-center p-6 bg-gradient-to-br from-teal-50 to-cyan-50 border-teal-200">
-            <div className="text-4xl mb-4">⚙️</div>
-            <h3 className="font-bold mb-2 text-teal-700">سهولة الاستخدام</h3>
-            <p className="text-sm text-teal-600">تصميم مريح وعملي</p>
+          <Card className="text-center p-6 bg-gradient-to-br from-green-50 to-emerald-50 border-green-200">
+            <div className="text-4xl mb-4">💪</div>
+            <h3 className="font-bold mb-2 text-green-700">متانة عالية</h3>
+            <p className="text-sm text-green-600">مصنوعة من مواد عالية الجودة</p>
           </Card>
-          <Card className="text-center p-6 bg-gradient-to-br from-red-50 to-rose-50 border-red-200">
-            <div className="text-4xl mb-4">🏆</div>
-            <h3 className="font-bold mb-2 text-red-700">جودة ممتازة</h3>
-            <p className="text-sm text-red-600">من أفضل الشركات المصنعة</p>
+          <Card className="text-center p-6 bg-gradient-to-br from-purple-50 to-pink-50 border-purple-200">
+            <div className="text-4xl mb-4">⭐</div>
+            <h3 className="font-bold mb-2 text-purple-700">علامات موثوقة</h3>
+            <p className="text-sm text-purple-600">من أفضل الشركات العالمية</p>
           </Card>
         </div>
         
         <h2 className="text-2xl lg:text-3xl font-bold mb-8 text-center border-b pb-4">
-          <Circle className="inline-block mr-3 mb-1" />
-          جميع الخرامات
+          <Hammer className="inline-block mr-3 mb-1" />
+          جميع الدباسات المكتبية
         </h2>
         
         {/* Products Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {paperPunchesProducts.map((product) => (
+          {officeStaplersProducts.map((product) => (
             <Card key={product.id} className="group hover:shadow-elegant transition-all duration-300 hover:-translate-y-1 overflow-hidden">
               <CardContent className="p-0">
                 {/* Product Image */}
-                <div className="relative h-48 bg-gradient-to-br from-orange-100 to-amber-100 flex items-center justify-center overflow-hidden">
+                <div className="relative h-48 bg-gradient-to-br from-blue-100 to-indigo-100 flex items-center justify-center overflow-hidden">
                   <img 
                     src={product.image} 
                     alt={product.name}
@@ -188,12 +177,12 @@ const PaperPunchesPage = () => {
                     }}
                   />
                   <div className="absolute inset-0 items-center justify-center text-6xl hidden">
-                    🕳️
+                    📌
                   </div>
                   
-                  {/* Type Badge */}
+                  {/* Size Badge */}
                   <div className="absolute top-3 right-3 bg-white/90 backdrop-blur-sm rounded-full px-3 py-1 text-xs font-medium text-gray-700">
-                    {product.holes}
+                    {product.size}
                   </div>
                   
                   {/* Brand Badge */}
@@ -210,7 +199,7 @@ const PaperPunchesPage = () => {
                   {/* Product Details */}
                   <div className="grid grid-cols-2 gap-2 mb-4 text-sm">
                     <span className="text-muted-foreground">الحجم: <span className="font-medium text-foreground">{product.size}</span></span>
-                    <span className="text-muted-foreground">النوع: <span className="font-medium text-foreground">{product.holes}</span></span>
+                    <span className="text-muted-foreground">مقاس الدبوس: <span className="font-medium text-foreground">{product.stapleSize}</span></span>
                     <span className="text-muted-foreground col-span-2">السعة: <span className="font-medium text-foreground">{product.capacity}</span></span>
                   </div>
                   
@@ -247,4 +236,4 @@ const PaperPunchesPage = () => {
   );
 };
 
-export default PaperPunchesPage;
+export default OfficeStaplersPage;

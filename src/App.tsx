@@ -109,8 +109,7 @@ import SmallDrawingNotebookPage from "./pages/SmallDrawingNotebookPage";
 import ErasersSharpenersPage from "./pages/ErasersSharpenersPage";
 import ErasersPage from "./pages/ErasersPage";
 import SharpenersPage from "./pages/SharpenersPage";
-import OfficeStaplersPage from "./pages/OfficeStaplersPage";
-import PaperPunchesPage from "./pages/PaperPunchesPage";
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -227,8 +226,6 @@ const App = () => (
               <Route path="/erasers-sharpeners" element={<ErasersSharpenersPage />} />
               <Route path="/erasers-sharpeners/erasers" element={<ErasersPage />} />
               <Route path="/erasers-sharpeners/sharpeners" element={<SharpenersPage />} />
-              <Route path="/office-supplies/office-staplers" element={<OfficeStaplersPage />} />
-              <Route path="/office-supplies/paper-punches" element={<PaperPunchesPage />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>
