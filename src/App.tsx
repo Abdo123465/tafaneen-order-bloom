@@ -121,11 +121,16 @@ import OfficeSuppliesPage from "./pages/OfficeSuppliesPage";
 import StaplerPage from "./pages/StaplerPage";
 import StaplersPage from "./pages/StaplersPage";
 import HolePunchPage from "./pages/HolePunchPage";
-import StaplePinsPage from "./pages/StaplePinsPage";
 import StampsPage from "./pages/StampsPage";
-import PaperClipsPage from "./pages/PaperClipsPage";
 import SoapPaperPage from "./pages/SoapPaperPage";
+
+// صفحة الدبابيس والمشابك (الصفحة الرئيسية الجديدة)
+import PinsClipsPage from "./pages/PinsClipsPage";
+
+// صفحات الدبابيس والمشابك الفرعية
 import PushPinsPage from "./pages/PushPinsPage";
+import StaplePinsPage from "./pages/StaplePinsPage";
+import PaperClipsPage from "./pages/PaperClipsPage";
 
 // صفحات الآلات الحاسبة والمساطر
 import CalculatorsRulersPage from "./pages/CalculatorsRulersPage";
@@ -262,11 +267,14 @@ const App = () => (
               <Route path="/office-supplies/stapler" element={<StaplerPage />} />
               <Route path="/office-supplies/staplers" element={<StaplersPage />} />
               <Route path="/office-supplies/hole-punch" element={<HolePunchPage />} />
-              <Route path="/office-supplies/staple-pins" element={<StaplePinsPage />} />
               <Route path="/office-supplies/stamps" element={<StampsPage />} />
-              <Route path="/office-supplies/paper-clips" element={<PaperClipsPage />} />
               <Route path="/office-supplies/soap-paper" element={<SoapPaperPage />} />
+              
+              {/* صفحات الدبابيس والمشابك - جديد */}
+              <Route path="/office-supplies/pins-clips" element={<PinsClipsPage />} />
               <Route path="/office-supplies/push-pins" element={<PushPinsPage />} />
+              <Route path="/office-supplies/staple-pins" element={<StaplePinsPage />} />
+              <Route path="/office-supplies/paper-clips" element={<PaperClipsPage />} />
               
               {/* صفحات الآلات الحاسبة والمساطر */}
               <Route path="/calculators-rulers" element={<CalculatorsRulersPage />} />
