@@ -31,7 +31,7 @@ const OfficeSuppliesPage = () => {
     },
     {
       id: 3,
-      name: "أختام وأدوات مكتبية",
+      name: "ختامة و حبر ختامة",
       description: "أختام، حبر ختامة، وكل ما يتعلق بها",
       icon: Stamp,
       color: "bg-gradient-to-br from-purple-500 to-violet-600",

@@ -1161,7 +1161,9 @@ export function searchProducts(query: string): Product[] {
     );
     
     // البحث في الفئة
-    const categoryMatch = product.category.toLowerCase().includes(searchTerm);
+    const categoryMatch = Array.isArray(product.category) 
+      ? product.category.some(c => c.toLowerCase().includes(searchTerm))
+      : product.category.toLowerCase().includes(searchTerm);
     
     return nameMatch || descriptionMatch || brandMatch || keywordsMatch || categoryMatch;
   });
@@ -1205,7 +1207,9 @@ export function sortProducts(products: Product[], sortBy: string): Product[] {
 
 // دالة للحصول على الفئات الفريدة
 export function getUniqueCategories(): string[] {
-  const categories = allProducts.map(product => product.category);
+  const categories = allProducts.flatMap(product => 
+    Array.isArray(product.category) ? product.category : [product.category]
+  );
   return ['all', ...Array.from(new Set(categories))];
 }
 
