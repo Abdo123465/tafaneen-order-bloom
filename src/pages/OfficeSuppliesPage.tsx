@@ -69,14 +69,12 @@ const OfficeSuppliesPage = () => {
             const IconComponent = category.icon;
             return (
               <Card key={category.id} className="overflow-hidden hover:shadow-lg transition-shadow">
-                <CardHeader className={`${category.color} ${category.textColor} p-6`}>
-                  <div className="flex items-center gap-4">
-                    <div className="text-4xl">{category.emoji}</div>
-                    <div className="flex-1">
-                      <CardTitle className="text-2xl mb-2">{category.name}</CardTitle>
-                      <p className="text-sm opacity-90">{category.description}</p>
-                    </div>
-                    <IconComponent className="h-12 w-12 opacity-50" />
+                <CardHeader className={`${category.color} ${category.textColor} p-8`}>
+                  <div className="text-center">
+                    <div className="text-6xl mb-4">{category.emoji}</div>
+                    <IconComponent className="h-16 w-16 mx-auto mb-4 opacity-20" />
+                    <CardTitle className="text-2xl mb-3">{category.name}</CardTitle>
+                    <p className="text-sm opacity-90 leading-relaxed">{category.description}</p>
                   </div>
                 </CardHeader>
                 <CardContent className="p-6">
