@@ -111,6 +111,7 @@ import ErasersPage from "./pages/ErasersPage";
 import SharpenersPage from "./pages/SharpenersPage";
 import OfficeStaplersPage from "./pages/OfficeStaplersPage";
 import PaperPunchesPage from "./pages/PaperPunchesPage";
+import ClipsPage from "./pages/ClipsPage";
 // استيراد صفحة الدباسات الجديدة
 import StaplersPage from "./pages/StaplersPage";
 
@@ -185,6 +186,7 @@ const App = () => (
               <Route path="/office-supplies/staple-pins" element={<StaplePinsPage />} />
               <Route path="/office-supplies/stamps" element={<StampsPage />} />
               <Route path="/office-supplies/paper-clips" element={<PaperClipsPage />} />
+              <Route path="/office-supplies/clips" element={<ClipsPage />} />
               <Route path="/office-supplies/soap-paper" element={<SoapPaperPage />} />
               <Route path="/office-supplies/push-pins" element={<PushPinsPage />} />
               <Route path="/office-supplies/office-staplers" element={<OfficeStaplersPage />} />
