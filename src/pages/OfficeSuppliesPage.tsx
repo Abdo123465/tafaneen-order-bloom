@@ -31,8 +31,8 @@ const OfficeSuppliesPage = () => {
     },
     {
       id: 3,
-      name: "ختامة",
-      description: "ختامة - حبر الختامة",
+      name: "أختام وأدوات مكتبية",
+      description: "أختام، حبر ختامة، وكل ما يتعلق بها",
       icon: Stamp,
       color: "bg-gradient-to-br from-purple-500 to-violet-600",
       textColor: "text-white",
@@ -48,6 +48,16 @@ const OfficeSuppliesPage = () => {
       textColor: "text-white",
       emoji: "📌",
       path: "/office-supplies/staplers"
+    },
+    {
+      id: 5,
+      name: "أدوات مكتبية متنوعة",
+      description: "مجموعة متنوعة من الأدوات المكتبية",
+      icon: Package,
+      color: "bg-gradient-to-br from-yellow-500 to-amber-600",
+      textColor: "text-white",
+      emoji: "📦",
+      path: "/office-supplies/misc"
     }
   ];
 
