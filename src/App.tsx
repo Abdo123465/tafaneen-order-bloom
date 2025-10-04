@@ -114,7 +114,7 @@ import PaperPunchesPage from "./pages/PaperPunchesPage";
 import ClipsPage from "./pages/ClipsPage";
 // استيراد صفحة الدباسات الجديدة
 import StaplersPage from "./pages/StaplersPage";
-import StampsSubCategoryPage from "./pages/StampsSubCategoryPage";
+import OfficeStampsPage from "./pages/OfficeStampsPage";
 import InkPadsPage from "./pages/InkPadsPage";
 import MiscOfficeSuppliesPage from "./pages/MiscOfficeSuppliesPage";
 
@@ -197,7 +197,7 @@ const App = () => (
               <Route path="/office-supplies/paper-punches" element={<PaperPunchesPage />} />
               {/* المسار الجديد لصفحة الدباسات */}
               <Route path="/office-supplies/staplers" element={<StaplersPage />} />
-              <Route path="/office-supplies/stamps/stamps-subcategory" element={<StampsSubCategoryPage />} />
+              <Route path="/office-supplies/office-stamps" element={<OfficeStampsPage />} />
               <Route path="/office-supplies/stamps/ink-pads" element={<InkPadsPage />} />
               <Route path="/office-supplies/misc" element={<MiscOfficeSuppliesPage />} />
               <Route path="/offers" element={<OffersPage />} />
