@@ -67,7 +67,7 @@ export interface Product {
   price: number;
   originalPrice?: number;
   image: string;
-  category: string;
+  category: string | string[];
   brand: string;
   keywords: string[];
   inStock: boolean;
@@ -1107,7 +1107,7 @@ export const allProducts: Product[] = [
     description: 'حبر ختامة عالي الجودة باللون الأسود',
     price: 15,
     image: '/placeholder.svg',
-    category: 'حبر ختامة',
+    category: ['حبر ختامة', 'أدوات مكتبية متنوعة'],
     brand: 'Trodat',
     keywords: ['حبر', 'ختامة', 'أسود', 'trodat'],
     inStock: true,
@@ -1136,20 +1136,6 @@ export const allProducts: Product[] = [
     keywords: ['حبر', 'ختامة', 'أحمر', 'shiny'],
     inStock: true,
     rating: 4.5
-  },
-  
-  // منتج حبر ختامة مكرر في فئة أخرى
-  {
-    id: 'INK-001-MISC',
-    name: 'حبر ختامة أسود',
-    description: 'حبر ختامة عالي الجودة باللون الأسود',
-    price: 15,
-    image: '/placeholder.svg',
-    category: 'أدوات مكتبية متنوعة',
-    brand: 'Trodat',
-    keywords: ['حبر', 'ختامة', 'أسود', 'trodat', 'متنوعة'],
-    inStock: true,
-    rating: 4.7
   }
 ];
 
@@ -1184,7 +1170,12 @@ export function searchProducts(query: string): Product[] {
 // دالة لتصفية المنتجات حسب الفئة
 export function filterByCategory(products: Product[], category: string): Product[] {
   if (category === 'all') return products;
-  return products.filter(product => product.category.toLowerCase() === category.toLowerCase());
+  return products.filter(product => {
+    if (Array.isArray(product.category)) {
+      return product.category.some(c => c.toLowerCase() === category.toLowerCase());
+    }
+    return product.category.toLowerCase() === category.toLowerCase();
+  });
 }
 
 // دالة لترتيب المنتجات
