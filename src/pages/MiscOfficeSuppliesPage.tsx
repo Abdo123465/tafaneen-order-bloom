@@ -3,23 +3,11 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { useCart } from "@/contexts/CartContext";
-import { ArrowRight, Box, Image as ImageIcon } from "lucide-react";
+import { ArrowRight, Image as ImageIcon } from "lucide-react";
 import { Link } from "react-router-dom";
+import { allProducts, Product, filterByCategory } from "@/data/products";
 
-const miscSupplies = [
-  { 
-    id: 'INK-001', 
-    name: 'حبر ختامة أسود', 
-    price: 15, 
-    image: '/placeholder.svg', 
-    fallbackEmoji: '⚫',
-    description: 'حبر ختامة عالي الجودة باللون الأسود',
-    brand: 'Trodat'
-  },
-  // يمكن إضافة منتجات أخرى هنا في المستقبل
-];
-
-const ProductImage = ({ src, alt, fallbackEmoji, className }) => {
+const ProductImage = ({ src, alt, fallbackEmoji, className }: { src: string; alt: string; fallbackEmoji: string; className?: string }) => {
   const [imageError, setImageError] = useState(false);
   const [imageLoading, setImageLoading] = useState(true);
   
@@ -45,7 +33,7 @@ const ProductImage = ({ src, alt, fallbackEmoji, className }) => {
           />
         </>
       ) : (
-        <div className="text-6xl">{fallbackEmoji}</div>
+        <div className="text-6xl">{fallbackEmoji || '📦'}</div>
       )}
     </div>
   );
@@ -53,7 +41,8 @@ const ProductImage = ({ src, alt, fallbackEmoji, className }) => {
 
 export default function MiscOfficeSuppliesPage() {
   const { addItem } = useCart();
-  
+  const [miscProducts, setMiscProducts] = useState<Product[]>([]);
+
   useEffect(() => {
     document.title = "أدوات مكتبية متنوعة | تفانين";
     const desc = "اكتشف مجموعتنا من الأدوات المكتبية المتنوعة التي تلبي احتياجاتك اليومية.";
@@ -64,6 +53,8 @@ export default function MiscOfficeSuppliesPage() {
       document.head.appendChild(meta);
     } 
     meta.setAttribute('content', desc);
+
+    setMiscProducts(filterByCategory(allProducts, 'أدوات مكتبية متنوعة'));
   }, []);
 
   return (
@@ -91,7 +82,7 @@ export default function MiscOfficeSuppliesPage() {
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {miscSupplies.map((item) => (
+          {miscProducts.map((item) => (
             <div key={item.id} className="card-product relative group">
               <div className="absolute top-3 left-3 z-10">
                 <span className="bg-primary text-primary-foreground text-xs px-3 py-1 rounded-full font-medium">
@@ -102,7 +93,7 @@ export default function MiscOfficeSuppliesPage() {
               <ProductImage 
                 src={item.image}
                 alt={item.name}
-                fallbackEmoji={item.fallbackEmoji}
+                fallbackEmoji='📦'
                 className="mb-4"
               />
               
