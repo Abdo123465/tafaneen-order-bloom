@@ -3,40 +3,11 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { useCart } from "@/contexts/CartContext";
-import { ArrowRight, Droplet, Image as ImageIcon } from "lucide-react";
+import { ArrowRight, Image as ImageIcon } from "lucide-react";
 import { Link } from "react-router-dom";
+import { allProducts, Product, filterByCategory } from "@/data/products";
 
-const inkPads = [
-  { 
-    id: 'INK-001', 
-    name: 'حبر ختامة أسود', 
-    price: 15, 
-    image: '/placeholder.svg', 
-    fallbackEmoji: '⚫',
-    description: 'حبر ختامة عالي الجودة باللون الأسود',
-    brand: 'Trodat'
-  },
-  { 
-    id: 'INK-002', 
-    name: 'حبر ختامة أزرق', 
-    price: 15, 
-    image: '/placeholder.svg',
-    fallbackEmoji: '🔵',
-    description: 'حبر ختامة عالي الجودة باللون الأزرق',
-    brand: 'Trodat'
-  },
-  { 
-    id: 'INK-003', 
-    name: 'حبر ختامة أحمر', 
-    price: 15, 
-    image: '/placeholder.svg',
-    fallbackEmoji: '🔴',
-    description: 'حبر ختامة عالي الجودة باللون الأحمر',
-    brand: 'Shiny'
-  },
-];
-
-const ProductImage = ({ src, alt, fallbackEmoji, className }) => {
+const ProductImage = ({ src, alt, fallbackEmoji, className }: { src: string; alt: string; fallbackEmoji: string; className?: string }) => {
   const [imageError, setImageError] = useState(false);
   const [imageLoading, setImageLoading] = useState(true);
   
@@ -62,7 +33,7 @@ const ProductImage = ({ src, alt, fallbackEmoji, className }) => {
           />
         </>
       ) : (
-        <div className="text-6xl">{fallbackEmoji}</div>
+        <div className="text-6xl">{fallbackEmoji || '💧'}</div>
       )}
     </div>
   );
@@ -70,7 +41,8 @@ const ProductImage = ({ src, alt, fallbackEmoji, className }) => {
 
 export default function InkPadsPage() {
   const { addItem } = useCart();
-  
+  const [inkPadProducts, setInkPadProducts] = useState<Product[]>([]);
+
   useEffect(() => {
     document.title = "حبر ختامة | تفانين";
     const desc = "تسوق أفضل أنواع أحبار الختامات لضمان طباعة واضحة ودائمة.";
@@ -81,6 +53,8 @@ export default function InkPadsPage() {
       document.head.appendChild(meta);
     } 
     meta.setAttribute('content', desc);
+
+    setInkPadProducts(filterByCategory(allProducts, 'حبر ختامة'));
   }, []);
 
   return (
@@ -110,7 +84,7 @@ export default function InkPadsPage() {
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {inkPads.map((inkPad) => (
+          {inkPadProducts.map((inkPad) => (
             <div key={inkPad.id} className="card-product relative group">
               <div className="absolute top-3 left-3 z-10">
                 <span className="bg-primary text-primary-foreground text-xs px-3 py-1 rounded-full font-medium">
@@ -121,7 +95,7 @@ export default function InkPadsPage() {
               <ProductImage 
                 src={inkPad.image}
                 alt={inkPad.name}
-                fallbackEmoji={inkPad.fallbackEmoji}
+                fallbackEmoji='💧'
                 className="mb-4"
               />
               
