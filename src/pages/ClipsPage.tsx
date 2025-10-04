@@ -1,3 +1,4 @@
+// src/pages/ClipsPage.tsx
 import { useEffect, useState } from "react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -9,38 +10,47 @@ import { Link } from "react-router-dom";
 const paperClips = [
   { 
     id: 'CLIP-001', 
-    name: 'مشابك ورق معدنية صغيرة', 
-    price: 3, 
-    image: '/placeholder.svg', 
+    name: 'مشابك ورق معدنية ملونة', 
+    price: 5, 
+    image: '/assets/colored-paper-clips.jpg', 
     fallbackEmoji: '📎',
-    description: 'مشابك ورق معدنية صغيرة للاستخدام اليومي',
+    description: 'علبة مشابك ورق معدنية بألوان متنوعة لتنظيم مستنداتك بسهولة وأناقة.',
     brand: 'Deli'
   },
   { 
     id: 'CLIP-002', 
-    name: 'مشابك ورق معدنية كبيرة', 
-    price: 6, 
-    image: '/placeholder.svg',
+    name: 'مشابك ورق ذهبية', 
+    price: 8, 
+    image: '/assets/golden-paper-clips.jpg',
     fallbackEmoji: '🖇️',
-    description: 'مشابك ورق معدنية كبيرة للمستندات الكثيرة',
-    brand: 'Deli'
+    description: 'مشابك ورق فاخرة باللون الذهبي، مثالية لإضافة لمسة من الأناقة لمكتبك.',
+    brand: 'Max'
   },
   { 
     id: 'CLIP-003', 
-    name: 'مشابك ورق بلاستيكية ملونة', 
-    price: 8, 
-    image: '/placeholder.svg',
+    name: 'مشابك ورق بلاستيكية', 
+    price: 4, 
+    image: '/assets/plastic-paper-clips.jpg',
     fallbackEmoji: '🌈',
-    description: 'مشابك ورق بلاستيكية بألوان زاهية',
+    description: 'مشابك ورق بلاستيكية خفيفة الوزن بألوان زاهية، آمنة للاستخدام المدرسي.',
     brand: 'Deli'
   },
   { 
     id: 'CLIP-004', 
-    name: 'مشابك ورق مغناطيسية', 
-    price: 15, 
-    image: '/placeholder.svg',
+    name: 'مشابك ورق سوداء', 
+    price: 6, 
+    image: '/assets/black-paper-clips.jpg',
     fallbackEmoji: '🧲',
-    description: 'مشابك ورق مغناطيسية عملية وقوية',
+    description: 'مشابك ورق كلاسيكية باللون الأسود، قوية ومتينة للاستخدام المكتبي.',
+    brand: 'Deli'
+  },
+  { 
+    id: 'CLIP-005', 
+    name: 'مشابك ورق كبيرة', 
+    price: 10, 
+    image: '/assets/large-paper-clips.jpg',
+    fallbackEmoji: '📎',
+    description: 'مشابك ورق كبيرة الحجم لتثبيت عدد كبير من الأوراق بشكل آمن.',
     brand: 'Max'
   },
 ];
@@ -82,7 +92,7 @@ export default function ClipsPage() {
   
   useEffect(() => {
     document.title = "مشابك الأوراق | تفانين";
-    const desc = "تسوق مشابك الأوراق المعدنية والبلاستيكية بأحجام مختلفة من تفانين.";
+    const desc = "تسوق أفضل أنواع مشابك الأوراق المعدنية والبلاستيكية بأحجام وألوان متنوعة من تفانين.";
     let meta = document.querySelector('meta[name="description"]');
     if (!meta) { 
       meta = document.createElement('meta'); 
@@ -114,7 +124,7 @@ export default function ClipsPage() {
             مشابك الأوراق
           </h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-4">
-            مشابك معدنية وبلاستيكية بأحجام مختلفة - اختر ما يناسب احتياجاتك
+            لتنظيم أوراقك بأناقة وكفاءة، اختر من مجموعتنا المتنوعة من مشابك الأوراق عالية الجودة.
           </p>
           <div className="inline-flex items-center gap-2 bg-primary/10 px-4 py-2 rounded-full">
             <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
@@ -126,21 +136,21 @@ export default function ClipsPage() {
           <div className="text-center">
             <div className="text-3xl mb-2">💪</div>
             <h3 className="font-semibold mb-1">متينة وقوية</h3>
-            <p className="text-sm text-muted-foreground">تمسك الأوراق بقوة</p>
+            <p className="text-sm text-muted-foreground">تمسك الأوراق بقوة دون أن تنزلق.</p>
           </div>
           <div className="text-center">
             <div className="text-3xl mb-2">🎨</div>
             <h3 className="font-semibold mb-1">ألوان متعددة</h3>
-            <p className="text-sm text-muted-foreground">ألوان زاهية للتنظيم</p>
+            <p className="text-sm text-muted-foreground">ألوان زاهية لتصنيف وتنظيم ملفاتك.</p>
           </div>
           <div className="text-center">
             <div className="text-3xl mb-2">🎯</div>
             <h3 className="font-semibold mb-1">سهلة الاستخدام</h3>
-            <p className="text-sm text-muted-foreground">تصميم عملي ومريح</p>
+            <p className="text-sm text-muted-foreground">تصميم عملي ومريح للاستخدام اليومي.</p>
           </div>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {paperClips.map((clip) => (
             <div key={clip.id} className="card-product relative group">
               <div className="absolute top-3 left-3 z-10">
@@ -178,18 +188,19 @@ export default function ClipsPage() {
         </div>
 
         <div className="mt-16 bg-gradient-to-r from-green-50 to-emerald-50 rounded-2xl p-8 text-center">
-          <h2 className="text-2xl font-bold mb-4">أنواع مشابك الأوراق</h2>
+          <h2 className="text-2xl font-bold mb-4">لماذا تختار مشابك الأوراق من تفانين؟</h2>
           <p className="text-muted-foreground max-w-3xl mx-auto mb-6">
-            نوفر لك مجموعة شاملة من مشابك الأوراق لتناسب جميع الاحتياجات المكتبية
+            نحن في تفانين نؤمن بأن الأدوات المكتبية الصغيرة يمكن أن تحدث فرقًا كبيرًا في تنظيم عملك.
+            لهذا السبب، نوفر لك مجموعة شاملة من مشابك الأوراق التي تجمع بين الجودة العالية والتصميم الأنيق لتناسب جميع احتياجاتك المكتبية والمدرسية.
           </p>
           <div className="flex items-center justify-center gap-8 text-sm text-muted-foreground">
             <div className="flex items-center gap-2">
               <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-              <span>جودة عالية</span>
+              <span>مواد عالية الجودة</span>
             </div>
             <div className="flex items-center gap-2">
               <Award className="h-4 w-4" />
-              <span>متانة فائقة</span>
+              <span>تصاميم متنوعة</span>
             </div>
           </div>
         </div>
