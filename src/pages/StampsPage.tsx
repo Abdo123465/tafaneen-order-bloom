@@ -23,7 +23,7 @@ const subCategories = [
 
 export default function StampsPage() {
   useEffect(() => {
-    document.title = "أختام وأدوات مكتبية | تفانين";
+    document.title = "ختامة و حبر ختامة | تفانين";
     const desc = "تصفح مجموعتنا من الأختام المكتبية وأحبار الختامات عالية الجودة.";
     let meta = document.querySelector('meta[name="description"]');
     if (!meta) {
@@ -45,12 +45,12 @@ export default function StampsPage() {
           <ArrowRight className="h-4 w-4" />
           <Link to="/office-supplies" className="hover:text-primary">مستلزمات المكتب</Link>
           <ArrowRight className="h-4 w-4" />
-          <span className="text-foreground">أختام وأدوات مكتبية</span>
+          <span className="text-foreground">ختامة و حبر ختامة</span>
         </nav>
 
         <div className="text-center mb-12">
           <h1 className="text-3xl lg:text-4xl font-bold mb-4">
-            أختام وأدوات مكتبية
+            ختامة و حبر ختامة
           </h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             اختر من بين مجموعتنا المتنوعة من الأختام وأحبار الختامات لتلبية جميع احتياجاتك المكتبية.

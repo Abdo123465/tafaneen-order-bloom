@@ -103,7 +103,7 @@ export default function OfficeToolsPage() {
           <ArrowRight className="h-4 w-4" />
           <Link to="/office-supplies" className="hover:text-primary">مستلزمات المكتب</Link>
           <ArrowRight className="h-4 w-4" />
-          <Link to="/office-supplies/stamps" className="hover:text-primary">أختام وأدوات مكتبية</Link>
+          <Link to="/office-supplies/stamps" className="hover:text-primary">ختامة و حبر ختامة</Link>
           <ArrowRight className="h-4 w-4" />
           <span className="text-foreground">الأدوات المكتبية</span>
         </nav>
@@ -196,7 +196,7 @@ export default function OfficeToolsPage() {
 
         <div className="text-center mt-12">
           <Button asChild variant="outline" className="text-lg px-8 py-4 h-auto">
-            <Link to="/office-supplies/stamps">العودة إلى أختام وأدوات مكتبية</Link>
+            <Link to="/office-supplies/stamps">العودة إلى ختامة و حبر ختامة</Link>
           </Button>
         </div>
       </main>

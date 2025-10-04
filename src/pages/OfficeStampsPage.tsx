@@ -68,7 +68,7 @@ export default function OfficeStampsPage() {
           <ArrowRight className="h-4 w-4" />
           <Link to="/office-supplies" className="hover:text-primary">مستلزمات المكتب</Link>
           <ArrowRight className="h-4 w-4" />
-          <Link to="/office-supplies/stamps" className="hover:text-primary">أختام وأدوات مكتبية</Link>
+          <Link to="/office-supplies/stamps" className="hover:text-primary">ختامة و حبر ختامة</Link>
           <ArrowRight className="h-4 w-4" />
           <span className="text-foreground">أختام</span>
         </nav>
