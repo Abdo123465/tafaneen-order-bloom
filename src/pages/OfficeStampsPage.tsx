@@ -3,45 +3,36 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { useCart } from "@/contexts/CartContext";
-import { ArrowRight, Star, Award, Image as ImageIcon } from "lucide-react";
+import { ArrowRight, Droplet, Image as ImageIcon } from "lucide-react";
 import { Link } from "react-router-dom";
 
-const stamps = [
+const inkPads = [
   { 
-    id: 'STAMP-001', 
-    name: 'ختم مكتبي ذاتي', 
-    price: 25, 
+    id: 'INK-001', 
+    name: 'حبر ختامة أسود', 
+    price: 15, 
     image: '/placeholder.svg', 
-    fallbackEmoji: '✒️',
-    description: 'ختم مكتبي ذاتي للاستخدام الإداري',
-    brand: 'Deli'
+    fallbackEmoji: '⚫',
+    description: 'حبر ختامة عالي الجودة باللون الأسود',
+    brand: 'Trodat'
   },
   { 
-    id: 'STAMP-002', 
-    name: 'ختم خشبي', 
+    id: 'INK-002', 
+    name: 'حبر ختامة أزرق', 
     price: 15, 
     image: '/placeholder.svg',
-    fallbackEmoji: '🪵',
-    description: 'ختم خشبي تقليدي عالي الجودة',
-    brand: 'Max'
+    fallbackEmoji: '🔵',
+    description: 'حبر ختامة عالي الجودة باللون الأزرق',
+    brand: 'Trodat'
   },
   { 
-    id: 'STAMP-003', 
-    name: 'ختم تاريخ', 
-    price: 30, 
+    id: 'INK-003', 
+    name: 'حبر ختامة أحمر', 
+    price: 15, 
     image: '/placeholder.svg',
-    fallbackEmoji: '📅',
-    description: 'ختم تاريخ قابل للتعديل',
-    brand: 'Deli'
-  },
-  { 
-    id: 'STAMP-004', 
-    name: 'ختم شعار الشركة', 
-    price: 50, 
-    image: '/placeholder.svg',
-    fallbackEmoji: '🏢',
-    description: 'ختم مخصص لشعار الشركة',
-    brand: 'Custom'
+    fallbackEmoji: '🔴',
+    description: 'حبر ختامة عالي الجودة باللون الأحمر',
+    brand: 'Shiny'
   },
 ];
 
@@ -77,12 +68,12 @@ const ProductImage = ({ src, alt, fallbackEmoji, className }) => {
   );
 };
 
-export default function OfficeStampsPage() {
+export default function InkPadsPage() {
   const { addItem } = useCart();
   
   useEffect(() => {
-    document.title = "الأختام المكتبية | تفانين";
-    const desc = "تسوق أختام مكتبية عالية الجودة للاستخدام الإداري والشخصي من تفانين.";
+    document.title = "حبر ختامة | تفانين";
+    const desc = "تسوق أفضل أنواع أحبار الختامات لضمان طباعة واضحة ودائمة.";
     let meta = document.querySelector('meta[name="description"]');
     if (!meta) { 
       meta = document.createElement('meta'); 
@@ -105,69 +96,47 @@ export default function OfficeStampsPage() {
           <ArrowRight className="h-4 w-4" />
           <Link to="/office-supplies/stamps" className="hover:text-primary">أختام وأدوات مكتبية</Link>
           <ArrowRight className="h-4 w-4" />
-          <span className="text-foreground">الأختام المكتبية</span>
+          <span className="text-foreground">حبر ختامة</span>
         </nav>
 
         <div className="text-center mb-12">
-          <div className="text-6xl mb-4">✒️</div>
-          <h1 className="text-3xl lg:text-4xl font-bold mb-4 bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
-            الأختام المكتبية
+          <div className="text-6xl mb-4">💧</div>
+          <h1 className="text-3xl lg:text-4xl font-bold mb-4 bg-gradient-to-r from-green-600 to-teal-600 bg-clip-text text-transparent">
+            حبر الختامات
           </h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-4">
-            أختام وختامات للاستخدام الإداري والشخصي - اختر ما يناسب احتياجاتك
+            نوفر أحبار ختامات عالية الجودة لضمان أفضل أداء لأختامك.
           </p>
-          <div className="inline-flex items-center gap-2 bg-primary/10 px-4 py-2 rounded-full">
-            <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-            <span className="text-sm font-medium">جودة وكفاءة عالية</span>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 bg-muted/30 rounded-2xl p-6">
-          <div className="text-center">
-            <div className="text-3xl mb-2">🎯</div>
-            <h3 className="font-semibold mb-1">طباعة واضحة</h3>
-            <p className="text-sm text-muted-foreground">طباعة واضحة ودقيقة</p>
-          </div>
-          <div className="text-center">
-            <div className="text-3xl mb-2">💪</div>
-            <h3 className="font-semibold mb-1">متينة وقوية</h3>
-            <p className="text-sm text-muted-foreground">تدوم طويلاً</p>
-          </div>
-          <div className="text-center">
-            <div className="text-3xl mb-2">⚡</div>
-            <h3 className="font-semibold mb-1">سهلة الاستخدام</h3>
-            <p className="text-sm text-muted-foreground">تصميم عملي ومريح</p>
-          </div>
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {stamps.map((stamp) => (
-            <div key={stamp.id} className="card-product relative group">
+          {inkPads.map((inkPad) => (
+            <div key={inkPad.id} className="card-product relative group">
               <div className="absolute top-3 left-3 z-10">
                 <span className="bg-primary text-primary-foreground text-xs px-3 py-1 rounded-full font-medium">
-                  {stamp.brand}
+                  {inkPad.brand}
                 </span>
               </div>
               
               <ProductImage 
-                src={stamp.image}
-                alt={stamp.name}
-                fallbackEmoji={stamp.fallbackEmoji}
+                src={inkPad.image}
+                alt={inkPad.name}
+                fallbackEmoji={inkPad.fallbackEmoji}
                 className="mb-4"
               />
               
-              <h3 className="font-semibold mb-2 line-clamp-2">{stamp.name}</h3>
-              <p className="text-sm text-muted-foreground mb-3 line-clamp-2">{stamp.description}</p>
+              <h3 className="font-semibold mb-2 line-clamp-2">{inkPad.name}</h3>
+              <p className="text-sm text-muted-foreground mb-3 line-clamp-2">{inkPad.description}</p>
               
               <div className="flex items-center justify-between mt-auto">
-                <span className="text-primary font-bold text-lg">{stamp.price} ج.م</span>
+                <span className="text-primary font-bold text-lg">{inkPad.price} ج.م</span>
                 <Button 
                   className="btn-tafaneen"
                   onClick={() => addItem({ 
-                    id: stamp.id, 
-                    name: stamp.name, 
-                    price: stamp.price, 
-                    image: stamp.image 
+                    id: inkPad.id, 
+                    name: inkPad.name, 
+                    price: inkPad.price, 
+                    image: inkPad.image 
                   })}
                 >
                   إضافة للسلة
@@ -175,29 +144,6 @@ export default function OfficeStampsPage() {
               </div>
             </div>
           ))}
-        </div>
-
-        <div className="mt-16 bg-gradient-to-r from-purple-50 to-indigo-50 rounded-2xl p-8 text-center">
-          <h2 className="text-2xl font-bold mb-4">أنواع الأختام</h2>
-          <p className="text-muted-foreground max-w-3xl mx-auto mb-6">
-            نوفر لك مجموعة شاملة من الأختام لتناسب جميع الاحتياجات المكتبية والإدارية
-          </p>
-          <div className="flex items-center justify-center gap-8 text-sm text-muted-foreground">
-            <div className="flex items-center gap-2">
-              <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-              <span>جودة عالية</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Award className="h-4 w-4" />
-              <span>متانة فائقة</span>
-            </div>
-          </div>
-        </div>
-
-        <div className="text-center mt-12">
-          <Button asChild variant="outline" className="text-lg px-8 py-4 h-auto">
-            <Link to="/office-supplies/stamps">العودة إلى أختام وأدوات مكتبية</Link>
-          </Button>
         </div>
       </main>
       <Footer />
