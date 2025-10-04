@@ -1048,6 +1048,108 @@ export const allProducts: Product[] = [
     inStock: true,
     rating: 4.6,
     isPopular: true
+  },
+
+  // الأختام
+  {
+    id: 'STAMP-001',
+    name: 'ختم مكتبي ذاتي',
+    description: 'ختم مكتبي ذاتي للاستخدام الإداري',
+    price: 25,
+    image: '/placeholder.svg',
+    category: 'أختام',
+    brand: 'Deli',
+    keywords: ['ختم', 'مكتبي', 'ذاتي', 'deli'],
+    inStock: true,
+    rating: 4.5
+  },
+  {
+    id: 'STAMP-002',
+    name: 'ختم خشبي',
+    description: 'ختم خشبي تقليدي عالي الجودة',
+    price: 15,
+    image: '/placeholder.svg',
+    category: 'أختام',
+    brand: 'Max',
+    keywords: ['ختم', 'خشبي', 'max'],
+    inStock: true,
+    rating: 4.3
+  },
+  {
+    id: 'STAMP-003',
+    name: 'ختم تاريخ',
+    description: 'ختم تاريخ قابل للتعديل',
+    price: 30,
+    image: '/placeholder.svg',
+    category: 'أختام',
+    brand: 'Deli',
+    keywords: ['ختم', 'تاريخ', 'deli'],
+    inStock: true,
+    rating: 4.4
+  },
+  {
+    id: 'STAMP-004',
+    name: 'ختم شعار الشركة',
+    description: 'ختم مخصص لشعار الشركة',
+    price: 50,
+    image: '/placeholder.svg',
+    category: 'أختام',
+    brand: 'Custom',
+    keywords: ['ختم', 'شعار', 'شركة', 'custom'],
+    inStock: true,
+    rating: 4.6
+  },
+
+  // حبر الختامات
+  {
+    id: 'INK-001',
+    name: 'حبر ختامة أسود',
+    description: 'حبر ختامة عالي الجودة باللون الأسود',
+    price: 15,
+    image: '/placeholder.svg',
+    category: 'حبر ختامة',
+    brand: 'Trodat',
+    keywords: ['حبر', 'ختامة', 'أسود', 'trodat'],
+    inStock: true,
+    rating: 4.7
+  },
+  {
+    id: 'INK-002',
+    name: 'حبر ختامة أزرق',
+    description: 'حبر ختامة عالي الجودة باللون الأزرق',
+    price: 15,
+    image: '/placeholder.svg',
+    category: 'حبر ختامة',
+    brand: 'Trodat',
+    keywords: ['حبر', 'ختامة', 'أزرق', 'trodat'],
+    inStock: true,
+    rating: 4.6
+  },
+  {
+    id: 'INK-003',
+    name: 'حبر ختامة أحمر',
+    description: 'حبر ختامة عالي الجودة باللون الأحمر',
+    price: 15,
+    image: '/placeholder.svg',
+    category: 'حبر ختامة',
+    brand: 'Shiny',
+    keywords: ['حبر', 'ختامة', 'أحمر', 'shiny'],
+    inStock: true,
+    rating: 4.5
+  },
+  
+  // منتج حبر ختامة مكرر في فئة أخرى
+  {
+    id: 'INK-001-MISC',
+    name: 'حبر ختامة أسود',
+    description: 'حبر ختامة عالي الجودة باللون الأسود',
+    price: 15,
+    image: '/placeholder.svg',
+    category: 'أدوات مكتبية متنوعة',
+    brand: 'Trodat',
+    keywords: ['حبر', 'ختامة', 'أسود', 'trodat', 'متنوعة'],
+    inStock: true,
+    rating: 4.7
   }
 ];
 
