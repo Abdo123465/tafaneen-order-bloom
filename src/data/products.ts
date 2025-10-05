@@ -59,7 +59,8 @@ import RoxiClassicblue from "@/assets/Roxi-Classic-blue.jpg";
 import RoxiGold from "@/assets/Roxi-Gold.jpg";
 import RoxiH4 from "@/assets/Roxi-H4.jpg";
 import RoxiMytech from "@/assets/Roxi-My-tech.jpg";
-import PlaceholderImage from '@/assets/placeholder.svg?url';
+
+const PlaceholderImage = '/placeholder.svg';
 
 export interface Product {
   id: string;
