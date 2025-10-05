@@ -59,6 +59,7 @@ import RoxiClassicblue from "@/assets/Roxi-Classic-blue.jpg";
 import RoxiGold from "@/assets/Roxi-Gold.jpg";
 import RoxiH4 from "@/assets/Roxi-H4.jpg";
 import RoxiMytech from "@/assets/Roxi-My-tech.jpg";
+import PlaceholderImage from '@/assets/placeholder.svg?url';
 
 export interface Product {
   id: string;
@@ -1056,7 +1057,7 @@ export const allProducts: Product[] = [
     name: 'ختم مكتبي ذاتي',
     description: 'ختم مكتبي ذاتي للاستخدام الإداري',
     price: 25,
-    image: '/placeholder.svg',
+    image: PlaceholderImage,
     category: 'أختام',
     brand: 'Deli',
     keywords: ['ختم', 'مكتبي', 'ذاتي', 'deli'],
@@ -1068,7 +1069,7 @@ export const allProducts: Product[] = [
     name: 'ختم خشبي',
     description: 'ختم خشبي تقليدي عالي الجودة',
     price: 15,
-    image: '/placeholder.svg',
+    image: PlaceholderImage,
     category: 'أختام',
     brand: 'Max',
     keywords: ['ختم', 'خشبي', 'max'],
@@ -1080,7 +1081,7 @@ export const allProducts: Product[] = [
     name: 'ختم تاريخ',
     description: 'ختم تاريخ قابل للتعديل',
     price: 30,
-    image: '/placeholder.svg',
+    image: PlaceholderImage,
     category: 'أختام',
     brand: 'Deli',
     keywords: ['ختم', 'تاريخ', 'deli'],
@@ -1092,7 +1093,7 @@ export const allProducts: Product[] = [
     name: 'ختم شعار الشركة',
     description: 'ختم مخصص لشعار الشركة',
     price: 50,
-    image: '/placeholder.svg',
+    image: PlaceholderImage,
     category: 'أختام',
     brand: 'Custom',
     keywords: ['ختم', 'شعار', 'شركة', 'custom'],
@@ -1106,7 +1107,7 @@ export const allProducts: Product[] = [
     name: 'حبر ختامة أسود',
     description: 'حبر ختامة عالي الجودة باللون الأسود',
     price: 15,
-    image: '/placeholder.svg',
+    image: PlaceholderImage,
     category: ['حبر ختامة', 'أدوات مكتبية متنوعة'],
     brand: 'Trodat',
     keywords: ['حبر', 'ختامة', 'أسود', 'trodat'],
@@ -1118,7 +1119,7 @@ export const allProducts: Product[] = [
     name: 'حبر ختامة أزرق',
     description: 'حبر ختامة عالي الجودة باللون الأزرق',
     price: 15,
-    image: '/placeholder.svg',
+    image: PlaceholderImage,
     category: 'حبر ختامة',
     brand: 'Trodat',
     keywords: ['حبر', 'ختامة', 'أزرق', 'trodat'],
@@ -1130,7 +1131,7 @@ export const allProducts: Product[] = [
     name: 'حبر ختامة أحمر',
     description: 'حبر ختامة عالي الجودة باللون الأحمر',
     price: 15,
-    image: '/placeholder.svg',
+    image: PlaceholderImage,
     category: 'حبر ختامة',
     brand: 'Shiny',
     keywords: ['حبر', 'ختامة', 'أحمر', 'shiny'],
