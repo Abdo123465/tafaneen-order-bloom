@@ -1,48 +1,12 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { useCart } from "@/contexts/CartContext";
-import { ArrowRight, Image as ImageIcon } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { ArrowRight, Stamp } from "lucide-react";
 import { Link } from "react-router-dom";
-import { allProducts, Product } from "@/data/products";
-
-const ProductImage = ({ src, alt, fallbackEmoji, className }: { src: string, alt: string, fallbackEmoji: string, className?: string }) => {
-  const [imageError, setImageError] = useState(false);
-  const [imageLoading, setImageLoading] = useState(true);
-  
-  return (
-    <div className={`bg-white rounded-xl aspect-square flex items-center justify-center overflow-hidden border border-gray-100 group-hover:shadow-md transition-shadow ${className}`}>
-      {!imageError ? (
-        <>
-          {imageLoading && (
-            <div className="absolute inset-0 flex items-center justify-center bg-gray-100 animate-pulse">
-              <ImageIcon className="h-8 w-8 text-gray-400" />
-            </div>
-          )}
-          <img 
-            src={src}
-            alt={alt}
-            className="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-300"
-            onLoad={() => setImageLoading(false)}
-            onError={() => {
-              setImageError(true);
-              setImageLoading(false);
-            }}
-            style={{ display: imageLoading ? 'none' : 'block' }}
-          />
-        </>
-      ) : (
-        <div className="text-6xl">{fallbackEmoji}</div>
-      )}
-    </div>
-  );
-};
 
 export default function StampsPage() {
-  const { addItem } = useCart();
-  const [stampProducts, setStampProducts] = useState<Product[]>([]);
-
   useEffect(() => {
     document.title = "ختامة و حبر ختامة | تفانين";
     const desc = "تصفح مجموعتنا من الأختام المكتبية وأحبار الختامات عالية الجودة.";
@@ -53,13 +17,28 @@ export default function StampsPage() {
       document.head.appendChild(meta);
     }
     meta.setAttribute('content', desc);
-
-    const filteredProducts = allProducts.filter(product => {
-      const categories = Array.isArray(product.category) ? product.category : [product.category];
-      return categories.includes('أختام') || categories.includes('حبر ختامة');
-    });
-    setStampProducts(filteredProducts);
   }, []);
+
+  const categories = [
+    {
+      id: 1,
+      name: "أختام",
+      description: "أختام مكتبية بأشكال وأحجام متنوعة",
+      emoji: "✒️",
+      color: "bg-gradient-to-br from-blue-500 to-cyan-600",
+      textColor: "text-white",
+      path: "/office-supplies/office-stamps"
+    },
+    {
+      id: 2,
+      name: "حبر ختامة",
+      description: "أحبار ختامات عالية الجودة بألوان متعددة",
+      emoji: "💧",
+      color: "bg-gradient-to-br from-green-500 to-emerald-600",
+      textColor: "text-white",
+      path: "/office-supplies/stamps/ink-pads"
+    }
+  ];
 
   return (
     <div className="min-h-screen bg-background">
@@ -84,41 +63,33 @@ export default function StampsPage() {
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {stampProducts.map((product) => (
-            <div key={product.id} className="card-product relative group">
-              <div className="absolute top-3 left-3 z-10">
-                <span className="bg-primary text-primary-foreground text-xs px-3 py-1 rounded-full font-medium">
-                  {product.brand}
-                </span>
-              </div>
-              
-              <ProductImage 
-                src={product.image}
-                alt={product.name}
-                fallbackEmoji="📠"
-                className="mb-4"
-              />
-              
-              <h3 className="font-semibold mb-2 line-clamp-2">{product.name}</h3>
-              <p className="text-sm text-muted-foreground mb-3 line-clamp-2">{product.description}</p>
-              
-              <div className="flex items-center justify-between mt-auto">
-                <span className="text-primary font-bold text-lg">{product.price} ج.م</span>
-                <Button 
-                  className="btn-tafaneen"
-                  onClick={() => addItem({ 
-                    id: product.id, 
-                    name: product.name, 
-                    price: product.price, 
-                    image: product.image 
-                  })}
-                >
-                  إضافة للسلة
+        <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-12">
+          {categories.map((category) => (
+            <Card key={category.id} className="overflow-hidden hover:shadow-lg transition-shadow">
+              <CardHeader className={`${category.color} ${category.textColor} p-8`}>
+                <div className="text-center">
+                  <div className="text-6xl mb-4">{category.emoji}</div>
+                  <Stamp className="h-16 w-16 mx-auto mb-4 opacity-20" />
+                  <CardTitle className="text-2xl mb-3">{category.name}</CardTitle>
+                  <p className="text-sm opacity-90 leading-relaxed">{category.description}</p>
+                </div>
+              </CardHeader>
+              <CardContent className="p-6">
+                <Button asChild className="w-full">
+                  <Link to={category.path}>
+                    تصفح المنتجات
+                    <ArrowRight className="mr-2 h-4 w-4" />
+                  </Link>
                 </Button>
-              </div>
-            </div>
+              </CardContent>
+            </Card>
           ))}
+        </div>
+
+        <div className="text-center">
+          <Button asChild variant="outline">
+            <Link to="/office-supplies">العودة إلى مستلزمات المكتب</Link>
+          </Button>
         </div>
       </main>
       <Footer />
