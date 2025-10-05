@@ -1,27 +1,48 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { ArrowRight, Stamp, Droplet } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { useCart } from "@/contexts/CartContext";
+import { ArrowRight, Image as ImageIcon } from "lucide-react";
 import { Link } from "react-router-dom";
+import { allProducts, Product } from "@/data/products";
 
-const subCategories = [
-  {
-    name: "أختام",
-    description: "أختام مكتبية ذاتية وخشبية مخصصة",
-    icon: Stamp,
-    link: "/office-supplies/office-stamps",
-    bgClass: "bg-blue-50",
-  },
-  {
-    name: "حبر ختامة",
-    description: "عبوات حبر لجميع أنواع الأختام",
-    icon: Droplet,
-    link: "/office-supplies/stamps/ink-pads",
-    bgClass: "bg-green-50",
-  },
-];
+const ProductImage = ({ src, alt, fallbackEmoji, className }: { src: string, alt: string, fallbackEmoji: string, className?: string }) => {
+  const [imageError, setImageError] = useState(false);
+  const [imageLoading, setImageLoading] = useState(true);
+  
+  return (
+    <div className={`bg-white rounded-xl aspect-square flex items-center justify-center overflow-hidden border border-gray-100 group-hover:shadow-md transition-shadow ${className}`}>
+      {!imageError ? (
+        <>
+          {imageLoading && (
+            <div className="absolute inset-0 flex items-center justify-center bg-gray-100 animate-pulse">
+              <ImageIcon className="h-8 w-8 text-gray-400" />
+            </div>
+          )}
+          <img 
+            src={src}
+            alt={alt}
+            className="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-300"
+            onLoad={() => setImageLoading(false)}
+            onError={() => {
+              setImageError(true);
+              setImageLoading(false);
+            }}
+            style={{ display: imageLoading ? 'none' : 'block' }}
+          />
+        </>
+      ) : (
+        <div className="text-6xl">{fallbackEmoji}</div>
+      )}
+    </div>
+  );
+};
 
 export default function StampsPage() {
+  const { addItem } = useCart();
+  const [stampProducts, setStampProducts] = useState<Product[]>([]);
+
   useEffect(() => {
     document.title = "ختامة و حبر ختامة | تفانين";
     const desc = "تصفح مجموعتنا من الأختام المكتبية وأحبار الختامات عالية الجودة.";
@@ -32,6 +53,12 @@ export default function StampsPage() {
       document.head.appendChild(meta);
     }
     meta.setAttribute('content', desc);
+
+    const filteredProducts = allProducts.filter(product => {
+      const categories = Array.isArray(product.category) ? product.category : [product.category];
+      return categories.includes('أختام') || categories.includes('حبر ختامة');
+    });
+    setStampProducts(filteredProducts);
   }, []);
 
   return (
@@ -57,17 +84,40 @@ export default function StampsPage() {
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-1 lg:grid-cols-2 gap-6">
-          {subCategories.map((category) => (
-            <Link to={category.link} key={category.name} className={`block p-6 rounded-lg ${category.bgClass} hover:shadow-lg transition-shadow`}>
-              <div className="flex items-center">
-                <category.icon className="h-8 w-8 text-primary mr-4" />
-                <div>
-                  <h3 className="font-semibold text-lg">{category.name}</h3>
-                  <p className="text-sm text-muted-foreground">{category.description}</p>
-                </div>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {stampProducts.map((product) => (
+            <div key={product.id} className="card-product relative group">
+              <div className="absolute top-3 left-3 z-10">
+                <span className="bg-primary text-primary-foreground text-xs px-3 py-1 rounded-full font-medium">
+                  {product.brand}
+                </span>
               </div>
-            </Link>
+              
+              <ProductImage 
+                src={product.image}
+                alt={product.name}
+                fallbackEmoji="📠"
+                className="mb-4"
+              />
+              
+              <h3 className="font-semibold mb-2 line-clamp-2">{product.name}</h3>
+              <p className="text-sm text-muted-foreground mb-3 line-clamp-2">{product.description}</p>
+              
+              <div className="flex items-center justify-between mt-auto">
+                <span className="text-primary font-bold text-lg">{product.price} ج.م</span>
+                <Button 
+                  className="btn-tafaneen"
+                  onClick={() => addItem({ 
+                    id: product.id, 
+                    name: product.name, 
+                    price: product.price, 
+                    image: product.image 
+                  })}
+                >
+                  إضافة للسلة
+                </Button>
+              </div>
+            </div>
           ))}
         </div>
       </main>
