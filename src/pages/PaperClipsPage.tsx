@@ -3,66 +3,82 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { ArrowRight, Pin } from "lucide-react";
 import { Link } from "react-router-dom";
-import { 
-  Paperclip, 
-  Pin, 
-  Layers,
-  ArrowRight
-} from "lucide-react";
+import { useCart } from "@/contexts/CartContext";
 
-function PaperClipsPage() {
-  const categories = [
-    {
-      id: 1,
-      name: "مشابك الأوراق",
-      englishName: "Paper Clips",
-      description: "مشابك معدنية وبلاستيكية بأحجام مختلفة",
-      icon: Paperclip,
-      color: "bg-gradient-to-br from-green-500 to-green-600",
-      textColor: "text-green-600",
-      emoji: "📎",
-      route: "/office-supplies/clips",
-      image: "/assets/clips.jpg" // ضع الصورة في public/assets/clips.jpg
-    },
-    {
-      id: 2,
-      name: "دبابيس الكبس",
-      englishName: "Push Pins",
-      description: "دبابيس كبس للتثبيت والتنظيم",
-      icon: Pin,
-      color: "bg-gradient-to-br from-teal-500 to-teal-600",
-      textColor: "text-teal-600",
-      emoji: "📌",
-      route: "/office-supplies/push-pins",
-      image: "/assets/push-pins.jpg" // ضع الصورة في public/assets/push-pins.jpg
-    },
-    {
-      id: 3,
-      name: "دبابيس التدبيس",
-      englishName: "Staple Pins",
-      description: "دبابيس للدباسات بأحجام مختلفة",
-      icon: Layers,
-      color: "bg-gradient-to-br from-cyan-500 to-cyan-600",
-      textColor: "text-cyan-600",
-      emoji: "📍",
-      route: "/office-supplies/staple-pins",
-      image: "/assets/staple-pins.jpg" // ضع الصورة في public/assets/staple-pins.jpg
-    }
-  ];
+const paperClipsProducts = [
+  {
+    id: 'paper-clips-1',
+    name: 'مشابك ورق معدنية متعددة الأحجام',
+    price: 25,
+    image: '/assets/paper-clips-metal.jpg',
+    description: 'مشابك ورق معدنية عالية الجودة متعددة الأحجام',
+    brand: 'Office Pro',
+    features: ['مقاومة للصدأ', 'متعددة الأحجام', 'علبة بلاستيكية', '100 قطعة']
+  },
+  {
+    id: 'paper-clips-2',
+    name: 'مشابك ورق ملونة',
+    price: 30,
+    image: '/assets/paper-clips-colored.jpg',
+    description: 'مشابك ورق ملونة بتصاميم جذابة',
+    brand: 'Color Clip',
+    features: ['ألوان متعددة', 'مقاومة للانحناء', '50 قطعة', 'علبة قابلة لإعادة الاستخدام']
+  },
+  {
+    id: 'push-pins-1',
+    name: 'دبابيس كبس بلاستيكية',
+    price: 20,
+    image: '/assets/push-pins-plastic.jpg',
+    description: 'دبابيس كبس بلاستيكية برؤوس ملونة',
+    brand: 'Pin Master',
+    features: ['رؤوس بلاستيكية', 'إبرة فولاذية', '100 قطعة', 'صندوق بلاستيكي']
+  },
+  {
+    id: 'push-pins-2',
+    name: 'دبابيس كبس معدنية',
+    price: 35,
+    image: '/assets/push-pins-metal.jpg',
+    description: 'دبابيس كبس معدنية متينة',
+    brand: 'Metal Pin',
+    features: ['رأس معدني', 'إبرة قوية', '50 قطعة', 'صندوق معدني']
+  },
+  {
+    id: 'staple-pins-1',
+    name: 'دبابيس تدبيس قياسية',
+    price: 15,
+    image: '/assets/staple-pins-standard.jpg',
+    description: 'دبابيس تدبيس قياسية للاستخدام اليومي',
+    brand: 'Staple Pro',
+    features: ['متوافقة مع معظم الدباسات', '1000 دبوس', 'مقاومة للانكسار', 'عبوة اقتصادية']
+  },
+  {
+    id: 'staple-pins-2',
+    name: 'دبابيس تدبيس قوية',
+    price: 25,
+    image: '/assets/staple-pins-heavy.jpg',
+    description: 'دبابيس تدبيس قوية للمستندات السميكة',
+    brand: 'Heavy Staple',
+    features: ['للمستندات السميكة', '500 دبوس', 'مقاس 24/6', 'جودة عالية']
+  }
+];
 
+const PaperClipsPage = () => {
+  const { addItem } = useCart();
+  
   useEffect(() => {
     document.title = "مشابك ودبابيس | تفانين";
     const desc = "تسوق مشابك الأوراق ودبابيس الكبس والتثبيت المكتبية من تفانين.";
     let meta = document.querySelector('meta[name="description"]');
-    if (!meta) { 
-      meta = document.createElement('meta'); 
-      meta.setAttribute('name','description'); 
+    if (!meta) {
+      meta = document.createElement('meta');
+      meta.setAttribute('name','description');
       document.head.appendChild(meta);
-    } 
+    }
     meta.setAttribute('content', desc);
   }, []);
-
+  
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -76,7 +92,6 @@ function PaperClipsPage() {
           <span className="text-foreground">مشابك ودبابيس</span>
         </nav>
         
-        {/* Header Section */}
         <div className="text-center mb-12">
           <div className="text-6xl mb-4">📎</div>
           <h1 className="text-3xl lg:text-4xl font-bold mb-4">مشابك ودبابيس</h1>
@@ -85,59 +100,95 @@ function PaperClipsPage() {
           </p>
         </div>
         
-        {/* Categories Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 max-w-6xl mx-auto">
-          {categories.map((category) => {
-            const IconComponent = category.icon;
-            return (
-              <Card 
-                key={category.id} 
-                className="group hover:shadow-elegant transition-all duration-300 hover:-translate-y-1 border-0 overflow-hidden"
-              >
-                <Link to={category.route} className="block hover:no-underline h-full">
-                  <CardContent className="p-0 h-full">
-                    <div className={`${category.color} p-6 text-white relative overflow-hidden`}>
-                      <div className="absolute top-0 right-0 w-20 h-20 bg-white/10 rounded-full -mr-10 -mt-10"></div>
-                      <div className="absolute bottom-0 left-0 w-16 h-16 bg-white/10 rounded-full -ml-8 -mb-8"></div>
-                      <div className="relative z-10 text-center">
-                        <div className="text-4xl mb-3">{category.emoji}</div>
-                        <IconComponent className="h-8 w-8 mx-auto mb-3" />
-                        <h3 className="text-xl font-bold leading-tight">{category.name}</h3>
-                        <p className="text-sm opacity-90 mt-1">{category.englishName}</p>
-                      </div>
-                    </div>
-                    
-                    {/* Product Image */}
-                    <div className="relative h-48 overflow-hidden bg-gray-50">
-                      <img 
-                        src={category.image} 
-                        alt={category.name}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                        onError={(e) => {
-                          // إذا لم تكن الصورة موجودة، استخدم placeholder
-                          e.currentTarget.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="400" height="300"%3E%3Crect fill="%23f3f4f6" width="400" height="300"/%3E%3Ctext fill="%239ca3af" font-family="sans-serif" font-size="18" x="50%25" y="50%25" text-anchor="middle" dominant-baseline="middle"%3E' + category.name + '%3C/text%3E%3C/svg%3E';
-                        }}
-                      />
-                    </div>
-                    
-                    <div className="p-4">
-                      <p className="text-muted-foreground text-sm mb-4 leading-relaxed">
-                        {category.description}
-                      </p>
-                      
-                      <div className={`w-full text-center ${category.textColor} border-current hover:bg-current hover:text-white transition-colors flex items-center justify-center gap-2 py-2 px-4 border rounded-md`}>
-                        تصفح المنتجات
-                        <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                      </div>
-                    </div>
-                  </CardContent>
-                </Link>
-              </Card>
-            );
-          })}
+        {/* Features Section */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+          <Card className="text-center p-6 bg-gradient-to-br from-green-50 to-emerald-50 border-green-200">
+            <div className="text-4xl mb-4">📎</div>
+            <h3 className="font-bold mb-2 text-green-700">جودة عالية</h3>
+            <p className="text-sm text-green-600">مشابك ودبابيس مصنوعة من مواد عالية الجودة</p>
+          </Card>
+          <Card className="text-center p-6 bg-gradient-to-br from-blue-50 to-cyan-50 border-blue-200">
+            <div className="text-4xl mb-4">🔒</div>
+            <h3 className="font-bold mb-2 text-blue-700">تثبيت آمن</h3>
+            <p className="text-sm text-blue-600">تثبيت قوي وآمن للمستندات والأوراق</p>
+          </Card>
+          <Card className="text-center p-6 bg-gradient-to-br from-amber-50 to-orange-50 border-amber-200">
+            <div className="text-4xl mb-4">🎨</div>
+            <h3 className="font-bold mb-2 text-amber-700">تصاميم متنوعة</h3>
+            <p className="text-sm text-amber-600">تصاميم وألوان متعددة تناسب جميع الأذواق</p>
+          </Card>
         </div>
         
-        {/* Back to Office Supplies */}
+        <h2 className="text-2xl lg:text-3xl font-bold mb-8 text-center border-b pb-4">
+          <Pin className="inline-block mr-3 mb-1" />
+          جميع مشابك ودبابيس الورق
+        </h2>
+        
+        {/* Products Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {paperClipsProducts.map((product) => (
+            <Card key={product.id} className="group hover:shadow-elegant transition-all duration-300 hover:-translate-y-1 overflow-hidden">
+              <CardContent className="p-0">
+                {/* Product Image */}
+                <div className="relative h-48 bg-gradient-to-br from-green-100 to-emerald-100 flex items-center justify-center overflow-hidden">
+                  <img 
+                    src={product.image} 
+                    alt={product.name}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    onError={(e) => {
+                      // Fallback to emoji if image fails to load
+                      e.currentTarget.style.display = 'none';
+                      (e.currentTarget.nextElementSibling as HTMLElement).style.display = 'flex';
+                    }}
+                  />
+                  <div className="absolute inset-0 items-center justify-center text-6xl hidden">
+                    📎
+                  </div>
+                  
+                  {/* Brand Badge */}
+                  <div className="absolute top-3 right-3 bg-white/90 backdrop-blur-sm rounded-full px-3 py-1 text-xs font-medium text-gray-700">
+                    {product.brand}
+                  </div>
+                </div>
+                
+                {/* Product Info */}
+                <div className="p-6">
+                  <h3 className="font-bold text-lg mb-2 text-right leading-relaxed">{product.name}</h3>
+                  <p className="text-sm text-muted-foreground mb-4 leading-relaxed text-right">{product.description}</p>
+                  
+                  {/* Product Features */}
+                  <div className="mb-4">
+                    <div className="flex flex-wrap gap-1 justify-end">
+                      {product.features.map((feature, index) => (
+                        <span key={index} className="bg-green-50 text-green-700 px-2 py-1 rounded-full text-xs">
+                          {feature}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                  
+                  {/* Price and Add to Cart */}
+                  <div className="flex items-center justify-between pt-4 border-t">
+                    <span className="text-primary font-bold text-xl">{product.price} ج.م</span>
+                    <Button 
+                      className="btn-tafaneen px-6"
+                      onClick={() => addItem({ 
+                        id: product.id, 
+                        name: product.name, 
+                        price: product.price, 
+                        image: product.image 
+                      })}
+                    >
+                      إضافة للسلة
+                    </Button>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+        
+        {/* Back to categories */}
         <div className="text-center mt-12">
           <Button asChild variant="outline" className="text-lg px-8 py-4 h-auto">
             <Link to="/office-supplies">العودة إلى مستلزمات المكتب</Link>
@@ -147,6 +198,6 @@ function PaperClipsPage() {
       <Footer />
     </div>
   );
-}
+};
 
 export default PaperClipsPage;
