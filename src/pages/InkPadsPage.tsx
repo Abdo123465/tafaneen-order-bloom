@@ -119,6 +119,12 @@ export default function InkPadsPage() {
             </div>
           ))}
         </div>
+
+        <div className="text-center mt-12">
+          <Button asChild variant="outline">
+            <Link to="/office-supplies/stamps">العودة إلى ختامة و حبر ختامة</Link>
+          </Button>
+        </div>
       </main>
       <Footer />
     </div>
