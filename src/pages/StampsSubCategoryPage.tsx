@@ -45,7 +45,7 @@ const stamps = [
   },
 ];
 
-const ProductImage = ({ src, alt, fallbackEmoji, className }) => {
+const ProductImage = ({ src, alt, fallbackEmoji, className }: { src: string; alt: string; fallbackEmoji: string; className?: string }) => {
   const [imageError, setImageError] = useState(false);
   const [imageLoading, setImageLoading] = useState(true);
   
