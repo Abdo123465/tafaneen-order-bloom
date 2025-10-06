@@ -46,21 +46,30 @@ const paperClipsProducts = [
   },
   {
     id: 'staple-pins-1',
-    name: 'دبابيس تدبيس قياسية',
-    price: 15,
+    name: 'علبة دبوس مكتب ملون',
+    price: 10,
     image: '/assets/staple-pins-standard.jpg',
-    description: 'دبابيس تدبيس قياسية للاستخدام اليومي',
-    brand: 'Staple Pro',
-    features: ['متوافقة مع معظم الدباسات', '1000 دبوس', 'مقاومة للانكسار', 'عبوة اقتصادية']
+    description: 'علبة دبوس مكتب ملون',
+    brand: ' JZF',
+    features: ['رأس ممتاز ', 'سن ثاقب', 'ملون', 'عبوة اقتصادية']
   },
   {
     id: 'staple-pins-2',
-    name: 'دبابيس تدبيس قوية',
-    price: 25,
+    name: 'علبة دبوس مكتب فضي ثقيل Z احمر',
+    price: 9,
     image: '/assets/staple-pins-heavy.jpg',
-    description: 'دبابيس تدبيس قوية للمستندات السميكة',
-    brand: 'Heavy Staple',
-    features: ['للمستندات السميكة', '500 دبوس', 'مقاس 24/6', 'جودة عالية']
+    description: 'علبة دبوس مكتب فضي ثقيل Z احمر',
+    brand: 'JZF',
+    features: ['دبابيس فضي ', ' رأس معدني', 'عبوة اقتصادية', 'جودة عالية']
+  }
+  {
+    id: 'staple-pins-2',
+    name: 'علبة دبوس كليبس ورق 33 مل',
+    price: 12,
+    image: '/assets/staple-pins.jpg',
+    description: 'علبة دبوس كليبس ورق 33 مل',
+    brand: 'Tq',
+    features: [' نشبك متين ', '  سهل الاستعمال', ' مناسب مع الورق القليل و المتوسط', 'جودة عالية']
   }
 ];
 
