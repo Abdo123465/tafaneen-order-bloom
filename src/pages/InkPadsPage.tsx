@@ -5,7 +5,59 @@ import { Button } from "@/components/ui/button";
 import { useCart } from "@/contexts/CartContext";
 import { ArrowRight, Image as ImageIcon } from "lucide-react";
 import { Link } from "react-router-dom";
-import { allProducts, Product, filterByCategory } from "@/data/products";
+
+interface InkPadProduct {
+  id: string;
+  name: string;
+  price: number;
+  image: string;
+  description: string;
+  brand: string;
+}
+
+// يمكنك إضافة منتجاتك هنا وتحديث الصور في public/assets
+const inkPadProducts: InkPadProduct[] = [
+  {
+    id: 'ink-pad-1',
+    name: 'حبر ختم أزرق',
+    price: 25,
+    image: '/assets/ink-pad-1.jpg', // ضع الصورة في public/assets/ink-pad-1.jpg
+    description: 'حبر ختم أزرق سريع الجفاف وطويل الأمد',
+    brand: 'Ink Master'
+  },
+  {
+    id: 'ink-pad-2',
+    name: 'حبر ختم أسود',
+    price: 25,
+    image: '/assets/ink-pad-2.jpg',
+    description: 'حبر ختم أسود عالي الكثافة',
+    brand: 'Ink Master'
+  },
+  {
+    id: 'ink-pad-3',
+    name: 'حبر ختم أحمر',
+    price: 25,
+    image: '/assets/ink-pad-3.jpg',
+    description: 'حبر ختم أحمر للمستندات المهمة',
+    brand: 'Ink Master'
+  },
+  {
+    id: 'ink-pad-4',
+    name: 'مجموعة أحبار ملونة',
+    price: 75,
+    image: '/assets/ink-pad-4.jpg',
+    description: 'مجموعة من 4 ألوان لأحبار الختامات',
+    brand: 'Color Set'
+  },
+  {
+    id: 'ink-pad-5',
+    name: 'حبر ختم دائم',
+    price: 35,
+    image: '/assets/ink-pad-5.jpg',
+    description: 'حبر ختم دائم غير قابل للمحو',
+    brand: 'Permanent Pro'
+  }
+];
 
 const ProductImage = ({ src, alt, fallbackEmoji, className }: { src: string; alt: string; fallbackEmoji: string; className?: string }) => {
   const [imageError, setImageError] = useState(false);
@@ -41,7 +93,6 @@ const ProductImage = ({ src, alt, fallbackEmoji, className }: { src: string; alt
 
 export default function InkPadsPage() {
   const { addItem } = useCart();
-  const [inkPadProducts, setInkPadProducts] = useState<Product[]>([]);
 
   useEffect(() => {
     document.title = "حبر ختامة | تفانين";
@@ -53,8 +104,6 @@ export default function InkPadsPage() {
       document.head.appendChild(meta);
     } 
     meta.setAttribute('content', desc);
-
-    setInkPadProducts(filterByCategory(allProducts, 'حبر ختامة'));
   }, []);
 
   return (

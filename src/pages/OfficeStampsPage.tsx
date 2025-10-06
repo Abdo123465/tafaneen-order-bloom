@@ -5,7 +5,51 @@ import { Button } from "@/components/ui/button";
 import { useCart } from "@/contexts/CartContext";
 import { ArrowRight, Image as ImageIcon } from "lucide-react";
 import { Link } from "react-router-dom";
-import { allProducts, Product, filterByCategory } from "@/data/products";
+
+interface StampProduct {
+  id: string;
+  name: string;
+  price: number;
+  image: string;
+  description: string;
+  brand: string;
+}
+
+// يمكنك إضافة منتجاتك هنا وتحديث الصور في public/assets
+const stampProducts: StampProduct[] = [
+  {
+    id: 'stamp-1',
+    name: 'ختم مكتبي دائري',
+    price: 45,
+    image: '/assets/stamp-1.jpg', // ضع الصورة في public/assets/stamp-1.jpg
+    description: 'ختم مكتبي دائري عالي الجودة للاستخدام اليومي',
+    brand: 'Office Pro'
+  },
+  {
+    id: 'stamp-2',
+    name: 'ختم مستطيل كبير',
+    price: 65,
+    image: '/assets/stamp-2.jpg',
+    description: 'ختم مستطيل كبير للمستندات الرسمية',
+    brand: 'Premium Stamps'
+  },
+  {
+    id: 'stamp-3',
+    name: 'ختم تاريخ تلقائي',
+    price: 85,
+    image: '/assets/stamp-3.jpg',
+    description: 'ختم تاريخ تلقائي مع إمكانية التعديل',
+    brand: 'Auto Date'
+  },
+  {
+    id: 'stamp-4',
+    name: 'ختم شخصي صغير',
+    price: 35,
+    image: '/assets/stamp-4.jpg',
+    description: 'ختم شخصي بحجم صغير للاستخدام اليومي',
+    brand: 'Office Pro'
+  }
+];
 
 const ProductImage = ({ src, alt, fallbackEmoji, className }: { src: string; alt: string; fallbackEmoji: string; className?: string }) => {
   const [imageError, setImageError] = useState(false);
@@ -41,7 +85,6 @@ const ProductImage = ({ src, alt, fallbackEmoji, className }: { src: string; alt
 
 export default function OfficeStampsPage() {
   const { addItem } = useCart();
-  const [stampProducts, setStampProducts] = useState<Product[]>([]);
 
   useEffect(() => {
     document.title = "أختام | تفانين";
@@ -53,8 +96,6 @@ export default function OfficeStampsPage() {
       document.head.appendChild(meta);
     } 
     meta.setAttribute('content', desc);
-
-    setStampProducts(filterByCategory(allProducts, 'أختام'));
   }, []);
 
   return (
