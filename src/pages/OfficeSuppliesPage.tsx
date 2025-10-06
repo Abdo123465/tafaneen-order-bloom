@@ -31,12 +31,12 @@ const OfficeSuppliesPage = () => {
     },
     {
       id: 3,
-      name: "ختامة و حبر ختامة",
-      description: "أختام، حبر ختامة، وكل ما يتعلق بها",
+      name: "الأختام والطوابع",
+      description: "أختام مكتبية بأشكال متنوعة وحبر أختام بألوان مختلفة",
       icon: Stamp,
-      color: "bg-gradient-to-br from-purple-500 to-violet-600",
+      color: "bg-gradient-to-br from-blue-500 to-cyan-600",
       textColor: "text-white",
-      emoji: "🏷️",
+      emoji: "🖊️",
       path: "/office-supplies/stamps"
     },
     {

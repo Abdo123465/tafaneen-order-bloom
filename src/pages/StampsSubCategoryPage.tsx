@@ -81,14 +81,14 @@ export default function StampsSubCategoryPage() {
   const { addItem } = useCart();
   
   useEffect(() => {
-    document.title = "أختام | تفانين";
-    const desc = "تسوق أفضل أنواع الأختام المكتبية للاستخدام الإداري والشخصي.";
+    document.title = "الأختام المكتبية | تفانين";
+    const desc = "تسوق أفضل أنواع الأختام المكتبية بأشكال وأحجام متنوعة للاستخدام الشخصي والتجاري والإداري.";
     let meta = document.querySelector('meta[name="description"]');
-    if (!meta) { 
-      meta = document.createElement('meta'); 
-      meta.setAttribute('name','description'); 
+    if (!meta) {
+      meta = document.createElement('meta');
+      meta.setAttribute('name','description');
       document.head.appendChild(meta);
-    } 
+    }
     meta.setAttribute('content', desc);
   }, []);
 
@@ -103,19 +103,42 @@ export default function StampsSubCategoryPage() {
           <ArrowRight className="h-4 w-4" />
           <Link to="/office-supplies" className="hover:text-primary">مستلزمات المكتب</Link>
           <ArrowRight className="h-4 w-4" />
-          <Link to="/office-supplies/stamps" className="hover:text-primary">ختامة و حبر ختامة</Link>
+          <Link to="/office-supplies/stamps" className="hover:text-primary">الأختام والطوابع</Link>
           <ArrowRight className="h-4 w-4" />
-          <span className="text-foreground">أختام</span>
+          <span className="text-foreground">الأختام المكتبية</span>
         </nav>
 
         <div className="text-center mb-12">
           <div className="text-6xl mb-4">✒️</div>
           <h1 className="text-3xl lg:text-4xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
-            الأختام
+            الأختام المكتبية
           </h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-4">
-            مجموعة متنوعة من الأختام المكتبية لتلبية كافة احتياجاتك.
+            أختام بأشكال مختلفة (دائرية، مستطيلة، بيضاوية) وأحجام متنوعة للاستخدام الشخصي والتجاري
           </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-12 bg-gradient-to-br from-blue-50 to-cyan-50 rounded-2xl p-6">
+          <div className="text-center">
+            <div className="text-3xl mb-2">⭕</div>
+            <h3 className="font-semibold mb-1 text-sm">أشكال متنوعة</h3>
+            <p className="text-xs text-muted-foreground">دائرية ومستطيلة وبيضاوية</p>
+          </div>
+          <div className="text-center">
+            <div className="text-3xl mb-2">📏</div>
+            <h3 className="font-semibold mb-1 text-sm">أحجام مختلفة</h3>
+            <p className="text-xs text-muted-foreground">صغيرة ومتوسطة وكبيرة</p>
+          </div>
+          <div className="text-center">
+            <div className="text-3xl mb-2">🏢</div>
+            <h3 className="font-semibold mb-1 text-sm">للشركات</h3>
+            <p className="text-xs text-muted-foreground">أختام تجارية احترافية</p>
+          </div>
+          <div className="text-center">
+            <div className="text-3xl mb-2">👤</div>
+            <h3 className="font-semibold mb-1 text-sm">شخصية</h3>
+            <p className="text-xs text-muted-foreground">للاستخدام الشخصي</p>
+          </div>
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">

@@ -1052,16 +1052,16 @@ export const allProducts: Product[] = [
     isPopular: true
   },
 
-  // الأختام
+  // الأختام المكتبية
   {
     id: 'STAMP-001',
     name: 'ختم مكتبي ذاتي',
     description: 'ختم مكتبي ذاتي للاستخدام الإداري',
     price: 25,
     image: PlaceholderImage,
-    category: 'أختام',
+    category: ['الأختام والطوابع', 'الأختام المكتبية'],
     brand: 'Deli',
-    keywords: ['ختم', 'مكتبي', 'ذاتي', 'deli'],
+    keywords: ['ختم', 'مكتبي', 'ذاتي', 'deli', 'أختام', 'طوابع'],
     inStock: true,
     rating: 4.5
   },
@@ -1071,9 +1071,9 @@ export const allProducts: Product[] = [
     description: 'ختم خشبي تقليدي عالي الجودة',
     price: 15,
     image: PlaceholderImage,
-    category: 'أختام',
+    category: ['الأختام والطوابع', 'الأختام المكتبية'],
     brand: 'Max',
-    keywords: ['ختم', 'خشبي', 'max'],
+    keywords: ['ختم', 'خشبي', 'max', 'أختام', 'طوابع'],
     inStock: true,
     rating: 4.3
   },
@@ -1083,9 +1083,9 @@ export const allProducts: Product[] = [
     description: 'ختم تاريخ قابل للتعديل',
     price: 30,
     image: PlaceholderImage,
-    category: 'أختام',
+    category: ['الأختام والطوابع', 'الأختام المكتبية'],
     brand: 'Deli',
-    keywords: ['ختم', 'تاريخ', 'deli'],
+    keywords: ['ختم', 'تاريخ', 'deli', 'أختام', 'طوابع'],
     inStock: true,
     rating: 4.4
   },
@@ -1095,49 +1095,73 @@ export const allProducts: Product[] = [
     description: 'ختم مخصص لشعار الشركة',
     price: 50,
     image: PlaceholderImage,
-    category: 'أختام',
+    category: ['الأختام والطوابع', 'الأختام المكتبية'],
     brand: 'Custom',
-    keywords: ['ختم', 'شعار', 'شركة', 'custom'],
+    keywords: ['ختم', 'شعار', 'شركة', 'custom', 'أختام', 'طوابع'],
     inStock: true,
     rating: 4.6
   },
 
-  // حبر الختامات
+  // حبر الأختام
   {
     id: 'INK-001',
-    name: 'حبر ختامة أسود',
-    description: 'حبر ختامة عالي الجودة باللون الأسود',
+    name: 'حبر أختام أسود',
+    description: 'حبر أختام عالي الجودة باللون الأسود - سريع الجفاف',
     price: 15,
     image: PlaceholderImage,
-    category: ['حبر ختامة', 'أدوات مكتبية متنوعة'],
+    category: ['الأختام والطوابع', 'حبر الأختام'],
     brand: 'Trodat',
-    keywords: ['حبر', 'ختامة', 'أسود', 'trodat'],
+    keywords: ['حبر', 'أختام', 'أسود', 'trodat', 'طوابع', 'سريع', 'جفاف'],
     inStock: true,
     rating: 4.7
   },
   {
     id: 'INK-002',
-    name: 'حبر ختامة أزرق',
-    description: 'حبر ختامة عالي الجودة باللون الأزرق',
+    name: 'حبر أختام أزرق',
+    description: 'حبر أختام عالي الجودة باللون الأزرق - دائم',
     price: 15,
     image: PlaceholderImage,
-    category: 'حبر ختامة',
+    category: ['الأختام والطوابع', 'حبر الأختام'],
     brand: 'Trodat',
-    keywords: ['حبر', 'ختامة', 'أزرق', 'trodat'],
+    keywords: ['حبر', 'أختام', 'أزرق', 'trodat', 'طوابع', 'دائم'],
     inStock: true,
     rating: 4.6
   },
   {
     id: 'INK-003',
-    name: 'حبر ختامة أحمر',
-    description: 'حبر ختامة عالي الجودة باللون الأحمر',
+    name: 'حبر أختام أحمر',
+    description: 'حبر أختام عالي الجودة باللون الأحمر - مقاوم للتلاشي',
     price: 15,
     image: PlaceholderImage,
-    category: 'حبر ختامة',
+    category: ['الأختام والطوابع', 'حبر الأختام'],
     brand: 'Shiny',
-    keywords: ['حبر', 'ختامة', 'أحمر', 'shiny'],
+    keywords: ['حبر', 'أختام', 'أحمر', 'shiny', 'طوابع', 'مقاوم'],
     inStock: true,
     rating: 4.5
+  },
+  {
+    id: 'INK-004',
+    name: 'حبر أختام أخضر',
+    description: 'حبر أختام عالي الجودة باللون الأخضر - للتصديقات',
+    price: 15,
+    image: PlaceholderImage,
+    category: ['الأختام والطوابع', 'حبر الأختام'],
+    brand: 'Trodat',
+    keywords: ['حبر', 'أختام', 'أخضر', 'trodat', 'طوابع', 'تصديق'],
+    inStock: true,
+    rating: 4.5
+  },
+  {
+    id: 'INK-005',
+    name: 'عبوة إعادة تعبئة حبر أختام',
+    description: 'عبوة إعادة تعبئة لحبر الأختام - اقتصادية وصديقة للبيئة',
+    price: 20,
+    image: PlaceholderImage,
+    category: ['الأختام والطوابع', 'حبر الأختام'],
+    brand: 'Shiny',
+    keywords: ['حبر', 'أختام', 'إعادة', 'تعبئة', 'shiny', 'طوابع', 'اقتصادي'],
+    inStock: true,
+    rating: 4.4
   }
 ];
 

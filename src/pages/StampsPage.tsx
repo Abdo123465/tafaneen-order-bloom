@@ -8,8 +8,8 @@ import { Link } from "react-router-dom";
 
 export default function StampsPage() {
   useEffect(() => {
-    document.title = "ختامة و حبر ختامة | تفانين";
-    const desc = "تصفح مجموعتنا من الأختام المكتبية وأحبار الختامات عالية الجودة.";
+    document.title = "الأختام والطوابع | تفانين";
+    const desc = "تصفح مجموعتنا الشاملة من الأختام المكتبية بأشكال وأحجام متنوعة وأحبار الختامات عالية الجودة بألوان متعددة.";
     let meta = document.querySelector('meta[name="description"]');
     if (!meta) {
       meta = document.createElement('meta');
@@ -22,8 +22,8 @@ export default function StampsPage() {
   const categories = [
     {
       id: 1,
-      name: "أختام",
-      description: "أختام مكتبية بأشكال وأحجام متنوعة",
+      name: "الأختام المكتبية",
+      description: "أختام بأشكال مختلفة (دائرية، مستطيلة، بيضاوية) وأحجام متنوعة (صغيرة، متوسطة، كبيرة) للاستخدام الشخصي والتجاري",
       emoji: "✒️",
       color: "bg-gradient-to-br from-blue-500 to-cyan-600",
       textColor: "text-white",
@@ -31,9 +31,9 @@ export default function StampsPage() {
     },
     {
       id: 2,
-      name: "حبر ختامة",
-      description: "أحبار ختامات عالية الجودة بألوان متعددة",
-      emoji: "💧",
+      name: "حبر الأختام",
+      description: "حبر بألوان متنوعة (أسود، أزرق، أحمر، أخضر) - حبر سريع الجفاف - حبر دائم - عبوات إعادة التعبئة",
+      emoji: "🎨",
       color: "bg-gradient-to-br from-green-500 to-emerald-600",
       textColor: "text-white",
       path: "/office-supplies/stamps/ink-pads"
@@ -51,15 +51,16 @@ export default function StampsPage() {
           <ArrowRight className="h-4 w-4" />
           <Link to="/office-supplies" className="hover:text-primary">مستلزمات المكتب</Link>
           <ArrowRight className="h-4 w-4" />
-          <span className="text-foreground">ختامة و حبر ختامة</span>
+          <span className="text-foreground">الأختام والطوابع</span>
         </nav>
 
         <div className="text-center mb-12">
-          <h1 className="text-3xl lg:text-4xl font-bold mb-4">
-            ختامة و حبر ختامة
+          <div className="text-6xl mb-4">🖊️</div>
+          <h1 className="text-3xl lg:text-4xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
+            الأختام والطوابع
           </h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            اختر من بين مجموعتنا المتنوعة من الأختام وأحبار الختامات لتلبية جميع احتياجاتك المكتبية.
+            مجموعة شاملة من الأختام المكتبية وأحبار الختامات عالية الجودة لتلبية جميع احتياجاتك المكتبية والشخصية.
           </p>
         </div>
 

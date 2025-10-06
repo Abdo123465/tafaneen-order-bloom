@@ -57,10 +57,14 @@ const InkPadsPage = () => {
   const { addItem } = useCart();
   
   useEffect(() => {
-    document.title = "حبر الختامة | تفانين";
-    const desc = "تسوق أفضل أنواع حبر الختامة عالية الجودة للاستخدام المكتبي والرسمي من تفانين.";
+    document.title = "حبر الأختام | تفانين";
+    const desc = "تسوق أفضل أنواع حبر الأختام بألوان متنوعة عالية الجودة - حبر سريع الجفاف ودائم للاستخدام المكتبي والرسمي.";
     let meta = document.querySelector('meta[name="description"]');
-    if (!meta) { meta = document.createElement('meta'); meta.setAttribute('name','description'); document.head.appendChild(meta);} 
+    if (!meta) {
+      meta = document.createElement('meta');
+      meta.setAttribute('name','description');
+      document.head.appendChild(meta);
+    }
     meta.setAttribute('content', desc);
   }, []);
   
@@ -76,38 +80,41 @@ const InkPadsPage = () => {
           <ArrowRight className="h-4 w-4" />
           <Link to="/office-supplies" className="hover:text-primary">مستلزمات المكتب</Link>
           <ArrowRight className="h-4 w-4" />
-          <Link to="/office-supplies/stamps" className="hover:text-primary">ختامة و حبر ختامة</Link>
+          <Link to="/office-supplies/stamps" className="hover:text-primary">الأختام والطوابع</Link>
           <ArrowRight className="h-4 w-4" />
-          <span className="text-foreground">حبر الختامة</span>
+          <span className="text-foreground">حبر الأختام</span>
         </nav>
         
-        {/* Hero Section */}
         <div className="text-center mb-12">
-          <div className="text-6xl mb-4">🖋️</div>
-          <h1 className="text-3xl lg:text-4xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
-            حبر الختامة
+          <div className="text-6xl mb-4">🎨</div>
+          <h1 className="text-3xl lg:text-4xl font-bold mb-4 bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">
+            حبر الأختام
           </h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-4">
-            مجموعة متكاملة من أحبار الختامة عالية الجودة للاستخدام المكتبي والرسمي
+            حبر بألوان متنوعة (أسود، أزرق، أحمر، أخضر) - سريع الجفاف - دائم - عبوات إعادة التعبئة
           </p>
         </div>
         
-        {/* Features */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 bg-muted/30 rounded-2xl p-6">
-          <div className="text-center">
-            <div className="text-3xl mb-2">💧</div>
-            <h3 className="font-semibold mb-1">جفاف سريع</h3>
-            <p className="text-sm text-muted-foreground">يجف بسرعة لمنع التلطيخ</p>
-          </div>
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-12 bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-6">
           <div className="text-center">
             <div className="text-3xl mb-2">🌈</div>
-            <h3 className="font-semibold mb-1">ألوان ثابتة</h3>
-            <p className="text-sm text-muted-foreground">ألوان ثابتة لا تتأثر بالعوامل الجوية</p>
+            <h3 className="font-semibold mb-1 text-sm">ألوان متعددة</h3>
+            <p className="text-xs text-muted-foreground">أسود، أزرق، أحمر، أخضر</p>
           </div>
           <div className="text-center">
-            <div className="text-3xl mb-2">✅</div>
-            <h3 className="font-semibold mb-1">متعدد الاستخدامات</h3>
-            <p className="text-sm text-muted-foreground">يناسب جميع أنواع الأختام المكتبية</p>
+            <div className="text-3xl mb-2">⚡</div>
+            <h3 className="font-semibold mb-1 text-sm">سريع الجفاف</h3>
+            <p className="text-xs text-muted-foreground">يجف بسرعة لمنع التلطيخ</p>
+          </div>
+          <div className="text-center">
+            <div className="text-3xl mb-2">🔒</div>
+            <h3 className="font-semibold mb-1 text-sm">حبر دائم</h3>
+            <p className="text-xs text-muted-foreground">ثابت ومقاوم للتلاشي</p>
+          </div>
+          <div className="text-center">
+            <div className="text-3xl mb-2">♻️</div>
+            <h3 className="font-semibold mb-1 text-sm">إعادة التعبئة</h3>
+            <p className="text-xs text-muted-foreground">عبوات قابلة لإعادة الملء</p>
           </div>
         </div>
         
@@ -145,20 +152,19 @@ const InkPadsPage = () => {
           ))}
         </div>
         
-        {/* Brand Info */}
-        <div className="mt-16 bg-gradient-to-r from-blue-50 to-cyan-50 rounded-2xl p-8 text-center">
-          <h2 className="text-2xl font-bold mb-4">عن أحبار الختامة</h2>
+        <div className="mt-16 bg-gradient-to-r from-green-50 to-emerald-50 rounded-2xl p-8 text-center">
+          <h2 className="text-2xl font-bold mb-4">عن حبر الأختام</h2>
           <p className="text-muted-foreground max-w-3xl mx-auto mb-6">
-            أحبار الختامة التي نقدمها مصنوعة من مواد عالية الجودة تضمن وضوح البصمة وثباتها لفترة طويلة.
-            تتوفر لدينا مجموعة متنوعة من الألوان والأنواع لتناسب مختلف الاستخدامات، سواء للأعمال الرسمية أو الاستخدام اليومي.
-            جميع منتجاتنا مقاومة للتلاشي ومصممة لتعمل بكفاءة مع جميع أنواع الأختام المكتبية.
+            حبر الأختام الذي نقدمه مصنوع من مواد عالية الجودة تضمن وضوح البصمة وثباتها لفترة طويلة.
+            تتوفر لدينا مجموعة متنوعة من الألوان (أسود، أزرق، أحمر، أخضر) لتناسب مختلف الاستخدامات المكتبية.
+            جميع منتجاتنا سريعة الجفاف، مقاومة للتلاشي، ومصممة لتعمل بكفاءة مع جميع أنواع الأختام المكتبية.
+            نوفر أيضاً عبوات إعادة التعبئة لتوفير التكاليف والحفاظ على البيئة.
           </p>
         </div>
         
-        {/* Back to stamps */}
         <div className="text-center mt-12">
           <Button asChild variant="outline" className="text-lg px-8 py-4 h-auto">
-            <Link to="/office-supplies/stamps">العودة إلى ختامة و حبر ختامة</Link>
+            <Link to="/office-supplies/stamps">العودة إلى الأختام والطوابع</Link>
           </Button>
         </div>
       </main>
