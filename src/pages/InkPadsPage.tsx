@@ -4,7 +4,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { useCart } from "@/contexts/CartContext";
-import { ArrowRight, Image as ImageIcon } from "lucide-react";
+import { ArrowRight, Star, Award, Image as ImageIcon, Palette } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const inkPadProducts = [
@@ -16,7 +16,6 @@ const inkPadProducts = [
     fallbackEmoji: '🖋️',
     description: 'حبر ختام أسود مثالي للاستخدام اليومي في المكاتب والشركات'
   },
-  
 ];
 
 // مكون خاص لعرض الصور مع fallback
@@ -60,14 +59,14 @@ const InkPadsPage = () => {
     document.title = "حبر الأختام | تفانين";
     const desc = "تسوق أفضل أنواع حبر الأختام بألوان متنوعة عالية الجودة - حبر سريع الجفاف ودائم للاستخدام المكتبي والرسمي.";
     let meta = document.querySelector('meta[name="description"]');
-    if (!meta) {
-      meta = document.createElement('meta');
-      meta.setAttribute('name','description');
+    if (!meta) { 
+      meta = document.createElement('meta'); 
+      meta.setAttribute('name','description'); 
       document.head.appendChild(meta);
-    }
+    } 
     meta.setAttribute('content', desc);
   }, []);
-  
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -84,17 +83,26 @@ const InkPadsPage = () => {
           <ArrowRight className="h-4 w-4" />
           <span className="text-foreground">حبر الأختام</span>
         </nav>
-        
+
+        {/* Hero Section */}
         <div className="text-center mb-12">
-          <div className="text-6xl mb-4">🎨</div>
+          <div className="flex items-center justify-center gap-2 mb-4">
+            <div className="text-6xl">🎨</div>
+            <Palette className="h-8 w-8 text-green-500" />
+          </div>
           <h1 className="text-3xl lg:text-4xl font-bold mb-4 bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">
             حبر الأختام
           </h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-4">
             حبر بألوان متنوعة (أسود، أزرق، أحمر، أخضر) - سريع الجفاف - دائم - عبوات إعادة التعبئة
           </p>
+          <div className="inline-flex items-center gap-2 bg-primary/10 px-4 py-2 rounded-full">
+            <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+            <span className="text-sm font-medium">جودة عالية وثبات الألوان</span>
+          </div>
         </div>
-        
+
+        {/* Features */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-12 bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-6">
           <div className="text-center">
             <div className="text-3xl mb-2">🌈</div>
@@ -117,12 +125,19 @@ const InkPadsPage = () => {
             <p className="text-xs text-muted-foreground">عبوات قابلة لإعادة الملء</p>
           </div>
         </div>
-        
+
         {/* Products Grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {inkPadProducts.map((product) => (
             <div key={product.id} className="card-product relative group">
-              {/* Product Image */}
+              {/* Brand Badge */}
+              <div className="absolute top-3 left-3 z-10">
+                <span className="bg-primary text-primary-foreground text-xs px-3 py-1 rounded-full font-medium">
+                  {product.brand}
+                </span>
+              </div>
+              
+              {/* Product Image مع مكون محسن */}
               <ProductImage 
                 src={product.image}
                 alt={product.name}
@@ -151,7 +166,8 @@ const InkPadsPage = () => {
             </div>
           ))}
         </div>
-        
+
+        {/* Info Section */}
         <div className="mt-16 bg-gradient-to-r from-green-50 to-emerald-50 rounded-2xl p-8 text-center">
           <h2 className="text-2xl font-bold mb-4">عن حبر الأختام</h2>
           <p className="text-muted-foreground max-w-3xl mx-auto mb-6">
@@ -160,8 +176,19 @@ const InkPadsPage = () => {
             جميع منتجاتنا سريعة الجفاف، مقاومة للتلاشي، ومصممة لتعمل بكفاءة مع جميع أنواع الأختام المكتبية.
             نوفر أيضاً عبوات إعادة التعبئة لتوفير التكاليف والحفاظ على البيئة.
           </p>
+          <div className="flex items-center justify-center gap-8 text-sm text-muted-foreground">
+            <div className="flex items-center gap-2">
+              <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+              <span>جودة عالية</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Award className="h-4 w-4" />
+              <span>ألوان ثابتة</span>
+            </div>
+          </div>
         </div>
-        
+
+        {/* Back to categories */}
         <div className="text-center mt-12">
           <Button asChild variant="outline" className="text-lg px-8 py-4 h-auto">
             <Link to="/office-supplies/stamps">العودة إلى الأختام والطوابع</Link>
