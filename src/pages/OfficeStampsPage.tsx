@@ -1,3 +1,4 @@
+// src/pages/StampInkPage.tsx
 import { useEffect, useState } from "react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -6,51 +7,18 @@ import { useCart } from "@/contexts/CartContext";
 import { ArrowRight, Image as ImageIcon } from "lucide-react";
 import { Link } from "react-router-dom";
 
-interface StampProduct {
-  id: string;
-  name: string;
-  price: number;
-  image: string;
-  description: string;
-  brand: string;
-}
-
-// يمكنك إضافة منتجاتك هنا وتحديث الصور في public/assets
-const stampProducts: StampProduct[] = [
-  {
-    id: 'stamp-1',
-    name: 'ختم مكتبي دائري',
-    price: 45,
-    image: '/assets/stamp-1.jpg', // ضع الصورة في public/assets/stamp-1.jpg
-    description: 'ختم مكتبي دائري عالي الجودة للاستخدام اليومي',
-    brand: 'Office Pro'
+const stampInkProducts = [
+  { 
+    id: 'ink-1', 
+    name: 'حبر ختامه FLOWER', 
+    price: 30, 
+    image: '/assets/stamp-ink-1.jpg', 
+    fallbackEmoji: '🖋️',
+    description: 'حبر ختام ازرق مثالي للاستخدام اليومي في المكاتب والشركات'
   },
-  {
-    id: 'stamp-2',
-    name: 'ختم مستطيل كبير',
-    price: 65,
-    image: '/assets/stamp-2.jpg',
-    description: 'ختم مستطيل كبير للمستندات الرسمية',
-    brand: 'Premium Stamps'
-  },
-  {
-    id: 'stamp-3',
-    name: 'ختم تاريخ تلقائي',
-    price: 85,
-    image: '/assets/stamp-3.jpg',
-    description: 'ختم تاريخ تلقائي مع إمكانية التعديل',
-    brand: 'Auto Date'
-  },
-  {
-    id: 'stamp-4',
-    name: 'ختم شخصي صغير',
-    price: 35,
-    image: '/assets/stamp-4.jpg',
-    description: 'ختم شخصي بحجم صغير للاستخدام اليومي',
-    brand: 'Office Pro'
-  }
 ];
 
+// مكون خاص لعرض الصور مع fallback
 const ProductImage = ({ src, alt, fallbackEmoji, className }: { src: string; alt: string; fallbackEmoji: string; className?: string }) => {
   const [imageError, setImageError] = useState(false);
   const [imageLoading, setImageLoading] = useState(true);
@@ -77,31 +45,29 @@ const ProductImage = ({ src, alt, fallbackEmoji, className }: { src: string; alt
           />
         </>
       ) : (
-        <div className="text-6xl">{fallbackEmoji || '✒️'}</div>
+        // Fallback - عرض الإيموجي إذا فشل تحميل الصورة
+        <div className="text-6xl">{fallbackEmoji}</div>
       )}
     </div>
   );
 };
 
-export default function OfficeStampsPage() {
+const StampInkPage = () => {
   const { addItem } = useCart();
-
+  
   useEffect(() => {
-    document.title = "أختام | تفانين";
-    const desc = "تسوق أفضل أنواع الأختام المكتبية للاستخدام الإداري والشخصي.";
+    document.title = "حبر الختامة | تفانين";
+    const desc = "تسوق أفضل أنواع حبر الختامة عالية الجودة للاستخدام المكتبي والرسمي من تفانين.";
     let meta = document.querySelector('meta[name="description"]');
-    if (!meta) { 
-      meta = document.createElement('meta'); 
-      meta.setAttribute('name','description'); 
-      document.head.appendChild(meta);
-    } 
+    if (!meta) { meta = document.createElement('meta'); meta.setAttribute('name','description'); document.head.appendChild(meta);} 
     meta.setAttribute('content', desc);
   }, []);
-
+  
   return (
     <div className="min-h-screen bg-background">
       <Header />
       <main className="container mx-auto px-4 py-10">
+        {/* Breadcrumb */}
         <nav className="flex items-center gap-2 text-sm text-muted-foreground mb-8">
           <Link to="/" className="hover:text-primary">الرئيسية</Link>
           <ArrowRight className="h-4 w-4" />
@@ -111,47 +77,64 @@ export default function OfficeStampsPage() {
           <ArrowRight className="h-4 w-4" />
           <Link to="/office-supplies/stamps" className="hover:text-primary">ختامة و حبر ختامة</Link>
           <ArrowRight className="h-4 w-4" />
-          <span className="text-foreground">أختام</span>
+          <span className="text-foreground">حبر الختامة</span>
         </nav>
-
+        
+        {/* Hero Section */}
         <div className="text-center mb-12">
-          <div className="text-6xl mb-4">✒️</div>
+          <div className="text-6xl mb-4">🖋️</div>
           <h1 className="text-3xl lg:text-4xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
-            الأختام
+            حبر الختامة
           </h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-4">
-            مجموعة متنوعة من الأختام المكتبية لتلبية كافة احتياجاتك.
+            مجموعة متكاملة من أحبار الختامة عالية الجودة للاستخدام المكتبي والرسمي
           </p>
         </div>
-
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {stampProducts.map((stamp) => (
-            <div key={stamp.id} className="card-product relative group">
-              <div className="absolute top-3 left-3 z-10">
-                <span className="bg-primary text-primary-foreground text-xs px-3 py-1 rounded-full font-medium">
-                  {stamp.brand}
-                </span>
-              </div>
-              
+        
+        {/* Features */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 bg-muted/30 rounded-2xl p-6">
+          <div className="text-center">
+            <div className="text-3xl mb-2">💧</div>
+            <h3 className="font-semibold mb-1">جفاف سريع</h3>
+            <p className="text-sm text-muted-foreground">يجف بسرعة لمنع التلطيخ</p>
+          </div>
+          <div className="text-center">
+            <div className="text-3xl mb-2">🌈</div>
+            <h3 className="font-semibold mb-1">ألوان ثابتة</h3>
+            <p className="text-sm text-muted-foreground">ألوان ثابتة لا تتأثر بالعوامل الجوية</p>
+          </div>
+          <div className="text-center">
+            <div className="text-3xl mb-2">✅</div>
+            <h3 className="font-semibold mb-1">متعدد الاستخدامات</h3>
+            <p className="text-sm text-muted-foreground">يناسب جميع أنواع الأختام المكتبية</p>
+          </div>
+        </div>
+        
+        {/* Products Grid */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {stampInkProducts.map((product) => (
+            <div key={product.id} className="card-product relative group">
+              {/* Product Image */}
               <ProductImage 
-                src={stamp.image}
-                alt={stamp.name}
-                fallbackEmoji='✒️'
+                src={product.image}
+                alt={product.name}
+                fallbackEmoji={product.fallbackEmoji}
                 className="mb-4"
               />
               
-              <h3 className="font-semibold mb-2 line-clamp-2">{stamp.name}</h3>
-              <p className="text-sm text-muted-foreground mb-3 line-clamp-2">{stamp.description}</p>
+              <h3 className="font-semibold mb-2 line-clamp-2">{product.name}</h3>
+              
+              <p className="text-sm text-muted-foreground mb-3 line-clamp-2">{product.description}</p>
               
               <div className="flex items-center justify-between mt-auto">
-                <span className="text-primary font-bold text-lg">{stamp.price} ج.م</span>
+                <span className="text-primary font-bold text-lg">{product.price} ج.م</span>
                 <Button 
                   className="btn-tafaneen"
                   onClick={() => addItem({ 
-                    id: stamp.id, 
-                    name: stamp.name, 
-                    price: stamp.price, 
-                    image: stamp.image 
+                    id: product.id, 
+                    name: product.name, 
+                    price: product.price, 
+                    image: product.image 
                   })}
                 >
                   إضافة للسلة
@@ -160,9 +143,20 @@ export default function OfficeStampsPage() {
             </div>
           ))}
         </div>
-
+        
+        {/* Brand Info */}
+        <div className="mt-16 bg-gradient-to-r from-blue-50 to-cyan-50 rounded-2xl p-8 text-center">
+          <h2 className="text-2xl font-bold mb-4">عن أحبار الختامة</h2>
+          <p className="text-muted-foreground max-w-3xl mx-auto mb-6">
+            أحبار الختامة التي نقدمها مصنوعة من مواد عالية الجودة تضمن وضوح البصمة وثباتها لفترة طويلة.
+            تتوفر لدينا مجموعة متنوعة من الألوان والأنواع لتناسب مختلف الاستخدامات، سواء للأعمال الرسمية أو الاستخدام اليومي.
+            جميع منتجاتنا مقاومة للتلاشي ومصممة لتعمل بكفاءة مع جميع أنواع الأختام المكتبية.
+          </p>
+        </div>
+        
+        {/* Back to stamps */}
         <div className="text-center mt-12">
-          <Button asChild variant="outline">
+          <Button asChild variant="outline" className="text-lg px-8 py-4 h-auto">
             <Link to="/office-supplies/stamps">العودة إلى ختامة و حبر ختامة</Link>
           </Button>
         </div>
@@ -170,4 +164,6 @@ export default function OfficeStampsPage() {
       <Footer />
     </div>
   );
-}
+};
+
+export default StampInkPage;
