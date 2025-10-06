@@ -10,39 +10,39 @@ import { useCart } from "@/contexts/CartContext";
 const paperClipsProducts = [
   {
     id: 'paper-clips-1',
-    name: 'مشابك ورق معدنية متعددة الأحجام',
-    price: 25,
+    name: 'مشبك ورق 25 ملي',
+    price: 4,
     image: '/assets/paper-clips-metal.jpg',
-    description: 'مشابك ورق معدنية عالية الجودة متعددة الأحجام',
-    brand: 'Office Pro',
-    features: ['مقاومة للصدأ', 'متعددة الأحجام', 'علبة بلاستيكية', '100 قطعة']
+    description: 'مشبك ورق 25 ملي',
+    brand: 'Diamond',
+    features: ['مقاومة للصدأ', 'متعددة الأحجام', 'مناسب للأوراق الصغيرة  ', 'مقاس 25مم']
   },
   {
     id: 'paper-clips-2',
-    name: 'مشابك ورق ملونة',
-    price: 30,
+    name: 'مشبك ورق 51 ملي',
+    price: 9,
     image: '/assets/paper-clips-colored.jpg',
-    description: 'مشابك ورق ملونة بتصاميم جذابة',
-    brand: 'Color Clip',
-    features: ['ألوان متعددة', 'مقاومة للانحناء', '50 قطعة', 'علبة قابلة لإعادة الاستخدام']
+    description: 'مشبك ورق 51 ملي',
+    brand: 'Diamond',
+    features: [' الون اسود', 'مقاومة للانحناء', ' 51مم', ' مناسب للأوراق الكبيرة']
   },
   {
     id: 'push-pins-1',
-    name: 'دبابيس كبس بلاستيكية',
-    price: 20,
+    name: 'مشبك ورق 32 ملي ELUCKY 23732',
+    price: 6,
     image: '/assets/push-pins-plastic.jpg',
-    description: 'دبابيس كبس بلاستيكية برؤوس ملونة',
-    brand: 'Pin Master',
-    features: ['رؤوس بلاستيكية', 'إبرة فولاذية', '100 قطعة', 'صندوق بلاستيكي']
+    description: 'مشبك ورق 32 ملي ELUCKY 23732',
+    brand: 'Diamond',
+    features: [' مشبك معدني ', ' مناسب للأوراق المتوسطة', ' 32مم', 'الون اسود ']
   },
   {
     id: 'push-pins-2',
-    name: 'دبابيس كبس معدنية',
-    price: 35,
+    name: 'مشبك ورق 41 ملي5/8  ',
+    price: 7,
     image: '/assets/push-pins-metal.jpg',
-    description: 'دبابيس كبس معدنية متينة',
-    brand: 'Metal Pin',
-    features: ['رأس معدني', 'إبرة قوية', '50 قطعة', 'صندوق معدني']
+    description: 'مشبك ورق 41 ملي5/8  ',
+    brand: 'Diamond',
+    features: [' مشبك معدني ', ' مناسب للأوراق المتوسطة', ' 41ملي', 'الون اسود ']
   },
   {
     id: 'staple-pins-1',
