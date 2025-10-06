@@ -1,4 +1,3 @@
-// src/pages/StampInkPage.tsx
 import { useEffect, useState } from "react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -7,14 +6,55 @@ import { useCart } from "@/contexts/CartContext";
 import { ArrowRight, Image as ImageIcon } from "lucide-react";
 import { Link } from "react-router-dom";
 
-const stampInkProducts = [
+interface StampProduct {
+  id: string;
+  name: string;
+  price: number;
+  image: string;
+  fallbackEmoji: string;
+  description: string;
+}
+
+const stampProducts: StampProduct[] = [
   { 
-    id: 'ink-1', 
-    name: 'حبر ختامه FLOWER', 
-    price: 30, 
-    image: '/assets/stamp-ink-1.jpg', 
-    fallbackEmoji: '🖋️',
-    description: 'حبر ختام ازرق مثالي للاستخدام اليومي في المكاتب والشركات'
+    id: 'stamp-1', 
+    name: 'ختم دائري مكتبي', 
+    price: 50, 
+    image: '/assets/stamp-1.jpg', 
+    fallbackEmoji: '🔖',
+    description: 'ختم دائري احترافي للاستخدام المكتبي والرسمي'
+  },
+  { 
+    id: 'stamp-2', 
+    name: 'ختم مستطيل كبير', 
+    price: 65, 
+    image: '/assets/stamp-2.jpg', 
+    fallbackEmoji: '📋',
+    description: 'ختم مستطيل كبير الحجم للعناوين والبيانات'
+  },
+  { 
+    id: 'stamp-3', 
+    name: 'ختم تاريخ ورقم', 
+    price: 80, 
+    image: '/assets/stamp-3.jpg', 
+    fallbackEmoji: '📅',
+    description: 'ختم متعدد الأغراض بتاريخ ورقم قابل للتعديل'
+  },
+  { 
+    id: 'stamp-4', 
+    name: 'ختم توقيع شخصي', 
+    price: 55, 
+    image: '/assets/stamp-4.jpg', 
+    fallbackEmoji: '✍️',
+    description: 'ختم مخصص للتوقيع الشخصي بتصميم أنيق'
+  },
+  { 
+    id: 'stamp-5', 
+    name: 'ختم شعار الشركة', 
+    price: 90, 
+    image: '/assets/stamp-5.jpg', 
+    fallbackEmoji: '🏢',
+    description: 'ختم مخصص لشعار الشركة بجودة عالية'
   },
 ];
 
@@ -52,12 +92,12 @@ const ProductImage = ({ src, alt, fallbackEmoji, className }: { src: string; alt
   );
 };
 
-const StampInkPage = () => {
+const OfficeStampsPage = () => {
   const { addItem } = useCart();
   
   useEffect(() => {
-    document.title = "حبر الختامة | تفانين";
-    const desc = "تسوق أفضل أنواع حبر الختامة عالية الجودة للاستخدام المكتبي والرسمي من تفانين.";
+    document.title = "أختام مكتبية | تفانين";
+    const desc = "تسوق أفضل أنواع الأختام المكتبية بأشكال وأحجام متنوعة للاستخدام الرسمي من تفانين.";
     let meta = document.querySelector('meta[name="description"]');
     if (!meta) { meta = document.createElement('meta'); meta.setAttribute('name','description'); document.head.appendChild(meta);} 
     meta.setAttribute('content', desc);
@@ -77,42 +117,42 @@ const StampInkPage = () => {
           <ArrowRight className="h-4 w-4" />
           <Link to="/office-supplies/stamps" className="hover:text-primary">ختامة و حبر ختامة</Link>
           <ArrowRight className="h-4 w-4" />
-          <span className="text-foreground">حبر الختامة</span>
+          <span className="text-foreground">أختام مكتبية</span>
         </nav>
         
         {/* Hero Section */}
         <div className="text-center mb-12">
-          <div className="text-6xl mb-4">🖋️</div>
+          <div className="text-6xl mb-4">🔖</div>
           <h1 className="text-3xl lg:text-4xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
-            حبر الختامة
+            أختام مكتبية
           </h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-4">
-            مجموعة متكاملة من أحبار الختامة عالية الجودة للاستخدام المكتبي والرسمي
+            مجموعة متنوعة من الأختام المكتبية بأشكال وأحجام مختلفة للاستخدام الرسمي والتجاري
           </p>
         </div>
         
         {/* Features */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 bg-muted/30 rounded-2xl p-6">
           <div className="text-center">
-            <div className="text-3xl mb-2">💧</div>
-            <h3 className="font-semibold mb-1">جفاف سريع</h3>
-            <p className="text-sm text-muted-foreground">يجف بسرعة لمنع التلطيخ</p>
+            <div className="text-3xl mb-2">⚡</div>
+            <h3 className="font-semibold mb-1">تصميم احترافي</h3>
+            <p className="text-sm text-muted-foreground">تصاميم عصرية وأنيقة للاستخدام المهني</p>
           </div>
           <div className="text-center">
-            <div className="text-3xl mb-2">🌈</div>
-            <h3 className="font-semibold mb-1">ألوان ثابتة</h3>
-            <p className="text-sm text-muted-foreground">ألوان ثابتة لا تتأثر بالعوامل الجوية</p>
+            <div className="text-3xl mb-2">🎯</div>
+            <h3 className="font-semibold mb-1">دقة عالية</h3>
+            <p className="text-sm text-muted-foreground">بصمة واضحة ودقيقة في كل استخدام</p>
           </div>
           <div className="text-center">
-            <div className="text-3xl mb-2">✅</div>
-            <h3 className="font-semibold mb-1">متعدد الاستخدامات</h3>
-            <p className="text-sm text-muted-foreground">يناسب جميع أنواع الأختام المكتبية</p>
+            <div className="text-3xl mb-2">💪</div>
+            <h3 className="font-semibold mb-1">جودة متينة</h3>
+            <p className="text-sm text-muted-foreground">مصنوعة من مواد عالية الجودة لضمان الاستدامة</p>
           </div>
         </div>
         
         {/* Products Grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {stampInkProducts.map((product) => (
+          {stampProducts.map((product) => (
             <div key={product.id} className="card-product relative group">
               {/* Product Image */}
               <ProductImage 
@@ -146,11 +186,11 @@ const StampInkPage = () => {
         
         {/* Brand Info */}
         <div className="mt-16 bg-gradient-to-r from-blue-50 to-cyan-50 rounded-2xl p-8 text-center">
-          <h2 className="text-2xl font-bold mb-4">عن أحبار الختامة</h2>
+          <h2 className="text-2xl font-bold mb-4">عن الأختام المكتبية</h2>
           <p className="text-muted-foreground max-w-3xl mx-auto mb-6">
-            أحبار الختامة التي نقدمها مصنوعة من مواد عالية الجودة تضمن وضوح البصمة وثباتها لفترة طويلة.
-            تتوفر لدينا مجموعة متنوعة من الألوان والأنواع لتناسب مختلف الاستخدامات، سواء للأعمال الرسمية أو الاستخدام اليومي.
-            جميع منتجاتنا مقاومة للتلاشي ومصممة لتعمل بكفاءة مع جميع أنواع الأختام المكتبية.
+            نوفر مجموعة شاملة من الأختام المكتبية عالية الجودة بتصاميم وأحجام مختلفة.
+            جميع أختامنا مصنوعة من مواد متينة تضمن بصمة واضحة ودقيقة مع كل استخدام.
+            سواء كنت تحتاج ختم للتوقيع الشخصي، ختم تاريخ، أو ختم لشعار الشركة، لدينا الحل المثالي لاحتياجاتك.
           </p>
         </div>
         
@@ -166,4 +206,4 @@ const StampInkPage = () => {
   );
 };
 
-export default StampInkPage;
+export default OfficeStampsPage;
