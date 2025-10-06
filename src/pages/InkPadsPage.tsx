@@ -1,3 +1,4 @@
+// src/pages/InkPadsPage.tsx
 import { useEffect, useState } from "react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -6,59 +7,58 @@ import { useCart } from "@/contexts/CartContext";
 import { ArrowRight, Image as ImageIcon } from "lucide-react";
 import { Link } from "react-router-dom";
 
-interface InkPadProduct {
-  id: string;
-  name: string;
-  price: number;
-  image: string;
-  description: string;
-  brand: string;
-}
-
-// يمكنك إضافة منتجاتك هنا وتحديث الصور في public/assets
-const inkPadProducts: InkPadProduct[] = [
-  {
-    id: 'ink-pad-1',
-    name: 'حبر ختم أزرق',
-    price: 25,
-    image: '/assets/ink-pad-1.jpg', // ضع الصورة في public/assets/ink-pad-1.jpg
-    description: 'حبر ختم أزرق سريع الجفاف وطويل الأمد',
-    brand: 'Ink Master'
+const inkPadProducts = [
+  { 
+    id: 'ink-1', 
+    name: 'حبر ختام أسود عالي الجودة', 
+    price: 25, 
+    image: '/assets/stamp-ink-1.jpg', 
+    fallbackEmoji: '🖋️',
+    description: 'حبر ختام أسود مثالي للاستخدام اليومي في المكاتب والشركات'
   },
-  {
-    id: 'ink-pad-2',
-    name: 'حبر ختم أسود',
-    price: 25,
-    image: '/assets/ink-pad-2.jpg',
-    description: 'حبر ختم أسود عالي الكثافة',
-    brand: 'Ink Master'
+  { 
+    id: 'ink-2', 
+    name: 'حبر ختام أزرق مقاوم للماء', 
+    price: 30, 
+    image: '/assets/stamp-ink-2.jpg',
+    fallbackEmoji: '🖋️',
+    description: 'حبر ختام أزرق متين مقاوم للماء، مثالي للمستندات الرسمية'
   },
-  {
-    id: 'ink-pad-3',
-    name: 'حبر ختم أحمر',
-    price: 25,
-    image: '/assets/ink-pad-3.jpg',
-    description: 'حبر ختم أحمر للمستندات المهمة',
-    brand: 'Ink Master'
+  { 
+    id: 'ink-3', 
+    name: 'حبر ختام أحمر سريع الجفاف', 
+    price: 28, 
+    image: '/assets/stamp-ink-3.jpg',
+    fallbackEmoji: '🖋️',
+    description: 'حبر ختام أحمر سريع الجفاف، مثالي للاستخدام المكثف'
   },
-  {
-    id: 'ink-pad-4',
-    name: 'مجموعة أحبار ملونة',
-    price: 75,
-    image: '/assets/ink-pad-4.jpg',
-    description: 'مجموعة من 4 ألوان لأحبار الختامات',
-    brand: 'Color Set'
+  { 
+    id: 'ink-4', 
+    name: 'حبر ختام متعدد الألوان', 
+    price: 45, 
+    image: '/assets/stamp-ink-4.jpg',
+    fallbackEmoji: '🖋️',
+    description: 'مجموعة ألوان متعددة للأختام، تحتوي على 4 ألوان مختلفة'
   },
-  {
-    id: 'ink-pad-5',
-    name: 'حبر ختم دائم',
-    price: 35,
-    image: '/assets/ink-pad-5.jpg',
-    description: 'حبر ختم دائم غير قابل للمحو',
-    brand: 'Permanent Pro'
+  { 
+    id: 'ink-5', 
+    name: 'حبر ختام أخضر للتصديق', 
+    price: 32, 
+    image: '/assets/stamp-ink-5.jpg',
+    fallbackEmoji: '🖋️',
+    description: 'حبر ختام أخضر مخصص للتصديقات والموافقات الرسمية'
+  },
+  { 
+    id: 'ink-6', 
+    name: 'حبر ختام بنفسجي فاخر', 
+    price: 35, 
+    image: '/assets/stamp-ink-6.jpg',
+    fallbackEmoji: '🖋️',
+    description: 'حبر ختام بنفسجي فاخر، مثالي للاستخدام في الوثائق المهمة'
   }
 ];
 
+// مكون خاص لعرض الصور مع fallback
 const ProductImage = ({ src, alt, fallbackEmoji, className }: { src: string; alt: string; fallbackEmoji: string; className?: string }) => {
   const [imageError, setImageError] = useState(false);
   const [imageLoading, setImageLoading] = useState(true);
@@ -85,31 +85,29 @@ const ProductImage = ({ src, alt, fallbackEmoji, className }: { src: string; alt
           />
         </>
       ) : (
-        <div className="text-6xl">{fallbackEmoji || '💧'}</div>
+        // Fallback - عرض الإيموجي إذا فشل تحميل الصورة
+        <div className="text-6xl">{fallbackEmoji}</div>
       )}
     </div>
   );
 };
 
-export default function InkPadsPage() {
+const InkPadsPage = () => {
   const { addItem } = useCart();
-
+  
   useEffect(() => {
-    document.title = "حبر ختامة | تفانين";
-    const desc = "تسوق أفضل أنواع أحبار الختامات لضمان طباعة واضحة ودائمة.";
+    document.title = "حبر الختامة | تفانين";
+    const desc = "تسوق أفضل أنواع حبر الختامة عالية الجودة للاستخدام المكتبي والرسمي من تفانين.";
     let meta = document.querySelector('meta[name="description"]');
-    if (!meta) { 
-      meta = document.createElement('meta'); 
-      meta.setAttribute('name','description'); 
-      document.head.appendChild(meta);
-    } 
+    if (!meta) { meta = document.createElement('meta'); meta.setAttribute('name','description'); document.head.appendChild(meta);} 
     meta.setAttribute('content', desc);
   }, []);
-
+  
   return (
     <div className="min-h-screen bg-background">
       <Header />
       <main className="container mx-auto px-4 py-10">
+        {/* Breadcrumb */}
         <nav className="flex items-center gap-2 text-sm text-muted-foreground mb-8">
           <Link to="/" className="hover:text-primary">الرئيسية</Link>
           <ArrowRight className="h-4 w-4" />
@@ -119,47 +117,64 @@ export default function InkPadsPage() {
           <ArrowRight className="h-4 w-4" />
           <Link to="/office-supplies/stamps" className="hover:text-primary">ختامة و حبر ختامة</Link>
           <ArrowRight className="h-4 w-4" />
-          <span className="text-foreground">حبر ختامة</span>
+          <span className="text-foreground">حبر الختامة</span>
         </nav>
-
+        
+        {/* Hero Section */}
         <div className="text-center mb-12">
-          <div className="text-6xl mb-4">💧</div>
-          <h1 className="text-3xl lg:text-4xl font-bold mb-4 bg-gradient-to-r from-green-600 to-teal-600 bg-clip-text text-transparent">
-            حبر الختامات
+          <div className="text-6xl mb-4">🖋️</div>
+          <h1 className="text-3xl lg:text-4xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
+            حبر الختامة
           </h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-4">
-            نوفر أحبار ختامات عالية الجودة لضمان أفضل أداء لأختامك.
+            مجموعة متكاملة من أحبار الختامة عالية الجودة للاستخدام المكتبي والرسمي
           </p>
         </div>
-
+        
+        {/* Features */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 bg-muted/30 rounded-2xl p-6">
+          <div className="text-center">
+            <div className="text-3xl mb-2">💧</div>
+            <h3 className="font-semibold mb-1">جفاف سريع</h3>
+            <p className="text-sm text-muted-foreground">يجف بسرعة لمنع التلطيخ</p>
+          </div>
+          <div className="text-center">
+            <div className="text-3xl mb-2">🌈</div>
+            <h3 className="font-semibold mb-1">ألوان ثابتة</h3>
+            <p className="text-sm text-muted-foreground">ألوان ثابتة لا تتأثر بالعوامل الجوية</p>
+          </div>
+          <div className="text-center">
+            <div className="text-3xl mb-2">✅</div>
+            <h3 className="font-semibold mb-1">متعدد الاستخدامات</h3>
+            <p className="text-sm text-muted-foreground">يناسب جميع أنواع الأختام المكتبية</p>
+          </div>
+        </div>
+        
+        {/* Products Grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {inkPadProducts.map((inkPad) => (
-            <div key={inkPad.id} className="card-product relative group">
-              <div className="absolute top-3 left-3 z-10">
-                <span className="bg-primary text-primary-foreground text-xs px-3 py-1 rounded-full font-medium">
-                  {inkPad.brand}
-                </span>
-              </div>
-              
+          {inkPadProducts.map((product) => (
+            <div key={product.id} className="card-product relative group">
+              {/* Product Image */}
               <ProductImage 
-                src={inkPad.image}
-                alt={inkPad.name}
-                fallbackEmoji='💧'
+                src={product.image}
+                alt={product.name}
+                fallbackEmoji={product.fallbackEmoji}
                 className="mb-4"
               />
               
-              <h3 className="font-semibold mb-2 line-clamp-2">{inkPad.name}</h3>
-              <p className="text-sm text-muted-foreground mb-3 line-clamp-2">{inkPad.description}</p>
+              <h3 className="font-semibold mb-2 line-clamp-2">{product.name}</h3>
+              
+              <p className="text-sm text-muted-foreground mb-3 line-clamp-2">{product.description}</p>
               
               <div className="flex items-center justify-between mt-auto">
-                <span className="text-primary font-bold text-lg">{inkPad.price} ج.م</span>
+                <span className="text-primary font-bold text-lg">{product.price} ج.م</span>
                 <Button 
                   className="btn-tafaneen"
                   onClick={() => addItem({ 
-                    id: inkPad.id, 
-                    name: inkPad.name, 
-                    price: inkPad.price, 
-                    image: inkPad.image 
+                    id: product.id, 
+                    name: product.name, 
+                    price: product.price, 
+                    image: product.image 
                   })}
                 >
                   إضافة للسلة
@@ -168,9 +183,20 @@ export default function InkPadsPage() {
             </div>
           ))}
         </div>
-
+        
+        {/* Brand Info */}
+        <div className="mt-16 bg-gradient-to-r from-blue-50 to-cyan-50 rounded-2xl p-8 text-center">
+          <h2 className="text-2xl font-bold mb-4">عن أحبار الختامة</h2>
+          <p className="text-muted-foreground max-w-3xl mx-auto mb-6">
+            أحبار الختامة التي نقدمها مصنوعة من مواد عالية الجودة تضمن وضوح البصمة وثباتها لفترة طويلة.
+            تتوفر لدينا مجموعة متنوعة من الألوان والأنواع لتناسب مختلف الاستخدامات، سواء للأعمال الرسمية أو الاستخدام اليومي.
+            جميع منتجاتنا مقاومة للتلاشي ومصممة لتعمل بكفاءة مع جميع أنواع الأختام المكتبية.
+          </p>
+        </div>
+        
+        {/* Back to stamps */}
         <div className="text-center mt-12">
-          <Button asChild variant="outline">
+          <Button asChild variant="outline" className="text-lg px-8 py-4 h-auto">
             <Link to="/office-supplies/stamps">العودة إلى ختامة و حبر ختامة</Link>
           </Button>
         </div>
@@ -178,4 +204,6 @@ export default function InkPadsPage() {
       <Footer />
     </div>
   );
-}
+};
+
+export default InkPadsPage;
