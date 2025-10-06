@@ -61,9 +61,9 @@ const paperClipsProducts = [
     description: 'علبة دبوس مكتب فضي ثقيل Z احمر',
     brand: 'JZF',
     features: ['دبابيس فضي ', ' رأس معدني', 'عبوة اقتصادية', 'جودة عالية']
-  }
+  },
   {
-    id: 'staple-pins-2',
+    id: 'staple-pins-3',
     name: 'علبة دبوس كليبس ورق 33 مل',
     price: 12,
     image: '/assets/staple-pins.jpg',
