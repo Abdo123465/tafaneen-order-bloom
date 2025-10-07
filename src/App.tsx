@@ -124,6 +124,10 @@ import SascoFolderPage from "./pages/SascoFolderPage";
 import HolderPage from "./pages/HolderPage";
 import ZipperFolderPage from "./pages/ZipperFolderPage";
 
+// الصفحات الجديدة الخاصة بـ «عربي 28 ورقة»
+import Arabic28CategoryPage from "@/pages/Arabic28CategoryPage";
+import ArabicDisneyNotebooksPage from "@/pages/ArabicDisneyNotebooksPage";
+import ArabicNormalNotebooksPage from "@/pages/ArabicNormalNotebooksPage";
 
 const queryClient = new QueryClient();
 
@@ -255,6 +259,10 @@ const App = () => (
               <Route path="/erasers-sharpeners" element={<ErasersSharpenersPage />} />
               <Route path="/erasers-sharpeners/erasers" element={<ErasersPage />} />
               <Route path="/erasers-sharpeners/sharpeners" element={<SharpenersPage />} />
+              {/* الصفحات الجديدة الخاصة بـ «عربي 28 ورقة» */}
+              <Route path="/notebooks/krassat/28-pages/arabic" element={<Arabic28CategoryPage />} />
+              <Route path="/notebooks/krassat/28-pages/arabic-disney" element={<ArabicDisneyNotebooksPage />} />
+              <Route path="/notebooks/krassat/28-pages/arabic-normal" element={<ArabicNormalNotebooksPage />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>
