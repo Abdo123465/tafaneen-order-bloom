@@ -2,56 +2,29 @@
 export const staplers = [
   { 
     id: 'STAPLER-001', 
-    name: 'دباسة مكتبية صغيرة', 
-    price: 25, 
+    name: 'دباسه DL 0253', 
+    price: 150, 
     image: '/assets/stapler-small.jpg', 
     fallbackEmoji: '📎',
-    description: 'دباسة مكتبية صغيرة مثالية للاستخدام اليومي',
-    brand: 'Deli'
+    description: 'دباسة مكتبية كبيرة مثالية للاستخدام اليومي',
+    brand: 'Del'
   },
   { 
     id: 'STAPLER-002', 
-    name: 'دباسة مكتبية متوسطة', 
-    price: 35, 
+    name: 'دباسه  EVERGREEN', 
+    price: 120, 
     image: '/assets/stapler-medium.jpg',
     fallbackEmoji: '🖇️',
     description: 'دباسة مكتبية متوسطة الحجم للاستخدام المكتبي',
-    brand: 'Deli'
+    brand: 'Evergrean'
   },
   { 
     id: 'STAPLER-003', 
-    name: 'دباسة مكتبية كبيرة', 
-    price: 45, 
+    name: 'دباسه صيني DL0207', 
+    price: 80, 
     image: '/assets/stapler-large.jpg',
     fallbackEmoji: '📌',
-    description: 'دباسة مكتبية كبيرة للاستخدام المكتبي المكثف',
-    brand: 'Deli'
-  },
-  { 
-    id: 'STAPLER-004', 
-    name: 'دباسة مكتبية كهربائية', 
-    price: 120, 
-    image: '/assets/stapler-electric.jpg',
-    fallbackEmoji: '⚡',
-    description: 'دباسة مكتبية كهربائية للاستخدام المكتبي المكثف',
-    brand: 'Deli'
-  },
-  { 
-    id: 'STAPLER-005', 
-    name: 'دباسة مكتبية محمولة', 
-    price: 20, 
-    image: '/assets/stapler-portable.jpg',
-    fallbackEmoji: '📦',
-    description: 'دباسة مكتبية محمولة صغيرة الحجم',
-    brand: 'Deli'
-  },
-  { 
-    id: 'STAPLER-006', 
-    name: 'دباسة مكتبية احترافية', 
-    price: 65, 
-    image: '/assets/stapler-professional.jpg',
-    fallbackEmoji: '💼',
-    description: 'دباسة مكتبية احترافية للاستخدام المكتبي المكثف',
-    brand: 'Deli'
+    description: 'دباسة مكتبية صغيرة للاستخدام المكتبي المكثف',
+    brand: 'Del'
   },
 ];
