@@ -10,57 +10,30 @@ import { Link } from "react-router-dom";
 const stampProducts = [
   { 
     id: 'STAMP-001', 
-    name: 'ختم مكتب دائري صغير', 
-    price: 45, 
+    name: 'ختامة زرقاء من Horse', 
+    price: 35, 
     image: '/assets/stamp-round-small.jpg', 
     fallbackEmoji: '🔵',
-    description: 'ختم مكتب دائري صغير مثالي للاستخدام الشخصي',
-    brand: 'Doms'
+    description: 'ختم مكتب مستطيل صغير مثالي للاستخدام الشخصي',
+    brand: 'Horse'
   },
   { 
     id: 'STAMP-002', 
-    name: 'ختم مكتب مستطيل متوسط', 
-    price: 55, 
+    name: '  ختم احمر مكتب مستطيل متوسط', 
+    price: 35, 
     image: '/assets/stamp-rect-medium.jpg',
     fallbackEmoji: '🔲',
-    description: 'ختم مكتب مستطيل متوسط للاستخدام التجاري',
-    brand: 'Doms'
+    description: 'ختم احمر مكتب مستطيل متوسط للاستخدام التجاري',
+    brand: 'Horse'
   },
   { 
     id: 'STAMP-003', 
-    name: 'ختم مكتب بيضاوي كبير', 
-    price: 65, 
+    name: 'ختم مكتب  اسود', 
+    price: 35, 
     image: '/assets/stamp-oval-large.jpg',
     fallbackEmoji: '🥚',
-    description: 'ختم مكتب بيضاوي كبير للمستندات الرسمية',
-    brand: 'Doms'
-  },
-  { 
-    id: 'STAMP-004', 
-    name: 'ختم مكتب رقمي', 
-    price: 85, 
-    image: '/assets/stamp-numbered.jpg',
-    fallbackEmoji: '🔢',
-    description: 'ختم مكتب رقمي لتسجيل التواريخ والأرقام',
-    brand: 'Doms'
-  },
-  { 
-    id: 'STAMP-005', 
-    name: 'ختم مكتب اسم', 
-    price: 75, 
-    image: '/assets/stamp-name.jpg',
-    fallbackEmoji: '📝',
-    description: 'ختم مكتب مخصص للأسماء والتوقيعات',
-    brand: 'Doms'
-  },
-  { 
-    id: 'STAMP-006', 
-    name: 'ختم مكتب عنوان', 
-    price: 70, 
-    image: '/assets/stamp-address.jpg',
-    fallbackEmoji: '🏢',
-    description: 'ختم مكتب مخصص للعناوين والمراسلات',
-    brand: 'Doms'
+    description: 'ختم مكتب اسود متوسط للمستندات الرسمية',
+    brand: 'Horse'
   },
 ];
 
