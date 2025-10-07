@@ -11,103 +11,16 @@ import { Link } from "react-router-dom";
 const paperPunchesProducts = [
   { 
     id: 'paper-punch-1', 
-    name: 'خرامة ورق صغيرة ثقبين - ديلي', 
-    price: 25, 
+    name: 'خرامة ورق  SX 8230', 
+    price: 70, 
     image: '/assets/paper-punch-1.jpg', 
     description: 'خرامة ورق صغيرة الحجم بثقبين، مثالية للاستخدام اليومي',
-    brand: 'ديلي',
+    brand: 'SX',
     size: 'صغير',
-    holes: 'ثقبين',
-    capacity: '10 ورقة'
-  },
-  { 
-    id: 'paper-punch-2', 
-    name: 'خرامة ورق متوسطة ثقبين - كانجارو', 
-    price: 45, 
-    image: '/assets/paper-punch-2.jpg', 
-    description: 'خرامة ورق متوسطة الحجم بتصميم عصري وأداء ممتاز',
-    brand: 'كانجارو',
-    size: 'متوسط',
     holes: 'ثقبين',
     capacity: '20 ورقة'
   },
-  { 
-    id: 'paper-punch-3', 
-    name: 'خرامة ورق كبيرة ثقبين - ديلي', 
-    price: 75, 
-    image: '/assets/paper-punch-3.jpg', 
-    description: 'خرامة ورق كبيرة للاستخدام المكثف في المكاتب',
-    brand: 'ديلي',
-    size: 'كبير',
-    holes: 'ثقبين',
-    capacity: '40 ورقة'
-  },
-  { 
-    id: 'paper-punch-4', 
-    name: 'خرامة ورق صغيرة ثقب واحد - ماكس', 
-    price: 20, 
-    image: '/assets/paper-punch-4.jpg', 
-    description: 'خرامة ورق بثقب واحد للاستخدامات الخاصة',
-    brand: 'ماكس',
-    size: 'صغير',
-    holes: 'ثقب واحد',
-    capacity: '15 ورقة'
-  },
-  { 
-    id: 'paper-punch-5', 
-    name: 'خرامة ورق متوسطة ثقبين - SDI', 
-    price: 55, 
-    image: '/assets/paper-punch-5.jpg', 
-    description: 'خرامة ورق بجودة عالية ومقبض مريح',
-    brand: 'SDI',
-    size: 'متوسط',
-    holes: 'ثقبين',
-    capacity: '25 ورقة'
-  },
-  { 
-    id: 'paper-punch-6', 
-    name: 'خرامة ورق كبيرة ثقبين - كانجارو', 
-    price: 85, 
-    image: '/assets/paper-punch-6.jpg', 
-    description: 'خرامة ورق قوية للمستندات السميكة',
-    brand: 'كانجارو',
-    size: 'كبير',
-    holes: 'ثقبين',
-    capacity: '50 ورقة'
-  },
-  { 
-    id: 'paper-punch-7', 
-    name: 'خرامة ورق صغيرة أشكال - ديلي', 
-    price: 30, 
-    image: '/assets/paper-punch-7.jpg', 
-    description: 'خرامة ورق بأشكال مختلفة للأعمال الفنية',
-    brand: 'ديلي',
-    size: 'صغير',
-    holes: 'أشكال',
-    capacity: '5 ورقة'
-  },
-  { 
-    id: 'paper-punch-8', 
-    name: 'خرامة ورق متوسطة 4 ثقوب - ديلي', 
-    price: 65, 
-    image: '/assets/paper-punch-8.jpg', 
-    description: 'خرامة ورق بأربع ثقوب للملفات الخاصة',
-    brand: 'ديلي',
-    size: 'متوسط',
-    holes: '4 ثقوب',
-    capacity: '30 ورقة'
-  },
-  { 
-    id: 'paper-punch-9', 
-    name: 'خرامة ورق صغيرة ثقبين - بريما', 
-    price: 18, 
-    image: '/assets/paper-punch-9.jpg', 
-    description: 'خرامة ورق اقتصادية بجودة جيدة',
-    brand: 'بريما',
-    size: 'صغير',
-    holes: 'ثقبين',
-    capacity: '8 ورقة'
-  },
+ 
 ];
 
 const PaperPunchesPage = () => {
