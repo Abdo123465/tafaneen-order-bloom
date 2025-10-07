@@ -10,28 +10,19 @@ import { ArrowRight, FileText } from "lucide-react";
 const rulerFolders = [
   {
     id: 1,
-    name: "حافظة مسطرة A4 ملونة",
-    englishName: "Colored A4 Ruler Folder",
+    name: "حافظه مسطره كبيره بريما",
     description: "حافظة مسطرة بحجم A4 مثالية للطلاب",
-    price: 12,
-    image: "/assets/placeholder-product.jpg"
+    price: 17,
+    image: "/assets/product.jpg"
   },
   {
     id: 2,
-    name: "حافظة مسطرة A4 شفافة",
-    englishName: "Transparent A4 Ruler Folder",
+    name: "حافظه مسطره صغير",
     description: "حافظة مسطرة شفافة بحجم A4 لسهولة رؤية المحتويات",
-    price: 10,
-    image: "/assets/placeholder-product.jpg"
+    price: 12,
+    image: "/assets/product2.jpg"
   },
-  {
-    id: 3,
-    name: "حافظة مسطرة A3 بلاستيكية",
-    englishName: "Plastic A3 Ruler Folder",
-    description: "حافظة مسطرة بلاستيكية مقواة بحجم A3",
-    price: 18,
-    image: "/assets/placeholder-product.jpg"
-  }
+
 ];
 
 function RulerFolderPage() {
