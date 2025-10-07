@@ -10,28 +10,12 @@ import { ArrowRight, Archive } from "lucide-react";
 const sascoFolders = [
   {
     id: 1,
-    name: "حافظة ساسكو A4 احترافية",
-    englishName: "Professional A4 Sasco Folder",
+    name: "دوسيه ساسكو بلاستيك",
     description: "حافظة ساسكو احترافية بحجم A4 للمستندات المهمة",
-    price: 35,
-    image: "/assets/placeholder-product.jpg"
+    price: 12,
+    image: "/assets/roduct.jpg"
   },
-  {
-    id: 2,
-    name: "حافظة ساسكو A4 مقواة",
-    englishName: "Reinforced A4 Sasco Folder",
-    description: "حافظة ساسكو مقواة بحجم A4 للحماية القصوى",
-    price: 40,
-    image: "/assets/placeholder-product.jpg"
-  },
-  {
-    id: 3,
-    name: "حافظة ساسكو A3 متعددة الألوان",
-    englishName: "Multi-color A3 Sasco Folder",
-    description: "حافظة ساسكو متعددة الألوان بحجم A3 للتصنيف السهل",
-    price: 55,
-    image: "/assets/placeholder-product.jpg"
-  }
+  
 ];
 
 function SascoFolderPage() {
