@@ -28,7 +28,7 @@ export default function StampsPage() {
       emoji: "✒️",
       color: "bg-gradient-to-br from-blue-500 to-cyan-600",
       textColor: "text-white",
-      path: "/office-supplies/office-stamps"
+      image: '/assets/Horse1.jpg', 
     },
     {
       id: 2,
@@ -37,7 +37,16 @@ export default function StampsPage() {
       emoji: "🎨",
       color: "bg-gradient-to-br from-green-500 to-emerald-600",
       textColor: "text-white",
-      path: "/office-supplies/stamps/ink-pads"
+      image: '/assets/Horse2.jpg', 
+    }
+     {
+      id: 3,
+      name: "حبر الأختام",
+      description: "حبر بألوان متنوعة (أسود، أزرق، أحمر، أخضر) - حبر سريع الجفاف - حبر دائم - عبوات إعادة التعبئة",
+      emoji: "🎨",
+      color: "bg-gradient-to-br from-green-500 to-emerald-600",
+      textColor: "text-white",
+      image: '/assets/Horse3.jpg', 
     }
   ];
 
