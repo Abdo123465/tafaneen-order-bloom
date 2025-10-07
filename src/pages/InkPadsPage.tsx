@@ -130,13 +130,6 @@ const InkPadsPage = () => {
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {inkPadProducts.map((product) => (
             <div key={product.id} className="card-product relative group">
-              {/* Brand Badge */}
-              <div className="absolute top-3 left-3 z-10">
-                <span className="bg-primary text-primary-foreground text-xs px-3 py-1 rounded-full font-medium">
-                  {product.brand}
-                </span>
-              </div>
-              
               {/* Product Image مع مكون محسن */}
               <ProductImage 
                 src={product.image}
