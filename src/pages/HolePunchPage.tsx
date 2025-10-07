@@ -7,29 +7,29 @@ import { ArrowRight, Star, Award, Image as ImageIcon } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const holePunches = [
-  { 
-    id: 'PUNCH-001', 
-    name: 'خرامة مكتبية صغيرة', 
-    price: 12, 
-    image: '/placeholder.svg', 
+  {
+    id: 'PUNCH-001',
+    name: 'خرامة مكتبية صغيرة',
+    price: 12,
+    image: '/assets/paper-punch-1.jpg',
     fallbackEmoji: '🕳️',
     description: 'خرامة صغيرة للاستخدام المكتبي اليومي',
     brand: 'Deli'
   },
-  { 
-    id: 'PUNCH-002', 
-    name: 'خرامة مكتبية متوسطة', 
-    price: 22, 
-    image: '/placeholder.svg',
+  {
+    id: 'PUNCH-002',
+    name: 'خرامة مكتبية متوسطة',
+    price: 22,
+    image: '/assets/paper-punch-1.jpg',
     fallbackEmoji: '⭕',
     description: 'خرامة متوسطة الحجم قوية ومتينة',
     brand: 'Kangaro'
   },
-  { 
-    id: 'PUNCH-003', 
-    name: 'خرامة مكتبية كبيرة', 
-    price: 45, 
-    image: '/placeholder.svg',
+  {
+    id: 'PUNCH-003',
+    name: 'خرامة مكتبية كبيرة',
+    price: 45,
+    image: '/assets/paper-punch-1.jpg',
     fallbackEmoji: '🔵',
     description: 'خرامة كبيرة للمستندات الكثيرة',
     brand: 'Max'
