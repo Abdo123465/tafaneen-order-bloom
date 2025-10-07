@@ -3,10 +3,40 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { useCart } from "@/contexts/CartContext";
 import { Link } from "react-router-dom";
 import { ArrowRight, FolderOpen } from "lucide-react";
 
+const holders = [
+  {
+    id: 1,
+    name: "هولدر A4 بلاستيك شفاف",
+    englishName: "Transparent Plastic A4 Holder",
+    description: "هولدر بلاستيك شفاف بحجم A4 لسهولة رؤية المحتويات",
+    price: 8,
+    image: "/assets/placeholder-product.jpg"
+  },
+  {
+    id: 2,
+    name: "هولدر A4 ملون",
+    englishName: "Colored A4 Holder",
+    description: "هولدر ملون بحجم A4 للتصنيف السهل",
+    price: 10,
+    image: "/assets/placeholder-product.jpg"
+  },
+  {
+    id: 3,
+    name: "هولدر A3 مقوى",
+    englishName: "Reinforced A3 Holder",
+    description: "هولدر مقوى بحجم A3 للمستندات الكبيرة",
+    price: 15,
+    image: "/assets/placeholder-product.jpg"
+  }
+];
+
 function HolderPage() {
+  const { addItem } = useCart();
+  
   useEffect(() => {
     document.title = "هولدر | منظمات الملفات | تفانين";
     const desc = "تسوق أفضل الهولدرات المتنوعة لحفظ وتنظيم الملفات بطريقة عملية وأنيقة.";
@@ -42,42 +72,51 @@ function HolderPage() {
         </div>
 
         {/* Products Section */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-          <Card className="group hover:shadow-elegant transition-all duration-300 hover:-translate-y-1">
-            <CardContent className="p-6 text-center">
-              <FolderOpen className="h-16 w-16 mx-auto mb-4 text-orange-500" />
-              <h3 className="text-lg font-semibold mb-2">هولدر A4</h3>
-              <p className="text-muted-foreground text-sm mb-4">هولدر بحجم A4 مثالي للأوراق الرسمية</p>
-              <div className="text-orange-600 font-bold text-lg mb-4">قريباً</div>
-              <Button className="w-full" disabled>
-                سيتوفر قريباً
-              </Button>
-            </CardContent>
-          </Card>
-
-          <Card className="group hover:shadow-elegant transition-all duration-300 hover:-translate-y-1">
-            <CardContent className="p-6 text-center">
-              <FolderOpen className="h-16 w-16 mx-auto mb-4 text-orange-500" />
-              <h3 className="text-lg font-semibold mb-2">هولدر بلاستيك</h3>
-              <p className="text-muted-foreground text-sm mb-4">هولدر من البلاستيك المقوى والمتين</p>
-              <div className="text-orange-600 font-bold text-lg mb-4">قريباً</div>
-              <Button className="w-full" disabled>
-                سيتوفر قريباً
-              </Button>
-            </CardContent>
-          </Card>
-
-          <Card className="group hover:shadow-elegant transition-all duration-300 hover:-translate-y-1">
-            <CardContent className="p-6 text-center">
-              <FolderOpen className="h-16 w-16 mx-auto mb-4 text-orange-500" />
-              <h3 className="text-lg font-semibold mb-2">هولدر ملون</h3>
-              <p className="text-muted-foreground text-sm mb-4">هولدرات بألوان متنوعة للتصنيف السهل</p>
-              <div className="text-orange-600 font-bold text-lg mb-4">قريباً</div>
-              <Button className="w-full" disabled>
-                سيتوفر قريباً
-              </Button>
-            </CardContent>
-          </Card>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+          {holders.map((holder) => (
+            <Card key={holder.id} className="group hover:shadow-elegant transition-all duration-300 hover:-translate-y-1 overflow-hidden">
+              <CardContent className="p-0">
+                {/* Product Image */}
+                <div className="relative h-48 bg-gradient-to-br from-orange-100 to-amber-100 flex items-center justify-center overflow-hidden">
+                  <img 
+                    src={holder.image} 
+                    alt={holder.name}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    onError={(e) => {
+                      // Fallback to emoji if image fails to load
+                      e.currentTarget.style.display = 'none';
+                      (e.currentTarget.nextElementSibling as HTMLElement).style.display = 'flex';
+                    }}
+                  />
+                  <div className="absolute inset-0 items-center justify-center text-6xl hidden">
+                    📂
+                  </div>
+                </div>
+                
+                {/* Product Info */}
+                <div className="p-6">
+                  <h3 className="font-bold text-lg mb-2 text-right leading-relaxed">{holder.name}</h3>
+                  <p className="text-sm text-muted-foreground mb-4 leading-relaxed text-right">{holder.description}</p>
+                  
+                  {/* Price and Add to Cart */}
+                  <div className="flex items-center justify-between pt-4 border-t">
+                    <span className="text-primary font-bold text-xl">{holder.price} ج.م</span>
+                    <Button 
+                      className="btn-tafaneen px-6"
+                      onClick={() => addItem({ 
+                        id: holder.id, 
+                        name: holder.name, 
+                        price: holder.price, 
+                        image: holder.image 
+                      })}
+                    >
+                      إضافة للسلة
+                    </Button>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          ))}
         </div>
         
         {/* Back to Files Organizers */}
