@@ -26,7 +26,7 @@ const zipperFolders = [
     id: 3,
     name: "حافظة سوسته قماش B4",
     description: "حافظة سوسته قماش B4",
-    price: 35,
+    price: 25,
     image: "/assets/duct2.jpg"
   }
 ];
