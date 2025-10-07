@@ -24,33 +24,21 @@ export default function StampsPage() {
     {
       id: 1,
       name: "ختامة Horse اسود ",
-      price: 35, 
       description: " ختامة من Horse بالون الاسود عالية الجودة",
       emoji: "✒️",
       color: "bg-gradient-to-br from-blue-500 to-cyan-600",
       textColor: "text-white",
-      image: '/assets/Horse1.jpg', 
-    },
-     {
-      id: 2,
-      name: "ختامة Horse ازرق",
-      price: 35, 
-      description: " ختامة من Horse بالون الازرق عالية الجودة",
-      emoji: "✒️",
-      color: "bg-gradient-to-br from-blue-500 to-cyan-600",
-      textColor: "text-white",
-      image: '/assets/Horse2.jpg', 
+      path: "/office-supplies/office-stamps"
     },
     {
-      id: 3,
-      name: "ختامة Horse احمر ",
-      price: 35, 
-      description: " ختامة من Horse بالون الاحمر عالية الجودة",
-      emoji: "✒️",
-      color: "bg-gradient-to-br from-blue-500 to-cyan-600",
+      id: 2,
+      name: "حبر الأختام",
+      description: "حبر بألوان متنوعة (أسود، أزرق، أحمر، أخضر) - حبر سريع الجفاف - حبر دائم - عبوات إعادة التعبئة",
+      emoji: "🎨",
+      color: "bg-gradient-to-br from-green-500 to-emerald-600",
       textColor: "text-white",
-      image: '/assets/Horse3.jpg', 
-    },
+      path: "/office-supplies/stamps/ink-pads"
+    }
   ];
 
   return (
