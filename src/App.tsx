@@ -38,6 +38,7 @@ import Kashakil100PagesPage from "./pages/Kashakil100PagesPage";
 import KashakilSilkA4Page from "./pages/KashakilSilkA4Page";
 import KashakilSilkA5Page from "./pages/KashakilSilkA5Page";
 import OfficeSuppliesPage from "./pages/OfficeSuppliesPage";
+import StaplerPage from "./pages/StaplerPage";
 import HolePunchPage from "./pages/HolePunchPage";
 import StaplePinsPage from "./pages/StaplePinsPage";
 import StampsPage from "./pages/StampsPage";
@@ -183,6 +184,7 @@ const App = () => (
               <Route path="/notebooks/kashakil-silk-a4" element={<KashakilSilkA4Page />} />
               <Route path="/notebooks/kashakil-silk-a5" element={<KashakilSilkA5Page />} />
               <Route path="/office-supplies" element={<OfficeSuppliesPage />} />
+              <Route path="/office-supplies/stapler" element={<StaplerPage />} />
               <Route path="/office-supplies/hole-punch" element={<HolePunchPage />} />
               <Route path="/office-supplies/staple-pins" element={<StaplePinsPage />} />
               <Route path="/office-supplies/stamps" element={<StampsPage />} />
