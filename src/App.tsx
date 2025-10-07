@@ -116,6 +116,13 @@ import StaplersPage from "./pages/StaplersPage";
 import OfficeStampsPage from "./pages/OfficeStampsPage";
 import InkPadsPage from "./pages/InkPadsPage";
 import MiscOfficeSuppliesPage from "./pages/MiscOfficeSuppliesPage";
+// استيراد صفحات منظمات الملفات الجديدة
+import FilesOrganizersPage from "./pages/FilesOrganizersPage";
+import CapsuleFolderPage from "./pages/CapsuleFolderPage";
+import RulerFolderPage from "./pages/RulerFolderPage";
+import SascoFolderPage from "./pages/SascoFolderPage";
+import HolderPage from "./pages/HolderPage";
+import ZipperFolderPage from "./pages/ZipperFolderPage";
 
 
 const queryClient = new QueryClient();
@@ -163,6 +170,13 @@ const App = () => (
               <Route path="/calculators-rulers/scientific-calculator" element={<ScientificCalculatorPage />} />
               <Route path="/calculators-rulers/commercial-calculator" element={<CommercialCalculatorPage />} />
               <Route path="/calculators-rulers/rulers" element={<RulersGeometryPage />} />
+              {/* مسارات منظمات الملفات الجديدة */}
+              <Route path="/files-organizers" element={<FilesOrganizersPage />} />
+              <Route path="/files-organizers/capsule-folder" element={<CapsuleFolderPage />} />
+              <Route path="/files-organizers/ruler-folder" element={<RulerFolderPage />} />
+              <Route path="/files-organizers/sasco-folder" element={<SascoFolderPage />} />
+              <Route path="/files-organizers/holder" element={<HolderPage />} />
+              <Route path="/files-organizers/zipper-folder" element={<ZipperFolderPage />} />
               <Route path="/cutting-pasting-tools/cutting-pasting" element={<CuttingPastingPage />} />
               <Route path="/cutting-pasting-tools/wooden-pencils" element={<WoodenPencilsPage />} />
               {/* مسارات أقلام الألوان الخشبية حسب العلامة التجارية */}
