@@ -10,27 +10,24 @@ import { ArrowRight, FolderOpen } from "lucide-react";
 const capsuleFolders = [
   {
     id: 1,
-    name: "حافظة كبسولة A4 شفافة",
-    englishName: "Transparent A4 Capsule Folder",
+    name: "حافظة كبسوله نيم كارد",
     description: "حافظة كبسولة شفافة بحجم A4 مثالية لحفظ الأوراق",
-    price: 15,
+    price: 20,
     image: "/assets/placeholder-product.jpg"
   },
   {
     id: 2,
-    name: "حافظة كبسولة A4 ملونة",
-    englishName: "Colored A4 Capsule Folder",
+    name: "حافظة كبسولة بلاستيك ثقيلة محمد واميره",
     description: "حافظة كبسولة ملونة بحجم A4 للتصنيف السهل",
-    price: 18,
-    image: "/assets/placeholder-product.jpg"
+    price: 20,
+    image: "/assets/placeholder-product2.jpg"
   },
   {
     id: 3,
-    name: "حافظة كبسولة A3 مقواة",
-    englishName: "Reinforced A3 Capsule Folder",
-    description: "حافظة كبسولة مقواة بحجم A3 لحماية المستندات الكبيرة",
-    price: 25,
-    image: "/assets/placeholder-product.jpg"
+    name: "حافظة كبسولة بلاستيك ثقيلة ",
+    description: "حافظة كبسولة بلاستيك ثقيلة",
+    price: 12,
+    image: "/assets/placeholder-product3.jpg"
   }
 ];
 
