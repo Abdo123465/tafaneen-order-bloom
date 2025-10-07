@@ -26,7 +26,8 @@ const Krassat28PagesPage = () => {
       description: "كراسة مخططة للكتابة العربية",
       icon: Languages,
       color: "bg-gradient-to-br from-blue-500 to-blue-600",
-      textColor: "text-blue-600"
+      textColor: "text-blue-600",
+      link: "/notebooks/krassat/28-pages/arabic"
     },
     {
       id: 2,
@@ -145,12 +146,23 @@ const Krassat28PagesPage = () => {
                         {notebook.description}
                       </p>
                       
-                      <Button 
-                        variant="outline" 
-                        className={`w-full ${notebook.textColor} border-current hover:bg-current hover:text-white transition-colors`}
-                      >
-                        إضافة للسلة
-                      </Button>
+                      {notebook.link ? (
+                        <Link to={notebook.link}>
+                          <Button
+                            variant="outline"
+                            className={`w-full ${notebook.textColor} border-current hover:bg-current hover:text-white transition-colors`}
+                          >
+                            إضافة للسلة
+                          </Button>
+                        </Link>
+                      ) : (
+                        <Button
+                          variant="outline"
+                          className={`w-full ${notebook.textColor} border-current hover:bg-current hover:text-white transition-colors`}
+                        >
+                          إضافة للسلة
+                        </Button>
+                      )}
                     </div>
                   </CardContent>
                 </Card>
