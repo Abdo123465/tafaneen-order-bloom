@@ -3,10 +3,40 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { useCart } from "@/contexts/CartContext";
 import { Link } from "react-router-dom";
 import { ArrowRight, Archive } from "lucide-react";
 
+const zipperFolders = [
+  {
+    id: 1,
+    name: "حافظة سوستة A4 شفافة",
+    englishName: "Transparent A4 Zipper Folder",
+    description: "حافظة سوستة شفافة بحجم A4 لحماية المستندات",
+    price: 22,
+    image: "/assets/placeholder-product.jpg"
+  },
+  {
+    id: 2,
+    name: "حافظة سوستة A4 ملونة",
+    englishName: "Colored A4 Zipper Folder",
+    description: "حافظة سوستة ملونة بحجم A4 للتصنيف السهل",
+    price: 25,
+    image: "/assets/placeholder-product.jpg"
+  },
+  {
+    id: 3,
+    name: "حافظة سوستة A3 مقواة",
+    englishName: "Reinforced A3 Zipper Folder",
+    description: "حافظة سوستة مقواة بحجم A3 للحماية القصوى",
+    price: 35,
+    image: "/assets/placeholder-product.jpg"
+  }
+];
+
 function ZipperFolderPage() {
+  const { addItem } = useCart();
+  
   useEffect(() => {
     document.title = "حافظة سوستة | منظمات الملفات | تفانين";
     const desc = "تسوق أفضل حافظات السوستة لحماية إضافية للمستندات المهمة وتنظيم الأوراق بأمان.";
@@ -42,42 +72,51 @@ function ZipperFolderPage() {
         </div>
 
         {/* Products Section */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-          <Card className="group hover:shadow-elegant transition-all duration-300 hover:-translate-y-1">
-            <CardContent className="p-6 text-center">
-              <Archive className="h-16 w-16 mx-auto mb-4 text-red-500" />
-              <h3 className="text-lg font-semibold mb-2">حافظة سوستة A4</h3>
-              <p className="text-muted-foreground text-sm mb-4">حافظة بسوستة بحجم A4 لحماية الأوراق</p>
-              <div className="text-red-600 font-bold text-lg mb-4">قريباً</div>
-              <Button className="w-full" disabled>
-                سيتوفر قريباً
-              </Button>
-            </CardContent>
-          </Card>
-
-          <Card className="group hover:shadow-elegant transition-all duration-300 hover:-translate-y-1">
-            <CardContent className="p-6 text-center">
-              <Archive className="h-16 w-16 mx-auto mb-4 text-red-500" />
-              <h3 className="text-lg font-semibold mb-2">حافظة سوستة شفافة</h3>
-              <p className="text-muted-foreground text-sm mb-4">حافظة سوستة شفافة لسهولة تحديد المحتوى</p>
-              <div className="text-red-600 font-bold text-lg mb-4">قريباً</div>
-              <Button className="w-full" disabled>
-                سيتوفر قريباً
-              </Button>
-            </CardContent>
-          </Card>
-
-          <Card className="group hover:shadow-elegant transition-all duration-300 hover:-translate-y-1">
-            <CardContent className="p-6 text-center">
-              <Archive className="h-16 w-16 mx-auto mb-4 text-red-500" />
-              <h3 className="text-lg font-semibold mb-2">حافظة سوستة مقواة</h3>
-              <p className="text-muted-foreground text-sm mb-4">حافظة سوستة مقواة للحماية القصوى</p>
-              <div className="text-red-600 font-bold text-lg mb-4">قريباً</div>
-              <Button className="w-full" disabled>
-                سيتوفر قريباً
-              </Button>
-            </CardContent>
-          </Card>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+          {zipperFolders.map((folder) => (
+            <Card key={folder.id} className="group hover:shadow-elegant transition-all duration-300 hover:-translate-y-1 overflow-hidden">
+              <CardContent className="p-0">
+                {/* Product Image */}
+                <div className="relative h-48 bg-gradient-to-br from-red-100 to-rose-100 flex items-center justify-center overflow-hidden">
+                  <img 
+                    src={folder.image} 
+                    alt={folder.name}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    onError={(e) => {
+                      // Fallback to emoji if image fails to load
+                      e.currentTarget.style.display = 'none';
+                      (e.currentTarget.nextElementSibling as HTMLElement).style.display = 'flex';
+                    }}
+                  />
+                  <div className="absolute inset-0 items-center justify-center text-6xl hidden">
+                    🗃️
+                  </div>
+                </div>
+                
+                {/* Product Info */}
+                <div className="p-6">
+                  <h3 className="font-bold text-lg mb-2 text-right leading-relaxed">{folder.name}</h3>
+                  <p className="text-sm text-muted-foreground mb-4 leading-relaxed text-right">{folder.description}</p>
+                  
+                  {/* Price and Add to Cart */}
+                  <div className="flex items-center justify-between pt-4 border-t">
+                    <span className="text-primary font-bold text-xl">{folder.price} ج.م</span>
+                    <Button 
+                      className="btn-tafaneen px-6"
+                      onClick={() => addItem({ 
+                        id: folder.id, 
+                        name: folder.name, 
+                        price: folder.price, 
+                        image: folder.image 
+                      })}
+                    >
+                      إضافة للسلة
+                    </Button>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          ))}
         </div>
         
         {/* Back to Files Organizers */}
