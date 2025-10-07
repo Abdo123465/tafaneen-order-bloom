@@ -10,27 +10,24 @@ import { ArrowRight, FolderOpen } from "lucide-react";
 const holders = [
   {
     id: 1,
-    name: "هولدر A4 بلاستيك شفاف",
-    englishName: "Transparent Plastic A4 Holder",
-    description: "هولدر بلاستيك شفاف بحجم A4 لسهولة رؤية المحتويات",
-    price: 8,
-    image: "/assets/placeholder-product.jpg"
+    name: "اكلاسير 4 سم 2 حلقه Digital",
+    description: "اكلاسير 4 سم 2 حلقه Digital",
+    price: 60,
+    image: "/assets/oduct.jpg"
   },
   {
     id: 2,
-    name: "هولدر A4 ملون",
-    englishName: "Colored A4 Holder",
-    description: "هولدر ملون بحجم A4 للتصنيف السهل",
-    price: 10,
-    image: "/assets/placeholder-product.jpg"
+    name: "فولدر ملف ارشيف كرتون محمود",
+    description: "هولدر اسود بحجم A4 للتصنيف السهل",
+    price: 60,
+    image: "/assets/oduct2.jpg"
   },
   {
     id: 3,
-    name: "هولدر A3 مقوى",
-    englishName: "Reinforced A3 Holder",
-    description: "هولدر مقوى بحجم A3 للمستندات الكبيرة",
-    price: 15,
-    image: "/assets/placeholder-product.jpg"
+    name: "اكلاسير بماكينه معدن 8 سم بجراب  برناسوس المطور موف",
+    description: "اكلاسير بماكينه معدن 8 سم بجراب  برناسوس المطور موف",
+    price: 80,
+    image: "/assets/oduct3.jpg"
   }
 ];
 
