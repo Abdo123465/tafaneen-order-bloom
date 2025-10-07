@@ -23,8 +23,8 @@ export default function StampsPage() {
   const categories = [
     {
       id: 1,
-      name: "ختامة Horse اسود ",
-      description: " ختامة من Horse بالون الاسود عالية الجودة",
+      name: "الأختام المكتبية",
+      description: "أختام بأشكال مختلفة (دائرية، مستطيلة، بيضاوية) وأحجام متنوعة (صغيرة، متوسطة، كبيرة) للاستخدام الشخصي والتجاري",
       emoji: "✒️",
       color: "bg-gradient-to-br from-blue-500 to-cyan-600",
       textColor: "text-white",
