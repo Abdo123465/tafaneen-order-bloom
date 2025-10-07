@@ -10,27 +10,24 @@ import { ArrowRight, Archive } from "lucide-react";
 const zipperFolders = [
   {
     id: 1,
-    name: "حافظة سوستة A4 شفافة",
-    englishName: "Transparent A4 Zipper Folder",
-    description: "حافظة سوستة شفافة بحجم A4 لحماية المستندات",
-    price: 22,
-    image: "/assets/placeholder-product.jpg"
+    name: "حافظة سوسته قماش A3",
+    description: "حافظة سوسته قماش A3",
+    price: 35,
+    image: "/assets/duct.jpg"
   },
   {
     id: 2,
-    name: "حافظة سوستة A4 ملونة",
-    englishName: "Colored A4 Zipper Folder",
-    description: "حافظة سوستة ملونة بحجم A4 للتصنيف السهل",
-    price: 25,
-    image: "/assets/placeholder-product.jpg"
+    name: "حافظة سوسته A4",
+    description: "حافظة سوسته A4",
+    price: 22,
+    image: "/assets/duct1.jpg"
   },
   {
     id: 3,
-    name: "حافظة سوستة A3 مقواة",
-    englishName: "Reinforced A3 Zipper Folder",
-    description: "حافظة سوستة مقواة بحجم A3 للحماية القصوى",
+    name: "حافظة سوسته قماش B4",
+    description: "حافظة سوسته قماش B4",
     price: 35,
-    image: "/assets/placeholder-product.jpg"
+    image: "/assets/duct2.jpg"
   }
 ];
 
