@@ -3,10 +3,40 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { useCart } from "@/contexts/CartContext";
 import { Link } from "react-router-dom";
 import { ArrowRight, FileText } from "lucide-react";
 
+const rulerFolders = [
+  {
+    id: 1,
+    name: "حافظة مسطرة A4 ملونة",
+    englishName: "Colored A4 Ruler Folder",
+    description: "حافظة مسطرة بحجم A4 مثالية للطلاب",
+    price: 12,
+    image: "/assets/placeholder-product.jpg"
+  },
+  {
+    id: 2,
+    name: "حافظة مسطرة A4 شفافة",
+    englishName: "Transparent A4 Ruler Folder",
+    description: "حافظة مسطرة شفافة بحجم A4 لسهولة رؤية المحتويات",
+    price: 10,
+    image: "/assets/placeholder-product.jpg"
+  },
+  {
+    id: 3,
+    name: "حافظة مسطرة A3 بلاستيكية",
+    englishName: "Plastic A3 Ruler Folder",
+    description: "حافظة مسطرة بلاستيكية مقواة بحجم A3",
+    price: 18,
+    image: "/assets/placeholder-product.jpg"
+  }
+];
+
 function RulerFolderPage() {
+  const { addItem } = useCart();
+  
   useEffect(() => {
     document.title = "حافظة مسطرة | منظمات الملفات | تفانين";
     const desc = "تسوق أفضل حافظات المسطرة عالية الجودة مثالية للطلاب والمكاتب لتنظيم الأوراق والمستندات.";
@@ -42,42 +72,51 @@ function RulerFolderPage() {
         </div>
 
         {/* Products Section */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-          <Card className="group hover:shadow-elegant transition-all duration-300 hover:-translate-y-1">
-            <CardContent className="p-6 text-center">
-              <FileText className="h-16 w-16 mx-auto mb-4 text-green-500" />
-              <h3 className="text-lg font-semibold mb-2">حافظة مسطرة A4</h3>
-              <p className="text-muted-foreground text-sm mb-4">حافظة مسطرة بحجم A4 مثالية للأوراق المدرسية</p>
-              <div className="text-green-600 font-bold text-lg mb-4">قريباً</div>
-              <Button className="w-full" disabled>
-                سيتوفر قريباً
-              </Button>
-            </CardContent>
-          </Card>
-
-          <Card className="group hover:shadow-elegant transition-all duration-300 hover:-translate-y-1">
-            <CardContent className="p-6 text-center">
-              <FileText className="h-16 w-16 mx-auto mb-4 text-green-500" />
-              <h3 className="text-lg font-semibold mb-2">حافظة مسطرة ملونة</h3>
-              <p className="text-muted-foreground text-sm mb-4">حافظات مسطرة بألوان زاهية للطلاب</p>
-              <div className="text-green-600 font-bold text-lg mb-4">قريباً</div>
-              <Button className="w-full" disabled>
-                سيتوفر قريباً
-              </Button>
-            </CardContent>
-          </Card>
-
-          <Card className="group hover:shadow-elegant transition-all duration-300 hover:-translate-y-1">
-            <CardContent className="p-6 text-center">
-              <FileText className="h-16 w-16 mx-auto mb-4 text-green-500" />
-              <h3 className="text-lg font-semibold mb-2">حافظة مسطرة بلاستيك</h3>
-              <p className="text-muted-foreground text-sm mb-4">حافظة مسطرة من البلاستيك المقوى والمتين</p>
-              <div className="text-green-600 font-bold text-lg mb-4">قريباً</div>
-              <Button className="w-full" disabled>
-                سيتوفر قريباً
-              </Button>
-            </CardContent>
-          </Card>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+          {rulerFolders.map((folder) => (
+            <Card key={folder.id} className="group hover:shadow-elegant transition-all duration-300 hover:-translate-y-1 overflow-hidden">
+              <CardContent className="p-0">
+                {/* Product Image */}
+                <div className="relative h-48 bg-gradient-to-br from-green-100 to-teal-100 flex items-center justify-center overflow-hidden">
+                  <img 
+                    src={folder.image} 
+                    alt={folder.name}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    onError={(e) => {
+                      // Fallback to emoji if image fails to load
+                      e.currentTarget.style.display = 'none';
+                      (e.currentTarget.nextElementSibling as HTMLElement).style.display = 'flex';
+                    }}
+                  />
+                  <div className="absolute inset-0 items-center justify-center text-6xl hidden">
+                    📋
+                  </div>
+                </div>
+                
+                {/* Product Info */}
+                <div className="p-6">
+                  <h3 className="font-bold text-lg mb-2 text-right leading-relaxed">{folder.name}</h3>
+                  <p className="text-sm text-muted-foreground mb-4 leading-relaxed text-right">{folder.description}</p>
+                  
+                  {/* Price and Add to Cart */}
+                  <div className="flex items-center justify-between pt-4 border-t">
+                    <span className="text-primary font-bold text-xl">{folder.price} ج.م</span>
+                    <Button 
+                      className="btn-tafaneen px-6"
+                      onClick={() => addItem({ 
+                        id: folder.id, 
+                        name: folder.name, 
+                        price: folder.price, 
+                        image: folder.image 
+                      })}
+                    >
+                      إضافة للسلة
+                    </Button>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          ))}
         </div>
         
         {/* Back to Files Organizers */}
