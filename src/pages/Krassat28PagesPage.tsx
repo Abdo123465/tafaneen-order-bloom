@@ -11,11 +11,13 @@ const Krassat28PagesPage = () => {
     document.title = "كراسات 28 ورقة | تفانين";
     const desc = "تصفح مجموعة كراسات 28 ورقة بأنواع مختلفة.";
     let meta = document.querySelector('meta[name="description"]');
+    
     if (!meta) {
       meta = document.createElement('meta');
       meta.setAttribute('name', 'description');
       document.head.appendChild(meta);
     }
+    
     meta.setAttribute('content', desc);
   }, []);
 
@@ -44,7 +46,8 @@ const Krassat28PagesPage = () => {
       description: "كراسة بمربعات كبيرة للرسم والحساب",
       icon: Grid3X3,
       color: "bg-gradient-to-br from-purple-500 to-purple-600",
-      textColor: "text-purple-600"
+      textColor: "text-purple-600",
+      link: "/notebooks/krassat/28-pages/large-squares"
     },
     {
       id: 4,
@@ -108,6 +111,7 @@ const Krassat28PagesPage = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
+      
       <main>
         <section className="container mx-auto px-4 py-10">
           <div className="mb-8">
@@ -133,13 +137,16 @@ const Krassat28PagesPage = () => {
             {notebookTypes.map((notebook) => {
               const IconComponent = notebook.icon;
               return (
-                <Card key={notebook.id} className="group hover:shadow-elegant transition-all duration-300 hover:-translate-y-1 border-0 overflow-hidden">
+                <Card 
+                  key={notebook.id} 
+                  className="group hover:shadow-elegant transition-all duration-300 hover:-translate-y-1 border-0 overflow-hidden"
+                >
                   <CardContent className="p-0">
                     <div className={`${notebook.color} p-6 text-white relative overflow-hidden`}>
                       <div className="absolute top-0 right-0 w-24 h-24 bg-white/10 rounded-full -mr-12 -mt-12"></div>
                       <div className="relative z-10">
-                        <IconComponent className="h-12 w-12 mb-4" />
-                        <h3 className="text-lg font-bold">{notebook.name}</h3>
+                        <IconComponent className="h-12 w-12" />
+                        <h3 className="text-xl font-bold mt-4">{notebook.name}</h3>
                       </div>
                     </div>
                     
@@ -154,15 +161,16 @@ const Krassat28PagesPage = () => {
                             variant="outline"
                             className={`w-full ${notebook.textColor} border-current hover:bg-current hover:text-white transition-colors`}
                           >
-                            إضافة للسلة
+                            تصفح المنتجات
                           </Button>
                         </Link>
                       ) : (
                         <Button
                           variant="outline"
                           className={`w-full ${notebook.textColor} border-current hover:bg-current hover:text-white transition-colors`}
+                          disabled
                         >
-                          إضافة للسلة
+                          قريباً
                         </Button>
                       )}
                     </div>
@@ -173,6 +181,7 @@ const Krassat28PagesPage = () => {
           </div>
         </section>
       </main>
+      
       <Footer />
     </div>
   );
