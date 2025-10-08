@@ -133,6 +133,10 @@ import English9LinesPage from "@/pages/English9LinesPage";
 import EnglishNormal9Page from "@/pages/EnglishNormal9Page";
 import EnglishDisney9Page from "@/pages/EnglishDisney9Page";
 
+// الصفحات الجديدة لكراسة مربعات كبيرة
+import KrassatNormal28Page from "./pages/KrassatNormal28Page";
+import KrassatDisney28Page from "./pages/KrassatDisney28Page";
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -229,6 +233,10 @@ const App = () => (
               <Route path="/notebooks/krassat/28-pages/9-lines" element={<English9LinesPage />} />
               <Route path="/notebooks/krassat/28-pages/english/9-lines/normal" element={<EnglishNormal9Page />} />
               <Route path="/notebooks/krassat/28-pages/english/9-lines/disney" element={<EnglishDisney9Page />} />
+
+              {/* كراسات مربعات كبيرة */}
+              <Route path="/notebooks/krassat/28-pages/normal" element={<KrassatNormal28Page />} />
+              <Route path="/notebooks/krassat/28-pages/disney" element={<KrassatDisney28Page />} />
 
               {/* مكتبيات */}
               <Route path="/office-supplies" element={<OfficeSuppliesPage />} />
