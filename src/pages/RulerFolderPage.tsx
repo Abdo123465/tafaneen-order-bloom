@@ -95,7 +95,7 @@ function RulerFolderPage() {
                     <Button 
                       className="btn-tafaneen px-6"
                       onClick={() => addItem({ 
-                        id: folder.id, 
+                        id: String(folder.id), 
                         name: folder.name, 
                         price: folder.price, 
                         image: folder.image 

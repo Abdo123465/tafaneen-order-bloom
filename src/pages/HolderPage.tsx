@@ -101,7 +101,7 @@ function HolderPage() {
                     <Button 
                       className="btn-tafaneen px-6"
                       onClick={() => addItem({ 
-                        id: holder.id, 
+                        id: String(holder.id), 
                         name: holder.name, 
                         price: holder.price, 
                         image: holder.image 
