@@ -66,7 +66,6 @@ import SearchPage from "./pages/SearchPage";
 import MechanicalPencils05Page from "./pages/MechanicalPencils05Page";
 import MechanicalPencils07Page from "./pages/MechanicalPencils07Page";
 import MechanicalPencils09Page from "./pages/MechanicalPencils09Page";
-// إضافة استيرادات أقلام الألوان الخشبية الجديدة
 import GelcyColorPencilsPage from "./pages/GelcyColorPencilsPage";
 import DomsColorPencilsPage from "./pages/DomsColorPencilsPage";
 import DeliColorPencilsPage from "./pages/DeliColorPencilsPage";
@@ -75,17 +74,13 @@ import FaberCastellColorPencilsPage from "./pages/FaberCastellColorPencilsPage";
 import AttarColorPencilsPage from "./pages/AttarColorPencilsPage";
 import WaxCrayonsPage from "./pages/WaxCrayonsPage";
 import GouacheColorsPage from "./pages/GouacheColorsPage";
-// استيراد صفحات ألوان الفلوماستر الجديدة
 import FeltTipMarkersPage from "./pages/FeltTipMarkersPage";
 import DomsFeltTipMarkersPage from "./pages/DomsFeltTipMarkersPage";
 import PrimaFeltTipMarkersPage from "./pages/PrimaFeltTipMarkersPage";
-// استيراد صفحة ألوان الأكريليك الجديدة
 import AcrylicColorsPage from "./pages/AcrylicColorsPage";
-// استيراد صفحات ورق كانسون الجديدة
 import CansonPaperPage from "./pages/CansonPaperPage";
 import CansonA4Page from "./pages/CansonA4Page";
 import Canson70x50Page from "./pages/Canson70x50Page";
-// استيراد صفحات سكتش كانسون الجديدة
 import CansonSketchPage from "./pages/CansonSketchPage";
 import CansonSketchColorsPage from "./pages/CansonSketchColorsPage";
 import CansonSketchWhitePage from "./pages/CansonSketchWhitePage";
@@ -111,12 +106,10 @@ import ErasersPage from "./pages/ErasersPage";
 import SharpenersPage from "./pages/SharpenersPage";
 import OfficeStaplersPage from "./pages/OfficeStaplersPage";
 import PaperPunchesPage from "./pages/PaperPunchesPage";
-// استيراد صفحة الدباسات الجديدة
 import StaplersPage from "./pages/StaplersPage";
 import OfficeStampsPage from "./pages/OfficeStampsPage";
 import InkPadsPage from "./pages/InkPadsPage";
 import MiscOfficeSuppliesPage from "./pages/MiscOfficeSuppliesPage";
-// استيراد صفحات منظمات الملفات الجديدة
 import FilesOrganizersPage from "./pages/FilesOrganizersPage";
 import CapsuleFolderPage from "./pages/CapsuleFolderPage";
 import RulerFolderPage from "./pages/RulerFolderPage";
@@ -124,16 +117,20 @@ import SascoFolderPage from "./pages/SascoFolderPage";
 import HolderPage from "./pages/HolderPage";
 import ZipperFolderPage from "./pages/ZipperFolderPage";
 
-// الصفحات الجديدة الخاصة بـ «عربي 28 ورقة»
+// الصفحات الخاصة بـ «عربي 28 ورقة»
 import Arabic28CategoryPage from "@/pages/Arabic28CategoryPage";
 import ArabicDisneyNotebooksPage from "@/pages/ArabicDisneyNotebooksPage";
 import ArabicNormalNotebooksPage from "@/pages/ArabicNormalNotebooksPage";
 
-// الإنجليزي الجديد
+// الإنجليزي
 import English28CategoryPage from "@/pages/English28CategoryPage";
 import English40CategoryPage from "@/pages/English40CategoryPage";
 import EnglishNormal28Page from "@/pages/EnglishNormal28Page";
 import EnglishDisney28Page from "@/pages/EnglishDisney28Page";
+
+// الصفحات الجديدة لكراسة 9 أسطر
+import EnglishNormal9Page from "@/pages/EnglishNormal9Page";
+import EnglishDisney9Page from "@/pages/EnglishDisney9Page";
 
 const queryClient = new QueryClient();
 
@@ -226,6 +223,10 @@ const App = () => (
               <Route path="/notebooks/krassat/40-pages/english" element={<English40CategoryPage />} />
               <Route path="/notebooks/krassat/40-pages/english/normal" element={<EnglishNormal28Page />} />
               <Route path="/notebooks/krassat/40-pages/english/disney" element={<EnglishDisney28Page />} />
+
+              {/* إنجليزي 9 أسطر */}
+              <Route path="/notebooks/krassat/28-pages/english/9-lines/normal" element={<EnglishNormal9Page />} />
+              <Route path="/notebooks/krassat/28-pages/english/9-lines/disney" element={<EnglishDisney9Page />} />
 
               {/* مكتبيات */}
               <Route path="/office-supplies" element={<OfficeSuppliesPage />} />
