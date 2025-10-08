@@ -1,3 +1,4 @@
+// src/pages/EnglishNormal28Page.tsx
 import { useEffect } from "react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -10,34 +11,24 @@ import { Link } from "react-router-dom";
 const englishNormalItems = [
   {
     id: "en-nor-28-1",
-    name: "كراسة إنجليزي عادي 28 ورقة – غلاف أزرق",
-    price: 15,
-    image: "/assets/en-nor-blue.jpg",
-    description: "كراسة إنجليزي 8 أسطر، غلاف بسيط، ورق 60 جرام.",
+    name: "كراسه 28 ق انجليزي عادي  ",
+    price: 8,
+    image: "/assets/english-normal-blue.jpg",
+    description: "كراسة انجليزي عادي سطرين 28 ورقة غلاف ",
     brand: "محلي",
     pages: 28,
-    size: "17×24 سم",
-    paperWeight: "60 جرام",
+    size: "15×21 سم",
+    paperWeight: "48 جرام",
   },
-  {
-    id: "en-nor-28-2",
-    name: "كراسة إنجليزي عادي 28 ورقة – غلاف أحمر",
-    price: 15,
-    image: "/assets/en-nor-red.jpg",
-    description: "كراسة إنجليزي 8 أسطر، غلاف أحمر، ورق 60 جرام.",
-    brand: "محلي",
-    pages: 28,
-    size: "17×24 سم",
-    paperWeight: "60 جرام",
-  },
+
 ];
 
 const EnglishNormal28Page = () => {
   const { addItem } = useCart();
 
   useEffect(() => {
-    document.title = "كراسات إنجليزي عادي 28 ورقة | تفانين";
-    const desc = "كراسات إنجليزي 28 ورقة بأغلفة بسيطة وأسعار اقتصادية.";
+    document.title = "كراسه 28 ق انجليزي عادي | تفانين";
+    const desc = "احصل على كراسة انجليزي عادي سطرين 28 ورقة بألوان مختلفة.";
     let meta = document.querySelector('meta[name="description"]');
     if (!meta) {
       meta = document.createElement("meta");
@@ -68,31 +59,42 @@ const EnglishNormal28Page = () => {
             <ArrowRight className="h-4 w-4" />
             <Link to="/notebooks/krassat/28-pages">28 ورقة</Link>
             <ArrowRight className="h-4 w-4" />
-            <span className="text-white font-medium">إنجليزي عادي</span>
+            <span className="text-white font-medium">انجليزي عادي</span>
           </nav>
 
+          {/* العنوان والصورة */}
           <div className="text-center mb-12">
-            <h1 className="text-3xl lg:text-4xl font-bold mb-4 text-white drop-shadow">كراسات إنجليزي عادي – 28 ورقة</h1>
-            <p className="text-xl text-white/90 max-w-2xl mx-auto drop-shadow">كراسات اقتصادية بأغلفة بسيطة ومناسبة للاستخدام اليومي</p>
+            <img
+              src="/assets/english-normal-banner.jpg"
+              alt="English Normal Notebooks Banner"
+              className="mx-auto h-40 object-cover rounded-xl mb-4 shadow"
+              onError={(e) => (e.currentTarget.src = "https://via.placeholder.com/600x160?text=English+Normal+Notebooks")}
+            />
+            <h1 className="text-3xl lg:text-4xl font-bold mb-4 text-white drop-shadow">كراسه 28 ق انجليزي عادي</h1>
+            <p className="text-xl text-white/90 max-w-2xl mx-auto drop-shadow">كراسة انجليزي عادي سطرين 28 ورقة بألوان مختلفة</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {englishNormalItems.map((item) => (
               <Card key={item.id} className="group hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 overflow-hidden bg-white/70 backdrop-blur-sm border-0">
                 <CardContent className="p-0">
-                  <div className="relative h-48 flex items-center justify-center overflow-hidden">
+                  <div className="relative h-48 flex items-center justify-center overflow-hidden bg-white">
                     <img
                       src={item.image}
                       alt={item.name}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform"
+                      className="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-300"
                       onError={(e) => {
                         e.currentTarget.style.display = "none";
                         (e.currentTarget.nextElementSibling as HTMLElement).style.display = "flex";
                       }}
                     />
                     <div className="absolute inset-0 items-center justify-center text-6xl hidden">📙</div>
-                    <div className="absolute top-3 right-3 bg-white/90 backdrop-blur-sm rounded-full px-3 py-1 text-xs font-medium text-gray-700">{item.brand}</div>
-                    <div className="absolute bottom-3 left-3 bg-green-600 text-white rounded-full px-3 py-1 text-xs font-bold">{item.pages} ورقة</div>
+                    <div className="absolute top-3 right-3 bg-white/90 backdrop-blur-sm rounded-full px-3 py-1 text-xs font-medium text-gray-700 shadow-sm">
+                      {item.brand}
+                    </div>
+                    <div className="absolute bottom-3 left-3 bg-green-600 text-white rounded-full px-3 py-1 text-xs font-bold shadow-sm">
+                      {item.pages} ورقة
+                    </div>
                   </div>
 
                   <div className="p-6">
