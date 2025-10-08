@@ -10,37 +10,16 @@ import { Link } from "react-router-dom";
 const arabicNormalItems = [
   {
     id: "ar-nor-28-1",
-    name: "كراسة عربي عادي 28 ورقة – غلاف أزرق",
-    price: 15,
+    name: "كراسه 28 ورقه مالك",
+    price: 8,
     image: "/assets/ar-nor-blue.jpg",
-    description: "كراسة مخططة 9 أسطر، غلاف لامع بسيط، ورق 60 جرام.",
+    description: "كراسة عربي، غلاف لامع بسيط، ورق 48 جرام.",
     brand: "محلي",
     pages: 28,
-    size: "17×24 سم",
-    paperWeight: "60 جرام",
+    size: "15×21 سم",
+    paperWeight: "48 جرام",
   },
-  {
-    id: "ar-nor-28-2",
-    name: "كراسة عربي عادي 28 ورقة – غلاف أخضر",
-    price: 15,
-    image: "/assets/ar-nor-green.jpg",
-    description: "كراسة مخططة 9 أسطر، غلاف أخضر، ورق 60 جرام.",
-    brand: "محلي",
-    pages: 28,
-    size: "17×24 سم",
-    paperWeight: "60 جرام",
-  },
-  {
-    id: "ar-nor-28-3",
-    name: "كراسة عربي عادي 28 ورقة – غلاف رمادي",
-    price: 15,
-    image: "/assets/ar-nor-gray.jpg",
-    description: "كراسة مخططة 9 أسطر، تصميم كلاسيكي، ورق 60 جرام.",
-    brand: "محلي",
-    pages: 28,
-    size: "17×24 سم",
-    paperWeight: "60 جرام",
-  },
+  
 ];
 
 const ArabicNormalNotebooksPage = () => {
