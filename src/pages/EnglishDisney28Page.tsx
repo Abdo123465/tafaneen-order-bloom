@@ -11,25 +11,15 @@ const englishDisneyItems = [
   {
     id: "en-dis-28-1",
     name: "كراسة إنجليزي ديزني 28 ورقة – ميكي",
-    price: 22,
+    price: 10,
     image: "/assets/en-dis-mickey.jpg",
-    description: "كراسة إنجليزي 8 أسطر، غلاف ميكي ماوس، ورق 60 جرام.",
+    description: "كراسة إنجليزي  سطرين، غلاف ميكي ماوس و شخصيات ديزني المتنوعة، ورق 60 جرام.",
     brand: "Disney",
     pages: 28,
-    size: "17×24 سم",
+    size: "22.5×18 سم",
     paperWeight: "60 جرام",
   },
-  {
-    id: "en-dis-28-2",
-    name: "كراسة إنجليزي ديزني 28 ورقة – الأميرات",
-    price: 22,
-    image: "/assets/en-dis-princess.jpg",
-    description: "كراسة إنجليزي 8 أسطر، غلاف أميرات ديزني، ورق 60 جرام.",
-    brand: "Disney",
-    pages: 28,
-    size: "17×24 سم",
-    paperWeight: "60 جرام",
-  },
+
 ];
 
 const EnglishDisney28Page = () => {
@@ -82,7 +72,7 @@ const EnglishDisney28Page = () => {
                 <CardContent className="p-0">
                   <div className="relative h-48 flex items-center justify-center overflow-hidden">
                     <img
-                      src={item.image}
+                      src="/assets/disney-banner.jpg"
                       alt={item.name}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform"
                       onError={(e) => {
