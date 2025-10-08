@@ -73,8 +73,8 @@ const EnglishDisney28Page = () => {
                   <div className="relative h-48 flex items-center justify-center overflow-hidden">
                     <img
                       src="/assets/disney-banner.jpg"
-                      alt={item.name}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform"
+                       alt="Disney banner"
+                      className="mx-auto h-40 object-cover rounded-xl mb-6 shadow-lg border-4 border-white/20"
                       onError={(e) => {
                         e.currentTarget.style.display = "none";
                         (e.currentTarget.nextElementSibling as HTMLElement).style.display = "flex";
