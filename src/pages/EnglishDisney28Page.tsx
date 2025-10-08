@@ -1,4 +1,4 @@
-// src/pages/MickeyMouseNotebookPage.tsx
+// src/pages/EnglishDisney28Page.tsx
 import { useEffect } from "react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -8,10 +8,10 @@ import { useCart } from "@/contexts/CartContext";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
-const mickeyMouseItems = [
+const englishDisneyItems = [
   {
     id: "mickey-mouse-28-1",
-    name: "28 - كراسه 28 ق ديزني انجليزي",
+    name: "كراسه 28 ق ديزني انجليزي",
     price: 10,
     image: "/assets/mickey-mouse-notebook.jpg",
     description: "كراسة ديزني انجليزي سطرين 28 ورقة",
@@ -22,12 +22,12 @@ const mickeyMouseItems = [
   },
 ];
 
-const MickeyMouseNotebookPage = () => {
+const EnglishDisney28Page = () => {
   const { addItem } = useCart();
 
   useEffect(() => {
-    document.title = "28 - ملاحظات ومراجعة ميكى Mouse | تفانين";
-    const desc = "احصل على دفاتر ملاحظات ومراجعة ميكى ماوس مع التصميمات المميزة.";
+    document.title = "كراسه 28 ق ديزني انجليزي | تفانين";
+    const desc = "احصل على كراسة ديزني انجليزي سطرين 28 ورقة بتصميمات ديزني المميزة.";
     let meta = document.querySelector('meta[name="description"]');
     if (!meta) {
       meta = document.createElement("meta");
@@ -61,26 +61,26 @@ const MickeyMouseNotebookPage = () => {
             <ArrowRight className="h-4 w-4" />
             <Link to="/notebooks/krassat/28-pages" className="hover:text-primary">28 ورقة</Link>
             <ArrowRight className="h-4 w-4" />
-            <span className="text-foreground">ملاحظات ومراجعة ميكى</span>
+            <span className="text-foreground">ديزني انجليزي</span>
           </nav>
 
           {/* العنوان والصورة */}
           <div className="text-center mb-12">
             <img
               src="/assets/mickey-mouse-banner.jpg"
-              alt="Mickey Mouse Cover"
+              alt="Disney English Notebook"
               className="mx-auto h-40 object-cover rounded-xl mb-4 shadow"
-              onError={(e) => (e.currentTarget.src = "https://via.placeholder.com/600x160?text=Mickey+Mouse")}
+              onError={(e) => (e.currentTarget.src = "https://via.placeholder.com/600x160?text=Disney+English")}
             />
-            <h1 className="text-3xl lg:text-4xl font-bold mb-4">28 - ملاحظات ومراجعة ميكى Mouse</h1>
+            <h1 className="text-3xl lg:text-4xl font-bold mb-4">كراسه 28 ق ديزني انجليزي</h1>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              ملاحظات ومراجعة ميكى Mouse مع التصميمات المميزة
+              كراسة ديزني انجليزي سطرين 28 ورقة بتصميمات ديزني المميزة
             </p>
           </div>
 
           {/* المنتجات */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {mickeyMouseItems.map((item) => (
+            {englishDisneyItems.map((item) => (
               <Card key={item.id} className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1 overflow-hidden">
                 <CardContent className="p-0">
                   <div className="relative h-48 bg-gradient-to-br from-blue-100 to-indigo-100 flex items-center justify-center overflow-hidden">
@@ -132,4 +132,4 @@ const MickeyMouseNotebookPage = () => {
   );
 };
 
-export default MickeyMouseNotebookPage;
+export default EnglishDisney28Page;
