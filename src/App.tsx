@@ -129,6 +129,7 @@ import EnglishNormal28Page from "@/pages/EnglishNormal28Page";
 import EnglishDisney28Page from "@/pages/EnglishDisney28Page";
 
 // الصفحات الجديدة لكراسة 9 أسطر
+import English9LinesPage from "@/pages/English9LinesPage";
 import EnglishNormal9Page from "@/pages/EnglishNormal9Page";
 import EnglishDisney9Page from "@/pages/EnglishDisney9Page";
 
@@ -224,7 +225,8 @@ const App = () => (
               <Route path="/notebooks/krassat/40-pages/english/normal" element={<EnglishNormal28Page />} />
               <Route path="/notebooks/krassat/40-pages/english/disney" element={<EnglishDisney28Page />} />
 
-              {/* إنجليزي 9 أسطر */}
+              {/* كراسة 9 أسطر */}
+              <Route path="/notebooks/krassat/28-pages/9-lines" element={<English9LinesPage />} />
               <Route path="/notebooks/krassat/28-pages/english/9-lines/normal" element={<EnglishNormal9Page />} />
               <Route path="/notebooks/krassat/28-pages/english/9-lines/disney" element={<EnglishDisney9Page />} />
 
