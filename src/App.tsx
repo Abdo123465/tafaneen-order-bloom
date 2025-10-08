@@ -129,6 +129,10 @@ import Arabic28CategoryPage from "@/pages/Arabic28CategoryPage";
 import ArabicDisneyNotebooksPage from "@/pages/ArabicDisneyNotebooksPage";
 import ArabicNormalNotebooksPage from "@/pages/ArabicNormalNotebooksPage";
 
+// الإنجليزي الجديد
+import EnglishNormal28Page from "@/pages/EnglishNormal28Page";
+import EnglishDisney28Page from "@/pages/EnglishDisney28Page";
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -174,22 +178,26 @@ const App = () => (
               <Route path="/calculators-rulers/scientific-calculator" element={<ScientificCalculatorPage />} />
               <Route path="/calculators-rulers/commercial-calculator" element={<CommercialCalculatorPage />} />
               <Route path="/calculators-rulers/rulers" element={<RulersGeometryPage />} />
-              {/* مسارات منظمات الملفات الجديدة */}
+
+              {/* منظمات الملفات */}
               <Route path="/files-organizers" element={<FilesOrganizersPage />} />
               <Route path="/files-organizers/capsule-folder" element={<CapsuleFolderPage />} />
               <Route path="/files-organizers/ruler-folder" element={<RulerFolderPage />} />
               <Route path="/files-organizers/sasco-folder" element={<SascoFolderPage />} />
               <Route path="/files-organizers/holder" element={<HolderPage />} />
               <Route path="/files-organizers/zipper-folder" element={<ZipperFolderPage />} />
+
+              {/* ألوان خشبية تجاري */}
               <Route path="/cutting-pasting-tools/cutting-pasting" element={<CuttingPastingPage />} />
               <Route path="/cutting-pasting-tools/wooden-pencils" element={<WoodenPencilsPage />} />
-              {/* مسارات أقلام الألوان الخشبية حسب العلامة التجارية */}
               <Route path="/cutting-pasting-tools/wooden-pencils/gelcy" element={<GelcyColorPencilsPage />} />
               <Route path="/cutting-pasting-tools/wooden-pencils/doms" element={<DomsColorPencilsPage />} />
               <Route path="/cutting-pasting-tools/wooden-pencils/deli" element={<DeliColorPencilsPage />} />
               <Route path="/cutting-pasting-tools/wooden-pencils/power" element={<PowerColorPencilsPage />} />
               <Route path="/cutting-pasting-tools/wooden-pencils/faber-castell" element={<FaberCastellColorPencilsPage />} />
               <Route path="/cutting-pasting-tools/wooden-pencils/attar" element={<AttarColorPencilsPage />} />
+
+              {/* كراسات */}
               <Route path="/notebooks" element={<NotebooksPage />} />
               <Route path="/notebooks/main-category" element={<NotebooksMainCategoryPage />} />
               <Route path="/notebooks/krassat" element={<KrassatPage />} />
@@ -201,6 +209,17 @@ const App = () => (
               <Route path="/notebooks/kashakil/100-pages" element={<Kashakil100PagesPage />} />
               <Route path="/notebooks/kashakil-silk-a4" element={<KashakilSilkA4Page />} />
               <Route path="/notebooks/kashakil-silk-a5" element={<KashakilSilkA5Page />} />
+
+              {/* عربي 28 ورقة */}
+              <Route path="/notebooks/krassat/28-pages/arabic" element={<Arabic28CategoryPage />} />
+              <Route path="/notebooks/krassat/28-pages/arabic-disney" element={<ArabicDisneyNotebooksPage />} />
+              <Route path="/notebooks/krassat/28-pages/arabic-normal" element={<ArabicNormalNotebooksPage />} />
+
+              {/* إنجليزي 28 ورقة */}
+              <Route path="/notebooks/krassat/28-pages/english-normal" element={<EnglishNormal28Page />} />
+              <Route path="/notebooks/krassat/28-pages/english-disney" element={<EnglishDisney28Page />} />
+
+              {/* مكتبيات */}
               <Route path="/office-supplies" element={<OfficeSuppliesPage />} />
               <Route path="/office-supplies/stapler" element={<StaplerPage />} />
               <Route path="/office-supplies/hole-punch" element={<HolePunchPage />} />
@@ -211,12 +230,15 @@ const App = () => (
               <Route path="/office-supplies/push-pins" element={<PushPinsPage />} />
               <Route path="/office-supplies/office-staplers" element={<OfficeStaplersPage />} />
               <Route path="/office-supplies/paper-punches" element={<PaperPunchesPage />} />
-              {/* المسار الجديد لصفحة الدباسات */}
               <Route path="/office-supplies/staplers" element={<StaplersPage />} />
               <Route path="/office-supplies/office-stamps" element={<OfficeStampsPage />} />
               <Route path="/office-supplies/stamps/ink-pads" element={<InkPadsPage />} />
               <Route path="/office-supplies/misc" element={<MiscOfficeSuppliesPage />} />
+
+              {/* عروض */}
               <Route path="/offers" element={<OffersPage />} />
+
+              {/* أقلام */}
               <Route path="/pens/gel" element={<GelPensPage />} />
               <Route path="/pens/roto" element={<RotoPensPage />} />
               <Route path="/pens/prima" element={<PrimaPensPage />} />
@@ -226,15 +248,14 @@ const App = () => (
               <Route path="/pens/fransawy" element={<FransawyPensPage />} />
               <Route path="/pens/fountain" element={<FountainPensPage />} />
               <Route path="/pens/ballpoint-sets" element={<BallpointPenSetsPage />} />
+
+              {/* أدوات قطع ولصق */}
               <Route path="/cutting-pasting-tools/wax-crayons" element={<WaxCrayonsPage />} />
               <Route path="/cutting-pasting-tools/gouache-colors" element={<GouacheColorsPage />} />
-              {/* مسار صفحة ألوان الأكريليك الجديدة */}
               <Route path="/cutting-pasting-tools/acrylic-colors" element={<AcrylicColorsPage />} />
-              {/* مسارات صفحات ورق كانسون الجديدة */}
               <Route path="/cutting-pasting-tools/canson-paper" element={<CansonPaperPage />} />
               <Route path="/cutting-pasting-tools/canson-paper/a4" element={<CansonA4Page />} />
               <Route path="/cutting-pasting-tools/canson-paper/70x50" element={<Canson70x50Page />} />
-              {/* مسارات صفحات سكتش كانسون الجديدة */}
               <Route path="/cutting-pasting-tools/canson-sketch" element={<CansonSketchPage />} />
               <Route path="/cutting-pasting-tools/canson-sketch/colors" element={<CansonSketchColorsPage />} />
               <Route path="/cutting-pasting-tools/canson-sketch/white" element={<CansonSketchWhitePage />} />
@@ -247,7 +268,6 @@ const App = () => (
               <Route path="/cutting-pasting-tools/adhesive-foam" element={<AdhesiveFoamPage />} />
               <Route path="/cutting-pasting-tools/adhesive-foam/a4" element={<AdhesiveFoamA4Page />} />
               <Route path="/cutting-pasting-tools/adhesive-foam/70x50" element={<AdhesiveFoam70x50Page />} />
-              {/* مسارات صفحات فوم جليتر الجديدة */}
               <Route path="/cutting-pasting-tools/glitter-foam" element={<GlitterFoamPage />} />
               <Route path="/cutting-pasting-tools/glitter-foam/a4" element={<GlitterFoamA4Page />} />
               <Route path="/cutting-pasting-tools/glitter-foam/70x50" element={<GlitterFoam70x50Page />} />
@@ -256,14 +276,13 @@ const App = () => (
               <Route path="/cutting-pasting-tools/adhesive-glitter-foam/70x50" element={<AdhesiveGlitterFoam70x50Page />} />
               <Route path="/cutting-pasting-tools/large-sketch" element={<LargeDrawingNotebookPage />} />
               <Route path="/cutting-pasting-tools/small-sketch" element={<SmallDrawingNotebookPage />} />
+
+              {/* ممحاة ومبراة */}
               <Route path="/erasers-sharpeners" element={<ErasersSharpenersPage />} />
               <Route path="/erasers-sharpeners/erasers" element={<ErasersPage />} />
               <Route path="/erasers-sharpeners/sharpeners" element={<SharpenersPage />} />
-              {/* الصفحات الجديدة الخاصة بـ «عربي 28 ورقة» */}
-              <Route path="/notebooks/krassat/28-pages/arabic" element={<Arabic28CategoryPage />} />
-              <Route path="/notebooks/krassat/28-pages/arabic-disney" element={<ArabicDisneyNotebooksPage />} />
-              <Route path="/notebooks/krassat/28-pages/arabic-normal" element={<ArabicNormalNotebooksPage />} />
-              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+
+              {/* 404 */}
               <Route path="*" element={<NotFound />} />
             </Routes>
           </BrowserRouter>
