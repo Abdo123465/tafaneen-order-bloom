@@ -13,7 +13,6 @@ const arabicDisneyItems = [
     name: "كراسة عربي ديزني 28 ورقة – الأميرات",
     price: 22,
     image: "/assets/ar-dis-princess.jpg",
-    backgroundImage: "/assets/disney-princess-bg.jpg", // صورة خلفية للأميرات
     description: "كراسة مخططة 9 أسطر، غلاف أميرات ديزني ملون، ورق 60 جرام.",
     brand: "Disney",
     pages: 28,
@@ -25,7 +24,6 @@ const arabicDisneyItems = [
     name: "كراسة عربي ديزني 28 ورقة – ميكي و أصدقاؤه",
     price: 22,
     image: "/assets/ar-dis-mickey.jpg",
-    backgroundImage: "/assets/disney-mickey-bg.jpg", // صورة خلفية لميكي
     description: "كراسة مخططة 9 أسطر، غلاف ميكي، ورق 60 جرام.",
     brand: "Disney",
     pages: 28,
@@ -37,7 +35,6 @@ const arabicDisneyItems = [
     name: "كراسة عربي ديزني 28 ورقة – السيارات",
     price: 22,
     image: "/assets/ar-dis-cars.jpg",
-    backgroundImage: "/assets/disney-cars-bg.jpg", // صورة خلفية للسيارات
     description: "كراسة مخططة 9 أسطر، غلاف كرتون السيارات، ورق 60 جرام.",
     brand: "Disney",
     pages: 28,
@@ -82,34 +79,43 @@ const ArabicDisneyNotebooksPage = () => {
           <span className="text-foreground">عربي ديزني</span>
         </nav>
 
-        <div className="text-center mb-12">
-          <img
-            src="/assets/disney-cover-banner.jpg"
-            alt="Disney Cover"
-            className="mx-auto h-40 object-cover rounded-xl mb-4 shadow"
-            onError={(e) => (e.currentTarget.src = "https://via.placeholder.com/600x160?text=Disney")}
-          />
-          <h1 className="text-3xl lg:text-4xl font-bold mb-4">كراسات عربي ديزني – 28 ورقة</h1>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            اختر كراستك المفضلة بتصميمات ديزني المحببة للأطفال
-          </p>
+        {/* Category Card with Background Image - هذا هو الكارت الخارجي المعدل */}
+        <div 
+          className="relative text-center mb-12 rounded-xl overflow-hidden shadow-lg"
+          style={{
+            backgroundImage: "url('/assets/disney-category-bg.jpg')",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+            minHeight: "300px"
+          }}
+        >
+          {/* Overlay for better text readability */}
+          <div className="absolute inset-0 bg-black/40 backdrop-blur-[1px]"></div>
+          
+          {/* Content */}
+          <div className="relative z-10 py-16 px-6">
+            <img
+              src="/assets/disney-cover-banner.jpg"
+              alt="Disney Cover"
+              className="mx-auto h-40 object-cover rounded-xl mb-6 shadow-lg border-4 border-white/20"
+              onError={(e) => (e.currentTarget.src = "https://via.placeholder.com/600x160?text=Disney")}
+            />
+            <h1 className="text-3xl lg:text-4xl font-bold mb-4 text-white drop-shadow-lg">
+              كراسات عربي ديزني – 28 ورقة
+            </h1>
+            <p className="text-xl text-white/90 max-w-2xl mx-auto drop-shadow-md">
+              اختر كراستك المفضلة بتصميمات ديزني المحببة للأطفال
+            </p>
+          </div>
         </div>
 
         {/* المنتجات */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {arabicDisneyItems.map((item) => (
-            <Card 
-              key={item.id} 
-              className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1 overflow-hidden relative"
-              style={{
-                backgroundImage: `linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), url(${item.backgroundImage})`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-                backgroundRepeat: 'no-repeat'
-              }}
-            >
-              <CardContent className="p-0 relative z-10">
-                <div className="relative h-48 bg-gradient-to-br from-blue-100/80 to-indigo-100/80 flex items-center justify-center overflow-hidden backdrop-blur-sm">
+            <Card key={item.id} className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1 overflow-hidden">
+              <CardContent className="p-0">
+                <div className="relative h-48 bg-gradient-to-br from-blue-100 to-indigo-100 flex items-center justify-center overflow-hidden">
                   <img
                     src={item.image}
                     alt={item.name}
@@ -127,7 +133,7 @@ const ArabicDisneyNotebooksPage = () => {
                     {item.pages} ورقة
                   </div>
                 </div>
-                <div className="p-6 bg-white/95 backdrop-blur-sm">
+                <div className="p-6">
                   <h3 className="font-bold text-lg mb-2 text-right">{item.name}</h3>
                   <p className="text-sm text-muted-foreground mb-4 text-right">{item.description}</p>
                   <div className="space-y-2 mb-4 text-sm">
