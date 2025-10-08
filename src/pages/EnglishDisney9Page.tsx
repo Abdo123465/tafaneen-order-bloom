@@ -69,7 +69,7 @@ const EnglishDisney9Page = () => {
               className="mx-auto h-40 object-cover rounded-xl mb-4 shadow"
               onError={(e) => (e.currentTarget.src = "https://via.placeholder.com/600x160?text=Disney+English+9+Lines")}
             />
-            <h1 className="text-3xl lg:text-4xl font-bold mb-4 text-Black drop-shadow">كراسه 9 ق ديزني عربي</h1>
+            <h1 className="text-3xl lg:text-4xl font-bold mb-4 text-Black drop-shadow">كراسه 9 أسطر ق ديزني عربي</h1>
             <p className="text-xl text-Black/90 max-w-2xl mx-auto drop-shadow">كراسة ديزني عربي 9 أسطر 28 ورقة بتصاميم ديزني المميزة</p>
           </div>
 
