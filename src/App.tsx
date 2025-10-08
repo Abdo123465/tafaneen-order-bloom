@@ -130,6 +130,8 @@ import ArabicDisneyNotebooksPage from "@/pages/ArabicDisneyNotebooksPage";
 import ArabicNormalNotebooksPage from "@/pages/ArabicNormalNotebooksPage";
 
 // الإنجليزي الجديد
+import English28CategoryPage from "@/pages/English28CategoryPage";
+import English40CategoryPage from "@/pages/English40CategoryPage";
 import EnglishNormal28Page from "@/pages/EnglishNormal28Page";
 import EnglishDisney28Page from "@/pages/EnglishDisney28Page";
 
@@ -216,8 +218,14 @@ const App = () => (
               <Route path="/notebooks/krassat/28-pages/arabic-normal" element={<ArabicNormalNotebooksPage />} />
 
               {/* إنجليزي 28 ورقة */}
-              <Route path="/notebooks/krassat/28-pages/english-normal" element={<EnglishNormal28Page />} />
-              <Route path="/notebooks/krassat/28-pages/english-disney" element={<EnglishDisney28Page />} />
+              <Route path="/notebooks/krassat/28-pages/english" element={<English28CategoryPage />} />
+              <Route path="/notebooks/krassat/28-pages/english/normal" element={<EnglishNormal28Page />} />
+              <Route path="/notebooks/krassat/28-pages/english/disney" element={<EnglishDisney28Page />} />
+
+              {/* إنجليزي 40 ورقة */}
+              <Route path="/notebooks/krassat/40-pages/english" element={<English40CategoryPage />} />
+              <Route path="/notebooks/krassat/40-pages/english/normal" element={<EnglishNormal28Page />} />
+              <Route path="/notebooks/krassat/40-pages/english/disney" element={<EnglishDisney28Page />} />
 
               {/* مكتبيات */}
               <Route path="/office-supplies" element={<OfficeSuppliesPage />} />

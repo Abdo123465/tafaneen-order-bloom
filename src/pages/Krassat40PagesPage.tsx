@@ -58,7 +58,8 @@ const Krassat40PagesPage = () => {
       description: "كراسة مخططة للكتابة الإنجليزية",
       icon: Languages,
       color: "bg-gradient-to-br from-orange-500 to-orange-600",
-      textColor: "text-orange-600"
+      textColor: "text-orange-600",
+      link: "/notebooks/krassat/40-pages/english"
     },
     {
       id: 6,
