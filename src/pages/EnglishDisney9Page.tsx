@@ -11,13 +11,13 @@ import { Link } from "react-router-dom";
 const englishDisneyItems = [
   {
     id: "en-dis-9-1",
-    name: "كراسه 9 ق ديزني انجليزي",
-    price: 15,
+    name: "كراسه 28 ق 9 اسطر ديزني",
+    price: 10,
     image: "/assets/english-disney-9.jpg",
-    description: "كراسة ديزني انجليزي 9 أسطر 28 ورقة",
+    description: "كراسة ديزني عربي 9 أسطر 28 ورقة",
     brand: "Disney",
     pages: 28,
-    size: "22.5×18 سم",
+    size: "22.5×16 سم",
     paperWeight: "60 جرام",
   },
 ];
