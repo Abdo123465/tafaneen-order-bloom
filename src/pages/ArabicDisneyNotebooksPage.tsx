@@ -44,7 +44,7 @@ const ArabicDisneyNotebooksPage = () => {
       {/* خلفية كاملة مطابقة لـ ArabicNormalNotebooksPage */}
       <div
         className="w-full min-h-screen bg-cover bg-center"
-        style={{ backgroundImage: "url('/assets/ar-disney-bg.jpg')" }}
+        style={{ backgroundImage: "url('/assets/isney-bg.jpg')" }}
       >
         <main className="container mx-auto px-4 py-10">
           {/* Breadcrumb */}
