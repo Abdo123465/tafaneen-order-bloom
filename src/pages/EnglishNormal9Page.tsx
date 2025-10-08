@@ -11,26 +11,16 @@ import { Link } from "react-router-dom";
 const englishNormalItems = [
   {
     id: "en-nor-9-1",
-    name: "كراسه 9 ق انجليزي عادي - أزرق",
-    price: 12,
+    name: "كراسه 28 ورقه علاء الدين",
+    price: 8,
     image: "/assets/english-normal-9-blue.jpg",
-    description: "كراسة انجليزي عادي 9 أسطر 28 ورقة غلاف أزرق",
-    brand: "محلي",
+    description: "كراسة عربي عادي 9 أسطر 28 ورقة غلاف ",
+    brand: "علاء الدين",
     pages: 28,
     size: "17×24 سم",
     paperWeight: "60 جرام",
   },
-  {
-    id: "en-nor-9-2",
-    name: "كراسه 9 ق انجليزي عادي - أحمر",
-    price: 12,
-    image: "/assets/english-normal-9-red.jpg",
-    description: "كراسة انجليزي عادي 9 أسطر 28 ورقة غلاف أحمر",
-    brand: "محلي",
-    pages: 28,
-    size: "17×24 سم",
-    paperWeight: "60 جرام",
-  },
+
 ];
 
 const EnglishNormal9Page = () => {
@@ -80,8 +70,8 @@ const EnglishNormal9Page = () => {
               className="mx-auto h-40 object-cover rounded-xl mb-4 shadow"
               onError={(e) => (e.currentTarget.src = "https://via.placeholder.com/600x160?text=English+Normal+9+Lines")}
             />
-            <h1 className="text-3xl lg:text-4xl font-bold mb-4 text-white drop-shadow">كراسه 9 ق عربي عادي</h1>
-            <p className="text-xl text-white/90 max-w-2xl mx-auto drop-shadow">كراسة عربي عادي 9 أسطر 28 ورقة بألوان مختلفة</p>
+            <h1 className="text-3xl lg:text-4xl font-bold mb-4 text-black drop-shadow">كراسه 9 ق عربي عادي</h1>
+            <p className="text-xl text-black/90 max-w-2xl mx-auto drop-shadow">كراسة عربي عادي 9 أسطر 28 ورقة بألوان مختلفة</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
