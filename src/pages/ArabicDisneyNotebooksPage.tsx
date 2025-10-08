@@ -10,37 +10,16 @@ import { Link } from "react-router-dom";
 const arabicDisneyItems = [
   {
     id: "ar-dis-28-1",
-    name: "كراسة عربي ديزني 28 ورقة – الأميرات",
-    price: 22,
+    name: "كراسه 28 ق عربي ديزني",
+    price: 10,
     image: "/assets/ar-dis-princess.jpg",
-    description: "كراسة مخططة 9 أسطر، غلاف أميرات ديزني ملون، ورق 60 جرام.",
+    description: "كراسة عربي ، غلاف أميرات ديزني ملون، او سيارات او ميكي ماوس ورق 60 جرام.",
     brand: "Disney",
     pages: 28,
-    size: "17×24 سم",
+    size: "22.5×16 سم",
     paperWeight: "60 جرام",
   },
-  {
-    id: "ar-dis-28-2",
-    name: "كراسة عربي ديزني 28 ورقة – ميكي و أصدقاؤه",
-    price: 22,
-    image: "/assets/ar-dis-mickey.jpg",
-    description: "كراسة مخططة 9 أسطر، غلاف ميكي، ورق 60 جرام.",
-    brand: "Disney",
-    pages: 28,
-    size: "17×24 سم",
-    paperWeight: "60 جرام",
-  },
-  {
-    id: "ar-dis-28-3",
-    name: "كراسة عربي ديزني 28 ورقة – السيارات",
-    price: 22,
-    image: "/assets/ar-dis-cars.jpg",
-    description: "كراسة مخططة 9 أسطر، غلاف كرتون السيارات، ورق 60 جرام.",
-    brand: "Disney",
-    pages: 28,
-    size: "17×24 سم",
-    paperWeight: "60 جرام",
-  },
+ 
 ];
 
 const ArabicDisneyNotebooksPage = () => {
