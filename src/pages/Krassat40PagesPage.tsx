@@ -147,12 +147,24 @@ const Krassat40PagesPage = () => {
                         {notebook.description}
                       </p>
                       
-                      <Button 
-                        variant="outline" 
-                        className={`w-full ${notebook.textColor} border-current hover:bg-current hover:text-white transition-colors`}
-                      >
-                        إضافة للسلة
-                      </Button>
+                      {notebook.link ? (
+                        <Link to={notebook.link}>
+                          <Button 
+                            variant="outline" 
+                            className={`w-full ${notebook.textColor} border-current hover:bg-current hover:text-white transition-colors`}
+                          >
+                            عرض المنتجات
+                          </Button>
+                        </Link>
+                      ) : (
+                        <Button 
+                          variant="outline" 
+                          disabled
+                          className="w-full"
+                        >
+                          غير متوفر حاليا
+                        </Button>
+                      )}
                     </div>
                   </CardContent>
                 </Card>
