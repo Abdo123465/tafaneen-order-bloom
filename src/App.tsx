@@ -1,4 +1,3 @@
-// src/App.tsx
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -136,6 +135,9 @@ import EnglishDisney28Page from "@/pages/EnglishDisney28Page";
 import English9LinesPage from "@/pages/English9LinesPage";
 import EnglishNormal9Page from "@/pages/EnglishNormal9Page";
 import EnglishDisney9Page from "@/pages/EnglishDisney9Page";
+import English40LinesPage from "@/pages/English40LinesPage";
+import English40LinesNormalPage from "@/pages/English40LinesNormalPage";
+import English40LinesDisneyPage from "@/pages/English40LinesDisneyPage";
 
 // Large squares notebooks
 import LargeSquares28Page from "@/pages/LargeSquares28Page";
@@ -285,8 +287,11 @@ const App = () => (
               
               {/* 9-Lines Notebooks */}
               <Route path="/notebooks/krassat/28-pages/9-lines" element={<English9LinesPage />} />
+              <Route path="/notebooks/krassat/40-pages/9-lines" element={<English40LinesPage />} />
               <Route path="/notebooks/krassat/28-pages/english/9-lines/normal" element={<EnglishNormal9Page />} />
               <Route path="/notebooks/krassat/28-pages/english/9-lines/disney" element={<EnglishDisney9Page />} />
+              <Route path="/notebooks/krassat/40-pages/english/9-lines/normal" element={<English40LinesNormalPage />} />
+              <Route path="/notebooks/krassat/40-pages/english/9-lines/disney" element={<English40LinesDisneyPage />} />
               
               {/* Large Squares Notebooks */}
               <Route path="/notebooks/krassat/28-pages/large-squares" element={<LargeSquares28Page />} />
