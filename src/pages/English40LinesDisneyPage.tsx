@@ -12,8 +12,8 @@ const englishDisneyItems = [
   {
     id: "en-dis-9-40-1",
     name: "كراسه 40 ق 9 اسطر ديزني",
-    price: 15,
-    image: "/assets/english-disney-9.jpg",
+    price: 13,
+    image: "/assets/english-9.jpg",
     description: "كراسة ديزني 9 أسطر 40 ورقة، غلاف أميرات ديزني ملون، أو سيارات أو ميكي ماوس، ورق 60 جرام.",
     brand: "Disney",
     pages: 40,
