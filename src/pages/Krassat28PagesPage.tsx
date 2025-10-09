@@ -4,7 +4,7 @@ import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "react-router-dom";
-import { FileText, Grid3X3, Languages, Music, AlignLeft } from "lucide-react";
+import { Grid3X3, Languages, AlignLeft } from "lucide-react";
 
 const Krassat28PagesPage = () => {
   useEffect(() => {
@@ -50,14 +50,6 @@ const Krassat28PagesPage = () => {
       link: "/notebooks/krassat/28-pages/large-squares"
     },
     {
-      id: 4,
-      name: "كراسة مربعات صغيرة",
-      description: "كراسة بمربعات صغيرة للكتابة الدقيقة",
-      icon: Grid3X3,
-      color: "bg-gradient-to-br from-pink-500 to-pink-600",
-      textColor: "text-pink-600"
-    },
-    {
       id: 5,
       name: "كراسة انجليزي",
       description: "كراسة مخططة للكتابة الإنجليزية",
@@ -65,46 +57,6 @@ const Krassat28PagesPage = () => {
       color: "bg-gradient-to-br from-orange-500 to-orange-600",
       textColor: "text-orange-600",
       link: "/notebooks/krassat/28-pages/english"
-    },
-    {
-      id: 6,
-      name: "كراسة صفحة و صفحة",
-      description: "كراسة بتصميم صفحة وصفحة",
-      icon: FileText,
-      color: "bg-gradient-to-br from-teal-500 to-teal-600",
-      textColor: "text-teal-600"
-    },
-    {
-      id: 7,
-      name: "كراسة صماء",
-      description: "كراسة بيضاء بدون خطوط",
-      icon: FileText,
-      color: "bg-gradient-to-br from-gray-500 to-gray-600",
-      textColor: "text-gray-600"
-    },
-    {
-      id: 8,
-      name: "كراسة 4 اسطر",
-      description: "كراسة بـ 4 أسطر في الصفحة",
-      icon: AlignLeft,
-      color: "bg-gradient-to-br from-indigo-500 to-indigo-600",
-      textColor: "text-indigo-600"
-    },
-    {
-      id: 9,
-      name: "كراسة فرنساوي",
-      description: "كراسة مخططة للكتابة الفرنسية",
-      icon: Languages,
-      color: "bg-gradient-to-br from-red-500 to-red-600",
-      textColor: "text-red-600"
-    },
-    {
-      id: 10,
-      name: "كراسة موسيقي",
-      description: "كراسة للنوتات الموسيقية",
-      icon: Music,
-      color: "bg-gradient-to-br from-yellow-500 to-yellow-600",
-      textColor: "text-yellow-600"
     }
   ];
 
