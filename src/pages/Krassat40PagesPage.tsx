@@ -35,7 +35,8 @@ const Krassat40PagesPage = () => {
       description: "كراسة بـ 9 أسطر في الصفحة",
       icon: AlignLeft,
       color: "bg-gradient-to-br from-green-500 to-green-600",
-      textColor: "text-green-600"
+      textColor: "text-green-600",
+      link: "/notebooks/krassat/40-pages/9-lines"
     },
     {
       id: 3,
