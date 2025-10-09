@@ -12,13 +12,13 @@ const largeSquaresNormalItems = [
   {
     id: "ls-nor-40-1",
     name: "كراسه 40 ورقه مربعات كبيرة عادي",
-    price: 12,
+    price: 10,
     image: "/assets/large-squares-normal-40.jpg",
-    description: "كراسة مربعات كبيرة، غلاف لامع بسيط، ورق 60 جرام.",
+    description: "كراسة مربعات كبيرة، غلاف لامع بسيط، ورق 40 جرام.",
     brand: "محلي",
     pages: 40,
     size: "17×24 سم",
-    paperWeight: "60 جرام",
+    paperWeight: "40 جرام",
   },
 ];
 
