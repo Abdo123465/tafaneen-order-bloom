@@ -144,6 +144,9 @@ import LargeSquares28Page from "@/pages/LargeSquares28Page";
 import LargeSquaresNormalPage from "@/pages/LargeSquaresNormalPage";
 import LargeSquaresDisneyPage from "@/pages/LargeSquaresDisneyPage";
 import Arabic40CategoryPage from "./pages/Arabic40CategoryPage";
+import LargeSquares40CategoryPage from "./pages/LargeSquares40CategoryPage";
+import LargeSquares40NormalPage from "./pages/LargeSquares40NormalPage";
+import LargeSquares40DisneyPage from "./pages/LargeSquares40DisneyPage";
 
 const queryClient = new QueryClient();
 
@@ -297,6 +300,10 @@ const App = () => (
               <Route path="/notebooks/krassat/28-pages/large-squares" element={<LargeSquares28Page />} />
               <Route path="/notebooks/krassat/28-pages/large-squares/normal" element={<LargeSquaresNormalPage />} />
               <Route path="/notebooks/krassat/28-pages/large-squares/disney" element={<LargeSquaresDisneyPage />} />
+              {/* Large Squares 40 Pages Notebooks */}
+              <Route path="/notebooks/krassat/40-pages/large-squares" element={<LargeSquares40CategoryPage />} />
+              <Route path="/notebooks/krassat/40-pages/large-squares/normal" element={<LargeSquares40NormalPage />} />
+              <Route path="/notebooks/krassat/40-pages/large-squares/disney" element={<LargeSquares40DisneyPage />} />
               
               {/* Office Supplies */}
               <Route path="/office-supplies" element={<OfficeSuppliesPage />} />
