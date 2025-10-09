@@ -20,14 +20,14 @@ const Krassat40PagesPage = () => {
   }, []);
 
   const notebookTypes = [
-   {
-    id: 1,
-    name: "كراسة عربي",
-    description: "كراسة مخططة للكتابة العربية",
-    icon: Languages,
-    color: "bg-gradient-to-br from-blue-500 to-blue-600",
-    textColor: "text-blue-600",
-    link: "/notebooks/krassat/40-pages/arabic" // أضف هذا السطر
+    {
+      id: 1,
+      name: "كراسة عربي",
+      description: "كراسة مخططة للكتابة العربية",
+      icon: Languages,
+      color: "bg-gradient-to-br from-blue-500 to-blue-600",
+      textColor: "text-blue-600",
+      link: "/notebooks/krassat/40-pages/arabic"
     },
     {
       id: 2,
