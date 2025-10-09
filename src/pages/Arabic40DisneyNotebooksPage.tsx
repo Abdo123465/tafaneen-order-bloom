@@ -12,7 +12,7 @@ const arabic40DisneyItems = [
   {
     id: "ar-dis-40-1",
     name: "كراسة 40 ق عربي ديزني",
-    price: 15,
+    price: 13,
     image: "/assets/ar-dis-40-princess.jpg",
     description: "كراسة عربي، غلاف أميرات ديزني ملون، أو سيارات أو ميكي ماوس، ورق 60 جرام.",
     brand: "Disney",
