@@ -1,3 +1,4 @@
+
 import { useEffect } from "react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -44,7 +45,8 @@ const Krassat40PagesPage = () => {
       description: "كراسة بمربعات كبيرة للرسم والحساب",
       icon: Grid3X3,
       color: "bg-gradient-to-br from-purple-500 to-purple-600",
-      textColor: "text-purple-600"
+      textColor: "text-purple-600",
+      link: "/notebooks/krassat/40-pages/large-squares"
     },
     {
       id: 4,
