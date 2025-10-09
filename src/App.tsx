@@ -141,6 +141,7 @@ import EnglishDisney9Page from "@/pages/EnglishDisney9Page";
 import LargeSquares28Page from "@/pages/LargeSquares28Page";
 import LargeSquaresNormalPage from "@/pages/LargeSquaresNormalPage";
 import LargeSquaresDisneyPage from "@/pages/LargeSquaresDisneyPage";
+import Arabic40CategoryPage from "./pages/Arabic40CategoryPage";
 
 const queryClient = new QueryClient();
 
@@ -274,6 +275,7 @@ const App = () => (
               {/* Arabic 40 Pages Notebooks */}
               <Route path="/notebooks/krassat/40-pages/arabic-normal" element={<Arabic40NormalNotebooksPage />} />
               <Route path="/notebooks/krassat/40-pages/arabic-disney" element={<Arabic40DisneyNotebooksPage />} />
+              <Route path="/notebooks/krassat/40-pages/arabic" element={<Arabic40CategoryPage />} />
               
               {/* English Notebooks */}
               <Route path="/notebooks/krassat/28-pages/english" element={<English28CategoryPage />} />
