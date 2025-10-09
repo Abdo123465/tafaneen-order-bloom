@@ -11,8 +11,8 @@ import { Link } from "react-router-dom";
 const arabic40NormalItems = [
   {
     id: "ar-nor-40-1",
-    name: "كراسه 40 ورقه عربي عادي",
-    price: 12,
+    name: "كراسه 40 ورقه مالك",
+    price: 10,
     image: "/assets/ar-nor-40-blue.jpg",
     description: "كراسة عربي، غلاف لامع بسيط، ورق 48 جرام.",
     brand: "محلي",
