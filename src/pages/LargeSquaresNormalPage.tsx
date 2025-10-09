@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 const largeSquaresNormalItems = [
   {
     id: "lg-sq-nor-28-1",
-    name: "كراسة مربعات كبيرة 28 ورقة - عادي أزرق",
+    name: "كراسة مربعات كبيرة 28 ورقة",
     price: 8,
     image: "/assets/large-squares-normal-blue.jpg",
     description: "كراسة مربعات كبيرة، غلاف لامع بسيط، ورق 48 جرام.",
@@ -19,50 +19,7 @@ const largeSquaresNormalItems = [
     size: "15×21 سم",
     paperWeight: "48 جرام",
   },
-  {
-    id: "lg-sq-nor-28-2",
-    name: "كراسة مربعات كبيرة 28 ورقة - عادي أحمر",
-    price: 8,
-    image: "/assets/large-squares-normal-red.jpg",
-    description: "كراسة مربعات كبيرة، غلاف لامع بسيط، ورق 48 جرام.",
-    brand: "محلي",
-    pages: 28,
-    size: "15×21 سم",
-    paperWeight: "48 جرام",
-  },
-  {
-    id: "lg-sq-nor-28-3",
-    name: "كراسة مربعات كبيرة 28 ورقة - عادي أخضر",
-    price: 8,
-    image: "/assets/large-squares-normal-green.jpg",
-    description: "كراسة مربعات كبيرة، غلاف لامع بسيط، ورق 48 جرام.",
-    brand: "محلي",
-    pages: 28,
-    size: "15×21 سم",
-    paperWeight: "48 جرام",
-  },
-  {
-    id: "lg-sq-nor-28-4",
-    name: "كراسة مربعات كبيرة 28 ورقة - عادي أصفر",
-    price: 8,
-    image: "/assets/large-squares-normal-yellow.jpg",
-    description: "كراسة مربعات كبيرة، غلاف لامع بسيط، ورق 48 جرام.",
-    brand: "محلي",
-    pages: 28,
-    size: "15×21 سم",
-    paperWeight: "48 جرام",
-  },
-  {
-    id: "lg-sq-nor-28-5",
-    name: "كراسة مربعات كبيرة 28 ورقة - عادي برتقالي",
-    price: 8,
-    image: "/assets/large-squares-normal-orange.jpg",
-    description: "كراسة مربعات كبيرة، غلاف لامع بسيط، ورق 48 جرام.",
-    brand: "محلي",
-    pages: 28,
-    size: "15×21 سم",
-    paperWeight: "48 جرام",
-  },
+
 ];
 
 const LargeSquaresNormalPage = () => {
