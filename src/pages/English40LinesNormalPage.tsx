@@ -12,13 +12,13 @@ const englishNormalItems = [
   {
     id: "en-nor-9-40-1",
     name: "كراسه 40 ورقه علاء الدين",
-    price: 12,
+    price: 10,
     image: "/assets/english-normal-9-blue.jpg",
     description: "كراسة عادي 9 أسطر 40 ورقة غلاف",
     brand: "علاء الدين",
     pages: 40,
-    size: "17×24 سم",
-    paperWeight: "60 جرام",
+    size: "21×15 سم",
+    paperWeight: "50 جرام",
   },
 ];
 
