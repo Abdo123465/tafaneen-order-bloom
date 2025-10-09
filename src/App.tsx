@@ -123,6 +123,8 @@ import ZipperFolderPage from "./pages/ZipperFolderPage";
 import Arabic28CategoryPage from "@/pages/Arabic28CategoryPage";
 import ArabicDisneyNotebooksPage from "@/pages/ArabicDisneyNotebooksPage";
 import ArabicNormalNotebooksPage from "@/pages/ArabicNormalNotebooksPage";
+import Arabic40NormalNotebooksPage from "./pages/Arabic40NormalNotebooksPage";
+import Arabic40DisneyNotebooksPage from "./pages/Arabic40DisneyNotebooksPage";
 
 // English notebooks
 import English28CategoryPage from "@/pages/English28CategoryPage";
@@ -269,6 +271,9 @@ const App = () => (
               <Route path="/notebooks/krassat/28-pages/arabic" element={<Arabic28CategoryPage />} />
               <Route path="/notebooks/krassat/28-pages/arabic-disney" element={<ArabicDisneyNotebooksPage />} />
               <Route path="/notebooks/krassat/28-pages/arabic-normal" element={<ArabicNormalNotebooksPage />} />
+              {/* Arabic 40 Pages Notebooks */}
+              <Route path="/notebooks/krassat/40-pages/arabic-normal" element={<Arabic40NormalNotebooksPage />} />
+              <Route path="/notebooks/krassat/40-pages/arabic-disney" element={<Arabic40DisneyNotebooksPage />} />
               
               {/* English Notebooks */}
               <Route path="/notebooks/krassat/28-pages/english" element={<English28CategoryPage />} />
