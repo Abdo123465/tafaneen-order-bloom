@@ -12,7 +12,7 @@ const largeSquaresDisneyItems = [
   {
     id: "ls-dis-40-1",
     name: "كراسة 40 ق مربعات كبيرة ديزني",
-    price: 15,
+    price: 13,
     image: "/assets/large-squares-disney-40.jpg",
     description: "كراسة مربعات كبيرة، غلاف أميرات ديزني ملون، أو سيارات أو ميكي ماوس، ورق 60 جرام.",
     brand: "Disney",
