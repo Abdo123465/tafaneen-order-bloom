@@ -147,6 +147,8 @@ import Arabic40CategoryPage from "./pages/Arabic40CategoryPage";
 import LargeSquares40CategoryPage from "./pages/LargeSquares40CategoryPage";
 import LargeSquares40NormalPage from "./pages/LargeSquares40NormalPage";
 import LargeSquares40DisneyPage from "./pages/LargeSquares40DisneyPage";
+import English40NormalPage from "./pages/English40NormalPage";
+import English40DisneyPage from "./pages/English40DisneyPage";
 
 const queryClient = new QueryClient();
 
@@ -333,6 +335,9 @@ const App = () => (
               <Route path="/erasers-sharpeners" element={<ErasersSharpenersPage />} />
               <Route path="/erasers-sharpeners/erasers" element={<ErasersPage />} />
               <Route path="/erasers-sharpeners/sharpeners" element={<SharpenersPage />} />
+              {/* English 40 Pages Notebooks */}
+              <Route path="/notebooks/krassat/40-pages/english/normal" element={<English40NormalPage />} />
+              <Route path="/notebooks/krassat/40-pages/english/disney" element={<English40DisneyPage />} />
               
               {/* 404 Page */}
               <Route path="*" element={<NotFound />} />
