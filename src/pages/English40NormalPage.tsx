@@ -12,13 +12,13 @@ const english40NormalItems = [
   {
     id: "en-nor-40-1",
     name: "كراسه 40 ورقه إنجليزي عادي",
-    price: 12,
+    price: 10,
     image: "/assets/english-normal-40.jpg",
-    description: "كراسة إنجليزي، غلاف لامع بسيط، ورق 60 جرام.",
+    description: "كراسة إنجليزي، غلاف لامع بسيط، ورق 50 جرام.",
     brand: "محلي",
     pages: 40,
-    size: "17×24 سم",
-    paperWeight: "60 جرام",
+    size: "21×15 سم",
+    paperWeight: "50 جرام",
   },
 ];
 
