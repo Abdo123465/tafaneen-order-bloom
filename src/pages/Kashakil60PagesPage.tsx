@@ -113,12 +113,22 @@ const Kashakil60PagesPage = () => {
                         {notebook.description}
                       </p>
                       
-                      <Button 
-                        variant="outline" 
-                        className={`w-full ${notebook.textColor} border-current hover:bg-current hover:text-white transition-colors`}
-                      >
-                        إضافة للسلة
-                      </Button>
+                      {notebook.id === 1 ? (
+                        <Button 
+                          asChild
+                          variant="outline" 
+                          className={`w-full ${notebook.textColor} border-current hover:bg-current hover:text-white transition-colors`}
+                        >
+                          <Link to="/notebooks/kashakil/60-pages/arabic">تصفح المنتجات</Link>
+                        </Button>
+                      ) : (
+                        <Button 
+                          variant="outline" 
+                          className={`w-full ${notebook.textColor} border-current hover:bg-current hover:text-white transition-colors`}
+                        >
+                          إضافة للسلة
+                        </Button>
+                      )}
                     </div>
                   </CardContent>
                 </Card>
