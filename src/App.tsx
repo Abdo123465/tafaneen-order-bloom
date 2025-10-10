@@ -350,6 +350,10 @@ const App = () => (
               <Route path="/notebooks/kashakil/60-pages/arabic" element={<Kashakil60ArabicCategoryPage />} />
               <Route path="/notebooks/kashakil/60-pages/arabic/normal" element={<Kashakil60ArabicNormalPage />} />
               <Route path="/notebooks/kashakil/60-pages/arabic/disney" element={<Kashakil60ArabicDisneyPage />} />
+              {/* Kashakil 60 Pages - English */}
+              <Route path="/notebooks/kashakil/60-pages/english" element={<Kashakil60EnglishCategoryPage />} />
+              <Route path="/notebooks/kashakil/60-pages/english/normal" element={<Kashakil60EnglishNormalPage />} />
+              <Route path="/notebooks/kashakil/60-pages/english/disney" element={<Kashakil60EnglishDisneyPage />} />
               
               {/* 404 Page */}
               <Route path="*" element={<NotFound />} />
