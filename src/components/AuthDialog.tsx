@@ -7,6 +7,7 @@ import { useToast } from "@/hooks/use-toast";
 import { useAuth } from "@/contexts/AuthContext";
 import { User, Phone } from "lucide-react";
 import { validateEgyptianPhone } from "@/utils/phoneValidation";
+import { sanitizeText } from "@/utils/security";
 
 interface AuthDialogProps {
   open: boolean;
@@ -42,6 +43,17 @@ export function AuthDialog({ open, onOpenChange }: AuthDialogProps) {
       return;
     }
 
+    // تعقيم الاسم من الأحرف الخطيرة
+    const sanitizedName = sanitizeText(name);
+    if (!sanitizedName || sanitizedName.length < 2) {
+      toast({
+        title: "خطأ",
+        description: "يرجى إدخال اسم صحيح (حرفين على الأقل)",
+        variant: "destructive",
+      });
+      return;
+    }
+
     // التحقق من صحة رقم الهاتف المصري
     const phoneValidation = validateEgyptianPhone(phone);
     if (!phoneValidation.isValid) {
@@ -56,7 +68,7 @@ export function AuthDialog({ open, onOpenChange }: AuthDialogProps) {
     setIsLoading(true);
 
     try {
-      const result = await login(name, phone);
+      const result = await login(sanitizedName, phone);
 
       if (result.success) {
         toast({

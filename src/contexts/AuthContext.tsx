@@ -1,6 +1,7 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { normalizeEgyptianPhone, validateEgyptianPhone } from "@/utils/phoneValidation";
+import { sanitizeText } from "@/utils/security";
 
 interface User {
   id: string;
@@ -25,13 +26,38 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     const storedUser = localStorage.getItem("tafaneen_user");
     if (storedUser) {
-      setUser(JSON.parse(storedUser));
+      try {
+        const parsedUser = JSON.parse(storedUser);
+        // التحقق من صحة البيانات المخزنة
+        if (parsedUser && 
+            typeof parsedUser.id === 'string' && 
+            typeof parsedUser.name === 'string' && 
+            typeof parsedUser.phone === 'string' &&
+            typeof parsedUser.is_verified === 'boolean') {
+          setUser(parsedUser);
+        } else {
+          // حذف البيانات غير الصحيحة
+          localStorage.removeItem("tafaneen_user");
+        }
+      } catch (error) {
+        console.error("Error parsing stored user data:", error);
+        localStorage.removeItem("tafaneen_user");
+      }
     }
     setIsLoading(false);
   }, []);
 
   const login = async (name: string, phone: string) => {
     try {
+      // تعقيم الاسم من الأحرف الخطيرة
+      const sanitizedName = sanitizeText(name);
+      if (!sanitizedName || sanitizedName.length < 2) {
+        return {
+          success: false,
+          error: "الاسم غير صحيح"
+        };
+      }
+
       // التحقق من صحة رقم الهاتف المصري
       const phoneValidation = validateEgyptianPhone(phone);
       if (!phoneValidation.isValid) {
@@ -57,7 +83,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         const { data } = await supabase
           .from("users")
           .update({ 
-            name,
+            name: sanitizedName,
             is_verified: true 
           })
           .eq("phone", normalizedPhone)
@@ -69,7 +95,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         const { data } = await supabase
           .from("users")
           .insert({
-            name,
+            name: sanitizedName,
             phone: normalizedPhone,
             is_verified: true
           })
@@ -81,7 +107,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       // حتى إذا فشل جلب بيانات المستخدم من Supabase، قم بإنشاء كائن مستخدم محلياً
       const verifiedUser: User = {
         id: userData?.id ?? Date.now().toString(),
-        name: userData?.name ?? name,
+        name: userData?.name ?? sanitizedName,
         phone: userData?.phone ?? normalizedPhone,
         is_verified: true,
       };
