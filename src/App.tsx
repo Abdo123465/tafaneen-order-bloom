@@ -153,6 +153,10 @@ import English40DisneyPage from "./pages/English40DisneyPage";
 import Kashakil60ArabicCategoryPage from "./pages/Kashakil60ArabicCategoryPage";
 import Kashakil60ArabicNormalPage from "./pages/Kashakil60ArabicNormalPage";
 import Kashakil60ArabicDisneyPage from "./pages/Kashakil60ArabicDisneyPage";
+// Kashakil 60 Pages - English
+import Kashakil60EnglishCategoryPage from "./pages/Kashakil60EnglishCategoryPage";
+import Kashakil60EnglishNormalPage from "./pages/Kashakil60EnglishNormalPage";
+import Kashakil60EnglishDisneyPage from "./pages/Kashakil60EnglishDisneyPage";
 
 const queryClient = new QueryClient();
 
