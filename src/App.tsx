@@ -149,6 +149,10 @@ import LargeSquares40NormalPage from "./pages/LargeSquares40NormalPage";
 import LargeSquares40DisneyPage from "./pages/LargeSquares40DisneyPage";
 import English40NormalPage from "./pages/English40NormalPage";
 import English40DisneyPage from "./pages/English40DisneyPage";
+// Kashakil 60 Pages - Arabic
+import Kashakil60ArabicCategoryPage from "./pages/Kashakil60ArabicCategoryPage";
+import Kashakil60ArabicNormalPage from "./pages/Kashakil60ArabicNormalPage";
+import Kashakil60ArabicDisneyPage from "./pages/Kashakil60ArabicDisneyPage";
 
 const queryClient = new QueryClient();
 
@@ -338,6 +342,10 @@ const App = () => (
               {/* English 40 Pages Notebooks */}
               <Route path="/notebooks/krassat/40-pages/english/normal" element={<English40NormalPage />} />
               <Route path="/notebooks/krassat/40-pages/english/disney" element={<English40DisneyPage />} />
+              {/* Kashakil 60 Pages - Arabic */}
+              <Route path="/notebooks/kashakil/60-pages/arabic" element={<Kashakil60ArabicCategoryPage />} />
+              <Route path="/notebooks/kashakil/60-pages/arabic/normal" element={<Kashakil60ArabicNormalPage />} />
+              <Route path="/notebooks/kashakil/60-pages/arabic/disney" element={<Kashakil60ArabicDisneyPage />} />
               
               {/* 404 Page */}
               <Route path="*" element={<NotFound />} />
