@@ -5,7 +5,7 @@ import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "react-router-dom";
-import { Grid3X3, Languages, Music, AlignLeft } from "lucide-react";
+import { Grid3X3, Languages, AlignLeft } from "lucide-react";
 
 const Krassat40PagesPage = () => {
   useEffect(() => {
@@ -56,14 +56,6 @@ const Krassat40PagesPage = () => {
       color: "bg-gradient-to-br from-orange-500 to-orange-600",
       textColor: "text-orange-600",
       link: "/notebooks/krassat/40-pages/english"
-    },
-    {
-      id: 10,
-      name: "كراسة موسيقي",
-      description: "كراسة للنوتات الموسيقية",
-      icon: Music,
-      color: "bg-gradient-to-br from-yellow-500 to-yellow-600",
-      textColor: "text-yellow-600"
     }
   ];
 
@@ -110,24 +102,14 @@ const Krassat40PagesPage = () => {
                         {notebook.description}
                       </p>
                       
-                      {notebook.link ? (
-                        <Link to={notebook.link}>
-                          <Button 
-                            variant="outline" 
-                            className={`w-full ${notebook.textColor} border-current hover:bg-current hover:text-white transition-colors`}
-                          >
-                            عرض المنتجات
-                          </Button>
-                        </Link>
-                      ) : (
+                      <Link to={notebook.link}>
                         <Button 
                           variant="outline" 
-                          disabled
-                          className="w-full"
+                          className={`w-full ${notebook.textColor} border-current hover:bg-current hover:text-white transition-colors`}
                         >
-                          غير متوفر حاليا
+                          عرض المنتجات
                         </Button>
-                      )}
+                      </Link>
                     </div>
                   </CardContent>
                 </Card>
