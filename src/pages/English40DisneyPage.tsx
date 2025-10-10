@@ -12,7 +12,7 @@ const english40DisneyItems = [
   {
     id: "en-dis-40-1",
     name: "كراسة 40 ق إنجليزي ديزني",
-    price: 15,
+    price: 12,
     image: "/assets/english-disney-40.jpg",
     description: "كراسة إنجليزي، غلاف أميرات ديزني ملون، أو سيارات أو ميكي ماوس، ورق 60 جرام.",
     brand: "Disney",
