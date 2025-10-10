@@ -12,13 +12,13 @@ const kashakil60ArabicNormalItems = [
   {
     id: "kash60-ar-nor-1",
     name: "كشكول 60 ورقة عربي عادي",
-    price: 15,
+    price: 12,
     image: "/assets/kash60-ar-nor-blue.jpg",
     description: "كشكول عربي 60 ورقة، غلاف لامع بسيط، ورق 60 جرام.",
     brand: "محلي",
     pages: 60,
-    size: "21×29.7 سم",
-    paperWeight: "60 جرام",
+    size: "20.5×15 سم",
+    paperWeight: "48 جرام",
   },
 ];
 
