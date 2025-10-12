@@ -12,13 +12,13 @@ const kashakil60SmallSquaresNormalItems = [
   {
     id: "kash60-ssq-nor-1",
     name: "كشكول 60 ورقة مربعات صغيرة عادي",
-    price: 15,
+    price: 12,
     image: "/assets/kash60-ssq-nor-blue.jpg",
-    description: "كشكول مربعات صغيرة 60 ورقة، غلاف لامع بسيط، ورق 60 جرام.",
+    description: "كشكول مربعات صغيرة 60 ورقة، غلاف لامع بسيط، ورق 48 جرام.",
     brand: "محلي",
     pages: 60,
-    size: "21×29.7 سم",
-    paperWeight: "60 جرام",
+    size: "15×21 سم",
+    paperWeight: "48 جرام",
   },
 ];
 
