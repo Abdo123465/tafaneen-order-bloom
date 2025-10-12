@@ -155,10 +155,11 @@ const Kashakil60PagesPage = () => {
                         </Button>
                       ) : (
                         <Button 
+                          asChild
                           variant="outline" 
                           className={`w-full ${notebook.textColor} border-current hover:bg-current hover:text-white transition-colors`}
                         >
-                          إضافة للسلة
+                          <Link to="/notebooks/kashakil/60-pages/page-by-page">تصفح المنتجات</Link>
                         </Button>
                       )}
                     </div>
