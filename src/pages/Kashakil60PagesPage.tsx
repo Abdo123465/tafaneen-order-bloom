@@ -137,6 +137,14 @@ const Kashakil60PagesPage = () => {
                         >
                           <Link to="/notebooks/kashakil/60-pages/large-squares">تصفح المنتجات</Link>
                         </Button>
+                      ) : notebook.id === 4 ? (
+                        <Button 
+                          asChild
+                          variant="outline" 
+                          className={`w-full ${notebook.textColor} border-current hover:bg-current hover:text-white transition-colors`}
+                        >
+                          <Link to="/notebooks/kashakil/60-pages/small-squares">تصفح المنتجات</Link>
+                        </Button>
                       ) : notebook.id === 5 ? (
                         <Button 
                           asChild
