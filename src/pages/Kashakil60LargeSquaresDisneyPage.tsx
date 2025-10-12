@@ -17,7 +17,7 @@ const kashakil60LargeSquaresDisneyItems = [
     description: "كشكول مربعات كبيرة 60 ورقة، غلاف أميرات ديزني ملون، أو سيارات أو ميكي ماوس، ورق 60 جرام.",
     brand: "Disney",
     pages: 60,
-    size: "21×29.7 سم",
+    size: "22.5×16 سم",
     paperWeight: "60 جرام",
   },
 ];
