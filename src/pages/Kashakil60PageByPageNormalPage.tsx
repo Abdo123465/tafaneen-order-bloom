@@ -12,12 +12,12 @@ const kashakil60PageByPageNormalItems = [
   {
     id: "kash60-pbp-nor-1",
     name: "كشكول 60 ورقة صفحة وصفحة عادي",
-    price: 15,
+    price: 12,
     image: "/assets/kash60-pbp-nor-blue.jpg",
-    description: "كشكول صفحة وصفحة 60 ورقة، غلاف لامع بسيط، ورق 60 جرام.",
+    description: "كشكول صفحة وصفحة 60 ورقة، غلاف لامع بسيط، ورق 48 جرام.",
     brand: "محلي",
     pages: 60,
-    size: "21×29.7 سم",
+    size: "15×21 سم",
     paperWeight: "60 جرام",
   },
 ];
