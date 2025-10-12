@@ -157,6 +157,10 @@ import Kashakil60ArabicDisneyPage from "./pages/Kashakil60ArabicDisneyPage";
 import Kashakil60EnglishCategoryPage from "./pages/Kashakil60EnglishCategoryPage";
 import Kashakil60EnglishNormalPage from "./pages/Kashakil60EnglishNormalPage";
 import Kashakil60EnglishDisneyPage from "./pages/Kashakil60EnglishDisneyPage";
+// Kashakil 60 Pages - 9 Lines
+import Kashakil60NineLinesCategoryPage from "./pages/Kashakil60NineLinesCategoryPage";
+import Kashakil60NineLinesNormalPage from "./pages/Kashakil60NineLinesNormalPage";
+import Kashakil60NineLinesDisneyPage from "./pages/Kashakil60NineLinesDisneyPage";
 
 const queryClient = new QueryClient();
 
@@ -354,6 +358,10 @@ const App = () => (
               <Route path="/notebooks/kashakil/60-pages/english" element={<Kashakil60EnglishCategoryPage />} />
               <Route path="/notebooks/kashakil/60-pages/english/normal" element={<Kashakil60EnglishNormalPage />} />
               <Route path="/notebooks/kashakil/60-pages/english/disney" element={<Kashakil60EnglishDisneyPage />} />
+              {/* Kashakil 60 Pages - 9 Lines */}
+              <Route path="/notebooks/kashakil/60-pages/9-lines" element={<Kashakil60NineLinesCategoryPage />} />
+              <Route path="/notebooks/kashakil/60-pages/9-lines/normal" element={<Kashakil60NineLinesNormalPage />} />
+              <Route path="/notebooks/kashakil/60-pages/9-lines/disney" element={<Kashakil60NineLinesDisneyPage />} />
               
               {/* 404 Page */}
               <Route path="*" element={<NotFound />} />
