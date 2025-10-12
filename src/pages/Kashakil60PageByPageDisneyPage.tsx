@@ -12,12 +12,12 @@ const kashakil60PageByPageDisneyItems = [
   {
     id: "kash60-pbp-dis-1",
     name: "كشكول 60 ورقة صفحة وصفحة ديزني",
-    price: 20,
+    price: 18,
     image: "/assets/kash60-pbp-dis-princess.jpg",
     description: "كشكول صفحة وصفحة 60 ورقة، غلاف أميرات ديزني ملون، أو سيارات أو ميكي ماوس، ورق 60 جرام.",
     brand: "Disney",
     pages: 60,
-    size: "21×29.7 سم",
+    size: "22.5×16 سم",
     paperWeight: "60 جرام",
   },
 ];
