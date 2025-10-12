@@ -11,14 +11,14 @@ import { Link } from "react-router-dom";
 const kashakil60NineLinesNormalItems = [
   {
     id: "kash60-9l-nor-1",
-    name: "كشكول 60 ورقة 9 أسطر عادي",
+    name: "كشكول 56 ورقة 9 أسطر عادي",
     price: 16,
     image: "/assets/kash60-9l-nor-blue.jpg",
-    description: "كشكول 9 أسطر 60 ورقة، غلاف لامع بسيط، ورق 60 جرام.",
+    description: "كشكول 9 أسطر 60 ورقة، غلاف لامع بسيط، ورق 48 جرام.",
     brand: "محلي",
     pages: 60,
     size: "21×15 سم",
-    paperWeight: "60 جرام",
+    paperWeight: "48 جرام",
   },
 ];
 
