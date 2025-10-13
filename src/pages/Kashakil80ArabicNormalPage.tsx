@@ -11,13 +11,13 @@ import { Link } from "react-router-dom";
 const kashakil80ArabicNormalItems = [
   {
     id: "kash80-arab-nor-1",
-    name: "كشكول 80 ورقة عربي عادي",
-    price: 15,
+    name: "كشكول 80ق مالك ديزني عربي",
+    price: 20,
     image: "/assets/kash80-arab-nor-blue.jpg",
-    description: "كشكول عربي 80 ورقة، غلاف لامع بسيط، ورق 48 جرام.",
+    description: "كشكول عربي 80 ورقة، غلاف لامع بسيط، ورق 60 جرام.",
     brand: "محلي",
     pages: 80,
-    size: "21×15 سم",
+    size: "22.5×16 سم",
     paperWeight: "48 جرام",
   },
 ];
