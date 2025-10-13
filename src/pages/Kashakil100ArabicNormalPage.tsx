@@ -12,7 +12,7 @@ const kashakil100ArabicNormalItems = [
   {
     id: "kash100-arab-nor-1",
     name: "كشكول 100 ورقة عربي عادي",
-    price: 15,
+    price: 18,
     image: "/assets/kash100-arab-nor-blue.jpg",
     description: "كشكول عربي 100 ورقة، غلاف لامع بسيط، ورق 48 جرام، مناسب للكتابة العربية.",
     brand: "محلي",
@@ -20,28 +20,7 @@ const kashakil100ArabicNormalItems = [
     size: "22×16 سم",
     paperWeight: "48 جرام",
   },
-  {
-    id: "kash100-arab-nor-2",
-    name: "كشكول 100 ورقة عربي أحمر",
-    price: 15,
-    image: "/assets/kash100-arab-nor-red.jpg",
-    description: "كشكول عربي 100 ورقة، غلاف أحمر لامع، ورق 48 جرام، مناسب للكتابة العربية.",
-    brand: "محلي",
-    pages: 100,
-    size: "22×16 سم",
-    paperWeight: "48 جرام",
-  },
-  {
-    id: "kash100-arab-nor-3",
-    name: "كشكول 100 ورقة عربي أخضر",
-    price: 15,
-    image: "/assets/kash100-arab-nor-green.jpg",
-    description: "كشكول عربي 100 ورقة، غلاف أخضر لامع، ورق 48 جرام، مناسب للكتابة العربية.",
-    brand: "محلي",
-    pages: 100,
-    size: "22×16 سم",
-    paperWeight: "48 جرام",
-  },
+ 
 ];
 
 const Kashakil100ArabicNormalPage = () => {
