@@ -1,3 +1,4 @@
+// src/App.tsx
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -182,6 +183,10 @@ import Kashakil80NineLinesDisneyPage from "./pages/Kashakil80NineLinesDisneyPage
 import Kashakil80EnglishCategoryPage from "./pages/Kashakil80EnglishCategoryPage";
 import Kashakil80EnglishNormalPage from "./pages/Kashakil80EnglishNormalPage";
 import Kashakil80EnglishDisneyPage from "./pages/Kashakil80EnglishDisneyPage";
+// Kashakil 80 Pages - Small Squares
+import Kashakil80SmallSquaresCategoryPage from "./pages/Kashakil80SmallSquaresCategoryPage";
+import Kashakil80SmallSquaresNormalPage from "./pages/Kashakil80SmallSquaresNormalPage";
+import Kashakil80SmallSquaresDisneyPage from "./pages/Kashakil80SmallSquaresDisneyPage";
 
 const queryClient = new QueryClient();
 
@@ -407,6 +412,10 @@ const App = () => (
               <Route path="/notebooks/kashakil/80-pages/english" element={<Kashakil80EnglishCategoryPage />} />
               <Route path="/notebooks/kashakil/80-pages/english/normal" element={<Kashakil80EnglishNormalPage />} />
               <Route path="/notebooks/kashakil/80-pages/english/disney" element={<Kashakil80EnglishDisneyPage />} />
+              {/* Kashakil 80 Pages - Small Squares */}
+              <Route path="/notebooks/kashakil/80-pages/small-squares" element={<Kashakil80SmallSquaresCategoryPage />} />
+              <Route path="/notebooks/kashakil/80-pages/small-squares/normal" element={<Kashakil80SmallSquaresNormalPage />} />
+              <Route path="/notebooks/kashakil/80-pages/small-squares/disney" element={<Kashakil80SmallSquaresDisneyPage />} />
               {/* 404 Page */}
               <Route path="*" element={<NotFound />} />
             </Routes>
