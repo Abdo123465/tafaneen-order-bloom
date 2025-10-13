@@ -12,7 +12,7 @@ const kashakil100EnglishDisneyItems = [
   {
     id: "kash100-eng-dis-1",
     name: "كشكول 100 ورقة انجليزي ديزني أميرات",
-    price: 22,
+    price: 18,
     image: "/assets/kash100-eng-dis-princess.jpg",
     description: "كشكول انجليزي 100 ورقة، غلاف أميرات ديزني ملون، ورق 60 جرام، مناسب للكتابة الإنجليزية.",
     brand: "Disney",
