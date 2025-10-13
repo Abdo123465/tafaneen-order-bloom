@@ -5,7 +5,7 @@ import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "react-router-dom";
-import { FileText, Grid3X3, Languages, AlignLeft } from "lucide-react";
+import { Grid3X3, Languages, AlignLeft } from "lucide-react";
 
 const Kashakil80PagesPage = () => {
   useEffect(() => {
@@ -41,15 +41,6 @@ const Kashakil80PagesPage = () => {
     },
     {
       id: 3,
-      name: "كراسة مربعات كبيرة",
-      description: "كشكول بمربعات كبيرة للرسم والحساب",
-      icon: Grid3X3,
-      color: "bg-gradient-to-br from-purple-500 to-purple-600",
-      textColor: "text-purple-600",
-      link: "/notebooks/kashakil/80-pages/large-squares"
-    },
-    {
-      id: 4,
       name: "كراسة مربعات صغيرة",
       description: "كشكول بمربعات صغيرة للكتابة الدقيقة",
       icon: Grid3X3,
@@ -58,22 +49,13 @@ const Kashakil80PagesPage = () => {
       link: "/notebooks/kashakil/80-pages/small-squares"
     },
     {
-      id: 5,
+      id: 4,
       name: "كراسة انجليزي",
       description: "كشكول مخطط للكتابة الإنجليزية",
       icon: Languages,
       color: "bg-gradient-to-br from-orange-500 to-orange-600",
       textColor: "text-orange-600",
       link: "/notebooks/kashakil/80-pages/english"
-    },
-    {
-      id: 6,
-      name: "كراسة صفحة و صفحة",
-      description: "كشكول بتصميم صفحة وصفحة",
-      icon: FileText,
-      color: "bg-gradient-to-br from-teal-500 to-teal-600",
-      textColor: "text-teal-600",
-      link: "/notebooks/kashakil/80-pages/page-by-page"
     }
   ];
 
