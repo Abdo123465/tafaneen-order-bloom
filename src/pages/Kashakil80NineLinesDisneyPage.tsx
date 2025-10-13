@@ -12,7 +12,7 @@ const kashakil80NineLinesDisneyItems = [
   {
     id: "kash80-9lines-dis-1",
     name: "كشكول 80 ورقة 9 أسطر ديزني",
-    price: 25,
+    price: 21,
     image: "/assets/kash80-9lines-dis-princess.jpg",
     description: "كشكول 9 أسطر 80 ورقة، غلاف أميرات ديزني ملون، أو سيارات أو ميكي ماوس، ورق 60 جرام.",
     brand: "Disney",
