@@ -12,36 +12,15 @@ const kashakil80SmallSquaresDisneyItems = [
   {
     id: "kash80-sm-sq-dis-1",
     name: "كشكول 80 ورقة مربعات صغيرة ديزني أميرات",
-    price: 22,
+    price: 21,
     image: "/assets/kash80-sm-sq-dis-princess.jpg",
     description: "كشكول مربعات صغيرة 80 ورقة، غلاف أميرات ديزني ملون، ورق 60 جرام، مثالي للكتابة الدقيقة.",
     brand: "Disney",
     pages: 80,
-    size: "15×21 سم",
+    size: "22.5×16 سم",
     paperWeight: "60 جرام",
   },
-  {
-    id: "kash80-sm-sq-dis-2",
-    name: "كشكول 80 ورقة مربعات صغيرة ديزني ميكي",
-    price: 22,
-    image: "/assets/kash80-sm-sq-dis-mickey.jpg",
-    description: "كشكول مربعات صغيرة 80 ورقة، غلاف ميكي ماوس ملون، ورق 60 جرام، مثالي للكتابة الدقيقة.",
-    brand: "Disney",
-    pages: 80,
-    size: "15×21 سم",
-    paperWeight: "60 جرام",
-  },
-  {
-    id: "kash80-sm-sq-dis-3",
-    name: "كشكول 80 ورقة مربعات صغيرة ديزني سيارات",
-    price: 22,
-    image: "/assets/kash80-sm-sq-dis-cars.jpg",
-    description: "كشكول مربعات صغيرة 80 ورقة، غلاف سيارات ديزني ملون، ورق 60 جرام، مثالي للكتابة الدقيقة.",
-    brand: "Disney",
-    pages: 80,
-    size: "15×21 سم",
-    paperWeight: "60 جرام",
-  },
+
 ];
 
 const Kashakil80SmallSquaresDisneyPage = () => {
