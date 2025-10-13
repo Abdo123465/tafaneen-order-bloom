@@ -336,15 +336,6 @@ const App = () => (
               <Route path="/notebooks/krassat/40-pages/english/9-lines/normal" element={<English40LinesNormalPage />} />
               <Route path="/notebooks/krassat/40-pages/english/9-lines/disney" element={<English40LinesDisneyPage />} />
               
-              {/* Large Squares Notebooks */}
-              <Route path="/notebooks/krassat/28-pages/large-squares" element={<LargeSquares28Page />} />
-              <Route path="/notebooks/krassat/28-pages/large-squares/normal" element={<LargeSquaresNormalPage />} />
-              <Route path="/notebooks/krassat/28-pages/large-squares/disney" element={<LargeSquaresDisneyPage />} />
-              {/* Large Squares 40 Pages Notebooks */}
-              <Route path="/notebooks/krassat/40-pages/large-squares" element={<LargeSquares40CategoryPage />} />
-              <Route path="/notebooks/krassat/40-pages/large-squares/normal" element={<LargeSquares40NormalPage />} />
-              <Route path="/notebooks/krassat/40-pages/large-squares/disney" element={<LargeSquares40DisneyPage />} />
-              
               {/* Office Supplies */}
               <Route path="/office-supplies" element={<OfficeSuppliesPage />} />
               <Route path="/office-supplies/stapler" element={<StaplerPage />} />
@@ -388,10 +379,6 @@ const App = () => (
               <Route path="/notebooks/kashakil/60-pages/9-lines" element={<Kashakil60NineLinesCategoryPage />} />
               <Route path="/notebooks/kashakil/60-pages/9-lines/normal" element={<Kashakil60NineLinesNormalPage />} />
               <Route path="/notebooks/kashakil/60-pages/9-lines/disney" element={<Kashakil60NineLinesDisneyPage />} />
-              {/* Kashakil 60 Pages - Large Squares */}
-              <Route path="/notebooks/kashakil/60-pages/large-squares" element={<Kashakil60LargeSquaresCategoryPage />} />
-              <Route path="/notebooks/kashakil/60-pages/large-squares/normal" element={<Kashakil60LargeSquaresNormalPage />} />
-              <Route path="/notebooks/kashakil/60-pages/large-squares/disney" element={<Kashakil60LargeSquaresDisneyPage />} />
               {/* Kashakil 60 Pages - Small Squares */}
               <Route path="/notebooks/kashakil/60-pages/small-squares" element={<Kashakil60SmallSquaresCategoryPage />} />
               <Route path="/notebooks/kashakil/60-pages/small-squares/normal" element={<Kashakil60SmallSquaresNormalPage />} />
