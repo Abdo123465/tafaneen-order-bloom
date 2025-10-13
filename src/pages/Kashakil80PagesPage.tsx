@@ -1,3 +1,4 @@
+// src/pages/Kashakil80PagesPage.tsx
 import { useEffect } from "react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -119,41 +120,14 @@ const Kashakil80PagesPage = () => {
                         {notebook.description}
                       </p>
                       
-                      {notebook.id === 1 ? (
-                        <Link to="/notebooks/kashakil/80-pages/arabic">
-                          <Button 
-                            variant="outline" 
-                            className={`w-full ${notebook.textColor} border-current hover:bg-current hover:text-white transition-colors`}
-                          >
-                            تصفح المنتجات
-                          </Button>
-                        </Link>
-                      ) : notebook.id === 2 ? (
-                        <Link to="/notebooks/kashakil/80-pages/9-lines">
-                          <Button 
-                            variant="outline" 
-                            className={`w-full ${notebook.textColor} border-current hover:bg-current hover:text-white transition-colors`}
-                          >
-                            تصفح المنتجات
-                          </Button>
-                        </Link>
-                      ) : notebook.id === 5 ? (
-                        <Link to="/notebooks/kashakil/80-pages/english">
-                          <Button 
-                            variant="outline" 
-                            className={`w-full ${notebook.textColor} border-current hover:bg-current hover:text-white transition-colors`}
-                          >
-                            تصفح المنتجات
-                          </Button>
-                        </Link>
-                      ) : (
+                      <Link to={notebook.link}>
                         <Button 
                           variant="outline" 
                           className={`w-full ${notebook.textColor} border-current hover:bg-current hover:text-white transition-colors`}
                         >
-                          إضافة للسلة
+                          تصفح المنتجات
                         </Button>
-                      )}
+                      </Link>
                     </div>
                   </CardContent>
                 </Card>
