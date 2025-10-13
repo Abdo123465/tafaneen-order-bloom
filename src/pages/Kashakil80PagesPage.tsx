@@ -119,14 +119,41 @@ const Kashakil80PagesPage = () => {
                         {notebook.description}
                       </p>
                       
-                      <Link to={notebook.link}>
+                      {notebook.id === 1 ? (
+                        <Link to="/notebooks/kashakil/80-pages/arabic">
+                          <Button 
+                            variant="outline" 
+                            className={`w-full ${notebook.textColor} border-current hover:bg-current hover:text-white transition-colors`}
+                          >
+                            تصفح المنتجات
+                          </Button>
+                        </Link>
+                      ) : notebook.id === 2 ? (
+                        <Link to="/notebooks/kashakil/80-pages/9-lines">
+                          <Button 
+                            variant="outline" 
+                            className={`w-full ${notebook.textColor} border-current hover:bg-current hover:text-white transition-colors`}
+                          >
+                            تصفح المنتجات
+                          </Button>
+                        </Link>
+                      ) : notebook.id === 5 ? (
+                        <Link to="/notebooks/kashakil/80-pages/english">
+                          <Button 
+                            variant="outline" 
+                            className={`w-full ${notebook.textColor} border-current hover:bg-current hover:text-white transition-colors`}
+                          >
+                            تصفح المنتجات
+                          </Button>
+                        </Link>
+                      ) : (
                         <Button 
                           variant="outline" 
                           className={`w-full ${notebook.textColor} border-current hover:bg-current hover:text-white transition-colors`}
                         >
-                          تصفح المنتجات
+                          إضافة للسلة
                         </Button>
-                      </Link>
+                      )}
                     </div>
                   </CardContent>
                 </Card>
