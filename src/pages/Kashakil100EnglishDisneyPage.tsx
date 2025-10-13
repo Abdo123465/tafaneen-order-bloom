@@ -20,28 +20,6 @@ const kashakil100EnglishDisneyItems = [
     size: "22.5×16 سم",
     paperWeight: "60 جرام",
   },
-  {
-    id: "kash100-eng-dis-2",
-    name: "كشكول 100 ورقة انجليزي ديزني ميكي",
-    price: 22,
-    image: "/assets/kash100-eng-dis-mickey.jpg",
-    description: "كشكول انجليزي 100 ورقة، غلاف ميكي ماوس ملون، ورق 60 جرام، مناسب للكتابة الإنجليزية.",
-    brand: "Disney",
-    pages: 100,
-    size: "22.5×16 سم",
-    paperWeight: "60 جرام",
-  },
-  {
-    id: "kash100-eng-dis-3",
-    name: "كشكول 100 ورقة انجليزي ديزنيFrozen",
-    price: 22,
-    image: "/assets/kash100-eng-dis-frozen.jpg",
-    description: "كشكول انجليزي 100 ورقة، غلاف فروزن ملون، ورق 60 جرام، مناسب للكتابة الإنجليزية.",
-    brand: "Disney",
-    pages: 100,
-    size: "22.5×16 سم",
-    paperWeight: "60 جرام",
-  },
 ];
 
 const Kashakil100EnglishDisneyPage = () => {
