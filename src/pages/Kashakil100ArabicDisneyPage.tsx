@@ -12,7 +12,7 @@ const kashakil100ArabicDisneyItems = [
   {
     id: "kash100-arab-dis-1",
     name: "كشكول 100 ورقة عربي ديزني أميرات",
-    price: 22,
+    price: 26,
     image: "/assets/kash100-arab-dis-princess.jpg",
     description: "كشكول عربي 100 ورقة، غلاف أميرات ديزني ملون، ورق 60 جرام، مناسب للكتابة العربية.",
     brand: "Disney",
@@ -20,28 +20,7 @@ const kashakil100ArabicDisneyItems = [
     size: "22.5×16 سم",
     paperWeight: "60 جرام",
   },
-  {
-    id: "kash100-arab-dis-2",
-    name: "كشكول 100 ورقة عربي ديزني ميكي",
-    price: 22,
-    image: "/assets/kash100-arab-dis-mickey.jpg",
-    description: "كشكول عربي 100 ورقة، غلاف ميكي ماوس ملون، ورق 60 جرام، مناسب للكتابة العربية.",
-    brand: "Disney",
-    pages: 100,
-    size: "22.5×16 سم",
-    paperWeight: "60 جرام",
-  },
-  {
-    id: "kash100-arab-dis-3",
-    name: "كشكول 100 ورقة عربي ديزني سيارات",
-    price: 22,
-    image: "/assets/kash100-arab-dis-cars.jpg",
-    description: "كشكول عربي 100 ورقة، غلاف سيارات ديزني ملون، ورق 60 جرام، مناسب للكتابة العربية.",
-    brand: "Disney",
-    pages: 100,
-    size: "22.5×16 سم",
-    paperWeight: "60 جرام",
-  },
+
 ];
 
 const Kashakil100ArabicDisneyPage = () => {
