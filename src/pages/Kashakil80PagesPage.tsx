@@ -26,7 +26,8 @@ const Kashakil80PagesPage = () => {
       description: "كشكول مخطط للكتابة العربية",
       icon: Languages,
       color: "bg-gradient-to-br from-blue-500 to-blue-600",
-      textColor: "text-blue-600"
+      textColor: "text-blue-600",
+      link: "/notebooks/kashakil/80-pages/arabic"
     },
     {
       id: 2,
@@ -34,7 +35,8 @@ const Kashakil80PagesPage = () => {
       description: "كشكول بـ 9 أسطر في الصفحة",
       icon: AlignLeft,
       color: "bg-gradient-to-br from-green-500 to-green-600",
-      textColor: "text-green-600"
+      textColor: "text-green-600",
+      link: "/notebooks/kashakil/80-pages/9-lines"
     },
     {
       id: 3,
@@ -42,7 +44,8 @@ const Kashakil80PagesPage = () => {
       description: "كشكول بمربعات كبيرة للرسم والحساب",
       icon: Grid3X3,
       color: "bg-gradient-to-br from-purple-500 to-purple-600",
-      textColor: "text-purple-600"
+      textColor: "text-purple-600",
+      link: "/notebooks/kashakil/80-pages/large-squares"
     },
     {
       id: 4,
@@ -50,7 +53,8 @@ const Kashakil80PagesPage = () => {
       description: "كشكول بمربعات صغيرة للكتابة الدقيقة",
       icon: Grid3X3,
       color: "bg-gradient-to-br from-pink-500 to-pink-600",
-      textColor: "text-pink-600"
+      textColor: "text-pink-600",
+      link: "/notebooks/kashakil/80-pages/small-squares"
     },
     {
       id: 5,
@@ -58,7 +62,8 @@ const Kashakil80PagesPage = () => {
       description: "كشكول مخطط للكتابة الإنجليزية",
       icon: Languages,
       color: "bg-gradient-to-br from-orange-500 to-orange-600",
-      textColor: "text-orange-600"
+      textColor: "text-orange-600",
+      link: "/notebooks/kashakil/80-pages/english"
     },
     {
       id: 6,
@@ -66,7 +71,8 @@ const Kashakil80PagesPage = () => {
       description: "كشكول بتصميم صفحة وصفحة",
       icon: FileText,
       color: "bg-gradient-to-br from-teal-500 to-teal-600",
-      textColor: "text-teal-600"
+      textColor: "text-teal-600",
+      link: "/notebooks/kashakil/80-pages/page-by-page"
     }
   ];
 
@@ -113,12 +119,14 @@ const Kashakil80PagesPage = () => {
                         {notebook.description}
                       </p>
                       
-                      <Button 
-                        variant="outline" 
-                        className={`w-full ${notebook.textColor} border-current hover:bg-current hover:text-white transition-colors`}
-                      >
-                        إضافة للسلة
-                      </Button>
+                      <Link to={notebook.link}>
+                        <Button 
+                          variant="outline" 
+                          className={`w-full ${notebook.textColor} border-current hover:bg-current hover:text-white transition-colors`}
+                        >
+                          تصفح المنتجات
+                        </Button>
+                      </Link>
                     </div>
                   </CardContent>
                 </Card>
