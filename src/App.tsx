@@ -195,6 +195,10 @@ import Kashakil100ArabicDisneyPage from "./pages/Kashakil100ArabicDisneyPage";
 import Kashakil100EnglishCategoryPage from "./pages/Kashakil100EnglishCategoryPage";
 import Kashakil100EnglishNormalPage from "./pages/Kashakil100EnglishNormalPage";
 import Kashakil100EnglishDisneyPage from "./pages/Kashakil100EnglishDisneyPage";
+// Kashakil 100 Pages - Small Squares
+import Kashakil100SmallSquaresCategoryPage from "./pages/Kashakil100SmallSquaresCategoryPage";
+import Kashakil100SmallSquaresNormalPage from "./pages/Kashakil100SmallSquaresNormalPage";
+import Kashakil100SmallSquaresDisneyPage from "./pages/Kashakil100SmallSquaresDisneyPage";
 
 const queryClient = new QueryClient();
 
@@ -419,6 +423,10 @@ const App = () => (
               <Route path="/notebooks/kashakil/100-pages/english" element={<Kashakil100EnglishCategoryPage />} />
               <Route path="/notebooks/kashakil/100-pages/english/normal" element={<Kashakil100EnglishNormalPage />} />
               <Route path="/notebooks/kashakil/100-pages/english/disney" element={<Kashakil100EnglishDisneyPage />} />
+              {/* Kashakil 100 Pages - Small Squares */}
+              <Route path="/notebooks/kashakil/100-pages/small-squares" element={<Kashakil100SmallSquaresCategoryPage />} />
+              <Route path="/notebooks/kashakil/100-pages/small-squares/normal" element={<Kashakil100SmallSquaresNormalPage />} />
+              <Route path="/notebooks/kashakil/100-pages/small-squares/disney" element={<Kashakil100SmallSquaresDisneyPage />} />
               {/* 404 Page */}
               <Route path="*" element={<NotFound />} />
             </Routes>
