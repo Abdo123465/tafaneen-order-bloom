@@ -12,7 +12,7 @@ const kashakil100SmallSquaresNormalItems = [
   {
     id: "kash100-ss-nor-1",
     name: "كشكول 100 ورقة مربعات صغيرة عادي",
-    price: 13,
+    price: 18,
     image: "/assets/kash100-ss-nor-blue.jpg",
     description: "كشكول مربعات صغيرة 100 ورقة، غلاف لامع بسيط، ورق 48 جرام، مناسب للجداول والكتابة الدقيقة.",
     brand: "محلي",
@@ -20,28 +20,7 @@ const kashakil100SmallSquaresNormalItems = [
     size: "22×16 سم",
     paperWeight: "48 جرام",
   },
-  {
-    id: "kash100-ss-nor-2",
-    name: "كشكول 100 ورقة مربعات صغيرة أحمر",
-    price: 13,
-    image: "/assets/kash100-ss-nor-red.jpg",
-    description: "كشكول مربعات صغيرة 100 ورقة، غلاف أحمر لامع، ورق 48 جرام، مناسب للجداول والكتابة الدقيقة.",
-    brand: "محلي",
-    pages: 100,
-    size: "22×16 سم",
-    paperWeight: "48 جرام",
-  },
-  {
-    id: "kash100-ss-nor-3",
-    name: "كشكول 100 ورقة مربعات صغيرة أسود",
-    price: 13,
-    image: "/assets/kash100-ss-nor-black.jpg",
-    description: "كشكول مربعات صغيرة 100 ورقة، غلاف أسود لامع، ورق 48 جرام، مناسب للجداول والكتابة الدقيقة.",
-    brand: "محلي",
-    pages: 100,
-    size: "22×16 سم",
-    paperWeight: "48 جرام",
-  },
+
 ];
 
 const Kashakil100SmallSquaresNormalPage = () => {
