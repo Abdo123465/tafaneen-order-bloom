@@ -12,7 +12,7 @@ const kashakil80ArabicDisneyItems = [
   {
     id: "kash80-arab-dis-1",
     name: "كشكول 80 ورقة عربي ديزني",
-    price: 25,
+    price: 23,
     image: "/assets/kash80-arab-dis-princess.jpg",
     description: "كشكول عربي 80 ورقة، غلاف أميرات ديزني ملون، أو سيارات أو ميكي ماوس، ورق 60 جرام.",
     brand: "Disney",
