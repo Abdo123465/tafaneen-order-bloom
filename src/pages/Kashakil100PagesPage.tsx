@@ -1,3 +1,4 @@
+// src/pages/Kashakil100PagesPage.tsx
 import { useEffect } from "react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -26,10 +27,20 @@ const Kashakil100PagesPage = () => {
       description: "كشكول مخطط للكتابة العربية",
       icon: Languages,
       color: "bg-gradient-to-br from-blue-500 to-blue-600",
-      textColor: "text-blue-600"
+      textColor: "text-blue-600",
+      link: "/notebooks/kashakil/100-pages/arabic/normal"
     },
     {
       id: 2,
+      name: "كراسة عربي ديزني",
+      description: "كشكول مخطط للكتابة العربية بتصاميم ديزني",
+      icon: Languages,
+      color: "bg-gradient-to-br from-purple-500 to-purple-600",
+      textColor: "text-purple-600",
+      link: "/notebooks/kashakil/100-pages/arabic/disney"
+    },
+    {
+      id: 3,
       name: "كراسة 9 اسطر",
       description: "كشكول بـ 9 أسطر في الصفحة",
       icon: AlignLeft,
@@ -37,36 +48,36 @@ const Kashakil100PagesPage = () => {
       textColor: "text-green-600"
     },
     {
-      id: 3,
+      id: 4,
       name: "كراسة مربعات كبيرة",
       description: "كشكول بمربعات كبيرة للرسم والحساب",
-      icon: Grid3X3,
-      color: "bg-gradient-to-br from-purple-500 to-purple-600",
-      textColor: "text-purple-600"
-    },
-    {
-      id: 4,
-      name: "كراسة مربعات صغيرة",
-      description: "كشكول بمربعات صغيرة للكتابة الدقيقة",
       icon: Grid3X3,
       color: "bg-gradient-to-br from-pink-500 to-pink-600",
       textColor: "text-pink-600"
     },
     {
       id: 5,
-      name: "كراسة انجليزي",
-      description: "كشكول مخطط للكتابة الإنجليزية",
-      icon: Languages,
+      name: "كراسة مربعات صغيرة",
+      description: "كشكول بمربعات صغيرة للكتابة الدقيقة",
+      icon: Grid3X3,
       color: "bg-gradient-to-br from-orange-500 to-orange-600",
       textColor: "text-orange-600"
     },
     {
       id: 6,
+      name: "كراسة انجليزي",
+      description: "كشكول مخطط للكتابة الإنجليزية",
+      icon: Languages,
+      color: "bg-gradient-to-br from-teal-500 to-teal-600",
+      textColor: "text-teal-600"
+    },
+    {
+      id: 7,
       name: "كراسة صفحة و صفحة",
       description: "كشكول بتصميم صفحة وصفحة",
       icon: FileText,
-      color: "bg-gradient-to-br from-teal-500 to-teal-600",
-      textColor: "text-teal-600"
+      color: "bg-gradient-to-br from-indigo-500 to-indigo-600",
+      textColor: "text-indigo-600"
     }
   ];
 
@@ -113,12 +124,23 @@ const Kashakil100PagesPage = () => {
                         {notebook.description}
                       </p>
                       
-                      <Button 
-                        variant="outline" 
-                        className={`w-full ${notebook.textColor} border-current hover:bg-current hover:text-white transition-colors`}
-                      >
-                        إضافة للسلة
-                      </Button>
+                      {notebook.link ? (
+                        <Link to={notebook.link}>
+                          <Button 
+                            variant="outline" 
+                            className={`w-full ${notebook.textColor} border-current hover:bg-current hover:text-white transition-colors`}
+                          >
+                            عرض المنتجات
+                          </Button>
+                        </Link>
+                      ) : (
+                        <Button 
+                          variant="outline" 
+                          className={`w-full ${notebook.textColor} border-current hover:bg-current hover:text-white transition-colors`}
+                        >
+                          إضافة للسلة
+                        </Button>
+                      )}
                     </div>
                   </CardContent>
                 </Card>
