@@ -1,110 +1,161 @@
-// src/pages/Kashakil80NineLinesCategoryPage.tsx
 import { useEffect } from "react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "react-router-dom";
-import { ArrowRight, Sparkles, BookOpen } from "lucide-react";
+import { FileText, Grid3X3, Languages, AlignLeft } from "lucide-react";
 
-const Kashakil80NineLinesCategoryPage = () => {
+const Kashakil80PagesPage = () => {
   useEffect(() => {
-    document.title = "كشاكيل 80 ورقة 9 أسطر | تفانين";
-    const desc = "اختر بين كشاكيل 9 أسطر 80 ورقة عادي أو ديزني.";
+    document.title = "كشاكيل 80 ورقة | تفانين";
+    const desc = "تصفح مجموعة كشاكيل 80 ورقة بأنواع مختلفة.";
     let meta = document.querySelector('meta[name="description"]');
     if (!meta) {
-      meta = document.createElement("meta");
-      meta.setAttribute("name", "description");
+      meta = document.createElement('meta');
+      meta.setAttribute('name', 'description');
       document.head.appendChild(meta);
     }
-    meta.setAttribute("content", desc);
+    meta.setAttribute('content', desc);
   }, []);
 
-  const categories = [
+  const notebookTypes = [
     {
       id: 1,
-      name: "كراسات عادي",
-      description: "أغلفة بسيطة وأسعار اقتصادية",
-      icon: BookOpen,
-      path: "/notebooks/kashakil/80-pages/9-lines/normal",
-      color: "from-gray-400 to-gray-600",
-      bgClass: "bg-gradient-to-br from-gray-50 to-gray-100"
+      name: "كراسة عربي",
+      description: "كشكول مخطط للكتابة العربية",
+      icon: Languages,
+      color: "bg-gradient-to-br from-blue-500 to-blue-600",
+      textColor: "text-blue-600",
+      link: "/notebooks/kashakil/80-pages/arabic"
     },
     {
       id: 2,
-      name: "كراسات ديزني",
-      description: "تصاميم ديزني المحببة للأطفال",
-      icon: Sparkles,
-      path: "/notebooks/kashakil/80-pages/9-lines/disney",
-      color: "from-pink-400 to-purple-600",
-      bgClass: "bg-gradient-to-br from-pink-50 to-purple-100"
+      name: "كراسة 9 اسطر",
+      description: "كشكول بـ 9 أسطر في الصفحة",
+      icon: AlignLeft,
+      color: "bg-gradient-to-br from-green-500 to-green-600",
+      textColor: "text-green-600",
+      link: "/notebooks/kashakil/80-pages/9-lines"
+    },
+    {
+      id: 3,
+      name: "كراسة مربعات كبيرة",
+      description: "كشكول بمربعات كبيرة للرسم والحساب",
+      icon: Grid3X3,
+      color: "bg-gradient-to-br from-purple-500 to-purple-600",
+      textColor: "text-purple-600",
+      link: "/notebooks/kashakil/80-pages/large-squares"
+    },
+    {
+      id: 4,
+      name: "كراسة مربعات صغيرة",
+      description: "كشكول بمربعات صغيرة للكتابة الدقيقة",
+      icon: Grid3X3,
+      color: "bg-gradient-to-br from-pink-500 to-pink-600",
+      textColor: "text-pink-600",
+      link: "/notebooks/kashakil/80-pages/small-squares"
+    },
+    {
+      id: 5,
+      name: "كراسة انجليزي",
+      description: "كشكول مخطط للكتابة الإنجليزية",
+      icon: Languages,
+      color: "bg-gradient-to-br from-orange-500 to-orange-600",
+      textColor: "text-orange-600",
+      link: "/notebooks/kashakil/80-pages/english"
+    },
+    {
+      id: 6,
+      name: "كراسة صفحة و صفحة",
+      description: "كشكول بتصميم صفحة وصفحة",
+      icon: FileText,
+      color: "bg-gradient-to-br from-teal-500 to-teal-600",
+      textColor: "text-teal-600",
+      link: "/notebooks/kashakil/80-pages/page-by-page"
     }
   ];
 
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      <main className="container mx-auto px-4 py-10">
-        <nav className="flex items-center gap-2 text-sm text-muted-foreground mb-8">
-          <Link to="/" className="hover:text-primary">الرئيسية</Link>
-          <ArrowRight className="h-4 w-4" />
-          <Link to="/categories" className="hover:text-primary">الفئات</Link>
-          <ArrowRight className="h-4 w-4" />
-          <Link to="/notebooks" className="hover:text-primary">كشكيل و الكراسات و كشاكيل</Link>
-          <ArrowRight className="h-4 w-4" />
-          <Link to="/notebooks/main-category" className="hover:text-primary">كشاكيل و كراسات</Link>
-          <ArrowRight className="h-4 w-4" />
-          <Link to="/notebooks/kashakil" className="hover:text-primary">كشاكيل</Link>
-          <ArrowRight className="h-4 w-4" />
-          <Link to="/notebooks/kashakil/80-pages" className="hover:text-primary">80 ورقة</Link>
-          <ArrowRight className="h-4 w-4" />
-          <span className="text-foreground">كراسة 9 أسطر</span>
-        </nav>
+      <main>
+        <section className="container mx-auto px-4 py-10">
+          <div className="mb-8">
+            <nav className="text-sm text-muted-foreground mb-4">
+              <Link to="/" className="hover:text-primary">الرئيسية</Link>
+              <span className="mx-2">/</span>
+              <Link to="/categories" className="hover:text-primary">الفئات</Link>
+              <span className="mx-2">/</span>
+              <Link to="/notebooks" className="hover:text-primary">كشكيل و الكراسات و كشاكيل</Link>
+              <span className="mx-2">/</span>
+              <Link to="/notebooks/main-category" className="hover:text-primary">كشاكيل و كراسات</Link>
+              <span className="mx-2">/</span>
+              <Link to="/notebooks/kashakil" className="hover:text-primary">كشاكيل</Link>
+              <span className="mx-2">/</span>
+              <span>80 ورقة</span>
+            </nav>
+            
+            <h1 className="text-2xl lg:text-3xl font-bold mb-4">كشاكيل 80 ورقة</h1>
+            <p className="text-muted-foreground mb-8">اختر نوع الكشكول المناسب لاحتياجاتك من مجموعة متنوعة من الأنواع.</p>
+          </div>
 
-        <div className="text-center mb-12">
-          <h1 className="text-3xl lg:text-4xl font-bold mb-4">كشاكيل 80 ورقة 9 أسطر</h1>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            اختر نوع الغلاف المناسب لك
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-          {categories.map((category) => {
-            const IconComponent = category.icon;
-            return (
-              <Link key={category.id} to={category.path}>
-                <Card className={`group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 overflow-hidden ${category.bgClass}`}>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {notebookTypes.map((notebook) => {
+              const IconComponent = notebook.icon;
+              return (
+                <Card key={notebook.id} className="group hover:shadow-elegant transition-all duration-300 hover:-translate-y-1 border-0 overflow-hidden">
                   <CardContent className="p-0">
-                    <div className={`bg-gradient-to-r ${category.color} p-8 text-white relative overflow-hidden`}>
-                      <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -mr-16 -mt-16"></div>
-                      <div className="absolute bottom-0 left-0 w-24 h-24 bg-white/10 rounded-full -ml-12 -mb-12"></div>
+                    <div className={`${notebook.color} p-6 text-white relative overflow-hidden`}>
+                      <div className="absolute top-0 right-0 w-24 h-24 bg-white/10 rounded-full -mr-12 -mt-12"></div>
                       <div className="relative z-10">
-                        <IconComponent className="h-16 w-16 mb-4" />
-                        <h3 className="text-2xl font-bold mb-2">{category.name}</h3>
-                        <p className="text-white/90">{category.description}</p>
+                        <IconComponent className="h-12 w-12 mb-4" />
+                        <h3 className="text-lg font-bold">{notebook.name}</h3>
                       </div>
                     </div>
+                    
                     <div className="p-6">
-                      <Button className="w-full bg-primary hover:bg-primary/90 text-white">
-                        تصفح المنتجات
-                      </Button>
+                      <p className="text-muted-foreground mb-4 leading-relaxed">
+                        {notebook.description}
+                      </p>
+                      
+                      {notebook.id === 1 ? (
+                        <Link to="/notebooks/kashakil/80-pages/arabic">
+                          <Button 
+                            variant="outline" 
+                            className={`w-full ${notebook.textColor} border-current hover:bg-current hover:text-white transition-colors`}
+                          >
+                            تصفح المنتجات
+                          </Button>
+                        </Link>
+                      ) : notebook.id === 2 ? (
+                        <Link to="/notebooks/kashakil/80-pages/9-lines">
+                          <Button 
+                            variant="outline" 
+                            className={`w-full ${notebook.textColor} border-current hover:bg-current hover:text-white transition-colors`}
+                          >
+                            تصفح المنتجات
+                          </Button>
+                        </Link>
+                      ) : (
+                        <Button 
+                          variant="outline" 
+                          className={`w-full ${notebook.textColor} border-current hover:bg-current hover:text-white transition-colors`}
+                        >
+                          إضافة للسلة
+                        </Button>
+                      )}
                     </div>
                   </CardContent>
                 </Card>
-              </Link>
-            );
-          })}
-        </div>
-
-        <div className="text-center mt-12">
-          <Button asChild variant="outline">
-            <Link to="/notebooks/kashakil/80-pages">العودة إلى كشاكيل 80 ورقة</Link>
-          </Button>
-        </div>
+              );
+            })}
+          </div>
+        </section>
       </main>
       <Footer />
     </div>
   );
 };
 
-export default Kashakil80NineLinesCategoryPage;
+export default Kashakil80PagesPage;
