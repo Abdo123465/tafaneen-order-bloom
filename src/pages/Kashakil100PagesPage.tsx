@@ -4,7 +4,7 @@ import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "react-router-dom";
-import { FileText, Grid3X3, Languages, AlignLeft } from "lucide-react";
+import { FileText, Grid3X3, Languages, AlignLeft, ChevronRight } from "lucide-react";
 
 const Kashakil100PagesPage = () => {
   useEffect(() => {
@@ -23,7 +23,7 @@ const Kashakil100PagesPage = () => {
     {
       id: 1,
       name: "كراسة عربي",
-      description: "كشكول مخطط للكتابة العربية",
+      description: "كشكول مخطط للكتابة العربية بخط واضح ومناسب",
       icon: Languages,
       color: "bg-gradient-to-br from-blue-500 to-blue-600",
       textColor: "text-blue-600",
@@ -32,7 +32,7 @@ const Kashakil100PagesPage = () => {
     {
       id: 2,
       name: "كراسة 9 اسطر",
-      description: "كشكول بـ 9 أسطر في الصفحة",
+      description: "كشكول بـ 9 أسطر في الصفحة للكتابة المنظمة",
       icon: AlignLeft,
       color: "bg-gradient-to-br from-green-500 to-green-600",
       textColor: "text-green-600",
@@ -41,7 +41,7 @@ const Kashakil100PagesPage = () => {
     {
       id: 3,
       name: "كراسة مربعات كبيرة",
-      description: "كشكول بمربعات كبيرة للرسم والحساب",
+      description: "كشكول بمربعات كبيرة للرسم والحساب والهندسة",
       icon: Grid3X3,
       color: "bg-gradient-to-br from-purple-500 to-purple-600",
       textColor: "text-purple-600",
@@ -50,7 +50,7 @@ const Kashakil100PagesPage = () => {
     {
       id: 4,
       name: "كراسة مربعات صغيرة",
-      description: "كشكول بمربعات صغيرة للكتابة الدقيقة",
+      description: "كشكول بمربعات صغيرة للكتابة الدقيقة والجداول",
       icon: Grid3X3,
       color: "bg-gradient-to-br from-pink-500 to-pink-600",
       textColor: "text-pink-600",
@@ -59,7 +59,7 @@ const Kashakil100PagesPage = () => {
     {
       id: 5,
       name: "كراسة انجليزي",
-      description: "كشكول مخطط للكتابة الإنجليزية",
+      description: "كشكول مخطط للكتابة الإنجليزية بخط مناسب",
       icon: Languages,
       color: "bg-gradient-to-br from-orange-500 to-orange-600",
       textColor: "text-orange-600",
@@ -68,7 +68,7 @@ const Kashakil100PagesPage = () => {
     {
       id: 6,
       name: "كراسة صفحة و صفحة",
-      description: "كشكول بتصميم صفحة وصفحة",
+      description: "كشكول بتصميم صفحة وصفحة للتنظيم والتقسيم",
       icon: FileText,
       color: "bg-gradient-to-br from-teal-500 to-teal-600",
       textColor: "text-teal-600",
@@ -124,8 +124,9 @@ const Kashakil100PagesPage = () => {
                         className={`w-full ${notebook.textColor} border-current hover:bg-current hover:text-white transition-colors`}
                         asChild
                       >
-                        <Link to={notebook.link}>
+                        <Link to={notebook.link} className="flex items-center justify-center gap-2">
                           عرض المنتجات
+                          <ChevronRight className="h-4 w-4" />
                         </Link>
                       </Button>
                     </div>
