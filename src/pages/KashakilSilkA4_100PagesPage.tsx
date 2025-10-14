@@ -13,8 +13,8 @@ const KashakilSilkA4_100PagesPage = () => {
   const { toast } = useToast();
 
   useEffect(() => {
-    document.title = "كشاكيل سلك A4 - 100 ورقة | تفانين";
-    const desc = "كشاكيل سلك بحجم A4 - 100 ورقة بأنواع مختلفة";
+    document.title = "كشاكيل سلك A4 - 100--140 ورقة | تفانين";
+    const desc = "كشاكيل سلك بحجم A4 - 100-140 ورقة بأنواع مختلفة";
     let meta = document.querySelector('meta[name="description"]');
     if (!meta) {
       meta = document.createElement('meta');
@@ -102,9 +102,9 @@ const KashakilSilkA4_100PagesPage = () => {
               <span>100 ورقة</span>
             </nav>
             
-            <h1 className="text-2xl lg:text-3xl font-bold mb-4">كشاكيل سلك A4 - 100 ورقة</h1>
+            <h1 className="text-2xl lg:text-3xl font-bold mb-4">كشاكيل سلك A4 - 100-140 ورقة</h1>
             <p className="text-muted-foreground mb-8">
-              مجموعة متنوعة من كشاكيل السلك بحجم A4 بـ 100 ورقة
+              مجموعة متنوعة من كشاكيل السلك بحجم A4 بـ 100-140 ورقة
             </p>
           </div>
 
