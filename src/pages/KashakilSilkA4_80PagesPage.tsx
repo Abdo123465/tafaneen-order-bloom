@@ -28,7 +28,7 @@ const KashakilSilkA4_80PagesPage = () => {
     {
       id: 1,
       name: "كشكول سلك A4 عربي - 80 ورقة",
-      price: 30,
+      price: 50,
       image: "/assets/kashakil-silk-a4-80-arabic.jpg",
       type: "arabic",
       description: "كشكول سلك بحجم A4 بسطور عربية - 80 ورقة"
@@ -36,35 +36,19 @@ const KashakilSilkA4_80PagesPage = () => {
     {
       id: 2,
       name: "كشكول سلك A4 إنجليزي - 80 ورقة",
-      price: 30,
+      price: 55,
       image: "/assets/kashakil-silk-a4-80-english.jpg",
       type: "english",
       description: "كشكول سلك بحجم A4 بسطور إنجليزية - 80 ورقة"
     },
     {
       id: 3,
-      name: "كشكول سلك A4 مربعات صغيرة - 80 ورقة",
-      price: 30,
+      name: "كشكول سلك مربعات ص برافو 80ق A4",
+      price: 45,
       image: "/assets/kashakil-silk-a4-80-small-squares.jpg",
       type: "small-squares",
       description: "كشكول سلك بحجم A4 بمربعات صغيرة - 80 ورقة"
     },
-    {
-      id: 4,
-      name: "كشكول سلك A4 صفحة بصفحة - 80 ورقة",
-      price: 30,
-      image: "/assets/kashakil-silk-a4-80-page-by-page.jpg",
-      type: "page-by-page",
-      description: "كشكول سلك بحجم A4 صفحة بصفحة - 80 ورقة"
-    },
-    {
-      id: 5,
-      name: "كشكول سلك A4 9 أسطر - 80 ورقة",
-      price: 30,
-      image: "/assets/kashakil-silk-a4-80-9-lines.jpg",
-      type: "9-lines",
-      description: "كشكول سلك بحجم A4 بـ 9 أسطر - 80 ورقة"
-    }
   ];
 
   const handleAddToCart = (product: typeof products[0]) => {
