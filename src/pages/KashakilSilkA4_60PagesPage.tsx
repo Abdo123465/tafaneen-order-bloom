@@ -27,8 +27,8 @@ const KashakilSilkA4_60PagesPage = () => {
   const products = [
     {
       id: 1,
-      name: "كشكول سلك A4 عربي - 60 ورقة",
-      price: 25,
+      name: "كشكول سلك عربي الاستاذ 60ق A4",
+      price: 45,
       image: "/assets/kashakil-silk-a4-60-arabic.jpg",
       type: "arabic",
       description: "كشكول سلك بحجم A4 بسطور عربية - 60 ورقة"
@@ -36,7 +36,7 @@ const KashakilSilkA4_60PagesPage = () => {
     {
       id: 2,
       name: "كشكول سلك A4 إنجليزي - 60 ورقة",
-      price: 25,
+      price: 50,
       image: "/assets/kashakil-silk-a4-60-english.jpg",
       type: "english",
       description: "كشكول سلك بحجم A4 بسطور إنجليزية - 60 ورقة"
