@@ -99,12 +99,14 @@ const KashakilSilkA4Page = () => {
                         {pageCount.description}
                       </p>
                       
-                      <Button 
-                        variant="outline" 
-                        className={`w-full ${pageCount.textColor} border-current hover:bg-current hover:text-white transition-colors`}
-                      >
-                        إضافة للسلة
-                      </Button>
+                      <Link to={pageCount.path}>
+                        <Button 
+                          variant="outline" 
+                          className={`w-full ${pageCount.textColor} border-current hover:bg-current hover:text-white transition-colors`}
+                        >
+                          عرض المنتجات
+                        </Button>
+                      </Link>
                     </div>
                   </CardContent>
                 </Card>
