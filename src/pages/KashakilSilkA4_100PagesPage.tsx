@@ -41,7 +41,14 @@ const KashakilSilkA4_100PagesPage = () => {
       type: "english",
       description: "كشكول سلك بحجم A4 بسطور إنجليزية - 100 ورقة"
     },
-   
+    {
+      id: 3,
+      name: "كشكول سلك A4 إنجليزي - 140 ورقة",
+      price: 60,
+      image: "/assets/kashakil-silk-a4-140-english.jpg",
+      type: "arabic",
+      description: "كشكول سلك بحجم A4 بسطور إنجليزية - 140 ورقة"
+    },
   ];
 
   const handleAddToCart = (product: typeof products[0]) => {
