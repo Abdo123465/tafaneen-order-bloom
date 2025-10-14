@@ -40,8 +40,8 @@ const KashakilSilkA4Page = () => {
     },
     {
       id: 3,
-      name: "كشاكيل سلك 100",
-      description: "كشكول سلك - 100 ورقة",
+      name: "كشاكيل سلك 100-140",
+      description: "كشكول سلك - 100-140 ورقة",
       icon: Clipboard,
       color: "bg-gradient-to-br from-purple-500 to-purple-600",
       textColor: "text-purple-600",
