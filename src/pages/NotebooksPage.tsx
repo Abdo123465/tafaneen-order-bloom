@@ -48,6 +48,16 @@ const NotebooksPage = () => {
       textColor: "text-cyan-600",
       path: "/notebooks/kashakil-silk-a5",
       count: "5 أحجام متاحة"
+    },
+    {
+      id: 4,
+      name: "كشاكيل دبوس A4",
+      description: "كشاكيل دبوس بحجم A4 بأعداد ورق مختلفة",
+      icon: Clipboard,
+      color: "bg-gradient-to-br from-red-500 to-red-600",
+      textColor: "text-red-600",
+      path: "/notebooks/kashakil-dabous-a4",
+      count: "4 أنواع متاحة"
     }
   ];
 
@@ -69,7 +79,7 @@ const NotebooksPage = () => {
             <p className="text-muted-foreground mb-8">اختر من مجموعة واسعة من الكراسات والكشاكيل بأنواع وأحجام مختلفة لتلبية جميع احتياجاتك الدراسية والمكتبية.</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {subcategories.map((subcategory) => {
               const IconComponent = subcategory.icon;
               return (
