@@ -40,16 +40,6 @@ const NotebooksMainCategoryPage = () => {
       path: "/notebooks/kashakil",
       count: "6 أنواع متاحة"
     },
-    {
-      id: 3,
-      name: "كشاكيل دبوس A4",
-      description: "كشاكيل دبوس بحجم A4 بأعداد ورق مختلفة",
-      icon: Clipboard,
-      color: "bg-gradient-to-br from-red-500 to-red-600",
-      textColor: "text-red-600",
-      path: "/notebooks/kashakil-dabous-a4",
-      count: "4 أنواع متاحة"
-    }
   ];
 
   return (
