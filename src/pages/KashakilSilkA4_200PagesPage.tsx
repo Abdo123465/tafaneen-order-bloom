@@ -36,7 +36,7 @@ const KashakilSilkA4_200PagesPage = () => {
     {
       id: 2,
       name: "كشكول سلك 240ق متقسم 6فواصل Mintra Jumbo ",
-      price: 270,
+      price: 240,
       image: "/assets/kashakil-silk-a4-200-english.jpg",
       type: "arabic",
       description: "كشكول سلك بحجم A4 بسطور إنجليزية - 200 ورقة"
