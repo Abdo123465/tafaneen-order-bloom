@@ -13,8 +13,8 @@ const KashakilSilkA4_200PagesPage = () => {
   const { toast } = useToast();
 
   useEffect(() => {
-    document.title = "كشاكيل سلك A4 - 200 ورقة | تفانين";
-    const desc = "كشاكيل سلك بحجم A4 - 200 ورقة بأنواع مختلفة";
+    document.title = "كشاكيل سلك A4 - 200-240 ورقة | تفانين";
+    const desc = "كشاكيل سلك بحجم A4 - 200-240 ورقة بأنواع مختلفة";
     let meta = document.querySelector('meta[name="description"]');
     if (!meta) {
       meta = document.createElement('meta');
@@ -27,44 +27,21 @@ const KashakilSilkA4_200PagesPage = () => {
   const products = [
     {
       id: 1,
-      name: "كشكول سلك A4 عربي - 200 ورقة",
-      price: 55,
+      name: "كشكول سلك  200ق A4 new flower",
+      price: 95,
       image: "/assets/kashakil-silk-a4-200-arabic.jpg",
       type: "arabic",
       description: "كشكول سلك بحجم A4 بسطور عربية - 200 ورقة"
     },
     {
       id: 2,
-      name: "كشكول سلك A4 إنجليزي - 200 ورقة",
-      price: 55,
+      name: "كشكول سلك 240ق متقسم 6فواصل Mintra Jumbo ",
+      price: 240,
       image: "/assets/kashakil-silk-a4-200-english.jpg",
-      type: "english",
+      type: "arabic",
       description: "كشكول سلك بحجم A4 بسطور إنجليزية - 200 ورقة"
     },
-    {
-      id: 3,
-      name: "كشكول سلك A4 مربعات صغيرة - 200 ورقة",
-      price: 55,
-      image: "/assets/kashakil-silk-a4-200-small-squares.jpg",
-      type: "small-squares",
-      description: "كشكول سلك بحجم A4 بمربعات صغيرة - 200 ورقة"
-    },
-    {
-      id: 4,
-      name: "كشكول سلك A4 صفحة بصفحة - 200 ورقة",
-      price: 55,
-      image: "/assets/kashakil-silk-a4-200-page-by-page.jpg",
-      type: "page-by-page",
-      description: "كشكول سلك بحجم A4 صفحة بصفحة - 200 ورقة"
-    },
-    {
-      id: 5,
-      name: "كشكول سلك A4 9 أسطر - 200 ورقة",
-      price: 55,
-      image: "/assets/kashakil-silk-a4-200-9-lines.jpg",
-      type: "9-lines",
-      description: "كشكول سلك بحجم A4 بـ 9 أسطر - 200 ورقة"
-    }
+    
   ];
 
   const handleAddToCart = (product: typeof products[0]) => {
