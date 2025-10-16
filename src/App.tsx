@@ -203,6 +203,11 @@ import KashakilSilkA4_60PagesPage from "./pages/KashakilSilkA4_60PagesPage";
 import KashakilSilkA4_80PagesPage from "./pages/KashakilSilkA4_80PagesPage";
 import KashakilSilkA4_100PagesPage from "./pages/KashakilSilkA4_100PagesPage";
 import KashakilSilkA4_200PagesPage from "./pages/KashakilSilkA4_200PagesPage";
+import KashakilDabousA4Page from "./pages/KashakilDabousA4Page";
+import KashakilDabousA4_60PagesPage from "./pages/KashakilDabousA4_60PagesPage";
+import KashakilDabousA4_80PagesPage from "./pages/KashakilDabousA4_80PagesPage";
+import KashakilDabousA4_100PagesPage from "./pages/KashakilDabousA4_100PagesPage";
+import KashakilDabousA4_200PagesPage from "./pages/KashakilDabousA4_200PagesPage";
 
 
 const queryClient = new QueryClient();
@@ -437,6 +442,12 @@ const App = () => (
               <Route path="/notebooks/kashakil-silk-a4/80-pages" element={<KashakilSilkA4_80PagesPage />} />
               <Route path="/notebooks/kashakil-silk-a4/100-pages" element={<KashakilSilkA4_100PagesPage />} />
               <Route path="/notebooks/kashakil-silk-a4/200-pages" element={<KashakilSilkA4_200PagesPage />} />
+              {/* Kashakil Dabous A4 */}
+              <Route path="/notebooks/kashakil-dabous-a4" element={<KashakilDabousA4Page />} />
+              <Route path="/notebooks/kashakil-dabous-a4/60-pages" element={<KashakilDabousA4_60PagesPage />} />
+              <Route path="/notebooks/kashakil-dabous-a4/80-pages" element={<KashakilDabousA4_80PagesPage />} />
+              <Route path="/notebooks/kashakil-dabous-a4/100-pages" element={<KashakilDabousA4_100PagesPage />} />
+              <Route path="/notebooks/kashakil-dabous-a4/200-pages" element={<KashakilDabousA4_200PagesPage />} />
               {/* 404 Page */}
               <Route path="*" element={<NotFound />} />
             </Routes>
