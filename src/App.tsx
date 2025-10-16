@@ -202,6 +202,8 @@ import Kashakil100SmallSquaresDisneyPage from "./pages/Kashakil100SmallSquaresDi
 import KashakilSilkA4_60PagesPage from "./pages/KashakilSilkA4_60PagesPage";
 import KashakilSilkA4_80PagesPage from "./pages/KashakilSilkA4_80PagesPage";
 import KashakilSilkA4_100PagesPage from "./pages/KashakilSilkA4_100PagesPage";
+import KashakilSilkA4_200PagesPage from "./pages/KashakilSilkA4_200PagesPage";
+
 
 const queryClient = new QueryClient();
 
@@ -434,6 +436,7 @@ const App = () => (
               <Route path="/notebooks/kashakil-silk-a4/60-pages" element={<KashakilSilkA4_60PagesPage />} />
               <Route path="/notebooks/kashakil-silk-a4/80-pages" element={<KashakilSilkA4_80PagesPage />} />
               <Route path="/notebooks/kashakil-silk-a4/100-pages" element={<KashakilSilkA4_100PagesPage />} />
+              <Route path="/notebooks/kashakil-silk-a4/200-pages" element={<KashakilSilkA4_200PagesPage />} />
               {/* 404 Page */}
               <Route path="*" element={<NotFound />} />
             </Routes>
