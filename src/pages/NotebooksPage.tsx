@@ -48,6 +48,16 @@ const NotebooksPage = () => {
       textColor: "text-cyan-600",
       path: "/notebooks/kashakil-silk-a5",
       count: "5 أحجام متاحة"
+    },
+    {
+      id: 4,
+      name: "كشاكيل دبوس A4",
+      description: "كشاكيل دبوس بحجم A4 بأحجام مختلفة",
+      icon: Clipboard,
+      color: "bg-gradient-to-br from-violet-500 to-violet-600",
+      textColor: "text-violet-600",
+      path: "/notebooks/kashakil-dabous-a4",
+      count: "4 أحجام متاحة"
     }
   ];
 
