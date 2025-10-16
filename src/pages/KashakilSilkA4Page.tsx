@@ -49,7 +49,7 @@ const KashakilSilkA4Page = () => {
     },
     {
       id: 4,
-      name: "كشاكيل سلك 200",
+      name: "كشاكيل سلك 200-240",
       description: "كشكول سلك - 200-240 ورقة",
       icon: Clipboard,
       color: "bg-gradient-to-br from-red-500 to-red-600",
