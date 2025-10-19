@@ -27,21 +27,36 @@ const KashakilDabousA4_60PagesPage = () => {
   const products = [
     {
       id: 1,
-      name: "كشكول دبوس عربي 60ق A4",
-      price: 35,
+      name: "كشكول 9 اسطر  دبوس A4 برافو 60 ورقه",
+      price: 45,
       image: "/assets/kashakil-dabous-a4-60-arabic.jpg",
-      type: "arabic",
-      description: "كشكول دبوس بحجم A4 بسطور عربية - 60 ورقة"
+      type: "9 lines",
+      description: "كشكول دبوس بحجم A4  9 اسطر - 60 ورقة"
     },
     {
       id: 2,
-      name: "كشكول دبوس A4 إنجليزي - 60 ورقة",
-      price: 40,
+      name: "كشكول  دبوس A4 برافو 60 ورقه مربعات ك",
+      price: 45,
       image: "/assets/kashakil-dabous-a4-60-english.jpg",
+      type: "big squar",
+      description: "كشكول دبوس بحجم A4  مربعات كبيرة - 60 ورقة"
+    },
+     {
+      id: 3,
+      name: "كشكول انجليزي دبوس 60 ورقه A4 نهضة مصر",
+      price: 45,
+      image: "/assets/kashakil-dabous-a4-60-englsh.jpg",
       type: "english",
       description: "كشكول دبوس بحجم A4 بسطور إنجليزية - 60 ورقة"
     },
-
+      {
+      id: 4,
+      name: "كشكول دبوس محمد واميره 60ورقه A4 فسفوري ملون",
+      price: 35,
+      image: "/assets/kashakil-dabous-a4-60-englh.jpg",
+      type: "arabic",
+      description: "كشكول دبوس بحجم A4 بسطور إنجليزية - 60 ورقة"
+    },
   ];
 
   const handleAddToCart = (product: typeof products[0]) => {
