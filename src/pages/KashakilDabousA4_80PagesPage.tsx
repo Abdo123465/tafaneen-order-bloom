@@ -27,18 +27,18 @@ const KashakilDabousA4_80PagesPage = () => {
   const products = [
     {
       id: 1,
-      name: "كشكول دبوس عربي 80ق A4",
-      price: 45,
+      name: "كشكول دبوس انجليزي 80ق A4",
+      price: 50,
       image: "/assets/kashakil-dabous-a4-80-arabic.jpg",
-      type: "arabic",
-      description: "كشكول دبوس بحجم A4 بسطور عربية - 80 ورقة"
+      type: "english",
+      description: "كشكول دبوس بحجم A4 سطرين انجليزي - 80 ورقة"
     },
     {
       id: 2,
-      name: "كشكول دبوس A4 إنجليزي - 80 ورقة",
-      price: 50,
+      name: "كشكول دبوس A4 عربي - 80 ورقة",
+      price: 40,
       image: "/assets/kashakil-dabous-a4-80-english.jpg",
-      type: "english",
+      type: "arabic",
       description: "كشكول دبوس بحجم A4 بسطور إنجليزية - 80 ورقة"
     },
 
