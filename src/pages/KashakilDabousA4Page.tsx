@@ -46,15 +46,6 @@ const KashakilDabousA4Page = () => {
       color: "bg-gradient-to-br from-purple-500 to-purple-600",
       textColor: "text-purple-600",
       path: "/notebooks/kashakil-dabous-a4/100-pages"
-    },
-    {
-      id: 4,
-      name: "كشاكيل دبوس 200-240",
-      description: "كشكول دبوس - 200-240 ورقة",
-      icon: Clipboard,
-      color: "bg-gradient-to-br from-red-500 to-red-600",
-      textColor: "text-red-600",
-      path: "/notebooks/kashakil-dabous-a4/200-pages"
     }
   ];
 
@@ -80,7 +71,7 @@ const KashakilDabousA4Page = () => {
             <p className="text-muted-foreground mb-8">اختر حجم كشكول الدبوس A4 المناسب لاحتياجاتك.</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {pageCounts.map((pageCount) => {
               const IconComponent = pageCount.icon;
               return (
