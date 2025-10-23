@@ -47,15 +47,6 @@ const KashakilDabousA4Page = () => {
       textColor: "text-purple-600",
       path: "/notebooks/kashakil-dabous-a4/100-pages"
     },
-    {
-      id: 4,
-      name: "كشاكيل دبوس 200-240",
-      description: "كشكول دبوس - 200-240 ورقة",
-      icon: Clipboard,
-      color: "bg-gradient-to-br from-red-500 to-red-600",
-      textColor: "text-red-600",
-      path: "/notebooks/kashakil-dabous-a4/200-pages"
-    }
   ];
 
   return (
