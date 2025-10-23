@@ -187,7 +187,7 @@ import Kashakil80EnglishDisneyPage from "./pages/Kashakil80EnglishDisneyPage";
 import Kashakil80SmallSquaresCategoryPage from "./pages/Kashakil80SmallSquaresCategoryPage";
 import Kashakil80SmallSquaresNormalPage from "./pages/Kashakil80SmallSquaresNormalPage";
 import Kashakil80SmallSquaresDisneyPage from "./pages/Kashakil80SmallSquaresDisneyPage";
-// Kashakil 100 Pages
+// أضف هذه الأسطر في قسم الاستيراد في ملف App.tsx
 import Kashakil100ArabicCategoryPage from "./pages/Kashakil100ArabicCategoryPage";
 import Kashakil100ArabicNormalPage from "./pages/Kashakil100ArabicNormalPage";
 import Kashakil100ArabicDisneyPage from "./pages/Kashakil100ArabicDisneyPage";
@@ -207,6 +207,7 @@ import KashakilDabousA4Page from "./pages/KashakilDabousA4Page";
 import KashakilDabousA4_60PagesPage from "./pages/KashakilDabousA4_60PagesPage";
 import KashakilDabousA4_80PagesPage from "./pages/KashakilDabousA4_80PagesPage";
 import KashakilDabousA4_100PagesPage from "./pages/KashakilDabousA4_100PagesPage";
+import KashakilDabousA4_200PagesPage from "./pages/KashakilDabousA4_200PagesPage";
 
 
 const queryClient = new QueryClient();
@@ -364,7 +365,7 @@ const App = () => (
               <Route path="/office-supplies/staple-pins" element={<StaplePinsPage />} />
               <Route path="/office-supplies/stamps" element={<StampsPage />} />
               <Route path="/office-supplies/paper-clips" element={<PaperClipsPage />} />
-              oapPaperPage />} />
+              <Route path="/office-supplies/soap-paper" element={<SoapPaperPage />} />
               <Route path="/office-supplies/push-pins" element={<PushPinsPage />} />
               <Route path="/office-supplies/office-staplers" element={<OfficeStaplersPage />} />
               <Route path="/office-supplies/paper-punches" element={<PaperPunchesPage />} />
@@ -446,6 +447,7 @@ const App = () => (
               <Route path="/notebooks/kashakil-dabous-a4/60-pages" element={<KashakilDabousA4_60PagesPage />} />
               <Route path="/notebooks/kashakil-dabous-a4/80-pages" element={<KashakilDabousA4_80PagesPage />} />
               <Route path="/notebooks/kashakil-dabous-a4/100-pages" element={<KashakilDabousA4_100PagesPage />} />
+              <Route path="/notebooks/kashakil-dabous-a4/200-pages" element={<KashakilDabousA4_200PagesPage />} />
               {/* 404 Page */}
               <Route path="*" element={<NotFound />} />
             </Routes>
