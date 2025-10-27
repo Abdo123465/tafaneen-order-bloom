@@ -157,15 +157,21 @@ export function normalizeEgyptianPhone(phone: string): string {
     return cleanPhone;
   }
 
-  // Add country code
+  // Handle 0020 prefix
   if (cleanPhone.startsWith('0020')) {
     return '+' + cleanPhone.substring(2);
   }
-
+  
+  // Handle 20 prefix
   if (cleanPhone.startsWith('20')) {
     return '+' + cleanPhone;
   }
 
-  // Local number - add +20
+  // Handle local number with leading 0
+  if (cleanPhone.startsWith('0')) {
+    return '+20' + cleanPhone.substring(1);
+  }
+
+  // Fallback for numbers without leading 0 (should not happen with validation)
   return '+20' + cleanPhone;
 }
