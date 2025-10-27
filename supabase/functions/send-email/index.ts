@@ -1,7 +1,6 @@
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
 import { Resend } from "npm:resend@2.0.0";
 import { createClient } from "npm:@supabase/supabase-js@2";
-import { z } from "npm:zod@3";
 
 // Initialize Resend with the API key from environment variables
 const resendApiKey = Deno.env.get("RESEND_API_KEY");
@@ -18,17 +17,11 @@ const corsHeaders = {
     "authorization, x-client-info, apikey, content-type",
 };
 
-// Zod schema for input validation
-const SendEmailSchema = z.object({
-  phone: z.string()
-    .regex(/^\+?[1-9]\d{1,14}$/, "Invalid phone format"),
-  verificationCode: z.string()
-    .length(6, "Invalid code length")
-    .regex(/^\d{6}$/, "Code must be 6 digits"),
-  name: z.string()
-    .min(2, "Name too short")
-    .max(100, "Name too long")
-});
+interface SendEmailRequest {
+  phone: string;
+  verificationCode: string;
+  name: string;
+}
 
 const handler = async (req: Request): Promise<Response> => {
   // Handle CORS preflight requests
@@ -45,20 +38,17 @@ const handler = async (req: Request): Promise<Response> => {
     );
     const { data: { user } } = await supabaseClient.auth.getUser();
     if (!user) {
-      return new Response(JSON.stringify({ error: "Unauthorized", code: "UNAUTHORIZED" }), { status: 401, headers: { "Content-Type": "application/json", ...corsHeaders } });
+      return new Response(JSON.stringify({ error: "Unauthorized" }), { status: 401, headers: { "Content-Type": "application/json", ...corsHeaders } });
     }
 
-    const requestBody = await req.json();
+    const { phone, verificationCode, name }: SendEmailRequest = await req.json();
 
     // 2. Input Validation
-    const validationResult = SendEmailSchema.safeParse(requestBody);
-    if (!validationResult.success) {
-        return new Response(JSON.stringify({ error: "Validation failed", details: validationResult.error.flatten() }), { status: 400, headers: { "Content-Type": "application/json", ...corsHeaders } });
+    if (!phone || !verificationCode || !name) {
+      return new Response(JSON.stringify({ error: "Missing required fields" }), { status: 400, headers: { "Content-Type": "application/json", ...corsHeaders } });
     }
     
-    const { phone, verificationCode, name } = validationResult.data;
-    
-    console.log(`Sending verification SMS for phone: ${phone} and name: ${name}`);
+    console.log("Sending verification SMS for phone:", phone);
 
     // For now, we'll simulate SMS sending by logging the verification code
     // In a real implementation, you would integrate with an SMS service
@@ -82,13 +72,9 @@ const handler = async (req: Request): Promise<Response> => {
       },
     });
   } catch (error: any) {
-    console.error("Error in send-email function:", {
-        message: error.message,
-        stack: error.stack,
-        timestamp: new Date().toISOString()
-    });
+    console.error("Error in send-email function:", error);
     return new Response(
-      JSON.stringify({ error: "Unable to process request", code: "INTERNAL_ERROR" }),
+      JSON.stringify({ error: error.message }),
       {
         status: 500,
         headers: { "Content-Type": "application/json", ...corsHeaders },

@@ -1,106 +1,144 @@
-// src/pages/LoginPage.tsx
-import { useState } from "react";
-import { useAuth } from "@/contexts/AuthContext";
-import { useNavigate } from "react-router-dom";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
-import { toast } from "sonner";
-import {
-  InputOTP,
-  InputOTPGroup,
-  InputOTPSlot,
-} from "@/components/ui/input-otp"
+import { createContext, useContext, useEffect, useState } from "react";
+import { supabase } from "@/integrations/supabase/client";
+import { normalizeEgyptianPhone, validateEgyptianPhone } from "@/utils/phoneValidation";
+import { sanitizeText } from "@/utils/security";
 
-const LoginPage = () => {
-  const [phone, setPhone] = useState("");
-  const [name, setName] = useState("");
-  const [otp, setOtp] = useState("");
-  const [step, setStep] = useState<"phone" | "otp">("phone");
-  const { signIn, verifyOtpAndUpdateProfile } = useAuth();
-  const navigate = useNavigate();
+interface User {
+  id: string;
+  name: string;
+  phone: string;
+  is_verified: boolean;
+}
 
-  const handleSignIn = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!name.trim() || !phone.trim()) {
-      toast.error("الرجاء إدخال الاسم ورقم الهاتف");
-      return;
+interface AuthContextType {
+  user: User | null;
+  isLoading: boolean;
+  login: (name: string, phone: string) => Promise<{ success: boolean; error?: string }>;
+  logout: () => void;
+}
+
+const AuthContext = createContext<AuthContextType | undefined>(undefined);
+
+export function AuthProvider({ children }: { children: React.ReactNode }) {
+  const [user, setUser] = useState<User | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const storedUser = localStorage.getItem("tafaneen_user");
+    if (storedUser) {
+      try {
+        const parsedUser = JSON.parse(storedUser);
+        // التحقق من صحة البيانات المخزنة
+        if (parsedUser && 
+            typeof parsedUser.id === 'string' && 
+            typeof parsedUser.name === 'string' && 
+            typeof parsedUser.phone === 'string' &&
+            typeof parsedUser.is_verified === 'boolean') {
+          setUser(parsedUser);
+        } else {
+          // حذف البيانات غير الصحيحة
+          localStorage.removeItem("tafaneen_user");
+        }
+      } catch (error) {
+        console.error("Error parsing stored user data:", error);
+        localStorage.removeItem("tafaneen_user");
+      }
     }
-    const { success, error } = await signIn(phone);
-    if (success) {
-      setStep("otp");
-      toast.success("تم إرسال رمز التحقق إلى هاتفك");
-    } else {
-      toast.error(error || "حدث خطأ ما");
+    setIsLoading(false);
+  }, []);
+
+  const login = async (name: string, phone: string) => {
+    try {
+      // تعقيم الاسم من الأحرف الخطيرة
+      const sanitizedName = sanitizeText(name);
+      if (!sanitizedName || sanitizedName.length < 2) {
+        return {
+          success: false,
+          error: "الاسم غير صحيح"
+        };
+      }
+
+      // التحقق من صحة رقم الهاتف المصري
+      const phoneValidation = validateEgyptianPhone(phone);
+      if (!phoneValidation.isValid) {
+        return { 
+          success: false, 
+          error: phoneValidation.errorMessage || "رقم الهاتف غير صحيح" 
+        };
+      }
+
+      // تطبيع رقم الهاتف للتخزين
+      const normalizedPhone = normalizeEgyptianPhone(phone);
+      
+      // حفظ أو تحديث المستخدم في قاعدة البيانات
+      const { data: existingUser } = await supabase
+        .from("users")
+        .select("*")
+        .eq("phone", normalizedPhone)
+        .maybeSingle();
+
+      let userData;
+      if (existingUser) {
+        // تحديث المستخدم الموجود
+        const { data } = await supabase
+          .from("users")
+          .update({ 
+            name: sanitizedName,
+            is_verified: true 
+          })
+          .eq("phone", normalizedPhone)
+          .select()
+          .single();
+        userData = data;
+      } else {
+        // إنشاء مستخدم جديد
+        const { data } = await supabase
+          .from("users")
+          .insert({
+            name: sanitizedName,
+            phone: normalizedPhone,
+            is_verified: true
+          })
+          .select()
+          .single();
+        userData = data;
+      }
+
+      // حتى إذا فشل جلب بيانات المستخدم من Supabase، قم بإنشاء كائن مستخدم محلياً
+      const verifiedUser: User = {
+        id: userData?.id ?? Date.now().toString(),
+        name: userData?.name ?? sanitizedName,
+        phone: userData?.phone ?? normalizedPhone,
+        is_verified: true,
+      };
+
+      setUser(verifiedUser);
+      localStorage.setItem("tafaneen_user", JSON.stringify(verifiedUser));
+
+      return { success: true };
+    } catch (error: any) {
+      console.error("Login error:", error);
+      return { success: false, error: error.message };
     }
   };
 
-  const handleVerifyOtp = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!otp.trim()) {
-        toast.error("الرجاء إدخال رمز التحقق");
-        return;
-    }
-    const { success, error } = await verifyOtpAndUpdateProfile(phone, otp, name);
-    if (success) {
-      toast.success("تم تسجيل الدخول بنجاح");
-      navigate("/");
-    } else {
-      toast.error(error || "رمز التحقق غير صحيح");
-    }
+
+  const logout = () => {
+    setUser(null);
+    localStorage.removeItem("tafaneen_user");
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      <div className="p-8 bg-white rounded-lg shadow-md w-96">
-        <h1 className="text-2xl font-bold text-center mb-6">تسجيل الدخول</h1>
-        {step === "phone" ? (
-          <form onSubmit={handleSignIn}>
-            <div className="mb-4">
-                <Input
-                type="text"
-                placeholder="ادخل اسمك"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                className="w-full"
-                required
-                />
-            </div>
-            <div className="mb-4">
-              <Input
-                type="tel"
-                placeholder="ادخل رقم الموبايل"
-                value={phone}
-                onChange={(e) => setPhone(e.target.value)}
-                className="w-full"
-                required
-              />
-            </div>
-            <Button type="submit" className="w-full">
-              إرسال رمز التحقق
-            </Button>
-          </form>
-        ) : (
-          <form onSubmit={handleVerifyOtp} className="flex flex-col items-center">
-            <p className="mb-4 text-center">ادخل الرمز المكون من 6 أرقام الذي تم إرساله إلى هاتفك</p>
-            <InputOTP maxLength={6} value={otp} onChange={setOtp}>
-                <InputOTPGroup>
-                    <InputOTPSlot index={0} />
-                    <InputOTPSlot index={1} />
-                    <InputOTPSlot index={2} />
-                    <InputOTPSlot index={3} />
-                    <InputOTPSlot index={4} />
-                    <InputOTPSlot index={5} />
-                </InputOTPGroup>
-            </InputOTP>
-
-            <Button type="submit" className="w-full mt-6">
-              تحقق وتسجيل الدخول
-            </Button>
-          </form>
-        )}
-      </div>
-    </div>
+    <AuthContext.Provider value={{ user, isLoading, login, logout }}>
+      {children}
+    </AuthContext.Provider>
   );
-};
+}
 
-export default LoginPage;
+export function useAuth() {
+  const context = useContext(AuthContext);
+  if (context === undefined) {
+    throw new Error("useAuth must be used within an AuthProvider");
+  }
+  return context;
+}

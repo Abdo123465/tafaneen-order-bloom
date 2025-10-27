@@ -26,14 +26,12 @@ CREATE POLICY "Anyone can read products" ON products
 
 -- دالة لتحديث updated_at تلقائياً
 CREATE OR REPLACE FUNCTION update_updated_at_column()
-RETURNS TRIGGER
-LANGUAGE plpgsql
-SET search_path = public
-AS $$ BEGIN
+RETURNS TRIGGER AS $$
+BEGIN
     NEW.updated_at = NOW();
     RETURN NEW;
 END;
- $$;
+$$ language 'plpgsql';
 
 -- إنشاء trigger لتحديث updated_at
 CREATE TRIGGER update_products_updated_at BEFORE UPDATE ON products

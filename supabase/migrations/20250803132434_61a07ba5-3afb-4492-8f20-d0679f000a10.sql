@@ -1,51 +1,43 @@
--- Create a table for public user profiles
+-- إنشاء جدول للمستخدمين
 CREATE TABLE public.users (
-  id UUID NOT NULL PRIMARY KEY, -- This will be the foreign key to auth.users.id
+  id UUID NOT NULL DEFAULT gen_random_uuid() PRIMARY KEY,
   name TEXT NOT NULL,
   phone TEXT NOT NULL UNIQUE,
+  verification_code TEXT,
   is_verified BOOLEAN DEFAULT FALSE,
   created_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT now(),
-  updated_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT now(),
-  CONSTRAINT users_id_fkey FOREIGN KEY (id) REFERENCES auth.users(id) ON DELETE CASCADE
+  updated_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT now()
 );
 
--- Enable Row Level Security
+-- تفعيل Row Level Security
 ALTER TABLE public.users ENABLE ROW LEVEL SECURITY;
 
--- Secure RLS policies
-
--- 1. Users can view their own profile
+-- إنشاء policies للوصول للبيانات
 CREATE POLICY "Users can view their own data" 
 ON public.users 
 FOR SELECT 
-USING (auth.uid() = id);
+USING (phone = current_setting('request.jwt.claims', true)::json->>'phone');
 
--- 2. Users can insert their own profile
 CREATE POLICY "Users can insert their own data" 
 ON public.users 
 FOR INSERT 
-WITH CHECK (auth.uid() = id);
+WITH CHECK (true);
 
--- 3. Users can update their own profile
 CREATE POLICY "Users can update their own data" 
 ON public.users 
 FOR UPDATE 
-USING (auth.uid() = id)
-WITH CHECK (auth.uid() = id);
+USING (phone = current_setting('request.jwt.claims', true)::json->>'phone');
 
-
--- Function to update updated_at
+-- إنشاء function لتحديث updated_at
 CREATE OR REPLACE FUNCTION public.update_updated_at_column()
-RETURNS TRIGGER
-LANGUAGE plpgsql
-SET search_path = public
-AS $$ BEGIN
+RETURNS TRIGGER AS $$
+BEGIN
   NEW.updated_at = now();
   RETURN NEW;
 END;
- $$;
+$$ LANGUAGE plpgsql;
 
--- Trigger to update updated_at automatically
+-- إنشاء trigger لتحديث updated_at تلقائياً
 CREATE TRIGGER update_users_updated_at
   BEFORE UPDATE ON public.users
   FOR EACH ROW

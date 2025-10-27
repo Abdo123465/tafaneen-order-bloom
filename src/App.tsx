@@ -118,7 +118,6 @@ import RulerFolderPage from "./pages/RulerFolderPage";
 import SascoFolderPage from "./pages/SascoFolderPage";
 import HolderPage from "./pages/HolderPage";
 import ZipperFolderPage from "./pages/ZipperFolderPage";
-import LoginPage from "./pages/LoginPage";
 
 // Arabic notebooks
 import Arabic28CategoryPage from "@/pages/Arabic28CategoryPage";
@@ -223,7 +222,6 @@ const App = () => (
           <BrowserRouter>
             <Routes>
               {/* Main Pages */}
-              <Route path="/login" element={<LoginPage />} />
               <Route path="/" element={<Index />} />
               <Route path="/search" element={<SearchPage />} />
               <Route path="/categories" element={<CategoriesPage />} />
