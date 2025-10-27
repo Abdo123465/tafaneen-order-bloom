@@ -79,9 +79,9 @@ const KashakilDabousA4_100PagesPage = () => {
               <span>100-140 ورقة</span>
             </nav>
             
-            <h1 className="text-2xl lg:text-3xl font-bold mb-4">كشاكيل دبوس A4 - 100-140 ورقة</h1>
+            <h1 className="text-2xl lg:text-3xl font-bold mb-4">كشاكيل دبوس A4 - 100 ورقة</h1>
             <p className="text-muted-foreground mb-8">
-              مجموعة متنوعة من كشاكيل الدبوس بحجم A4 بـ 100-140 ورقة
+              مجموعة متنوعة من كشاكيل الدبوس بحجم A4 بـ 100 ورقة
             </p>
           </div>
 
