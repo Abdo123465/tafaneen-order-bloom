@@ -40,8 +40,10 @@ CREATE OR REPLACE FUNCTION public.increment_product_sales(
   p_product_price DECIMAL(10,2),
   p_product_image TEXT DEFAULT NULL
 )
-RETURNS void AS $$
-BEGIN
+RETURNS void 
+LANGUAGE plpgsql
+SET search_path = public
+AS $$ BEGIN
   INSERT INTO public.product_sales (product_id, product_name, product_price, product_image, sales_count)
   VALUES (p_product_id, p_product_name, p_product_price, p_product_image, 1)
   ON CONFLICT (product_id) 
@@ -49,4 +51,4 @@ BEGIN
     sales_count = product_sales.sales_count + 1,
     updated_at = now();
 END;
-$$ LANGUAGE plpgsql;
+ $$;
