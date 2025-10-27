@@ -1,13 +1,17 @@
+
 import { useState } from "react";
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import { useAuth } from "@/contexts/AuthContext";
-import { User, Phone } from "lucide-react";
-import { validateEgyptianPhone } from "@/utils/phoneValidation";
-import { sanitizeText } from "@/utils/security";
+import { User, Phone, KeyRound } from "lucide-react";
+import {
+  InputOTP,
+  InputOTPGroup,
+  InputOTPSlot,
+} from "@/components/ui/input-otp"
 
 interface AuthDialogProps {
   open: boolean;
@@ -15,150 +19,108 @@ interface AuthDialogProps {
 }
 
 export function AuthDialog({ open, onOpenChange }: AuthDialogProps) {
-  const [name, setName] = useState("");
+  const [step, setStep] = useState<'phone' | 'otp' | 'name'>('phone');
   const [phone, setPhone] = useState("");
-  const [phoneError, setPhoneError] = useState("");
+  const [otp, setOtp] = useState("");
+  const [name, setName] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
-  const { login } = useAuth();
+  const { sendOtp, verifyOtp } = useAuth();
 
-  const handlePhoneChange = (value: string) => {
-    setPhone(value);
-    setPhoneError("");
-    
-    if (value.trim()) {
-      const validation = validateEgyptianPhone(value);
-      if (!validation.isValid) {
-        setPhoneError(validation.errorMessage || "رقم الهاتف غير صحيح");
-      }
-    }
-  };
-  const handleLogin = async () => {
-    if (!name.trim() || !phone.trim()) {
-      toast({
-        title: "خطأ",
-        description: "يرجى إدخال جميع البيانات المطلوبة",
-        variant: "destructive",
-      });
-      return;
-    }
-
-    // تعقيم الاسم من الأحرف الخطيرة
-    const sanitizedName = sanitizeText(name);
-    if (!sanitizedName || sanitizedName.length < 2) {
-      toast({
-        title: "خطأ",
-        description: "يرجى إدخال اسم صحيح (حرفين على الأقل)",
-        variant: "destructive",
-      });
-      return;
-    }
-
-    // التحقق من صحة رقم الهاتف المصري
-    const phoneValidation = validateEgyptianPhone(phone);
-    if (!phoneValidation.isValid) {
-      toast({
-        title: "خطأ",
-        description: phoneValidation.errorMessage || "يرجى إدخال رقم هاتف مصري صحيح",
-        variant: "destructive",
-      });
-      return;
-    }
-
+  const handleSendOtp = async () => {
     setIsLoading(true);
-
-    try {
-      const result = await login(sanitizedName, phone);
-
+    console.log("DEV environment:", import.meta.env.DEV);
+    // In a Vite app, use import.meta.env.DEV for environment checks
+    if (import.meta.env.DEV) {
+      // For verification, we'll just move to the next step
+      console.log("Switching to OTP step");
+      setStep('otp');
+    } else {
+      const result = await sendOtp(phone);
       if (result.success) {
         toast({
-          title: "مرحباً بك!",
-          description: `تم تسجيل الدخول بنجاح، أهلاً ${name}`,
+          title: "تم إرسال الرمز",
+          description: "لقد أرسلنا رمز التحقق إلى هاتفك.",
         });
-        onOpenChange(false);
-        // إعادة تعيين النموذج
-        setName("");
-        setPhone("");
-        setPhoneError("");
+        setStep('otp');
       } else {
         toast({
           title: "خطأ",
-          description: result.error || "فشل في تسجيل الدخول",
+          description: result.error || "فشل إرسال الرمز",
           variant: "destructive",
         });
       }
-    } catch (error) {
-      toast({
-        title: "خطأ",
-        description: "فشل في تسجيل الدخول",
-        variant: "destructive",
-      });
-    } finally {
-      setIsLoading(false);
     }
+    setIsLoading(false);
   };
 
+  const handleVerifyOtp = async () => {
+    setIsLoading(true);
+    const result = await verifyOtp(phone, otp, name);
+    if (result.success) {
+      toast({
+        title: "تم التحقق بنجاح",
+        description: "تم تسجيل دخولك بنجاح.",
+      });
+      onOpenChange(false);
+    } else {
+      toast({
+        title: "خطأ",
+        description: result.error || "فشل التحقق من الرمز",
+        variant: "destructive",
+      });
+    }
+    setIsLoading(false);
+  };
+  
+  const renderStep = () => {
+    console.log("Current step:", step);
+    switch (step) {
+      case 'phone':
+        return (
+          <div className="space-y-4">
+            <Label htmlFor="phone">رقم الهاتف</Label>
+            <Input id="phone" type="tel" value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="01234567890" />
+            <Button onClick={handleSendOtp} disabled={isLoading} className="w-full">
+              {isLoading ? "جاري الإرسال..." : "إرسال الرمز"}
+            </Button>
+          </div>
+        );
+      case 'otp':
+        return (
+          <div className="space-y-4">
+            <Label htmlFor="otp">رمز التحقق</Label>
+            <InputOTP maxLength={6} value={otp} onChange={setOtp} id="otp">
+              <InputOTPGroup>
+                <InputOTPSlot index={0} />
+                <InputOTPSlot index={1} />
+                <InputOTPSlot index={2} />
+                <InputOTPSlot index={3} />
+                <InputOTPSlot index={4} />
+                <InputOTPSlot index={5} />
+              </InputOTPGroup>
+            </InputOTP>
+            <Label htmlFor="name">الاسم (اختياري)</Label>
+            <Input id="name" type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder="اسمك" />
+            <Button onClick={handleVerifyOtp} disabled={isLoading} className="w-full">
+              {isLoading ? "جاري التحقق..." : "التحقق وتسجيل الدخول"}
+            </Button>
+          </div>
+        );
+    }
+  };
+  
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="sm:max-w-md" dir="rtl">
-        <DialogHeader className="text-center">
-          <DialogTitle className="text-2xl font-bold text-gradient">
-            تسجيل الدخول
-          </DialogTitle>
+      <DialogContent>
+        <DialogHeader>
+          <DialogTitle>تسجيل الدخول أو إنشاء حساب</DialogTitle>
+          <DialogDescription>
+            أدخل رقم هاتفك لإرسال رمز تحقق لمرة واحدة (OTP).
+          </DialogDescription>
         </DialogHeader>
-
-        <div className="space-y-6 py-4">
-          <div className="space-y-4">
-            <div className="space-y-2">
-              <Label htmlFor="name" className="text-right">الاسم</Label>
-              <div className="relative">
-                <User className="absolute right-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
-                <Input
-                  id="name"
-                  type="text"
-                  placeholder="أدخل اسمك"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  className="pr-10"
-                  dir="rtl"
-                />
-              </div>
-            </div>
-
-            <div className="space-y-2">
-              <Label htmlFor="phone" className="text-right">
-                رقم الهاتف
-              </Label>
-              <div className="relative">
-                <Phone className="absolute right-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
-                <Input
-                  id="phone"
-                  type="tel"
-                  placeholder="010xxxxxxxx أو +20 10xxxxxxxx"
-                  value={phone}
-                  onChange={(e) => handlePhoneChange(e.target.value)}
-                  className={`pr-10 ${phoneError ? 'border-destructive' : ''}`}
-                  dir="ltr"
-                />
-              </div>
-              {phoneError && (
-                <p className="text-xs text-destructive text-right">{phoneError}</p>
-              )}
-              <p className="text-xs text-muted-foreground text-right">
-                رقم هاتف مصري صحيح (موبايل أو أرضي)
-              </p>
-            </div>
-          </div>
-
-          <Button 
-            onClick={handleLogin} 
-            disabled={isLoading || !!phoneError}
-            className="w-full btn-tafaneen"
-          >
-            {isLoading ? "جاري التسجيل..." : "تسجيل الدخول"}
-          </Button>
-        </div>
+        {renderStep()}
       </DialogContent>
     </Dialog>
   );
