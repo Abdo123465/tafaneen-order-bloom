@@ -1,5 +1,6 @@
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
 import { createClient } from "npm:@supabase/supabase-js@2";
+import { z } from "npm:zod@3";
 
 const appUrl = Deno.env.get("APP_URL") || "http://localhost:3000";
 
@@ -9,10 +10,16 @@ const corsHeaders = {
     "authorization, x-client-info, apikey, content-type",
 };
 
-interface SendTelegramRequest {
-  username: string;
-  message: string;
-}
+// Zod schema for input validation
+const SendSmsSchema = z.object({
+  username: z.string()
+    .min(1, "Username required")
+    .max(50, "Username too long")
+    .regex(/^[a-zA-Z0-9_]+$/, "Invalid username format"),
+  message: z.string()
+    .min(1, "Message required")
+    .max(4096, "Message too long")
+});
 
 const handler = async (req: Request): Promise<Response> => {
   // Handle CORS preflight requests
@@ -29,15 +36,18 @@ const handler = async (req: Request): Promise<Response> => {
     );
     const { data: { user } } = await supabaseClient.auth.getUser();
     if (!user) {
-      return new Response(JSON.stringify({ error: "Unauthorized" }), { status: 401, headers: { "Content-Type": "application/json", ...corsHeaders } });
+      return new Response(JSON.stringify({ error: "Unauthorized", code: "UNAUTHORIZED" }), { status: 401, headers: { "Content-Type": "application/json", ...corsHeaders } });
     }
 
-    const { username, message }: SendTelegramRequest = await req.json();
+    const requestBody = await req.json();
 
     // 2. Input Validation
-    if (!username || !message) {
-      return new Response(JSON.stringify({ error: "Missing required fields" }), { status: 400, headers: { "Content-Type": "application/json", ...corsHeaders } });
+    const validationResult = SendSmsSchema.safeParse(requestBody);
+    if (!validationResult.success) {
+      return new Response(JSON.stringify({ error: "Validation failed", details: validationResult.error.flatten() }), { status: 400, headers: { "Content-Type": "application/json", ...corsHeaders } });
     }
+    
+    const { username, message } = validationResult.data;
     
     const botToken = Deno.env.get("TELEGRAM_BOT_TOKEN");
 
@@ -61,7 +71,7 @@ const handler = async (req: Request): Promise<Response> => {
         chatId = userChat.message.from.id;
       } else {
         console.log(`User ${username} not found. Ensure the user has messaged the bot.`);
-        throw new Error(`User ${username} not found. Ensure the user has messaged the bot.`);
+        return new Response(JSON.stringify({ error: "User not found", code: "USER_NOT_FOUND" }), { status: 404, headers: { "Content-Type": "application/json", ...corsHeaders } });
       }
     } catch (searchError) {
       console.error("Error finding user:", searchError);
@@ -77,8 +87,7 @@ const handler = async (req: Request): Promise<Response> => {
       },
       body: JSON.stringify({
         chat_id: chatId,
-        text: message,
-        parse_mode: "HTML"
+        text: message
       }),
     });
 
@@ -102,9 +111,13 @@ const handler = async (req: Request): Promise<Response> => {
       },
     });
   } catch (error: any) {
-    console.error("Error in send-sms function:", error);
+    console.error("Error in send-sms function:", {
+        message: error.message,
+        stack: error.stack,
+        timestamp: new Date().toISOString()
+      });
     return new Response(
-      JSON.stringify({ error: error.message }),
+      JSON.stringify({ error: "Unable to process request", code: "INTERNAL_ERROR" }),
       {
         status: 500,
         headers: { "Content-Type": "application/json", ...corsHeaders },
