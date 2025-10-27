@@ -13,8 +13,8 @@ const KashakilDabousA4_100PagesPage = () => {
   const { toast } = useToast();
 
   useEffect(() => {
-    document.title = "كشاكيل دبوس A4 - 100-140 ورقة | تفانين";
-    const desc = "كشاكيل دبوس بحجم A4 - 100-140 ورقة بأنواع مختلفة";
+    document.title = "كشاكيل دبوس A4 - 100 ورقة | تفانين";
+    const desc = "كشاكيل دبوس بحجم A4 - 100 ورقة بأنواع مختلفة";
     let meta = document.querySelector('meta[name="description"]');
     if (!meta) {
       meta = document.createElement('meta');
@@ -27,7 +27,7 @@ const KashakilDabousA4_100PagesPage = () => {
   const products = [
     {
       id: 1,
-      name: "كشكول دبوس عربي 100ق A4",
+      name: "كشكول دبوس برافو 100 ق A4",
       price: 55,
       image: "/assets/kashakil-dabous-a4-100-arabic.jpg",
       type: "arabic",
@@ -36,7 +36,7 @@ const KashakilDabousA4_100PagesPage = () => {
     {
       id: 2,
       name: "كشكول دبوس A4 إنجليزي - 100 ورقة",
-      price: 60,
+      price: 55,
       image: "/assets/kashakil-dabous-a4-100-english.jpg",
       type: "english",
       description: "كشكول دبوس بحجم A4 بسطور إنجليزية - 100 ورقة"
