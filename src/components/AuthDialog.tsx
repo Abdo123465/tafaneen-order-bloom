@@ -28,6 +28,16 @@ export function AuthDialog({ open, onOpenChange }: AuthDialogProps) {
   const { sendOtp, verifyOtp } = useAuth();
 
   const handleSendOtp = async () => {
+    if (import.meta.env.DEV) {
+      console.log("Development mode: OTP flow bypassed");
+      toast({
+        title: "وضع التطوير",
+        description: "تم تخطي عملية إرسال الرمز.",
+      });
+      setStep('otp');
+      return;
+    }
+
     setIsLoading(true);
     const result = await sendOtp(phone);
     if (result.success) {
