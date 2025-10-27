@@ -1,135 +1,165 @@
+
 import { createContext, useContext, useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { normalizeEgyptianPhone, validateEgyptianPhone } from "@/utils/phoneValidation";
 import { sanitizeText } from "@/utils/security";
+import { Session, User } from "@supabase/supabase-js";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
 
-interface User {
+// Define the shape of our user profile
+interface UserProfile {
   id: string;
   name: string;
   phone: string;
-  is_verified: boolean;
 }
 
+// Define the context shape
 interface AuthContextType {
-  user: User | null;
+  user: UserProfile | null;
   isLoading: boolean;
-  login: (name: string, phone: string) => Promise<{ success: boolean; error?: string }>;
+  isVerified: boolean;
+  sendOtp: (phone: string) => Promise<{ success: boolean; error?: string }>;
+  verifyOtp: (phone: string, token: string, name?: string) => Promise<{ success: boolean; error?: string }>;
   logout: () => void;
 }
 
+// Create the context
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
+// Define the validation schema for the OTP
+const OTPSchema = z.object({
+  phone: z.string().refine(phone => validateEgyptianPhone(phone).isValid, {
+    message: "رقم الهاتف غير صحيح",
+  }),
+  token: z.string().min(6, { message: "يجب أن يكون الرمز مكونًا من 6 أرقام" }),
+  name: z.string().optional(),
+});
+
+
 export function AuthProvider({ children }: { children: React.ReactNode }) {
-  const [user, setUser] = useState<User | null>(null);
+  const [user, setUser] = useState<UserProfile | null>(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [isVerified, setIsVerified] = useState(false);
 
   useEffect(() => {
-    const storedUser = localStorage.getItem("tafaneen_user");
-    if (storedUser) {
-      try {
-        const parsedUser = JSON.parse(storedUser);
-        // التحقق من صحة البيانات المخزنة
-        if (parsedUser && 
-            typeof parsedUser.id === 'string' && 
-            typeof parsedUser.name === 'string' && 
-            typeof parsedUser.phone === 'string' &&
-            typeof parsedUser.is_verified === 'boolean') {
-          setUser(parsedUser);
-        } else {
-          // حذف البيانات غير الصحيحة
-          localStorage.removeItem("tafaneen_user");
-        }
-      } catch (error) {
-        console.error("Error parsing stored user data:", error);
-        localStorage.removeItem("tafaneen_user");
+    const getSession = async () => {
+      const { data: { session }, error } = await supabase.auth.getSession();
+      if (error) {
+        console.error("Error getting session:", error.message);
+        setIsLoading(false);
+        return;
       }
-    }
-    setIsLoading(false);
+
+      if (session) {
+        await handleAuthChange(session);
+      } else {
+        setIsLoading(false);
+      }
+    };
+
+    getSession();
+
+    const { data: { subscription } } = supabase.auth.onAuthStateChange(
+      async (_event, session) => {
+        await handleAuthChange(session);
+      }
+    );
+
+    return () => {
+      subscription?.unsubscribe();
+    };
   }, []);
 
-  const login = async (name: string, phone: string) => {
-    try {
-      // تعقيم الاسم من الأحرف الخطيرة
-      const sanitizedName = sanitizeText(name);
-      if (!sanitizedName || sanitizedName.length < 2) {
-        return {
-          success: false,
-          error: "الاسم غير صحيح"
-        };
-      }
-
-      // التحقق من صحة رقم الهاتف المصري
-      const phoneValidation = validateEgyptianPhone(phone);
-      if (!phoneValidation.isValid) {
-        return { 
-          success: false, 
-          error: phoneValidation.errorMessage || "رقم الهاتف غير صحيح" 
-        };
-      }
-
-      // تطبيع رقم الهاتف للتخزين
-      const normalizedPhone = normalizeEgyptianPhone(phone);
-      
-      // حفظ أو تحديث المستخدم في قاعدة البيانات
-      const { data: existingUser } = await supabase
+  const handleAuthChange = async (session: Session | null) => {
+    if (session?.user) {
+      const { data: userProfile, error } = await supabase
         .from("users")
         .select("*")
-        .eq("phone", normalizedPhone)
-        .maybeSingle();
+        .eq("id", session.user.id)
+        .single();
 
-      let userData;
-      if (existingUser) {
-        // تحديث المستخدم الموجود
-        const { data } = await supabase
-          .from("users")
-          .update({ 
-            name: sanitizedName,
-            is_verified: true 
-          })
-          .eq("phone", normalizedPhone)
-          .select()
-          .single();
-        userData = data;
-      } else {
-        // إنشاء مستخدم جديد
-        const { data } = await supabase
-          .from("users")
-          .insert({
-            name: sanitizedName,
-            phone: normalizedPhone,
-            is_verified: true
-          })
-          .select()
-          .single();
-        userData = data;
+      if (error) {
+        console.error("Error fetching user profile:", error.message);
+        setUser(null);
+      } else if (userProfile) {
+        setUser({
+          id: userProfile.id,
+          name: userProfile.name,
+          phone: userProfile.phone,
+        });
+        setIsVerified(true);
       }
-
-      // حتى إذا فشل جلب بيانات المستخدم من Supabase، قم بإنشاء كائن مستخدم محلياً
-      const verifiedUser: User = {
-        id: userData?.id ?? Date.now().toString(),
-        name: userData?.name ?? sanitizedName,
-        phone: userData?.phone ?? normalizedPhone,
-        is_verified: true,
+    } else {
+      setUser(null);
+      setIsVerified(false);
+    }
+    setIsLoading(false);
+  };
+  
+  const sendOtp = async (phone: string) => {
+    const phoneValidation = validateEgyptianPhone(phone);
+    if (!phoneValidation.isValid) {
+      return { 
+        success: false, 
+        error: phoneValidation.errorMessage || "رقم الهاتف غير صحيح" 
       };
+    }
 
-      setUser(verifiedUser);
-      localStorage.setItem("tafaneen_user", JSON.stringify(verifiedUser));
+    const normalizedPhone = normalizeEgyptianPhone(phone);
 
-      return { success: true };
-    } catch (error: any) {
-      console.error("Login error:", error);
+    const { error } = await supabase.auth.signInWithOtp({
+      phone: normalizedPhone,
+    });
+
+    if (error) {
       return { success: false, error: error.message };
     }
+    return { success: true };
   };
 
+  const verifyOtp = async (phone: string, token: string, name?: string) => {
+    const validation = OTPSchema.safeParse({ phone, token, name });
+    if (!validation.success) {
+      return { success: false, error: validation.error.errors[0].message };
+    }
+    
+    const normalizedPhone = normalizeEgyptianPhone(phone);
+    
+    const { data: { session }, error } = await supabase.auth.verifyOtp({
+      phone: normalizedPhone,
+      token,
+      type: 'sms'
+    });
+  
+    if (error) {
+      return { success: false, error: "الرمز الذي أدخلته غير صحيح." };
+    }
+  
+    if (session && name) {
+      const sanitizedName = sanitizeText(name);
+      
+      const { error: updateError } = await supabase
+        .from('users')
+        .update({ name: sanitizedName })
+        .eq('id', session.user.id);
+  
+      if (updateError) {
+        console.error("Error updating username:", updateError);
+        // Not returning an error to the user as the login was successful
+      }
+    }
+  
+    return { success: true };
+  };
 
-  const logout = () => {
+  const logout = async () => {
+    await supabase.auth.signOut();
     setUser(null);
-    localStorage.removeItem("tafaneen_user");
   };
 
   return (
-    <AuthContext.Provider value={{ user, isLoading, login, logout }}>
+    <AuthContext.Provider value={{ user, isLoading, isVerified, sendOtp, verifyOtp, logout }}>
       {children}
     </AuthContext.Provider>
   );
