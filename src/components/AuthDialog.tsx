@@ -29,27 +29,19 @@ export function AuthDialog({ open, onOpenChange }: AuthDialogProps) {
 
   const handleSendOtp = async () => {
     setIsLoading(true);
-    console.log("DEV environment:", import.meta.env.DEV);
-    // In a Vite app, use import.meta.env.DEV for environment checks
-    if (import.meta.env.DEV) {
-      // For verification, we'll just move to the next step
-      console.log("Switching to OTP step");
+    const result = await sendOtp(phone);
+    if (result.success) {
+      toast({
+        title: "تم إرسال الرمز",
+        description: "لقد أرسلنا رمز التحقق إلى هاتفك.",
+      });
       setStep('otp');
     } else {
-      const result = await sendOtp(phone);
-      if (result.success) {
-        toast({
-          title: "تم إرسال الرمز",
-          description: "لقد أرسلنا رمز التحقق إلى هاتفك.",
-        });
-        setStep('otp');
-      } else {
-        toast({
-          title: "خطأ",
-          description: result.error || "فشل إرسال الرمز",
-          variant: "destructive",
-        });
-      }
+      toast({
+        title: "خطأ",
+        description: result.error || "فشل إرسال الرمز",
+        variant: "destructive",
+      });
     }
     setIsLoading(false);
   };
