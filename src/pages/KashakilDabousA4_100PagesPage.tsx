@@ -76,7 +76,7 @@ const KashakilDabousA4_100PagesPage = () => {
               <span className="mx-2">/</span>
               <Link to="/notebooks/kashakil-dabous-a4" className="hover:text-primary">كشاكيل دبوس A4</Link>
               <span className="mx-2">/</span>
-              <span>100-140 ورقة</span>
+              <span>100ورقة</span>
             </nav>
             
             <h1 className="text-2xl lg:text-3xl font-bold mb-4">كشاكيل دبوس A4 - 100 ورقة</h1>
