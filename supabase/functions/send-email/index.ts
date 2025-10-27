@@ -1,5 +1,13 @@
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
+import { Resend } from "npm:resend@2.0.0";
 import { createClient } from "npm:@supabase/supabase-js@2";
+
+// Initialize Resend with the API key from environment variables
+const resendApiKey = Deno.env.get("RESEND_API_KEY");
+if (!resendApiKey) {
+  throw new Error("RESEND_API_KEY is not set in environment variables.");
+}
+const resend = new Resend(resendApiKey);
 
 const appUrl = Deno.env.get("APP_URL") || "http://localhost:3000";
 
@@ -9,9 +17,10 @@ const corsHeaders = {
     "authorization, x-client-info, apikey, content-type",
 };
 
-interface SendTelegramRequest {
-  username: string;
-  message: string;
+interface SendEmailRequest {
+  phone: string;
+  verificationCode: string;
+  name: string;
 }
 
 const handler = async (req: Request): Promise<Response> => {
@@ -32,69 +41,30 @@ const handler = async (req: Request): Promise<Response> => {
       return new Response(JSON.stringify({ error: "Unauthorized" }), { status: 401, headers: { "Content-Type": "application/json", ...corsHeaders } });
     }
 
-    const { username, message }: SendTelegramRequest = await req.json();
+    const { phone, verificationCode, name }: SendEmailRequest = await req.json();
 
     // 2. Input Validation
-    if (!username || !message) {
+    if (!phone || !verificationCode || !name) {
       return new Response(JSON.stringify({ error: "Missing required fields" }), { status: 400, headers: { "Content-Type": "application/json", ...corsHeaders } });
     }
     
-    const botToken = Deno.env.get("TELEGRAM_BOT_TOKEN");
+    console.log("Sending verification SMS for phone:", phone);
 
-    if (!botToken) {
-      throw new Error("Missing Telegram Bot Token");
-    }
-
-    // This logic for finding chat_id is insecure and should be re-evaluated.
-    // For now, we are focusing on the immediate security vulnerabilities.
-    let chatId;
-    try {
-      const searchUrl = `https://api.telegram.org/bot${botToken}/getUpdates`;
-      const updatesResponse = await fetch(searchUrl);
-      const updates = await updatesResponse.json();
-      
-      const userChat = updates.result?.find((update: any) => 
-        update.message?.from?.username === username.replace('@', '')
-      );
-      
-      if (userChat) {
-        chatId = userChat.message.from.id;
-      } else {
-        console.log(`User ${username} not found. Ensure the user has messaged the bot.`);
-        throw new Error(`User ${username} not found. Ensure the user has messaged the bot.`);
-      }
-    } catch (searchError) {
-      console.error("Error finding user:", searchError);
-      throw new Error(`Error finding user: ${searchError.message}`);
-    }
-
-    const telegramUrl = `https://api.telegram.org/bot${botToken}/sendMessage`;
+    // For now, we'll simulate SMS sending by logging the verification code
+    // In a real implementation, you would integrate with an SMS service
+    console.log(`SMS Verification Code for ${phone}: ${verificationCode}`);
     
-    const response = await fetch(telegramUrl, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        chat_id: chatId,
-        text: message,
-        parse_mode: "HTML"
-      }),
-    });
+    // 3. Remove sensitive data from response
+    const response = {
+      success: true,
+      message: "Verification code generated successfully",
+      phone: phone,
+      note: "SMS integration pending - code logged to console"
+    };
 
-    if (!response.ok) {
-      const errorData = await response.json();
-      throw new Error(`Telegram API error: ${errorData.description || response.statusText}`);
-    }
+    console.log("SMS simulation completed:", response);
 
-    const result = await response.json();
-    console.log("Telegram message sent successfully:", result);
-
-    return new Response(JSON.stringify({ 
-      success: true, 
-      message_id: result.result.message_id,
-      chat_id: chatId 
-    }), {
+    return new Response(JSON.stringify(response), {
       status: 200,
       headers: {
         "Content-Type": "application/json",
@@ -102,7 +72,7 @@ const handler = async (req: Request): Promise<Response> => {
       },
     });
   } catch (error: any) {
-    console.error("Error in send-sms function:", error);
+    console.error("Error in send-email function:", error);
     return new Response(
       JSON.stringify({ error: error.message }),
       {
