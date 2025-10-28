@@ -1,159 +1,135 @@
-
 import { createContext, useContext, useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
+import { normalizeEgyptianPhone, validateEgyptianPhone } from "@/utils/phoneValidation";
 import { sanitizeText } from "@/utils/security";
-import { Session, User } from "@supabase/supabase-js";
-import { z } from "zod";
-import { AuthCredentials } from "@/types/auth";
 
-
-// Define the shape of our user profile
-interface UserProfile {
+interface User {
   id: string;
-  name: string | null;
-  email: string | undefined;
+  name: string;
+  phone: string;
+  is_verified: boolean;
 }
 
-// Define the context shape
 interface AuthContextType {
-  user: UserProfile | null;
+  user: User | null;
   isLoading: boolean;
-  signUp: (credentials: AuthCredentials) => Promise<{ success: boolean; error?: string; requiresConfirmation?: boolean }>;
-  signIn: (credentials: AuthCredentials) => Promise<{ success: boolean; error?: string }>;
+  login: (name: string, phone: string) => Promise<{ success: boolean; error?: string }>;
   logout: () => void;
 }
 
-// Create the context
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
-// Define the validation schema for signup
-const SignUpSchema = z.object({
-  email: z.string().email({ message: "البريد الإلكتروني غير صحيح" }),
-  password: z.string().min(6, { message: "يجب أن تكون كلمة المرور 6 أحرف على الأقل" }),
-  name: z.string().min(2, { message: "يجب أن يكون الاسم حرفين على الأقل" }),
-});
-
-const SignInSchema = z.object({
-  email: z.string().email({ message: "البريد الإلكتروني غير صحيح" }),
-  password: z.string().min(1, { message: "كلمة المرور مطلوبة" }),
-});
-
-
 export function AuthProvider({ children }: { children: React.ReactNode }) {
-  const [user, setUser] = useState<UserProfile | null>(null);
+  const [user, setUser] = useState<User | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const getSession = async () => {
-      const { data: { session }, error } = await supabase.auth.getSession();
-      if (error) {
-        console.error("Error getting session:", error.message);
-        setIsLoading(false);
-        return;
+    const storedUser = localStorage.getItem("tafaneen_user");
+    if (storedUser) {
+      try {
+        const parsedUser = JSON.parse(storedUser);
+        // التحقق من صحة البيانات المخزنة
+        if (parsedUser && 
+            typeof parsedUser.id === 'string' && 
+            typeof parsedUser.name === 'string' && 
+            typeof parsedUser.phone === 'string' &&
+            typeof parsedUser.is_verified === 'boolean') {
+          setUser(parsedUser);
+        } else {
+          // حذف البيانات غير الصحيحة
+          localStorage.removeItem("tafaneen_user");
+        }
+      } catch (error) {
+        console.error("Error parsing stored user data:", error);
+        localStorage.removeItem("tafaneen_user");
       }
-
-      if (session) {
-        await handleAuthChange(session);
-      } else {
-        setIsLoading(false);
-      }
-    };
-
-    getSession();
-
-    const { data: { subscription } } = supabase.auth.onAuthStateChange(
-      async (_event, session) => {
-        await handleAuthChange(session);
-      }
-    );
-
-    return () => {
-      subscription?.unsubscribe();
-    };
-  }, []);
-
-  const handleAuthChange = async (session: Session | null) => {
-    if (session?.user) {
-      const { data: userProfile, error } = await supabase
-        .from("users")
-        .select("*")
-        .eq("id", session.user.id)
-        .single();
-
-      if (error) {
-        console.error("Error fetching user profile:", error.message);
-        setUser(null);
-      } else if (userProfile) {
-        setUser({
-          id: userProfile.id,
-          name: userProfile.name,
-          email: userProfile.email,
-        });
-      }
-    } else {
-      setUser(null);
     }
     setIsLoading(false);
-  };
+  }, []);
 
-  const signUp = async ({ email, password, name }: AuthCredentials) => {
-    const validation = SignUpSchema.safeParse({ email, password, name });
-    if (!validation.success) {
-      return { success: false, error: validation.error.errors[0].message };
-    }
-
-    const sanitizedName = sanitizeText(name!);
-
-    const { data, error } = await supabase.auth.signUp({
-      email,
-      password,
-      options: {
-        data: {
-          name: sanitizedName,
-        }
+  const login = async (name: string, phone: string) => {
+    try {
+      // تعقيم الاسم من الأحرف الخطيرة
+      const sanitizedName = sanitizeText(name);
+      if (!sanitizedName || sanitizedName.length < 2) {
+        return {
+          success: false,
+          error: "الاسم غير صحيح"
+        };
       }
-    });
 
-    if (error) {
+      // التحقق من صحة رقم الهاتف المصري
+      const phoneValidation = validateEgyptianPhone(phone);
+      if (!phoneValidation.isValid) {
+        return { 
+          success: false, 
+          error: phoneValidation.errorMessage || "رقم الهاتف غير صحيح" 
+        };
+      }
+
+      // تطبيع رقم الهاتف للتخزين
+      const normalizedPhone = normalizeEgyptianPhone(phone);
+      
+      // حفظ أو تحديث المستخدم في قاعدة البيانات
+      const { data: existingUser } = await supabase
+        .from("users")
+        .select("*")
+        .eq("phone", normalizedPhone)
+        .maybeSingle();
+
+      let userData;
+      if (existingUser) {
+        // تحديث المستخدم الموجود
+        const { data } = await supabase
+          .from("users")
+          .update({ 
+            name: sanitizedName,
+            is_verified: true 
+          })
+          .eq("phone", normalizedPhone)
+          .select()
+          .single();
+        userData = data;
+      } else {
+        // إنشاء مستخدم جديد
+        const { data } = await supabase
+          .from("users")
+          .insert({
+            name: sanitizedName,
+            phone: normalizedPhone,
+            is_verified: true
+          })
+          .select()
+          .single();
+        userData = data;
+      }
+
+      // حتى إذا فشل جلب بيانات المستخدم من Supabase، قم بإنشاء كائن مستخدم محلياً
+      const verifiedUser: User = {
+        id: userData?.id ?? Date.now().toString(),
+        name: userData?.name ?? sanitizedName,
+        phone: userData?.phone ?? normalizedPhone,
+        is_verified: true,
+      };
+
+      setUser(verifiedUser);
+      localStorage.setItem("tafaneen_user", JSON.stringify(verifiedUser));
+
+      return { success: true };
+    } catch (error: any) {
+      console.error("Login error:", error);
       return { success: false, error: error.message };
     }
-    
-    // Check if the user needs to confirm their email
-    if (data.user && data.user.identities && data.user.identities.length === 0) {
-      return { success: true, requiresConfirmation: true };
-    }
-
-    return { success: true };
   };
-  
-  const logout = async () => {
-    await supabase.auth.signOut();
+
+
+  const logout = () => {
     setUser(null);
-  };
-
-  const signIn = async ({ email, password }: AuthCredentials) => {
-    const validation = SignInSchema.safeParse({ email, password });
-    if (!validation.success) {
-      return { success: false, error: validation.error.errors[0].message };
-    }
-
-    const { error } = await supabase.auth.signInWithPassword({
-      email,
-      password,
-    });
-
-    if (error) {
-      if (error.message === 'Invalid login credentials') {
-        return { success: false, error: 'البريد الإلكتروني أو كلمة المرور غير صحيحة.' };
-      }
-      return { success: false, error: error.message };
-    }
-
-    return { success: true };
+    localStorage.removeItem("tafaneen_user");
   };
 
   return (
-    <AuthContext.Provider value={{ user, isLoading, signUp, signIn, logout }}>
+    <AuthContext.Provider value={{ user, isLoading, login, logout }}>
       {children}
     </AuthContext.Provider>
   );
