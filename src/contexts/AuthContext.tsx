@@ -1,135 +1,97 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
-import { normalizeEgyptianPhone, validateEgyptianPhone } from "@/utils/phoneValidation";
-import { sanitizeText } from "@/utils/security";
+import { User as SupabaseUser } from "@supabase/supabase-js";
 
-interface User {
+interface UserProfile {
   id: string;
   name: string;
-  phone: string;
-  is_verified: boolean;
+  email: string;
+  avatar_url?: string;
 }
 
 interface AuthContextType {
-  user: User | null;
+  user: UserProfile | null;
   isLoading: boolean;
-  login: (name: string, phone: string) => Promise<{ success: boolean; error?: string }>;
-  logout: () => void;
+  loginWithGoogle: () => Promise<{ error?: string }>;
+  logout: () => Promise<void>;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
-  const [user, setUser] = useState<User | null>(null);
+  const [user, setUser] = useState<UserProfile | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const storedUser = localStorage.getItem("tafaneen_user");
-    if (storedUser) {
-      try {
-        const parsedUser = JSON.parse(storedUser);
-        // التحقق من صحة البيانات المخزنة
-        if (parsedUser && 
-            typeof parsedUser.id === 'string' && 
-            typeof parsedUser.name === 'string' && 
-            typeof parsedUser.phone === 'string' &&
-            typeof parsedUser.is_verified === 'boolean') {
-          setUser(parsedUser);
-        } else {
-          // حذف البيانات غير الصحيحة
-          localStorage.removeItem("tafaneen_user");
-        }
-      } catch (error) {
-        console.error("Error parsing stored user data:", error);
-        localStorage.removeItem("tafaneen_user");
+    const { data: { subscription } } = supabase.auth.onAuthStateChange(async (_event, session) => {
+      if (session?.user) {
+        await getUserProfile(session.user);
+      } else {
+        setUser(null);
       }
-    }
-    setIsLoading(false);
+      setIsLoading(false);
+    });
+
+    // Fetch initial session
+    const fetchSession = async () => {
+      const { data: { session } } = await supabase.auth.getSession();
+      if (session?.user) {
+        await getUserProfile(session.user);
+      }
+      setIsLoading(false);
+    };
+
+    fetchSession();
+
+    return () => {
+      subscription?.unsubscribe();
+    };
   }, []);
 
-  const login = async (name: string, phone: string) => {
-    try {
-      // تعقيم الاسم من الأحرف الخطيرة
-      const sanitizedName = sanitizeText(name);
-      if (!sanitizedName || sanitizedName.length < 2) {
-        return {
-          success: false,
-          error: "الاسم غير صحيح"
-        };
-      }
+  const getUserProfile = async (supabaseUser: SupabaseUser) => {
+    const { data: profile, error } = await supabase
+      .from('users')
+      .select('*')
+      .eq('id', supabaseUser.id)
+      .single();
 
-      // التحقق من صحة رقم الهاتف المصري
-      const phoneValidation = validateEgyptianPhone(phone);
-      if (!phoneValidation.isValid) {
-        return { 
-          success: false, 
-          error: phoneValidation.errorMessage || "رقم الهاتف غير صحيح" 
-        };
-      }
-
-      // تطبيع رقم الهاتف للتخزين
-      const normalizedPhone = normalizeEgyptianPhone(phone);
-      
-      // حفظ أو تحديث المستخدم في قاعدة البيانات
-      const { data: existingUser } = await supabase
-        .from("users")
-        .select("*")
-        .eq("phone", normalizedPhone)
-        .maybeSingle();
-
-      let userData;
-      if (existingUser) {
-        // تحديث المستخدم الموجود
-        const { data } = await supabase
-          .from("users")
-          .update({ 
-            name: sanitizedName,
-            is_verified: true 
-          })
-          .eq("phone", normalizedPhone)
-          .select()
-          .single();
-        userData = data;
-      } else {
-        // إنشاء مستخدم جديد
-        const { data } = await supabase
-          .from("users")
-          .insert({
-            name: sanitizedName,
-            phone: normalizedPhone,
-            is_verified: true
-          })
-          .select()
-          .single();
-        userData = data;
-      }
-
-      // حتى إذا فشل جلب بيانات المستخدم من Supabase، قم بإنشاء كائن مستخدم محلياً
-      const verifiedUser: User = {
-        id: userData?.id ?? Date.now().toString(),
-        name: userData?.name ?? sanitizedName,
-        phone: userData?.phone ?? normalizedPhone,
-        is_verified: true,
-      };
-
-      setUser(verifiedUser);
-      localStorage.setItem("tafaneen_user", JSON.stringify(verifiedUser));
-
-      return { success: true };
-    } catch (error: any) {
-      console.error("Login error:", error);
-      return { success: false, error: error.message };
+    if (error) {
+      console.error('Error fetching user profile:', error);
+      // Create a local profile if fetching fails, using Supabase user data
+      setUser({
+        id: supabaseUser.id,
+        name: supabaseUser.user_metadata.full_name || supabaseUser.email || 'No name',
+        email: supabaseUser.email || 'No email',
+        avatar_url: supabaseUser.user_metadata.avatar_url
+      });
+    } else if (profile) {
+      setUser({
+        id: profile.id,
+        name: profile.name || supabaseUser.user_metadata.full_name,
+        email: profile.email,
+        avatar_url: supabaseUser.user_metadata.avatar_url
+      });
     }
   };
 
+  const loginWithGoogle = async () => {
+    const { error } = await supabase.auth.signInWithOAuth({
+      provider: 'google',
+    });
+    if (error) {
+      console.error("Google login error:", error);
+      return { error: error.message };
+    }
+    return {};
+  };
 
-  const logout = () => {
+  const logout = async () => {
+    await supabase.auth.signOut();
     setUser(null);
-    localStorage.removeItem("tafaneen_user");
   };
 
   return (
-    <AuthContext.Provider value={{ user, isLoading, login, logout }}>
+    <AuthContext.Provider value={{ user, isLoading, loginWithGoogle, logout }}>
       {children}
     </AuthContext.Provider>
   );

@@ -135,9 +135,14 @@ export function Header() {
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end" className="w-56 text-right">
-                  <div className="px-3 py-2 border-b">
-                    <p className="text-sm font-medium">{user.name}</p>
-                    <p className="text-xs text-muted-foreground">{user.phone}</p>
+                  <div className="flex items-center gap-3 px-3 py-2 border-b">
+                    {user.avatar_url && (
+                      <img src={user.avatar_url} alt={user.name} className="h-10 w-10 rounded-full" />
+                    )}
+                    <div>
+                      <p className="text-sm font-medium">{user.name}</p>
+                      <p className="text-xs text-muted-foreground">{user.email}</p>
+                    </div>
                   </div>
                   <DropdownMenuItem className="cursor-pointer">
                     <Settings className="h-4 w-4 ml-2" />
