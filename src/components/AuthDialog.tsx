@@ -6,12 +6,6 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import { useAuth } from "@/contexts/AuthContext";
-import { User, Phone, KeyRound } from "lucide-react";
-import {
-  InputOTP,
-  InputOTPGroup,
-  InputOTPSlot,
-} from "@/components/ui/input-otp"
 
 interface AuthDialogProps {
   open: boolean;
@@ -19,110 +13,83 @@ interface AuthDialogProps {
 }
 
 export function AuthDialog({ open, onOpenChange }: AuthDialogProps) {
-  const [step, setStep] = useState<'phone' | 'otp' | 'name'>('phone');
-  const [phone, setPhone] = useState("");
-  const [otp, setOtp] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [name, setName] = useState("");
+  const [isSignUp, setIsSignUp] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
-  const { sendOtp, verifyOtp } = useAuth();
+  const { signUp, signIn } = useAuth(); 
 
-  const handleSendOtp = async () => {
-    if (import.meta.env.DEV) {
-      console.log("Development mode: OTP flow bypassed");
-      toast({
-        title: "وضع التطوير",
-        description: "تم تخطي عملية إرسال الرمز.",
-      });
-      setStep('otp');
-      return;
-    }
-
+  const handleSubmit = async () => {
     setIsLoading(true);
-    const result = await sendOtp(phone);
-    if (result.success) {
-      toast({
-        title: "تم إرسال الرمز",
-        description: "لقد أرسلنا رمز التحقق إلى هاتفك.",
-      });
-      setStep('otp');
+    if (isSignUp) {
+      const result = await signUp({ email, password, name });
+      if (result.success) {
+        toast({
+          title: "نجاح!",
+          description: result.requiresConfirmation 
+            ? "تم إنشاء حسابك. يرجى التحقق من بريدك الإلكتروني للتفعيل."
+            : "تم إنشاء حسابك وتسجيل دخولك.",
+        });
+        // Don't close dialog automatically on sign up, so user can see confirmation message.
+      } else {
+        toast({
+          title: "خطأ في إنشاء الحساب",
+          description: result.error || "حدث خطأ غير متوقع.",
+          variant: "destructive",
+        });
+      }
     } else {
-      toast({
-        title: "خطأ",
-        description: result.error || "فشل إرسال الرمز",
-        variant: "destructive",
-      });
+      const result = await signIn({ email, password });
+      if (result.success) {
+        toast({
+          title: "أهلاً بعودتك!",
+          description: "تم تسجيل دخولك بنجاح.",
+        });
+        onOpenChange(false);
+      } else {
+        toast({
+          title: "خطأ في تسجيل الدخول",
+          description: result.error || "حدث خطأ غير متوقع.",
+          variant: "destructive",
+        });
+      }
     }
     setIsLoading(false);
   };
-
-  const handleVerifyOtp = async () => {
-    setIsLoading(true);
-    const result = await verifyOtp(phone, otp, name);
-    if (result.success) {
-      toast({
-        title: "تم التحقق بنجاح",
-        description: "تم تسجيل دخولك بنجاح.",
-      });
-      onOpenChange(false);
-    } else {
-      toast({
-        title: "خطأ",
-        description: result.error || "فشل التحقق من الرمز",
-        variant: "destructive",
-      });
-    }
-    setIsLoading(false);
-  };
-  
-  const renderStep = () => {
-    console.log("Current step:", step);
-    switch (step) {
-      case 'phone':
-        return (
-          <div className="space-y-4">
-            <Label htmlFor="phone">رقم الهاتف</Label>
-            <Input id="phone" type="tel" value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="01234567890" />
-            <Button onClick={handleSendOtp} disabled={isLoading} className="w-full">
-              {isLoading ? "جاري الإرسال..." : "إرسال الرمز"}
-            </Button>
-          </div>
-        );
-      case 'otp':
-        return (
-          <div className="space-y-4">
-            <Label htmlFor="otp">رمز التحقق</Label>
-            <InputOTP maxLength={6} value={otp} onChange={setOtp} id="otp">
-              <InputOTPGroup>
-                <InputOTPSlot index={0} />
-                <InputOTPSlot index={1} />
-                <InputOTPSlot index={2} />
-                <InputOTPSlot index={3} />
-                <InputOTPSlot index={4} />
-                <InputOTPSlot index={5} />
-              </InputOTPGroup>
-            </InputOTP>
-            <Label htmlFor="name">الاسم (اختياري)</Label>
-            <Input id="name" type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder="اسمك" />
-            <Button onClick={handleVerifyOtp} disabled={isLoading} className="w-full">
-              {isLoading ? "جاري التحقق..." : "التحقق وتسجيل الدخول"}
-            </Button>
-          </div>
-        );
-    }
-  };
-  
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>تسجيل الدخول أو إنشاء حساب</DialogTitle>
+          <DialogTitle>{isSignUp ? "إنشاء حساب جديد" : "تسجيل الدخول"}</DialogTitle>
           <DialogDescription>
-            أدخل رقم هاتفك لإرسال رمز تحقق لمرة واحدة (OTP).
+            {isSignUp ? "أدخل بياناتك لإنشاء حساب." : "أدخل بريدك الإلكتروني وكلمة المرور لتسجيل الدخول."}
           </DialogDescription>
         </DialogHeader>
-        {renderStep()}
+        <div className="space-y-4">
+          {isSignUp && (
+            <div className="space-y-2">
+              <Label htmlFor="name">الاسم</Label>
+              <Input id="name" type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder="اسمك بالكامل" />
+            </div>
+          )}
+          <div className="space-y-2">
+            <Label htmlFor="email">البريد الإلكتروني</Label>
+            <Input id="email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="example@email.com" />
+          </div>
+          <div className="space-y-2">
+            <Label htmlFor="password">كلمة المرور</Label>
+            <Input id="password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="********" />
+          </div>
+          <Button onClick={handleSubmit} disabled={isLoading} className="w-full">
+            {isLoading ? "جاري..." : (isSignUp ? "إنشاء حساب" : "تسجيل الدخول")}
+          </Button>
+          <Button variant="link" onClick={() => setIsSignUp(!isSignUp)} className="w-full">
+            {isSignUp ? "هل لديك حساب بالفعل؟ تسجيل الدخول" : "ليس لديك حساب؟ إنشاء حساب جديد"}
+          </Button>
+        </div>
       </DialogContent>
     </Dialog>
   );
