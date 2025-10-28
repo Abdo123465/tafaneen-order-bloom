@@ -22,8 +22,8 @@ const KashakilSilkA5Page = () => {
   const pageCounts = [
     {
       id: 1,
-      name: "كشاكيل سلك 60",
-      description: "كشكول سلك بحجم A5 - 60 ورقة",
+      name: "كشاكيل سلك 80",
+      description: "كشكول سلك بحجم A5 - 80 ورقة",
       icon: Clipboard,
       color: "bg-gradient-to-br from-blue-500 to-blue-600",
       textColor: "text-blue-600",
@@ -58,15 +58,6 @@ const KashakilSilkA5Page = () => {
     },
     {
       id: 5,
-      name: "كشاكيل سلك 100",
-      description: "كشكول سلك بحجم A5 - 100 ورقة",
-      icon: Clipboard,
-      color: "bg-gradient-to-br from-indigo-500 to-indigo-600",
-      textColor: "text-indigo-600",
-      path: "/notebooks/kashakil-silk-a5/240-pages"
-    }
-    {
-      id: 6,
       name: "كشاكيل سلك 240",
       description: "كشكول سلك بحجم A5 - 240 ورقة",
       icon: Clipboard,
