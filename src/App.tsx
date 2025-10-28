@@ -203,6 +203,9 @@ import KashakilSilkA4_60PagesPage from "./pages/KashakilSilkA4_60PagesPage";
 import KashakilSilkA4_80PagesPage from "./pages/KashakilSilkA4_80PagesPage";
 import KashakilSilkA4_100PagesPage from "./pages/KashakilSilkA4_100PagesPage";
 import KashakilSilkA4_200PagesPage from "./pages/KashakilSilkA4_200PagesPage";
+import KashakilSilkA5_60PagesPage from "./pages/KashakilSilkA5_60PagesPage";
+import KashakilSilkA5_80PagesPage from "./pages/KashakilSilkA5_80PagesPage";
+import KashakilSilkA5_100PagesPage from "./pages/KashakilSilkA5_100PagesPage";
 import KashakilDabousA4Page from "./pages/KashakilDabousA4Page";
 import KashakilDabousA4_60PagesPage from "./pages/KashakilDabousA4_60PagesPage";
 import KashakilDabousA4_80PagesPage from "./pages/KashakilDabousA4_80PagesPage";
@@ -334,6 +337,9 @@ const App = () => (
               <Route path="/notebooks/kashakil/100-pages" element={<Kashakil100PagesPage />} />
               <Route path="/notebooks/kashakil-silk-a4" element={<KashakilSilkA4Page />} />
               <Route path="/notebooks/kashakil-silk-a5" element={<KashakilSilkA5Page />} />
+              <Route path="/notebooks/kashakil-silk-a5/60-pages" element={<KashakilSilkA5_60PagesPage />} />
+              <Route path="/notebooks/kashakil-silk-a5/80-pages" element={<KashakilSilkA5_80PagesPage />} />
+              <Route path="/notebooks/kashakil-silk-a5/100-pages" element={<KashakilSilkA5_100PagesPage />} />
               
               {/* Arabic Notebooks */}
               <Route path="/notebooks/krassat/28-pages/arabic" element={<Arabic28CategoryPage />} />
