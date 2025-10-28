@@ -160,6 +160,7 @@ export function Header() {
                 size="icon" 
                 className=""
                 onClick={() => setIsAuthOpen(true)}
+                data-testid="auth-dialog-trigger"
               >
                 <User className="h-5 w-5" />
                 <span className="sr-only">تسجيل الدخول</span>
@@ -180,6 +181,7 @@ export function Header() {
               <Button 
                 className="btn-tafaneen hidden md:flex"
                 onClick={() => setIsAuthOpen(true)}
+                data-testid="auth-dialog-trigger-desktop"
               >
                 <User className="h-4 w-4 ml-2" />
                 تسجيل الدخول
