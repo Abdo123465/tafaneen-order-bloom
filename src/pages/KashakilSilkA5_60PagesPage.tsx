@@ -27,21 +27,13 @@ const KashakilSilkA5_60PagesPage = () => {
   const products = [
     {
       id: 1,
-      name: "كشكول سلك عربي 60ق A5",
-      price: 35,
+      name: "كشكول سلك انجليزي 60ق A5",
+      price: 30,
       image: "/assets/kashakil-silk-a5-60-arabic.jpg",
-      type: "arabic",
-      description: "كشكول سلك بحجم A5 بسطور عربية - 60 ورقة"
-    },
-    {
-      id: 2,
-      name: "كشكول سلك A5 إنجليزي - 60 ورقة",
-      price: 40,
-      image: "/assets/kashakil-silk-a5-60-english.jpg",
       type: "english",
-      description: "كشكول سلك بحجم A5 بسطور إنجليزية - 60 ورقة"
+      description: "كشكول سلك بحجم A5 بسطور انجليزية - 60 ورقة"
     },
-
+   
   ];
 
   const handleAddToCart = (product: typeof products[0]) => {
