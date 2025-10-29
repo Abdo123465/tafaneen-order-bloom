@@ -39,8 +39,8 @@ const KashakilSilkA5Page = () => {
     },
     {
       id: 3,
-      name: "كشاكيل سلك 100",
-      description: "كشكول سلك بحجم A5 - 100 ورقة",
+      name: "كشاكيل سلك 100-140",
+      description: "كشكول سلك بحجم A5 - 100-140 ورقة",
       icon: Clipboard,
       color: "bg-gradient-to-br from-emerald-500 to-emerald-600",
       textColor: "text-emerald-600",
