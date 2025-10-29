@@ -27,20 +27,13 @@ const KashakilSilkA5_80PagesPage = () => {
   const products = [
     {
       id: 1,
-      name: "كشكول سلك عربي 80ق A5",
-      price: 45,
+      name: "كشكول عربي سلك برافو 80ق A5 نيو ساسكو",
+      price: 33,
       image: "/assets/kashakil-silk-a5-80-arabic.jpg",
       type: "arabic",
       description: "كشكول سلك بحجم A5 بسطور عربية - 80 ورقة"
     },
-    {
-      id: 2,
-      name: "كشكول سلك A5 إنجليزي - 80 ورقة",
-      price: 50,
-      image: "/assets/kashakil-silk-a5-80-english.jpg",
-      type: "english",
-      description: "كشكول سلك بحجم A5 بسطور إنجليزية - 80 ورقة"
-    },
+  
 
   ];
 
