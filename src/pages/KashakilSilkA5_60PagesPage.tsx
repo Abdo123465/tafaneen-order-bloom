@@ -33,6 +33,14 @@ const KashakilSilkA5_60PagesPage = () => {
       type: "english",
       description: "كشكول سلك بحجم A5 بسطور انجليزية - 60 ورقة"
     },
+     {
+      id: 2,
+      name: "كشكول سلك A5 60 ورقه محمد واميره",
+      price: 27,
+      image: "/assets/kashakil-silk-a5-60-English.jpg",
+      type: "arabic",
+      description: "كشكول سلك بحجم A5 بسطور عربي - 60 ورقة"
+    },
    
   ];
 
