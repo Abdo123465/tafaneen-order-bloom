@@ -13,8 +13,8 @@ const KashakilSilkA5_100PagesPage = () => {
   const { toast } = useToast();
 
   useEffect(() => {
-    document.title = "كشاكيل سلك A5 - 100 ورقة | تفانين";
-    const desc = "كشاكيل سلك بحجم A5 - 100 ورقة بأنواع مختلفة";
+    document.title = "كشاكيل سلك A5 - 100-140 ورقة | تفانين";
+    const desc = "كشاكيل سلك بحجم A5 - 100-140 ورقة بأنواع مختلفة";
     let meta = document.querySelector('meta[name="description"]');
     if (!meta) {
       meta = document.createElement('meta');
@@ -27,19 +27,27 @@ const KashakilSilkA5_100PagesPage = () => {
   const products = [
     {
       id: 1,
-      name: "كشكول سلك عربي 100ق A5",
-      price: 55,
+      name: "كشكول سلك 100 ق A5  سما",
+      price: 30,
       image: "/assets/kashakil-silk-a5-100-arabic.jpg",
       type: "arabic",
       description: "كشكول سلك بحجم A5 بسطور عربية - 100 ورقة"
     },
     {
       id: 2,
-      name: "كشكول سلك A5 إنجليزي - 100 ورقة",
-      price: 60,
+      name: "كشكول سلك A5  ق 140 محمد و اميره",
+      price: 50,
       image: "/assets/kashakil-silk-a5-100-english.jpg",
-      type: "english",
-      description: "كشكول سلك بحجم A5 بسطور إنجليزية - 100 ورقة"
+      type: "arabic",
+      description: "كشكول سلك بحجم A5 بسطور عربي - 140 ورقة"
+    },
+     {
+      id: 3,
+      name: "كشكول سلك ديزني نصف ملي 100 ورقه",
+      price: 50,
+      image: "/assets/kashakil-silk-a5-100-small square.jpg",
+      type: "small square",
+      description: "كشكول سلك بحجم A5  مربعات صغيرة - 100 ورقة"
     },
 
   ];
@@ -76,12 +84,12 @@ const KashakilSilkA5_100PagesPage = () => {
               <span className="mx-2">/</span>
               <Link to="/notebooks/kashakil-silk-a5" className="hover:text-primary">كشاكيل سلك A5</Link>
               <span className="mx-2">/</span>
-              <span>100 ورقة</span>
+              <span>100-140 ورقة</span>
             </nav>
 
-            <h1 className="text-2xl lg:text-3xl font-bold mb-4">كشاكيل سلك A5 - 100 ورقة</h1>
+            <h1 className="text-2xl lg:text-3xl font-bold mb-4">كشاكيل سلك A5 - 100-140 ورقة</h1>
             <p className="text-muted-foreground mb-8">
-              مجموعة متنوعة من كشاكيل السلك بحجم A5 بـ 100 ورقة
+              مجموعة متنوعة من كشاكيل السلك بحجم A5 بـ 100-140 ورقة
             </p>
           </div>
 
