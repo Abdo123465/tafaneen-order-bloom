@@ -1,13 +1,8 @@
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
-import { Resend } from "npm:resend@2.0.0";
 import { createClient } from "npm:@supabase/supabase-js@2";
+import { z } from "npm:zod";
 
-// Initialize Resend with the API key from environment variables
-const resendApiKey = Deno.env.get("RESEND_API_KEY");
-if (!resendApiKey) {
-  throw new Error("RESEND_API_KEY is not set in environment variables.");
-}
-const resend = new Resend(resendApiKey);
+// Note: This function simulates SMS sending. No actual SMS is sent.
 
 const appUrl = Deno.env.get("APP_URL") || "http://localhost:3000";
 
@@ -17,11 +12,14 @@ const corsHeaders = {
     "authorization, x-client-info, apikey, content-type",
 };
 
-interface SendEmailRequest {
-  phone: string;
-  verificationCode: string;
-  name: string;
-}
+// Define the schema for the request body
+const SmsVerificationSchema = z.object({
+  phone: z.string().regex(/^\+?[1-9]\d{1,14}$/, "Invalid phone number format"), // E.164 format regex
+  verificationCode: z.string().length(6, "Verification code must be 6 digits"),
+  name: z.string().min(2, "Name must be at least 2 characters"),
+});
+
+type SmsVerificationRequest = z.infer<typeof SmsVerificationSchema>;
 
 const handler = async (req: Request): Promise<Response> => {
   // Handle CORS preflight requests
@@ -41,13 +39,16 @@ const handler = async (req: Request): Promise<Response> => {
       return new Response(JSON.stringify({ error: "Unauthorized" }), { status: 401, headers: { "Content-Type": "application/json", ...corsHeaders } });
     }
 
-    const { phone, verificationCode, name }: SendEmailRequest = await req.json();
-
     // 2. Input Validation
-    if (!phone || !verificationCode || !name) {
-      return new Response(JSON.stringify({ error: "Missing required fields" }), { status: 400, headers: { "Content-Type": "application/json", ...corsHeaders } });
+    const body = await req.json();
+    const validationResult = SmsVerificationSchema.safeParse(body);
+
+    if (!validationResult.success) {
+      return new Response(JSON.stringify({ error: "Invalid input", details: validationResult.error.flatten() }), { status: 400, headers: { "Content-Type": "application/json", ...corsHeaders } });
     }
     
+    const { phone, verificationCode, name }: SmsVerificationRequest = validationResult.data;
+
     console.log("Sending verification SMS for phone:", phone);
 
     // For now, we'll simulate SMS sending by logging the verification code
@@ -72,7 +73,7 @@ const handler = async (req: Request): Promise<Response> => {
       },
     });
   } catch (error: any) {
-    console.error("Error in send-email function:", error);
+    console.error("Error in simulate-sms-verification function:", error);
     return new Response(
       JSON.stringify({ error: error.message }),
       {
