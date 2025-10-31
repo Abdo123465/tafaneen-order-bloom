@@ -16,11 +16,18 @@ const OrderSchema = z.object({
 // In-memory store for rate limiting.
 const userRequestTimestamps = new Map<string, number[]>();
 
+const securityHeaders = {
+  "Content-Security-Policy": "default-src 'self'; frame-ancestors 'none'; object-src 'none';",
+  "X-Frame-Options": "DENY",
+  "X-Content-Type-Options": "nosniff",
+};
+
 serve(async (req) => {
   // Handle CORS preflight requests to allow the browser to make the actual request.
   if (req.method === "OPTIONS") {
     return new Response("ok", {
       headers: {
+        ...securityHeaders,
         "Access-Control-Allow-Origin": "*", // Allow requests from any origin
         "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
       },
@@ -48,7 +55,7 @@ serve(async (req) => {
     if (!user) {
       return new Response(JSON.stringify({ error: "Unauthorized" }), {
         status: 401,
-        headers: { "Content-Type": "application/json" },
+        headers: { ...securityHeaders, "Content-Type": "application/json" },
       });
     }
 
@@ -60,7 +67,7 @@ serve(async (req) => {
     if (requestsInLastMinute >= 10) {
       return new Response(JSON.stringify({ error: "Too many requests" }), {
         status: 429,
-        headers: { "Content-Type": "application/json" },
+        headers: { ...securityHeaders, "Content-Type": "application/json" },
       });
     }
 
@@ -73,7 +80,7 @@ serve(async (req) => {
     if (!items || items.length === 0) {
       return new Response(JSON.stringify({ error: "Cart cannot be empty" }), {
         status: 400,
-        headers: { "Content-Type": "application/json" },
+        headers: { ...securityHeaders, "Content-Type": "application/json" },
       });
     }
 
@@ -102,7 +109,7 @@ serve(async (req) => {
       if (price === undefined) {
         return new Response(JSON.stringify({ error: `Invalid product ID: ${item.id}` }), {
           status: 400,
-          headers: { "Content-Type": "application/json" },
+          headers: { ...securityHeaders, "Content-Type": "application/json" },
         });
       }
       total_price += price * item.quantity;
@@ -146,6 +153,7 @@ serve(async (req) => {
     return new Response(JSON.stringify({ order_id: order.id, total_price }), {
       status: 200,
       headers: {
+        ...securityHeaders,
         "Content-Type": "application/json",
         "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
@@ -159,10 +167,11 @@ serve(async (req) => {
     return new Response(JSON.stringify({ error: errorMessage }), {
       status: 400,
       headers: {
+        ...securityHeaders,
         "Content-Type": "application/json",
         "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
-       },
+      },
     });
   }
 });
