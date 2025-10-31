@@ -28,6 +28,8 @@ export function AuthDialog({ open, onOpenChange }: AuthDialogProps) {
 
   const handleGoogleLogin = async () => {
     setIsLoading(true);
+    // Save the fact that we're trying to log in from the cart
+    localStorage.setItem('post-login-action', 'open-cart');
     const { error } = await loginWithGoogle();
     if (error) {
       toast({
