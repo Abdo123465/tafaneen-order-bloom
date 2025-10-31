@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ShoppingCart, MapPin, Truck, MessageCircle, Download, X, Plus, Minus, Trash2, FileText, Camera } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -69,6 +69,14 @@ export function Cart({ onLoginClick }: CartProps) {
   const [selectedDeliveryMethod, setSelectedDeliveryMethod] = useState<'pickup' | 'delivery'>('pickup');
   const [isOpen, setIsOpen] = useState(false);
   const { toast } = useToast();
+
+  useEffect(() => {
+    const action = localStorage.getItem('post-login-action');
+    if (action === 'open-cart' && user) {
+      setIsOpen(true);
+      localStorage.removeItem('post-login-action');
+    }
+  }, [user]);
   
   // بيانات العميل
   const [customerName, setCustomerName] = useState('');
