@@ -1,6 +1,5 @@
 // src/pages/Kashakil80PagesPage.tsx
 import { useEffect } from "react";
-import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -61,7 +60,6 @@ const Kashakil80PagesPage = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <Header />
       <main>
         <section className="container mx-auto px-4 py-10">
           <div className="mb-8">
@@ -118,7 +116,6 @@ const Kashakil80PagesPage = () => {
           </div>
         </section>
       </main>
-      <Footer />
     </div>
   );
 };
