@@ -1,1 +1,16 @@
-project_id = "bxxmtptvxkgpeqmwkxqv"
+# Supabase project configuration.
+#
+# These are the files that are managed by the Supabase CLI.
+# Do not edit them manually except when required.
+#
+# For more information, please refer to the documentation:
+# https://supabase.com/docs/guides/cli/config
+
+[functions.create-order]
+runtime = "deno-edge"
+
+[functions.send-sms]
+verify_jwt = false
+
+[functions.simulate-sms-verification]
+verify_jwt = false

@@ -8,6 +8,8 @@ import { useCart } from "@/contexts/CartContext";
 import { useToast } from "@/hooks/use-toast";
 import { validateEgyptianPhone, formatEgyptianPhone } from "@/utils/phoneValidation";
 import QRCode from "react-qr-code";
+import { useAuth } from "@/contexts/AuthContext";
+import { supabase } from "@/integrations/supabase/client";
 
 // دالة آمنة لتحميل الملفات
 const downloadFileSafely = (blob: Blob, filename: string): boolean => {
@@ -55,6 +57,8 @@ const sanitizeText = (text: string): string => {
 
 export function Cart() {
   const { items, updateQuantity, removeItem, getTotalPrice, getItemCount, clearCart } = useCart();
+  const { user, session } = useAuth();
+  const [isLoading, setIsLoading] = useState(false);
   const [showOptions, setShowOptions] = useState(false);
   const [showPickupOptions, setShowPickupOptions] = useState(false);
   const [showDeliveryCheckout, setShowDeliveryCheckout] = useState(false);
@@ -151,90 +155,103 @@ export function Cart() {
     return `TF-${timestamp}-${random}`;
   };
 
-  // معالجة إشعار واتساب للاستلام من المكتبة
-  const handleWhatsAppNotification = () => {
-    // تعقيم البيانات قبل التحقق
+    // --- Secure Order Creation ---
+  const createOrder = async () => {
+    // 1. Validate User Authentication
+    if (!user || !session) {
+      toast({
+        title: "يرجى تسجيل الدخول أولاً",
+        description: "يجب تسجيل الدخول لتتمكن من إتمام الطلب.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    // 2. Validate Customer Info
     const sanitizedName = sanitizeText(customerName);
     const sanitizedPhone = sanitizeText(customerPhone);
-    
-    // التحقق من إدخال معلومات العميل
     if (!sanitizedName) {
       setCustomerNameError('يرجى إدخال اسم العميل');
       return;
     }
-    if (!sanitizedPhone) {
-      setCustomerPhoneError('يرجى إدخال رقم الهاتف');
-      return;
-    }
-    
-    // التحقق من صحة رقم الهاتف المصري
     const phoneValidation = validateEgyptianPhone(sanitizedPhone);
     if (!phoneValidation.isValid) {
-      setCustomerPhoneError(phoneValidation.errorMessage || "يرجى إدخال رقم هاتف مصري صحيح");
+      setCustomerPhoneError(phoneValidation.errorMessage || "رقم هاتف غير صحيح");
       return;
     }
-    
+
+    setIsLoading(true);
+
     try {
-      const invoiceNumber = generateInvoiceNumber();
-      const today = new Date();
-      const date = today.toLocaleDateString('ar-EG');
-      const time = today.toLocaleTimeString('ar-EG', { hour: '2-digit', minute: '2-digit' });
-      
-      // تنسيق تفاصيل المنتجات بشكل منظم مع تعقيم البيانات
-      const orderItems = items.map((item, index) => {
-        const sanitizedItemName = sanitizeText(item.name);
-        return `${index + 1}. ${sanitizedItemName}\nالكمية: ${item.quantity}\nسعر الوحدة: ${item.price} ج.م\nالمجموع: ${item.price * item.quantity} ج.م`;
-      }).join('\n\n');
-      
-      const formattedPhone = formatEgyptianPhone(sanitizedPhone);
-      
-      const message = `فاتورة طلب - مكتبة تفانين
-معلومات الفاتورة:
-رقم الفاتورة: ${invoiceNumber}
-التاريخ: ${date}
-الوقت: ${time}
-طريقة الاستلام: استلام من المكتبة
-معلومات العميل:
-الاسم: ${sanitizedName}
-رقم الهاتف: ${formattedPhone}
-المنتجات المطلوبة:
-${orderItems}
-الإجمالي الكلي: ${totalPrice} ج.م
-موقع الاستلام:
-مكتبة تفانين - 122 ز البوابة الاولي حدائق الاهرام اما اسماك بورسعيد بجوار المول القديم
-أوقات الاستلام: من 10 صباحاً حتى 5 مساءً
-للاستفسار: 01026274235
-شكراً لثقتك بمكتبة تفانين!`;
-      
-      // فتح واتساب بطريقة آمنة
-      const phoneNumber = "201026274235";
-      const encodedMessage = encodeURIComponent(message);
-      const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
-      
-      // التحقق من أن الرابط آمن
-      if (whatsappUrl.startsWith('https://wa.me/')) {
-        window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
-      } else {
-        throw new Error('Invalid WhatsApp URL');
+      // 3. Prepare Payload for Edge Function
+      const orderPayload = {
+        items: items.map(item => ({ id: item.id, quantity: item.quantity })),
+      };
+
+      // 4. Invoke the Secure Edge Function
+      const { data, error } = await supabase.functions.invoke("create-order", {
+        body: orderPayload,
+        headers: {
+          Authorization: `Bearer ${session.access_token}`,
+        },
+      });
+
+      if (error) {
+        throw new Error(error.message);
       }
       
+      // 5. Handle Successful Order Creation
       toast({
-        title: "تم إرسال الإشعار",
-        description: "تم فتح واتساب لإرسال تفاصيل الفاتورة",
+        title: "تم إنشاء الطلب بنجاح!",
+        description: `رقم طلبك هو: ${data.order_id}.`,
       });
       
-      // إعادة تعيين حقول العميل بعد الإرسال
-      setCustomerName("");
-      setCustomerPhone("");
-      setShowPickupOptions(false);
-      setShowOptions(false);
-    } catch (error) {
-      console.error('خطأ في إرسال الإشعار:', error);
+      // 6. Proceed with WhatsApp notification using server-verified data
+      sendWhatsAppNotification(data.order_id, data.total_price);
+
+      // 7. Clear cart and reset state
+      clearCart();
+      setIsOpen(false);
+
+    } catch (err) {
+      console.error("Order creation failed:", err);
       toast({
-        title: "خطأ في الإرسال",
-        description: "حدث خطأ أثناء محاولة إرسال الإشعار",
+        title: "فشل إنشاء الطلب",
+        description: "حدث خطأ أثناء معالجة طلبك. يرجى المحاولة مرة أخرى.",
         variant: "destructive",
       });
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const sendWhatsAppNotification = (orderId: string, serverTotalPrice: number) => {
+    const sanitizedName = sanitizeText(customerName);
+    const sanitizedPhone = sanitizeText(customerPhone);
+
+    const orderItems = items.map((item, index) => {
+      const sanitizedItemName = sanitizeText(item.name);
+      return `${index + 1}. ${sanitizedItemName}\nالكمية: ${item.quantity}\nسعر الوحدة: ${item.price} ج.م`;
+    }).join('\n\n');
+
+    const message = `*طلب جديد من متجر تفانين*
+*رقم الطلب:* ${orderId}
+*العميل:* ${sanitizedName}
+*الهاتف:* ${formatEgyptianPhone(sanitizedPhone)}
+---
+*تفاصيل الطلب:*
+${orderItems}
+---
+*الإجمالي (تم التحقق منه):* ${serverTotalPrice} ج.م
+*طريقة الاستلام:* ${selectedDeliveryMethod === 'delivery' ? 'توصيل للمنزل' : 'استلام من المكتبة'}
+`;
+
+    const phoneNumber = "201026274235"; // Business WhatsApp number
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+
+    if (whatsappUrl.startsWith('https://wa.me/')) {
+      window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
     }
   };
 
@@ -607,12 +624,19 @@ ${orderItems}
               {/* الخيارات الرئيسية */}
               {!showOptions && !showPickupOptions && !showDeliveryCheckout && (
                 <div className="space-y-2">
-                  <Button 
-                    className="w-full btn-tafaneen"
-                    onClick={() => setShowOptions(true)}
-                  >
-                    إتمام الطلب
-                  </Button>
+                  {user ? (
+                    <Button
+                      className="w-full btn-tafaneen"
+                      onClick={() => setShowOptions(true)}
+                      disabled={isLoading}
+                    >
+                      {isLoading ? "جاري المعالجة..." : "إتمام الطلب"}
+                    </Button>
+                  ) : (
+                    <div className="text-center p-2 rounded-md bg-yellow-100 border border-yellow-300 text-yellow-800">
+                      يرجى <a href="#" onClick={(e) => { e.preventDefault(); (document.querySelector('[data-testid="auth-dialog-trigger"]') as HTMLButtonElement)?.click(); }} className="font-bold underline">تسجيل الدخول</a> للمتابعة.
+                    </div>
+                  )}
                 </div>
               )}
               
@@ -853,47 +877,11 @@ ${orderItems}
                           variant="outline"
                           className="w-full flex items-center gap-2"
                           style={{ backgroundColor: '#25D366', color: 'white' }}
-                          onClick={() => {
-                            try {
-                              // إرسال واتساب مع التفاصيل الكاملة
-                              const invoiceNumber = generateInvoiceNumber();
-                              const today = new Date();
-                              const date = today.toLocaleDateString('ar-EG');
-                              const time = today.toLocaleTimeString('ar-EG', { hour: '2-digit', minute: '2-digit' });
-                              
-                              const orderItems = items.map((item, index) => {
-                                const sanitizedItemName = sanitizeText(item.name);
-                                return `${index + 1}. ${sanitizedItemName}\nالكمية: ${item.quantity}\nسعر الوحدة: ${item.price} ج.م\nالمجموع: ${item.price * item.quantity} ج.م`;
-                              }).join('\n\n');
-                              
-                              const payLabel = paymentMethod === 'cod' ? 'الدفع عند الاستلام' : paymentMethod === 'vodafone' ? 'فودافون كاش' : 'إنستا باي';
-                              const payLink = paymentMethod === 'vodafone'
-                                ? 'http://vf.eg/vfcash?id=mt&qrId=E9kZZk&qrString=ac04f93ecff3b89619c576f2fa4436a0872aca3a6ccdfb5a8f6ef3a6b92ebeb7'
-                                : paymentMethod === 'instapay'
-                                ? 'https://ipn.eg/C/Q/mosaadhosny7890/instapay?ISIGN=23052603MEUCIQC/ACli2Pcxq8/e/to1eqMfNxYCj4wQd8l/o2KSJTg1LwIgScy/K3IM2HEEei0Zkzqru9bBWjuFwgsbjHL1q0iffKA='
-                                : '';
-                              
-                              const message = `فاتورة طلب - مكتبة تفانين\n\nمعلومات الفاتورة:\nرقم الفاتورة: ${invoiceNumber}\nالتاريخ: ${date}\nالوقت: ${time}\nطريقة الاستلام: توصيل للمنزل\n\nمعلومات العميل:\nالاسم: ${sanitizeText(customerName)}\nرقم الهاتف: ${formatEgyptianPhone(customerPhone)}\nالعنوان: ${sanitizeText(areaName)}, عمارة ${sanitizeText(buildingNumber)}, شقة ${sanitizeText(apartmentNumber)}, الدور ${sanitizeText(floor)}\nالمنطقة/البوابة: ${sanitizeText(area)}\n\nالمنتجات المطلوبة:\n${orderItems}\n\nرسوم التوصيل: ${isFreeDelivery ? 'مجاني ✨' : actualDeliveryFee + ' ج.م'}\n${paymentMethod === 'vodafone' ? 'رسوم فودافون كاش (1%): ' + surcharge + ' ج.م\n' : ''}الإجمالي النهائي: ${finalTotal} ج.م\n\nطريقة الدفع: ${payLabel}${payLink ? '\nرابط الدفع: ' + payLink : ''}\n\nللاستفسار: 01026274235`;
-                              
-                              const phoneNumber = '201026274235';
-                              const whatsappWeb = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-                              
-                              // التحقق من أن الرابط آمن
-                              if (whatsappWeb.startsWith('https://wa.me/')) {
-                                window.open(whatsappWeb, '_blank', 'noopener,noreferrer');
-                              }
-                            } catch (error) {
-                              console.error('خطأ في إرسال الإشعار:', error);
-                              toast({
-                                title: "خطأ في الإرسال",
-                                description: "حدث خطأ أثناء محاولة إرسال الإشعار",
-                                variant: "destructive",
-                              });
-                            }
-                          }}
+                          onClick={createOrder}
+                          disabled={isLoading}
                         >
                           <MessageCircle className="h-4 w-4" />
-                          إرسال الإشعار إلى المكتبة
+                          {isLoading ? "جاري الإنشاء..." : "إنشاء الطلب وإرسال الإشعار"}
                         </Button>
                         
                         <Button variant="outline" className="w-full flex items-center gap-2" onClick={generateHTMLInvoice}>
@@ -955,11 +943,11 @@ ${orderItems}
                     variant="outline"
                     className="w-full flex items-center gap-2"
                     style={{ backgroundColor: '#25D366', color: 'white' }}
-                    onClick={handleWhatsAppNotification}
-                    disabled={!!customerPhoneError}
+                    onClick={createOrder}
+                    disabled={!!customerPhoneError || isLoading}
                   >
                     <MessageCircle className="h-4 w-4" />
-                    إرسال الإشعار عبر واتساب
+                    {isLoading ? "جاري الإنشاء..." : "إنشاء الطلب وإرسال الإشعار"}
                   </Button>
                   
                   <Button
