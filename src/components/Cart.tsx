@@ -55,7 +55,11 @@ const sanitizeText = (text: string): string => {
     .trim();
 };
 
-export function Cart() {
+interface CartProps {
+  onLoginClick: () => void;
+}
+
+export function Cart({ onLoginClick }: CartProps) {
   const { items, updateQuantity, removeItem, getTotalPrice, getItemCount, clearCart } = useCart();
   const { user, session } = useAuth();
   const [isLoading, setIsLoading] = useState(false);
@@ -634,7 +638,7 @@ ${orderItems}
                     </Button>
                   ) : (
                     <div className="text-center p-2 rounded-md bg-yellow-100 border border-yellow-300 text-yellow-800">
-                      يرجى <a href="#" onClick={(e) => { e.preventDefault(); (document.querySelector('[data-testid="auth-dialog-trigger"]') as HTMLButtonElement)?.click(); }} className="font-bold underline">تسجيل الدخول</a> للمتابعة.
+                      يرجى <a href="#" onClick={(e) => { e.preventDefault(); onLoginClick(); }} className="font-bold underline">تسجيل الدخول</a> للمتابعة.
                     </div>
                   )}
                 </div>
