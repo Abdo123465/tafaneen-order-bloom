@@ -171,7 +171,7 @@ export function Header() {
               </Button>
             )}
             {/* Shopping Cart */}
-            <Cart />
+            <Cart onLoginClick={() => setIsAuthOpen(true)} />
             {/* Login/Logout Button - Desktop only */}
             {user ? (
               <Button 
