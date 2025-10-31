@@ -9,8 +9,14 @@ interface UserProfile {
   avatar_url?: string;
 }
 
+import { Session } from "@supabase/supabase-js";
+
+// ... (existing imports)
+
 interface AuthContextType {
   user: UserProfile | null;
+  session: Session | null;
+  isAdmin: boolean;
   isLoading: boolean;
   loginWithGoogle: () => Promise<{ error?: string }>;
   logout: () => Promise<void>;
@@ -20,14 +26,18 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [user, setUser] = useState<UserProfile | null>(null);
+  const [session, setSession] = useState<Session | null>(null);
+  const [isAdmin, setIsAdmin] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const { data: { subscription } } = supabase.auth.onAuthStateChange(async (_event, session) => {
+      setSession(session);
       if (session?.user) {
         await getUserProfile(session.user);
       } else {
         setUser(null);
+        setIsAdmin(false);
       }
       setIsLoading(false);
     });
@@ -57,20 +67,22 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
     if (error) {
       console.error('Error fetching user profile:', error);
-      // Create a local profile if fetching fails, using Supabase user data
+      setIsAdmin(false); // Default to false on error
       setUser({
         id: supabaseUser.id,
         name: supabaseUser.user_metadata.full_name || supabaseUser.email || 'No name',
         email: supabaseUser.email || 'No email',
-        avatar_url: supabaseUser.user_metadata.avatar_url
+        avatar_url: supabaseUser.user_metadata.avatar_url,
       });
     } else if (profile) {
       setUser({
         id: profile.id,
         name: profile.name || supabaseUser.user_metadata.full_name,
         email: profile.email,
-        avatar_url: supabaseUser.user_metadata.avatar_url
+        avatar_url: supabaseUser.user_metadata.avatar_url,
       });
+      // Set the admin status based on the user's role from the database.
+      setIsAdmin(profile.role === 'admin');
     }
   };
 
@@ -88,10 +100,11 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const logout = async () => {
     await supabase.auth.signOut();
     setUser(null);
+    setIsAdmin(false);
   };
 
   return (
-    <AuthContext.Provider value={{ user, isLoading, loginWithGoogle, logout }}>
+    <AuthContext.Provider value={{ user, session, isAdmin, isLoading, loginWithGoogle, logout }}>
       {children}
     </AuthContext.Provider>
   );
