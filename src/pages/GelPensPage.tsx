@@ -1,6 +1,4 @@
 import { useEffect } from "react";
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { useCart } from "@/contexts/CartContext";
 import { ArrowRight } from "lucide-react";
@@ -77,7 +75,6 @@ const GelPensPage = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <Header />
       <main className="container mx-auto px-4 py-10">
         {/* Breadcrumb */}
         <nav className="flex items-center gap-2 text-sm text-muted-foreground mb-8">
@@ -128,7 +125,6 @@ const GelPensPage = () => {
           </Button>
         </div>
       </main>
-      <Footer />
     </div>
   );
 };

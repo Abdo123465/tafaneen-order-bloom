@@ -1,6 +1,4 @@
 import { useEffect } from "react";
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
 import { Categories as CategoriesSection } from "@/components/Categories";
 
 const CategoriesPage = () => {
@@ -18,7 +16,6 @@ const CategoriesPage = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <Header />
       <main>
         <section className="container mx-auto px-4 py-10">
           <h1 className="text-2xl lg:text-3xl font-bold mb-6">جميع الفئات</h1>
@@ -26,7 +23,6 @@ const CategoriesPage = () => {
         </section>
         <CategoriesSection />
       </main>
-      <Footer />
     </div>
   );
 };

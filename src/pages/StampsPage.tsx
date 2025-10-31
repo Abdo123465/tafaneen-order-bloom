@@ -1,7 +1,5 @@
 // src/pages/StampsPage.tsx
 import { useEffect } from "react";
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ArrowRight, Stamp } from "lucide-react";
@@ -43,7 +41,6 @@ export default function StampsPage() {
 
   return (
     <div className="min-h-screen bg-background">
-      <Header />
       <main className="container mx-auto px-4 py-10">
         <nav className="flex items-center gap-2 text-sm text-muted-foreground mb-8">
           <Link to="/" className="hover:text-primary">الرئيسية</Link>
@@ -94,7 +91,6 @@ export default function StampsPage() {
           </Button>
         </div>
       </main>
-      <Footer />
     </div>
   );
 }

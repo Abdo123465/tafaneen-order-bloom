@@ -1,6 +1,5 @@
 // src/pages/Kashakil80NineLinesDisneyPage.tsx
 import { useEffect } from "react";
-import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -39,7 +38,6 @@ const Kashakil80NineLinesDisneyPage = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <Header />
 
       {/* خلفية كاملة مطابقة */}
       <div
@@ -129,7 +127,6 @@ const Kashakil80NineLinesDisneyPage = () => {
           </div>
         </main>
       </div>
-      <Footer />
     </div>
   );
 };

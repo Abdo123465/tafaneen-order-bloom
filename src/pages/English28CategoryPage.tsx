@@ -1,6 +1,4 @@
 import { useEffect } from "react";
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "react-router-dom";
@@ -42,7 +40,6 @@ const English28CategoryPage = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <Header />
       <main>
         <section className="container mx-auto px-4 py-10">
           <div className="mb-8">
@@ -107,7 +104,6 @@ const English28CategoryPage = () => {
           </div>
         </section>
       </main>
-      <Footer />
     </div>
   );
 };

@@ -1,6 +1,4 @@
 import { useEffect } from "react";
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { PenCategories } from "@/components/PenCategories";
 import { useCart } from "@/contexts/CartContext";
@@ -27,7 +25,6 @@ const PensPage = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <Header />
       <main className="container mx-auto px-4 py-10">
         <div className="text-center mb-12">
           <h1 className="text-3xl lg:text-4xl font-bold mb-4">الأقلام ومستلزمات الكتابة</h1>
@@ -40,7 +37,6 @@ const PensPage = () => {
         <PenCategories />
 
       </main>
-      <Footer />
     </div>
   );
 };

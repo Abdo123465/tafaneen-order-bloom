@@ -1,7 +1,5 @@
 // src/pages/English40LinesDisneyPage.tsx
 import { useEffect } from "react";
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { useCart } from "@/contexts/CartContext";
@@ -39,7 +37,6 @@ const English40LinesDisneyPage = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <Header />
 
       {/* خلفية كاملة مطابقة لصفحات ديزني */}
       <div
@@ -126,7 +123,6 @@ const English40LinesDisneyPage = () => {
           </div>
         </main>
       </div>
-      <Footer />
     </div>
   );
 };
