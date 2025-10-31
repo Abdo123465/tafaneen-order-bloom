@@ -61,7 +61,7 @@ interface CartProps {
 
 export function Cart({ onLoginClick }: CartProps) {
   const { items, updateQuantity, removeItem, getTotalPrice, getItemCount, clearCart } = useCart();
-  const { user, session } = useAuth();
+  const { user, session, isLoading: isAuthLoading } = useAuth();
   const [isLoading, setIsLoading] = useState(false);
   const [showOptions, setShowOptions] = useState(false);
   const [showPickupOptions, setShowPickupOptions] = useState(false);
@@ -636,7 +636,11 @@ ${orderItems}
               {/* الخيارات الرئيسية */}
               {!showOptions && !showPickupOptions && !showDeliveryCheckout && (
                 <div className="space-y-2">
-                  {user ? (
+                  {isAuthLoading ? (
+                    <Button className="w-full" disabled>
+                      جاري التحقق...
+                    </Button>
+                  ) : user ? (
                     <Button
                       className="w-full btn-tafaneen"
                       onClick={() => setShowOptions(true)}
