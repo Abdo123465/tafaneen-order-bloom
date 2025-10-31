@@ -1,5 +1,7 @@
 // src/pages/Kashakil60EnglishDisneyPage.tsx
 import { useEffect } from "react";
+import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { useCart } from "@/contexts/CartContext";
@@ -37,6 +39,7 @@ const Kashakil60EnglishDisneyPage = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <Header />
 
       {/* خلفية كاملة مطابقة */}
       <div
@@ -126,6 +129,7 @@ const Kashakil60EnglishDisneyPage = () => {
           </div>
         </main>
       </div>
+      <Footer />
     </div>
   );
 };

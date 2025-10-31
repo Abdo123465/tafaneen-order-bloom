@@ -1,5 +1,7 @@
 // src/pages/StaplersPage.tsx
 import { useEffect, useState } from "react";
+import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { useCart } from "@/contexts/CartContext";
 import { ArrowRight, Star, Award, Image as ImageIcon, Zap } from "lucide-react";
@@ -57,6 +59,7 @@ const StaplersPage = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <Header />
       <main className="container mx-auto px-4 py-10">
         {/* Breadcrumb */}
         <nav className="flex items-center gap-2 text-sm text-muted-foreground mb-8">
@@ -180,6 +183,7 @@ const StaplersPage = () => {
           </Button>
         </div>
       </main>
+      <Footer />
     </div>
   );
 };

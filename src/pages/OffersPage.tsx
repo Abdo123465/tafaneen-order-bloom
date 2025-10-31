@@ -1,4 +1,6 @@
 import { useEffect } from "react";
+import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
 import { OffersCarousel } from "@/components/OffersCarousel";
 
 const allOffers = [
@@ -20,6 +22,7 @@ const OffersPage = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <Header />
       <main>
         <section className="container mx-auto px-4 py-10">
           <h1 className="text-2xl lg:text-3xl font-bold mb-6">العروض الخاصة</h1>
@@ -36,6 +39,7 @@ const OffersPage = () => {
           </div>
         </section>
       </main>
+      <Footer />
     </div>
   );
 };

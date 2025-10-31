@@ -1,5 +1,7 @@
 // src/pages/English40NormalPage.tsx
 import { useEffect } from "react";
+import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { useCart } from "@/contexts/CartContext";
@@ -37,6 +39,7 @@ const English40NormalPage = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <Header />
       <main className="container mx-auto px-4 py-10">
         <nav className="flex items-center gap-2 text-sm text-muted-foreground mb-8">
           <Link to="/" className="hover:text-primary">الرئيسية</Link>
@@ -116,6 +119,7 @@ const English40NormalPage = () => {
           </Button>
         </div>
       </main>
+      <Footer />
     </div>
   );
 };

@@ -169,13 +169,11 @@ export function Cart({ onLoginClick }: CartProps) {
 
     // --- Secure Order Creation ---
   const createOrder = async () => {
-    // 1. Actively fetch the current session to ensure fresh auth data
-    const { data: { session: currentSession }, error: sessionError } = await supabase.auth.getSession();
-
-    if (sessionError || !currentSession) {
+    // 1. Validate User Authentication
+    if (!user || !session) {
       toast({
         title: "يرجى تسجيل الدخول أولاً",
-        description: "حدث خطأ في التحقق من جلستك. يرجى تسجيل الدخول مرة أخرى.",
+        description: "يجب تسجيل الدخول لتتمكن من إتمام الطلب.",
         variant: "destructive",
       });
       return;
@@ -206,7 +204,7 @@ export function Cart({ onLoginClick }: CartProps) {
       const { data, error } = await supabase.functions.invoke("create-order", {
         body: orderPayload,
         headers: {
-          Authorization: `Bearer ${currentSession.access_token}`,
+          Authorization: `Bearer ${session.access_token}`,
         },
       });
 

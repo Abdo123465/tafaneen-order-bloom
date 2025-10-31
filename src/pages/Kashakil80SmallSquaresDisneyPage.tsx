@@ -1,5 +1,7 @@
 // src/pages/Kashakil80SmallSquaresDisneyPage.tsx
 import { useEffect } from "react";
+import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { useCart } from "@/contexts/CartContext";
@@ -38,6 +40,7 @@ const Kashakil80SmallSquaresDisneyPage = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <Header />
 
       {/* خلفية كاملة مطابقة */}
       <div
@@ -127,6 +130,7 @@ const Kashakil80SmallSquaresDisneyPage = () => {
           </div>
         </main>
       </div>
+      <Footer />
     </div>
   );
 };
