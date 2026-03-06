@@ -92,72 +92,45 @@ export function Footer() {
   };
 
   return (
-    <footer className="bg-gradient-to-br from-primary-dark to-primary text-white">
-      {/* Newsletter Section */}
-      <div className="border-b border-white/10">
-        <div className="container mx-auto px-4 py-12">
-          <div className="text-center max-w-2xl mx-auto">
-            <h3 className="text-2xl font-bold mb-4">
-              اشترك عبر واتساب لتنبيهات المنتجات الجديدة
-            </h3>
-            <p className="text-white/80 mb-6">
-              سجّل رقم واتساب الخاص بك لتصلك إشعارات فورية عند إضافة منتجات جديدة في تفانين.
-            </p>
-            <form onSubmit={handleSubscribe} className="max-w-md mx-auto">
-              <div className="flex gap-3">
-                <Input
-                  placeholder="مثال: 01012345678 أو +20 10xxxxxxxx"
-                  className="bg-white/10 border-white/20 text-white placeholder:text-white/60"
-                  dir="ltr"
-                  value={whatsAppNumber}
-                  onChange={(e) => setWhatsAppNumber(e.target.value)}
-                />
-                <Button type="submit" disabled={isSubmitting} variant="secondary" className="bg-white text-primary hover:bg-white/90">
-                  {isSubmitting ? 'جارٍ الاشتراك...' : 'اشتراك عبر واتساب'}
-                </Button>
-              </div>
-              {phoneError && (
-                <div className="text-red-200 text-sm mt-2 text-right">{phoneError}</div>
-              )}
-              <div className="text-white/60 text-xs mt-3 text-right">
-                بالاشتراك، توافق على تلقي تنبيهات عبر واتساب من تفانين. يمكنك إلغاء الاشتراك في أي وقت.
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
+    <footer className="bg-gradient-to-br from-primary-dark via-primary to-orange-600 text-white relative overflow-hidden">
+      {/* Background Decor */}
+      <div className="absolute top-0 left-0 w-full h-24 bg-gradient-to-b from-black/10 to-transparent"></div>
 
       {/* Main Footer Content */}
-      <div className="container mx-auto px-4 py-12">
-        <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-8">
+      <div className="container mx-auto px-4 py-20 relative z-10">
+        <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-12">
           {/* Brand Section */}
-          <div className="lg:col-span-2">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="bg-white/10 p-3 rounded-xl">
-                <span className="text-2xl">📚</span>
+          <div className="lg:col-span-2 space-y-8">
+            <div className="flex items-center gap-4 group cursor-pointer">
+              <div className="bg-white/20 backdrop-blur-md p-4 rounded-2xl group-hover:scale-110 duration-500 shadow-2xl">
+                <span className="text-3xl">📚</span>
               </div>
               <div>
-                <h2 className="text-2xl font-bold">تفانين</h2>
-                <p className="text-white/80 text-sm">للكتب والقرطاسية</p>
+                <h2 className="text-3xl font-black tracking-tight">تفانين</h2>
+                <p className="text-white/70 text-sm font-bold uppercase tracking-widest">للكتب والقرطاسية</p>
               </div>
             </div>
             
-            <p className="text-white/80 mb-6 leading-relaxed">
-              أطلب كتابك اونلاين يصلك لباب البيت. متجر إلكتروني متخصص في الكتب والقرطاسية.
+            <p className="text-white/80 text-lg leading-relaxed font-medium">
+              أطلب كتابك اونلاين يصلك لباب البيت. متجر إلكتروني متخصص في الكتب والقرطاسية، نسعى دائماً لتقديم الأفضل لعملائنا.
             </p>
 
             {/* Contact Info */}
-            <div className="space-y-3">
+            <div className="space-y-4 pt-4 border-t border-white/10">
               <button 
                 onClick={callPhone}
-                className="flex items-center gap-3 hover:underline cursor-pointer"
+                className="flex items-center gap-4 group bg-white/10 hover:bg-white/20 p-3 rounded-2xl transition-all duration-300 w-fit"
               >
-                <Phone className="h-4 w-4" />
-                <span className="text-sm">01026274235</span>
+                <div className="bg-white/20 p-2 rounded-xl">
+                  <Phone className="h-5 w-5" />
+                </div>
+                <span className="text-lg font-bold">01026274235</span>
               </button>
-              <div className="flex items-center gap-3">
-                <MapPin className="h-4 w-4" />
-                <span className="text-sm">122 ز البوابة الاولي حدائق الاهرام، الجيزة، مصر</span>
+              <div className="flex items-center gap-4 bg-white/10 p-3 rounded-2xl w-fit">
+                <div className="bg-white/20 p-2 rounded-xl">
+                  <MapPin className="h-5 w-5" />
+                </div>
+                <span className="text-base font-medium">122 ز البوابة الاولي حدائق الاهرام، الجيزة، مصر</span>
               </div>
             </div>
           </div>

@@ -3,7 +3,8 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { TransitionGroup, CSSTransition } from "react-transition-group";
 import { CartProvider } from "@/contexts/CartContext";
 import { AuthProvider } from "@/contexts/AuthContext";
 
@@ -215,15 +216,19 @@ import KashakilDabousA4_200PagesPage from "./pages/KashakilDabousA4_200PagesPage
 
 const queryClient = new QueryClient();
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <AuthProvider>
-      <CartProvider>
-        <TooltipProvider>
-          <Toaster />
-          <Sonner />
-          <BrowserRouter>
-            <Routes>
+const AppContent = () => {
+  const location = useLocation();
+
+  return (
+    <TransitionGroup className="relative">
+      <CSSTransition
+        key={location.key}
+        classNames="page"
+        timeout={400}
+        unmountOnExit
+      >
+        <div className="w-full min-h-screen">
+          <Routes location={location}>
               {/* Main Pages */}
               <Route path="/" element={<Index />} />
               <Route path="/search" element={<SearchPage />} />
@@ -457,6 +462,21 @@ const App = () => (
               {/* 404 Page */}
               <Route path="*" element={<NotFound />} />
             </Routes>
+          </div>
+      </CSSTransition>
+    </TransitionGroup>
+  );
+};
+
+const App = () => (
+  <QueryClientProvider client={queryClient}>
+    <AuthProvider>
+      <CartProvider>
+        <TooltipProvider>
+          <Toaster />
+          <Sonner />
+          <BrowserRouter>
+            <AppContent />
           </BrowserRouter>
         </TooltipProvider>
       </CartProvider>
