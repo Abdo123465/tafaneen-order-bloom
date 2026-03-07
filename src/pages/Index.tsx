@@ -18,15 +18,19 @@ const Index = () => {
         <Hero />
 
         {/* Playful Divider */}
-        <div className="h-24 bg-gradient-to-b from-transparent to-white/10"></div>
+        <div className="h-12 bg-gradient-to-b from-transparent to-white/5"></div>
 
-        <FeaturedProducts />
-        <LatestProducts />
-        <OffersCarousel />
-
-        <div className="py-20">
+        <div className="py-12">
           <Categories />
         </div>
+
+        <FeaturedProducts />
+
+        <div className="py-12">
+          <OffersCarousel />
+        </div>
+
+        <LatestProducts />
       </main>
 
       <Footer />
