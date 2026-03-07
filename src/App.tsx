@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { CartProvider } from "@/contexts/CartContext";
 import { AuthProvider } from "@/contexts/AuthContext";
+import { useEffect } from "react";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import CategoriesPage from "./pages/CategoriesPage";
@@ -46,6 +47,20 @@ import PushPinsPage from "./pages/PushPinsPage";
 
 const queryClient = new QueryClient();
 
+// Scroll restoration component to prevent auto-scroll on page load
+function ScrollRestoration() {
+  useEffect(() => {
+    // Prevent browser's default scroll restoration
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
+    }
+    // Always scroll to top on initial load
+    window.scrollTo(0, 0);
+  }, []);
+
+  return null;
+}
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <AuthProvider>
@@ -54,6 +69,7 @@ const App = () => (
           <Toaster />
           <Sonner />
           <BrowserRouter>
+            <ScrollRestoration />
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/categories" element={<CategoriesPage />} />
