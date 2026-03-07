@@ -4,6 +4,7 @@
 @tailwind utilities;
 
 /* Tafaneen Order Wizard Design System - Arabic RTL E-commerce Platform */
+/* Glassmorphism Theme with Aurora Animated Gradients */
 
 @layer base {
   :root {
@@ -287,6 +288,117 @@
 
   .slide-in-right {
     animation: slideInRight 0.5s ease-out;
+  }
+
+  /* Aurora Animated Gradient Background */
+  .aurora-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      125deg,
+      hsl(var(--primary) / 0.15) 0%,
+      hsl(var(--accent) / 0.1) 25%,
+      hsl(var(--secondary) / 0.15) 50%,
+      hsl(var(--primary-light) / 0.1) 75%,
+      hsl(var(--primary) / 0.15) 100%
+    );
+    background-size: 400% 400%;
+    animation: auroraShift 15s ease infinite;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .aurora-2 {
+    background: linear-gradient(
+      205deg,
+      hsl(var(--accent) / 0.1) 0%,
+      hsl(var(--primary) / 0.15) 25%,
+      hsl(var(--secondary) / 0.1) 50%,
+      hsl(var(--primary-light) / 0.15) 75%,
+      hsl(var(--accent) / 0.1) 100%
+    );
+    animation: auroraShift 20s ease infinite reverse;
+  }
+
+  .aurora-3 {
+    background: linear-gradient(
+      285deg,
+      hsl(var(--secondary) / 0.1) 0%,
+      hsl(var(--primary-light) / 0.12) 25%,
+      hsl(var(--primary) / 0.1) 50%,
+      hsl(var(--accent) / 0.15) 75%,
+      hsl(var(--secondary) / 0.1) 100%
+    );
+    animation: auroraShift 25s ease infinite;
+    animation-delay: -5s;
+  }
+
+  @keyframes auroraShift {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  /* Glassmorphism Card Styles */
+  .glass-card {
+    @apply bg-white/60 backdrop-blur-xl border border-white/40 rounded-2xl p-6 shadow-lg hover:shadow-elegant transition-all duration-300;
+  }
+
+  .glass-card-max {
+    @apply bg-white/70 backdrop-blur-2xl border border-white/50 rounded-3xl p-8 lg:p-12 shadow-xl;
+  }
+
+  .glass-image {
+    @apply bg-white/40 backdrop-blur-md rounded-xl border border-white/30;
+  }
+
+  .glass-btn {
+    @apply bg-white/50 backdrop-blur-sm border border-white/40 hover:bg-white/70;
+  }
+
+  .glass-input {
+    @apply bg-white/50 backdrop-blur-sm border border-white/40 focus:border-primary/50 focus:ring-primary/20;
+  }
+
+  /* Glass Button Variants */
+  .btn-glass {
+    @apply bg-gradient-to-r from-primary/90 to-primary-dark/90 backdrop-blur-sm text-white px-6 py-3 rounded-xl font-medium transition-all duration-300 hover:shadow-glow hover:scale-105 border border-white/20;
+  }
+
+  .btn-glass-premium {
+    @apply bg-gradient-to-r from-primary to-primary-dark text-white px-6 py-3 rounded-xl font-medium transition-all duration-300 hover:shadow-glow hover:scale-105 border border-white/20;
+  }
+
+  /* Glass Badge Variants */
+  .badge-new-glass {
+    @apply bg-accent/80 backdrop-blur-sm text-accent-foreground px-3 py-1 rounded-full text-xs font-medium border border-white/30;
+  }
+
+  .badge-discount-glass {
+    @apply bg-destructive/80 backdrop-blur-sm text-white px-3 py-1 rounded-full text-xs font-medium border border-white/30;
+  }
+
+  /* Float Animation */
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
   }
 }
 
