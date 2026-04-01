@@ -1,0 +1,2711 @@
+[
+  {
+    "id": "Bravo-100",
+    "name": "قلم برافو 100 جاف - أزرق",
+    "price": 8,
+    "image": "/assets/Bravo-100.jpg",
+    "description": "قلم حبر جاف 0.7 مم أزرق للكتابة اليومية",
+    "brand": "برافو",
+    "category": "أقلام"
+  },
+  {
+    "id": "Bravo-200",
+    "name": "قلم برافو جاف 200 - أزرق",
+    "price": 8,
+    "image": "/assets/Bravo-200.jpg",
+    "description": "قلم حبر جاف 0.7 مم أزرق للكتابة اليومية",
+    "brand": "برافو",
+    "category": "أقلام"
+  },
+  {
+    "id": "Bravo-300",
+    "name": "قلم برافو جاف 300 - أزرق",
+    "price": 8,
+    "image": "/assets/Bravo-300.jpg",
+    "description": "قلم حبر جاف 0.7 مم أزرق للكتابة اليومية",
+    "brand": "برافو",
+    "category": "أقلام"
+  },
+  {
+    "id": "BRAVO-DARK",
+    "name": "قلم برافو دارك جاف - أزرق",
+    "price": 13,
+    "image": "/assets/BRAVO-DARK.jpg",
+    "description": "قلم حبر جاف 0.7 مم أزرق للكتابة اليومية",
+    "brand": "برافو",
+    "category": "أقلام"
+  },
+  {
+    "id": "Bravo-Plus",
+    "name": "قلم برافو بلس جاف - أزرق",
+    "price": 10,
+    "image": "/assets/Bravo-Plus.jpg",
+    "description": "قلم حبر جاف 0.7 مم أزرق للكتابة اليومية",
+    "brand": "برافو",
+    "category": "أقلام"
+  },
+  {
+    "id": "roto-liquid-ball-blue",
+    "name": "قلم روتو ليكويد بول - أزرق",
+    "price": 8,
+    "image": "/assets/roto-liquid-ball-blue.jpg",
+    "description": "قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة",
+    "brand": "روتو",
+    "category": "أقلام"
+  },
+  {
+    "id": "roto-liquid-ball-red",
+    "name": "قلم روتو ليكويد بول - أحمر",
+    "price": 8,
+    "image": "/assets/roto-liquid-ball-red.jpg.jpg",
+    "description": "قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة",
+    "brand": "روتو",
+    "category": "أقلام"
+  },
+  {
+    "id": "roto-liquid-ball-black",
+    "name": "قلم روتو ليكويد بول - أسود",
+    "price": 8,
+    "image": "/assets/51HPLTMFlhL.jpg",
+    "description": "قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة",
+    "brand": "روتو",
+    "category": "أقلام"
+  },
+  {
+    "id": "roto-rapid-blue",
+    "name": "قلم روتو رابيد - أزرق",
+    "price": 10,
+    "image": "/assets/roto-rapid-blue.jpg",
+    "description": "قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة",
+    "brand": "روتو",
+    "category": "أقلام"
+  },
+  {
+    "id": "roto-rapid-red",
+    "name": "قلم روتو رابيد - أحمر",
+    "price": 10,
+    "image": "/assets/roto-rapid-red.jpg",
+    "description": "قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة",
+    "brand": "روتو",
+    "category": "أقلام"
+  },
+  {
+    "id": "roto-rapid-black",
+    "name": "قلم روتو رابيد - أسود",
+    "price": 10,
+    "image": "/assets/roto-rapid-black.jpg",
+    "description": "قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة",
+    "brand": "روتو",
+    "category": "أقلام"
+  },
+  {
+    "id": "ROTO-AERO",
+    "name": "قلم روتو أيرو - ازرق",
+    "price": 9,
+    "image": "/assets/ROTO-AERO.jpg",
+    "description": "قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة",
+    "brand": "روتو",
+    "category": "أقلام"
+  },
+  {
+    "id": "Roto-Butter-Ball-blue",
+    "name": "قلم روتو باتر بول أزرق",
+    "price": 7,
+    "image": "/assets/Roto-Butter-Ball-blue.jpg",
+    "description": "قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة",
+    "brand": "روتو",
+    "category": "أقلام"
+  },
+  {
+    "id": "Roto-Butter-Ball-red",
+    "name": "قلم روتو باتر بول احمر",
+    "price": 7,
+    "image": "/assets/Roto-Butter-Ball-red.jpg",
+    "description": "قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة",
+    "brand": "روتو",
+    "category": "أقلام"
+  },
+  {
+    "id": "Roto-Butter-Ball-black",
+    "name": "قلم روتو باتر بول اسود",
+    "price": 7,
+    "image": "/assets/Roto-Butter-Ball-black.jpg",
+    "description": "قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة",
+    "brand": "روتو",
+    "category": "أقلام"
+  },
+  {
+    "id": "ROTO-Esay-Flow-blue",
+    "name": "قلم روتو ايزي فلو ازرق",
+    "price": 8,
+    "image": "/assets/ROTO-Esay-Flow-blue.jpg",
+    "description": "قلم حبر سائل 1.0 مم لكتابة ناعمة ودقيقة",
+    "brand": "روتو",
+    "category": "أقلام"
+  },
+  {
+    "id": "ROTO-Esay-Flow-red",
+    "name": "قلم روتو ايزي فلو احمر",
+    "price": 8,
+    "image": "/assets/ROTO-Esay-Flow-red.jpg",
+    "description": "قلم حبر سائل 1.0 مم لكتابة ناعمة ودقيقة",
+    "brand": "روتو",
+    "category": "أقلام"
+  },
+  {
+    "id": "ROTO-Esay-Flow-black",
+    "name": "قلم روتو ايزي فلو اسود",
+    "price": 8,
+    "image": "/assets/ROTO-Esay-Flow-black.jpg",
+    "description": "قلم حبر سائل 1.0 مم لكتابة ناعمة ودقيقة",
+    "brand": "روتو",
+    "category": "أقلام"
+  },
+  {
+    "id": "Roto-G-Plus-blue",
+    "name": "قلم روتو جي بلس ازرق",
+    "price": 7,
+    "image": "/assets/Roto-G-Plus-blue.jpg",
+    "description": "قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة",
+    "brand": "روتو",
+    "category": "أقلام"
+  },
+  {
+    "id": "Roto-Glase-blue",
+    "name": "قلم روتو جلاس ازرق",
+    "price": 7,
+    "image": "/assets/Roto-Glase-blue.jpg",
+    "description": "قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة",
+    "brand": "روتو",
+    "category": "أقلام"
+  },
+  {
+    "id": "Roto-Glase-red",
+    "name": "قلم روتو جلاس احمر",
+    "price": 7,
+    "image": "/assets/Roto-Glase-red.jpg",
+    "description": "قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة",
+    "brand": "روتو",
+    "category": "أقلام"
+  },
+  {
+    "id": "Roto-Glase-black",
+    "name": "قلم روتو جلاس اسود",
+    "price": 7,
+    "image": "/assets/Roto-Glase-black.jpg",
+    "description": "قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة",
+    "brand": "روتو",
+    "category": "أقلام"
+  },
+  {
+    "id": "Roto-Pyramid-blue",
+    "name": "قلم روتو بيراميد ازرق",
+    "price": 7,
+    "image": "/assets/Roto-Pyramid-blue.jpg",
+    "description": "قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة",
+    "brand": "روتو",
+    "category": "أقلام"
+  },
+  {
+    "id": "ROTO-RACER-blue",
+    "name": "قلم روتو راسير ازرق",
+    "price": 7,
+    "image": "/assets/ROTO-RACER-blue.jpg",
+    "description": "قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة",
+    "brand": "روتو",
+    "category": "أقلام"
+  },
+  {
+    "id": "prima-25",
+    "name": "قلم بريما 25 ازرق",
+    "price": 7,
+    "image": "/assets/prima-25.jpg",
+    "description": "قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة",
+    "brand": "بريما",
+    "category": "أقلام"
+  },
+  {
+    "id": "Prima-Dante",
+    "name": "قلم بريما دانتي ازرق",
+    "price": 12,
+    "image": "/assets/Prima-Dante.jpg",
+    "description": "قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة",
+    "brand": "بريما",
+    "category": "أقلام"
+  },
+  {
+    "id": "Prima-Fancy",
+    "name": "قلم بريما فانسي ازرق",
+    "price": 7,
+    "image": "/assets/Prima-Fancy.jpg",
+    "description": "قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة",
+    "brand": "بريما",
+    "category": "أقلام"
+  },
+  {
+    "id": "Prima-Fino",
+    "name": "قلم بريما فينو ازرق",
+    "price": 7,
+    "image": "/assets/Prima-Fino.jpg",
+    "description": "قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة",
+    "brand": "بريما",
+    "category": "أقلام"
+  },
+  {
+    "id": "PRIMA-FORMA-blue",
+    "name": "قلم بريما فورما ازرق",
+    "price": 6,
+    "image": "/assets/PRIMA-FORMA-blue.jpg",
+    "description": "قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة",
+    "brand": "بريما",
+    "category": "أقلام"
+  },
+  {
+    "id": "PRIMA-FORMA-red",
+    "name": "قلم بريما فورما احمر",
+    "price": 6,
+    "image": "/assets/PRIMA-FORMA-red.jpg",
+    "description": "قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة",
+    "brand": "بريما",
+    "category": "أقلام"
+  },
+  {
+    "id": "PRIMA-FORMA-black",
+    "name": "قلم بريما فورما اسود",
+    "price": 6,
+    "image": "/assets/PRIMA-FORMA-black.jpg",
+    "description": "قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة",
+    "brand": "بريما",
+    "category": "أقلام"
+  },
+  {
+    "id": "prima-forsa",
+    "name": "قلم بريما فورسا ازرق",
+    "price": 6,
+    "image": "/assets/prima-forsa.jpg",
+    "description": "قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة",
+    "brand": "بريما",
+    "category": "أقلام"
+  },
+  {
+    "id": "Prima-Genta",
+    "name": "قلم بريما جينتا ازرق",
+    "price": 7,
+    "image": "/assets/Prima-Genta.jpg",
+    "description": "قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة",
+    "brand": "بريما",
+    "category": "أقلام"
+  },
+  {
+    "id": "prima-lino",
+    "name": "قلم بريما لينو ازرق",
+    "price": 7,
+    "image": "/assets/prima-lino.jpg",
+    "description": "قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة",
+    "brand": "بريما",
+    "category": "أقلام"
+  },
+  {
+    "id": "Prima-Nova",
+    "name": "قلم بريما نوفا ازرق",
+    "price": 7,
+    "image": "/assets/Prima-Nova.jpg",
+    "description": "قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة",
+    "brand": "بريما",
+    "category": "أقلام"
+  },
+  {
+    "id": "Prima-Seven",
+    "name": "قلم بريما سيفين ازرق",
+    "price": 7,
+    "image": "/assets/Prima-Seven.jpg",
+    "description": "قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة",
+    "brand": "بريما",
+    "category": "أقلام"
+  },
+  {
+    "id": "prima-tango",
+    "name": "قلم بريما تانجو ازرق",
+    "price": 7,
+    "image": "/assets/prima-tango.jpg",
+    "description": "قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة",
+    "brand": "بريما",
+    "category": "أقلام"
+  },
+  {
+    "id": "prima-uno",
+    "name": "قلم بريما اونو ازرق",
+    "price": 7,
+    "image": "/assets/prima-uno.jpg",
+    "description": "قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة",
+    "brand": "بريما",
+    "category": "أقلام"
+  },
+  {
+    "id": "prima-VISA",
+    "name": "قلم بريما فيزا ازرق",
+    "price": 7,
+    "image": "/assets/prima-VISA.jpg",
+    "description": "قلم حبر سائل 0.7 مم لكتابة ناعمة ودقيقة",
+    "brand": "بريما",
+    "category": "أقلام"
+  },
+  {
+    "id": "fransawy-Black",
+    "name": "قلم فرنساوي اسود",
+    "price": 5,
+    "image": "/assets/fransawy-Black.jpg",
+    "description": "قلم فرنساوي كلاسيك عالي الجودة باللون الاسود للكتابة الفاخرة",
+    "brand": "فرنساوي",
+    "category": "أقلام"
+  },
+  {
+    "id": "fransawy-Blue",
+    "name": "قلم فرنساوي كلاسيك ازرق",
+    "price": 5,
+    "image": "/assets/fransawy-Blue.jpg",
+    "description": "قلم فرنساوي كلاسيك عالي الجودة باللون الازرق للكتابة الفاخرة",
+    "brand": "فرنساوي",
+    "category": "أقلام"
+  },
+  {
+    "id": "fransawy-Red",
+    "name": "قلم فرنساوي كلاسيك احمر",
+    "price": 5,
+    "image": "/assets/fransawy-Red.jpg",
+    "description": "قلم فرنساوي كلاسيك عالي الجودة باللون الاحمر للكتابة الفاخرة",
+    "brand": "فرنساوي",
+    "category": "أقلام"
+  },
+  {
+    "id": "PENSAN-MY-TECH-Blue",
+    "name": "قلم بنسان ماي تك ازرق",
+    "price": 12,
+    "image": "/assets/PENSAN-MY-TECH-Blue.jpg",
+    "description": "قلم تقني متطور من بنسان للكتابة المتميزة",
+    "brand": "بنسان",
+    "category": "أقلام"
+  },
+  {
+    "id": "PENSAN-MY-TECH-black",
+    "name": "قلم بنسان ماي تك اسود",
+    "price": 12,
+    "image": "/assets/PENSAN-MY-TECH-black.jpg",
+    "description": "قلم تقني متطور من بنسان للكتابة المتميزة",
+    "brand": "بنسان",
+    "category": "أقلام"
+  },
+  {
+    "id": "PENSAN-MY-TECH-red",
+    "name": "قلم بنسان ماي تك احمر",
+    "price": 12,
+    "image": "/assets/PENSAN-MY-TECH-red.jpg",
+    "description": "قلم تقني متطور من بنسان للكتابة المتميزة",
+    "brand": "بنسان",
+    "category": "أقلام"
+  },
+  {
+    "id": "Roxi-Classic-blue",
+    "name": "قلم روكسي كلاسيك ازرق",
+    "price": 8,
+    "image": "/assets/Roxi-Classic-blue.jpg",
+    "description": "قلم روكسي كلاسيكي للكتابة اليومية",
+    "brand": "روكسي",
+    "category": "أقلام"
+  },
+  {
+    "id": "Roxi-Gold",
+    "name": "قلم روكسي جولد",
+    "price": 15,
+    "image": "/assets/Roxi-Gold.jpg",
+    "description": "قلم روكسي ذهبي فاخر للكتابة المميزة",
+    "brand": "روكسي",
+    "category": "أقلام"
+  },
+  {
+    "id": "Roxi-H4",
+    "name": "قلم روكسي H4",
+    "price": 10,
+    "image": "/assets/Roxi-H4.jpg",
+    "description": "قلم روكسي H4 للكتابة الدقيقة",
+    "brand": "روكسي",
+    "category": "أقلام"
+  },
+  {
+    "id": "Roxi-My-tech",
+    "name": "قلم روكسي ماي تك",
+    "price": 12,
+    "image": "/assets/Roxi-My-tech.jpg",
+    "description": "قلم روكسي تقني متطور",
+    "brand": "روكسي",
+    "category": "أقلام"
+  },
+  {
+    "id": "SHARP-001",
+    "name": "برايه DOMS برطمان",
+    "price": 9,
+    "image": "/assets/sharpener-metal-small.jpg",
+    "description": "براية Doms كلاسيكية بحجم صغير، مثالية للحمل",
+    "brand": "Doms",
+    "category": "برايات"
+  },
+  {
+    "id": "SHARP-002",
+    "name": "برايه برطمان ملون",
+    "price": 22,
+    "image": "/assets/sharpener-plastic-container.jpg",
+    "description": "مع اتنين مخرج براية بلاستيكية بحاوية لحفظ البراية، مثالية للمدرسة",
+    "brand": "ojieson",
+    "category": "برايات"
+  },
+  {
+    "id": "SHARP-003",
+    "name": "برايه بلاستيك DOMS",
+    "price": 9,
+    "image": "/assets/sharpener-double.jpg",
+    "description": "برايه بلاستيك DOMS",
+    "brand": "دومز",
+    "category": "برايات"
+  },
+  {
+    "id": "SHARP-004",
+    "name": "برايه على كارت Power شكل مركب 374",
+    "price": 17,
+    "image": "/assets/sharpener-electric-small.jpg",
+    "description": "برايه على كارت Power شكل مركب 374",
+    "brand": "power",
+    "category": "برايات"
+  },
+  {
+    "id": "SHARP-005",
+    "name": "برايه معدن سلاح EISEN تقليد 2 سلاح",
+    "price": 17,
+    "image": "/assets/sharpener-electric-usb.jpg",
+    "description": "برايه معدن سلاح EISEN تقليد 2 سلاح",
+    "brand": "EISEN",
+    "category": "برايات"
+  },
+  {
+    "id": "SHARP-006",
+    "name": "برايه برطمان ملون Xiodouxing",
+    "price": 5,
+    "image": "/assets/sharpener-manual-desk.jpg",
+    "description": "برايه برطمان ملون Xiodouxing",
+    "brand": "Xiodouxing",
+    "category": "برايات"
+  },
+  {
+    "id": "SHARP-007",
+    "name": "برايه ميكي ف علبه",
+    "price": 15,
+    "image": "/assets/sharpener-art-professional.jpg",
+    "description": "برايه ميكي ف علبه",
+    "brand": "Disney",
+    "category": "برايات"
+  },
+  {
+    "id": "SHARP-008",
+    "name": "برايه هالو كيتي",
+    "price": 15,
+    "image": "/assets/sharpener-set-3pcs.jpg",
+    "description": "برايه هالو كيتي",
+    "brand": "Hello kitty",
+    "category": "برايات"
+  },
+  {
+    "id": "ERASER-001",
+    "name": "استيكة بيضاء كبيرة",
+    "price": 5,
+    "image": "/assets/eraser-white-large.jpg",
+    "description": "استيكة مطاطية بيضاء عالية الجودة، تمسح بنظافة دون ترك أثر",
+    "brand": "فابر كاستل",
+    "category": "أساتيك"
+  },
+  {
+    "id": "ERASER-002",
+    "name": "استيكة ملونة صغيرة",
+    "price": 3,
+    "image": "/assets/eraser-colored-small.jpg",
+    "description": "استيكة صغيرة بألوان مبهجة، مثالية للأطفال",
+    "brand": "دومز",
+    "category": "أساتيك"
+  },
+  {
+    "id": "ERASER-003",
+    "name": "استيكة قلم رصاص مع فرشاة",
+    "price": 4,
+    "image": "/assets/eraser-pencil-brush.jpg",
+    "description": "استيكة بتصميم عملي مع فرشاة لإزالة البقايا",
+    "brand": "ستيدلر",
+    "category": "أساتيك"
+  },
+  {
+    "id": "ERASER-004",
+    "name": "استيكة ناعمة للرسم",
+    "price": 8,
+    "image": "/assets/eraser-soft-art.jpg",
+    "description": "استيكة ناعمة جداً مخصصة للرسم والفنون، لا تتلف الورق",
+    "brand": "فابر كاستل",
+    "category": "أساتيك"
+  },
+  {
+    "id": "ERASER-005",
+    "name": "استيكة بلاستيكية شفافة",
+    "price": 6,
+    "image": "/assets/eraser-plastic-clear.jpg",
+    "description": "استيكة بلاستيكية شفافة بتصميم أنيق وعصري",
+    "brand": "بريما",
+    "category": "أساتيك"
+  },
+  {
+    "id": "ERASER-006",
+    "name": "مجموعة أساتيك ملونة (6 قطع)",
+    "price": 15,
+    "image": "/assets/eraser-set-6pcs.jpg",
+    "description": "مجموعة من 6 أساتيك ملونة بأشكال مختلفة",
+    "brand": "ديلي",
+    "category": "أساتيك"
+  },
+  {
+    "id": "ruler-1",
+    "name": "مسطره سيليكون 30 سم 12 hka",
+    "price": 13,
+    "image": "/assets/ruler-30cm.jpg",
+    "description": "مسطرة سيليكون عالية الجودة بقياسات دقيقة",
+    "brand": "flexible ruler",
+    "category": "مساطر وأدوات هندسية"
+  },
+  {
+    "id": "ruler-2",
+    "name": "مسطرة بريما فن",
+    "price": 12,
+    "image": "/assets/geometry-set.jpg",
+    "description": "مسطرة بريما فن",
+    "brand": "فن",
+    "category": "مساطر وأدوات هندسية"
+  },
+  {
+    "id": "ruler-3",
+    "name": "مسطره سيليكون 20 سم 8 انش",
+    "price": 10,
+    "image": "/assets/metal-ruler-50cm.jpg",
+    "description": "مسطره سيليكون 20 سم 8 انش",
+    "brand": "flexible ruler",
+    "category": "مساطر وأدوات هندسية"
+  },
+  {
+    "id": "ruler-4",
+    "name": "مسطره بلاستيك شفاف 30 سم بريما",
+    "price": 12,
+    "image": "/assets/triangle-45.jpg",
+    "description": "مسطره بلاستيك شفاف 30 سم بريما",
+    "brand": "بريما",
+    "category": "مساطر وأدوات هندسية"
+  },
+  {
+    "id": "ruler-5",
+    "name": "مسطره معدن 30 سم",
+    "price": 20,
+    "image": "/assets/protractor-360.jpg",
+    "description": "مسطره معدن 30 سم",
+    "brand": "معدن",
+    "category": "مساطر وأدوات هندسية"
+  },
+  {
+    "id": "ruler-6",
+    "name": "مسطره بلاستيك فسفوري بريما 20 سم",
+    "price": 7,
+    "image": "/assets/compass-metal.jpg",
+    "description": "مسطره بلاستيك فسفوري بريما 20 سم 2011",
+    "brand": "بريما",
+    "category": "مساطر وأدوات هندسية"
+  },
+  {
+    "id": "ruler-7",
+    "name": "طقم هندسي معدن ROXi 36753",
+    "price": 80,
+    "image": "/assets/Roxi.jpg",
+    "description": "طقم هندسي معدن ROXi 36753",
+    "brand": "روكسي",
+    "category": "مساطر وأدوات هندسية"
+  },
+  {
+    "id": "ruler-8",
+    "name": "مسطره منقله Prima Queen",
+    "price": 7,
+    "image": "/assets/Prima.jpg",
+    "description": "مسطره منقله Prima Queen",
+    "brand": "بريما",
+    "category": "مساطر وأدوات هندسية"
+  },
+  {
+    "id": "ruler-9",
+    "name": "علبة برجل سنون اندلسيه G3-1999",
+    "price": 60,
+    "image": "/assets/G3-1999.jpg",
+    "description": "طقم هندسي 8 قطع 2224",
+    "brand": "اندلسيه",
+    "category": "مساطر وأدوات هندسية"
+  },
+  {
+    "id": "ruler-10",
+    "name": "مثلث كوين",
+    "price": 10,
+    "image": "/src/assets/Qwen.jpg",
+    "description": "مثلث كوين",
+    "brand": "كوين",
+    "category": "مساطر وأدوات هندسية"
+  },
+  {
+    "id": "canson-sketch-white-1",
+    "name": "اسكتش رسم ابيض 25×35 سم 150 جرام TOP",
+    "price": 12,
+    "image": "/assets/canson-sketch-white-1.jpg",
+    "description": "سكتش كانسون أبيض بمقاس A4، مثالي للرسم بالأقلام",
+    "brand": "TOP",
+    "category": "اسكتش كانسون"
+  },
+  {
+    "id": "canson-sketch-white-2",
+    "name": "اسكتش رسم الاستاذ ابيض 25× 35 80 جرام 40 ورقه",
+    "price": 60,
+    "image": "/assets/canson-sketch-white-2.jpg",
+    "description": "سكتش كانسون أبيض بمقاس 25×35 سم، مثالي للمشاريع الكبيرة",
+    "brand": "الاستاذ",
+    "category": "اسكتش كانسون"
+  },
+  {
+    "id": "canson-sketch-white-3",
+    "name": "اسكتش ابيض 180 جرام Today",
+    "price": 50,
+    "image": "/assets/canson-sketch-white-3.jpg",
+    "description": "سكتش كانسون أبيض بمقاس 22.5×32 سم، مثالي للمشاريع الكبيرة",
+    "brand": "Today",
+    "category": "اسكتش كانسون"
+  },
+  {
+    "id": "canson-sketch-white-4",
+    "name": "اسكتش رسم ابيض 25×35 سم 140جرام بركة",
+    "price": 50,
+    "image": "/assets/canson-sketch-white-4",
+    "description": "سكتش كانسون أبيض بمقاس 25×35 سم، مثالي للمشاريع الكبيرة",
+    "brand": "بركة",
+    "category": "اسكتش كانسون"
+  },
+  {
+    "id": "canson-sketch-colors-1",
+    "name": "اسكتش رسم ملون 25×35 سم 150 جرام TOP",
+    "price": 60,
+    "image": "/assets/canson-sketch-colors-1.jpg",
+    "description": "سكتش كانسون ملون بمقاس 25×35، مثالي للمشاريع الفنية الملونة",
+    "brand": "TOP",
+    "category": "اسكتش كانسون"
+  },
+  {
+    "id": "STAMP-001",
+    "name": "ختم مكتبي ذاتي",
+    "price": 25,
+    "image": "/placeholder.svg",
+    "description": "ختم مكتبي ذاتي للاستخدام الإداري",
+    "brand": "Deli",
+    "category": ""
+  },
+  {
+    "id": "STAMP-002",
+    "name": "ختم خشبي",
+    "price": 15,
+    "image": "/placeholder.svg",
+    "description": "ختم خشبي تقليدي عالي الجودة",
+    "brand": "Max",
+    "category": ""
+  },
+  {
+    "id": "STAMP-003",
+    "name": "ختم تاريخ",
+    "price": 30,
+    "image": "/placeholder.svg",
+    "description": "ختم تاريخ قابل للتعديل",
+    "brand": "Deli",
+    "category": ""
+  },
+  {
+    "id": "STAMP-004",
+    "name": "ختم شعار الشركة",
+    "price": 50,
+    "image": "/placeholder.svg",
+    "description": "ختم مخصص لشعار الشركة",
+    "brand": "Custom",
+    "category": ""
+  },
+  {
+    "id": "INK-001",
+    "name": "حبر أختام أسود",
+    "price": 15,
+    "image": "/placeholder.svg",
+    "description": "حبر أختام عالي الجودة باللون الأسود - سريع الجفاف",
+    "brand": "Trodat",
+    "category": ""
+  },
+  {
+    "id": "INK-002",
+    "name": "حبر أختام أزرق",
+    "price": 15,
+    "image": "/placeholder.svg",
+    "description": "حبر أختام عالي الجودة باللون الأزرق - دائم",
+    "brand": "Trodat",
+    "category": ""
+  },
+  {
+    "id": "INK-003",
+    "name": "حبر أختام أحمر",
+    "price": 15,
+    "image": "/placeholder.svg",
+    "description": "حبر أختام عالي الجودة باللون الأحمر - مقاوم للتلاشي",
+    "brand": "Shiny",
+    "category": ""
+  },
+  {
+    "id": "INK-004",
+    "name": "حبر أختام أخضر",
+    "price": 15,
+    "image": "/placeholder.svg",
+    "description": "حبر أختام عالي الجودة باللون الأخضر - للتصديقات",
+    "brand": "Trodat",
+    "category": ""
+  },
+  {
+    "id": "INK-005",
+    "name": "عبوة إعادة تعبئة حبر أختام",
+    "price": 20,
+    "image": "/placeholder.svg",
+    "description": "عبوة إعادة تعبئة لحبر الأختام - اقتصادية وصديقة للبيئة",
+    "brand": "Shiny",
+    "category": ""
+  },
+  {
+    "id": "acrylic-1",
+    "name": "علبة ألوان أكريليك 12 لون - في نيدز",
+    "price": 85,
+    "image": "/assets/acrylic-1.jpg",
+    "description": "ألوان أكريليك عالية الجودة من في نيدز بـ 12 لون أساسي للرسم على جميع الأسطح",
+    "brand": "Vneeds",
+    "category": "AcrylicColors"
+  },
+  {
+    "id": "acrylic-2",
+    "name": "علبة ألوان أكريليك 12 لون - كلاود ستات",
+    "price": 180,
+    "image": "/assets/acrylic-2.jpg",
+    "description": "مجموعة متكاملة من ألوان الأكريليك من كلاود ستات بـ 24 لون احترافي",
+    "brand": "كلاود ستات",
+    "category": "AcrylicColors"
+  },
+  {
+    "id": "acrylic-3",
+    "name": " برطمان واحد اكريليك الوان مختلفة و زاهية  ",
+    "price": 27,
+    "image": "/assets/acrylic-3.jpg",
+    "description": "ألوان أكريليك احترافية   الوان مختلفة  متنوعة للفنانين المحترفين",
+    "brand": "keep smiling",
+    "category": "AcrylicColors"
+  },
+  {
+    "id": "adhesive-foam-70x50-1",
+    "name": "فوم لاصق 70×50 أبيض",
+    "price": 32,
+    "image": "/assets/adhesive-foam-70x50-1.jpg",
+    "description": "فوم لاصق بمقاس 70×50 سم بألوان متعددة، مثالي للمشاريع الكبيرة",
+    "brand": "تفانين",
+    "category": "AdhesiveFoam70x50"
+  },
+  {
+    "id": "adhesive-foam-a4-1",
+    "name": "فوم لاصق A4 أبيض",
+    "price": 8,
+    "image": "/assets/adhesive-foam-a4-1.jpg",
+    "description": "فوم لاصق بمقاس A4 باللون الأبيض، مثالي للمشاريع الفنية",
+    "brand": "تفانين",
+    "category": "AdhesiveFoamA4"
+  },
+  {
+    "id": "adhesive-glitter-foam-70x50-1",
+    "name": "فوم جليتر لاصق 70×50 كل الألوان",
+    "price": 35,
+    "image": "/assets/adhesive-glitter-foam-70x50-1.jpg",
+    "description": "فوم جليتر لاصق لامع بجميع الألوان للديكورات الكبيرة",
+    "brand": "جليتر فوم لاصق",
+    "category": "AdhesiveGlitterFoam70x50"
+  },
+  {
+    "id": "adhesive-glitter-foam-a4-1",
+    "name": "فوم جليتر لاصق A4 كل الألوان",
+    "price": 10,
+    "image": "/assets/adhesive-glitter-foam-a4-1.jpg",
+    "description": "فوم جليتر لاصق لامع بجميع الألوان للديكورات",
+    "brand": "جليتر فوم لاصق",
+    "category": "AdhesiveGlitterFoamA4"
+  },
+  {
+    "id": "altes",
+    "name": "قلم رصاص Altes HB",
+    "price": 10,
+    "image": "/assets/altes.jpg",
+    "description": "قلم رصاص عالي الجودة من Altes مثالي للاستخدام اليومي",
+    "brand": "",
+    "category": "AltesPencils"
+  },
+  {
+    "id": "ar-dis-40-1",
+    "name": "كراسة 40 ق عربي ديزني",
+    "price": 13,
+    "image": "/assets/ar-dis-40-princess.jpg",
+    "description": "كراسة عربي، غلاف أميرات ديزني ملون، أو سيارات أو ميكي ماوس، ورق 60 جرام.",
+    "brand": "Disney",
+    "category": "Arabic40DisneyNotebooks"
+  },
+  {
+    "id": "ar-nor-40-1",
+    "name": "كراسه 40 ورقه مالك",
+    "price": 10,
+    "image": "/assets/ar-nor-40-blue.jpg",
+    "description": "كراسة عربي، غلاف لامع بسيط، ورق 48 جرام.",
+    "brand": "محلي",
+    "category": "Arabic40NormalNotebooks"
+  },
+  {
+    "id": "ar-dis-28-1",
+    "name": "كراسة 28 ق عربي ديزني",
+    "price": 10,
+    "image": "/assets/ar-dis-princess.jpg",
+    "description": "كراسة عربي، غلاف أميرات ديزني ملون، أو سيارات أو ميكي ماوس، ورق 60 جرام.",
+    "brand": "Disney",
+    "category": "ArabicDisneyNotebooks"
+  },
+  {
+    "id": "ar-nor-28-1",
+    "name": "كراسه 28 ورقه مالك",
+    "price": 8,
+    "image": "/assets/ar-nor-blue.jpg",
+    "description": "كراسة عربي، غلاف لامع بسيط، ورق 48 جرام.",
+    "brand": "محلي",
+    "category": "ArabicNormalNotebooks"
+  },
+  {
+    "id": "attar-1",
+    "name": "أقلام ألوان العطار - 12 لون",
+    "price": 40,
+    "image": "/assets/attar-1.jpg",
+    "description": "مجموعة أقلام ألوان خشبية العطار المحلية المتميزة بـ 12 لون",
+    "brand": "",
+    "category": "AttarColorPencils"
+  },
+  {
+    "id": "ballpoint-set-1",
+    "name": "طقم أقلام جاف ملونة تركي - 8 قطع",
+    "price": 100,
+    "image": "SetOf8TurkishFluorescentBallpointPens",
+    "description": "طقم من 8 أقلام جاف فلورسنت تركية عالية الجودة",
+    "brand": "",
+    "category": "BallpointPenSets"
+  },
+  {
+    "id": "ballpoint-set-2",
+    "name": "طقم أقلام جاف أساسية - 12 قطعة",
+    "price": 95,
+    "image": "🖊️",
+    "description": "طقم أقلام جاف بالألوان الأساسية (أزرق، أسود، أحمر)",
+    "brand": "",
+    "category": "BallpointPenSets"
+  },
+  {
+    "id": "ballpoint-1",
+    "name": "قلم حبر جاف أزرق - عبوة 10 قطع",
+    "price": 35,
+    "image": "🖊️",
+    "description": "أقلام حبر جاف عالية الجودة باللون الأزرق",
+    "brand": "",
+    "category": "BallpointPens"
+  },
+  {
+    "id": "ballpoint-2",
+    "name": "قلم حبر جاف أسود - عبوة 10 قطع",
+    "price": 35,
+    "image": "🖊️",
+    "description": "أقلام حبر جاف باللون الأسود للكتابة الرسمية",
+    "brand": "",
+    "category": "BallpointPens"
+  },
+  {
+    "id": "ballpoint-3",
+    "name": "قلم حبر جاف أحمر - عبوة 5 قطع",
+    "price": 20,
+    "image": "🖊️",
+    "description": "أقلام حبر جاف حمراء للتصحيح والتمييز",
+    "brand": "",
+    "category": "BallpointPens"
+  },
+  {
+    "id": "ballpoint-4",
+    "name": "مجموعة أقلام جاف ملونة - 12 لون",
+    "price": 60,
+    "image": "🌈",
+    "description": "مجموعة متنوعة من أقلام الحبر الجاف الملونة",
+    "brand": "",
+    "category": "BallpointPens"
+  },
+  {
+    "id": "ballpoint-5",
+    "name": "قلم حبر جاف فاخر معدني",
+    "price": 85,
+    "image": "🖊️",
+    "description": "قلم حبر جاف فاخر بتصميم معدني أنيق",
+    "brand": "",
+    "category": "BallpointPens"
+  },
+  {
+    "id": "ballpoint-6",
+    "name": "أقلام حبر جاف قابلة للمحو - 6 قطع",
+    "price": 45,
+    "image": "🖊️",
+    "description": "أقلام حبر جاف قابلة للمحو والتصحيح",
+    "brand": "",
+    "category": "BallpointPens"
+  },
+  {
+    "id": "Piano-HB-بدايه-neon",
+    "name": "قلم رصاص Bedaya HB",
+    "price": 7,
+    "image": "/assets/Piano-HB-neon.jpg",
+    "description": "قلم رصاص عالي الجودة من Bedaya مثالي للاستخدام اليومي",
+    "brand": "",
+    "category": "BedayaPencils"
+  },
+  {
+    "id": "قلم-رصاص-Bedaya-Imax-HB",
+    "name": "قلم رصاص Bedaya 2B",
+    "price": 9,
+    "image": "/assets/Bedaya-Imax-HB.jpg",
+    "description": "قلم رصاص ناعم مثالي للرسم والتظليل",
+    "brand": "",
+    "category": "BedayaPencils"
+  },
+  {
+    "id": "Bravo-Dark",
+    "name": " قلم رصاص برافو دارك ",
+    "price": 9,
+    "image": "/assets/Bravo-Dark.jpg",
+    "description": "قلم رصاص عالي الجودة من برافو مثالي للاستخدام اليومي",
+    "brand": "",
+    "category": "BravoPencils"
+  },
+  {
+    "id": "Bravo-2-HB-Fluoresent",
+    "name": "2HB قلم برافو ",
+    "price": 8,
+    "image": "/assets/Bravo-2-HB-Fluoresent.jpg",
+    "description": "قلم رصاص ناعم مثالي للرسم والتظليل",
+    "brand": "",
+    "category": "BravoPencils"
+  },
+  {
+    "id": "calligraphy-1",
+    "name": "قلم خط عربي تقليدي روتو - ازرق",
+    "price": 15,
+    "image": "/assets/calligraphy-1.jpg",
+    "description": "قلم خط عربي تقليدي للرسم الفني والخط العربي",
+    "brand": "",
+    "category": "CalligraphyPens"
+  },
+  {
+    "id": "calligraphy-2",
+    "name": "قلم خط عربي تقليدي روتو - اسود",
+    "price": 15,
+    "image": "/assets/calligraphy-2.jpg",
+    "description": "قلم خط عربي تقليدي للرسم الفني والخط العربي",
+    "brand": "",
+    "category": "CalligraphyPens"
+  },
+  {
+    "id": "calligraphy-3",
+    "name": "قلم خط تقليدي روتو - احمر",
+    "price": 15,
+    "image": "/assets/calligraphy-3.jpg",
+    "description": "قلم خط عربي تقليدي للرسم الفني والخط العربي",
+    "brand": "",
+    "category": "CalligraphyPens"
+  },
+  {
+    "id": "canson-70x50-1",
+    "name": "فرخ كانسون خفيف",
+    "price": 22,
+    "image": "/assets/canson-70x50-1.jpg",
+    "description": "فرخ كانسون خفيف",
+    "brand": "كانسون خفيف",
+    "category": "Canson70x50"
+  },
+  {
+    "id": "canson-70x50-2",
+    "name": "فرخ كانسون ثقيل",
+    "price": 37,
+    "image": "/assets/canson-70x50-2.jpg",
+    "description": "ورق كانسون بمقاس 70×50 سم ، مثالي للألوان المائية",
+    "brand": "كانسون ثقيل",
+    "category": "Canson70x50"
+  },
+  {
+    "id": "canson-70x50-3",
+    "name": " فرخ كانسون ثقيل 2",
+    "price": 45,
+    "image": "/assets/canson-70x50-3.jpg",
+    "description": "ورق كانسون بمقاس 70×50 سم ، مثالي للأكريليك والزيت",
+    "brand": "كانسون ثقيل 2",
+    "category": "Canson70x50"
+  },
+  {
+    "id": "canson-70x50-4",
+    "name": "فرخ كانسون ثقيل جدا",
+    "price": 70,
+    "image": "/assets/canson-70x50-4.jpg",
+    "description": "ورق كانسون بمقاس 70×50 سم ب، مثالي للأكريليك والزيت",
+    "brand": "كانسون ثقيل جدا",
+    "category": "Canson70x50"
+  },
+  {
+    "id": "canson-a4-1",
+    "name": "ورقه كانسون A4 اندلسيه",
+    "price": 8,
+    "image": "/assets/canson-a4-1.jpg",
+    "description": "ورق كانسون بمقاس A4  مثالي للرسم والطباعة",
+    "brand": "اندلسيه",
+    "category": "CansonA4"
+  },
+  {
+    "id": "canson-a4-2",
+    "name": "ورقه كانسون A4 مستورد Yuan Da Long",
+    "price": 7,
+    "image": "/assets/canson-a4-2.jpg",
+    "description": "ورقه كانسون A4 مستورد Yuan Da Long",
+    "brand": "Yuan Da Long",
+    "category": "CansonA4"
+  },
+  {
+    "id": "MARCO-7020",
+    "name": "قلم فحم أسود ناعم",
+    "price": 13,
+    "image": "/assets/MARCO-7020.jpg",
+    "description": "قلم فحم ناعم مثالي للرسم والتظليل الداكن",
+    "brand": "",
+    "category": "CharcoalPencils"
+  },
+  {
+    "id": "158-YIGAO",
+    "name": "قلم فحم أسود ناعم",
+    "price": 13,
+    "image": "/assets/158-YIGAO.jpg",
+    "description": "قلم فحم ناعم مثالي للرسم والتظليل الداكن",
+    "brand": "",
+    "category": "CharcoalPencils"
+  },
+  {
+    "id": "coloring-1",
+    "name": "كتاب تلوين مياه + قلم BH-022",
+    "price": 27,
+    "image": "/assets/coloring-1.jpg",
+    "description": "كتاب تلوين مياه + قلم BH-022",
+    "brand": "Magic Waterbook",
+    "category": "ColoringBooks"
+  },
+  {
+    "id": "coloring-2",
+    "name": "كيس ورق A5 مع ستيكر 13519",
+    "price": 15,
+    "image": "/assets/coloring-2.jpg",
+    "description": "كيس ورق A5 مع ستيكر 13519",
+    "brand": "Draw and Color",
+    "category": "ColoringBooks"
+  },
+  {
+    "id": "coloring-3",
+    "name": "كراسة تلوين ِA4 كبير سمايل",
+    "price": 20,
+    "image": "/assets/coloring-3.jpg",
+    "description": "كراسة تلوين ِA4 كبير سمايل",
+    "brand": "Smile",
+    "category": "ColoringBooks"
+  },
+  {
+    "id": "coloring-4",
+    "name": "كراسة تلوين ِA4 ديزني",
+    "price": 15,
+    "image": "/assets/coloring-4.jpg",
+    "description": "كراسة تلوين جميلة بتصاميم  ديزني",
+    "brand": " ديزني",
+    "category": "ColoringBooks"
+  },
+  {
+    "id": "coloring-5",
+    "name": "كراسة تلوين ِA4 كبير سمايل",
+    "price": 12,
+    "image": "/assets/coloring-5.jpg",
+    "description": "كراسة تلوين تعليمية تحتوي على شخصيات كرتونية",
+    "brand": "Smile",
+    "category": "ColoringBooks"
+  },
+  {
+    "id": "coloring-6",
+    "name": "كراسة تلوين A4 مانديلا بشر 16 ورقه",
+    "price": 40,
+    "image": "/assets/coloring-6.jpg",
+    "description": "كراسة تلوين مانديلا للمحترفين و اصحاب هواية التلوين",
+    "brand": "مانديلا ",
+    "category": "ColoringBooks"
+  },
+  {
+    "id": "comm-calc-1",
+    "name": "اله حاسبه وسط KENKO KK-837B",
+    "price": 110,
+    "image": "/assets/casio-dr120r.jpg",
+    "description": "اله حاسبه وسط KENKO KK-837B",
+    "brand": "KENKO",
+    "category": "CommercialCalculator"
+  },
+  {
+    "id": "comm-calc-2",
+    "name": "اله حاسبه ك Karuida CC-111S",
+    "price": 180,
+    "image": "/assets/sharp-el1197.jpg",
+    "description": "اله حاسبه ك Karuida CC-111S",
+    "brand": "Karuida",
+    "category": "CommercialCalculator"
+  },
+  {
+    "id": "comm-calc-3",
+    "name": "اله حاسبه وسط kadio 1038b",
+    "price": 140,
+    "image": "/assets/canon-p1dhv.jpg",
+    "description": "اله حاسبه وسط kadio 1038b",
+    "brand": "kadio",
+    "category": "CommercialCalculator"
+  },
+  {
+    "id": "correction-1",
+    "name": "قلم كوريكتور 8 ملي سن معدن برومكس",
+    "price": 23,
+    "image": "/assets/correction-1.jpg",
+    "description": "قلم تصحيح سائل أبيض للكتابة على الورق سن معدن",
+    "brand": "",
+    "category": "CorrectionPens"
+  },
+  {
+    "id": "correction-2",
+    "name": "قلم كوريكتور وسط 4ملي 3A 71-3 605",
+    "price": 15,
+    "image": "/assets/correction-2.jpg",
+    "description": "أقلام تصحيب جافة سريعة الجفاف",
+    "brand": "",
+    "category": "CorrectionPens"
+  },
+  {
+    "id": "correction-3",
+    "name": "قلم كوريكتور BIG 3 ml",
+    "price": 30,
+    "image": "/assets/correction-3.jpg",
+    "description": "سائل تصحيب فاتح للون لتصحيح الأخطاء بفعالية",
+    "brand": "",
+    "category": "CorrectionPens"
+  },
+  {
+    "id": "correction-4",
+    "name": " قلم كوريكتور ص بريما 2 جرام  ",
+    "price": 12,
+    "image": "/assets/correction-4.jpg",
+    "description": "أقلام تصحيب ملونة لإضافة لمسة فنية",
+    "brand": "",
+    "category": "CorrectionPens"
+  },
+  {
+    "id": "correction-5",
+    "name": "كوريكتور شريط صيني 8918 - 12- 5mm ص ",
+    "price": 25,
+    "image": "/assets/correction-5.jpg",
+    "description": "أقلام تصحيح شريط",
+    "brand": "",
+    "category": "CorrectionPens"
+  },
+  {
+    "id": "correction-6",
+    "name": " كارت كوريكتور شريط صيني BT-7547 ",
+    "price": 40,
+    "image": "/assets/correction-6.jpg",
+    "description": "أقلام تصحيح شريط",
+    "brand": "",
+    "category": "CorrectionPens"
+  },
+  {
+    "id": "cp-7",
+    "name": "قص ولصق مصري مقاس A5",
+    "price": 10,
+    "image": "/assets/cp-7.jpg",
+    "description": "كتاب قص ولصق مصري بمقاس A5 للأنشطة التعليمية",
+    "brand": "",
+    "category": "CuttingPasting"
+  },
+  {
+    "id": "cp-8",
+    "name": "قص ولصق سمايل وسط  لوكس",
+    "price": 10,
+    "image": "/assets/cp-8.jpg",
+    "description": "قص ولصق سمايل وسط  لوكس بتصميمات متنوعة",
+    "brand": "",
+    "category": "CuttingPasting"
+  },
+  {
+    "id": "cp-9",
+    "name": "كراسة تلوين مادن A5 power",
+    "price": 15,
+    "image": "/assets/cp-9.jpg",
+    "description": "كتاب قص ولصق كراسة تلوين مادن A5 power",
+    "brand": "",
+    "category": "CuttingPasting"
+  },
+  {
+    "id": "cp-10",
+    "name": "قص ولصق مربع ",
+    "price": 12,
+    "image": "/assets/cp-10.jpg",
+    "description": "كتاب قص ولصق مربع 017",
+    "brand": "",
+    "category": "CuttingPasting"
+  },
+  {
+    "id": "cp-11",
+    "name": "قص ولصق A4 مادن Power",
+    "price": 20,
+    "image": "/assets/cp-11.jpg",
+    "description": "كتاب قص ولصق مربع موديل ",
+    "brand": "",
+    "category": "CuttingPasting"
+  },
+  {
+    "id": "cp-12",
+    "name": "كراسة تلوين مادن A5 power",
+    "price": 15,
+    "image": "/assets/cp-12.jpg",
+    "description": "كراسة تلوين مادن A5 power نسخة ثانية",
+    "brand": "",
+    "category": "CuttingPasting"
+  },
+  {
+    "id": "cp-13",
+    "name": "قص ولصق كبير  استيكر",
+    "price": 20,
+    "image": "/assets/cp-13.jpg",
+    "description": "كتاب قص ولصق كبير 024 استيكر",
+    "brand": "",
+    "category": "CuttingPasting"
+  },
+  {
+    "id": "deli-1",
+    "name": "أقلام ألوان Deli - 12 لون",
+    "price": 55,
+    "image": "/assets/deli-1.jpg",
+    "description": "مجموعة أقلام ألوان خشبية Deli بـ 12 لون نابض بالحياة",
+    "brand": "",
+    "category": "DeliColorPencils"
+  },
+  {
+    "id": "HB-Deli-Neon-U516",
+    "name": "قلم رصاص Deli HB",
+    "price": 7,
+    "image": "/assets/HB-Deli-Neon-U516.jpg",
+    "description": "قلم رصاص عالي الجودة من Deli مثالي للاستخدام اليومي",
+    "brand": "",
+    "category": "DeliPencils"
+  },
+  {
+    "id": "HB-Deli-U20000",
+    "name": "قلم رصاص Deli 2B",
+    "price": 8,
+    "image": "/assets/HB-Deli-U20000.jpg",
+    "description": "قلم رصاص ناعم مثالي للرسم والتظليل",
+    "brand": "",
+    "category": "DeliPencils"
+  },
+  {
+    "id": "HB-Deli-U50800",
+    "name": "مجموعة أقلام رصاص Deli متدرجة",
+    "price": 8,
+    "image": "/assets/HB-Deli-U50800.jpg",
+    "description": " قلم رصاص ناعم مثالي للرسم والتظليل",
+    "brand": "",
+    "category": "DeliPencils"
+  },
+  {
+    "id": "doms-1",
+    "name": "الوان خشب 12 لون ص DOMS",
+    "price": 40,
+    "image": "/assets/doms-1.jpg",
+    "description": "مجموعة أقلام ألوان خشبية DOMS عالية الجودة بـ 12 لون",
+    "brand": "",
+    "category": "DomsColorPencils"
+  },
+  {
+    "id": "doms-2",
+    "name": "الوان خشب 12 لون ص DOMS ميني ",
+    "price": 35,
+    "image": "/assets/doms-2.jpg",
+    "description": "مجموعة أقلام ألوان خشبية DOMS بـ 12 لون متميز مع براية مجانا",
+    "brand": "",
+    "category": "DomsColorPencils"
+  },
+  {
+    "id": "doms-3",
+    "name": "الوان خشب 12 لون ك DOMS",
+    "price": 47,
+    "image": "/assets/doms-3.jpg",
+    "description": "مجموعة شاملة من أقلام ألوان DOMS بـ 24 لون",
+    "brand": "",
+    "category": "DomsColorPencils"
+  },
+  {
+    "id": "doms-marker-1",
+    "name": "مجموعة أقلام فلوماستر دومز 6 لون",
+    "price": 30,
+    "image": "/assets/doms-marker-1.jpg",
+    "description": "مجموعة أقلام فلوماستر دومز ملونة عالية الجودة بـ 6 لون",
+    "brand": "",
+    "category": "DomsFeltTipMarkers"
+  },
+  {
+    "id": "doms-marker-2",
+    "name": "مجموعة أقلام فلوماستر دومز 12 لون",
+    "price": 60,
+    "image": "/assets/doms-marker-2.jpg",
+    "description": "مجموعة شاملة من أقلام الفلوماستر دومز بـ 12 لون زاهي",
+    "brand": "",
+    "category": "DomsFeltTipMarkers"
+  },
+  {
+    "id": "DOMS-DM-18638",
+    "name": "قلم رصاص Doms HB",
+    "price": 8,
+    "image": "/assets/DOMS-DM-18638.jpg",
+    "description": "قلم رصاص عالي الجودة من Doms مثالي للاستخدام اليومي",
+    "brand": "",
+    "category": "DomsPencils"
+  },
+  {
+    "id": "DOMS-DM-18637",
+    "name": "قلم رصاص Doms 2B",
+    "price": 8,
+    "image": "/assets/DOMS-DM-18637.jpg",
+    "description": "قلم رصاص ناعم مثالي للرسم والتظليل",
+    "brand": "",
+    "category": "DomsPencils"
+  },
+  {
+    "id": "DOMS-DM-18635",
+    "name": "DOMS-DM-18635",
+    "price": 8,
+    "image": "/assets/DOMS-DM-18635.jpg",
+    "description": "مجموعة شاملة من أقلام الرصاص بدرجات مختلفة (6B-6H)",
+    "brand": "",
+    "category": "DomsPencils"
+  },
+  {
+    "id": "en-dis-40-1",
+    "name": "كراسة 40 ق إنجليزي ديزني",
+    "price": 12,
+    "image": "/assets/english-disney-40.jpg",
+    "description": "كراسة إنجليزي، غلاف أميرات ديزني ملون، أو سيارات أو ميكي ماوس، ورق 60 جرام.",
+    "brand": "Disney",
+    "category": "English40Disney"
+  },
+  {
+    "id": "en-dis-9-40-1",
+    "name": "كراسه 40 ق 9 اسطر ديزني",
+    "price": 13,
+    "image": "/assets/english9.jpg",
+    "description": "كراسة ديزني 9 أسطر 40 ورقة، غلاف أميرات ديزني ملون، أو سيارات أو ميكي ماوس، ورق 60 جرام.",
+    "brand": "Disney",
+    "category": "English40LinesDisney"
+  },
+  {
+    "id": "en-nor-9-40-1",
+    "name": "كراسه 40 ورقه علاء الدين",
+    "price": 10,
+    "image": "/assets/english-normal-9-blue.jpg",
+    "description": "كراسة عادي 9 أسطر 40 ورقة غلاف",
+    "brand": "علاء الدين",
+    "category": "English40LinesNormal"
+  },
+  {
+    "id": "en-nor-40-1",
+    "name": "كراسه 40 ورقه إنجليزي عادي",
+    "price": 10,
+    "image": "/assets/english-normal-40.jpg",
+    "description": "كراسة إنجليزي، غلاف لامع بسيط، ورق 50 جرام.",
+    "brand": "محلي",
+    "category": "English40Normal"
+  },
+  {
+    "id": "mickey-mouse-28-1",
+    "name": "كراسه 28 ق ديزني انجليزي",
+    "price": 10,
+    "image": "/assets/mickey-mouse-notebook.jpg",
+    "description": "كراسة ديزني انجليزي سطرين 28 ورقة",
+    "brand": "Disney",
+    "category": "EnglishDisney28"
+  },
+  {
+    "id": "en-dis-9-1",
+    "name": "كراسه 28 ق 9 اسطر ديزني",
+    "price": 10,
+    "image": "/assets/english-disney-9.jpg",
+    "description": "كراسة ديزني عربي 9 أسطر 28 ورقة",
+    "brand": "Disney",
+    "category": "EnglishDisney9"
+  },
+  {
+    "id": "en-nor-28-1",
+    "name": "كراسه 28 ق انجليزي عادي  ",
+    "price": 8,
+    "image": "/assets/english-normal-blue.jpg",
+    "description": "كراسة انجليزي عادي سطرين 28 ورقة غلاف ",
+    "brand": "محلي",
+    "category": "EnglishNormal28"
+  },
+  {
+    "id": "en-nor-9-1",
+    "name": "كراسه 28 ورقه علاء الدين",
+    "price": 8,
+    "image": "/assets/english-normal-9-blue.jpg",
+    "description": "كراسة عربي عادي 9 أسطر 28 ورقة غلاف ",
+    "brand": "علاء الدين",
+    "category": "EnglishNormal9"
+  },
+  {
+    "id": "ERASER-007",
+    "name": "استيكه بيضاء FABER CASTELL صغيره",
+    "price": 15,
+    "image": "/assets/eraser-set.jpg",
+    "description": "استيكه بيضاء FABER CASTELL كبيره",
+    "brand": "فابر كاستل",
+    "category": "Erasers"
+  },
+  {
+    "id": "faber-1",
+    "name": "أقلام ألوان صغير FABER CASTELL - 12 لون",
+    "price": 50,
+    "image": "/assets/faber-1.jpg",
+    "description": "مجموعة أقلام ألوان خشبية FABER CASTELL الألمانية الفاخرة بـ 12 لون",
+    "brand": "",
+    "category": "FaberCastellColorPencils"
+  },
+  {
+    "id": "faber-2",
+    "name": "أقلام ألوان كبير FABER CASTELL - 18 لون",
+    "price": 100,
+    "image": "/assets/faber-2.jpg",
+    "description": "مجموعة أقلام ألوان خشبية FABER CASTELL بـ 12 لون عالي الجودة",
+    "brand": "",
+    "category": "FaberCastellColorPencils"
+  },
+  {
+    "id": "F-B-2B",
+    "name": "2B قلم فابر كاستل",
+    "price": 12,
+    "image": "/assets/F-B-2B.jpg",
+    "description": "قلم رصاص احترافي من السلسلة الكلاسيكية 9000 بجودة ألمانية فائقة",
+    "brand": "",
+    "category": "FaberCastellPencils"
+  },
+  {
+    "id": "marker-1",
+    "name": "مجموعة أقلام فلوماستر 12 لون",
+    "price": 65,
+    "image": "/assets/marker-1.jpg",
+    "description": "مجموعة أقلام فلوماستر ملونة عالية الجودة بـ 12 لون مختلف",
+    "brand": "",
+    "category": "FeltTipMarkers"
+  },
+  {
+    "id": "marker-2",
+    "name": "مجموعة أقلام فلوماستر 24 لون",
+    "price": 120,
+    "image": "/assets/marker-2.jpg",
+    "description": "مجموعة شاملة من أقلام الفلوماستر بـ 24 لون زاهي",
+    "brand": "",
+    "category": "FeltTipMarkers"
+  },
+  {
+    "id": "marker-3",
+    "name": "قلم فلوماستر مائي قابل للغسل",
+    "price": 8,
+    "image": "/assets/marker-3.jpg",
+    "description": "قلم فلوماستر مائي سهل الغسل للأطفال",
+    "brand": "",
+    "category": "FeltTipMarkers"
+  },
+  {
+    "id": "marker-4",
+    "name": "مجموعة أقلام فلوماستر مائية 6 ألوان",
+    "price": 45,
+    "image": "/assets/marker-4.jpg",
+    "description": "أقلام فلوماستر مائية مثالية للرسم والفن",
+    "brand": "",
+    "category": "FeltTipMarkers"
+  },
+  {
+    "id": "marker-5",
+    "name": "قلم فلوماستر دائم",
+    "price": 10,
+    "image": "/assets/marker-5.jpg",
+    "description": "قلم فلوماستر ذو حبر دائم لا يمحى",
+    "brand": "",
+    "category": "FeltTipMarkers"
+  },
+  {
+    "id": "marker-6",
+    "name": "مجموعة أقلام تحديد النص 6 ألوان",
+    "price": 35,
+    "image": "/assets/marker-6.jpg",
+    "description": "مجموعة أقلام شفافة لتظليل النصوص",
+    "brand": "",
+    "category": "FeltTipMarkers"
+  },
+  {
+    "id": "fountain-1",
+    "name": "قلم حبر سائل كلاسيكي - ازرق",
+    "price": 25,
+    "image": "fountain1Image",
+    "description": "قلم حبر سائل كلاسيكي للتوقيعات الرسمية",
+    "brand": "",
+    "category": "FountainPens"
+  },
+  {
+    "id": "fountain-2",
+    "name": "قلم حبر سائل ملون - احمر",
+    "price": 25,
+    "image": "fountain2Image",
+    "description": "قلم حبر سائل ملون للكتابة الأنيقة",
+    "brand": "",
+    "category": "FountainPens"
+  },
+  {
+    "id": "fountain-3",
+    "name": "مجموعة أقلام حبر سائل -  بور ازرق",
+    "price": 12,
+    "image": "fountain3Image",
+    "description": "مجموعة متنوعة من أقلام الحبر السائل",
+    "brand": "",
+    "category": "FountainPens"
+  },
+  {
+    "id": "gel-1",
+    "name": "قلم جل أزرق ناعم",
+    "price": 11,
+    "image": "gel1Image",
+    "description": "أقلام جل ناعمة الكتابة بألوان زاهية",
+    "brand": "",
+    "category": "GelPens"
+  },
+  {
+    "id": "gel-2",
+    "name": "قلم جل ازرق فاخر",
+    "price": 13,
+    "image": "gel2Image",
+    "description": "أقلام جل فاخرة للتوقيعات والمستندات الرسمية",
+    "brand": "",
+    "category": "GelPens"
+  },
+  {
+    "id": "gel-3",
+    "name": "قلم جل بريما ازرق فاخر",
+    "price": 9,
+    "image": "gel3Image",
+    "description": "مجموعة متنوعة من أقلام الجل الملونة",
+    "brand": "",
+    "category": "GelPens"
+  },
+  {
+    "id": "gel-4",
+    "name": "قلم جل pos ازرق",
+    "price": 13,
+    "image": "gel4Image",
+    "description": "أقلام جل متوهجة لإضافة لمسة خاصة للكتابة",
+    "brand": "",
+    "category": "GelPens"
+  },
+  {
+    "id": "gel-5",
+    "name": "قلم جل pos ااحمر",
+    "price": 13,
+    "image": "gel5Image",
+    "description": "أقلام جل بحجم سميك مثالي للكتابة الكبيرة",
+    "brand": "",
+    "category": "GelPens"
+  },
+  {
+    "id": "gel-6",
+    "name": "قلم جل دياموند ازرق",
+    "price": 10,
+    "image": "gel6Image",
+    "description": "أقلام جل قابلة للمحو والتصحيح",
+    "brand": "",
+    "category": "GelPens"
+  },
+  {
+    "id": "gelcy-1",
+    "name": "علبة الوان خشب 12 لون ص Gelcy",
+    "price": 25,
+    "image": "/assets/gelcy-1.jpg",
+    "description": "مجموعة أقلام ألوان خشبية Gelcy بـ 12 لون أساسي",
+    "brand": "",
+    "category": "GelcyColorPencils"
+  },
+  {
+    "id": "gelcy-2",
+    "name": "علبة الوان خشب 12 لون ك Gelcy",
+    "price": 33,
+    "image": "/assets/gelcy-2.jpg",
+    "description": "مجموعة أقلام ألوان خشبية Gelcy بـ 12 لون متنوع",
+    "brand": "",
+    "category": "GelcyColorPencils"
+  },
+  {
+    "id": "gelcy-3",
+    "name": "علبة الوان خشب 6 لون Gelcy",
+    "price": 13,
+    "image": "/assets/gelcy-3.jpg",
+    "description": "مجموعة شاملة من أقلام ألوان Gelcy بـ 24 لون",
+    "brand": "",
+    "category": "GelcyColorPencils"
+  },
+  {
+    "id": "glitter-foam-70x50-1",
+    "name": "فوم جليتر 70×50 كل الوان",
+    "price": 35,
+    "image": "/assets/glitter-foam-70x50-1.jpg",
+    "description": "فوم جليتر لامع بلون ذهبي رائع للديكورات الكبيرة",
+    "brand": "جليتر فوم",
+    "category": "GlitterFoam70x50"
+  },
+  {
+    "id": "glitter-foam-a4-1",
+    "name": "فوم جليتر A4 كل الوان ",
+    "price": 9,
+    "image": "/assets/glitter-foam-a4-1.jpg",
+    "description": "فوم جليتر لامع بلون ذهبي رائع للديكورات",
+    "brand": "جليتر فوم",
+    "category": "GlitterFoamA4"
+  },
+  {
+    "id": "gouache-1",
+    "name": "علبة ألوان جواش 6 لون - فابر كاستل",
+    "price": 80,
+    "image": "/assets/gouache-1.jpg",
+    "description": "ألوان جواش عالية الجودة من NIKKI بـ 12 لون زاهي للرسم المائي والأعمال الفنية",
+    "brand": "NIKKI",
+    "category": "GouacheColors"
+  },
+  {
+    "id": "gouache-2",
+    "name": "علبة ألوان جواش 12 لون - وينسور ونيوتن",
+    "price": 150,
+    "image": "/assets/gouache-2.jpg",
+    "description": "ألوان جواش احترافية من NIKKI بـ 12 ألوان أساسية عالية التغطية",
+    "brand": "NIKKI",
+    "category": "GouacheColors"
+  },
+  {
+    "id": "PUNCH-001",
+    "name": "خرامة مكتبية صغيرة",
+    "price": 75,
+    "image": "/assets/paper-punch-1.jpg",
+    "description": "خرامة صغيرة للاستخدام المكتبي اليومي",
+    "brand": "SX",
+    "category": "HolePunch"
+  },
+  {
+    "id": "ink-1",
+    "name": "حبر ختام ازرق منflower عالي الجودة",
+    "price": 30,
+    "image": "/assets/stamp-ink-1.jpg",
+    "description": "حبر ختام أسود مثالي للاستخدام اليومي في المكاتب والشركات",
+    "brand": "",
+    "category": "InkPads"
+  },
+  {
+    "id": "kash100-arab-dis-1",
+    "name": "كشكول 100 ورقة عربي ديزني أميرات",
+    "price": 24,
+    "image": "/assets/kash100-arab-dis-princess.jpg",
+    "description": "كشكول عربي 100 ورقة، غلاف أميرات ديزني ملون، ورق 60 جرام، مناسب للكتابة العربية.",
+    "brand": "Disney",
+    "category": "Kashakil100ArabicDisney"
+  },
+  {
+    "id": "kash100-arab-nor-1",
+    "name": "كشكول 100 ورقة عربي عادي",
+    "price": 18,
+    "image": "/assets/kash100-arab-nor-blue.jpg",
+    "description": "كشكول عربي 100 ورقة، غلاف لامع بسيط، ورق 48 جرام، مناسب للكتابة العربية.",
+    "brand": "محلي",
+    "category": "Kashakil100ArabicNormal"
+  },
+  {
+    "id": "kash100-eng-dis-1",
+    "name": "كشكول 100 ورقة انجليزي ديزني أميرات",
+    "price": 18,
+    "image": "/assets/kash100-eng-dis-princess.jpg",
+    "description": "كشكول انجليزي 100 ورقة، غلاف أميرات ديزني ملون، ورق 60 جرام، مناسب للكتابة الإنجليزية.",
+    "brand": "Disney",
+    "category": "Kashakil100EnglishDisney"
+  },
+  {
+    "id": "kash100-eng-nor-1",
+    "name": "كشكول 100 ورقة انجليزي عادي",
+    "price": 18,
+    "image": "/assets/kash100-eng-nor-blue.jpg",
+    "description": "كشكول انجليزي 100 ورقة، غلاف لامع بسيط، ورق 48 جرام، مناسب للكتابة الإنجليزية.",
+    "brand": "محلي",
+    "category": "Kashakil100EnglishNormal"
+  },
+  {
+    "id": "kash100-ss-dis-1",
+    "name": "كشكول 100 ورقة مربعات صغيرة ديزني أميرات",
+    "price": 23,
+    "image": "/assets/kash100-ss-dis-princess.jpg",
+    "description": "كشكول مربعات صغيرة 100 ورقة، غلاف أميرات ديزني ملون، ورق 60 جرام، مناسب للجداول والكتابة الدقيقة.",
+    "brand": "Disney",
+    "category": "Kashakil100SmallSquaresDisney"
+  },
+  {
+    "id": "kash100-ss-nor-1",
+    "name": "كشكول 100 ورقة مربعات صغيرة عادي",
+    "price": 18,
+    "image": "/assets/kash100-ss-nor-blue.jpg",
+    "description": "كشكول مربعات صغيرة 100 ورقة، غلاف لامع بسيط، ورق 48 جرام، مناسب للجداول والكتابة الدقيقة.",
+    "brand": "محلي",
+    "category": "Kashakil100SmallSquaresNormal"
+  },
+  {
+    "id": "kash60-ar-dis-1",
+    "name": "كشكول 60 ورقة عربي ديزني",
+    "price": 18,
+    "image": "/assets/kash60-ar-dis-princess.jpg",
+    "description": "كشكول عربي 60 ورقة، غلاف أميرات ديزني ملون، أو سيارات أو ميكي ماوس، ورق 60 جرام.",
+    "brand": "Disney",
+    "category": "Kashakil60ArabicDisney"
+  },
+  {
+    "id": "kash60-ar-nor-1",
+    "name": "كشكول 60 ورقة عربي عادي",
+    "price": 12,
+    "image": "/assets/kash60-ar-nor-blue.jpg",
+    "description": "كشكول عربي 60 ورقة، غلاف لامع بسيط، ورق 60 جرام.",
+    "brand": "محلي",
+    "category": "Kashakil60ArabicNormal"
+  },
+  {
+    "id": "kash60-en-dis-1",
+    "name": "كشكول 60 ورقة إنجليزي ديزني",
+    "price": 17,
+    "image": "/assets/kash60-en-dis-princess.jpg",
+    "description": "كشكول إنجليزي 60 ورقة، غلاف أميرات ديزني ملون، أو سيارات أو ميكي ماوس، ورق 60 جرام.",
+    "brand": "Disney",
+    "category": "Kashakil60EnglishDisney"
+  },
+  {
+    "id": "kash60-en-nor-1",
+    "name": "كشكول 60 ورقة إنجليزي عادي",
+    "price": 12,
+    "image": "/assets/kash60-en-nor-blue.jpg",
+    "description": "كشكول إنجليزي 60 ورقة، غلاف لامع بسيط، ورق 60 جرام.",
+    "brand": "محلي",
+    "category": "Kashakil60EnglishNormal"
+  },
+  {
+    "id": "kash60-lsq-dis-1",
+    "name": "كشكول 60 ورقة مربعات كبيرة ديزني",
+    "price": 20,
+    "image": "/assets/kash60-lsq-dis-princess.jpg",
+    "description": "كشكول مربعات كبيرة 60 ورقة، غلاف أميرات ديزني ملون، أو سيارات أو ميكي ماوس، ورق 60 جرام.",
+    "brand": "Disney",
+    "category": "Kashakil60LargeSquaresDisney"
+  },
+  {
+    "id": "kash60-lsq-nor-1",
+    "name": "كشكول 60 ورقة مربعات كبيرة عادي",
+    "price": 12,
+    "image": "/assets/kash60-lsq-nor-blue.jpg",
+    "description": "كشكول مربعات كبيرة 60 ورقة، غلاف لامع بسيط، ورق 48 جرام.",
+    "brand": "محلي",
+    "category": "Kashakil60LargeSquaresNormal"
+  },
+  {
+    "id": "kash60-9l-dis-1",
+    "name": "كشكول 60 ورقة 9 أسطر ديزني",
+    "price": 17,
+    "image": "/assets/kash60-9l-dis-princess.jpg",
+    "description": "كشكول 9 أسطر 60 ورقة، غلاف أميرات ديزني ملون، أو سيارات أو ميكي ماوس، ورق 60 جرام.",
+    "brand": "Disney",
+    "category": "Kashakil60NineLinesDisney"
+  },
+  {
+    "id": "kash60-9l-nor-1",
+    "name": "كشكول 56 ورقة 9 أسطر عادي",
+    "price": 16,
+    "image": "/assets/kash60-9l-nor-blue.jpg",
+    "description": "كشكول 9 أسطر 60 ورقة، غلاف لامع بسيط، ورق 48 جرام.",
+    "brand": "محلي",
+    "category": "Kashakil60NineLinesNormal"
+  },
+  {
+    "id": "kash60-pbp-dis-1",
+    "name": "كشكول 60 ورقة صفحة وصفحة ديزني",
+    "price": 18,
+    "image": "/assets/kash60-pbp-dis-princess.jpg",
+    "description": "كشكول صفحة وصفحة 60 ورقة، غلاف أميرات ديزني ملون، أو سيارات أو ميكي ماوس، ورق 60 جرام.",
+    "brand": "Disney",
+    "category": "Kashakil60ByPageDisneyPage"
+  },
+  {
+    "id": "kash60-pbp-nor-1",
+    "name": "كشكول 60 ورقة صفحة وصفحة عادي",
+    "price": 12,
+    "image": "/assets/kash60-pbp-nor-blue.jpg",
+    "description": "كشكول صفحة وصفحة 60 ورقة، غلاف لامع بسيط، ورق 48 جرام.",
+    "brand": "محلي",
+    "category": "Kashakil60ByPageNormalPage"
+  },
+  {
+    "id": "kash60-ssq-dis-1",
+    "name": "كشكول 60 ورقة مربعات صغيرة ديزني",
+    "price": 17,
+    "image": "/assets/kash60-ssq-dis-princess.jpg",
+    "description": "كشكول مربعات صغيرة 60 ورقة، غلاف أميرات ديزني ملون، أو سيارات أو ميكي ماوس، ورق 60 جرام.",
+    "brand": "Disney",
+    "category": "Kashakil60SmallSquaresDisney"
+  },
+  {
+    "id": "kash60-ssq-nor-1",
+    "name": "كشكول 60 ورقة مربعات صغيرة عادي",
+    "price": 12,
+    "image": "/assets/kash60-ssq-nor-blue.jpg",
+    "description": "كشكول مربعات صغيرة 60 ورقة، غلاف لامع بسيط، ورق 48 جرام.",
+    "brand": "محلي",
+    "category": "Kashakil60SmallSquaresNormal"
+  },
+  {
+    "id": "kash80-arab-dis-1",
+    "name": "كشكول 80 ورقة عربي ديزني",
+    "price": 23,
+    "image": "/assets/kash80-arab-dis-princess.jpg",
+    "description": "كشكول عربي 80 ورقة، غلاف أميرات ديزني ملون، أو سيارات أو ميكي ماوس، ورق 60 جرام.",
+    "brand": "Disney",
+    "category": "Kashakil80ArabicDisney"
+  },
+  {
+    "id": "kash80-arab-nor-1",
+    "name": "كشكول 80ق مالك ديزني عربي",
+    "price": 20,
+    "image": "/assets/kash80-arab-nor-blue.jpg",
+    "description": "كشكول عربي 80 ورقة، غلاف لامع بسيط، ورق 60 جرام.",
+    "brand": "محلي",
+    "category": "Kashakil80ArabicNormal"
+  },
+  {
+    "id": "kash80-eng-dis-1",
+    "name": "كشكول 80 ورقة انجليزي ديزني",
+    "price": 25,
+    "image": "/assets/kash80-eng-dis-princess.jpg",
+    "description": "كشكول انجليزي 80 ورقة، غلاف أميرات ديزني ملون، أو سيارات أو ميكي ماوس، ورق 60 جرام.",
+    "brand": "Disney",
+    "category": "Kashakil80EnglishDisney"
+  },
+  {
+    "id": "kash80-eng-nor-1",
+    "name": "كشكول 80 ورقة انجليزي عادي",
+    "price": 15,
+    "image": "/assets/kash80-eng-nor-blue.jpg",
+    "description": "كشكول انجليزي 80 ورقة، غلاف لامع بسيط، ورق 48 جرام.",
+    "brand": "محلي",
+    "category": "Kashakil80EnglishNormal"
+  },
+  {
+    "id": "kash80-9lines-dis-1",
+    "name": "كشكول 80 ورقة 9 أسطر ديزني",
+    "price": 21,
+    "image": "/assets/kash80-9lines-dis-princess.jpg",
+    "description": "كشكول 9 أسطر 80 ورقة، غلاف أميرات ديزني ملون، أو سيارات أو ميكي ماوس، ورق 60 جرام.",
+    "brand": "Disney",
+    "category": "Kashakil80NineLinesDisney"
+  },
+  {
+    "id": "kash80-9lines-nor-1",
+    "name": "كشكول 80 ورقة 9 أسطر عادي",
+    "price": 15,
+    "image": "/assets/kash80-9lines-nor-blue.jpg",
+    "description": "كشكول 9 أسطر 80 ورقة، غلاف لامع بسيط، ورق 48 جرام.",
+    "brand": "محلي",
+    "category": "Kashakil80NineLinesNormal"
+  },
+  {
+    "id": "kash80-sm-sq-dis-1",
+    "name": "كشكول 80 ورقة مربعات صغيرة ديزني أميرات",
+    "price": 21,
+    "image": "/assets/kash80-sm-sq-dis-princess.jpg",
+    "description": "كشكول مربعات صغيرة 80 ورقة، غلاف أميرات ديزني ملون، ورق 60 جرام، مثالي للكتابة الدقيقة.",
+    "brand": "Disney",
+    "category": "Kashakil80SmallSquaresDisney"
+  },
+  {
+    "id": "kash80-sm-sq-nor-1",
+    "name": "كشكول 80 ورقة مربعات صغيرة عادي",
+    "price": 15,
+    "image": "/assets/kash80-sm-sq-nor-blue.jpg",
+    "description": "كشكول مربعات صغيرة 80 ورقة، غلاف بسيط، ورق 60 جرام، مناسب للكتابة الدقيقة والرسوم البيانية.",
+    "brand": "محلي",
+    "category": "Kashakil80SmallSquaresNormal"
+  },
+  {
+    "id": "kash80-sm-sq-nor-2",
+    "name": "كشكول 80 ورقة مربعات صغيرة غلاف مقوى",
+    "price": 18,
+    "image": "/assets/kash80-sm-sq-nor-hardcover.jpg",
+    "description": "كشكول مربعات صغيرة 80 ورقة، غلاف مقوى، ورق 70 جرام، مثالي للرسم الدقيق والجداول.",
+    "brand": "محلي",
+    "category": "Kashakil80SmallSquaresNormal"
+  },
+  {
+    "id": "large-sketch-1",
+    "name": "كراسة رسم مالك 16 ق كبير",
+    "price": 17,
+    "image": "/assets/large-sketch-1.jpg",
+    "description": "كراسة رسم بحجم 24.5X 34 بغلاف متين، ورق عالي الجودة 60 جرام، مثالية للرسم بالقلم الرصاص والأقلام الملونة",
+    "brand": "مالك",
+    "category": "LargeDrawingNotebook"
+  },
+  {
+    "id": "large-sketch-2",
+    "name": "كراسة رسم اولاد غريب ك 16 ق",
+    "price": 20,
+    "image": "/assets/large-sketch-2.jpg",
+    "description": "كراسة رسم بحجم 24.5X 34 بغلاف متين، ورق عالي الجودة 60 جرام، مثالية للرسم بالقلم الرصاص والأقلام الملونة",
+    "brand": "اولاد غريب",
+    "category": "LargeDrawingNotebook"
+  },
+  {
+    "id": "large-sketch-3",
+    "name": "كراسة رسم ك ديزني بركه",
+    "price": 25,
+    "image": "/assets/large-sketch-3.jpg",
+    "description": "كراسة رسم بحجم 24.5X 34 بغلاف متين، ورق عالي الجودة 60 جرام، مثالية للرسم بالقلم الرصاص والأقلام الملونة",
+    "brand": " بركة",
+    "category": "LargeDrawingNotebook"
+  },
+  {
+    "id": "ls-dis-40-1",
+    "name": "كراسة 40 ق مربعات كبيرة ديزني",
+    "price": 13,
+    "image": "/assets/large-squares-disney-40.jpg",
+    "description": "كراسة مربعات كبيرة، غلاف أميرات ديزني ملون، أو سيارات أو ميكي ماوس، ورق 60 جرام.",
+    "brand": "Disney",
+    "category": "LargeSquares40Disney"
+  },
+  {
+    "id": "ls-nor-40-1",
+    "name": "كراسه 40 ورقه مربعات كبيرة عادي",
+    "price": 10,
+    "image": "/assets/large-squares-normal-40.jpg",
+    "description": "كراسة مربعات كبيرة، غلاف لامع بسيط، ورق 40 جرام.",
+    "brand": "محلي",
+    "category": "LargeSquares40Normal"
+  },
+  {
+    "id": "lg-sq-dis-28-1",
+    "name": "كراسه 28 ق مربعات ك ديزني",
+    "price": 11,
+    "image": "/assets/large-squares-disney-mickey.jpg",
+    "description": "كراسة مربعات كبيرة بتصميم شخصيات ديزني، غلاف لامع مميز.",
+    "brand": "ديزني",
+    "category": "LargeSquaresDisney"
+  },
+  {
+    "id": "lg-sq-nor-28-1",
+    "name": "كراسة مربعات كبيرة 28 ورقة",
+    "price": 8,
+    "image": "/assets/large-squares-normal-blue.jpg",
+    "description": "كراسة مربعات كبيرة، غلاف لامع بسيط، ورق 48 جرام.",
+    "brand": "محلي",
+    "category": "LargeSquaresNormal"
+  },
+  {
+    "id": "marker-05-1",
+    "name": "قلم سنون 0.5 مم - جيدو",
+    "price": 30,
+    "image": "/assets/marker-05-1.jpg",
+    "description": "قلم سنون مقاس 0.5 مم جيدو ",
+    "brand": "",
+    "category": "MechanicalPencils05"
+  },
+  {
+    "id": "marker-05-2",
+    "name": "قلم سنون 0.5 مم - جافا",
+    "price": 30,
+    "image": "/assets/marker-05-2.jpg",
+    "description": "قلم سنون مقاس 0.5 مم  جافا",
+    "brand": "",
+    "category": "MechanicalPencils05"
+  },
+  {
+    "id": "marker-07-1",
+    "name": "قلم سنون 0.7 مم - جيدو",
+    "price": 30,
+    "image": "/assets/marker-07-1.jpg",
+    "description": "قلم سنون مقاس 0.7 مم جيدو ",
+    "brand": "",
+    "category": "MechanicalPencils07"
+  },
+  {
+    "id": "marker-07-2",
+    "name": "قلم سنون 0.7 مم - BAIKU ",
+    "price": 25,
+    "image": "/assets/marker-07-2.jpg",
+    "description": "قلم سنون مقاس 0.7 مم مع قبضة مريحة",
+    "brand": "",
+    "category": "MechanicalPencils07"
+  },
+  {
+    "id": "marker-09-1",
+    "name": "قلم سنون 0.9 مم - جيدو",
+    "price": 30,
+    "image": "/assets/marker-09-2.jpg",
+    "description": "قلم سنون مقاس 0.9 مم مع ممحاة",
+    "brand": "",
+    "category": "MechanicalPencils09"
+  },
+  {
+    "id": "marker-09-2",
+    "name": "قلم سنون 0.9 مم - جافا",
+    "price": 25,
+    "image": "/assets/marker-09-1.jpg",
+    "description": "قلم سنون مقاس 0.9 مم مع قبضة مريحة",
+    "brand": "",
+    "category": "MechanicalPencils09"
+  },
+  {
+    "id": "office-scissors-1",
+    "name": "مقص مكتبي احترافي -  مادن",
+    "price": 30,
+    "image": "/assets/office-scissors-1.jpg",
+    "description": "مقص مكتبي احترافي من الستانلس ستيل عالي الجودة مع مقبض مريح",
+    "brand": "مادن",
+    "category": "OfficeScissors"
+  },
+  {
+    "id": "office-scissors-2",
+    "name": "كارت 2 مقص",
+    "price": 75,
+    "image": "/assets/office-scissors-2.jpg",
+    "description": "مقص مكتبي كبير بطول 8 بوصات مثالي لقص الأوراق الكبيرة والمواد المختلفة",
+    "brand": "أوفيس ماستر",
+    "category": "OfficeScissors"
+  },
+  {
+    "id": "stapler-1",
+    "name": "دباسة مكتبية صغيرة",
+    "price": 25,
+    "image": "/assets/stapler-1.jpg",
+    "description": "دباسة مكتبية صغيرة الحجم مثالية للاستخدام اليومي",
+    "brand": "بريما",
+    "category": "OfficeStaplers"
+  },
+  {
+    "id": "stapler-2",
+    "name": "دباسة مكتبية متوسطة",
+    "price": 45,
+    "image": "/assets/stapler-2.jpg",
+    "description": "دباسة مكتبية متوسطة الحجم مناسبة للاستخدام المكتبي المكثف",
+    "brand": "ديلي",
+    "category": "OfficeStaplers"
+  },
+  {
+    "id": "stapler-3",
+    "name": "دباسة مكتبية كبيرة",
+    "price": 75,
+    "image": "/assets/stapler-3.jpg",
+    "description": "دباسة مكتبية كبيرة الحجم مثالية للمكاتب والشركات",
+    "brand": "برافو",
+    "category": "OfficeStaplers"
+  },
+  {
+    "id": "stapler-4",
+    "name": "دباسة مكتبية احترافية",
+    "price": 120,
+    "image": "/assets/stapler-4.jpg",
+    "description": "دباسة مكتبية احترافية متينة للاستخدام المكثف",
+    "brand": "نوفي",
+    "category": "OfficeStaplers"
+  },
+  {
+    "id": "stapler-5",
+    "name": "دباسة مكتبية مكتبي",
+    "price": 55,
+    "image": "/assets/stapler-5.jpg",
+    "description": "دباسة مكتبية مكتبي أنيقة ومتينة",
+    "brand": "بريمو",
+    "category": "OfficeStaplers"
+  },
+  {
+    "id": "stapler-6",
+    "name": "دباسة مكتبية قوية",
+    "price": 90,
+    "image": "/assets/stapler-6.jpg",
+    "description": "دباسة مكتبية قوية متينة للاستخدام الصناعي",
+    "brand": "ماستر",
+    "category": "OfficeStaplers"
+  },
+  {
+    "id": "oil-1",
+    "name": "علبة الوان زيت انابيب 12 لون Hong ying",
+    "price": 115,
+    "image": "/assets/oil-1.jpg",
+    "description": "ألوان زيتية عالية الجودة من  Hong ying بـ 12 لون أساسي للرسم الاحترافي",
+    "brand": "Hong ying",
+    "category": "OilColors"
+  },
+  {
+    "id": "paper-clips-1",
+    "name": "مشبك ورق 25 ملي",
+    "price": 4,
+    "image": "/assets/paper-clips-metal.jpg",
+    "description": "مشبك ورق 25 ملي",
+    "brand": "Diamond",
+    "category": "PaperClips"
+  },
+  {
+    "id": "paper-clips-2",
+    "name": "مشبك ورق 51 ملي",
+    "price": 9,
+    "image": "/assets/paper-clips-colored.jpg",
+    "description": "مشبك ورق 51 ملي",
+    "brand": "Diamond",
+    "category": "PaperClips"
+  },
+  {
+    "id": "push-pins-1",
+    "name": "مشبك ورق 32 ملي ELUCKY 23732",
+    "price": 6,
+    "image": "/assets/push-pins-plastic.jpg",
+    "description": "مشبك ورق 32 ملي ELUCKY 23732",
+    "brand": "Diamond",
+    "category": "PaperClips"
+  },
+  {
+    "id": "push-pins-2",
+    "name": "مشبك ورق 41 ملي5/8  ",
+    "price": 7,
+    "image": "/assets/push-pins-metal.jpg",
+    "description": "مشبك ورق 41 ملي5/8  ",
+    "brand": "Diamond",
+    "category": "PaperClips"
+  },
+  {
+    "id": "staple-pins-1",
+    "name": "علبة دبوس مكتب ملون",
+    "price": 10,
+    "image": "/assets/staple-pins-standard.jpg",
+    "description": "علبة دبوس مكتب ملون",
+    "brand": " JZF",
+    "category": "PaperClips"
+  },
+  {
+    "id": "staple-pins-2",
+    "name": "علبة دبوس مكتب فضي ثقيل Z احمر",
+    "price": 9,
+    "image": "/assets/staple-pins-heavy.jpg",
+    "description": "علبة دبوس مكتب فضي ثقيل Z احمر",
+    "brand": "JZF",
+    "category": "PaperClips"
+  },
+  {
+    "id": "staple-pins-3",
+    "name": "علبة دبوس كليبس ورق 33 مل",
+    "price": 12,
+    "image": "/assets/staple-pins.jpg",
+    "description": "علبة دبوس كليبس ورق 33 مل",
+    "brand": "Tq",
+    "category": "PaperClips"
+  },
+  {
+    "id": "paper-punch-1",
+    "name": "خرامة ورق  SX 8230",
+    "price": 70,
+    "image": "/assets/paper-punch-1.jpg",
+    "description": "خرامة ورق صغيرة الحجم بثقبين، مثالية للاستخدام اليومي",
+    "brand": "SX",
+    "category": "PaperPunches"
+  },
+  {
+    "id": "pencil-1",
+    "name": "قلم رصاص HB - عبوة 12 قطعة",
+    "price": 25,
+    "image": "✏️",
+    "description": "أقلام رصاص عالية الجودة مناسبة للكتابة والرسم",
+    "brand": "",
+    "category": "Pencils"
+  },
+  {
+    "id": "pencil-2",
+    "name": "قلم رصاص 2B للرسم - عبوة 6 قطع",
+    "price": 30,
+    "image": "✏️",
+    "description": "أقلام رصاص ناعمة مثالية للرسم والتظليل",
+    "brand": "",
+    "category": "Pencils"
+  },
+  {
+    "id": "pencil-3",
+    "name": "قلم رصاص ميكانيكي 0.5 مم",
+    "price": 15,
+    "image": "✏️",
+    "description": "قلم رصاص ميكانيكي بدقة عالية للكتابة الدقيقة",
+    "brand": "",
+    "category": "Pencils"
+  },
+  {
+    "id": "pencil-4",
+    "name": "مجموعة أقلام رصاص متدرجة H-6B",
+    "price": 85,
+    "image": "✏️",
+    "description": "مجموعة شاملة من أقلام الرصاص بدرجات مختلفة",
+    "brand": "",
+    "category": "Pencils"
+  },
+  {
+    "id": "pencil-5",
+    "name": "قلم رصاص ملون - 24 لون",
+    "price": 120,
+    "image": "🌈",
+    "description": "أقلام رصاص ملونة بألوان زاهية وجودة عالية",
+    "brand": "",
+    "category": "Pencils"
+  },
+  {
+    "id": "pencil-6",
+    "name": "قلم رصاص 4B للفنانين",
+    "price": 12,
+    "image": "✏️",
+    "description": "قلم رصاص ناعم جداً للرسم الفني المتقدم",
+    "brand": "",
+    "category": "Pencils"
+  },
+  {
+    "id": "pen-1",
+    "name": "قلم حبر جاف أزرق - 10 قطع",
+    "price": 35,
+    "image": "🖊️",
+    "description": "",
+    "brand": "",
+    "category": "أقلام الجاف"
+  },
+  {
+    "id": "pen-2",
+    "name": "قلم رصاص HB - 12 قطعة",
+    "price": 25,
+    "image": "✏️",
+    "description": "",
+    "brand": "",
+    "category": "أقلام الرصاص"
+  },
+  {
+    "id": "pen-3",
+    "name": "ماركر سبورة أسود - 4 قطع",
+    "price": 40,
+    "image": "🖍️",
+    "description": "",
+    "brand": "",
+    "category": "أقلام السنون"
+  },
+  {
+    "id": "pen-4",
+    "name": "قلم هايلايتر 6 ألوان",
+    "price": 45,
+    "image": "🖌️",
+    "description": "",
+    "brand": "",
+    "category": "أقلام السنون"
+  },
+  {
+    "id": "pen-5",
+    "name": "قلم جل أزرق ناعم - 5 قطع",
+    "price": 30,
+    "image": "🖋️",
+    "description": "",
+    "brand": "",
+    "category": "أقلام الجل"
+  },
+  {
+    "id": "pen-6",
+    "name": "قلم كوريكتور أبيض",
+    "price": 15,
+    "image": "🖊️",
+    "description": "",
+    "brand": "",
+    "category": "أقلام الكوريكتور"
+  },
+  {
+    "id": "PENSAN-STAR-TECH",
+    "name": "قلم بانسان ازرق ستار تك",
+    "price": 11,
+    "image": "PENSANSTARTECHImage",
+    "description": "قلم حبر سائل 1.0 مم لكتابة ناعمة ودقيقة",
+    "brand": "",
+    "category": "PensanPens"
+  },
+  {
+    "id": "PENSAN-TR-23",
+    "name": "قلم بانسان اورق تي ار 23",
+    "price": 11,
+    "image": "PENSANTR23Image",
+    "description": "قلم حبر سائل 1.0 مم لكتابة ناعمة ودقيقة",
+    "brand": "",
+    "category": "PensanPens"
+  },
+  {
+    "id": "PENSAN-TRIBALL",
+    "name": "قلم بانسان اورق تراي بول",
+    "price": 11,
+    "image": "PENSANTRIBALLImage",
+    "description": "قلم حبر سائل 1.0 مم لكتابة ناعمة ودقيقة",
+    "brand": "",
+    "category": "PensanPens"
+  },
+  {
+    "id": "power-1",
+    "name": "أقلام ألوان Power - 12 لون",
+    "price": 30,
+    "image": "/assets/power-1.jpg",
+    "description": "مجموعة أقلام ألوان خشبية Power قوية ومتينة بـ 12 لون",
+    "brand": "",
+    "category": "PowerColorPencils"
+  },
+  {
+    "id": "prima-marker-1",
+    "name": "مجموعة أقلام فلوماستر بريما 12 لون",
+    "price": 30,
+    "image": "/assets/prima-marker-1.jpg",
+    "description": "مجموعة أقلام فلوماستر بريما ملونة فاخرة بـ 12 لون",
+    "brand": "",
+    "category": "PrimaFeltTipMarkers"
+  },
+  {
+    "id": "prima-marker-2",
+    "name": "مجموعة أقلام فلوماستر بريما 12 لون",
+    "price": 38,
+    "image": "/assets/prima-marker-2.jpg",
+    "description": "مجموعة شاملة من أقلام الفلوماستر بريما بـ 12 لون فاخر",
+    "brand": "",
+    "category": "PrimaFeltTipMarkers"
+  },
+  {
+    "id": "prima-marker-3",
+    "name": "قلم فلوماستر بريما 6 لون  ",
+    "price": 25,
+    "image": "/assets/prima-marker-3.jpg",
+    "description": "قلم فلوماستر بريما  6 لون    ",
+    "brand": "",
+    "category": "PrimaFeltTipMarkers"
+  },
+  {
+    "id": "Prima-neon-HB",
+    "name": "قلم رصاص Prima HB",
+    "price": 6,
+    "image": "/assets/Prima-neon-HB.jpg",
+    "description": "قلم رصاص عالي الجودة من Prima مثالي للاستخدام اليومي",
+    "brand": "",
+    "category": "PrimaPencils"
+  },
+  {
+    "id": "Prima-2B",
+    "name": "قلم رصاص Prima 2B",
+    "price": 5,
+    "image": "/assets/Prima-2B.jpg",
+    "description": "قلم رصاص ناعم مثالي للرسم والتظليل",
+    "brand": "",
+    "category": "PrimaPencils"
+  },
+  {
+    "id": "PUSHPIN-001",
+    "name": "دبابيس كبس ملونة",
+    "price": 8,
+    "image": "/placeholder.svg",
+    "description": "دبابيس كبس ملونة للتثبيت والتنظيم",
+    "brand": "Deli",
+    "category": "PushPins"
+  },
+  {
+    "id": "PUSHPIN-002",
+    "name": "دبابيس كبس معدنية",
+    "price": 12,
+    "image": "/placeholder.svg",
+    "description": "دبابيس كبس معدنية قوية ومتينة",
+    "brand": "Kangaro",
+    "category": "PushPins"
+  },
+  {
+    "id": "PUSHPIN-003",
+    "name": "دبابيس كبس مغناطيسية",
+    "price": 20,
+    "image": "/placeholder.svg",
+    "description": "دبابيس كبس مغناطيسية عملية",
+    "brand": "Deli",
+    "category": "PushPins"
+  },
+  {
+    "id": "PUSHPIN-004",
+    "name": "دبابيس كبس شفافة",
+    "price": 15,
+    "image": "/placeholder.svg",
+    "description": "دبابيس كبس شفافة أنيقة",
+    "brand": "Max",
+    "category": "PushPins"
+  },
+  {
+    "id": "school-scissors-3",
+    "name": "مجموعة مقاصات مدرسية (3 قطع)",
+    "price": 15,
+    "image": "/assets/school-scissors-3.jpg",
+    "description": "مجموعة من 3 مقاصات مدرسية بأحجام مختلفة وألوان متنوعة",
+    "brand": "J701",
+    "category": "SchoolScissors"
+  },
+  {
+    "id": "sci-calc-1",
+    "name": "اله حاسبه CASIO تقليد FX991ES plus 2nd edition",
+    "price": 450,
+    "image": "/assets/casio-fx991es.jpg",
+    "description": "آلة حاسبة علمية متقدمة  رياضية للطلاب ",
+    "brand": "كاسيو",
+    "category": "ScientificCalculator"
+  },
+  {
+    "id": "small-sketch-1",
+    "name": "كراسة رسم ص ديزني بركه",
+    "price": 18,
+    "image": "/assets/small-sketch-1.jpg",
+    "description": "كراسة رسم بحجم 24.5 X 17.5 مدمجة وسهلة الحمل، بغلاف ملون جذاب، مثالية للرسم السريع والمذكرات الفنية",
+    "brand": "بركه",
+    "category": "SmallDrawingNotebook"
+  },
+  {
+    "id": "small-sketch-2",
+    "name": "كراسة رسم اولاد غريب ص 16 ق",
+    "price": 15,
+    "image": "/assets/small-sketch-2.jpg",
+    "description": "كراسة رسم جيبية صغيرة الحجم، مثالية للسفر والرسم في أي مكان، حجم مناسب لحقيبة اليد",
+    "brand": "اولاد غريب",
+    "category": "SmallDrawingNotebook"
+  },
+  {
+    "id": "kL-6500",
+    "name": "قلم رصاص Smart Keep ",
+    "price": 7,
+    "image": "/assets/kL-6500.jpg",
+    "description": "قلم رصاص عالي الجودة من Smart Keep مثالي للاستخدام اليومي",
+    "brand": "",
+    "category": "SmartKeepPencils"
+  },
+  {
+    "id": "STAPLEPIN-001",
+    "name": "دبابيس دباسة صغيرة 24/6",
+    "price": 5,
+    "image": "/placeholder.svg",
+    "description": "دبابيس دباسة مقاس 24/6 للاستخدام اليومي",
+    "brand": "Deli",
+    "category": "StaplePins"
+  },
+  {
+    "id": "STAPLEPIN-002",
+    "name": "دبابيس دباسة متوسطة 26/6",
+    "price": 8,
+    "image": "/placeholder.svg",
+    "description": "دبابيس دباسة مقاس 26/6 قوية ومتينة",
+    "brand": "Kangaro",
+    "category": "StaplePins"
+  },
+  {
+    "id": "STAPLEPIN-003",
+    "name": "دبابيس دباسة كبيرة 23/8",
+    "price": 12,
+    "image": "/placeholder.svg",
+    "description": "دبابيس دباسة مقاس 23/8 للمستندات الكثيرة",
+    "brand": "Max",
+    "category": "StaplePins"
+  },
+  {
+    "id": "STAPLEPIN-004",
+    "name": "دبابيس دباسة ثقيلة 23/13",
+    "price": 18,
+    "image": "/placeholder.svg",
+    "description": "دبابيس دباسة ثقيلة للاستخدام الشاق",
+    "brand": "Rapid",
+    "category": "StaplePins"
+  },
+  {
+    "id": "STAPLER-001",
+    "name": "دباسة مكتبية صغيرة",
+    "price": 15,
+    "image": "/placeholder.svg",
+    "description": "دباسة صغيرة للاستخدام المكتبي اليومي",
+    "brand": "Deli",
+    "category": "StaplersSub"
+  },
+  {
+    "id": "STAPLER-002",
+    "name": "دباسة مكتبية متوسطة",
+    "price": 25,
+    "image": "/placeholder.svg",
+    "description": "دباسة متوسطة الحجم قوية ومتينة",
+    "brand": "Kangaro",
+    "category": "StaplersSub"
+  },
+  {
+    "id": "STAPLER-003",
+    "name": "دباسة مكتبية كبيرة",
+    "price": 45,
+    "image": "/placeholder.svg",
+    "description": "دباسة كبيرة للمستندات الثقيلة",
+    "brand": "Max",
+    "category": "StaplersSub"
+  },
+  {
+    "id": "STAPLER-004",
+    "name": "دباسة كهربائية",
+    "price": 120,
+    "image": "/placeholder.svg",
+    "description": "دباسة كهربائية سريعة وفعالة",
+    "brand": "Rapid",
+    "category": "StaplersSub"
+  },
+  {
+    "id": "Start-Color-HB",
+    "name": "قلم رصاص ستار كولور HB",
+    "price": 6,
+    "image": "/assets/Start-Color-HB.jpg",
+    "description": "قلم رصاص عالي الجودة من ستار كولور مثالي للاستخدام اليومي",
+    "brand": "",
+    "category": "StarColorPencils"
+  },
+  {
+    "id": "watercolor-1",
+    "name": "علبة الوان مياه حجر 16 لون kaidisi",
+    "price": 35,
+    "image": "/assets/watercolor-1.jpg",
+    "description": "ألوان مائية عالية الجودة من kaidisi بـ 16 لون شفاف وزاهي للرسم الفني",
+    "brand": "kaidisi",
+    "category": "WaterColors"
+  },
+  {
+    "id": "watercolor-2",
+    "name": "بالتة الوان مائية بيضاوي ص ",
+    "price": 30,
+    "image": "/assets/watercolor-2.jpg",
+    "description": "بالتة الوان مائية بيضاوي ص",
+    "brand": "",
+    "category": "WaterColors"
+  },
+  {
+    "id": "watercolor-3",
+    "name": " علبة الوان حجر 12 لون وسط بارزه",
+    "price": 22,
+    "image": "/assets/watercolor-3.jpg",
+    "description": "ألوان مائية  بـ 12 لون مناسبة للمبتدئين ",
+    "brand": "",
+    "category": "WaterColors"
+  },
+  {
+    "id": "wax-crayon-1",
+    "name": "علبة الوان شمع  OIL PASTELS 12 لون ك",
+    "price": 40,
+    "image": "/assets/wax-crayon-1.jpg",
+    "description": "ألوان شمع ماوس بوي يبانية  بـ 12 لون زاهي وجودة عالية للأطفال والفنانين",
+    "brand": "OIL PASTELS",
+    "category": "WaxCrayons"
+  },
+  {
+    "id": "wax-crayon-2",
+    "name": "علبة الوان شمع MOUSEBOY OIL PASTELS 6لون",
+    "price": 23,
+    "image": "/assets/wax-crayon-2.jpg",
+    "description": "ألوان شمع ماوس بوي عالية الجودة بـ 6 لون مميز وآمنة للاستخدام",
+    "brand": "MOUSEBOY OIL PASTELS",
+    "category": "WaxCrayons"
+  },
+  {
+    "id": "wax-crayon-3",
+    "name": "ألوان شمع  - 6 لون",
+    "price": 25,
+    "image": "/assets/wax-crayon-3.jpg",
+    "description": "ألوان شمع اتار المصرية بـ 12 لون أساسي وجودة ممتازة بسعر اقتصادي مناسب للمدارس",
+    "brand": "Kubeixiong ",
+    "category": "WaxCrayons"
+  },
+  {
+    "id": "Xioosongshu-2B",
+    "name": "قلم رصاص Xioosongshu 2B",
+    "price": 9,
+    "image": "/assets/Xioosongshu-2B.jpg",
+    "description": "قلم رصاص عالي الجودة من Xioosongshu مثالي للاستخدام اليومي",
+    "brand": "",
+    "category": "XioosongshuPencils"
+  },
+  {
+    "id": "Xioosongshu-HB",
+    "name": "قلم رصاص Xioosongshu HB",
+    "price": 8,
+    "image": "/assets/Xioosongshu-HB.jpg",
+    "description": "قلم رصاص ناعم مثالي للرسم والتظليل",
+    "brand": "",
+    "category": "XioosongshuPencils"
+  },
+  {
+    "id": "prima-1",
+    "name": "قلم بريما أزرق - عبوة 10 قطع",
+    "price": 38,
+    "image": "🖊️",
+    "description": "أقلام بريما زرقاء للكتابة اليومية السلسة",
+    "brand": "",
+    "category": "PrimaPens"
+  },
+  {
+    "id": "prima-2",
+    "name": "قلم بريما أسود - عبوة 10 قطع",
+    "price": 38,
+    "image": "🖊️",
+    "description": "أقلام بريما سوداء للكتابة الرسمية",
+    "brand": "",
+    "category": "PrimaPens"
+  },
+  {
+    "id": "prima-3",
+    "name": "قلم بريما أحمر - عبوة 5 قطع",
+    "price": 22,
+    "image": "🖊️",
+    "description": "أقلام بريما حمراء للتصحيح والتمييز",
+    "brand": "",
+    "category": "PrimaPens"
+  },
+  {
+    "id": "prima-4",
+    "name": "مجموعة أقلام بريما ملونة - 12 لون",
+    "price": 62,
+    "image": "🌈",
+    "description": "مجموعة متنوعة من أقلام بريما الملونة",
+    "brand": "",
+    "category": "PrimaPens"
+  }
+]
